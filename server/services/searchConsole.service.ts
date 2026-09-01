@@ -6,6 +6,7 @@
  * credentials by default (the Search Console scope is additive).
  */
 
+import { getBaseUrl } from "../../shared/publication";
 import { getEffectiveConfig } from "./integrationConfig.service";
 import { getGoogleAccessToken, GOOGLE_SCOPES } from "./googleAuth.service";
 
@@ -25,7 +26,7 @@ async function resolveConfig(): Promise<GSCConfig | null> {
     },
   });
   if (!gsc) return null;
-  const siteUrl = gsc.publicConfig.siteUrl || "https://techscoop.io/";
+  const siteUrl = gsc.publicConfig.siteUrl || `${getBaseUrl()}/`;
   const sa = gsc.secrets.serviceAccountJson;
   if (!sa) return null;
   return { siteUrl, serviceAccountJson: typeof sa === "string" ? sa : JSON.stringify(sa) };

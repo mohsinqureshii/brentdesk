@@ -13,7 +13,7 @@
  * recruiters / candidates.
  *
  * DEPLOYMENT — Per the architecture ADR, Judge0 is run as a separate
- * self-hosted service (docker compose). The TechScoop API does not
+ * self-hosted service (docker compose). The platform API does not
  * embed a sandbox. See `docs/architecture/judge0-deployment.md` for
  * the recommended setup.
  */

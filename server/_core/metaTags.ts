@@ -1,3 +1,4 @@
+import { publication } from "../../shared/publication";
 /**
  * Server-side Open Graph meta tag generation
  * Generates proper OG tags for social media sharing across all pages
@@ -49,7 +50,7 @@ export function generateMetaTags(data: MetaTagData): string {
   metaTags.push(`<meta property="og:description" content="${escapeHtml(description)}" />`);
   metaTags.push(`<meta property="og:type" content="${type}" />`);
   metaTags.push(`<meta property="og:url" content="${escapeHtml(url)}" />`);
-  metaTags.push(`<meta property="og:site_name" content="TechScoop" />`);
+  metaTags.push(`<meta property="og:site_name" content="${publication.name}" />`);
   metaTags.push(`<meta property="og:locale" content="en_US" />`);
 
   if (image) {
@@ -69,7 +70,7 @@ export function generateMetaTags(data: MetaTagData): string {
 
   // Twitter Card tags
   metaTags.push(`<meta name="twitter:card" content="${image ? 'summary_large_image' : 'summary'}" />`);
-  metaTags.push(`<meta name="twitter:site" content="@techscoopmena" />`);
+  metaTags.push(`<meta name="twitter:site" content="${publication.xHandle}" />`);
   metaTags.push(`<meta name="twitter:title" content="${escapeHtml(title)}" />`);
   metaTags.push(`<meta name="twitter:description" content="${escapeHtml(description)}" />`);
   if (image) {

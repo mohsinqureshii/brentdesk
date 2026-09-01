@@ -9,7 +9,7 @@ function requireEnv(name: string): string {
 export const ENV = {
   // VITE_APP_ID is injected by the Manus platform; default to a stable
   // identifier so sessions remain verifiable on any host (Railway, etc.).
-  appId: process.env.VITE_APP_ID || "techscoop",
+  appId: process.env.VITE_APP_ID || "brentdesk",
   cookieSecret: requireEnv("JWT_SECRET"),
   databaseUrl: requireEnv("DATABASE_URL"),
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",

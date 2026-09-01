@@ -12,7 +12,7 @@ export type TrpcContext = {
   edition: ResolvedEdition;
   /** Active tenant — populated by `tenantMiddleware` from the Host
    *  header. NULL means the request hit the apex / a reserved
-   *  subdomain (legacy techscoop.io public surface). */
+   *  subdomain (the legacy public surface). */
   tenantId: number | null;
   tenant: TenantRow | null;
   tenantResolvedVia: TenantContext["resolvedVia"];

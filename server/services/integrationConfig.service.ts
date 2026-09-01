@@ -92,8 +92,8 @@ export const INTEGRATION_FIELD_SCHEMAS: Record<string, IntegrationFieldSchema> =
   "email-resend": {
     docsUrl: "https://resend.com/docs/dashboard/api-keys/introduction",
     publicFields: [
-      { key: "fromAddress",  label: "From address",  type: "email", required: true, placeholder: "TechScoop <hello@techscoop.io>", helpText: "Display name + verified sender email" },
-      { key: "replyTo",      label: "Reply-to",      type: "email", placeholder: "hello@techscoop.io" },
+      { key: "fromAddress",  label: "From address",  type: "email", required: true, placeholder: "Publication <hello@examscoop.io>", helpText: "Display name + verified sender email" },
+      { key: "replyTo",      label: "Reply-to",      type: "email", placeholder: "hello@example.com" },
     ],
     secretFields: [
       { key: "apiKey", label: "Resend API key", type: "password", required: true, placeholder: "re_xxxxxxxxxxxxxxxxxxxxxxxx" },
@@ -164,7 +164,7 @@ export const INTEGRATION_FIELD_SCHEMAS: Record<string, IntegrationFieldSchema> =
   "search-console": {
     docsUrl: "https://developers.google.com/webmaster-tools/v1/quickstart/quickstart-nodejs",
     publicFields: [
-      { key: "siteUrl", label: "Site URL", type: "url", required: true, placeholder: "https://techscoop.io/" },
+      { key: "siteUrl", label: "Site URL", type: "url", required: true, placeholder: "https://www.example.com/" },
     ],
     secretFields: [
       { key: "serviceAccountJson", label: "Service account JSON", type: "textarea", required: true, helpText: "Reuses the Indexing API service account if scopes include webmasters.readonly" },
@@ -195,7 +195,7 @@ export const INTEGRATION_FIELD_SCHEMAS: Record<string, IntegrationFieldSchema> =
     ],
     secretFields: [
       { key: "secretKey", label: "Secret key", type: "password", required: true, placeholder: "sk_live_…", helpText: "Server-side only. Used to create Checkout Sessions + Refunds." },
-      { key: "webhookSecret", label: "Webhook signing secret", type: "password", required: true, placeholder: "whsec_…", helpText: "From Stripe Dashboard → Developers → Webhooks. Endpoint URL: https://techscoop.io/api/webhooks/stripe. Listen to checkout.session.completed, checkout.session.expired, charge.refunded." },
+      { key: "webhookSecret", label: "Webhook signing secret", type: "password", required: true, placeholder: "whsec_…", helpText: "From Stripe Dashboard → Developers → Webhooks. Endpoint URL: <your base URL>/api/webhooks/stripe. Listen to checkout.session.completed, checkout.session.expired, charge.refunded." },
     ],
   },
   "github-app": {
@@ -203,7 +203,7 @@ export const INTEGRATION_FIELD_SCHEMAS: Record<string, IntegrationFieldSchema> =
     publicFields: [
       { key: "appId",       label: "App ID",      type: "text", required: true, placeholder: "123456" },
       { key: "clientId",    label: "Client ID",   type: "text", required: true, placeholder: "Iv1.xxxxxxxxxxxx" },
-      { key: "callbackUrl", label: "Callback URL (read-only)", type: "text", helpText: "Configure this in your GitHub App settings. Defaults to https://techscoop.io/api/github/callback", placeholder: "https://techscoop.io/api/github/callback" },
+      { key: "callbackUrl", label: "Callback URL (read-only)", type: "text", helpText: "Configure this in your GitHub App settings. Defaults to <your base URL>/api/github/callback", placeholder: "https://www.example.com/api/github/callback" },
     ],
     secretFields: [
       { key: "clientSecret",  label: "Client secret",          type: "password", required: true, placeholder: "GitHub App client secret" },

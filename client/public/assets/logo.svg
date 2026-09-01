@@ -1,0 +1,6 @@
+<!-- BrentDesk wordmark, white variant for dark surfaces.
+     Prefer rendering the wordmark as HTML text; this asset exists for
+     contexts that require an image (feeds, embeds, manifest). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 72" role="img" aria-label="brentdesk.">
+  <text x="0" y="53" font-family="Inter Tight, Inter, Arial, Helvetica, sans-serif" font-size="52" font-weight="800" letter-spacing="-1.5" fill="#ffffff">brentdesk<tspan fill="#2563eb">.</tspan></text>
+</svg>

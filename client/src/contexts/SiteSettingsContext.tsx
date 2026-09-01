@@ -3,6 +3,7 @@
  * Provides global access to site configuration settings
  */
 
+import { publication } from "@shared/publication";
 import { createContext, useContext, useEffect, ReactNode } from "react";
 import { trpc } from "@/lib/trpc";
 
@@ -23,14 +24,14 @@ interface SiteSettingsContextType {
 }
 
 const defaultSettings: SiteSettings = {
-  site_title: "TechScoop",
-  site_tagline: "MENA Tech & Startup News",
-  site_description: "Your source for the latest tech news, startup funding, and innovation from the Middle East and North Africa.",
+  site_title: publication.name,
+  site_tagline: publication.tagline,
+  site_description: publication.description,
   google_analytics_id: "",
   site_logo: "",
   site_favicon: "",
-  contact_email: "hello@techscoop.com",
-  timezone: "Asia/Dubai",
+  contact_email: publication.emails.hello,
+  timezone: publication.timezone,
 };
 
 const SiteSettingsContext = createContext<SiteSettingsContextType>({
@@ -61,9 +62,8 @@ export function SiteSettingsProvider({ children }: { children: ReactNode }) {
     if (settings.site_title && !isLoading) {
       // Only update if we're on the homepage or no specific page title is set
       const currentTitle = document.title;
-      if (currentTitle === 'TechScoop | MENA\'s Tech Ecosystem Platform' || 
-          currentTitle === 'TechScoop Media Platform' ||
-          currentTitle === 'TechScoop') {
+      if (currentTitle.startsWith(`${publication.name} |`) ||
+          currentTitle === publication.name) {
         document.title = settings.site_title;
       }
     }

@@ -15,6 +15,7 @@
  * Cloudflare's standard challenge layer.
  */
 
+import { publication } from "../../../shared/publication";
 import { z } from "zod";
 import { router, publicProcedure } from "../../_core/trpc";
 import { getDb } from "../../db";
@@ -23,8 +24,8 @@ import { emailService } from "../../services/email.service";
 import { eq, sql } from "drizzle-orm";
 import crypto from "node:crypto";
 
-const ADMIN_NOTIFY_EMAIL = process.env.ADMIN_NOTIFY_EMAIL || "hello@techscoop.io";
-const MEDIA_NOTIFY_EMAIL = process.env.MEDIA_NOTIFY_EMAIL || "media@techscoop.io";
+const ADMIN_NOTIFY_EMAIL = process.env.ADMIN_NOTIFY_EMAIL || publication.emails.hello;
+const MEDIA_NOTIFY_EMAIL = process.env.MEDIA_NOTIFY_EMAIL || publication.emails.media;
 
 function hashIp(ip: string): string {
   return crypto.createHash("sha256").update(ip).digest("hex").slice(0, 16);

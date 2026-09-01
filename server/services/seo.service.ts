@@ -8,6 +8,7 @@
  * Sitemap format: sitemapindex with 12 sub-sitemaps (articles, news, jobs, people, etc.)
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { eq, and, isNotNull, desc, sql, count, or } from "drizzle-orm";
 import { getDb } from "../db";
 import { seoMeta, articles, jobs, people, investors, events, resources, research, redirects, categories, companies, accelerators, tags, articleTags, workflowStatuses, users, media } from "../../drizzle/schema";
@@ -122,11 +123,11 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "dateModified": toISOStr(entity.updatedAt as string),
     "author": {
       "@type": "Person",
-      "name": entity.authorName || "TechScoop Editorial"
+      "name": entity.authorName || `${publication.name} Editorial`
     },
     "publisher": {
       "@type": "Organization",
-      "name": "TechScoop",
+      "name": publication.name,
       "logo": {
         "@type": "ImageObject",
         "url": `${baseUrl}/logo.png`
@@ -293,7 +294,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "datePublished": toISOStr(entity.publishedAt as string),
     "author": {
       "@type": "Organization",
-      "name": "TechScoop Research"
+      "name": `${publication.name} Research`
     },
     "url": `${baseUrl}/research/${entity.slug}`,
     "isAccessibleForFree": entity.isPremium ? false : true
@@ -326,7 +327,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "datePublished": toISOStr(entity.publishedAt as string),
     "provider": {
       "@type": "Organization",
-      "name": "TechScoop"
+      "name": publication.name
     }
   }),
 
@@ -343,7 +344,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
       "name": entity.authorName
     } : {
       "@type": "Organization",
-      "name": "TechScoop"
+      "name": publication.name
     },
     "url": `${baseUrl}/resources/playbooks/${entity.slug}`,
     "estimatedCost": entity.isPremium ? "Paid" : "Free"
@@ -374,7 +375,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "dateModified": toISOStr(entity.updatedAt as string),
     "author": {
       "@type": "Organization",
-      "name": "TechScoop"
+      "name": publication.name
     },
     "url": `${baseUrl}/resources/regulations/${entity.country}/${entity.slug}`,
     "about": {
@@ -431,7 +432,7 @@ function mapAttendanceMode(format: string): string {
 export class SeoService {
   private baseUrl: string;
 
-  constructor(baseUrl: string = process.env.BASE_URL || "https://techscoop.io") {
+  constructor(baseUrl: string = getBaseUrl()) {
     this.baseUrl = baseUrl;
   }
 
@@ -575,7 +576,7 @@ export class SeoService {
     <loc>${this.escapeXml(item.loc)}</loc>
     <news:news>
       <news:publication>
-        <news:name>TechScoop</news:name>
+        <news:name>${publication.name}</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${item.publicationDate}</news:publication_date>
@@ -1163,9 +1164,9 @@ export class SeoService {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TechScoop News</title>
+    <title>${publication.name} News</title>
     <link>${this.baseUrl}</link>
-    <description>Latest tech news and insights from TechScoop - MENA's leading technology publication</description>
+    <description>${publication.description}</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${this.baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>${items}
@@ -1204,9 +1205,9 @@ export class SeoService {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TechScoop Jobs</title>
+    <title>${publication.name} Jobs</title>
     <link>${this.baseUrl}/jobs</link>
-    <description>Latest tech job opportunities from TechScoop</description>
+    <description>Latest industry job opportunities from ${publication.name}</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${this.baseUrl}/jobs/rss.xml" rel="self" type="application/rss+xml"/>${items}
@@ -1322,7 +1323,7 @@ Crawl-delay: 0
   } {
     const defaults: Record<string, () => { title: string; description: string; image: string; canonicalPath: string }> = {
       article: () => ({
-        title: `${entity.title} | TechScoop`,
+        title: `${entity.title} | ${publication.name}`,
         description: (entity.excerpt as string)?.substring(0, 160) || "",
         image: entity.featuredImage as string || "",
         // Match the runtime route emitted by Article.tsx and prerender.ts:
@@ -1335,37 +1336,37 @@ Crawl-delay: 0
           : `/news/${entity.slug}`,
       }),
       job: () => ({
-        title: `${entity.title} at ${entity.companyName} | TechScoop Jobs`,
+        title: `${entity.title} at ${entity.companyName} | ${publication.name} Jobs`,
         description: `${entity.title} - ${entity.roleType} position at ${entity.companyName}. ${entity.location || 'Remote'}`,
         image: entity.companyLogo as string || "",
         canonicalPath: `/jobs/${entity.slug}`
       }),
       person: () => ({
-        title: `${entity.name}${entity.title ? ` - ${entity.title}` : ""} | TechScoop People`,
-        description: (entity.shortBio as string)?.substring(0, 160) || `${entity.name} profile on TechScoop`,
+        title: `${entity.name}${entity.title ? ` - ${entity.title}` : ""} | ${publication.name} People`,
+        description: (entity.shortBio as string)?.substring(0, 160) || `${entity.name} profile on ${publication.name}`,
         image: entity.avatar as string || "",
         canonicalPath: `/people/${entity.slug}`
       }),
       investor: () => ({
-        title: `${entity.name} | TechScoop Investors`,
-        description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.name} investor profile on TechScoop`,
+        title: `${entity.name} | ${publication.name} Investors`,
+        description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.name} investor profile on ${publication.name}`,
         image: entity.logo as string || "",
         canonicalPath: `/investors/${entity.slug}`
       }),
       event: () => ({
-        title: `${entity.title} | TechScoop Events`,
+        title: `${entity.title} | ${publication.name} Events`,
         description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.title} - ${entity.type} event`,
         image: entity.featuredImage as string || "",
         canonicalPath: `/events/${entity.slug}`
       }),
       resource: () => ({
-        title: `${entity.title} | TechScoop Resources`,
+        title: `${entity.title} | ${publication.name} Resources`,
         description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.title} - ${entity.type}`,
         image: entity.featuredImage as string || "",
         canonicalPath: `/resources/${entity.slug}`
       }),
       research: () => ({
-        title: `${entity.title} | TechScoop Research`,
+        title: `${entity.title} | ${publication.name} Research`,
         description: (entity.abstract as string)?.substring(0, 160) || `${entity.title} - Research report`,
         image: entity.featuredImage as string || "",
         canonicalPath: `/research/${entity.slug}`
@@ -1373,7 +1374,7 @@ Crawl-delay: 0
     };
 
     return defaults[entityType]?.() || {
-      title: "TechScoop",
+      title: publication.name,
       description: "Tech news, jobs, and insights",
       image: "",
       canonicalPath: "/"

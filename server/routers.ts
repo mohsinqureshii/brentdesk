@@ -1,5 +1,5 @@
 /**
- * TechScoop Main Router
+ * Main Router
  * Wires all module routers together
  */
 

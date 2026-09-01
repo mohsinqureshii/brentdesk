@@ -18,6 +18,7 @@
  * status + delivery logs in the UI.
  */
 
+import { publication } from "../../shared/publication";
 import { getDb } from "../db";
 import { emailNotifications } from "../../drizzle/schema";
 import { getEffectiveConfig } from "./integrationConfig.service";
@@ -44,8 +45,8 @@ async function resolveResendConfig(): Promise<{ apiKey?: string; fromAddress: st
   if (!apiKey) return null;
   return {
     apiKey,
-    fromAddress: cfg.publicConfig.fromAddress || "TechScoop <hello@techscoop.io>",
-    replyTo:     cfg.publicConfig.replyTo     || "hello@techscoop.io",
+    fromAddress: cfg.publicConfig.fromAddress || `${publication.name} <${publication.emails.hello}>`,
+    replyTo:     cfg.publicConfig.replyTo     || publication.emails.hello,
   };
 }
 
@@ -169,13 +170,13 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
 
 export function newsletterWelcomeEmail(email: string): { subject: string; html: string; text: string } {
   return {
-    subject: "Welcome to TechScoop",
+    subject: `Welcome to ${publication.name}`,
     html: `
       <div style="font-family:system-ui,sans-serif;max-width:520px;margin:0 auto;padding:24px;color:#18181b;">
-        <p style="font-size:24px;font-weight:bold;margin:0 0 16px;">techscoop.</p>
+        <p style="font-size:24px;font-weight:bold;margin:0 0 16px;">${publication.wordmark}</p>
         <h1 style="font-size:20px;margin:0 0 12px;">You're in.</h1>
         <p style="font-size:14px;line-height:1.6;color:#52525b;">
-          Thanks for subscribing. You'll get the TechScoop newsletter — independent reporting on MENA's tech ecosystem, funding rounds, founders, and jobs.
+          Thanks for subscribing. You'll get ${publication.newsletter.name} — independent reporting on construction, infrastructure, energy, manufacturing and the region's industrial economy.
         </p>
         <p style="font-size:14px;line-height:1.6;color:#52525b;">
           Your email: <strong>${email}</strong>
@@ -185,7 +186,7 @@ export function newsletterWelcomeEmail(email: string): { subject: string; html: 
         </p>
       </div>
     `,
-    text: `You're in.\n\nThanks for subscribing to TechScoop. You'll get our newsletter on MENA tech.\n\nYour email: ${email}\n\nDidn't sign up? Reply and we'll remove you.`,
+    text: `You're in.\n\nThanks for subscribing to ${publication.name}. You'll get our newsletter on the region's industrial economy.\n\nYour email: ${email}\n\nDidn't sign up? Reply and we'll remove you.`,
   };
 }
 
@@ -200,7 +201,7 @@ export function adminFormNotificationEmail(opts: {
   const subject = `[${opts.formType}] new submission${opts.subject ? `: ${opts.subject}` : ""}`;
   const html = `
     <div style="font-family:system-ui,sans-serif;max-width:600px;color:#18181b;">
-      <p style="font-size:13px;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">techscoop · ${opts.formType}</p>
+      <p style="font-size:13px;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">${publication.wordmark} · ${opts.formType}</p>
       <h1 style="font-size:18px;margin:0 0 16px;">New ${opts.formType} submission #${opts.submissionId}</h1>
       <table style="font-size:14px;width:100%;border-collapse:collapse;">
         ${opts.fromName ? `<tr><td style="padding:6px 0;color:#52525b;width:120px;">From</td><td>${opts.fromName}</td></tr>` : ""}

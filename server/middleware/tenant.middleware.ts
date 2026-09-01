@@ -9,18 +9,19 @@
  *   1. Exact match on `tenants.custom_domain` (e.g. careers.acme.com)
  *   2. Subdomain match: split host on '.', first label → `tenants.slug`
  *   3. Reserved subdomain (www, api, admin, …) → tenantId = null
- *      (apex / techscoop.com landing → tenantId = null = legacy public)
+ *      (apex / platform landing → tenantId = null = legacy public)
  *
  * Caching:
  *   In-process 60s TTL map keyed by host. A tenant's row changes
  *   rarely; we re-check periodically without hitting the DB per request.
  *
  * What "null tenant" means:
- *   The legacy techscoop.io public job board / news site keeps working
+ *   The legacy public job board / news site keeps working
  *   exactly as before. Anything tenant-scoped (talent platform) just
  *   refuses to run with null and returns a "tenant required" error.
  */
 
+import { publication } from "../../shared/publication";
 import type { Request, Response, NextFunction } from "express";
 import { getDb } from "../db";
 import { tenants } from "../../drizzle/schema";
@@ -106,7 +107,19 @@ export function invalidateTenantCache(host?: string): void {
 // Host parsing
 // ------------------------------------------------------------
 
-const APEX_HOSTS = new Set(["techscoop.com", "techscoop.io", "localhost", "127.0.0.1"]);
+// Hosts that resolve to the public site (tenantId = null). The publication
+// apex comes from central config; extra apexes (e.g. a www alias or a
+// separate talent-platform domain) can be added via TENANT_APEX_HOSTS
+// (comma-separated) without a code change.
+const APEX_HOSTS = new Set(
+  [
+    publication.domain,
+    `www.${publication.domain}`,
+    "localhost",
+    "127.0.0.1",
+    ...(process.env.TENANT_APEX_HOSTS?.split(",").map((h) => h.trim().toLowerCase()).filter(Boolean) ?? []),
+  ],
+);
 
 function parseHost(rawHost: string | undefined): {
   host: string;
@@ -121,7 +134,7 @@ function parseHost(rawHost: string | undefined): {
   }
 
   const labels = host.split(".");
-  // `tenant.techscoop.com` → ['tenant', 'techscoop', 'com'] → first = tenant
+  // `tenant.<platform domain>` → ['tenant', '<platform>', 'com'] → first = tenant
   // `careers.acme.com` → ['careers', 'acme', 'com'] → first = careers (used as custom domain candidate)
   // `localhost` → ['localhost'] → first = null
   if (labels.length < 2) return { host, firstLabel: null, isApex: false };
@@ -129,8 +142,12 @@ function parseHost(rawHost: string | undefined): {
   return { host, firstLabel: labels[0], isApex: false };
 }
 
-function isTechscoopSubdomain(host: string): boolean {
-  return host.endsWith(".techscoop.com") || host.endsWith(".techscoop.io");
+function isPlatformSubdomain(host: string): boolean {
+  if (host.endsWith(`.${publication.domain}`)) return true;
+  for (const apex of Array.from(APEX_HOSTS)) {
+    if (apex !== "localhost" && apex !== "127.0.0.1" && host.endsWith(`.${apex}`)) return true;
+  }
+  return false;
 }
 
 // ------------------------------------------------------------
@@ -143,9 +160,9 @@ async function lookupTenant(host: string, firstLabel: string | null): Promise<Te
 
   // Strategy 1: full host = custom domain
   // Strategy 2: first label (subdomain) = slug, but only when on
-  //             techscoop.com — random hosts don't match a slug.
+  //             a platform domain — random hosts don't match a slug.
   const conditions = [eq(tenants.customDomain, host)];
-  if (firstLabel && !RESERVED_SUBDOMAINS.has(firstLabel) && isTechscoopSubdomain(host)) {
+  if (firstLabel && !RESERVED_SUBDOMAINS.has(firstLabel) && isPlatformSubdomain(host)) {
     conditions.push(eq(tenants.slug, firstLabel));
   }
 
@@ -202,7 +219,7 @@ export async function tenantMiddleware(req: Request, _res: Response, next: NextF
       return next();
     }
 
-    if (firstLabel && RESERVED_SUBDOMAINS.has(firstLabel) && isTechscoopSubdomain(host)) {
+    if (firstLabel && RESERVED_SUBDOMAINS.has(firstLabel) && isPlatformSubdomain(host)) {
       const ctx: TenantContext = {
         tenantId: null,
         tenant: null,
@@ -248,7 +265,7 @@ export async function tenantMiddleware(req: Request, _res: Response, next: NextF
 
 /**
  * tRPC-side helper: throw if the request didn't resolve to a tenant.
- * Use this in the talent platform routers. The legacy techscoop.io
+ * Use this in the talent platform routers. The legacy public-site
  * routers (news, events) keep accepting null and just behave as before.
  */
 export function requireTenant(ctx: { tenantId?: number | null }): number {

@@ -1,3 +1,4 @@
+import { publication } from "@shared/publication";
 import { useEffect } from 'react';
 
 // ============================================================
@@ -143,16 +144,13 @@ interface JsonLdProps {
   data: ArticleSchema | NewsArticleSchema | OrganizationSchema | BreadcrumbItem[] | PersonSchema | EventSchema | JobPostingSchema | WebSiteSchema | FAQPageSchema;
 }
 
-// Default publisher info for TechScoop
+// Default publisher info from the central publication config
 const DEFAULT_PUBLISHER: OrganizationSchema = {
-  name: 'TechScoop',
-  url: 'https://techscoop.io',
-  logo: '/assets/og-image.png',
-  description: "MENA's leading tech ecosystem platform covering startups, investors, jobs, and events",
-  sameAs: [
-    'https://twitter.com/techscoopio',
-    'https://linkedin.com/company/techscoop',
-  ],
+  name: publication.name,
+  url: publication.siteUrl,
+  logo: publication.assets.icon512,
+  description: publication.description,
+  sameAs: Object.values(publication.social),
 };
 
 /**

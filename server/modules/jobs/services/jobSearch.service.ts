@@ -7,7 +7,7 @@
  *
  * Phase 0.5: same scope guard as the other services — null scope only
  * until Phase 1 lands the tenantId column. Tenant-aware search filters
- * (e.g. "only this tenant's branded board" vs "techscoop.io legacy")
+ * (e.g. "only this tenant's branded board" vs the legacy public board)
  * fold in at that point.
  */
 

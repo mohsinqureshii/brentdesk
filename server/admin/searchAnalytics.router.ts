@@ -12,7 +12,7 @@ import crypto from "crypto";
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function hashIp(ip: string): string {
-  return crypto.createHash("sha256").update(ip + "techscoop-salt").digest("hex").slice(0, 16);
+  return crypto.createHash("sha256").update(ip + "search-analytics-salt").digest("hex").slice(0, 16);
 }
 
 // ── Router ─────────────────────────────────────────────────────────────────────

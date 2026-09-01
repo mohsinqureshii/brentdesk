@@ -152,7 +152,7 @@ export async function getRolePermissions(roleNames: string[]): Promise<Map<strin
 /**
  * Look up the user's role inside a tenant (if they have a membership).
  * Phase 1a: returns null when the user isn't a member of the tenant
- * OR the tenant id is null (legacy techscoop.io context).
+ * OR the tenant id is null (legacy public-site context).
  */
 export async function getTenantRole(userId: number, tenantId: number | null): Promise<TenantRole | null> {
   if (!tenantId) return null;
@@ -175,9 +175,9 @@ export async function getTenantRole(userId: number, tenantId: number | null): Pr
  * Build RBAC context for a user, optionally scoped to a tenant.
  *
  * Tenant scope merges in tenant-membership permissions on top of any
- * global roles. A user can have both: e.g. techscoop.io editor + Acme
+ * global roles. A user can have both: e.g. a public-site editor + Acme
  * recruiter — they see editor-level access on apex requests, recruiter
- * access on acme.techscoop.com requests.
+ * access on acme.<platform domain> requests.
  */
 export async function buildRbacContext(
   userId: number,

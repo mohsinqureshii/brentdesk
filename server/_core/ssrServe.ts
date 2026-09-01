@@ -50,7 +50,11 @@ import {
 } from "../services/ssr.service";
 import { generateStaticPageMetaTags } from "./staticPagesSEO";
 
-const BASE_URL = "https://techscoop.io";
+import { publication, getBaseUrl } from "../../shared/publication";
+
+const BASE_URL = getBaseUrl();
+const SITE_NAME = publication.name;
+const DEFAULT_OG_IMAGE = `${BASE_URL}${publication.assets.ogImage}`;
 
 // ============================================================
 // URL Classification
@@ -205,7 +209,7 @@ function buildWebPageJsonLd(canonicalUrl: string): string {
     obj["about"] = { "@id": `${BASE_URL}/#organization` };
     obj["primaryImageOfPage"] = {
       "@type": "ImageObject",
-      "url": "https://assets.techscoop.io/og-image.png",
+      "url": DEFAULT_OG_IMAGE,
     };
   }
   return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
@@ -230,7 +234,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateCompanyMetaTags,
     jsonLdFn: generateCompanyJsonLd,
     noscriptFn: (c) => {
-      const desc = c.shortDescription || c.tagline || c.description?.substring(0, 300) || `${c.name} - Company profile on TechScoop`;
+      const desc = c.shortDescription || c.tagline || c.description?.substring(0, 300) || `${c.name} - Company profile on ${SITE_NAME}`;
       const details = [
         c.industry ? `Industry: ${c.industry}` : null,
         c.location ? `Location: ${c.location}` : null,
@@ -245,7 +249,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateInvestorMetaTags,
     jsonLdFn: generateInvestorJsonLd,
     noscriptFn: (inv) => {
-      const desc = inv.shortDescription || inv.description?.substring(0, 300) || `${inv.name} - Investor profile on TechScoop`;
+      const desc = inv.shortDescription || inv.description?.substring(0, 300) || `${inv.name} - Investor profile on ${SITE_NAME}`;
       const details = [
         inv.type ? `Type: ${inv.type}` : null,
         inv.headquarters ? `Headquarters: ${inv.headquarters}` : null,
@@ -261,7 +265,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generatePersonMetaTags,
     jsonLdFn: generatePersonJsonLd,
     noscriptFn: (p) => {
-      const desc = p.shortBio || p.bio?.substring(0, 300) || `${p.name} - Professional profile on TechScoop`;
+      const desc = p.shortBio || p.bio?.substring(0, 300) || `${p.name} - Professional profile on ${SITE_NAME}`;
       const details = [
         p.title ? `Title: ${p.title}` : null,
         p.company ? `Company: ${p.company}` : null,
@@ -276,7 +280,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateEventMetaTags,
     jsonLdFn: generateEventJsonLd,
     noscriptFn: (e) => {
-      const desc = e.shortDescription || e.description?.substring(0, 300) || `${e.title} - Event on TechScoop`;
+      const desc = e.shortDescription || e.description?.substring(0, 300) || `${e.title} - Event on ${SITE_NAME}`;
       const details = [
         e.location ? `Location: ${e.location}` : null,
         e.eventDate ? `Date: ${new Date(e.eventDate).toLocaleDateString()}` : null,
@@ -305,7 +309,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateAcceleratorMetaTags,
     jsonLdFn: generateAcceleratorJsonLd,
     noscriptFn: (a) => {
-      const desc = a.shortDescription || a.description?.substring(0, 300) || `${a.name} - Accelerator profile on TechScoop`;
+      const desc = a.shortDescription || a.description?.substring(0, 300) || `${a.name} - Accelerator profile on ${SITE_NAME}`;
       const details = [
         a.location ? `Location: ${a.location}` : null,
         a.yearFounded ? `Founded: ${a.yearFounded}` : null,
@@ -319,7 +323,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateAuthorMetaTags,
     jsonLdFn: generateAuthorJsonLd,
     noscriptFn: (a) => {
-      const desc = a.authorBio || a.bio?.substring(0, 300) || `${a.name} - Author at TechScoop`;
+      const desc = a.authorBio || a.bio?.substring(0, 300) || `${a.name} - Author at ${SITE_NAME}`;
       const details = [
         a.jobTitle ? `Role: ${a.jobTitle}` : null,
         a.articleCount ? `Articles: ${a.articleCount}` : null,
@@ -426,7 +430,7 @@ async function tryCategorySSR(url: string, template: string): Promise<{ html: st
       const metaTags = generateCategoryMetaTags(category);
       const jsonLd = generateCategoryJsonLd(category);
       const articlesList = category.recentArticles && category.recentArticles.length > 0
-        ? `<ul>${category.recentArticles.map(a => `<li><a href="https://techscoop.io/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
+        ? `<ul>${category.recentArticles.map(a => `<li><a href="${BASE_URL}/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
         : '';
       const prerendered = `<noscript><div><h1>${category.name} News</h1><p>${category.description || ''}</p>${articlesList}</div></noscript>`;
       const html = injectSSRContent(template, metaTags, jsonLd, prerendered);
@@ -465,7 +469,7 @@ async function trySubcategorySSR(url: string, template: string): Promise<{ html:
       const metaTags = generateCategoryMetaTags(categoryWithFullUrl);
       const jsonLd = generateCategoryJsonLd(categoryWithFullUrl);
       const articlesList = category.recentArticles && category.recentArticles.length > 0
-        ? `<ul>${category.recentArticles.map(a => `<li><a href="https://techscoop.io/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
+        ? `<ul>${category.recentArticles.map(a => `<li><a href="${BASE_URL}/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
         : '';
       const prerendered = `<noscript><div><h1>${category.name} News</h1><p>${category.description || ''}</p>${articlesList}</div></noscript>`;
       const html = injectSSRContent(template, metaTags, jsonLd, prerendered);
@@ -657,10 +661,10 @@ async function tryEventLiveSSR(url: string, template: string): Promise<{ html: s
     const post = m[2] ? await getLivePostForSSR(Number(m[2])) : null;
     const title = post?.headline
       ? `${post.headline} — LIVE: ${event.title}`
-      : `LIVE: ${event.title} — Live Coverage | TechScoop`;
+      : `LIVE: ${event.title} — Live Coverage | ${SITE_NAME}`;
     const description = (post?.body ?? `Live updates, photos and breaking news from ${event.title}.`)
       .replace(/<[^>]+>/g, '').slice(0, 200);
-    const image = post?.imageUrl || event.featuredImage || 'https://assets.techscoop.io/og-image.png';
+    const image = post?.imageUrl || event.featuredImage || DEFAULT_OG_IMAGE;
 
     let html = template
       .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)

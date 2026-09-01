@@ -1,3 +1,4 @@
+import { getBaseUrl } from "../../shared/publication";
 /**
  * Indexing Notification Service v2.0.0
  * 
@@ -16,7 +17,7 @@
 
 const BASE_URL = process.env.BASE_URL && process.env.BASE_URL.startsWith("http")
   ? process.env.BASE_URL
-  : "https://techscoop.io";
+  : getBaseUrl();
 
 // IndexNow API key – must also be served as a static file at /{key}.txt
 export const INDEXNOW_KEY = "71c6f0fcfb86471b9a5e325252176962";
@@ -35,7 +36,7 @@ export interface IndexingResult {
 }
 
 export interface NotifyOptions {
-  /** Full URL of the published page (e.g. https://techscoop.io/news/my-article) */
+  /** Full URL of the published page (e.g. <base url>/news/my-article) */
   url: string;
   /** "URL_UPDATED" or "URL_DELETED" – used by Google Indexing API */
   type?: "URL_UPDATED" | "URL_DELETED";

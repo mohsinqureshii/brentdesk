@@ -21,6 +21,7 @@
  * include the venue + countdown in the description.
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { Router } from "express";
 import { and, asc, desc, eq, gte } from "drizzle-orm";
 import { getDb } from "../db";
@@ -29,7 +30,8 @@ import { workflowService } from "../services/workflow.service";
 
 const router = Router();
 
-const SITE_ORIGIN = "https://techscoop.io";
+const SITE_ORIGIN = getBaseUrl();
+const SITE = publication.name;
 
 /** Escape `& < > " '` for embedding text in XML element bodies. */
 function xmlEscape(s: string | null | undefined): string {
@@ -114,7 +116,7 @@ router.get("/events/:slug/feed.xml", async (req, res) => {
           "    <item>",
           `      <title>${xmlEscape(headline)}</title>`,
           `      <link>${xmlEscape(link)}</link>`,
-          `      <guid isPermaLink="false">techscoop-livepost-${event.id}-${p.id}</guid>`,
+          `      <guid isPermaLink="false">livepost-${event.id}-${p.id}</guid>`,
           `      <pubDate>${rfc822(p.publishedAt)}</pubDate>`,
           `      <description>${xmlEscape(description)}</description>`,
           p.postType ? `      <category>${xmlEscape(p.postType)}</category>` : "",
@@ -132,7 +134,7 @@ router.get("/events/:slug/feed.xml", async (req, res) => {
     <link>${xmlEscape(eventUrl)}</link>
     <atom:link href="${xmlEscape(feedUrl)}" rel="self" type="application/rss+xml" />
     <description>${xmlEscape(
-      event.shortDescription || `Live coverage of ${event.title} from TechScoop correspondents.`,
+      event.shortDescription || `Live coverage of ${event.title} from ${SITE} correspondents.`,
     )}</description>
     <language>en-us</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
@@ -225,10 +227,10 @@ router.get("/events/feed.xml", async (_req, res) => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TechScoop — Upcoming Tech Events</title>
+    <title>${SITE} — Upcoming Industry Events</title>
     <link>${xmlEscape(channelLink)}</link>
     <atom:link href="${xmlEscape(feedUrl)}" rel="self" type="application/rss+xml" />
-    <description>Upcoming tech conferences, summits, and meetups tracked by TechScoop.</description>
+    <description>Upcoming industry conferences, expos, and forums tracked by ${SITE}.</description>
     <language>en-us</language>
     <lastBuildDate>${rfc822(new Date())}</lastBuildDate>
     <ttl>30</ttl>

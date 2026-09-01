@@ -1,3 +1,5 @@
+import { publication } from "../../../shared/publication";
+
 /**
  * Email Templates — Shared Layout
  * ----------------------------------------------------------------------
@@ -6,9 +8,9 @@
  * Conventions:
  *   - Inline CSS only (Gmail strips <style>).
  *   - Single-column table layout, max 600px wide.
- *   - No images: TechScoop wordmark is rendered as plain text so it
+ *   - No images: the publication wordmark is rendered as plain text so it
  *     survives image-blocking inboxes (which is most of them).
- *   - Footer always names TechScoop + tenant + an unsubscribe placeholder
+ *   - Footer always names the publication + tenant + an unsubscribe placeholder
  *     + a plain-text address, for CAN-SPAM / accessibility.
  *
  * These helpers stay deliberately string-based — no templating engine —
@@ -45,11 +47,11 @@ export interface LayoutOptions {
   cta?: { label: string; href: string } | null;
 }
 
-const TECHSCOOP_ADDRESS = "TechScoop, 1209 Orange Street, Wilmington, DE 19801, USA";
+const POSTAL_ADDRESS = publication.postalAddress;
 const UNSUBSCRIBE_PLACEHOLDER = "{{unsubscribe_url}}";
 
 /**
- * Wraps body HTML in the shared TechScoop email layout.
+ * Wraps body HTML in the shared publication email layout.
  * Recipients see: wordmark header → tenant chip → body → CTA → footer.
  */
 export function renderLayout(opts: LayoutOptions): string {
@@ -75,7 +77,7 @@ export function renderLayout(opts: LayoutOptions): string {
           <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;border:1px solid #e4e4e7;">
             <tr>
               <td style="padding:24px 24px 8px 24px;">
-                <p style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.01em;color:#18181b;">techscoop<span style="color:#a1a1aa;">.</span></p>
+                <p style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.01em;color:#18181b;">${publication.wordmark.replace(/\.$/, "")}<span style="color:#a1a1aa;">.</span></p>
                 <p style="margin:4px 0 0 0;font-size:12px;color:#71717a;text-transform:uppercase;letter-spacing:0.08em;">${tenant}</p>
               </td>
             </tr>
@@ -87,9 +89,9 @@ export function renderLayout(opts: LayoutOptions): string {
             ${ctaHtml}
             <tr>
               <td style="padding:16px 24px 24px 24px;border-top:1px solid #e4e4e7;font-size:12px;line-height:1.6;color:#a1a1aa;">
-                Sent by TechScoop on behalf of ${tenant}.<br />
+                Sent by ${publication.name} on behalf of ${tenant}.<br />
                 <a href="${UNSUBSCRIBE_PLACEHOLDER}" style="color:#a1a1aa;text-decoration:underline;">Unsubscribe</a><br />
-                ${escapeHtml(TECHSCOOP_ADDRESS)}
+                ${escapeHtml(POSTAL_ADDRESS)}
               </td>
             </tr>
           </table>
@@ -108,14 +110,14 @@ export function renderTextFooter(tenantName: string): string {
   return [
     "",
     "—",
-    `Sent by TechScoop on behalf of ${tenantName}.`,
+    `Sent by ${publication.name} on behalf of ${tenantName}.`,
     `Unsubscribe: ${UNSUBSCRIBE_PLACEHOLDER}`,
-    TECHSCOOP_ADDRESS,
+    POSTAL_ADDRESS,
   ].join("\n");
 }
 
 /** Default tenant name when scope is null (platform-level / cross-tenant). */
-export const DEFAULT_TENANT_NAME = "TechScoop";
+export const DEFAULT_TENANT_NAME = publication.name;
 
 export interface TemplateOutput {
   subject: string;

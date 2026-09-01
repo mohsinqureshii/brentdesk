@@ -1,13 +1,12 @@
 {
-  "name": "TechScoop - MENA's Tech Ecosystem",
-  "short_name": "TechScoop",
-  "description": "MENA's leading technology publication covering startups, venture capital, tech jobs, and innovation.",
+  "name": "BrentDesk — Industry, Infrastructure & the Physical Economy",
+  "short_name": "BrentDesk",
+  "description": "Construction, infrastructure, energy, manufacturing, logistics and industrial technology news across Saudi Arabia, the GCC and MENA.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1a1a2e",
+  "background_color": "#f5f6f8",
+  "theme_color": "#0b0d12",
   "orientation": "portrait-primary",
-  "categories": ["news", "business", "technology"],
   "icons": [
     {
       "src": "/assets/icon-192x192.png",
@@ -22,25 +21,21 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [],
   "shortcuts": [
     {
-      "name": "Latest News",
-      "short_name": "News",
-      "url": "/",
-      "icons": []
-    },
-    {
-      "name": "Tech Jobs",
-      "short_name": "Jobs",
-      "url": "/jobs",
-      "icons": []
+      "name": "News",
+      "url": "/news",
+      "description": "Latest industry news"
     },
     {
       "name": "Companies",
-      "short_name": "Companies",
       "url": "/companies",
-      "icons": []
+      "description": "Company directory"
+    },
+    {
+      "name": "Jobs",
+      "url": "/jobs",
+      "description": "Industry jobs"
     }
   ]
 }

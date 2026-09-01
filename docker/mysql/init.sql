@@ -1,4 +1,4 @@
--- TechScoop Database Initialization
+-- BrentDesk Database Initialization
 -- This script runs on first container startup
 
 -- Set character encoding
@@ -9,8 +9,8 @@ SET CHARACTER SET utf8mb4;
 -- These will be created after Drizzle migrations run
 
 -- Grant permissions
-GRANT ALL PRIVILEGES ON techscoop.* TO 'techscoop'@'%';
+GRANT ALL PRIVILEGES ON brentdesk.* TO 'brentdesk'@'%';
 FLUSH PRIVILEGES;
 
 -- Log initialization
-SELECT 'TechScoop database initialized successfully' AS status;
+SELECT 'BrentDesk database initialized successfully' AS status;

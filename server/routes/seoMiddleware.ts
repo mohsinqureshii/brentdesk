@@ -12,10 +12,14 @@
  * 8. Adds canonical headers for filtered pages
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { Router, Request, Response, NextFunction } from "express";
 import { eq, and, isNotNull } from "drizzle-orm";
 import { getDb } from "../db";
 import { tags, categories } from "../../drizzle/schema";
+
+const BASE = getBaseUrl();
+const SITE = publication.name;
 
 const router = Router();
 
@@ -27,7 +31,7 @@ router.all(["/wp-admin", "/wp-admin/*", "/wp-content/*", "/wp-includes/*", "/wp-
     <!DOCTYPE html>
     <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
     <body><h1>410 Gone</h1><p>This resource has been permanently removed.</p>
-    <p><a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
+    <p><a href="${BASE}">Go to ${SITE}</a></p></body></html>
   `);
 });
 
@@ -40,7 +44,7 @@ router.get(["/tags", "/tags/"], (_req, res) => {
 });
 router.get(["/tags/:slug/feed", "/tags/:slug/feed/"], (_req, res) => {
   res.status(410).set("Content-Type", "text/html").send(
-    `<!DOCTYPE html><html><head><title>410 Gone</title><meta name="robots" content="noindex"></head><body><h1>410 Gone</h1><p><a href="https://techscoop.io/rss.xml">Main RSS</a></p></body></html>`
+    `<!DOCTYPE html><html><head><title>410 Gone</title><meta name="robots" content="noindex"></head><body><h1>410 Gone</h1><p><a href="${BASE}/rss.xml">Main RSS</a></p></body></html>`
   );
 });
 router.get(
@@ -60,7 +64,7 @@ router.get("/tag/:slug/feed", (req, res) => {
     <!DOCTYPE html>
     <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
     <body><h1>410 Gone</h1><p>Tag RSS feeds have been removed. Use our main RSS feed instead.</p>
-    <p><a href="https://techscoop.io/rss.xml">Main RSS Feed</a> | <a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
+    <p><a href="${BASE}/rss.xml">Main RSS Feed</a> | <a href="${BASE}">Go to ${SITE}</a></p></body></html>
   `);
 });
 
@@ -69,7 +73,7 @@ router.get("/tag/:slug/feed/", (req, res) => {
     <!DOCTYPE html>
     <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
     <body><h1>410 Gone</h1><p>Tag RSS feeds have been removed. Use our main RSS feed instead.</p>
-    <p><a href="https://techscoop.io/rss.xml">Main RSS Feed</a> | <a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
+    <p><a href="${BASE}/rss.xml">Main RSS Feed</a> | <a href="${BASE}">Go to ${SITE}</a></p></body></html>
   `);
 });
 
@@ -169,7 +173,7 @@ router.get("/news", async (req: Request, res: Response, next: NextFunction) => {
 router.get("/events", (req: Request, res: Response, next: NextFunction) => {
   // If there's a city filter, add canonical pointing to base /events
   if (req.query.city) {
-    res.set("Link", '<https://techscoop.io/events>; rel="canonical"');
+    res.set("Link", `<${BASE}/events>; rel="canonical"`);
   }
   next();
 });
@@ -210,7 +214,7 @@ router.get("/typography", (req, res) => {
     <!DOCTYPE html>
     <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
     <body><h1>410 Gone</h1><p>This page has been removed.</p>
-    <p><a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
+    <p><a href="${BASE}">Go to ${SITE}</a></p></body></html>
   `);
 });
 router.get("/typography/", (req, res) => {
@@ -218,7 +222,7 @@ router.get("/typography/", (req, res) => {
     <!DOCTYPE html>
     <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
     <body><h1>410 Gone</h1><p>This page has been removed.</p>
-    <p><a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
+    <p><a href="${BASE}">Go to ${SITE}</a></p></body></html>
   `);
 });
 
@@ -250,7 +254,7 @@ router.get("/contact-us", (req, res) => {
 });
 
 // /e/:slug → /events/:slug (short URL for share buttons)
-// Tweet-friendly redirect e.g. techscoop.io/e/leap-2026 → /events/leap-2026.
+// Tweet-friendly redirect e.g. <domain>/e/some-event → /events/some-event.
 // We preserve any hash/query the share link carried so deep-links like
 // /e/leap-2026#speaker-12 still land on the right element after the 301.
 router.get(["/e/:slug", "/e/:slug/"], (req, res) => {

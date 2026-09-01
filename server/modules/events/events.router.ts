@@ -3,6 +3,7 @@
  * Conferences, webinars, and meetups
  */
 
+import { publication } from "../../../shared/publication";
 import { z } from "zod";
 import { eq, and, desc, asc, like, gte, lte, or, inArray, sql, getTableColumns } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
@@ -3328,7 +3329,7 @@ export const eventsRouter = router({
 
       // 6. Build absolute URLs for Stripe
       const proto = (ctx as any)?.req?.protocol || 'https';
-      const host = (ctx as any)?.req?.headers?.host || process.env.PUBLIC_HOST || 'techscoop.io';
+      const host = (ctx as any)?.req?.headers?.host || process.env.PUBLIC_HOST || publication.domain;
       const baseUrl = `${proto}://${host}`;
       const successUrl = `${baseUrl}/events/${evt.slug}/tickets/success?session_id={CHECKOUT_SESSION_ID}`;
       const cancelUrl = `${baseUrl}/events/${evt.slug}`;

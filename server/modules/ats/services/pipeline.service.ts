@@ -258,7 +258,7 @@ export class PipelineService {
   /**
    * Seed the tenant-default 7-stage pipeline if the tenant has none.
    * Idempotent — call on tenant creation OR on first load of the
-   * legacy public-board pipeline (scope = null) so techscoop.io's own
+   * legacy public-board pipeline (scope = null) so the public board's own
    * recruiters can move applicants through stages without needing a
    * tenant. The repo accepts null tenantId on the seeded rows; the
    * scope filter (`isNull(tenantId)`) makes them visible to the apex

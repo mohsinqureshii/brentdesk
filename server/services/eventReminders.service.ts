@@ -16,6 +16,7 @@
  * loop continues — one bad recipient must not abort the batch.
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { getDb } from "../db";
 import {
   events,
@@ -64,8 +65,8 @@ function renderTemplate(opts: {
     .join(', ');
   const startStr = event.startDate || 'TBA';
   const tz = event.timezone || 'UTC';
-  const eventUrl = `https://techscoop.io/events/${event.slug}`;
-  const icsUrl = `https://techscoop.io/events/${event.slug}.ics`;
+  const eventUrl = `${getBaseUrl()}/events/${event.slug}`;
+  const icsUrl = `${getBaseUrl()}/events/${event.slug}.ics`;
 
   const text = [
     `Hey ${recipientName || 'there'},`,
@@ -78,12 +79,12 @@ function renderTemplate(opts: {
     `Add to calendar: ${icsUrl}`,
     `Event details: ${eventUrl}`,
     ``,
-    `— TechScoop`,
+    `— ${publication.name}`,
   ].filter(Boolean).join('\n');
 
   const html = `
     <div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#18181b;">
-      <p style="font-size:13px;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">techscoop · reminder</p>
+      <p style="font-size:13px;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">${publication.wordmark} · reminder</p>
       <h1 style="font-size:20px;margin:0 0 12px;">${event.title} starts ${friendly}</h1>
       <p style="font-size:14px;line-height:1.6;color:#52525b;margin:0 0 16px;">
         Hey ${recipientName || 'there'}, you marked yourself as Going to <strong>${event.title}</strong>.
@@ -97,7 +98,7 @@ function renderTemplate(opts: {
         &nbsp;
         <a href="${eventUrl}" style="display:inline-block;padding:8px 14px;border:1px solid #e4e4e7;color:#18181b;border-radius:6px;text-decoration:none;font-size:13px;">Event details</a>
       </p>
-      <p style="font-size:12px;color:#a1a1aa;margin-top:24px;">— TechScoop</p>
+      <p style="font-size:12px;color:#a1a1aa;margin-top:24px;">— ${publication.name}</p>
     </div>
   `;
 

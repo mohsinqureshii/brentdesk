@@ -9,7 +9,7 @@
 //        S3_ACCESS_KEY_ID      access key
 //        S3_SECRET_ACCESS_KEY  secret key
 //        S3_PUBLIC_URL         public base URL for serving objects, e.g.
-//                              https://pub-xxx.r2.dev or https://assets.techscoop.io
+//                              https://pub-xxx.r2.dev or an assets CDN domain
 //        S3_REGION             optional, defaults to "auto" (R2)
 //
 // The forge takes precedence when configured so Manus deployments keep

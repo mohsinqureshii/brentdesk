@@ -3,13 +3,14 @@
  * Separated from the main service to keep DB imports isolated.
  */
 
+import { getBaseUrl } from "../../shared/publication";
 import { getDb } from "../db";
 import { articles, categories } from "../../drizzle/schema";
 import { eq, inArray } from "drizzle-orm";
 
 const BASE_URL = process.env.BASE_URL && process.env.BASE_URL.startsWith("http")
   ? process.env.BASE_URL
-  : "https://techscoop.io";
+  : getBaseUrl();
 
 export interface ArticleUrlInfo {
   url: string;
@@ -20,7 +21,7 @@ export interface ArticleUrlInfo {
 
 /**
  * Resolve the full public URL and metadata for an article by its ID.
- * URL format: https://techscoop.io/{categorySlug}/{articleSlug}
+ * URL format: <base url>/{categorySlug}/{articleSlug}
  */
 export async function resolveArticleUrl(articleId: number): Promise<string | null> {
   const info = await resolveArticleInfo(articleId);

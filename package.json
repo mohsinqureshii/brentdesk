@@ -1,5 +1,5 @@
 {
-  "name": "techscoop",
+  "name": "brentdesk",
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
@@ -11,6 +11,8 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
+    "db:migrate": "drizzle-kit migrate",
+    "seed": "tsx scripts/seed-brentdesk.ts",
     "prerender": "tsx scripts/prerender.ts",
     "sitemaps": "tsx scripts/generate-sitemaps.ts",
     "build:local": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts"

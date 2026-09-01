@@ -3,6 +3,7 @@
  * Manage meta fields, sitemaps, redirects, RSS feeds, indexing rules, hreflang, and SEO health
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { z } from "zod";
 import { eq, desc, like, and, sql, or, count, isNull, inArray } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../_core/trpc";
@@ -395,7 +396,7 @@ export const seoAdminRouter = router({
      * server hasn't seen recently, the operator needs a way to
      * seed them into the table before AI Suggest can run.
      *
-     * Strips https://techscoop.io / http(s):// prefixes so operators
+     * Strips the site base URL / http(s):// prefixes so operators
      * can paste either full URLs or bare paths. Skips URLs that
      * already exist (idempotent) and ignores blank lines.
      */
@@ -417,7 +418,7 @@ export const seoAdminRouter = router({
             .filter(Boolean)
             .map((u) => {
               try {
-                const url = new URL(u, "https://techscoop.io");
+                const url = new URL(u, getBaseUrl());
                 return url.pathname + (url.search || "");
               } catch {
                 return u.startsWith("/") ? u : `/${u}`;
@@ -676,7 +677,7 @@ export const seoAdminRouter = router({
                 {
                   role: "system",
                   content:
-                    "You are an SEO redirect assistant for techscoop.io. Given a broken URL and a list of live URLs, " +
+                    `You are an SEO redirect assistant for ${publication.domain}. Given a broken URL and a list of live URLs, ` +
                     "pick the single best 301 target. Reply ONLY with valid JSON: " +
                     '{"url": "/path", "confidence": 0-100, "reasoning": "<one short sentence>"}. ' +
                     'If no candidate is a good match, return {"url": null, "confidence": 0, "reasoning": "..."} ' +
