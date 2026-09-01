@@ -18,13 +18,21 @@
  * jobs or subscribers. Editorial workflow statuses are seeded by the
  * server itself at boot (workflowService.initializeWorkflows).
  *
- * Run: pnpm tsx scripts/seed-brentdesk.ts
+ * Two entry points share this logic:
+ *   - the CLI wrapper (scripts/seed.ts -> dist/seed.js), run by hand;
+ *   - the server at boot when SEED_ON_BOOT=1, so a fresh deploy on a
+ *     managed platform can bootstrap itself without a container shell.
+ *
+ * Importing this module has no side effects: runSeed() owns its own
+ * connection pool and closes it, and never calls process.exit().
+ *
+ * Run: pnpm seed
  */
 
-import "dotenv/config";
 import bcrypt from "bcryptjs";
 import { publication } from "../shared/publication";
-import { drizzle } from "drizzle-orm/mysql2";
+import mysql from "mysql2/promise";
+import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
 import { eq } from "drizzle-orm";
 import {
   countries,
@@ -39,13 +47,7 @@ import {
   users,
 } from "../drizzle/schema";
 
-const DATABASE_URL = process.env.DATABASE_URL;
-if (!DATABASE_URL) {
-  console.error("DATABASE_URL is required");
-  process.exit(1);
-}
-
-const db = drizzle(DATABASE_URL);
+type SeedDb = MySql2Database<Record<string, never>>;
 
 // ------------------------------------------------------------------
 // Countries
@@ -77,7 +79,7 @@ const COUNTRIES: Array<[string, string, string, string?]> = [
   ["South Korea", "KR", "KOR", "KRW"],
 ];
 
-async function seedCountries() {
+async function seedCountries(db: SeedDb) {
   let added = 0;
   for (const [name, iso2, iso3, currency] of COUNTRIES) {
     const existing = await db.select({ id: countries.id }).from(countries).where(eq(countries.iso2, iso2)).limit(1);
@@ -101,7 +103,7 @@ const EDITIONS: Array<{ name: string; slug: string; iso2: string | null; flag: s
   { name: "Oman", slug: "om", iso2: "OM", flag: "🇴🇲", active: false },
 ];
 
-async function seedEditions() {
+async function seedEditions(db: SeedDb) {
   let added = 0;
   for (const [i, e] of EDITIONS.entries()) {
     const existing = await db.select({ id: editions.id }).from(editions).where(eq(editions.slug, e.slug)).limit(1);
@@ -229,7 +231,7 @@ const EVENTS_CATEGORIES = [
   { name: "Webinar", slug: "events-webinar" },
 ];
 
-async function seedCategories() {
+async function seedCategories(db: SeedDb) {
   let added = 0;
   const upsert = async (row: { name: string; slug: string; module: "news" | "jobs" | "events"; description?: string; parentId?: number | null; sortOrder?: number }) => {
     const existing = await db.select({ id: categories.id }).from(categories).where(eq(categories.slug, row.slug)).limit(1);
@@ -275,7 +277,7 @@ const SECTORS = [
 const slugify = (s: string) =>
   s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
-async function seedSectors() {
+async function seedSectors(db: SeedDb) {
   let added = 0;
   for (const name of SECTORS) {
     const slug = slugify(name);
@@ -299,7 +301,7 @@ const ROLES = [
   { name: "user", displayName: "User", description: "Registered reader" },
 ];
 
-async function seedRoles() {
+async function seedRoles(db: SeedDb) {
   let added = 0;
   for (const role of ROLES) {
     const existing = await db.select({ id: roles.id }).from(roles).where(eq(roles.name, role.name)).limit(1);
@@ -339,7 +341,7 @@ const AD_SLOTS: Array<{ key: string; name: string; page: string; position: strin
   { key: "mobile-sticky-bottom", name: "Mobile Sticky Bottom", page: "global", position: "sticky-bottom", dimensions: "320x50" },
 ];
 
-async function seedAdSlots() {
+async function seedAdSlots(db: SeedDb) {
   let added = 0;
   for (const slot of AD_SLOTS) {
     const existing = await db.select({ id: adSlots.id }).from(adSlots).where(eq(adSlots.slotKey, slot.key)).limit(1);
@@ -362,7 +364,7 @@ async function seedAdSlots() {
 // a clearly-labeled ADVERTISEMENT during development and before direct
 // campaigns are sold. Served at the lowest priority by the ad engine.
 // ------------------------------------------------------------------
-async function seedHouseAds() {
+async function seedHouseAds(db: SeedDb) {
   const existing = await db.select({ id: adCampaigns.id }).from(adCampaigns).where(eq(adCampaigns.name, "BrentDesk House")).limit(1);
   if (existing.length) {
     console.log("[seed] house ads: already present");
@@ -417,7 +419,7 @@ async function seedHouseAds() {
 // ------------------------------------------------------------------
 // Homepage sections — CMS-driven homepage
 // ------------------------------------------------------------------
-async function seedHomepageSections() {
+async function seedHomepageSections(db: SeedDb) {
   const catId = async (slug: string) => {
     const [c] = await db.select({ id: categories.id }).from(categories).where(eq(categories.slug, slug)).limit(1);
     return c?.id ?? null;
@@ -450,7 +452,7 @@ async function seedHomepageSections() {
 // ------------------------------------------------------------------
 // Optional admin user
 // ------------------------------------------------------------------
-async function seedAdminUser() {
+async function seedAdminUser(db: SeedDb) {
   const email = process.env.ADMIN_EMAIL;
   const password = process.env.ADMIN_PASSWORD;
   if (!email || !password) {
@@ -475,21 +477,28 @@ async function seedAdminUser() {
   console.log(`[seed] admin user: created (${email})`);
 }
 
-async function main() {
-  await seedCountries();
-  await seedEditions();
-  await seedCategories();
-  await seedSectors();
-  await seedRoles();
-  await seedAdSlots();
-  await seedHouseAds();
-  await seedHomepageSections();
-  await seedAdminUser();
-  console.log("[seed] BrentDesk bootstrap complete");
-  process.exit(0);
-}
+/**
+ * Seed the system data BrentDesk needs to boot and be operated.
+ * Idempotent. Throws on failure; the caller decides what that means.
+ */
+export async function runSeed(): Promise<void> {
+  const url = process.env.DATABASE_URL;
+  if (!url) throw new Error("DATABASE_URL is required");
 
-main().catch((err) => {
-  console.error("[seed] failed:", err);
-  process.exit(1);
-});
+  const pool = mysql.createPool(url);
+  const db = drizzle(pool) as SeedDb;
+  try {
+    await seedCountries(db);
+    await seedEditions(db);
+    await seedCategories(db);
+    await seedSectors(db);
+    await seedRoles(db);
+    await seedAdSlots(db);
+    await seedHouseAds(db);
+    await seedHomepageSections(db);
+    await seedAdminUser(db);
+    console.log("[seed] BrentDesk bootstrap complete");
+  } finally {
+    await pool.end();
+  }
+}
