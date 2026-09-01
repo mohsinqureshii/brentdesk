@@ -1,0 +1,136 @@
+{
+  "results": [
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/002.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 100,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 2
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/006.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 100,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 6
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/027.json",
+      "output": {
+        "blocking_issue": "This specific launch provides a concrete news angle distinct from generic AI or cloud announcements, giving IT decision-makers actionable pathways for digital infrastructure updates. — NA",
+        "confidence": 100,
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 27
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/034.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 100,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 34
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/042.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 100,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 42
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/045.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 100,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 45
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/056.json",
+      "output": {
+        "blocking_issue": "lowering the overall complexity of the surface transport network. — remove the duplicate phrase",
+        "confidence": 100,
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 56
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/065.json",
+      "output": {
+        "blocking_issue": "The AI Smart Collection system analyzes customer data to personalize communication and improve collection efficiency across multiple channels, offering accurate and proactive interactions. — Delete the second instance of this sentence.",
+        "confidence": 100,
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 65
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/072.json",
+      "output": {
+        "blocking_issue": "This distinct hardware focus highlights the intersection of religious practice and modern consumer electronics, offering a concrete product launch story that avoids general event overviews or infrastructure announcements. — Remove the exact repeated sentence.",
+        "confidence": 100,
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 72
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/077.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 95,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 77
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/093.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 95,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 93
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/095.json",
+      "output": {
+        "blocking_issue": "NA",
+        "confidence": 100,
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 95
+      },
+      "error": ""
+    }
+  ]
+}

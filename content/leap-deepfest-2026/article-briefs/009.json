@@ -1,0 +1,194 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 9,
+    "candidate_id": "R011",
+    "canonical_announcement_key": "Lenovo unveils first Saudi-manufactured laptop; Riyadh facility with ALAT",
+    "selection_reason": "Lenovo newsroom confirms first locally built laptop, facility scope and timeline; tangible manufacturing milestone.",
+    "title": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production",
+    "slug": "lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T12:58:06+03:00",
+    "display_datetime_utc": "2026-08-31T09:58:06Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Lenovo has officially unveiled its first laptop manufactured in Saudi Arabia at LEAP 2026. The device was produced at Lenovo's new Riyadh manufacturing facility, which was developed in strategic partnership with ALAT. This marks a major…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Lenovo",
+      "ALAT",
+      "Human Resources Development Fund",
+      "Ministry of Industry and Mineral Resources"
+    ],
+    "people_names": [
+      "Tareq Alangari",
+      "Dr. Muhammad Aldawood",
+      "Dr. Rabeah Alzaidy"
+    ],
+    "topic_names": [
+      "Digital Government",
+      "Future of Work",
+      "Industry 4.0",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Digital Government",
+      "Future of Work",
+      "Industry 4.0",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "Lenovo",
+      "ALAT",
+      "Human Resources Development Fund",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Lenovo Saudi Arabia laptop",
+      "keywords": [
+        "Lenovo Saudi Arabia laptop",
+        "Saudi-made laptop",
+        "Lenovo Riyadh manufacturing",
+        "LEAP 2026 Lenovo",
+        "ALAT Lenovo partnership",
+        "Vision 2030 technology",
+        "Middle East tech manufacturing",
+        "Saudi tech talent"
+      ],
+      "seo_title": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of…",
+      "seo_description": "Lenovo has officially unveiled its first laptop manufactured in Saudi Arabia at LEAP 2026. The device was produced at Lenovo's new Riyadh manufacturing…",
+      "og_title": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production",
+      "og_description": "Lenovo has officially unveiled its first laptop manufactured in Saudi Arabia at LEAP 2026. The device was produced at Lenovo's new Riyadh manufacturing facility, which was developed in strategic…",
+      "google_news_keywords": [
+        "Lenovo Saudi Arabia laptop",
+        "Saudi-made laptop",
+        "Lenovo Riyadh manufacturing",
+        "LEAP 2026 Lenovo",
+        "ALAT Lenovo partnership",
+        "Vision 2030 technology",
+        "Middle East tech manufacturing",
+        "Saudi tech talent"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Lenovo Unveils First Laptop Manufactured in Saudi Arabia, Supporting the Kingdom’s Vision for Advanced Manufacturing",
+      "primary_url": "https://news.lenovo.com/pressroom/press-releases/unveils-first-laptop-manufactured-saudi-arabia-supporting-the-kingdoms-vision-for-advanced-manufacturing/",
+      "supporting_urls": [
+        "https://arabianreseller.com/2026/08/31/lenovo-unveils-first-laptop-manufactured-in-saudi-arabia/"
+      ],
+      "verified_angle_summary": "Lenovo has officially unveiled its first laptop manufactured in Saudi Arabia at LEAP 2026. The device was produced at Lenovo's new Riyadh manufacturing facility, which was developed in strategic partnership with ALAT. This marks a major step in establishing Saudi Arabia as a global technology manufacturing hub aligned with Vision 2030. The facility is the first globally capable of producing Lenovo's full portfolio, including PCs, desktops, Motorola smartphones, and servers. Mass production of limited products is expected to begin in late 2026. The announcement highlights not only hardware production but also local talent development, with Saudi engineers receiving specialized training at Lenovo's global facilities, and the appointment of Dr. Rabeah Alzaidy to lead local R&D initiatives. This angle is distinct as it focuses on the tangible realization of a previously announced partnership (the physical laptop debut at LEAP 2026) and the upcoming mass production phase.",
+      "verified_key_facts": "Lenovo unveiled its first Saudi-made laptop at LEAP 2026; The laptop was produced at Lenovo's manufacturing facility in Riyadh; Mass production of select products is slated to begin in late 2026; The facility was established through a strategic partnership with ALAT; The Riyadh site is Lenovo's first global facility capable of producing its full portfolio (PCs, desktops, Motorola smartphones, servers); Lenovo appointed Dr. Rabeah Alzaidy to lead R&D initiatives in Saudi Arabia; The first cohort of Saudi engineers has completed specialized training at Lenovo's global manufacturing facilities; The initiative is supported by the Human Resources Development Fund and the Ministry of Industry and Mineral Resources.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://news.lenovo.com/wp-content/uploads/2025/02/Lenovo-and-Alat-Announcement.jpg",
+      "credit": "Lenovo",
+      "license_note": "Official press release image from Lenovo Newsroom, generally cleared for editorial use.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production — LEAP and DeepFest 2026 news",
+      "caption_template": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Lenovo has officially unveiled its first laptop manufactured in Saudi Arabia at LEAP 2026. The device was produced at Lenovo's new Riyadh manufacturing facility, which was developed in strategic partnership with ALAT. This marks a major step in establishing Saudi Arabia as a global technology manufacturing hub aligned with Vision 2030. The facility is the first globally capable of producing Lenovo's full portfolio, including PCs, desktops, Motorola smartphones, and servers. Mass production of limited products is expected to begin in late 2026. The announcement highlights not only hardware production but also local talent development, with Saudi engineers receiving specialized training at Lenovo's global facilities, and the appointment of Dr. Rabeah Alzaidy to lead local R&D initiatives. This angle is distinct as it focuses on the tangible realization of a previously announced partnership (the physical laptop debut at LEAP 2026) and the upcoming mass production phase.",
+      "key_facts": "Lenovo unveiled its first Saudi-made laptop at LEAP 2026; The laptop was produced at Lenovo's manufacturing facility in Riyadh; Mass production of select products is slated to begin in late 2026; The facility was established through a strategic partnership with ALAT; The Riyadh site is Lenovo's first global facility capable of producing its full portfolio (PCs, desktops, Motorola smartphones, servers); Lenovo appointed Dr. Rabeah Alzaidy to lead R&D initiatives in Saudi Arabia; The first cohort of Saudi engineers has completed specialized training at Lenovo's global manufacturing facilities; The initiative is supported by the Human Resources Development Fund and the Ministry of Industry and Mineral Resources.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 9,
+    "candidate_id": "R011",
+    "slug": "lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/009-lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production.webp",
+    "filename": "009-lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production.webp",
+    "mime_type": "image/webp",
+    "size": 213774,
+    "width": 1600,
+    "height": 900,
+    "sha256": "337737ac9816d371f521560afc1f78363c33f81323165471c67a8c6d81b37a36",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production — LEAP and DeepFest 2026 news",
+    "caption": "Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/009.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

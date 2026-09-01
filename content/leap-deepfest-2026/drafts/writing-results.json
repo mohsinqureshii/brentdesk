@@ -1,0 +1,1204 @@
+{
+  "results": [
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/001.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/lqB9EEcDl914QzWp5wnm04/sandbox/0EPuda2V0CzOkBA3CeEnSh_1788199957289_na1fn_L2hvbWUvdWJ1bnR1LzAwMS1hd3MtdG8tbGF1bmNoLXNhdWRpLWNsb3VkLXJlZ2lvbi1pbi1kZWNlbWJlci0yMDI2LXdpdGgtaHVtYWluLWFpLXpvbmU.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbHFCOUVFY0RsOTE0UXpXcDV3bm0wNC9zYW5kYm94LzBFUHVkYTJWMEN6T2tCQTNDZUVuU2hfMTc4ODE5OTk1NzI4OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd01TMWhkM010ZEc4dGJHRjFibU5vTFhOaGRXUnBMV05zYjNWa0xYSmxaMmx2YmkxcGJpMWtaV05sYldKbGNpMHlNREkyTFhkcGRHZ3RhSFZ0WVdsdUxXRnBMWHB2Ym1VLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEMCHyNJFiiFHXvlgZHOx4uZak2Gm2YBgHlF86Xp~CXyZWsCIBsmdL~xVPRcBi1Vg2EyYR1eRSXlkDv9OP~IqkGKP5EB",
+        "sequence": 1,
+        "slug": "aws-to-launch-saudi-cloud-region-in-december-2026-with-humain-ai-zone",
+        "source_count": 2,
+        "word_count": 1200,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/002.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/qy7PLukoMtaTrRxoA77Iia/sandbox/zGqWyjUkr3fjdONE1QO84V_1788199937424_na1fn_L2hvbWUvdWJ1bnR1LzAwMi1odW1haW4tYW5kLWRhdGF2b2x0LWJyZWFrLWdyb3VuZC1vbi0xMDBtdy1haS1kYXRhLWNlbnRlci1hdC1uZW9t.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcXk3UEx1a29NdGFUclJ4b0E3N0lpYS9zYW5kYm94L3pHcVd5alVrcjNmamRPTkUxUU84NFZfMTc4ODE5OTkzNzQyNF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd01pMW9kVzFoYVc0dFlXNWtMV1JoZEdGMmIyeDBMV0p5WldGckxXZHliM1Z1WkMxdmJpMHhNREJ0ZHkxaGFTMWtZWFJoTFdObGJuUmxjaTFoZEMxdVpXOXQuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQDCJ9puthP3SiuEaqtOH0ZksOS-uML1XIKK9JwcE16xJQIhAOY1y4Bb~W7Q~XFMFeeVyuHJSQzKzKXpyjrYtsiSWpwP",
+        "sequence": 2,
+        "slug": "humain-and-datavolt-break-ground-on-100mw-ai-data-center-at-neom",
+        "source_count": 4,
+        "word_count": 867,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/003.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/4doE138JnukZadvESH4oKK/sandbox/xdlTUWcNgAw08JhdVFHxy7_1788199959415_na1fn_L2hvbWUvdWJ1bnR1LzAwMy1hZG9iZS1ncmFudHMtNGItaW4tZnJlZS1haS10b29scy10by0yN20tc2F1ZGktcmVzaWRlbnRz.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNGRvRTEzOEpudWtaYWR2RVNING9LSy9zYW5kYm94L3hkbFRVV2NOZ0F3MDhKaGRWRkh4eTdfMTc4ODE5OTk1OTQxNV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd015MWhaRzlpWlMxbmNtRnVkSE10TkdJdGFXNHRabkpsWlMxaGFTMTBiMjlzY3kxMGJ5MHlOMjB0YzJGMVpHa3RjbVZ6YVdSbGJuUnouanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQCuD4p5u2uzBt4PLvbRk~8Q9ua5a0Omozi9tE43Ksg~bAIhAOXKHr4qG14UXqugKX3886d3nGyTUAEdRXTo4~E3Lkhg",
+        "sequence": 3,
+        "slug": "adobe-grants-4b-in-free-ai-tools-to-27m-saudi-residents",
+        "source_count": 4,
+        "word_count": 1034,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/004.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/mBaDAfuQBU9wMaAQIdonKU/sandbox/WnwwuAEkt65ehzPjjlolAE_1788199955597_na1fn_L2hvbWUvdWJ1bnR1LzAwNC1ob25vci10by11bnZlaWwtd29ybGQtcy1maXJzdC1yb2JvdC1waG9uZS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbUJhREFmdVFCVTl3TWFBUUlkb25LVS9zYW5kYm94L1dud3d1QUVrdDY1ZWh6UGpqbG9sQUVfMTc4ODE5OTk1NTU5N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd05DMW9iMjV2Y2kxMGJ5MTFiblpsYVd3dGQyOXliR1F0Y3kxbWFYSnpkQzF5YjJKdmRDMXdhRzl1WlMxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQCFEMp9tX92iDwGPAOSt6dcCJmeN0RK~HGciCrguC7PswIhAOxR2c78a~dbyqssI26z6ToFQlbnKsFWL9KIksGNQFBZ",
+        "sequence": 4,
+        "slug": "honor-to-unveil-world-s-first-robot-phone-at-leap-2026",
+        "source_count": 1,
+        "word_count": 950,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/005.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/MUrGJb6Gs57wI0XB5Kp0Pl/sandbox/7dBOjBeqMakbsJWJTF2nTd_1788199937056_na1fn_L2hvbWUvdWJ1bnR1LzAwNS1hbWQtbWNpdC1hbmQtZGNvLWxhdW5jaC1vcGVuLWFpLWRldmVsb3Blci1lY29zeXN0ZW0tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTVVyR0piNkdzNTd3STBYQjVLcDBQbC9zYW5kYm94LzdkQk9qQmVxTWFrYnNKV0pURjJuVGRfMTc4ODE5OTkzNzA1Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd05TMWhiV1F0YldOcGRDMWhibVF0WkdOdkxXeGhkVzVqYUMxdmNHVnVMV0ZwTFdSbGRtVnNiM0JsY2kxbFkyOXplWE4wWlcwdFlYUXRiR1ZoY0MweU1ESTIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIBT~obKDVCoiVAdyOfynD~-GoJeqZ8diNs4DfN3MqXqvAiBL175E54rT~u3eJy6dmHIPIbq-qS5b~jcz0Jmp0ad1eg__",
+        "sequence": 5,
+        "slug": "amd-mcit-and-dco-launch-open-ai-developer-ecosystem-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1021,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/006.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/PTmT87RLfeHLpbSD3kkYiL/sandbox/l1jzP8DN4lEjY2A2hiN1nR_1788199970223_na1fn_L2hvbWUvdWJ1bnR1LzAwNi1odW1haW4tYW5kLW1pbmlvLXBhcnRuZXItdG8tYnVpbGQtYWktbmF0aXZlLWRhdGEtZmFicmljLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUFRtVDg3UkxmZUhMcGJTRDNra1lpTC9zYW5kYm94L2wxanpQOERONGxFalkyQTJoaU4xblJfMTc4ODE5OTk3MDIyM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd05pMW9kVzFoYVc0dFlXNWtMVzFwYm1sdkxYQmhjblJ1WlhJdGRHOHRZblZwYkdRdFlXa3RibUYwYVhabExXUmhkR0V0Wm1GaWNtbGpMV0YwTFd4bFlYQXRNakF5TmcuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDp8NYciloHj~igPc4T9EyRqW1QHJcnsLhA8eNQgQDPOQIgBrv9139J44GOzjC45ZgL87W0nOZHgYgrk8jI317lgyk_",
+        "sequence": 6,
+        "slug": "humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+        "source_count": 1,
+        "word_count": 899,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/007.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/ug9T8j7vT2XJ3bdxozpmDd/sandbox/hUOhy5oQ9LCefZQz3iZJvi_1788199976712_na1fn_L2hvbWUvdWJ1bnR1LzAwNy1odW1haW4tYW5kLWtvcmEtY28tZGV2ZWxvcC1haS1uYXRpdmUtbGludXgtb3MtZm9yLTIwMjctbGF1bmNo.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdWc5VDhqN3ZUMlhKM2JkeG96cG1EZC9zYW5kYm94L2hVT2h5NW9ROUxDZWZaUXozaVpKdmlfMTc4ODE5OTk3NjcxMl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd055MW9kVzFoYVc0dFlXNWtMV3R2Y21FdFkyOHRaR1YyWld4dmNDMWhhUzF1WVhScGRtVXRiR2x1ZFhndGIzTXRabTl5TFRJd01qY3RiR0YxYm1Oby5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDgoWfBM0LVHVD-WmerEYuwDavaMB28am2vtnd95xSJlwIgMNc73kjqPW-2mkOzIoIHtKFfDcRKAwlcbE~-RfJjkWY_",
+        "sequence": 7,
+        "slug": "humain-and-kora-co-develop-ai-native-linux-os-for-2027-launch",
+        "source_count": 2,
+        "word_count": 945,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/008.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/rNLI5QNT3GHZuzTG3hCSB3/sandbox/TtJE0vLp2U5rxRHdepjVR9_1788199982648_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAwOC1hY2VzLWFuZC1tb3ZhbmRpLXBhcnRuZXItb24tc2F1ZGktNWctYW5kLTZnLWluZnJhc3RydWN0dXJl.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvck5MSTVRTlQzR0hadXpURzNoQ1NCMy9zYW5kYm94L1R0SkUwdkxwMlU1cnhSSGRlcGpWUjlfMTc4ODE5OTk4MjY0OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF3T0MxaFkyVnpMV0Z1WkMxdGIzWmhibVJwTFhCaGNuUnVaWEl0YjI0dGMyRjFaR2t0TldjdFlXNWtMVFpuTFdsdVpuSmhjM1J5ZFdOMGRYSmwuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIHk91ZOh364c-vH2RoLnz-p6i-f8KU6RVq5eKNLNUia3AiEAxMXJ7FjOQ80pcsf0-zfEViPWBSMTQPJaRbsP-8GYy3Q_",
+        "sequence": 8,
+        "slug": "aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure",
+        "source_count": 3,
+        "word_count": 1223,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/009.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/vl9Euwm0yDhpUUCDxiCQfa/sandbox/ft2o6umoqiiVqMpiOnV7Du_1788199945806_na1fn_L2hvbWUvdWJ1bnR1LzAwOS1sZW5vdm8tdW52ZWlscy1maXJzdC1zYXVkaS1tYWRlLWxhcHRvcC1hdC1sZWFwLTIwMjYtYWhlYWQtb2YtbWFzcy1wcm9kdWN0aW9u.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdmw5RXV3bTB5RGhwVVVDRHhpQ1FmYS9zYW5kYm94L2Z0Mm82dW1vcWlpVnFNcGlPblY3RHVfMTc4ODE5OTk0NTgwNl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBd09TMXNaVzV2ZG04dGRXNTJaV2xzY3kxbWFYSnpkQzF6WVhWa2FTMXRZV1JsTFd4aGNIUnZjQzFoZEMxc1pXRndMVEl3TWpZdFlXaGxZV1F0YjJZdGJXRnpjeTF3Y205a2RXTjBhVzl1Lmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCH3VyrIZwo608DVLN6PvtBBd0XJbjmnK2AQQM-3RJBnkCIQDodnInB5HOSIYUf14BSh2RQufApPJbSRil1QgUQHWzuQ__",
+        "sequence": 9,
+        "slug": "lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production",
+        "source_count": 2,
+        "word_count": 1097,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/010.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/AUEDBVUSGSScnhL1z4KM1m/sandbox/LUEoc5XdOYGr57dC5rKJ4L_1788199962743_na1fn_L2hvbWUvdWJ1bnR1LzAxMC1wYXNxYWwtYW5kLWthY3N0LWxhdW5jaC1xdWFudHVtLWNyeXB0b2dyYXBoeS1yZXNlYXJjaC1haGVhZC1vZi1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQVVFREJWVVNHU1NjbmhMMXo0S00xbS9zYW5kYm94L0xVRW9jNVhkT1lHcjU3ZEM1cktKNExfMTc4ODE5OTk2Mjc0M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeE1DMXdZWE54WVd3dFlXNWtMV3RoWTNOMExXeGhkVzVqYUMxeGRXRnVkSFZ0TFdOeWVYQjBiMmR5WVhCb2VTMXlaWE5sWVhKamFDMWhhR1ZoWkMxdlppMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCwyH7NimAScTwU606WyM6VMi5fLWwOhkLxnde6hsU-4QIgPCtK9CUZny-4feMjYX3Qbvd9aTRfVVvmdqrFy81Row8_",
+        "sequence": 10,
+        "slug": "pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+        "source_count": 2,
+        "word_count": 888,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/011.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/B6uh5w65HEo03Yoq1Az3wD/sandbox/9MwIWWltpM52f3voYGdrjW_1788199953056_na1fn_L2hvbWUvdWJ1bnR1LzAxMS1kYXRhLWR5bmFtaWNzLWxhdW5jaGVzLWVudGVycHJpc2UtMi0wLTUtYXQtbGVhcC0yMDI2LXRvLXNvbHZlLWFpLWRhdGEtZ292ZXJuYW5jZS1ib3R0bGVuZWNr.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQjZ1aDV3NjVIRW8wM1lvcTFBejN3RC9zYW5kYm94LzlNd0lXV2x0cE01MmYzdm9ZR2RyaldfMTc4ODE5OTk1MzA1Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeE1TMWtZWFJoTFdSNWJtRnRhV056TFd4aGRXNWphR1Z6TFdWdWRHVnljSEpwYzJVdE1pMHdMVFV0WVhRdGJHVmhjQzB5TURJMkxYUnZMWE52YkhabExXRnBMV1JoZEdFdFoyOTJaWEp1WVc1alpTMWliM1IwYkdWdVpXTnIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCICStp9tYxcnHWoqoxd5Fzgy7wf2f51Or86NxGfcmoCRYAiEArqJjhO7~8H62cJZKqSSAegNQfLqW5wL2d8By95q2kBg_",
+        "sequence": 11,
+        "slug": "data-dynamics-launches-enterprise-2-0-5-at-leap-2026-to-solve-ai-data-governance-bottleneck",
+        "source_count": 2,
+        "word_count": 985,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/012.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/q1UTA1HaXWnhgW2qtu1yut/sandbox/Y4mpT73kNOFIq9782KozTx_1788199947326_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2L2FydGljbGUtYnJpZWZzLzAxMi10aGluay11bnZlaWxzLXRoaW5rLWZhYnJpYy1hdC1sZWFwLTIwMjYtdG8tb3B0aW1pemUtYmFyZS1tZXRhbC1haS1jb21wdXRl.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcTFVVEExSGFYV25oZ1cycXR1MXl1dC9zYW5kYm94L1k0bXBUNzNrTk9GSXE5NzgyS296VHhfMTc4ODE5OTk0NzMyNl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMMkZ5ZEdsamJHVXRZbkpwWldaekx6QXhNaTEwYUdsdWF5MTFiblpsYVd4ekxYUm9hVzVyTFdaaFluSnBZeTFoZEMxc1pXRndMVEl3TWpZdGRHOHRiM0IwYVcxcGVtVXRZbUZ5WlMxdFpYUmhiQzFoYVMxamIyMXdkWFJsLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDcF8LeOgwrWchLYxO9ZautKjo3upwk43CK75TAj9Y6jQIgE3bsK3xAOAuY9Wir7YyVgkA3KbQ-qFvN62BjsmRdiRo_",
+        "sequence": 12,
+        "slug": "think-unveils-think-fabric-at-leap-2026-to-optimize-bare-metal-ai-compute",
+        "source_count": 3,
+        "word_count": 1190,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/013.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/5dmzSab7gnpAgj7YMbXFK7/sandbox/BbdadcJCmAi4rOpMGxW1S9_1788199937738_na1fn_L2hvbWUvdWJ1bnR1LzAxMy1uZXRhcHAtc2hvd2Nhc2VzLWFpLXJlYWR5LWRhdGEtaW5mcmFzdHJ1Y3R1cmUtYW5kLWF1dG9ub21vdXMtc2VjdXJpdHktYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvNWRtelNhYjdnbnBBZ2o3WU1iWEZLNy9zYW5kYm94L0JiZGFkY0pDbUFpNHJPcE1HeFcxUzlfMTc4ODE5OTkzNzczOF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeE15MXVaWFJoY0hBdGMyaHZkMk5oYzJWekxXRnBMWEpsWVdSNUxXUmhkR0V0YVc1bWNtRnpkSEoxWTNSMWNtVXRZVzVrTFdGMWRHOXViMjF2ZFhNdGMyVmpkWEpwZEhrdFlYUXRiR1ZoY0MweU1ESTIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCx~vZ9s2twL18MzNmymTKsvQ3v3fKApkNXWzRbmtadUwIgBJnnyNrard5dfO9fdO0YDEadP8b3ZLTdPvbWIogwQ~4_",
+        "sequence": 13,
+        "slug": "netapp-showcases-ai-ready-data-infrastructure-and-autonomous-security-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1117,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/014.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/3LSRGuO9CBqXloGbXe0k5c/sandbox/4v8I2DtPysrd6WA0Nf0Pfd_1788199961832_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAxNC1pZnMtYW5kLW1pY3Jvc29mdC1zaG93Y2FzZS1yZWFsLXdvcmxkLWluZHVzdHJpYWwtYWktYXBwbGljYXRpb25zLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvM0xTUkd1TzlDQnFYbG9HYlhlMGs1Yy9zYW5kYm94LzR2OEkyRHRQeXNyZDZXQTBOZjBQZmRfMTc4ODE5OTk2MTgzMl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF4TkMxcFpuTXRZVzVrTFcxcFkzSnZjMjltZEMxemFHOTNZMkZ6WlMxeVpXRnNMWGR2Y214a0xXbHVaSFZ6ZEhKcFlXd3RZV2t0WVhCd2JHbGpZWFJwYjI1ekxXRjBMV3hsWVhBdE1qQXlOZy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIGbatmxgNCdNtU8gQWJgo6ipEgDROM7o1B~tOZoy0sM5AiBxEMCUKBqdkiDwG7HNWNtzu6sLmvnIa-N~b96gXNx8jA__",
+        "sequence": 14,
+        "slug": "ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026",
+        "source_count": 2,
+        "word_count": 950,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/015.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/8QtoWcwTvleNts95lKtdEy/sandbox/owsXUCkxrPEVfC8fGWMAhS_1788199992950_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAxNS1zbW9ibGVyLWV4cGxvcmVzLXJvYmluLWFpLWV4cGFuc2lvbi10by1oYWxhbC1jb21wbGlhbmNlLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOFF0b1djd1R2bGVOdHM5NWxLdGRFeS9zYW5kYm94L293c1hVQ2t4clBFVmZDOGZHV01BaFNfMTc4ODE5OTk5Mjk1MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF4TlMxemJXOWliR1Z5TFdWNGNHeHZjbVZ6TFhKdlltbHVMV0ZwTFdWNGNHRnVjMmx2YmkxMGJ5MW9ZV3hoYkMxamIyMXdiR2xoYm1ObExXRjBMV3hsWVhBdE1qQXlOZy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQDk5akfk749vxW1G3tbUf0UvcoS93YZ23kkCZNqp6L6OgIhAObQMQVa7bZ1ZExpNPVY17QdzQdtj-wMmnn-tMatTVza",
+        "sequence": 15,
+        "slug": "smobler-explores-robin-ai-expansion-to-halal-compliance-at-leap-2026",
+        "source_count": 2,
+        "word_count": 894,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/016.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/qjbzNSzgooVDBPvhj9mHE4/sandbox/E5uIHzeFdfBUkkBITXrkWH_1788199967837_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAxNi12b2lzZXQtMi0wLWJyaW5ncy1haS12b2ljZS1wbGFubmluZy1hbmQtZnVsbC1hcmFiaWMtc3VwcG9ydC10by1tZW5hLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcWpiek5Temdvb1ZEQlB2aGo5bUhFNC9zYW5kYm94L0U1dUlIemVGZGZCVWtrQklUWHJrV0hfMTc4ODE5OTk2NzgzN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF4TmkxMmIybHpaWFF0TWkwd0xXSnlhVzVuY3kxaGFTMTJiMmxqWlMxd2JHRnVibWx1WnkxaGJtUXRablZzYkMxaGNtRmlhV010YzNWd2NHOXlkQzEwYnkxdFpXNWhMV0YwTFd4bFlYQXRNakF5TmcuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQC6bx51GDsx8nTZnRfZi2tz9xemqD1g7oBgZrBuC6jWPQIhAO30D46Hq0Buy9hko~hI2EG-0Ro2esz59BfikC98FwcV",
+        "sequence": 16,
+        "slug": "voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026",
+        "source_count": 2,
+        "word_count": 951,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/017.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/91XzsoiiDAA7ZFxgxmBvFK/sandbox/6OSFltLIRISq96zLQzaJpZ_1788199949948_na1fn_L2hvbWUvdWJ1bnR1LzAxNy1zYWxhbS11bnZlaWxzLWFpLWVuYWJsZWQtY2xvdWQtYW5kLWNvbm5lY3Rpdml0eS1pbmZyYXN0cnVjdHVyZS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOTFYenNvaWlEQUE3WkZ4Z3htQnZGSy9zYW5kYm94LzZPU0ZsdExJUklTcTk2ekxRemFKcFpfMTc4ODE5OTk0OTk0OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeE55MXpZV3hoYlMxMWJuWmxhV3h6TFdGcExXVnVZV0pzWldRdFkyeHZkV1F0WVc1a0xXTnZibTVsWTNScGRtbDBlUzFwYm1aeVlYTjBjblZqZEhWeVpTMWhkQzFzWldGd0xUSXdNalkuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIHAlnrOdslyOaVqEi98~5KlfNzE-gJGzagbZ0LXrRBCsAiA14~9SRB~-5NuehfjJ0oeTmEwFU81ws9qy2BGVn1XDUQ__",
+        "sequence": 17,
+        "slug": "salam-unveils-ai-enabled-cloud-and-connectivity-infrastructure-at-leap-2026",
+        "source_count": 3,
+        "word_count": 985,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/018.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/WxGSdb0sbc6ooH2evIxOsp/sandbox/fyoRWgzyahcVg95S3JuYS3_1788199936332_na1fn_L2hvbWUvdWJ1bnR1LzAxOC1tYW5uYWktaXQtc2F1ZGktc2hvd2Nhc2VzLWFpLWZvci1zbWFydC1jaXRpZXMtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvV3hHU2RiMHNiYzZvb0gyZXZJeE9zcC9zYW5kYm94L2Z5b1JXZ3p5YWhjVmc5NVMzSnVZUzNfMTc4ODE5OTkzNjMzMl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeE9DMXRZVzV1WVdrdGFYUXRjMkYxWkdrdGMyaHZkMk5oYzJWekxXRnBMV1p2Y2kxemJXRnlkQzFqYVhScFpYTXRZWFF0YkdWaGNDMHlNREkyLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIBfbOXPDIhF2yr7hEiRdoU5ihUUtvZ8tbDgpI1LpGnywAiEA1aoNc2PxWGf0CG55d8rFzrYrVoNvjE0WFRMhs83PRDE_",
+        "sequence": 18,
+        "slug": "mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1200,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/019.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/a9zBCwuhjbkASBvt4o4hQA/sandbox/sbemJDQlXNp9jSTw4ae4MW_1788199959551_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAxOS1hd3MtbGF1bmNoZXMtZnJlZS1haS1hY2FkZW15LWFuZC1oYWNrYXRob24tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYTl6QkN3dWhqYmtBU0J2dDRvNGhRQS9zYW5kYm94L3NiZW1KRFFsWE5wOWpTVHc0YWU0TVdfMTc4ODE5OTk1OTU1MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF4T1MxaGQzTXRiR0YxYm1Ob1pYTXRabkpsWlMxaGFTMWhZMkZrWlcxNUxXRnVaQzFvWVdOcllYUm9iMjR0WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCICrjQ4VaihaxWpvNmaIzLkAoVOPgwkkMxBKe9YOJmQR8AiBDumi9Yc2-QMzuub7jn3GOwyvYKgA7KDEA86RxcsVAkQ__",
+        "sequence": 19,
+        "slug": "aws-launches-free-ai-academy-and-hackathon-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1028,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/020.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/XxAlRil1nkuBZKEXxM8THT/sandbox/LZSjmnMc1EQEpogCGpxWHz_1788199949914_na1fn_L2hvbWUvdWJ1bnR1LzAyMC1zcGVjaWFsaXplZC1ieS1zdGMtdW52ZWlscy1uYXRpb25hbC1jYXBhYmlsaXR5LWxheWVycy1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWHhBbFJpbDFua3VCWktFWHhNOFRIVC9zYW5kYm94L0xaU2ptbk1jMUVRRXBvZ0NHcHhXSHpfMTc4ODE5OTk0OTkxNF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU1DMXpjR1ZqYVdGc2FYcGxaQzFpZVMxemRHTXRkVzUyWldsc2N5MXVZWFJwYjI1aGJDMWpZWEJoWW1sc2FYUjVMV3hoZVdWeWN5MWhkQzFzWldGd0xUSXdNalkuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDCMnEg5LTxdgU9ci~OXKIAMW6ywvKIg0zFLm~jE6CSTAiBNSBiyoeymr5qFilP5w54WUCeYdIVziaiaI61lbGY6Nw__",
+        "sequence": 20,
+        "slug": "specialized-by-stc-unveils-national-capability-layers-at-leap-2026",
+        "source_count": 4,
+        "word_count": 1154,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/021.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/99w4eshMyaj4DYBDN9QPwW/sandbox/x1FunhkuNm7IIngM8Kv7TE_1788200008640_na1fn_L2hvbWUvdWJ1bnR1LzAyMS1lcmljc3Nvbi1zaG93Y2FzZXMtNWctYWR2YW5jZWQtYW5kLWFpLW5ldHdvcmtzLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOTl3NGVzaE15YWo0RFlCRE45UVB3Vy9zYW5kYm94L3gxRnVuaGt1Tm03SUluZ004S3Y3VEVfMTc4ODIwMDAwODY0MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU1TMWxjbWxqYzNOdmJpMXphRzkzWTJGelpYTXROV2N0WVdSMllXNWpaV1F0WVc1a0xXRnBMVzVsZEhkdmNtdHpMV0YwTFd4bFlYQXRNakF5TmcuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIGnqT0M485fC6o0huc5-8-9bD7eD46iUrUcQ9RXcohmZAiEA2GheCX0QX3tW~Oh2tSP8V56Q~Rcszp~ag5eSEWRWeJQ_",
+        "sequence": 21,
+        "slug": "ericsson-showcases-5g-advanced-and-ai-networks-at-leap-2026",
+        "source_count": 3,
+        "word_count": 983,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/022.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/VDaF6vvQh1Cn9AtTjhYkYn/sandbox/Odox06b0uitRf82xqFS2rL_1788199998583_na1fn_L2hvbWUvdWJ1bnR1LzAyMi1odWF3ZWktdW52ZWlscy1haS1wb3dlcmVkLWVudGVycHJpc2Utc29sdXRpb25zLXVuZGVyLWFkdmFuY2luZy1pbmR1c3RyaWFsLWFsbC1pbnRlbGxpZ2VuY2UtdGhlbWUtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVkRhRjZ2dlFoMUNuOUF0VGpoWWtZbi9zYW5kYm94L09kb3gwNmIwdWl0UmY4MnhxRlMyckxfMTc4ODE5OTk5ODU4M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU1pMW9kV0YzWldrdGRXNTJaV2xzY3kxaGFTMXdiM2RsY21Wa0xXVnVkR1Z5Y0hKcGMyVXRjMjlzZFhScGIyNXpMWFZ1WkdWeUxXRmtkbUZ1WTJsdVp5MXBibVIxYzNSeWFXRnNMV0ZzYkMxcGJuUmxiR3hwWjJWdVkyVXRkR2hsYldVdFlYUXRiR1ZoY0MweU1ESTIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDHyStMZQcGeJaxTulRlHY0qstaT7fxQeaoR1UG~dUMlQIgBCJDGMjw0WS7Su9tBu8w5TWEJipc47X9qeDk5aOO008_",
+        "sequence": 22,
+        "slug": "huawei-unveils-ai-powered-enterprise-solutions-under-advancing-industrial-all-intelligence-theme-at-leap-2026",
+        "source_count": 1,
+        "word_count": 944,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/023.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/twR0WJJxyzPmTBBPh3pXwK/sandbox/SZ29fnu92vLaWgrFaOt9T0_1788200003548_na1fn_L2hvbWUvdWJ1bnR1LzAyMy1jaXNjby11bnZlaWxzLXNhdWRpLWNsb3VkLWRhdGEtY2VudGVycy1hbmQtbG9jYWwtbWFudWZhY3R1cmluZy1wbGFucw.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdHdSMFdKSnh5elBtVEJCUGgzcFh3Sy9zYW5kYm94L1NaMjlmbnU5MnZMYVdnckZhT3Q5VDBfMTc4ODIwMDAwMzU0OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU15MWphWE5qYnkxMWJuWmxhV3h6TFhOaGRXUnBMV05zYjNWa0xXUmhkR0V0WTJWdWRHVnljeTFoYm1RdGJHOWpZV3d0YldGdWRXWmhZM1IxY21sdVp5MXdiR0Z1Y3cuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQDHkyvKf9~T6O9BwvaPqCZdGUiehgLPvs~Pdox3We4yWAIhANVETd8801mYGuRDiH6oQcpJA42PYAzkYvvLgDKJVd9s",
+        "sequence": 23,
+        "slug": "cisco-unveils-saudi-cloud-data-centers-and-local-manufacturing-plans",
+        "source_count": 2,
+        "word_count": 1013,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/024.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/oEky9OuDfv7UeXyb0FtFaF/sandbox/8aGmDv1cR2cAP4PPeTZEDG_1788200013883_na1fn_L2hvbWUvdWJ1bnR1LzAyNC1pYm0tYW5kLWVqYWRhLXN5c3RlbXMtdXNlLWFpLWFnZW50LWJvYi10by1hY2NlbGVyYXRlLWVudGVycHJpc2UtbW9kZXJuaXphdGlvbi1pbi1zYXVkaS1hcmFiaWE.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvb0VreTlPdURmdjdVZVh5YjBGdEZhRi9zYW5kYm94LzhhR21EdjFjUjJjQVA0UFBlVFpFREdfMTc4ODIwMDAxMzg4M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU5DMXBZbTB0WVc1a0xXVnFZV1JoTFhONWMzUmxiWE10ZFhObExXRnBMV0ZuWlc1MExXSnZZaTEwYnkxaFkyTmxiR1Z5WVhSbExXVnVkR1Z5Y0hKcGMyVXRiVzlrWlhKdWFYcGhkR2x2YmkxcGJpMXpZWFZrYVMxaGNtRmlhV0UuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCICb78YttrvxyUdDycB2EbLUjI1PAPRMIEdFHJu2M3iPCAiAyD9p7YzdLIeyArPVlD9f75Dza4fXp~DnWCSmkMduvlw__",
+        "sequence": 24,
+        "slug": "ibm-and-ejada-systems-use-ai-agent-bob-to-accelerate-enterprise-modernization-in-saudi-arabia",
+        "source_count": 2,
+        "word_count": 1056,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/025.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/k4uR78em5tdHHfMl9MOux2/sandbox/TT1Wt5sQ0aCQaphmWpc75Q_1788200030183_na1fn_L2hvbWUvdWJ1bnR1LzAyNS1zYm0tdW52ZWlscy1tYXhlcmEtM2QtZGlnaXRhbC10d2luLXBvd2VyZWQtYnktaWJtLW1heGltby1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvazR1Ujc4ZW01dGRISGZNbDlNT3V4Mi9zYW5kYm94L1RUMVd0NXNRMGFDUWFwaG1XcGM3NVFfMTc4ODIwMDAzMDE4M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU5TMXpZbTB0ZFc1MlpXbHNjeTF0WVhobGNtRXRNMlF0WkdsbmFYUmhiQzEwZDJsdUxYQnZkMlZ5WldRdFlua3RhV0p0TFcxaGVHbHRieTFoZEMxc1pXRndMVEl3TWpZLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCID9Cfnhy4DfXzqcIhbX5YgrBA3vHIwelnBUeXevgERySAiAkOVOckELhHpuzHg3y8iusanSCpFN7MdcFJopAZbjIPA__",
+        "sequence": 25,
+        "slug": "sbm-unveils-maxera-3d-digital-twin-powered-by-ibm-maximo-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1249,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/026.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/OlclcAyGqrTsKTuRIx6Wl4/sandbox/Lsa4xqKXDPCk7VrskA5iGV_1788200035828_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAyNi1jbG91ZGZsYXJlLXNwb3RsaWdodHMtYWdlbnRpYy1haS1pbmZyYXN0cnVjdHVyZS1hbmQtc2VjdXJpdHktYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT2xjbGNBeUdxclRzS1R1Ukl4NldsNC9zYW5kYm94L0xzYTR4cUtYRFBDazdWcnNrQTVpR1ZfMTc4ODIwMDAzNTgyOF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF5TmkxamJHOTFaR1pzWVhKbExYTndiM1JzYVdkb2RITXRZV2RsYm5ScFl5MWhhUzFwYm1aeVlYTjBjblZqZEhWeVpTMWhibVF0YzJWamRYSnBkSGt0WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCBJ6VSL7qjR78~3-DmR8v7W0RWgfxPRH1aMF2HICCcRgIgGV2rNWVP5AOteBAyWxBEZvrxzvlAJOPOX9raMsmBAWI_",
+        "sequence": 26,
+        "slug": "cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1140,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/027.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/lzajFzwuJMrnB5GFIEOKHd/sandbox/AJTOSxAbrmZUETZ7HoB2Z3_1788200010995_na1fn_L2hvbWUvdWJ1bnR1LzAyNy1tb2Jpei1sYXVuY2hlcy10aHJlZS1lbnRlcnByaXNlLWFpLWFuZC1jbG91ZC1zb2x1dGlvbnMtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbHphakZ6d3VKTXJuQjVHRklFT0tIZC9zYW5kYm94L0FKVE9TeEFicm1aVUVUWjdIb0IyWjNfMTc4ODIwMDAxMDk5NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU55MXRiMkpwZWkxc1lYVnVZMmhsY3kxMGFISmxaUzFsYm5SbGNuQnlhWE5sTFdGcExXRnVaQzFqYkc5MVpDMXpiMngxZEdsdmJuTXRZWFF0YkdWaGNDMHlNREkyLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQD5ofuo0CUqsRD-fGK762xv0fKmhUVqqiR1Scxay8ihAAIhAMiw6FHGWgZL0Gy6a4to2S62NKYUkgujXFFlXk6jNg4X",
+        "sequence": 27,
+        "slug": "mobiz-launches-three-enterprise-ai-and-cloud-solutions-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1188,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/028.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/UTo2e4oCspUfXyoxZpbMIr/sandbox/1KIetFLQduOiY9fj2njugL_1788200008629_na1fn_L2hvbWUvdWJ1bnR1LzAyOC1ob3Jpem9udGFsLWRpZ2l0YWwtZGVidXRzLWFnZW50aWMtYWktY29uY2llcmdlLXdpdGgtc2FsZXNmb3JjZS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVVRvMmU0b0NzcFVmWHlveFpwYk1Jci9zYW5kYm94LzFLSWV0RkxRZHVPaVk5Zmoybmp1Z0xfMTc4ODIwMDAwODYyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU9DMW9iM0pwZW05dWRHRnNMV1JwWjJsMFlXd3RaR1ZpZFhSekxXRm5aVzUwYVdNdFlXa3RZMjl1WTJsbGNtZGxMWGRwZEdndGMyRnNaWE5tYjNKalpTMWhkQzFzWldGd0xUSXdNalkuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQC3T-oZJmdy1c9CXBQE9mTBm4pvK8kjsDRCbDL8jJeW0QIgNxKLxoGH-SaOl-79PU~Es~qDG1ULXFMXtzkpDC4B7lU_",
+        "sequence": 28,
+        "slug": "horizontal-digital-debuts-agentic-ai-concierge-with-salesforce-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1119,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/029.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/WQC0mtFxHA58q25V3FPim7/sandbox/ujkN0MdIR4JgVB2tFo1mb2_1788200020018_na1fn_L2hvbWUvdWJ1bnR1LzAyOS1saW5rLWRldmVsb3BtZW50LWxhdW5jaGVzLWZyb250aWVyLWFzY2VudC1hZ2VudGljLWFpLW9wZXJhdGluZy1tb2RlbC1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvV1FDMG10RnhIQTU4cTI1VjNGUGltNy9zYW5kYm94L3Vqa04wTWRJUjRKZ1ZCMnRGbzFtYjJfMTc4ODIwMDAyMDAxOF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBeU9TMXNhVzVyTFdSbGRtVnNiM0J0Wlc1MExXeGhkVzVqYUdWekxXWnliMjUwYVdWeUxXRnpZMlZ1ZEMxaFoyVnVkR2xqTFdGcExXOXdaWEpoZEdsdVp5MXRiMlJsYkMxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIDQuktIsEPqXbkQYKXpf-XpkzWDfjFJt3BTrantRkirmAiEAjc6E6SQXwPc-BJ5nXKvkyhQW9rk9NSPV1C5Duicue-U_",
+        "sequence": 29,
+        "slug": "link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026",
+        "source_count": 2,
+        "word_count": 882,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/030.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/ys3v4yfPGw8iIkqChaEfII/sandbox/0KoMzFu1oAi9onjOPU2NgG_1788200015784_na1fn_L2hvbWUvdWJ1bnR1LzAzMC10d2Fhc29sLXNob3djYXNlcy1tZW5hLWZpcnN0LWNpc2NvLW1lZXRpbmctcm9vbXMtY2VydGlmaWNhdGlvbi1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveXMzdjR5ZlBHdzhpSWtxQ2hhRWZJSS9zYW5kYm94LzBLb016RnUxb0FpOW9uak9QVTJOZ0dfMTc4ODIwMDAxNTc4NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek1DMTBkMkZoYzI5c0xYTm9iM2RqWVhObGN5MXRaVzVoTFdacGNuTjBMV05wYzJOdkxXMWxaWFJwYm1jdGNtOXZiWE10WTJWeWRHbG1hV05oZEdsdmJpMWhkQzFzWldGd0xUSXdNalkuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDCdr0p2OYt79DcNdKM8FRAnP7WOdPwkZKbkEGoejEhBQIgUF6rNfhqlx4OvRfZSM-xXyT1Mtcf2rcFJaXgFxi70iw_",
+        "sequence": 30,
+        "slug": "twaasol-showcases-mena-first-cisco-meeting-rooms-certification-at-leap-2026",
+        "source_count": 4,
+        "word_count": 911,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/031.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/Ia3OYpwwSJJegm2dxMCmrU/sandbox/RdhdnUdnyDetERzB6V77z6_1788200019166_na1fn_L2hvbWUvdWJ1bnR1LzAzMS1jb25uZWN0LXBzLWFuZC1jaXNjby1kZWJ1dC1zcGx1bmstb2JzZXJ2YWJpbGl0eS1mb3ItY29udGFjdC1jZW50ZXJzLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSWEzT1lwd3dTSkplZ20yZHhNQ21yVS9zYW5kYm94L1JkaGRuVWRueURldEVSekI2Vjc3ejZfMTc4ODIwMDAxOTE2Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek1TMWpiMjV1WldOMExYQnpMV0Z1WkMxamFYTmpieTFrWldKMWRDMXpjR3gxYm1zdGIySnpaWEoyWVdKcGJHbDBlUzFtYjNJdFkyOXVkR0ZqZEMxalpXNTBaWEp6TFdGMExXeGxZWEF0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQCqrDLbfWZPDAt1l78ejx4Sf1qzJknm8lMxxFxnrPgEaAIhAMXYYGhbNM3goCoIPj7O09cIE3WcupHS5F9Uzu6oKQ7y",
+        "sequence": 31,
+        "slug": "connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1028,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/032.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/0bv9EDHSa6kUCiU2OBOdO1/sandbox/iyUIz1xLE7dDWjsRY8i1sE_1788200011830_na1fn_L2hvbWUvdWJ1bnR1LzAzMi1qaXNyLXVudmVpbHMtbmV4dC1nZW4taW50ZWdyYXRlZC1oci1hbmQtZmluYW5jZS1wbGF0Zm9ybS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMGJ2OUVESFNhNmtVQ2lVMk9CT2RPMS9zYW5kYm94L2l5VUl6MXhMRTdkRFdqc1JZOGkxc0VfMTc4ODIwMDAxMTgzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek1pMXFhWE55TFhWdWRtVnBiSE10Ym1WNGRDMW5aVzR0YVc1MFpXZHlZWFJsWkMxb2NpMWhibVF0Wm1sdVlXNWpaUzF3YkdGMFptOXliUzFoZEMxc1pXRndMVEl3TWpZLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCICI~mwbPMJcVz-BeAXBDEHfGTaGJSLu1Jpx8rSMQiWl2AiEAvt8UN5V0Ku7KfbJ9wzxA4B~up5rTDcBwfW89XhgX4zQ_",
+        "sequence": 32,
+        "slug": "jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1156,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/033.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/vhjxXPVBqgv0ulcy0ywgqM/sandbox/Rsmvllo3OlFoDxSB7n91kv_1788200012483_na1fn_L2hvbWUvdWJ1bnR1LzAzMy1tb3puLWV4cGFuZHMtZW50ZXJwcmlzZS1haS1mb2N1cy1hdC1sZWFwLTIwMjYtZm9sbG93aW5nLWh1bWFpbi1pbnZlc3RtZW50.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdmhqeFhQVkJxZ3YwdWxjeTB5d2dxTS9zYW5kYm94L1JzbXZsbG8zT2xGb0R4U0I3bjkxa3ZfMTc4ODIwMDAxMjQ4M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek15MXRiM3B1TFdWNGNHRnVaSE10Wlc1MFpYSndjbWx6WlMxaGFTMW1iMk4xY3kxaGRDMXNaV0Z3TFRJd01qWXRabTlzYkc5M2FXNW5MV2gxYldGcGJpMXBiblpsYzNSdFpXNTAuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIC5gs0C1oGGwuFOh7pY9kSTmicEwGrgMigOEZ7rQiP~bAiB8q5mnxh~W5-suqJmOin7vu7sbzIlYWNdtLG4JUiuqJA__",
+        "sequence": 33,
+        "slug": "mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment",
+        "source_count": 1,
+        "word_count": 1234,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/034.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/E2kHA7duOXYkHCEHHCMb89/sandbox/GiMCtK0XTWYjfpuO5QmfKB_1788200014536_na1fn_L2hvbWUvdWJ1bnR1LzAzNC1hY2NlbnR1cmUtdG8tdW52ZWlsLXNvdmVyZWlnbi1haS1zdHJhdGVneS1yZXNlYXJjaC1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRTJrSEE3ZHVPWFlrSENFSEhDTWI4OS9zYW5kYm94L0dpTUN0SzBYVFdZamZwdU81UW1mS0JfMTc4ODIwMDAxNDUzNl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek5DMWhZMk5sYm5SMWNtVXRkRzh0ZFc1MlpXbHNMWE52ZG1WeVpXbG5iaTFoYVMxemRISmhkR1ZuZVMxeVpYTmxZWEpqYUMxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQDUqe9M3i~u2XP2yxvFaKurE96YWmSulzULPzL5gR~oQwIhAO8vrMyQ4YIVjIxTkJrDEk6Q1BrJt9-D0ePyved~RE4d",
+        "sequence": 34,
+        "slug": "accenture-to-unveil-sovereign-ai-strategy-research-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1078,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/035.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/1bTfYXKZtso4ejI45YT2MQ/sandbox/nTqORHyeL7KA85t0xf10ao_1788200031587_na1fn_L2hvbWUvdWJ1bnR1LzAzNS1vcmFjbGUtYW5kLWFtZC1wYXJ0bmVyLW9uLTUwLTAwMC1taTQ1MC1ncHUtc3VwZXJjbHVzdGVyLWF0LWRlZXBmZXN0LTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMWJUZllYS1p0c280ZWpJNDVZVDJNUS9zYW5kYm94L25UcU9SSHllTDdLQTg1dDB4ZjEwYW9fMTc4ODIwMDAzMTU4N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek5TMXZjbUZqYkdVdFlXNWtMV0Z0WkMxd1lYSjBibVZ5TFc5dUxUVXdMVEF3TUMxdGFUUTFNQzFuY0hVdGMzVndaWEpqYkhWemRHVnlMV0YwTFdSbFpYQm1aWE4wTFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIF1ai5EXMuFlcZFJEpt3WC-sUXMMM6ksiVAvs9bipMggAiA0IRysHAiYj0nan9XR5R9q8lvnQCIkDjAKVzdaAgOLww__",
+        "sequence": 35,
+        "slug": "oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026",
+        "source_count": 2,
+        "word_count": 1176,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/036.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/BIhqSMovTCJtn3Er2Hu1Hi/sandbox/AMput0VkVioPe4zermaTjF_1788200036859_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzAzNi1hbWQtY2lzY28tYW5kLWh1bWFpbi1sYXVuY2gtbGl2ZS1haS1pbmZyYXN0cnVjdHVyZS1pbi1zYXVkaS1hcmFiaWE.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQklocVNNb3ZUQ0p0bjNFcjJIdTFIaS9zYW5kYm94L0FNcHV0MFZrVmlvUGU0emVybWFUakZfMTc4ODIwMDAzNjg1OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekF6TmkxaGJXUXRZMmx6WTI4dFlXNWtMV2gxYldGcGJpMXNZWFZ1WTJndGJHbDJaUzFoYVMxcGJtWnlZWE4wY25WamRIVnlaUzFwYmkxellYVmthUzFoY21GaWFXRS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQC-KyVYpiJcEzWogMnm-DcGpZGpkzUAl8er~UP6ZN2nJwIgAUaJVUzjq8dw5Cjxrq23zw4kOgPmjwjDh5umd8kHYmw_",
+        "sequence": 36,
+        "slug": "amd-cisco-and-humain-launch-live-ai-infrastructure-in-saudi-arabia",
+        "source_count": 2,
+        "word_count": 987,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/037.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/GNsP5XdbPJMtD8tPl5BkNj/sandbox/vFCbzLJfeR7MsJwMs6ah2d_1788200046564_na1fn_L2hvbWUvdWJ1bnR1LzAzNy1zbm93Zmxha2UtcGxhbnMtc3RyYXRlZ2ljLW1jaXQtaW5pdGlhdGl2ZS1hdC1sZWFwLTIwMjYtZm9yLXNhdWRpLWFpLWV4cGFuc2lvbg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvR05zUDVYZGJQSk10RDh0UGw1QmtOai9zYW5kYm94L3ZGQ2J6TEpmZVI3TXNKd01zNmFoMmRfMTc4ODIwMDA0NjU2NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek55MXpibTkzWm14aGEyVXRjR3hoYm5NdGMzUnlZWFJsWjJsakxXMWphWFF0YVc1cGRHbGhkR2wyWlMxaGRDMXNaV0Z3TFRJd01qWXRabTl5TFhOaGRXUnBMV0ZwTFdWNGNHRnVjMmx2YmcuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDuFMCfL15ArAyOtRDaHUIXDlxG-YNpt5ZTookf7OhCwAiAPx92o~EmmZW3OFGd8Lo6eVSxJhss3RNMgapyRW97gYA__",
+        "sequence": 37,
+        "slug": "snowflake-plans-strategic-mcit-initiative-at-leap-2026-for-saudi-ai-expansion",
+        "source_count": 2,
+        "word_count": 1087,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/038.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/8Bto4Kl7ahfubACuMkzKFt/sandbox/Cy5dKEB8k7PYGHsBv5l473_1788200042713_na1fn_L2hvbWUvdWJ1bnR1LzAzOC1zcGFya2xhYnMtc2F1ZGktdG8tZGVidXQtOC1wb3J0Zm9saW8tc3RhcnR1cHMtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOEJ0bzRLbDdhaGZ1YkFDdU1rektGdC9zYW5kYm94L0N5NWRLRUI4azdQWUdIc0J2NWw0NzNfMTc4ODIwMDA0MjcxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek9DMXpjR0Z5YTJ4aFluTXRjMkYxWkdrdGRHOHRaR1ZpZFhRdE9DMXdiM0owWm05c2FXOHRjM1JoY25SMWNITXRZWFF0YkdWaGNDMHlNREkyLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIBm17Dy-UE~9JmD4LOIFVRmhfzu8ir47vNbEkzh0AS9lAiBkKxQfqAgBH0cDV9CT5EzUNAWOrcJxzO29zpdph9vqfA__",
+        "sequence": 38,
+        "slug": "sparklabs-saudi-to-debut-8-portfolio-startups-at-leap-2026",
+        "source_count": 3,
+        "word_count": 940,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/039.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/wG4ig4Yqd1KdQavuIab1JY/sandbox/JIiLIkDXCi0BLK3xTGZsMQ_1788200100407_na1fn_L2hvbWUvdWJ1bnR1LzAzOS1pZ25pdGUtYnJpbmdzLTEwLXByb21pc2luZy1wYWtpc3Rhbmktc3RhcnR1cHMtdG8tbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd0c0aWc0WXFkMUtkUWF2dUlhYjFKWS9zYW5kYm94L0pJaUxJa0RYQ2kwQkxLM3hUR1pzTVFfMTc4ODIwMDEwMDQwN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBek9TMXBaMjVwZEdVdFluSnBibWR6TFRFd0xYQnliMjFwYzJsdVp5MXdZV3RwYzNSaGJta3RjM1JoY25SMWNITXRkRzh0YkdWaGNDMHlNREkyLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDHcDYhpx~l9WqeM4fGK5UlhlRw3A3kG94cSdyT44GWxAiA2UZ0QwLtucf5F3IU53M5Ls2WYVHe6FjyfM5kVay8UHQ__",
+        "sequence": 39,
+        "slug": "ignite-brings-10-promising-pakistani-startups-to-leap-2026",
+        "source_count": 2,
+        "word_count": 1105,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/040.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/SsNzXBJFoPjFIiQxncTXvQ/sandbox/8jqv9YbfP4KWccWhUB3x3p_1788200048637_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA0MC1uZXctdGFpcGVpLWNpdHktZ292ZXJubWVudC1icmluZ3MtMjAtdGFpd2FuZXNlLXRlY2gtY29tcGFuaWVzLXRvLWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvU3NOelhCSkZvUGpGSWlReG5jVFh2US9zYW5kYm94LzhqcXY5WWJmUDRLV2NjV2hVQjN4M3BfMTc4ODIwMDA0ODYzN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekEwTUMxdVpYY3RkR0ZwY0dWcExXTnBkSGt0WjI5MlpYSnViV1Z1ZEMxaWNtbHVaM010TWpBdGRHRnBkMkZ1WlhObExYUmxZMmd0WTI5dGNHRnVhV1Z6TFhSdkxXeGxZWEF0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDZvoAQb6mClF2yX-BUsab6dBJASDXDqRxJARPs4cz-ygIgLfb2ZnGzQzII8X0hpU4RkPmYzP8Z4gmaNF09mV-4168_",
+        "sequence": 40,
+        "slug": "new-taipei-city-government-brings-20-taiwanese-tech-companies-to-leap-2026",
+        "source_count": 1,
+        "word_count": 1034,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/041.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/pmDfFIJoIobXHdTiDIi4dm/sandbox/mNVYWOPiwuVfTIgS5Hpm8z_1788200055875_na1fn_L2hvbWUvdWJ1bnR1LzA0MS10YWl3YW4tZXhjZWxsZW5jZS1icmluZ3MtMjItYWktaGFyZHdhcmUtYnJhbmRzLXRvLWxlYXAtMjAyNi1kZWJ1dA.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcG1EZkZJSm9Jb2JYSGRUaURJaTRkbS9zYW5kYm94L21OVllXT1Bpd3VWZlRJZ1M1SHBtOHpfMTc4ODIwMDA1NTg3NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME1TMTBZV2wzWVc0dFpYaGpaV3hzWlc1alpTMWljbWx1WjNNdE1qSXRZV2t0YUdGeVpIZGhjbVV0WW5KaGJtUnpMWFJ2TFd4bFlYQXRNakF5Tmkxa1pXSjFkQS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDYdjqDH2oV0YIonZbjCxBqxhEzeh5TpONvJRriCwGsjwIgXyLuSmbTrQ8YgxxdYhjyWLek2JDogFHG26M213883yA_",
+        "sequence": 41,
+        "slug": "taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut",
+        "source_count": 2,
+        "word_count": 965,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/042.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/3ynla6ijFrCduXqDq14zt5/sandbox/jH5p4zzAtQzpcHfRhorker_1788200067548_na1fn_L2hvbWUvdWJ1bnR1LzA0Mi1sZWFwLTIwMjYtdGVjaC1hcmVuYS1zaG93Y2FzZXMtdW5pdHJlZS1hbmQtYWdpYm90LWh1bWFub2lkLXJvYm90cw.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvM3lubGE2aWpGckNkdVhxRHExNHp0NS9zYW5kYm94L2pINXA0enpBdFF6cGNIZlJob3JrZXJfMTc4ODIwMDA2NzU0OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME1pMXNaV0Z3TFRJd01qWXRkR1ZqYUMxaGNtVnVZUzF6YUc5M1kyRnpaWE10ZFc1cGRISmxaUzFoYm1RdFlXZHBZbTkwTFdoMWJXRnViMmxrTFhKdlltOTBjdy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIBOBgvTuoMYI2fC5hppT9-0I2Zric9~iC9UZuhDdHL4UAiB30kxyRsZyEt4OPVd2s6RtzW9rSFFWZyOR4oprKwyCXQ__",
+        "sequence": 42,
+        "slug": "leap-2026-tech-arena-showcases-unitree-and-agibot-humanoid-robots",
+        "source_count": 2,
+        "word_count": 960,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/043.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/1k51UhqYZ2bfwced7RrMqf/sandbox/zmH72ppSckUWfZ4ZnADN3p_1788200061477_na1fn_L2hvbWUvdWJ1bnR1LzA0My1saXZuc2Vuc2UtZ3JlZW5vcHMtc2VsZWN0ZWQtYXMtdG9wLTEwMC1yb2NrZXQtZnVlbC1maW5hbGlzdC1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMWs1MVVocVlaMmJmd2NlZDdSck1xZi9zYW5kYm94L3ptSDcycHBTY2tVV2ZaNFpuQUROM3BfMTc4ODIwMDA2MTQ3N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME15MXNhWFp1YzJWdWMyVXRaM0psWlc1dmNITXRjMlZzWldOMFpXUXRZWE10ZEc5d0xURXdNQzF5YjJOclpYUXRablZsYkMxbWFXNWhiR2x6ZEMxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIHiMGrEaadKshVcdriPab7t7j52BH469qnjPhKSdcCbTAiEAku6D59b4M7~Qgv9BkBgtndM5swclXUzqIg0xdx2kuWo_",
+        "sequence": 43,
+        "slug": "livnsense-greenops-selected-as-top-100-rocket-fuel-finalist-at-leap-2026",
+        "source_count": 3,
+        "word_count": 1068,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/044.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/eu8NXEt2mAOkIqEYOzgY2U/sandbox/KdCHSKYRccrcx9EgwRz872_1788200069117_na1fn_L2hvbWUvdWJ1bnR1LzA0NC1udHQtZGF0YS1zaG93Y2FzZXMtc292ZXJlaWduLWFpLWFuZC1zbWFydC1jaXRpZXMtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZXU4TlhFdDJtQU9rSXFFWU96Z1kyVS9zYW5kYm94L0tkQ0hTS1lSY2NyY3g5RWd3Uno4NzJfMTc4ODIwMDA2OTExN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME5DMXVkSFF0WkdGMFlTMXphRzkzWTJGelpYTXRjMjkyWlhKbGFXZHVMV0ZwTFdGdVpDMXpiV0Z5ZEMxamFYUnBaWE10WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIGnogzi49FHy2br3x8c8eguWyde6yC5E~bawxQQ3u2nsAiBEfxt2ucIpvojjfRHBKjUj1QVVVzdgn57l9mV3nTsjxA__",
+        "sequence": 44,
+        "slug": "ntt-data-showcases-sovereign-ai-and-smart-cities-at-leap-2026",
+        "source_count": 3,
+        "word_count": 1115,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/045.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/2csN0Lvc48W129EO2XiWX4/sandbox/c7hMrnQKZiyeZIlXyxfnHY_1788200089881_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA0NS1zYXVkaS1hcmFiaWEtbGF1bmNoZXMtc2FtYWktMi1haS1wcm9jdXJlbWVudC1hY3Jvc3MtMTEtbWluaXN0cmllcw.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMmNzTjBMdmM0OFcxMjlFTzJYaVdYNC9zYW5kYm94L2M3aE1yblFLWml5ZVpJbFh5eGZuSFlfMTc4ODIwMDA4OTg4MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekEwTlMxellYVmthUzFoY21GaWFXRXRiR0YxYm1Ob1pYTXRjMkZ0WVdrdE1pMWhhUzF3Y205amRYSmxiV1Z1ZEMxaFkzSnZjM010TVRFdGJXbHVhWE4wY21sbGN3Lmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIF6-UCCthefCy0XLGSrMlRGBqHjqzZFph01JZKliOmgUAiBLH-4O0056UDTXriUJ5q1kzwsWcT8WX4S0QTZbr7hIvA__",
+        "sequence": 45,
+        "slug": "saudi-arabia-launches-samai-2-ai-procurement-across-11-ministries",
+        "source_count": 3,
+        "word_count": 1130,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/046.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/Mp1o8yXuOw6ZVQXxKRh6Qw/sandbox/HuQhywE5E36I0Kopa3MSCb_1788200153653_na1fn_L2hvbWUvdWJ1bnR1LzA0Ni1taWNyb3NvZnQtYnJpbmdzLWh1bWFpbi1zLWFyYWJpYy1haS1tb2RlbHMtdG8tZ2xvYmFsLXBsYXRmb3Jtcw.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTXAxbzh5WHVPdzZaVlFYeEtSaDZRdy9zYW5kYm94L0h1UWh5d0U1RTM2STBLb3BhM01TQ2JfMTc4ODIwMDE1MzY1M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME5pMXRhV055YjNOdlpuUXRZbkpwYm1kekxXaDFiV0ZwYmkxekxXRnlZV0pwWXkxaGFTMXRiMlJsYkhNdGRHOHRaMnh2WW1Gc0xYQnNZWFJtYjNKdGN3Lmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDW9J1yD3WbGYrmeWLHCkFZs7rce1a2HwBQKlZ3ECGA5QIgZXS9~A3FQIlrJmvb~O~GraG-6An-GRfD-ThD6Z9MTIU_",
+        "sequence": 46,
+        "slug": "microsoft-brings-humain-s-arabic-ai-models-to-global-platforms",
+        "source_count": 3,
+        "word_count": 1182,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/047.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/JMhglYk0QOe7ZeXGX4YPP0/sandbox/25C3cvXba8TWX9uEV2uY8x_1788200095058_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA0Ny1sZWFwLW5pZ2h0cy1wYXJ0bmVycy13aXRoLWYxLXNhdWRpLWFyYWJpYS1mb3ItMjAyNy1ncmFuZC1wcml4LWVhcmx5LWFjY2Vzcw.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSk1oZ2xZazBRT2U3WmVYR1g0WVBQMC9zYW5kYm94LzI1QzNjdlhiYThUV1g5dUVWMnVZOHhfMTc4ODIwMDA5NTA1OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekEwTnkxc1pXRndMVzVwWjJoMGN5MXdZWEowYm1WeWN5MTNhWFJvTFdZeExYTmhkV1JwTFdGeVlXSnBZUzFtYjNJdE1qQXlOeTFuY21GdVpDMXdjbWw0TFdWaGNteDVMV0ZqWTJWemN3Lmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIA8XSyoArKwlXgtaur9kkP9vXZcWUfuQ~eTjyWpLqq9RAiBqGqFAGpxLj1xlMq9Rp086gu0tlTtHp6ueQsClx9P0cw__",
+        "sequence": 47,
+        "slug": "leap-nights-partners-with-f1-saudi-arabia-for-2027-grand-prix-early-access",
+        "source_count": 3,
+        "word_count": 929,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/048.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/ce1dsdt9d2C4vVuVHjb44V/sandbox/NbF1N4MuTXtHIkBpv0fibF_1788200071013_na1fn_L2hvbWUvdWJ1bnR1LzA0OC11bmlmb25pYy11bnZlaWxzLWFnZW50aWMtYWktY3VzdG9tZXItZXhwZXJpZW5jZS1zdHJhdGVneS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvY2UxZHNkdDlkMkM0dlZ1VkhqYjQ0Vi9zYW5kYm94L05iRjFONE11VFh0SElrQnB2MGZpYkZfMTc4ODIwMDA3MTAxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME9DMTFibWxtYjI1cFl5MTFiblpsYVd4ekxXRm5aVzUwYVdNdFlXa3RZM1Z6ZEc5dFpYSXRaWGh3WlhKcFpXNWpaUzF6ZEhKaGRHVm5lUzFoZEMxc1pXRndMVEl3TWpZLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIGMeqyv809RF4B93~~KVQlbwzKS6~5U7C9xPCzxrwCDOAiBkjBWMP5uhd1u8BYAthsQFVFHuX5alvHUpy9w4uBwYJw__",
+        "sequence": 48,
+        "slug": "unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026",
+        "source_count": 2,
+        "word_count": 919,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/049.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/2x2NXNN56mdFqomPVXxH9r/sandbox/zzBVDhbidpTVYUKXx30FWu_1788200071787_na1fn_L2hvbWUvdWJ1bnR1LzA0OS1teHZpLXNlY3VyZXMtbWFqb3Itc2F1ZGktY29udHJhY3QtYW5kLXNob3djYXNlcy12aTUtaW4tdmVoaWNsZS1wbGF0Zm9ybS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMngyTlhOTjU2bWRGcW9tUFZYeEg5ci9zYW5kYm94L3p6QlZEaGJpZHBUVllVS1h4MzBGV3VfMTc4ODIwMDA3MTc4N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBME9TMXRlSFpwTFhObFkzVnlaWE10YldGcWIzSXRjMkYxWkdrdFkyOXVkSEpoWTNRdFlXNWtMWE5vYjNkallYTmxjeTEyYVRVdGFXNHRkbVZvYVdOc1pTMXdiR0YwWm05eWJTMWhkQzFzWldGd0xUSXdNalkuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCnVll4Gzvm9pw6gqQ4bQGE7M~HWtFEJTxAV1MjAtiy3QIgZQznboZTs-CLLH-TGLJr6D2RsFtGcIjYIcusulVz1SI_",
+        "sequence": 49,
+        "slug": "mxvi-secures-major-saudi-contract-and-showcases-vi5-in-vehicle-platform-at-leap-2026",
+        "source_count": 1,
+        "word_count": 937,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/050.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/OnT5GLFJufvcjvkJvudbjD/sandbox/U4Fw8ss5oaV8sTvpuZlpI1_1788200077858_na1fn_L2hvbWUvdWJ1bnR1LzA1MC1vY3RhdmUtZGVtb25zdHJhdGVzLWNvbm5lY3RlZC1pbnRlbGxpZ2VuY2UtcGxhdGZvcm0tZm9yLWFzc2V0LWxpZmVjeWNsZS1tYW5hZ2VtZW50LWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvT25UNUdMRkp1ZnZjanZrSnZ1ZGJqRC9zYW5kYm94L1U0Rnc4c3M1b2FWOHNUdnB1WmxwSTFfMTc4ODIwMDA3Nzg1OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMU1DMXZZM1JoZG1VdFpHVnRiMjV6ZEhKaGRHVnpMV052Ym01bFkzUmxaQzFwYm5SbGJHeHBaMlZ1WTJVdGNHeGhkR1p2Y20wdFptOXlMV0Z6YzJWMExXeHBabVZqZVdOc1pTMXRZVzVoWjJWdFpXNTBMV0YwTFd4bFlYQXRNakF5TmcuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCWwe5zCsYkHgAsp6QMI4IMo6rN~pxFxTpvtXQ7qnCsywIgJwpcTSyDHayW69kfCEXu5iE7MqknCg42pmUhP38mp20_",
+        "sequence": 50,
+        "slug": "octave-demonstrates-connected-intelligence-platform-for-asset-lifecycle-management-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1133,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/051.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/iAizKlIP2tqXctAHltrGUO/sandbox/IQC4boE4jFUs18QNzw7gFF_1788200072548_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2L2FydGljbGUtYnJpZWZzLzA1MS1zYXVkaS1qdXN0aWNlLW1pbmlzdHJ5LXVudmVpbHMtYWktZHJpdmVuLXVzZXItZXhwZXJpZW5jZS1lbmhhbmNlbWVudHM.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaUFpektsSVAydHFYY3RBSGx0ckdVTy9zYW5kYm94L0lRQzRib0U0akZVczE4UU56dzdnRkZfMTc4ODIwMDA3MjU0OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMMkZ5ZEdsamJHVXRZbkpwWldaekx6QTFNUzF6WVhWa2FTMXFkWE4wYVdObExXMXBibWx6ZEhKNUxYVnVkbVZwYkhNdFlXa3RaSEpwZG1WdUxYVnpaWEl0Wlhod1pYSnBaVzVqWlMxbGJtaGhibU5sYldWdWRITS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIDkZ58PAJLoRunqe46XzWgJ4GWqCHjlsAy8TZZcp0F-KAiEA48~E-2qf3T0dVOCVuwylYebTO9uqi1f71jSNOUgKLdQ_",
+        "sequence": 51,
+        "slug": "saudi-justice-ministry-unveils-ai-driven-user-experience-enhancements",
+        "source_count": 2,
+        "word_count": 1191,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/052.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/2tD6MiPq6wwQJo6WkdrKGs/sandbox/rUtDRKTLJqXGeIJZkVUwJT_1788200100350_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA1Mi1yaW90ZWMtY29ubmVjdHMtbWlkZGxlLWVhc3QtaW50ZWdyYXRvcnMtd2l0aC10YWl3YW4tYmFyY29kZS1leHBlcnRpc2U.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMnRENk1pUHE2d3dRSm82V2tkcktHcy9zYW5kYm94L3JVdERSS1RMSnFYR2VJSlprVlV3SlRfMTc4ODIwMDEwMDM1MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekExTWkxeWFXOTBaV010WTI5dWJtVmpkSE10Yldsa1pHeGxMV1ZoYzNRdGFXNTBaV2R5WVhSdmNuTXRkMmwwYUMxMFlXbDNZVzR0WW1GeVkyOWtaUzFsZUhCbGNuUnBjMlUuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDbFPVVwXV7lvNScIZxGP3sLuqRFGMR0TRlc6bZuOcsUAiA5-0l2SaZNXqFm5YwkncEObkrO307xBH6eM5iV21YLTA__",
+        "sequence": 52,
+        "slug": "riotec-connects-middle-east-integrators-with-taiwan-barcode-expertise",
+        "source_count": 2,
+        "word_count": 857,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/053.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/NKvo3qk4sSM6AoxXwELtvY/sandbox/KWCw0s1pVAtXsQXvbPa3kA_1788200101773_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA1My10ZW5jZW50LWNsb3VkLWlua3MtdHJ1a2tlci1wYXJ0bmVyc2hpcC1haGVhZC1vZi1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTkt2bzNxazRzU002QW94WHdFTHR2WS9zYW5kYm94L0tXQ3cwczFwVkF0WHNRWHZiUGEza0FfMTc4ODIwMDEwMTc3M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekExTXkxMFpXNWpaVzUwTFdOc2IzVmtMV2x1YTNNdGRISjFhMnRsY2kxd1lYSjBibVZ5YzJocGNDMWhhR1ZoWkMxdlppMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIGEUMhN7P72L8l8RybHQxR2e~9-TPwcL63sG8H3Gg9biAiAiVdayH6TVx5ItM~12nGirGs6buAXZR73lLvK9Up8kWw__",
+        "sequence": 53,
+        "slug": "tencent-cloud-inks-trukker-partnership-ahead-of-leap-2026",
+        "source_count": 4,
+        "word_count": 851,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/054.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/TLuBSdFmISYLGCZdbVoO8w/sandbox/dIeu5zvG0UvmVuVGT5VPo4_1788200092413_na1fn_L2hvbWUvdWJ1bnR1LzA1NC0yNC1vbWFuaS10ZWNoLWNvbXBhbmllcy1zaG93Y2FzZS1zZXJ2aWNlcy1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVEx1QlNkRm1JU1lMR0NaZGJWb084dy9zYW5kYm94L2RJZXU1enZHMFV2bVZ1VkdUNVZQbzRfMTc4ODIwMDA5MjQxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMU5DMHlOQzF2YldGdWFTMTBaV05vTFdOdmJYQmhibWxsY3kxemFHOTNZMkZ6WlMxelpYSjJhV05sY3kxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCc4QVF4lIEazP71IHGJ7VlTZr69n4TSE4A2VaT2nUv0AIgD3VVGL~3rJAHM7wTe0R99aO6QVpY5LHU6Ik-HtikY2g_",
+        "sequence": 54,
+        "slug": "24-omani-tech-companies-showcase-services-at-leap-2026",
+        "source_count": 3,
+        "word_count": 945,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/055.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/2TiWeu2wQjJUIdodgzGOS7/sandbox/uVDeG2dpbZnCFwDsOkVkxs_1788200106493_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA1NS1zYXVkaS1yZWQtY3Jlc2NlbnQtZGVwbG95cy1zcGVjaWFsaXplZC1lbWVyZ2VuY3ktdGVhbXMtZm9yLWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMlRpV2V1MndRakpVSWRvZGd6R09TNy9zYW5kYm94L3VWRGVHMmRwYlpuQ0Z3RHNPa1ZreHNfMTc4ODIwMDEwNjQ5M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekExTlMxellYVmthUzF5WldRdFkzSmxjMk5sYm5RdFpHVndiRzk1Y3kxemNHVmphV0ZzYVhwbFpDMWxiV1Z5WjJWdVkza3RkR1ZoYlhNdFptOXlMV3hsWVhBdE1qQXlOZy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIDdBZ3XEhmYu2Z6LXCfeIIeu82k2IHeXHSuzO9p1ekH5AiEAnWz3M-QFrmn9qvjsFi51nrdK8PFtdJC1WraMZioDITY_",
+        "sequence": 55,
+        "slug": "saudi-red-crescent-deploys-specialized-emergency-teams-for-leap-2026",
+        "source_count": 2,
+        "word_count": 956,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/056.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/Qy1p3aiQUtmKP18IVnsbuh/sandbox/tLvvvI6bgQwhXZeVHec7QG_1788200076696_na1fn_L2hvbWUvdWJ1bnR1LzA1Ni1yaXlhZGgtbWV0cm8tbGF1bmNoZXMtZGVkaWNhdGVkLWxlYXAtMjAyNi1zaHV0dGxlLXJvdXRl.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUXkxcDNhaVFVdG1LUDE4SVZuc2J1aC9zYW5kYm94L3RMdnZ2STZiZ1F3aFhaZVZIZWM3UUdfMTc4ODIwMDA3NjY5Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMU5pMXlhWGxoWkdndGJXVjBjbTh0YkdGMWJtTm9aWE10WkdWa2FXTmhkR1ZrTFd4bFlYQXRNakF5TmkxemFIVjBkR3hsTFhKdmRYUmwuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIHKNaO12mKtsO6AMvnLpgLBdx6fu~NMkX6xvcOPpziqrAiEAzNHJQPAqC-LmTz4eAQF6d3Wo8G604GJfpn0xEhpJl38_",
+        "sequence": 56,
+        "slug": "riyadh-metro-launches-dedicated-leap-2026-shuttle-route",
+        "source_count": 3,
+        "word_count": 862,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/057.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/pFqP14iFkvZT7TjYmijSZw/sandbox/iLNVxVLPkWbg7QnPup1tZL_1788200115907_na1fn_L2hvbWUvdWJ1bnR1LzA1Ny1zYXVkaS10b3VyaXNtLW1pbmlzdHJ5LWxhdW5jaGVzLXVuaWZpZWQtZGlnaXRhbC1wbGF0Zm9ybS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcEZxUDE0aUZrdlpUN1RqWW1palNady9zYW5kYm94L2lMTlZ4VkxQa1diZzdRblB1cDF0WkxfMTc4ODIwMDExNTkwN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMU55MXpZWFZrYVMxMGIzVnlhWE50TFcxcGJtbHpkSEo1TFd4aGRXNWphR1Z6TFhWdWFXWnBaV1F0WkdsbmFYUmhiQzF3YkdGMFptOXliUzFoZEMxc1pXRndMVEl3TWpZLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIBuan-Z9H4ORtbPpJafzBdDO2c1S2pwx79s0Gyc-5kXbAiBAx3Xq0XLnIXoWa-9AkjSZbjAhp~SgVuRprTQwSUuUyg__",
+        "sequence": 57,
+        "slug": "saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1029,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/058.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/udJSbN0E4ofQYLceOI0vYj/sandbox/YZiTbeesA4TpBtar9cqENh_1788200112870_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA1OC10YWhha29tLXRlY2hub2xvZ3ktdW52ZWlscy1zbWFydC1wYXNzLWFuZC1zaXJhai1haS1zb2x1dGlvbnMtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdWRKU2JOMEU0b2ZRWUxjZU9JMHZZai9zYW5kYm94L1laaVRiZWVzQTRUcEJ0YXI5Y3FFTmhfMTc4ODIwMDExMjg3MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekExT0MxMFlXaGhhMjl0TFhSbFkyaHViMnh2WjNrdGRXNTJaV2xzY3kxemJXRnlkQzF3WVhOekxXRnVaQzF6YVhKaGFpMWhhUzF6YjJ4MWRHbHZibk10WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCH0Xc8kNa79Bng~W8Xo1qjH3ksV3zH~WHsuFFea5ugP4CIQCrLEV0vn6gEEXWMu7KkaY-DXEj0xWXWr6iXUusTZZSiA__",
+        "sequence": 58,
+        "slug": "tahakom-technology-unveils-smart-pass-and-siraj-ai-solutions-at-leap-2026",
+        "source_count": 2,
+        "word_count": 860,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/059.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/toErOHvlyQNAZ5btJNsswf/sandbox/LhtakDZ1rwMdVIlgFme8Lz_1788200138171_na1fn_L2hvbWUvdWJ1bnR1LzA1OS1sZWFwLTIwMjYtdGVjaC1hcmVuYS1zaG93Y2FzZXMtYWktcG93ZXJlZC1wcm9zdGhldGljcy1hbmQtYnJhaW4tY29tcHV0ZXItaW50ZXJmYWNlcw.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdG9Fck9Idmx5UU5BWjVidEpOc3N3Zi9zYW5kYm94L0xodGFrRFoxcndNZFZJbGdGbWU4THpfMTc4ODIwMDEzODE3MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMU9TMXNaV0Z3TFRJd01qWXRkR1ZqYUMxaGNtVnVZUzF6YUc5M1kyRnpaWE10WVdrdGNHOTNaWEpsWkMxd2NtOXpkR2hsZEdsamN5MWhibVF0WW5KaGFXNHRZMjl0Y0hWMFpYSXRhVzUwWlhKbVlXTmxjdy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIAqo2mOkiz~qvXp257VYTCExirn5Hs9Cky8lTon2NNJxAiEA7RIx4~EIOsY69RqTu0iya4RID3Pg8l8qgP2kaqN-fhA_",
+        "sequence": 59,
+        "slug": "leap-2026-tech-arena-showcases-ai-powered-prosthetics-and-brain-computer-interfaces",
+        "source_count": 3,
+        "word_count": 1176,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/060.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/sf3mkunliWZPYbXoPcvsIx/sandbox/e9bOX0LddUc2ZGYRujuFQI_1788200115486_na1fn_L2hvbWUvdWJ1bnR1LzA2MC1rYW56LWFuZC1zYXVkaS1ocnNkLWJyaW5nLWFpLWd1aW5uZXNzLXdvcmxkLXJlY29yZC10by1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvc2YzbWt1bmxpV1pQWWJYb1BjdnNJeC9zYW5kYm94L2U5Yk9YMExkZFVjMlpHWVJ1anVGUUlfMTc4ODIwMDExNTQ4Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk1DMXJZVzU2TFdGdVpDMXpZWFZrYVMxb2NuTmtMV0p5YVc1bkxXRnBMV2QxYVc1dVpYTnpMWGR2Y214a0xYSmxZMjl5WkMxMGJ5MXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCdCmyhPMbWSgzu2fi9tT0p2h7IAEKebLurzhciUEwI5QIgeOCaG-AOQcBCSwA03VVgPf92dASAXvT20dX85ETubcs_",
+        "sequence": 60,
+        "slug": "kanz-and-saudi-hrsd-bring-ai-guinness-world-record-to-leap-2026",
+        "source_count": 3,
+        "word_count": 1051,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/061.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/ikuGsE0ATzVJJshefP1l3Q/sandbox/JUbi1mH6ZgpD7kwPJ3wtdQ_1788200156129_na1fn_L2hvbWUvdWJ1bnR1LzA2MS1tb2JpbHktYW5kLW5va2lhLXNpZ24tbW91LXRvLWFkdmFuY2UtYWktcG93ZXJlZC1uZXR3b3JrLWVmZmljaWVuY3ktYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaWt1R3NFMEFUelZKSnNoZWZQMWwzUS9zYW5kYm94L0pVYmkxbUg2WmdwRDdrd1BKM3d0ZFFfMTc4ODIwMDE1NjEyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk1TMXRiMkpwYkhrdFlXNWtMVzV2YTJsaExYTnBaMjR0Ylc5MUxYUnZMV0ZrZG1GdVkyVXRZV2t0Y0c5M1pYSmxaQzF1WlhSM2IzSnJMV1ZtWm1samFXVnVZM2t0WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIFjofuU0dYLHVhtzZ~cHFkqOhqDuwNfbNAh2pq6KpfBsAiEA1JBLeLls7V2UVH2qdlzfelrDdfXaR223wtJL~eLYRt0_",
+        "sequence": 61,
+        "slug": "mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1069,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/062.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/R9WMvfeL1rQLgCMa2UK1vx/sandbox/SYx9E6gQnd7EjB99fh9WdZ_1788200130751_na1fn_L2hvbWUvdWJ1bnR1LzA2Mi1zYXVkaS1hcmFiaWEtcy1kaWdpdGFsLWV4cGVyaWVuY2UtbWF0dXJpdHktcmlzZXMtdG8tODc.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUjlXTXZmZUwxclFMZ0NNYTJVSzF2eC9zYW5kYm94L1NZeDlFNmdRbmQ3RWpCOTlmaDlXZFpfMTc4ODIwMDEzMDc1MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk1pMXpZWFZrYVMxaGNtRmlhV0V0Y3kxa2FXZHBkR0ZzTFdWNGNHVnlhV1Z1WTJVdGJXRjBkWEpwZEhrdGNtbHpaWE10ZEc4dE9EYy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIBO7CBB6jqpEExdhuOgBK95-Svw5iUdhPe1ThW0GjocTAiEArzq61YC5aPMEqxgGSwhj5OCunLYVmnZ7AaksftZDJ28_",
+        "sequence": 62,
+        "slug": "saudi-arabia-s-digital-experience-maturity-rises-to-87",
+        "source_count": 3,
+        "word_count": 949,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/063.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/dmdyjKmDlLewPxXw5idpCk/sandbox/hpIFZX7SECyI3I019mb2pY_1788200130619_na1fn_L2hvbWUvdWJ1bnR1LzA2My1tYXNkYXItc2hvd2Nhc2VzLWRhdGEtYW5kLWFpLXNvbHV0aW9ucy1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZG1keWpLbURsTGV3UHhYdzVpZHBDay9zYW5kYm94L2hwSUZaWDdTRUN5STNJMDE5bWIycFlfMTc4ODIwMDEzMDYxOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk15MXRZWE5rWVhJdGMyaHZkMk5oYzJWekxXUmhkR0V0WVc1a0xXRnBMWE52YkhWMGFXOXVjeTFoZEMxc1pXRndMVEl3TWpZLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQCvNvoZNWs8yHiCE44D~uLbsLLtfKIBWUjYwrgSB~W01wIhAJ6McjrbWBPyg1pQX6kiwpBhUHR6RDDLyGzY7AnSQ9-y",
+        "sequence": 63,
+        "slug": "masdar-showcases-data-and-ai-solutions-at-leap-2026",
+        "source_count": 1,
+        "word_count": 925,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/064.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/o4R6bS3ZG51Cyj71QTydGp/sandbox/AP8p50fgGfbGUzDGZlkX0B_1788200161359_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA2NC1zYXVkaS1jb3VuY2lsLW9mLWVuZ2luZWVycy1sYXVuY2hlcy1tdS10YW1hZC1wbGF0Zm9ybS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbzRSNmJTM1pHNTFDeWo3MVFUeWRHcC9zYW5kYm94L0FQOHA1MGZnR2ZiR1V6REdabGtYMEJfMTc4ODIwMDE2MTM1OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekEyTkMxellYVmthUzFqYjNWdVkybHNMVzltTFdWdVoybHVaV1Z5Y3kxc1lYVnVZMmhsY3kxdGRTMTBZVzFoWkMxd2JHRjBabTl5YlMxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIA-uE54UHe18erflowuZXO7KCYpWuf86Ya512d~wYLLuAiBm--tQxkLmKYDUZNfIxTP2KSIEediJcsXUs6pFKK1LUA__",
+        "sequence": 64,
+        "slug": "saudi-council-of-engineers-launches-mu-tamad-platform-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1093,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/065.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/ZR3tdV95hrf2YizYD1p4eM/sandbox/9JP3wspRw0jjMFcVkh5fN3_1788200126188_na1fn_L2hvbWUvdWJ1bnR1LzA2NS1zYXVkaS1zb2NpYWwtZGV2ZWxvcG1lbnQtYmFuay1sYXVuY2hlcy1haS1zbWFydC1jb2xsZWN0aW9uLXNlcnZpY2UtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWlIzdGRWOTVocmYyWWl6WUQxcDRlTS9zYW5kYm94LzlKUDN3c3BSdzBqak1GY1ZraDVmTjNfMTc4ODIwMDEyNjE4OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk5TMXpZWFZrYVMxemIyTnBZV3d0WkdWMlpXeHZjRzFsYm5RdFltRnVheTFzWVhWdVkyaGxjeTFoYVMxemJXRnlkQzFqYjJ4c1pXTjBhVzl1TFhObGNuWnBZMlV0WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIAgFyMyHgWEyaU-YxYjlY3gOmuvbMMpAuk-FpP0OxYNgAiA2M6~mrw2igQ6~e7ebY~WGwRy0htxyxpPhNRY7HCTzDw__",
+        "sequence": 65,
+        "slug": "saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1040,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/066.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/jKTyiAFElz4bvCegODjJhk/sandbox/NBaiWVMQ83Kki9FwYKpJe4_1788200139772_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA2Ni1taWNyb3NvZnQtY29uZmlybXMtc2F1ZGktYXJhYmlhLWVhc3QtY2xvdWQtcmVnaW9uLWxhdW5jaC1mb3Itbm92ZW1iZXItMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaktUeWlBRkVsejRidkNlZ09Eakpoay9zYW5kYm94L05CYWlXVk1RODNLa2k5RndZS3BKZTRfMTc4ODIwMDEzOTc3Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekEyTmkxdGFXTnliM052Wm5RdFkyOXVabWx5YlhNdGMyRjFaR2t0WVhKaFltbGhMV1ZoYzNRdFkyeHZkV1F0Y21WbmFXOXVMV3hoZFc1amFDMW1iM0l0Ym05MlpXMWlaWEl0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDXet0wGfiptR0hLBVtsIE5T5hisJpG~jP5WbR9IjgQwQIgO4XjEHq3~vcP2LnxH-EoPjvjGVbpYmTSlmYYNAEKtwc_",
+        "sequence": 66,
+        "slug": "microsoft-confirms-saudi-arabia-east-cloud-region-launch-for-november-2026",
+        "source_count": 2,
+        "word_count": 1162,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/067.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/CLrkevq4QX6ewfkJfpX6y9/sandbox/p0yIWuQajQR5ZGhXFG4kn1_1788200146753_na1fn_L2hvbWUvdWJ1bnR1LzA2Ny1zYXVkaS1taW5pc3RyeS1vZi1pbnRlcmlvci1sYXVuY2hlcy10ZWNoLXBhdmlsaW9uLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvQ0xya2V2cTRRWDZld2ZrSmZwWDZ5OS9zYW5kYm94L3AweUlXdVFhalFSNVpHaFhGRzRrbjFfMTc4ODIwMDE0Njc1M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk55MXpZWFZrYVMxdGFXNXBjM1J5ZVMxdlppMXBiblJsY21sdmNpMXNZWFZ1WTJobGN5MTBaV05vTFhCaGRtbHNhVzl1TFdGMExXeGxZWEF0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIB9QmO4xV5JMzOWqXBTjnvi4M5fzetDvGEWl9tzH54TqAiEAvkfJCrN9arp9wVQYjDCxq2r6r1-MWVW-1Ncd7jX-0A0_",
+        "sequence": 67,
+        "slug": "saudi-ministry-of-interior-launches-tech-pavilion-at-leap-2026",
+        "source_count": 3,
+        "word_count": 941,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/068.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/erY7O2MTqbwYI3CicnbvvX/sandbox/5NeDhFWmqdAswqnDw5xPYc_1788200142786_na1fn_L2hvbWUvdWJ1bnR1LzA2OC1zYXVkaS1wYXNzcG9ydHMtZGlyZWN0b3JhdGUtbGF1bmNoZXMtcmVzaWRlbnQtcGhvdG8tdXBkYXRlLW9uLWFic2hlcg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvZXJZN08yTVRxYndZSTNDaWNuYnZ2WC9zYW5kYm94LzVOZURoRldtcWRBc3dxbkR3NXhQWWNfMTc4ODIwMDE0Mjc4Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk9DMXpZWFZrYVMxd1lYTnpjRzl5ZEhNdFpHbHlaV04wYjNKaGRHVXRiR0YxYm1Ob1pYTXRjbVZ6YVdSbGJuUXRjR2h2ZEc4dGRYQmtZWFJsTFc5dUxXRmljMmhsY2cuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCID7t0C0COADwfIr73FTAmEbMgMnrm1e8BBbE9Rf~acM2AiBGtY4B3-G8p2Rpz83ngPY1V-wYokADY9SFqPvdNNpYFg__",
+        "sequence": 68,
+        "slug": "saudi-passports-directorate-launches-resident-photo-update-on-absher",
+        "source_count": 2,
+        "word_count": 1235,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/069.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/tN4wDAvzM0tWUkVK3o48js/sandbox/K3nz6Oha75idczIo0SjygM_1788200142430_na1fn_L2hvbWUvdWJ1bnR1LzA2OS1zYXVkaS1jaXZpbC1kZWZlbnNlLXNob3djYXNlcy1zbWFydC1oZWxtZXQtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdE40d0RBdnpNMHRXVWtWSzNvNDhqcy9zYW5kYm94L0szbno2T2hhNzVpZGN6SW8wU2p5Z01fMTc4ODIwMDE0MjQzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBMk9TMXpZWFZrYVMxamFYWnBiQzFrWldabGJuTmxMWE5vYjNkallYTmxjeTF6YldGeWRDMW9aV3h0WlhRdFlYUXRiR1ZoY0MweU1ESTIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCQMTfLrQmtG8WTfGjlUlIFipLVTsoHdwqUIv2cgX34CwIgekS5PF15W0lH2~2GPYwyQn1LoE0auZ~i3nRV9XqNo7M_",
+        "sequence": 69,
+        "slug": "saudi-civil-defense-showcases-smart-helmet-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1110,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/070.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/p0H8myKIgfTisOnp8rvUhf/sandbox/JlFzA6sTWifu8HKyXTZk6L_1788200171262_na1fn_L2hvbWUvdWJ1bnR1LzA3MC1zYXVkaS1ib3JkZXItZ3VhcmQtdW52ZWlscy16YXdhbC1tYXJpdGltZS1zZWN1cml0eS10ZWNoLWF0LWxlYXA.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcDBIOG15S0lnZlRpc09ucDhydlVoZi9zYW5kYm94L0psRnpBNnNUV2lmdThIS3lYVFprNkxfMTc4ODIwMDE3MTI2Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM01DMXpZWFZrYVMxaWIzSmtaWEl0WjNWaGNtUXRkVzUyWldsc2N5MTZZWGRoYkMxdFlYSnBkR2x0WlMxelpXTjFjbWwwZVMxMFpXTm9MV0YwTFd4bFlYQS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQC0tl250fZetNDDe-dtlxR3Ij0WNJor0o0jEJswS9X41QIhAIGhnO8lfCvAycGICcg3Odla4HZxVWb-4nAWA~YDkVFk",
+        "sequence": 70,
+        "slug": "saudi-border-guard-unveils-zawal-maritime-security-tech-at-leap",
+        "source_count": 1,
+        "word_count": 853,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/071.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/z0ZskYnbcfZ95jJPeOznzV/sandbox/F3IKQQgPK61S2RdUeHQuAX_1788200158307_na1fn_L2hvbWUvdWJ1bnR1LzA3MS1zYXVkaS1taW5pc3RyeS1vZi1pbnRlcmlvci11bnZlaWxzLWFpLXBvd2VyZWQtc21hcnQtaGVhbHRoY2FyZS11bml0LWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvejBac2tZbmJjZlo5NWpKUGVPem56Vi9zYW5kYm94L0YzSUtRUWdQSzYxUzJSZFVlSFF1QVhfMTc4ODIwMDE1ODMwN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM01TMXpZWFZrYVMxdGFXNXBjM1J5ZVMxdlppMXBiblJsY21sdmNpMTFiblpsYVd4ekxXRnBMWEJ2ZDJWeVpXUXRjMjFoY25RdGFHVmhiSFJvWTJGeVpTMTFibWwwTFdGMExXeGxZWEF0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIEHqRmo0qOLs9CzhbMlQPpFKUh4kWacPjQ9VsvC5KkQ0AiBu7HhBla3o3vvXv3z9mg2IyX0F4dvToXHcjJQt46LeLA__",
+        "sequence": 71,
+        "slug": "saudi-ministry-of-interior-unveils-ai-powered-smart-healthcare-unit-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1087,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/072.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/MjKWvhPRd46hR81dQ3HwMX/sandbox/iVNS5mpw7x8deKSwAUk8Ql_1788200175482_na1fn_L2hvbWUvdWJ1bnR1LzA3Mi1pcWlibGEtdW52ZWlscy1zbWFydC1yaW5ncy1hbmQta2lkcy1haS1waG9uZXMtYXQtbGVhcA.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTWpLV3ZoUFJkNDZoUjgxZFEzSHdNWC9zYW5kYm94L2lWTlM1bXB3N3g4ZGVLU3dBVWs4UWxfMTc4ODIwMDE3NTQ4Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM01pMXBjV2xpYkdFdGRXNTJaV2xzY3kxemJXRnlkQzF5YVc1bmN5MWhibVF0YTJsa2N5MWhhUzF3YUc5dVpYTXRZWFF0YkdWaGNBLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCV0CKd5Ug4tJMh-c8e2ZqliXev0H63z3BRP7I7S~CdpgIgbLNtyFa60TQ8Eo0mxOnEPukiYefmz0YnW3HYZejAz8c_",
+        "sequence": 72,
+        "slug": "iqibla-unveils-smart-rings-and-kids-ai-phones-at-leap",
+        "source_count": 1,
+        "word_count": 860,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/073.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/MFnS0MZKlBJevGlG5kDQZk/sandbox/ISvXn0xroh7Y86fXkMho3I_1788200153304_na1fn_L2hvbWUvdWJ1bnR1LzA3My1zeXJpYS1kZWJ1dHMtYXQtbGVhcC0yMDI2LWhpZ2hsaWdodGluZy10ZWxlY29tLWludmVzdG1lbnRzLWFuZC1zaWxrLWxpbmstcHJvamVjdA.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTUZuUzBNWktsQkpldkdsRzVrRFFaay9zYW5kYm94L0lTdlhuMHhyb2g3WTg2ZlhrTWhvM0lfMTc4ODIwMDE1MzMwNF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM015MXplWEpwWVMxa1pXSjFkSE10WVhRdGJHVmhjQzB5TURJMkxXaHBaMmhzYVdkb2RHbHVaeTEwWld4bFkyOXRMV2x1ZG1WemRHMWxiblJ6TFdGdVpDMXphV3hyTFd4cGJtc3RjSEp2YW1WamRBLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQDUXKuvjyVkt~OpnkxT~MBrBVGOYkQluzgOh4jVyAptxgIhAJBJh-KroCBefqILrneVouee~eDE8d7-zteU3ccwZnKf",
+        "sequence": 73,
+        "slug": "syria-debuts-at-leap-2026-highlighting-telecom-investments-and-silk-link-project",
+        "source_count": 3,
+        "word_count": 972,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/074.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/qRoupVd6oLIOMLTwmv1dL5/sandbox/FtTJQNE4yEqSyc5o2Yu1wK_1788200155298_na1fn_L2hvbWUvdWJ1bnR1LzA3NC10b2dldGhlci1haS1hbmQtaHVtYWluLXRvLWJ1aWxkLTI1MG13LWRhdGEtY2VudGVyLWluLXNhdWRpLWFyYWJpYQ.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcVJvdXBWZDZvTElPTUxUd212MWRMNS9zYW5kYm94L0Z0VEpRTkU0eUVxU3ljNW8yWXUxd0tfMTc4ODIwMDE1NTI5OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM05DMTBiMmRsZEdobGNpMWhhUzFoYm1RdGFIVnRZV2x1TFhSdkxXSjFhV3hrTFRJMU1HMTNMV1JoZEdFdFkyVnVkR1Z5TFdsdUxYTmhkV1JwTFdGeVlXSnBZUS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIH3~XBNXaRmoBjrSASWsD0bz90CiNLb4fwv~ERDEqx8rAiBaSxy~Ht5tyJA-MujXsv~EW~quT1D1S3N~FcvnN3i3YA__",
+        "sequence": 74,
+        "slug": "together-ai-and-humain-to-build-250mw-data-center-in-saudi-arabia",
+        "source_count": 1,
+        "word_count": 969,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/075.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/3ZdDiG6VnW1DeAJQySFECo/sandbox/IBb1p96C0x5wVE5phsyBnr_1788200168240_na1fn_L2hvbWUvdWJ1bnR1LzA3NS1odW1haW4tYW5kLWFwcGxpZWQtaW50dWl0aW9uLXRvLWRlcGxveS1uYXRpb25hbC1hdXRvbm9tb3VzLXRydWNraW5nLW5ldHdvcms.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvM1pkRGlHNlZuVzFEZUFKUXlTRkVDby9zYW5kYm94L0lCYjFwOTZDMHg1d1ZFNXBoc3lCbnJfMTc4ODIwMDE2ODI0MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM05TMW9kVzFoYVc0dFlXNWtMV0Z3Y0d4cFpXUXRhVzUwZFdsMGFXOXVMWFJ2TFdSbGNHeHZlUzF1WVhScGIyNWhiQzFoZFhSdmJtOXRiM1Z6TFhSeWRXTnJhVzVuTFc1bGRIZHZjbXMuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCoTGUYAu1p7uDULH5895ipmWpYG-jRbRqX7JCR6PaR6QIgfyQ7n~l46CGqF4wrGOHy8izlof3mHD1HwyvW9N~66sQ_",
+        "sequence": 75,
+        "slug": "humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network",
+        "source_count": 2,
+        "word_count": 1036,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/076.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/DfKcl4hrkO2eILxFTDtSlR/sandbox/dMK0Tgm8b3FQuuarUwLQnX_1788200160230_na1fn_L2hvbWUvdWJ1bnR1LzA3Ni1ocC1sYXVuY2hlcy1nYXJhZ2UtMi0wLWFpLXN0YXJ0dXAtaW5jdWJhdG9yLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRGZLY2w0aHJrTzJlSUx4RlREdFNsUi9zYW5kYm94L2RNSzBUZ204YjNGUXV1YXJVd0xRblhfMTc4ODIwMDE2MDIzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM05pMW9jQzFzWVhWdVkyaGxjeTFuWVhKaFoyVXRNaTB3TFdGcExYTjBZWEowZFhBdGFXNWpkV0poZEc5eUxXRjBMV3hsWVhBdE1qQXlOZy5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDwfNvDcX6KHL9mzftpLubVNjGQH8uMh7BMAHT8hFzXjwIgNwOwwdgiMQqaFpoKTUIc1vnDI2-pfFbfT-ivz8JGctc_",
+        "sequence": 76,
+        "slug": "hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026",
+        "source_count": 2,
+        "word_count": 968,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/077.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/x0tz7lqkeFHHZDpD9NS6yO/sandbox/D2NHkoiS3ZwYBxtZasfDBJ_1788200163160_na1fn_L2hvbWUvdWJ1bnR1LzA3Ny1iaW9zdGFyLWxhdW5jaGVzLWVkZ2Vjb21wLWpldHNvbi10aG9yLXN5c3RlbXMtYXQtZGVlcGZlc3QtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUveDB0ejdscWtlRkhIWkRwRDlOUzZ5Ty9zYW5kYm94L0QyTkhrb2lTM1p3WUJ4dFphc2ZEQkpfMTc4ODIwMDE2MzE2MF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM055MWlhVzl6ZEdGeUxXeGhkVzVqYUdWekxXVmtaMlZqYjIxd0xXcGxkSE52YmkxMGFHOXlMWE41YzNSbGJYTXRZWFF0WkdWbGNHWmxjM1F0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQChlLlaTnub7X5~K1AJSjSzmqbnnZlEeIQaaI3RH2IA8QIhAJMzvjyO1zXTXn06~wpXCH0syTOtMHl7FdBV7hTX6FUy",
+        "sequence": 77,
+        "slug": "biostar-launches-edgecomp-jetson-thor-systems-at-deepfest-2026",
+        "source_count": 2,
+        "word_count": 1012,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/078.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/XDNimbpjlXTVxyFnnliRkI/sandbox/rlNOvklp2b0yO593PK4ZpW_1788200170037_na1fn_L2hvbWUvdWJ1bnR1LzA3OC1jbG91ZGVyYS11bnZlaWxzLWFueXdoZXJlLWNsb3VkLXdpdGgtemVyby10cnVzdC1nb3Zlcm5hbmNlLWF0LWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWEROaW1icGpsWFRWeHlGbm5saVJrSS9zYW5kYm94L3JsTk92a2xwMmIweU81OTNQSzRacFdfMTc4ODIwMDE3MDAzN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM09DMWpiRzkxWkdWeVlTMTFiblpsYVd4ekxXRnVlWGRvWlhKbExXTnNiM1ZrTFhkcGRHZ3RlbVZ5YnkxMGNuVnpkQzFuYjNabGNtNWhibU5sTFdGMExXeGxZWEF0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIDRekbhzu82TPyj9jpCVRZEuqiP5eCT5z4HwuY-c1pUrAiEA1bJ3fpRW0B1BIlCKtff5J7bZhQv11LWU0EgnT4af-xg_",
+        "sequence": 78,
+        "slug": "cloudera-unveils-anywhere-cloud-with-zero-trust-governance-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1212,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/079.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/1ojHPLEmdDZ91dv6r4gBl3/sandbox/9aKDiGPYTtMakoja1Zo8ME_1788200169455_na1fn_L2hvbWUvdWJ1bnR1LzA3OS1haS1nZW8tbmF2aWdhdG9ycy11bnZlaWxzLW1pcnNhZC1oYXphcmQtcGxhdGZvcm0tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMW9qSFBMRW1kRFo5MWR2NnI0Z0JsMy9zYW5kYm94LzlhS0RpR1BZVHRNYWtvamExWm84TUVfMTc4ODIwMDE2OTQ1NV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBM09TMWhhUzFuWlc4dGJtRjJhV2RoZEc5eWN5MTFiblpsYVd4ekxXMXBjbk5oWkMxb1lYcGhjbVF0Y0d4aGRHWnZjbTB0WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIFVYNeUCT8Wgm-RpaQU83qX7wtBGyNfa6U-4ggInzg1YAiEAoYE3YAq~0osDEpiDPrfdxiKMsz101JopjOj57wxTJrU_",
+        "sequence": 79,
+        "slug": "ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026",
+        "source_count": 1,
+        "word_count": 851,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/080.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/8Vn70tNEW5qfmnBPsZLcIn/sandbox/XDOyEYQlZJQbrHh4jzOUvf_1788200234582_na1fn_L2hvbWUvdWJ1bnR1LzA4MC1hc3RyaWstdG8tc2hvd2Nhc2UtY2xhc3NwZWRpYS1hbmQtYWktZW50ZXJwcmlzZS1lY29zeXN0ZW0tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOFZuNzB0TkVXNXFmbW5CUHNaTGNJbi9zYW5kYm94L1hET3lFWVFsWkpRYnJIaDRqek9VdmZfMTc4ODIwMDIzNDU4Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE1DMWhjM1J5YVdzdGRHOHRjMmh2ZDJOaGMyVXRZMnhoYzNOd1pXUnBZUzFoYm1RdFlXa3RaVzUwWlhKd2NtbHpaUzFsWTI5emVYTjBaVzB0WVhRdGJHVmhjQzB5TURJMi5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDMizcpiYiA47elI7dR-dzYlBcs3nBHHas9VVul29fQgAIgYyW8eedfUeFgzKr~m-1Soh~mY3LCX2TWUeBVWjjfrFU_",
+        "sequence": 80,
+        "slug": "astrik-to-showcase-classpedia-and-ai-enterprise-ecosystem-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1029,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/081.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/2qPNNrBnVRCCl08KOS0E5Y/sandbox/QOfaV4xHMOJoMiUsaTFGee_1788200188929_na1fn_L2hvbWUvdWJ1bnR1LzA4MS1ocC1zLXJpeWFkaC1mYWNpbGl0eS1iZWdpbnMtY29tbWVyY2lhbC1wcm9kdWN0aW9uLW9mLXRlY2gtcHJvZHVjdHM.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMnFQTk5yQm5WUkNDbDA4S09TMEU1WS9zYW5kYm94L1FPZmFWNHhITU9Kb01pVXNhVEZHZWVfMTc4ODIwMDE4ODkyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE1TMW9jQzF6TFhKcGVXRmthQzFtWVdOcGJHbDBlUzFpWldkcGJuTXRZMjl0YldWeVkybGhiQzF3Y205a2RXTjBhVzl1TFc5bUxYUmxZMmd0Y0hKdlpIVmpkSE0uanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIAfFvply5iXNoPk3mOHKc4c9OJxpjd2D-WbPz64hEnesAiAOtE4l1cNagp2dM-kue5WO65Cm0Y-mj8kQYem0KLSLiQ__",
+        "sequence": 81,
+        "slug": "hp-s-riyadh-facility-begins-commercial-production-of-tech-products",
+        "source_count": 2,
+        "word_count": 972,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/082.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/KaNJmYMsoPaV9yjsEyEU1W/sandbox/unpPT1v43e3x0qKhOCznjn_1788200214431_na1fn_L2hvbWUvdWJ1bnR1LzA4Mi1uYy1haS11bnZlaWxzLWZ1bGwtc3RhY2stcGh5c2ljYWwtYWktYXQtbGVhcC0yMDI2LWZvci1taWRkbGUtZWFzdC1leHBhbnNpb24.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvS2FOSm1ZTXNvUGFWOXlqc0V5RVUxVy9zYW5kYm94L3VucFBUMXY0M2UzeDBxS2hPQ3puam5fMTc4ODIwMDIxNDQzMV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE1pMXVZeTFoYVMxMWJuWmxhV3h6TFdaMWJHd3RjM1JoWTJzdGNHaDVjMmxqWVd3dFlXa3RZWFF0YkdWaGNDMHlNREkyTFdadmNpMXRhV1JrYkdVdFpXRnpkQzFsZUhCaGJuTnBiMjQuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQD3~1AgK5nqgZOplMKXbtQESYXGdgJia05zweuQLRt15AIhALv6h2F4OUdWsIVKdsMGznizibrfnXxyzYRMNOKwlIjd",
+        "sequence": 82,
+        "slug": "nc-ai-unveils-full-stack-physical-ai-at-leap-2026-for-middle-east-expansion",
+        "source_count": 1,
+        "word_count": 888,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/083.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/GQowuQy13stL2RR6K8QPxn/sandbox/rKDH0bFK9xwAatps3SI46k_1788200190530_na1fn_L2hvbWUvdWJ1bnR1LzA4My13ZXJpZGUtc2hvd2Nhc2VzLXJvYm90YXhpLWd4ci1hbmQtcm9ib2J1cy1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvR1Fvd3VReTEzc3RMMlJSNks4UVB4bi9zYW5kYm94L3JLREgwYkZLOXh3QWF0cHMzU0k0NmtfMTc4ODIwMDE5MDUzMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE15MTNaWEpwWkdVdGMyaHZkMk5oYzJWekxYSnZZbTkwWVhocExXZDRjaTFoYm1RdGNtOWliMkoxY3kxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDYmyUYJuHpn-5WBFtrzeDfhFyNe6ZuV5Rc0nNPW0-cOAiBLXRKql-B~Jc5sqf2dRf2Wrmi7NHCeRTFqjVlsdUU-Cg__",
+        "sequence": 83,
+        "slug": "weride-showcases-robotaxi-gxr-and-robobus-at-leap-2026",
+        "source_count": 2,
+        "word_count": 851,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/084.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/mN6C6bmrTCKdM3nTjpy5zU/sandbox/ykhDyauNfcremncMKWVqpg_1788200188361_na1fn_L2hvbWUvdWJ1bnR1LzA4NC11c2V0ZWNoLXRvLXByZXNlbnQtb3BlcmF0aW9uYWwtdGVjaG5vbG9neS1wb3J0Zm9saW8tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbU42QzZibXJUQ0tkTTNuVGpweTV6VS9zYW5kYm94L3lraER5YXVOZmNyZW1uY01LV1ZxcGdfMTc4ODIwMDE4ODM2MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE5DMTFjMlYwWldOb0xYUnZMWEJ5WlhObGJuUXRiM0JsY21GMGFXOXVZV3d0ZEdWamFHNXZiRzluZVMxd2IzSjBabTlzYVc4dFlYUXRiR1ZoY0MweU1ESTIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQCBGAuKRYtCGREdpcANB54JU6Hk1pJR0MIBbD~WNzFwIAIhAJ9EIL~V7ENCY~a9ZRXY8OiQPk4PzDzZqtMHQhmX~8j4",
+        "sequence": 84,
+        "slug": "usetech-to-present-operational-technology-portfolio-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1023,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/085.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/vFi8W5e8O8D2v4tB3ci0h2/sandbox/Y4L4NE45aU0R9BWkybRFc5_1788200231767_na1fn_L2hvbWUvdWJ1bnR1LzA4NS1odW1haW4tdW52ZWlscy1hZ2VudGljLWFpLXBjLWJ1aWx0LXdpdGgtcXVhbGNvbW0tYXQtbGVhcA.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvdkZpOFc1ZThPOEQydjR0QjNjaTBoMi9zYW5kYm94L1k0TDRORTQ1YVUwUjlCV2t5YlJGYzVfMTc4ODIwMDIzMTc2N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE5TMW9kVzFoYVc0dGRXNTJaV2xzY3kxaFoyVnVkR2xqTFdGcExYQmpMV0oxYVd4MExYZHBkR2d0Y1hWaGJHTnZiVzB0WVhRdGJHVmhjQS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIC9OCkRrNmnXPCxiIfu6SPkNx1IpMsKkm4aEWzGOZTq7AiAhv0nyBuoYIQz49tUENP2MEAqC2s7W8EGUh4v7CkN-XQ__",
+        "sequence": 85,
+        "slug": "humain-unveils-agentic-ai-pc-built-with-qualcomm-at-leap",
+        "source_count": 3,
+        "word_count": 1165,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/086.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/HHZUbBMVog2YPsH7PzQFid/sandbox/9JLdrDcsKXf5L6XcjY17C2_1788200211949_na1fn_L2hvbWUvdWJ1bnR1LzA4Ni13ZS1zb2x1dGlvbnMtYW5kLW1vdmFuZGktcGFydG5lci1vbi1zYXVkaS1hZHZhbmNlZC13aXJlbGVzcy1kZXBsb3ltZW50.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvSEhaVWJCTVZvZzJZUHNIN1B6UUZpZC9zYW5kYm94LzlKTGRyRGNzS1hmNUw2WGNqWTE3QzJfMTc4ODIwMDIxMTk0OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE5pMTNaUzF6YjJ4MWRHbHZibk10WVc1a0xXMXZkbUZ1WkdrdGNHRnlkRzVsY2kxdmJpMXpZWFZrYVMxaFpIWmhibU5sWkMxM2FYSmxiR1Z6Y3kxa1pYQnNiM2x0Wlc1MC5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIDvxm093dyYpjdvTWpwcEh0SoddMnWPGNjMmjxsMFAYKAiEA8sVqpSykMhE5nhenDoQWKHUai~M7DKkfVBAp~ddBN48_",
+        "sequence": 86,
+        "slug": "we-solutions-and-movandi-partner-on-saudi-advanced-wireless-deployment",
+        "source_count": 1,
+        "word_count": 1204,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/087.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/Gow56q9Tp9Xp3xoMUWbJfs/sandbox/ngH2wXl41OYseZIFh4UcNl_1788200236764_na1fn_L2hvbWUvdWJ1bnR1LzA4Ny1wYWtpc3Rhbi10ZWNoLWZpcm1zLXRhcmdldC1zYXVkaS1leHBhbnNpb24tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvR293NTZxOVRwOVhwM3hvTVVXYkpmcy9zYW5kYm94L25nSDJ3WGw0MU9Zc2VaSUZoNFVjTmxfMTc4ODIwMDIzNjc2NF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE55MXdZV3RwYzNSaGJpMTBaV05vTFdacGNtMXpMWFJoY21kbGRDMXpZWFZrYVMxbGVIQmhibk5wYjI0dFlYUXRiR1ZoY0MweU1ESTIuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIBKPy5~o~XtF40tbOZffU0qMt2EJ95Qn~mp39qHldturAiEAtaC2L5gHYS3PzxI3GYaw0Gogzoyg7~kGYqRL5vxmZgA_",
+        "sequence": 87,
+        "slug": "pakistan-tech-firms-target-saudi-expansion-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1214,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/088.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/3cCEwQO4IKQtDvYz5GuzQx/sandbox/OXQz3YnIUu2GJ00pPu5MQL_1788200246051_na1fn_L2hvbWUvdWJ1bnR1LzA4OC1ibG9zc29tLWFjY2VsZXJhdG9yLW5hbWVkLW9mZmljaWFsLWxlYXAtMjAyNi1zb2Z0LWxhbmRpbmctcGFydG5lci1mb3Itc3RhcnR1cHM.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvM2NDRXdRTzRJS1F0RHZZejVHdXpReC9zYW5kYm94L09YUXozWW5JVXUyR0owMHBQdTVNUUxfMTc4ODIwMDI0NjA1MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE9DMWliRzl6YzI5dExXRmpZMlZzWlhKaGRHOXlMVzVoYldWa0xXOW1abWxqYVdGc0xXeGxZWEF0TWpBeU5pMXpiMlowTFd4aGJtUnBibWN0Y0dGeWRHNWxjaTFtYjNJdGMzUmhjblIxY0hNLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDcvy5QpRx108b9L-86auwmN8mSHde4tZhDyor~cLfk9AiBcMdCktVU6ZbkpWsGhpENY6Y8bI9lxeL3uld4-aY2M4w__",
+        "sequence": 88,
+        "slug": "blossom-accelerator-named-official-leap-2026-soft-landing-partner-for-startups",
+        "source_count": 4,
+        "word_count": 936,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/089.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/lsIvpwxv2hMIXFsjCFV3xR/sandbox/nKzrrgoDuiMh4DaL4JUYMG_1788200212937_na1fn_L2hvbWUvdWJ1bnR1LzA4OS1idWlsZGVycy10cmliZS1hbmQtcC1zaGEtbGVhZC1mb3VuZGVyLWRlbGVnYXRpb25zLXRvLWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbHNJdnB3eHYyaE1JWEZzakNGVjN4Ui9zYW5kYm94L25LenJyZ29EdWlNaDREYUw0SlVZTUdfMTc4ODIwMDIxMjkzN19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNE9TMWlkV2xzWkdWeWN5MTBjbWxpWlMxaGJtUXRjQzF6YUdFdGJHVmhaQzFtYjNWdVpHVnlMV1JsYkdWbllYUnBiMjV6TFhSdkxXeGxZWEF0TWpBeU5nLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDszOLuXu1hCnICZyOYX0LnaAIOb3xSkBu7DP94NYuY3AiBUM0CESkoTCdRPmoKg6IzuNfTtk-lxNVtJfpFpAZEoOg__",
+        "sequence": 89,
+        "slug": "builders-tribe-and-p-sha-lead-founder-delegations-to-leap-2026",
+        "source_count": 2,
+        "word_count": 854,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/090.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/kLbacmVDZnYEa76mhnfCFC/sandbox/XQcwSWkrYa2Efx8acosGPY_1788200262588_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzA5MC1xdWlrYm90LWFuZC1lZmdoLXBhcnRuZXItdG8tZW1iZWQtcmVhbC10aW1lLWluc3VyYW5jZS1pbnRvLXBoeXNpY2FsLWFp.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUva0xiYWNtVkRabllFYTc2bWhuZkNGQy9zYW5kYm94L1hRY3dTV2tyWWEyRWZ4OGFjb3NHUFlfMTc4ODIwMDI2MjU4OF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekE1TUMxeGRXbHJZbTkwTFdGdVpDMWxabWRvTFhCaGNuUnVaWEl0ZEc4dFpXMWlaV1F0Y21WaGJDMTBhVzFsTFdsdWMzVnlZVzVqWlMxcGJuUnZMWEJvZVhOcFkyRnNMV0ZwLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIErBjXa1YkpzynA9isuRIg25a7UUujOapekRMjDj29O~AiAEUqJRmqmXUN-k8faZRhCUAF641rnixTL5GpnV71xIGQ__",
+        "sequence": 90,
+        "slug": "quikbot-and-efgh-partner-to-embed-real-time-insurance-into-physical-ai",
+        "source_count": 3,
+        "word_count": 863,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/091.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/rMjPl87KlsEPpsmFM6VkJN/sandbox/OcFUzv17KbdXy0AquMCvLQ_1788200219851_na1fn_L2hvbWUvdWJ1bnR1LzA5MS12ZWxhdXJhLWFpLXNlY3VyZXMtMTEwbS1zZXJpZXMtYS1hdC0xYi12YWx1YXRpb24tZm9yLWVuZXJneS1lZmZpY2llbnQtYWktY29tcHV0aW5n.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvck1qUGw4N0tsc0VQcHNtRk02VmtKTi9zYW5kYm94L09jRlV6djE3S2JkWHkwQXF1TUN2TFFfMTc4ODIwMDIxOTg1MV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU1TMTJaV3hoZFhKaExXRnBMWE5sWTNWeVpYTXRNVEV3YlMxelpYSnBaWE10WVMxaGRDMHhZaTEyWVd4MVlYUnBiMjR0Wm05eUxXVnVaWEpuZVMxbFptWnBZMmxsYm5RdFlXa3RZMjl0Y0hWMGFXNW4uanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDvoxV~D6DE0fEoFRHGfeAWMxS6TxyFqTuQ-1ilO8SrrAIgbPcqqQIphv-yop567QzhsiPXHsM3A0Otwd0pd1wggIU_",
+        "sequence": 91,
+        "slug": "velaura-ai-secures-110m-series-a-at-1b-valuation-for-energy-efficient-ai-computing",
+        "source_count": 1,
+        "word_count": 1087,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/092.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/1hinrKQuUDhGuH6kecUHro/sandbox/SKlsmY4kaBWLqpMmJJWhUN_1788200208057_na1fn_L2hvbWUvdWJ1bnR1LzA5Mi1sZWFwLTIwMjYtbmFtZXMtZ3VsZi1jYXItYW5kLW1ha2FuaS1hcy1vZmZpY2lhbC10cmFuc3BvcnRhdGlvbi1hbmQtaW50ZXJuYWwtc2h1dHRsZS1wcm92aWRlcnM.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvMWhpbnJLUXVVRGhHdUg2a2VjVUhyby9zYW5kYm94L1NLbHNtWTRrYUJXTHFwTW1KSldoVU5fMTc4ODIwMDIwODA1N19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU1pMXNaV0Z3TFRJd01qWXRibUZ0WlhNdFozVnNaaTFqWVhJdFlXNWtMVzFoYTJGdWFTMWhjeTF2Wm1acFkybGhiQzEwY21GdWMzQnZjblJoZEdsdmJpMWhibVF0YVc1MFpYSnVZV3d0YzJoMWRIUnNaUzF3Y205MmFXUmxjbk0uanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIBqDGcAw6m~tUqlRIY8GYGeZQVqCgMM9iiqs4v9CvK8BAiEAltlrpw1fi3Q-GDYtAQ09YjGHf-rSa6lbl4~fGalHxOk_",
+        "sequence": 92,
+        "slug": "leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers",
+        "source_count": 4,
+        "word_count": 850,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/093.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/c6Cu4pi98Ge9gBUO4YH6YY/sandbox/N8gMJTFDJHGRBuXlnJF1Fr_1788200218669_na1fn_L2hvbWUvdWJ1bnR1LzA5My1saXZlNHdlbGwtc2hvd2Nhc2VzLWFpLWRyaXZlbi1wcmV2ZW50aXZlLWhlYWx0aC1wbGF0Zm9ybS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvYzZDdTRwaTk4R2U5Z0JVTzRZSDZZWS9zYW5kYm94L044Z01KVEZESkhHUkJ1WGxuSkYxRnJfMTc4ODIwMDIxODY2OV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU15MXNhWFpsTkhkbGJHd3RjMmh2ZDJOaGMyVnpMV0ZwTFdSeWFYWmxiaTF3Y21WMlpXNTBhWFpsTFdobFlXeDBhQzF3YkdGMFptOXliUzFoZEMxc1pXRndMVEl3TWpZLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQC3jHlrQT4udKHWZFVeRjTDxBYdzjqA0J4KWslG1~wtHgIgdhg28lNL3JmUbPDMhTmJQPao2wxpvzEanUEQ8KJY3t0_",
+        "sequence": 93,
+        "slug": "live4well-showcases-ai-driven-preventive-health-platform-at-leap-2026",
+        "source_count": 1,
+        "word_count": 1017,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/094.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/wNsuq4VGnQ61Z7O03vFdlv/sandbox/4aEYeZNh8EfhUeC6chpTtG_1788200237112_na1fn_L2hvbWUvdWJ1bnR1LzA5NC1sZWFwLTIwMjYtZGVidXRzLWdhbWV4LWNyZWF0aXZlLXdpdGgtcm9ibG94LWFuZC1lc2wtZmFjZWl0LWV4cGVyaWVuY2Vz.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd05zdXE0VkduUTYxWjdPMDN2RmRsdi9zYW5kYm94LzRhRVllWk5oOEVmaFVlQzZjaHBUdEdfMTc4ODIwMDIzNzExMl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU5DMXNaV0Z3TFRJd01qWXRaR1ZpZFhSekxXZGhiV1Y0TFdOeVpXRjBhWFpsTFhkcGRHZ3RjbTlpYkc5NExXRnVaQzFsYzJ3dFptRmpaV2wwTFdWNGNHVnlhV1Z1WTJWei5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIDCk0GVnk4r5hoGTvrJvmcjziYVqFuORHN4VdB0q7Eo1AiAo0XElwU76J8TFeSS60ACpR42hQrahJ44n4Q6NtYuTvg__",
+        "sequence": 94,
+        "slug": "leap-2026-debuts-gamex-creative-with-roblox-and-esl-faceit-experiences",
+        "source_count": 3,
+        "word_count": 1306,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/095.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/Pl9MR6F3KCBO7lqjgRrRBq/sandbox/nv99trdYbo3EFPcFVIhQhh_1788200234762_na1fn_L2hvbWUvdWJ1bnR1LzA5NS1zYXVkaS1wcm9wdGVjaC1naGFuZW0tc2VjdXJlcy03LTFtLXRvLWV4cGFuZC1mcmFjdGlvbmFsLXJlYWwtZXN0YXRlLXBsYXRmb3Jt.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUGw5TVI2RjNLQ0JPN2xxamdSclJCcS9zYW5kYm94L252OTl0cmRZYm8zRUZQY0ZWSWhRaGhfMTc4ODIwMDIzNDc2Ml9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU5TMXpZWFZrYVMxd2NtOXdkR1ZqYUMxbmFHRnVaVzB0YzJWamRYSmxjeTAzTFRGdExYUnZMV1Y0Y0dGdVpDMW1jbUZqZEdsdmJtRnNMWEpsWVd3dFpYTjBZWFJsTFhCc1lYUm1iM0p0Lmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIHjEHK3w-N42BgDZBuIBWCvrXzyzi8psxUhO1cFADYo~AiAxkiuf9loaQrFJ7OCcC1OA~Lfp2BAXXk~BMRYaOfqMMQ__",
+        "sequence": 95,
+        "slug": "saudi-proptech-ghanem-secures-7-1m-to-expand-fractional-real-estate-platform",
+        "source_count": 3,
+        "word_count": 957,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/096.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/Pq9PI3IrZEGBtIpILPMdzt/sandbox/hXY73XXAZXQB3SKGduJ3Ep_1788200246239_na1fn_L2hvbWUvdWJ1bnR1LzA5Ni1wcm9maXQtY28tc3BvdGxpZ2h0cy1haS1wb3dlcmVkLXBlcmZvcm1hbmNlLW1hbmFnZW1lbnQtcGxhdGZvcm0tYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvUHE5UEkzSXJaRUdCdElwSUxQTWR6dC9zYW5kYm94L2hYWTczWFhBWlhRQjNTS0dkdUozRXBfMTc4ODIwMDI0NjIzOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU5pMXdjbTltYVhRdFkyOHRjM0J2ZEd4cFoyaDBjeTFoYVMxd2IzZGxjbVZrTFhCbGNtWnZjbTFoYm1ObExXMWhibUZuWlcxbGJuUXRjR3hoZEdadmNtMHRZWFF0YkdWaGNDMHlNREkyLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIHXF8TCHuWo3CGG7q4F2Pfx69OIKCmIJOhzPPLZLMtmaAiA33bFfL3prDyhjA7SzkS3QwyBADzdgDj4dtchggo5~3Q__",
+        "sequence": 96,
+        "slug": "profit-co-spotlights-ai-powered-performance-management-platform-at-leap-2026",
+        "source_count": 1,
+        "word_count": 886,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/097.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/lZCQ5iAShTXpAQdh9oq2Dq/sandbox/z1Fw00AOut6PtUAo1dlhDP_1788200242329_na1fn_L2hvbWUvdWJ1bnR1LzA5Ny1zYXVkaS1kaWdpdGFsLWV4aGliaXRpb24tdG8tbGF1bmNoLTIwLWRpZ2l0YWwtcHJvZHVjdHMtYXQtbGVhcC0yMDI2.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbFpDUTVpQVNoVFhwQVFkaDlvcTJEcS9zYW5kYm94L3oxRncwMEFPdXQ2UHRVQW8xZGxoRFBfMTc4ODIwMDI0MjMyOV9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU55MXpZWFZrYVMxa2FXZHBkR0ZzTFdWNGFHbGlhWFJwYjI0dGRHOHRiR0YxYm1Ob0xUSXdMV1JwWjJsMFlXd3RjSEp2WkhWamRITXRZWFF0YkdWaGNDMHlNREkyLmpzb24iLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTA4MTI4MDB9fX1dfQ__\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEYCIQCHz7MhFyAjutyEBqWg~wF5QJsCL3jC1XdBzV5deHBhcwIhAIUQxK-uf1eK69JUuCnck4fQC452SBHJThCFbznBJ7Nm",
+        "sequence": 97,
+        "slug": "saudi-digital-exhibition-to-launch-20-digital-products-at-leap-2026",
+        "source_count": 1,
+        "word_count": 909,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/098.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/NXnz5Km1ZFuRXjMB2QQr9x/sandbox/zmAWfJF7xUJP9wvmqpVFZ2_1788200225066_na1fn_L2hvbWUvdWJ1bnR1LzA5OC1zYXVkaWEtc2VjdXJlcy1haXJidXMtZmxlZXQtZmluYW5jaW5nLW1vdS1hdC1sZWFwLTIwMjY.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvTlhuejVLbTFaRnVSWGpNQjJRUXI5eC9zYW5kYm94L3ptQVdmSkY3eFVKUDl3dm1xcFZGWjJfMTc4ODIwMDIyNTA2Nl9uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU9DMXpZWFZrYVdFdGMyVmpkWEpsY3kxaGFYSmlkWE10Wm14bFpYUXRabWx1WVc1amFXNW5MVzF2ZFMxaGRDMXNaV0Z3TFRJd01qWS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQDeSKdYaEY5QthctwCsVWVxdCoAwwSEkIc32Z8p3YVHUgIgIbshqTyMUTajvkI977WFgbB9uxHhuyP1wgzZWV2qWF4_",
+        "sequence": 98,
+        "slug": "saudia-secures-airbus-fleet-financing-mou-at-leap-2026",
+        "source_count": 2,
+        "word_count": 1030,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/099.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/pEJsPxTPKSwONgl8NqT3B9/sandbox/akRsIRNw9nl42TfeGMcVdj_1788200243743_na1fn_L2hvbWUvdWJ1bnR1LzA5OS1sZWFwLTIwMjYtcmVzY2hlZHVsZWQtdG8tYXVndXN0LWFtaWQtcmVnaW9uYWwtY29uZmxpY3Q.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcEVKc1B4VFBLU3dPTmdsOE5xVDNCOS9zYW5kYm94L2FrUnNJUk53OW5sNDJUZmVHTWNWZGpfMTc4ODIwMDI0Mzc0M19uYTFmbl9MMmh2YldVdmRXSjFiblIxTHpBNU9TMXNaV0Z3TFRJd01qWXRjbVZ6WTJobFpIVnNaV1F0ZEc4dFlYVm5kWE4wTFdGdGFXUXRjbVZuYVc5dVlXd3RZMjl1Wm14cFkzUS5qc29uIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkwODEyODAwfX19XX0_\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEUCIQCuQZhUrpjgCHeH1TWLBCOunKaNa6HOqB1HrAiARtu9ygIgFlZGkRhEwikIOjYXpQOIw9VLqU3gbLqKVQXLsPNGjs8_",
+        "sequence": 99,
+        "slug": "leap-2026-rescheduled-to-august-amid-regional-conflict",
+        "source_count": 2,
+        "word_count": 943,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/article-briefs/100.json",
+      "output": {
+        "article_file": "https://private-us-east-1.manuscdn.com/sessionFile/wBOIsOosAPM3nM0q1eSa2m/sandbox/V8KvEGLfkD0yGzIHNvClO0_1788200265100_na1fn_L2hvbWUvdWJ1bnR1L3RlY2hzY29vcC1tYWluL2NvbnRlbnQvbGVhcC1kZWVwZmVzdC0yMDI2LzEwMC1zYXVkaS1odW1hbi1yZXNvdXJjZXMtbWluaXN0cnktYnJpbmdzLW5ldy1kaWdpdGFsLXNlcnZpY2VzLXRvLWxlYXAtMjAyNg.json?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvd0JPSXNPb3NBUE0zbk0wcTFlU2EybS9zYW5kYm94L1Y4S3ZFR0xma0QweUd6SUhOdkNsTzBfMTc4ODIwMDI2NTEwMF9uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNSbFkyaHpZMjl2Y0MxdFlXbHVMMk52Ym5SbGJuUXZiR1ZoY0Mxa1pXVndabVZ6ZEMweU1ESTJMekV3TUMxellYVmthUzFvZFcxaGJpMXlaWE52ZFhKalpYTXRiV2x1YVhOMGNua3RZbkpwYm1kekxXNWxkeTFrYVdkcGRHRnNMWE5sY25acFkyVnpMWFJ2TFd4bFlYQXRNakF5TmcuanNvbiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MDgxMjgwMH19fV19\u0026Key-Pair-Id=K2QY5QTL8JSY6C\u0026Signature=MEQCIBGxxLzGQWRv5m1eR3tRufpJSN-tPM9K5bUBDoWW5X5JAiBGp85dpcKS4X87wreRMw9EfjTckyJHIruDVxWLrD3qcA__",
+        "sequence": 100,
+        "slug": "saudi-human-resources-ministry-brings-new-digital-services-to-leap-2026",
+        "source_count": 2,
+        "word_count": 1110,
+        "workflow_status": "draft"
+      },
+      "error": ""
+    }
+  ]
+}

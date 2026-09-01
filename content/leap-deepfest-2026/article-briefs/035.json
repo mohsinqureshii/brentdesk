@@ -1,0 +1,192 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 35,
+    "candidate_id": "R056",
+    "canonical_announcement_key": "Oracle + AMD: 50,000 MI450 GPU AI supercluster on OCI (Q3’26)",
+    "selection_reason": "Material hardware scale/timeline; DeepFest tie-in; official Oracle announcement.",
+    "title": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at DeepFest 2026",
+    "slug": "oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2025-10-14",
+    "display_datetime_local": "2026-08-31T16:06:56+03:00",
+    "display_datetime_utc": "2026-08-31T13:06:56Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Oracle and AMD have expanded their strategic partnership to deploy an unprecedented AI supercluster on Oracle Cloud Infrastructure (OCI). Beginning in Q3 2026, Oracle will be the first hyperscaler to offer a publicly available AI…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "Oracle",
+      "AMD"
+    ],
+    "people_names": [
+      "Mahesh Thiagarajan",
+      "Forrest Norrod"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "AI Infrastructure",
+      "Cloud Computing",
+      "Telecommunications",
+      "Semiconductors",
+      "Venture Capital",
+      "Future of Work",
+      "DeepFest 2026"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "AI Infrastructure",
+      "Cloud Computing",
+      "Telecommunications",
+      "Semiconductors",
+      "Oracle",
+      "AMD",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Oracle AMD partnership",
+      "keywords": [
+        "Oracle AMD partnership",
+        "AMD Instinct MI450",
+        "Oracle AI supercluster",
+        "DeepFest 2026",
+        "Oracle Cloud Infrastructure",
+        "OCI",
+        "Helios rack design",
+        "AI data centers"
+      ],
+      "seo_title": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at…",
+      "seo_description": "Oracle and AMD have expanded their strategic partnership to deploy an unprecedented AI supercluster on Oracle Cloud Infrastructure (OCI). Beginning in Q3 2026…",
+      "og_title": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at DeepFest 2026",
+      "og_description": "Oracle and AMD have expanded their strategic partnership to deploy an unprecedented AI supercluster on Oracle Cloud Infrastructure (OCI). Beginning in Q3 2026, Oracle will be the first hyperscaler to…",
+      "google_news_keywords": [
+        "Oracle AMD partnership",
+        "AMD Instinct MI450",
+        "Oracle AI supercluster",
+        "DeepFest 2026",
+        "Oracle Cloud Infrastructure",
+        "OCI",
+        "Helios rack design",
+        "AI data centers"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Oracle and AMD Expand Partnership to Help Customers Achieve Next-Generation AI Scale",
+      "primary_url": "https://www.oracle.com/news/announcement/ai-world-oracle-and-amd-expand-partnership-to-help-customers-achieve-next-generation-ai-scale-2025-10-14/",
+      "supporting_urls": [
+        "https://www.facebook.com/Deepfestevent/posts/todays-most-demanding-ai-workloads-require-the-right-solutions-amd-joins-deepfes/1055946600648145/"
+      ],
+      "verified_angle_summary": "Oracle and AMD have expanded their strategic partnership to deploy an unprecedented AI supercluster on Oracle Cloud Infrastructure (OCI). Beginning in Q3 2026, Oracle will be the first hyperscaler to offer a publicly available AI supercluster powered by an initial deployment of 50,000 AMD Instinct MI450 Series GPUs. This deployment utilizes the AMD 'Helios' rack design and advanced 'Vulcano' networking to handle massive AI training workloads. AMD, a Platinum Sponsor at DeepFest 2026, is actively showcasing this capability and partnership. This angle is highly specific, avoids generic cloud positioning, and focuses on a concrete, massive-scale hardware deployment timeline that intersects with the DeepFest 2026 event.",
+      "verified_key_facts": "Oracle and AMD expanded their partnership for AI infrastructure; Oracle to deploy 50,000 AMD Instinct MI450 Series GPUs starting Q3 2026; Deployment utilizes AMD Helios rack design and Vulcano networking; AMD is a Platinum Sponsor at DeepFest 2026; Each MI450 GPU provides up to 432 GB of HBM4 memory; Architecture enables direct hardware-coherent networking via UALink protocol.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://www.oracle.com/news/announcement/ai-world-oracle-and-amd-expand-partnership-to-help-customers-achieve-next-generation-ai-scale-2025-10-14/",
+      "credit": "Oracle",
+      "license_note": "Official Oracle press release image. Requires editorial review for usage.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at DeepFest 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at DeepFest 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Oracle and AMD have expanded their strategic partnership to deploy an unprecedented AI supercluster on Oracle Cloud Infrastructure (OCI). Beginning in Q3 2026, Oracle will be the first hyperscaler to offer a publicly available AI supercluster powered by an initial deployment of 50,000 AMD Instinct MI450 Series GPUs. This deployment utilizes the AMD 'Helios' rack design and advanced 'Vulcano' networking to handle massive AI training workloads. AMD, a Platinum Sponsor at DeepFest 2026, is actively showcasing this capability and partnership. This angle is highly specific, avoids generic cloud positioning, and focuses on a concrete, massive-scale hardware deployment timeline that intersects with the DeepFest 2026 event.",
+      "key_facts": "Oracle and AMD expanded their partnership for AI infrastructure; Oracle to deploy 50,000 AMD Instinct MI450 Series GPUs starting Q3 2026; Deployment utilizes AMD Helios rack design and Vulcano networking; AMD is a Platinum Sponsor at DeepFest 2026; Each MI450 GPU provides up to 432 GB of HBM4 memory; Architecture enables direct hardware-coherent networking via UALink protocol.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 35,
+    "candidate_id": "R056",
+    "slug": "oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/035-oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026.webp",
+    "filename": "035-oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026.webp",
+    "mime_type": "image/webp",
+    "size": 281404,
+    "width": 1600,
+    "height": 900,
+    "sha256": "9bc36b9a4285576581f5939f1bfb8ee3fdd2e547fb26c14518f5cb832ba8cbb7",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at DeepFest 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Oracle and AMD Partner on 50,000 MI450 GPU Supercluster at DeepFest 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/035.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "sequence": 7,
+  "candidate_id": "R009",
+  "slug": "humain-and-kora-co-develop-ai-native-linux-os-for-2027-launch",
+  "title": "HUMAIN and KORA Co-Develop AI-Native Linux OS for 2027 Launch",
+  "event_names": [
+    "DeepFest 2026"
+  ],
+  "company_names": [
+    "HUMAIN",
+    "KORA Systems Inc.",
+    "Qualcomm"
+  ],
+  "people_names": [
+    "Tareq Amin",
+    "Kirt McMaster"
+  ],
+  "image_prompt": "Create a premium editorial technology-news hero image for TechScoop's coverage of DeepFest 2026 in Riyadh.\n\nStory: HUMAIN and KORA Co-Develop AI-Native Linux OS for 2027 Launch\nVerified angle: At LEAP 2026, HUMAIN and KORA Systems Inc. announced a strategic engineering partnership to co-develop HUMAIN OS, an enterprise-grade, AI-native Linux operating system. Scheduled for commercial availability in 2027, the platform aims to integrate artificial intelligence directly into the computing stack rather than running it as a top-layer application. The joint effort combines HUMAIN's full-stack AI capabilities—spanning models, agentic technologies, and infrastructure—with KORA's expertise in Linux and edge AI. A key feature under development is an on-device intelligence layer optimized for Qualcomm platforms, targeting a 26-billion-parameter model running locally on a Qualcomm NPU. This architecture is designed to understand user intent, assemble context, and orchestrate workloads across devices, enterprise environments, and the cloud based on factors like privacy, latency, and cost. This angle focuses specifically on the technical architecture and strategic vision of HUMAIN OS, distinct from broader event coverage.\nPrincipal organizations or institutions: HUMAIN, KORA Systems Inc., Qualcomm.\nRelevant people for editorial context only: Tareq Amin, Kirt McMaster.\n\nSubject direction: advanced Saudi technology manufacturing with precision robotics, semiconductor or device assembly and realistic engineered materials. Make the image materially specific to this announcement through objects, setting and visual metaphor; do not create a generic conference crowd.\n\nComposition: cinematic 16:9 landscape hero, 1600×900 final-use ratio, single strong focal point slightly right of center, generous clean negative space on the left, layered depth, crisp silhouette at thumbnail size. Where people are contextually useful, show only distant or over-the-shoulder editorial silhouettes unless an exact reference portrait is supplied; do not invent a recognizable face.\n\nVisual style: match the supplied reference image's premium MENA enterprise-news aesthetic—dark navy and deep indigo foundation, electric cyan and violet data light, restrained warm sand-gold accents, photorealistic materials blended with elegant 3D editorial visualization, controlled volumetric lighting, credible business-technology tone.\n\nText/content: no text, no letters, no numbers, no logos, no watermarks, no badges, no brand marks, no national emblems, no fake signage and no readable user-interface elements.\n\nAvoid: protected product trade dress, fabricated press photography, handshakes, crowded collage layouts, duplicated subjects, fantasy sci-fi excess, inaccurate corporate logos, distorted anatomy, recognizable but invented executives, and visual claims that go beyond the verified angle.\n",
+  "requested_filename": "007-humain-and-kora-co-develop-ai-native-linux-os-for-2027-launch.png",
+  "target_width": 1600,
+  "target_height": 900,
+  "credit": "TechScoop illustration",
+  "source_url": "https://techscoop.io",
+  "license": "TechScoop original",
+  "rights_status": "generated",
+  "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+  "alt": "HUMAIN and KORA Co-Develop AI-Native Linux OS for 2027 Launch — LEAP and DeepFest 2026 news",
+  "caption": "HUMAIN and KORA Co-Develop AI-Native Linux OS for 2027 Launch. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage."
+}

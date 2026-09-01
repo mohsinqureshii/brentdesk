@@ -1,0 +1,328 @@
+{
+  "sequence": 10,
+  "current_draft": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 10,
+    "candidate_id": "R013",
+    "canonical_announcement_key": "Pasqal + KACST quantum research collaboration (quantum-safe cryptography)",
+    "title": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026",
+    "slug": "pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "display_datetime_local": "2026-08-31T13:05:22+03:00",
+    "display_datetime_utc": "2026-08-31T10:05:22Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership, announced on World Quantum Day in Riyadh…",
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Pasqal",
+      "King Abdulaziz City for Science and Technology",
+      "KACST",
+      "National Center for Quantum Technologies",
+      "NCQT"
+    ],
+    "people_names": [
+      "Wasiq Bokhari",
+      "Talal Al-Sedairy",
+      "Manahel Thabet"
+    ],
+    "topic_names": [
+      "AI Infrastructure",
+      "Cloud Computing",
+      "Cybersecurity",
+      "Digital Government",
+      "Quantum Computing",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "AI Infrastructure",
+      "Cloud Computing",
+      "Cybersecurity",
+      "Digital Government",
+      "Quantum Computing",
+      "Pasqal",
+      "King Abdulaziz City for Science and Technology",
+      "KACST",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "neutral-atom quantum computing",
+      "keywords": [
+        "neutral-atom quantum computing",
+        "Pasqal KACST collaboration",
+        "quantum cryptography Saudi Arabia",
+        "post-quantum cryptography",
+        "LEAP 2026 quantum",
+        "National Center for Quantum Technologies",
+        "Saudi Vision 2030 technology",
+        "quantum-safe cryptographic solutions"
+      ],
+      "seo_title": "Pasqal and KACST Launch Quantum Cryptography Research Ahead…",
+      "seo_description": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions…",
+      "og_title": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026",
+      "og_description": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership…",
+      "google_news_keywords": [
+        "Pasqal KACST collaboration",
+        "quantum cryptography Saudi Arabia",
+        "post-quantum cryptography",
+        "LEAP 2026 quantum",
+        "neutral-atom quantum computing",
+        "National Center for Quantum Technologies",
+        "Saudi Vision 2030 technology",
+        "quantum-safe cryptographic solutions"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Pasqal and KACST Launch Strategic Quantum Research Collaboration as Pasqal Expands Presence in Saudi Arabia",
+      "primary_url": "https://www.globenewswire.com/news-release/2026/08/31/3353273/0/en/pasqal-and-kacst-launch-strategic-quantum-research-collaboration-as-pasqal-expands-presence-in-saudi-arabia.html",
+      "supporting_urls": [
+        "https://thequantuminsider.com/2026/08/31/pasqal-kacst-quantum-research-saudi-arabia/"
+      ],
+      "verified_angle_summary": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership, announced on World Quantum Day in Riyadh ahead of Pasqal CEO Dr. Wasiq Bokhari's keynote at LEAP 2026, pairs Pasqal's neutral-atom quantum computing technology with KACST's National Center for Quantum Technologies infrastructure. The multi-year research program aims to address the growing need for post-quantum cybersecurity across government and financial sectors, with the ultimate goal of bringing commercial quantum-safe offerings to the Saudi market. This development builds on Pasqal's recent momentum in the Kingdom, including deploying a quantum computer at Aramco and a joint venture with Eleven Ventures.",
+      "verified_key_facts": "Pasqal and KACST signed a research collaboration agreement to develop quantum-safe cryptographic solutions; The work will be conducted at KACST's National Center for Quantum Technologies (NCQT); Pasqal's neutral-atom quantum technology and cloud services will be utilized; The agreement was announced at King Salman Science Oasis in Riyadh during World Quantum Day; Pasqal CEO Dr. Wasiq Bokhari will deliver a keynote at LEAP 2026; The collaboration aims to bring commercial quantum-safe offerings to the Saudi market; This follows Pasqal's recent deployment of a quantum computer at Aramco's data center in Dhahran",
+      "confidence": 100
+    },
+    "image": {
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/010-pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026.webp",
+      "filename": "010-pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026.webp",
+      "mime_type": "image/webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+    },
+    "content_markdown": "The rapid acceleration of computational capabilities has brought the global technology sector to a critical juncture, and Saudi Arabia is moving decisively to secure its digital infrastructure against emerging threats. Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership, announced on World Quantum Day at the King Salman Science Oasis in Riyadh, pairs Pasqal's neutral-atom quantum computing technology with KACST's National Center for Quantum Technologies (NCQT) infrastructure. The multi-year research program aims to address the growing need for post-quantum cybersecurity across government and financial sectors, with the ultimate goal of bringing commercial quantum-safe offerings to the Saudi market.\n\nThe announcement arrives ahead of Pasqal CEO Dr. Wasiq Bokhari's scheduled keynote at LEAP 2026, setting a technical foundation for discussions about the region's computational future. By combining KACST's established research framework with Pasqal's specialized hardware and cloud services, the initiative targets one of the most pressing challenges in modern cybersecurity: the theoretical vulnerability of current encryption standards to future quantum processors. The collaboration focuses specifically on translating theoretical post-quantum cryptography into deployable solutions for institutions that manage highly sensitive data on a daily basis.\n\n## Structuring the Research Framework\n\nThe joint effort will be anchored at the NCQT, providing a centralized hub for the research and development of these advanced cryptographic protocols. This facility offers the necessary environment to test and refine algorithms that can withstand the processing power of next-generation computational systems. Pasqal's contribution centers on its neutral-atom quantum technology, which utilizes highly controlled atoms to perform complex calculations, alongside its cloud services that facilitate broader access to these specialized resources. \n\nThis structured approach allows researchers to simulate potential attack vectors and evaluate the resilience of new cryptographic models in a highly controlled setting. The integration of Pasqal's cloud services also suggests a pathway for eventual deployment, moving the research from isolated laboratory environments toward scalable, practical applications. For government agencies and financial institutions in Saudi Arabia, this means the development of defensive measures is happening in proximity to the infrastructure it aims to protect, ensuring that the resulting solutions are tailored to regional regulatory and operational requirements. The ability to test these systems locally is expected to accelerate the transition from research to real-world implementation.\n\n## Contextualizing the Regional Momentum\n\nThe Pasqal KACST collaboration represents a continuation of the company's expanding footprint within the Kingdom of Saudi Arabia. This development builds on Pasqal's recent momentum in the Kingdom, including deploying a quantum computer at Aramco's data center in Dhahran. That earlier installation demonstrated the operational viability of neutral-atom systems in industrial settings and established a baseline for quantum hardware deployment in the region. Furthermore, Pasqal's joint venture with Eleven Ventures indicates a sustained strategy to integrate its technology into the broader Middle Eastern market, creating a network of partnerships that support technological advancement.\n\nThese successive developments highlight a coordinated effort to build a comprehensive quantum ecosystem in Saudi Arabia, aligning with broader national objectives for technological self-sufficiency and advanced digital infrastructure. The transition from industrial optimization, as seen with the Aramco deployment, to foundational cybersecurity research with KACST illustrates the versatile applications of quantum technology and the strategic prioritization of data sovereignty. It also signals a shift toward proactive defense mechanisms in the face of rapidly evolving technological landscapes.\n\n## Implications for Digital Infrastructure\n\nThe primary objective of bringing commercial quantum-safe offerings to the Saudi market carries significant implications for the region's digital economy. Financial institutions, which rely on robust encryption to secure transactions and customer data, face a complex transition period as they prepare for the post-quantum era. The research conducted at the NCQT aims to provide these institutions with tested, reliable cryptographic standards that can be integrated into existing digital frameworks without disrupting current operations. This seamless integration is critical for maintaining the stability of financial markets during the transition phase.\n\nSimilarly, government sectors responsible for national security and public services require cryptographic solutions that offer long-term protection against data harvesting and future decryption. By localizing the development of these solutions, Saudi Arabia is actively reducing its reliance on imported cybersecurity frameworks and fostering domestic expertise in a critical technological domain. This localized approach not only enhances security but also contributes to the development of a highly skilled workforce capable of managing and advancing these complex systems in the years to come.\n\n## Navigating the Path Forward\n\nWhile the announcement establishes a clear trajectory for quantum-safe research in Saudi Arabia, the timeline for commercial deployment remains a multi-year endeavor. The transition from theoretical research to market-ready products involves rigorous testing, standardization, and integration challenges. The effectiveness of the developed cryptographic solutions will depend on their ability to operate efficiently within current digital environments while providing mathematically proven resistance to quantum algorithms.\n\nFurthermore, the broader adoption of these technologies will require coordinated efforts across regulatory bodies, industry stakeholders, and academic institutions. As the research progresses at the NCQT, the technology sector will be closely monitoring the milestones achieved and the practical viability of the resulting commercial offerings. Dr. Bokhari's upcoming address at LEAP 2026 may provide further clarity on the operational phases of this collaboration and the specific milestones the partnership aims to achieve in the near term, offering a glimpse into the future of cybersecurity in the region.\n\n## References\n\n1. [Pasqal and KACST Launch Strategic Quantum Research Collaboration as Pasqal Expands Presence in Saudi Arabia](https://www.globenewswire.com/news-release/2026/08/31/3353273/0/en/pasqal-and-kacst-launch-strategic-quantum-research-collaboration-as-pasqal-expands-presence-in-saudi-arabia.html)\n2. [Pasqal & KACST Quantum Research Saudi Arabia](https://thequantuminsider.com/2026/08/31/pasqal-kacst-quantum-research-saudi-arabia/)\n",
+    "content_word_count": 884,
+    "editorial_notes": "No unsupported claims added; draft requires editorial review."
+  },
+  "authoritative_brief": {
+    "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+    "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+    "article": {
+      "batch_id": "leap-deepfest-2026-day1",
+      "sequence": 10,
+      "candidate_id": "R013",
+      "canonical_announcement_key": "Pasqal + KACST quantum research collaboration (quantum-safe cryptography)",
+      "selection_reason": "GlobeNewswire official; clear research agenda, local infra, and leadership context; distinct quantum R&D.",
+      "title": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026",
+      "slug": "pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+      "author_public_name": "TechScoop Desk",
+      "workflow_status_slug": "draft",
+      "article_type": "news",
+      "is_featured": false,
+      "is_trending": false,
+      "is_editor_pick": false,
+      "is_flash": false,
+      "announcement_date": "2026-08-31",
+      "display_datetime_local": "2026-08-31T13:05:22+03:00",
+      "display_datetime_utc": "2026-08-31T10:05:22Z",
+      "timezone": "Asia/Riyadh",
+      "excerpt": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership, announced on World Quantum Day in Riyadh…",
+      "content_target_words": {
+        "minimum": 800,
+        "preferred": 1050,
+        "maximum": 1400
+      },
+      "primary_category_name": "AI & Data",
+      "category_names": [
+        "AI & Data",
+        "Events & Conferences"
+      ],
+      "event_names": [
+        "LEAP 2026"
+      ],
+      "event_bucket": "LEAP 2026",
+      "company_names": [
+        "Pasqal",
+        "King Abdulaziz City for Science and Technology",
+        "KACST",
+        "National Center for Quantum Technologies",
+        "NCQT"
+      ],
+      "people_names": [
+        "Wasiq Bokhari",
+        "Talal Al-Sedairy",
+        "Manahel Thabet"
+      ],
+      "topic_names": [
+        "AI Infrastructure",
+        "Cloud Computing",
+        "Cybersecurity",
+        "Digital Government",
+        "Quantum Computing",
+        "Saudi Digital Economy",
+        "LEAP 2026"
+      ],
+      "tag_names": [
+        "LEAP 2026",
+        "AI Infrastructure",
+        "Cloud Computing",
+        "Cybersecurity",
+        "Digital Government",
+        "Quantum Computing",
+        "Pasqal",
+        "King Abdulaziz City for Science and Technology",
+        "KACST",
+        "Saudi Arabia",
+        "Riyadh"
+      ],
+      "coverage": {
+        "country_iso2": "SA",
+        "country_name": "Saudi Arabia",
+        "city_name": "Riyadh",
+        "region_name": "Gulf Region"
+      },
+      "seo": {
+        "focus_keyword": "Pasqal KACST collaboration",
+        "keywords": [
+          "Pasqal KACST collaboration",
+          "quantum cryptography Saudi Arabia",
+          "post-quantum cryptography",
+          "LEAP 2026 quantum",
+          "neutral-atom quantum computing",
+          "National Center for Quantum Technologies",
+          "Saudi Vision 2030 technology",
+          "quantum-safe cryptographic solutions"
+        ],
+        "seo_title": "Pasqal and KACST Launch Quantum Cryptography Research Ahead…",
+        "seo_description": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions…",
+        "og_title": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026",
+        "og_description": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership…",
+        "google_news_keywords": [
+          "Pasqal KACST collaboration",
+          "quantum cryptography Saudi Arabia",
+          "post-quantum cryptography",
+          "LEAP 2026 quantum",
+          "neutral-atom quantum computing",
+          "National Center for Quantum Technologies",
+          "Saudi Vision 2030 technology",
+          "quantum-safe cryptographic solutions"
+        ],
+        "canonical_url": "https://techscoop.io/events-conferences/pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+        "robots_indexing": "index"
+      },
+      "sources": {
+        "primary_title": "Pasqal and KACST Launch Strategic Quantum Research Collaboration as Pasqal Expands Presence in Saudi Arabia",
+        "primary_url": "https://www.globenewswire.com/news-release/2026/08/31/3353273/0/en/pasqal-and-kacst-launch-strategic-quantum-research-collaboration-as-pasqal-expands-presence-in-saudi-arabia.html",
+        "supporting_urls": [
+          "https://thequantuminsider.com/2026/08/31/pasqal-kacst-quantum-research-saudi-arabia/"
+        ],
+        "verified_angle_summary": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership, announced on World Quantum Day in Riyadh ahead of Pasqal CEO Dr. Wasiq Bokhari's keynote at LEAP 2026, pairs Pasqal's neutral-atom quantum computing technology with KACST's National Center for Quantum Technologies infrastructure. The multi-year research program aims to address the growing need for post-quantum cybersecurity across government and financial sectors, with the ultimate goal of bringing commercial quantum-safe offerings to the Saudi market. This development builds on Pasqal's recent momentum in the Kingdom, including deploying a quantum computer at Aramco and a joint venture with Eleven Ventures.",
+        "verified_key_facts": "Pasqal and KACST signed a research collaboration agreement to develop quantum-safe cryptographic solutions; The work will be conducted at KACST's National Center for Quantum Technologies (NCQT); Pasqal's neutral-atom quantum technology and cloud services will be utilized; The agreement was announced at King Salman Science Oasis in Riyadh during World Quantum Day; Pasqal CEO Dr. Wasiq Bokhari will deliver a keynote at LEAP 2026; The collaboration aims to bring commercial quantum-safe offerings to the Saudi market; This follows Pasqal's recent deployment of a quantum computer at Aramco's data center in Dhahran",
+        "confidence": 100
+      },
+      "image": {
+        "candidate_url": "",
+        "credit": "",
+        "license_note": "NA",
+        "required_width": 1600,
+        "required_height": 900,
+        "required_mime_type": "image/webp",
+        "alt_text_template": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026 — LEAP and DeepFest 2026 news",
+        "caption_template": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+        "fallback_credit": "TechScoop illustration"
+      },
+      "drafting_brief": {
+        "angle": "Pasqal has signed a strategic research collaboration with King Abdulaziz City for Science and Technology (KACST) to develop quantum-safe cryptographic solutions in Saudi Arabia. This partnership, announced on World Quantum Day in Riyadh ahead of Pasqal CEO Dr. Wasiq Bokhari's keynote at LEAP 2026, pairs Pasqal's neutral-atom quantum computing technology with KACST's National Center for Quantum Technologies infrastructure. The multi-year research program aims to address the growing need for post-quantum cybersecurity across government and financial sectors, with the ultimate goal of bringing commercial quantum-safe offerings to the Saudi market. This development builds on Pasqal's recent momentum in the Kingdom, including deploying a quantum computer at Aramco and a joint venture with Eleven Ventures.",
+        "key_facts": "Pasqal and KACST signed a research collaboration agreement to develop quantum-safe cryptographic solutions; The work will be conducted at KACST's National Center for Quantum Technologies (NCQT); Pasqal's neutral-atom quantum technology and cloud services will be utilized; The agreement was announced at King Salman Science Oasis in Riyadh during World Quantum Day; Pasqal CEO Dr. Wasiq Bokhari will deliver a keynote at LEAP 2026; The collaboration aims to bring commercial quantum-safe offerings to the Saudi market; This follows Pasqal's recent deployment of a quantum computer at Aramco's data center in Dhahran",
+        "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+        "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+      }
+    },
+    "final_image": {
+      "sequence": 10,
+      "candidate_id": "R013",
+      "slug": "pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/010-pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026.webp",
+      "filename": "010-pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026.webp",
+      "mime_type": "image/webp",
+      "size": 258040,
+      "width": 1600,
+      "height": 900,
+      "sha256": "fb4bb2d67cb3f2a32406f31b6e5ac573ed106150e6ccd4780db2400a348a5365",
+      "source_generated_format": "PNG",
+      "source_generated_width": 2560,
+      "source_generated_height": 1440,
+      "alt": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "Pasqal and KACST Launch Quantum Cryptography Research Ahead of LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+      "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+      "generation_brief": "content/leap-deepfest-2026/image-briefs/010.json"
+    },
+    "output_contract": {
+      "format": "JSON",
+      "required_fields": [
+        "sequence",
+        "candidate_id",
+        "canonical_announcement_key",
+        "title",
+        "slug",
+        "author_public_name",
+        "workflow_status_slug",
+        "article_type",
+        "display_datetime_local",
+        "display_datetime_utc",
+        "timezone",
+        "excerpt",
+        "content_markdown",
+        "content_word_count",
+        "primary_category_name",
+        "category_names",
+        "event_names",
+        "event_bucket",
+        "company_names",
+        "people_names",
+        "topic_names",
+        "tag_names",
+        "coverage",
+        "seo",
+        "sources",
+        "image",
+        "editorial_notes"
+      ],
+      "content_word_count_min": 850,
+      "content_word_count_max": 1250,
+      "content_word_count_scope": "Article body only, excluding References",
+      "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+      "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+    }
+  },
+  "review_findings": {
+    "confidence": 100,
+    "editorial_issues": "NA",
+    "editorial_status": "pass",
+    "factual_status": "needs_correction",
+    "sequence": 10,
+    "unsupported_claims": "a joint venture with Eleven Ventures — NA"
+  },
+  "instructions": "Rewrite the article body to correct every factual and editorial finding. The verified angle and key facts in the authoritative brief are the complete factual boundary. Preserve locked backend metadata, approved URLs and image data. Produce concise, original newsroom prose without repeated paragraphs, keyword stuffing, promotional filler or unsupported specificity. The article body must remain 850–1,250 words excluding References, with 2–4 non-References H2 headings and a final References section."
+}

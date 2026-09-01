@@ -1,0 +1,22 @@
+name = "techscoop-seo-worker"
+main = "seo-worker.js"
+compatibility_date = "2025-01-01"
+
+# Apex SEO file routes — these MUST run on Cloudflare so they execute before
+# Manus platform edge interception of /sitemap*.xml and /robots.txt.
+routes = [
+  { pattern = "techscoop.io/sitemap.xml", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/sitemap-*.xml", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/sitemap-index.xml", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/robots.txt", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/rss.xml", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/feed.xml", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/jobs-feed.xml", zone_name = "techscoop.io" },
+  { pattern = "techscoop.io/ads.txt", zone_name = "techscoop.io" },
+
+  { pattern = "www.techscoop.io/sitemap.xml", zone_name = "techscoop.io" },
+  { pattern = "www.techscoop.io/sitemap-*.xml", zone_name = "techscoop.io" },
+  { pattern = "www.techscoop.io/robots.txt", zone_name = "techscoop.io" },
+]
+
+# No KV / D1 / R2 bindings — this worker only proxies + rewrites headers.

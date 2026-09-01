@@ -1,0 +1,1 @@
+ALTER TABLE `accelerators` ADD `statusId` int DEFAULT 1;

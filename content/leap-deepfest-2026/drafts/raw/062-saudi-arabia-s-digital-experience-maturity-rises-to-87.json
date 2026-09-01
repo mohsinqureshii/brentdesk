@@ -1,0 +1,127 @@
+{
+  "batch_id": "leap-deepfest-2026-day1",
+  "sequence": 62,
+  "candidate_id": "B022",
+  "canonical_announcement_key": "DGA Digital Experience Maturity Index 2026: 87.06% (Advanced)",
+  "title": "Saudi Arabia's Digital Experience Maturity Rises to 87%",
+  "slug": "saudi-arabia-s-digital-experience-maturity-rises-to-87",
+  "author_public_name": "TechScoop Desk",
+  "workflow_status_slug": "draft",
+  "article_type": "news",
+  "display_datetime_local": "2026-08-31T19:23:01+03:00",
+  "display_datetime_utc": "2026-08-31T16:23:01Z",
+  "timezone": "Asia/Riyadh",
+  "excerpt": "During LEAP 2026, the Digital Government Authority (DGA) announced the results of Saudi Arabia's Digital Experience Maturity Index for 2026, which achieved an \"Advanced\" maturity level with a score of 87.06%. The comprehensive assessment…",
+  "primary_category_name": "AI & Data",
+  "category_names": [
+    "AI & Data",
+    "Events & Conferences"
+  ],
+  "event_names": [
+    "LEAP 2026"
+  ],
+  "event_bucket": "LEAP 2026",
+  "company_names": [
+    "Digital Government Authority",
+    "Absher",
+    "Etimad",
+    "Senaei",
+    "Balady",
+    "Tawakkalna",
+    "Musaned",
+    "Qiwa",
+    "Logisti",
+    "Nama",
+    "Saudi Ministry of Tourism"
+  ],
+  "people_names": [
+    "Ahmed bin Mohammed Alsuwaiyan"
+  ],
+  "topic_names": [
+    "Digital Government",
+    "Geospatial Technology",
+    "Travel Technology",
+    "Saudi Digital Economy",
+    "LEAP 2026"
+  ],
+  "tag_names": [
+    "LEAP 2026",
+    "Digital Government",
+    "Geospatial Technology",
+    "Travel Technology",
+    "Saudi Digital Economy",
+    "Digital Government Authority",
+    "Absher",
+    "Etimad",
+    "Saudi Arabia",
+    "Riyadh"
+  ],
+  "coverage": {
+    "country_iso2": "SA",
+    "country_name": "Saudi Arabia",
+    "city_name": "Riyadh",
+    "region_name": "Gulf Region"
+  },
+  "seo": {
+    "focus_keyword": "Saudi Arabia's Digital Experience Maturity",
+    "keywords": [
+      "Saudi Arabia's Digital Experience Maturity",
+      "digital government services",
+      "Saudi Arabia digital experience",
+      "Digital Experience Maturity Index 2026",
+      "Digital Government Authority",
+      "DGA",
+      "LEAP 2026",
+      "Absher platform",
+      "Etimad",
+      "Saudi Vision 2030",
+      "Ahmed Alsuwaiyan"
+    ],
+    "seo_title": "Saudi Arabia's Digital Experience Maturity Rises to 87%",
+    "seo_description": "During LEAP 2026, the Digital Government Authority (DGA) announced the results of Saudi Arabia's Digital Experience Maturity Index for 2026, which achieved an…",
+    "og_title": "Saudi Arabia's Digital Experience Maturity Rises to 87%",
+    "og_description": "During LEAP 2026, the Digital Government Authority (DGA) announced the results of Saudi Arabia's Digital Experience Maturity Index for 2026, which achieved an \"Advanced\" maturity level with a score of…",
+    "google_news_keywords": [
+      "Saudi Arabia digital experience",
+      "Digital Experience Maturity Index 2026",
+      "Digital Government Authority",
+      "DGA",
+      "LEAP 2026",
+      "Absher platform",
+      "Etimad",
+      "Saudi Vision 2030",
+      "digital government services",
+      "Ahmed Alsuwaiyan"
+    ],
+    "canonical_url": "https://techscoop.io/events-conferences/saudi-arabia-s-digital-experience-maturity-rises-to-87",
+    "robots_indexing": "index"
+  },
+  "sources": {
+    "primary_title": "DGA Announces Digital Experience Maturity Index Rises to (87.06%) in 2026",
+    "primary_url": "https://dga.gov.sa/en/news/results-digital-experience-maturity-index-2026",
+    "supporting_urls": [
+      "https://saudigazette.com.sa/article/663669",
+      "https://www.alarabiya.net/aswaq/economy/2026/08/12/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B1%D9%81%D8%B9-%D9%85%D8%A4%D8%B4%D8%B1-%D9%86%D8%B6%D8%AC-%D8%A7%D9%84%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D9%89-8706-%D9%81%D9%8A-2026"
+    ],
+    "verified_angle_summary": "During LEAP 2026, the Digital Government Authority (DGA) announced the results of Saudi Arabia's Digital Experience Maturity Index for 2026, which achieved an \"Advanced\" maturity level with a score of 87.06%. The comprehensive assessment evaluated 59 digital platforms, up from 50 in 2025, across four main perspectives: beneficiary satisfaction, user experience, complaints handling, and technologies and tools. Over 805,500 people participated in the \"Evaluate Your Digital Experience\" survey, a significant increase from 374,000 the previous year. The Absher platform topped the rankings with a score of 94.38%, followed closely by Etimad (94.36%), Senaei (92.83%), Balady (92.56%), and Tawakkalna (92.50%). The Digital Inclusion sub-index also reached 76.98%, reflecting efforts to design accessible services for all segments of society, including persons with disabilities and the elderly. This announcement highlights Saudi Arabia's continued progress in digital transformation, aligning with Vision 2030 objectives and solidifying its global position in digital government.",
+    "verified_key_facts": "Saudi Arabia's 2026 Digital Experience Maturity Index scored 87.06%, achieving an 'Advanced' maturity level; The assessment evaluated 59 digital platforms, up from 50 in 2025; Over 805,500 people participated in the 'Evaluate Your Digital Experience' survey; Absher topped the rankings with a score of 94.38%; Etimad ranked second with 94.36%, followed by Senaei, Balady, and Tawakkalna; The Digital Inclusion sub-index achieved a score of 76.98% ('Empowered' level); The announcement was made by DGA Governor Eng. Ahmed bin Mohammed Alsuwaiyan during LEAP 2026.",
+    "confidence": 95
+  },
+  "image": {
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/062-saudi-arabia-s-digital-experience-maturity-rises-to-87.webp",
+    "filename": "062-saudi-arabia-s-digital-experience-maturity-rises-to-87.webp",
+    "mime_type": "image/webp",
+    "width": 1600,
+    "height": 900,
+    "alt": "Saudi Arabia's Digital Experience Maturity Rises to 87% — LEAP and DeepFest 2026 news",
+    "caption": "Saudi Arabia's Digital Experience Maturity Rises to 87%. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+  },
+  "content_markdown": "During LEAP 2026, the Digital Government Authority (DGA) announced the results of Saudi Arabia's Digital Experience Maturity Index for 2026, which achieved an \"Advanced\" maturity level with a score of 87.06%. The announcement was made by DGA Governor Eng. Ahmed bin Mohammed Alsuwaiyan in Riyadh. The comprehensive assessment evaluated 59 digital platforms, an increase from the 50 platforms assessed in 2025. The evaluation process was rooted in four primary perspectives designed to measure effectiveness and user satisfaction comprehensively. These pillars included beneficiary satisfaction, user experience, complaints handling, and the underlying technologies and tools driving the platforms. Over 805,500 people participated in the \"Evaluate Your Digital Experience\" survey, a significant increase from 374,000 the previous year. The expanded scope of the survey allows for a granular understanding of user behavior and preferences, providing the DGA with a dataset to identify areas requiring attention within the public sector.\n\nThe results of the 2026 index highlight the progression in how citizens and residents interact with public platforms. The assessment methodology ensures that the maturity index reflects technological adoption and the quality of service experienced by end-users. The surge in survey participation indicates public interest and reliance on digital channels for government interactions. By establishing benchmarks, the DGA aims to ensure that public services remain responsive and accessible. The integration of platforms into the evaluation process requires ongoing investment in technology and user-centric design to maintain current maturity levels. The DGA's focus on expanding evaluation criteria and increasing public participation in future surveys will be critical in identifying areas for enhancement. Addressing challenges such as cybersecurity threats and data privacy concerns will be essential in maintaining public trust and ensuring the long-term success of the digital transformation agenda.\n\n## Platform Rankings and Performance\n\nAmong the 59 platforms evaluated, the [Absher platform](https://dga.gov.sa/en/news/results-digital-experience-maturity-index-2026) topped the rankings with a score of 94.38%. This ranking reflects Absher's role in facilitating essential government services for citizens and expatriates. Closely following was [Etimad](https://saudigazette.com.sa/article/663669), which secured the second position with a score of 94.36%. The performance of these platforms indicates reliability and user satisfaction in key administrative and financial service areas. Other notable platforms that demonstrated maturity included Senaei (92.83%), Balady (92.56%), and Tawakkalna (92.50%). The performance of these core platforms demonstrates the effectiveness of investment in digital capabilities and user experience optimization. By prioritizing interactions and navigation, these platforms have set a standard for digital service delivery.\n\nThe evaluation process for the digital experience measured effectiveness and user satisfaction. The four primary perspectives—beneficiary satisfaction, user experience, complaints handling, and technologies and tools—provided a comprehensive overview of the digital landscape. The increase in the number of evaluated platforms from 50 to 59 demonstrates an expanding scope of digital governance and service delivery. The results emphasize the focus on user-centric design and the continuous refinement of digital interfaces to meet the evolving needs of the population. The data collected from the \"Evaluate Your Digital Experience\" survey provides insights into user preferences and pain points, enabling targeted interventions to enhance the overall digital ecosystem. The DGA's commitment to continuous improvement is reflected in the rigorous assessment methodology and the expanding scope of the index.\n\n## Digital Inclusion and Strategic Context\n\nA component of the maturity index is the Digital Inclusion sub-index, which measures the accessibility of digital services for all segments of society. In the 2026 assessment, this sub-index achieved a score of 76.98%, placing it at the \"Empowered\" level. This achievement reflects targeted efforts by the DGA and other government bodies to design services that accommodate persons with disabilities, the elderly, and other vulnerable groups. Ensuring digital inclusion is a fundamental aspect of the broader digital transformation strategy, aiming to leave no citizen behind as services increasingly migrate online. The focus on accessibility aligns with global best practices and highlights a commitment to equitable service delivery. By implementing inclusive design principles and conducting rigorous accessibility testing, the government aims to bridge the digital divide and ensure that all individuals can participate in the digital economy.\n\nThe rise in the Digital Experience Maturity Index 2026 aligns with the objectives of [Saudi Vision 2030](https://www.alarabiya.net/aswaq/economy/2026/08/12/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B1%D9%81%D8%B9-%D9%85%D8%A4%D8%B4%D8%B1-%D9%86%D8%B6%D8%AC-%D8%A7%D9%84%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D9%89-8706-%D9%81%D9%8A-2026). The strategic framework emphasizes the development of a vibrant society and an ambitious nation, with digital transformation serving as a key enabler. By improving the digital experience, Saudi Arabia is streamlining government operations, fostering a business-friendly environment, and improving the overall quality of life for its residents. The progress reported at LEAP 2026 solidifies the Kingdom's global position in digital government, showcasing an approach to adopting emerging technologies and refining service delivery models. The integration of advanced analytics, artificial intelligence, and cloud computing into public sector operations has been instrumental in driving these improvements, enabling more personalized and efficient service delivery. The ongoing commitment to digital excellence is expected to attract further investment and innovation, reinforcing the Kingdom's status as a leading digital economy in the region.\n\n## Assessment Methodology and Future Outlook\n\nThe comprehensive assessment for the 2026 index evaluated 59 digital platforms across four main perspectives. The increase from 50 platforms in 2025 demonstrates an expanding scope of digital governance. The evaluation process ensured that the maturity index reflects not just technological adoption but the actual quality of service experienced by end-users. The surge in public participation in the \"Evaluate Your Digital Experience\" survey, with over 805,500 individuals taking part, underscores a growing public interest and reliance on digital channels for government interactions. It also provides the DGA with a vast dataset to identify pain points and areas requiring immediate attention, fostering a culture of continuous improvement within the public sector. The expanded scope of the survey allows for a more granular understanding of user behavior and preferences, enabling targeted interventions to enhance the overall digital ecosystem.\n\nWhile the 87.06% score represents a significant achievement, the expanding scope of the assessment suggests that continuous improvement remains a priority. As more platforms are integrated into the evaluation process and user expectations evolve, maintaining and exceeding current maturity levels will require ongoing investment in technology and user-centric design. The DGA's commitment to expanding the evaluation criteria and increasing public participation in future surveys will be critical in identifying areas for further enhancement. The current trajectory indicates a strong foundation, but the dynamic nature of digital services necessitates a sustained focus on innovation and responsiveness to user feedback. Addressing emerging challenges, such as cybersecurity threats and data privacy concerns, will also be essential in maintaining public trust and ensuring the long-term success of the digital transformation agenda. By fostering collaboration between government agencies, private sector partners, and the public, the DGA aims to build a resilient and adaptable digital ecosystem that can meet the evolving needs of the Kingdom.\n\n## References\n\n[1] [DGA Announces Digital Experience Maturity Index Rises to (87.06%) in 2026](https://dga.gov.sa/en/news/results-digital-experience-maturity-index-2026)\n[2] [Saudi Gazette Article 663669](https://saudigazette.com.sa/article/663669)\n[3] [Al Arabiya: Saudi Arabia raises Digital Experience Maturity Index to 87.06% in 2026](https://www.alarabiya.net/aswaq/economy/2026/08/12/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B1%D9%81%D8%B9-%D9%85%D8%A4%D8%B4%D8%B1-%D9%86%D8%B6%D8%AC-%D8%A7%D9%84%D8%AA%D8%AC%D8%B1%D8%A8%D8%A9-%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D9%89-8706-%D9%81%D9%8A-2026)\n",
+  "content_word_count": 1118,
+  "editorial_notes": "No unsupported claims added; draft requires editorial review."
+}

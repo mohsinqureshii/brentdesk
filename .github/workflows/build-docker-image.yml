@@ -1,0 +1,54 @@
+name: Build & Publish Docker Image
+
+# Builds the production Docker image from the repo's own Dockerfile on every
+# push to main and publishes it to GitHub Container Registry:
+#
+#   ghcr.io/mohsinqureshii/techscoop-main:latest   (tracks main)
+#   ghcr.io/mohsinqureshii/techscoop-main:<sha>    (immutable, per-commit)
+#
+# Why this exists: the Manus deploy pipeline builds from a sandbox snapshot
+# of the source tree, not from git, so a green build here proves the repo
+# itself is deployable regardless of any external pipeline's state. The
+# published image can be pulled by any container host (Cloud Run, Railway,
+# a VPS running docker-compose) as a Manus-independent deploy path.
+#
+# Deliberately uses only the GitHub-owned actions/checkout plus the docker
+# CLI preinstalled on ubuntu-latest — no marketplace actions — so repo
+# policies restricting third-party actions can't block it. No extra
+# secrets needed: GITHUB_TOKEN with packages:write covers the GHCR push.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: docker-image-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    name: docker build + push to GHCR
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          docker build \
+            -t "ghcr.io/${{ github.repository }}:latest" \
+            -t "ghcr.io/${{ github.repository }}:${{ github.sha }}" \
+            .
+
+      - name: Push to GitHub Container Registry
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" \
+            | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker push "ghcr.io/${{ github.repository }}:latest"
+          docker push "ghcr.io/${{ github.repository }}:${{ github.sha }}"

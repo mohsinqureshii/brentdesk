@@ -1,0 +1,196 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 79,
+    "candidate_id": "S018",
+    "canonical_announcement_key": "AI Geo Navigators: MIRSAD Saudi hazard/climate screening (LEAP x DeepFest)",
+    "selection_reason": "Specific platform built for KSA hazards with AI-assisted interpretation; startup booth verified.",
+    "title": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP 2026",
+    "slug": "ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T21:26:29+03:00",
+    "display_datetime_utc": "2026-08-31T18:26:29Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP x DeepFest 2026, AI Geo Navigators showcased MIRSAD, an operational hazard and climate screening platform developed specifically for Saudi Arabia. The platform integrates multi-hazard risk screening, climate intelligence, and…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026",
+      "DeepFest 2026"
+    ],
+    "event_bucket": "Both",
+    "company_names": [
+      "AI Geo Navigators"
+    ],
+    "people_names": [
+      "Asim Javid",
+      "Shahida Tajik",
+      "Musfira Aakash",
+      "Danish Zahoor"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Enterprise Software",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Geospatial Technology",
+      "Space Technology",
+      "EdTech",
+      "Saudi Digital Economy"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "Enterprise Software",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Geospatial Technology",
+      "AI Geo Navigators",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "AI Geo Navigators",
+      "keywords": [
+        "AI Geo Navigators",
+        "MIRSAD",
+        "LEAP 2026",
+        "DeepFest 2026",
+        "geospatial AI",
+        "climate intelligence",
+        "hazard screening",
+        "Saudi Arabia",
+        "Earth observation",
+        "remote sensing"
+      ],
+      "seo_title": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP…",
+      "seo_description": "At LEAP x DeepFest 2026, AI Geo Navigators showcased MIRSAD, an operational hazard and climate screening platform developed specifically for Saudi Arabia. The…",
+      "og_title": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP 2026",
+      "og_description": "At LEAP x DeepFest 2026, AI Geo Navigators showcased MIRSAD, an operational hazard and climate screening platform developed specifically for Saudi Arabia. The platform integrates multi-hazard risk…",
+      "google_news_keywords": [
+        "AI Geo Navigators",
+        "MIRSAD",
+        "LEAP 2026",
+        "DeepFest 2026",
+        "geospatial AI",
+        "climate intelligence",
+        "hazard screening",
+        "Saudi Arabia",
+        "Earth observation",
+        "remote sensing"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "AI Geo Navigators Heads to Riyadh for LEAP x DeepFest 2026",
+      "primary_url": "https://aigeo360.com/ai-geo-navigators-leap-deepfest-2026/",
+      "supporting_urls": [],
+      "verified_angle_summary": "At LEAP x DeepFest 2026, AI Geo Navigators showcased MIRSAD, an operational hazard and climate screening platform developed specifically for Saudi Arabia. The platform integrates multi-hazard risk screening, climate intelligence, and sector-specific analysis with AI-assisted interpretation to aid decision-making across the Kingdom. In addition to MIRSAD, the company presented its broader geospatial and climate intelligence portfolio, including AGN-NIGRAAN (Pakistan's climate intelligence platform), AGILE (a satellite observation and environmental monitoring system), and DBO (a locally deployed Large Language Model for organizational environmental analysis). The announcement highlights the integration of AI, machine learning, and Earth observation data to address climate resilience and environmental sustainability challenges.",
+      "verified_key_facts": "AI Geo Navigators showcased its MIRSAD platform at LEAP x DeepFest 2026; MIRSAD is an operational hazard and climate screening platform developed for Saudi Arabia; The platform features multi-hazard risk screening, climate intelligence, and AI-assisted interpretation; The company also presented AGN-NIGRAAN, AGILE, and DBO platforms; The exhibition took place at the Startup Pavilion (Booth H1A.P452); The event ran from August 31 to September 3, 2026, at the Riyadh Exhibition & Convention Center.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP x DeepFest 2026, AI Geo Navigators showcased MIRSAD, an operational hazard and climate screening platform developed specifically for Saudi Arabia. The platform integrates multi-hazard risk screening, climate intelligence, and sector-specific analysis with AI-assisted interpretation to aid decision-making across the Kingdom. In addition to MIRSAD, the company presented its broader geospatial and climate intelligence portfolio, including AGN-NIGRAAN (Pakistan's climate intelligence platform), AGILE (a satellite observation and environmental monitoring system), and DBO (a locally deployed Large Language Model for organizational environmental analysis). The announcement highlights the integration of AI, machine learning, and Earth observation data to address climate resilience and environmental sustainability challenges.",
+      "key_facts": "AI Geo Navigators showcased its MIRSAD platform at LEAP x DeepFest 2026; MIRSAD is an operational hazard and climate screening platform developed for Saudi Arabia; The platform features multi-hazard risk screening, climate intelligence, and AI-assisted interpretation; The company also presented AGN-NIGRAAN, AGILE, and DBO platforms; The exhibition took place at the Startup Pavilion (Booth H1A.P452); The event ran from August 31 to September 3, 2026, at the Riyadh Exhibition & Convention Center.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 79,
+    "candidate_id": "S018",
+    "slug": "ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/079-ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026.webp",
+    "filename": "079-ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 184814,
+    "width": 1600,
+    "height": 900,
+    "sha256": "156f14b665e23313496e7f0251d558d6f172203cb00112cc7dbbd7917833fc8d",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "AI Geo Navigators Unveils MIRSAD Hazard Platform at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/079.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

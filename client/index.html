@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <!--
+      AdSense overlay-format control.
+
+      Previously this block contained (a) a script that hijacked
+      window.google_ad_modifications to set adsense_auto_ads:false on every
+      pageload and (b) a CSS sheet that matched .google-auto-placed,
+      ins.adsbygoogle[data-ad-format="auto"], and :has(iframe[id*="aswift"]).
+      Combined those killed nearly every legitimate AdSense unit, not only
+      the vignette / anchor overlays we wanted to suppress.
+
+      Replaced with the OFFICIAL AdSense page-level config: vignette_ads /
+      side_rail / overlay_bottom flags only. AdSense reads these BEFORE
+      placing ads, so disallowed formats simply never get rendered (vs the
+      old approach of letting Google place them and CSS-hiding them after).
+
+      To toggle these at runtime, use the Auto Ads control in the admin
+      Advertising Manager → Programmatic → AdSense, which writes to
+      seoSettings and the SSR layer can swap this script's payload.
+    -->
+    <script>
+      (function () {
+        // Publisher id is public information (it's in /ads.txt). Hardcoding
+        // it here makes page-level Auto Ads independent of the database —
+        // previously window.GOOGLE_ADSENSE_CLIENT was never set anywhere,
+        // so this push carried an empty client and Auto Ads never ran.
+        window.GOOGLE_ADSENSE_CLIENT = window.GOOGLE_ADSENSE_CLIENT || "pub-2487563355490273";
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.pauseAdRequests = 0;
+        // page-level config — disable only the most intrusive auto formats.
+        // Inline AdSense units (with explicit data-ad-slot) are unaffected.
+        window.adsbygoogle.push({
+          params: {
+            google_ad_client: "ca-" + window.GOOGLE_ADSENSE_CLIENT,
+            enable_page_level_ads: true,
+            overlays: { bottom: false }, // suppress sticky bottom anchor bar
+            vignette: false,             // suppress full-screen interstitials
+          },
+        });
+      })();
+    </script>
+    <!-- AdSense loader — loaded unconditionally so Auto Ads work on every
+         page. Per-slot units (AdUnit.tsx) detect this tag and reuse it. -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2487563355490273"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      /*
+        Defensive CSS — only kicks in if AdSense ignores the config above
+        and renders an overlay anyway. Selectors target the actual overlay
+        markers (data-anchor-status / data-vignette-status) rather than
+        every absolutely-positioned ad iframe, so legitimate inline ads
+        in the article body, sidebar, and leaderboard slots are untouched.
+      */
+      ins.adsbygoogle[data-anchor-status],
+      ins.adsbygoogle[data-vignette-status] {
+        display: none !important;
+      }
+    </style>
+    
+    <!-- Primary Meta Tags -->
+    <title>TechScoop | MENA's Tech Ecosystem Platform - Startups, Investors, Jobs & Events</title>
+    <meta name="title" content="TechScoop | MENA's Tech Ecosystem Platform - Startups, Investors, Jobs & Events" />
+    <meta name="description" content="TechScoop is MENA's leading technology publication covering startups, venture capital, tech jobs, and innovation across the Middle East and North Africa. Get the latest tech news, funding announcements, and industry insights." />
+    <meta name="keywords" content="MENA tech news, Middle East startups, tech jobs Dubai, Saudi Arabia technology, UAE venture capital, Arab tech ecosystem, startup funding, tech events MENA, innovation Middle East, fintech MENA" />
+    <meta name="author" content="TechScoop" />
+    <!-- canonical URL injected dynamically by SSR per page -->
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://techscoop.io/" />
+    <meta property="og:title" content="TechScoop | MENA's Tech Ecosystem Platform" />
+    <meta property="og:description" content="TechScoop is MENA's leading technology publication covering startups, venture capital, tech jobs, and innovation across the Middle East and North Africa." />
+    <meta property="og:image" content="https://assets.techscoop.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://techscoop.io/" />
+    <meta name="twitter:title" content="TechScoop | MENA's Tech Ecosystem Platform" />
+    <meta name="twitter:description" content="TechScoop is MENA's leading technology publication covering startups, venture capital, tech jobs, and innovation across the Middle East and North Africa." />
+    <meta name="twitter:image" content="https://assets.techscoop.io/og-image.png" />
+    <meta name="twitter:site" content="@techscoopmena" />
+    
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="AE" />
+    <meta name="geo.placename" content="Dubai" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="rating" content="general" />
+    
+    <!-- News Publisher -->
+    <meta name="news_keywords" content="MENA tech, startups, venture capital, technology news, Middle East innovation" />
+    <meta name="original-source" content="https://techscoop.io/" />
+    <meta name="syndication-source" content="https://techscoop.io/" />    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/manus-storage/Favicon_a22c4c4f.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/manus-storage/Favicon_a22c4c4f.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/manus-storage/Favicon_a22c4c4f.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/manus-storage/Favicon_a22c4c4f.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/manus-storage/Favicon_a22c4c4f.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/manus-storage/Favicon_a22c4c4f.png" />
+    <meta name="theme-color" content="#0066FF" />
+    <meta name="msapplication-TileColor" content="#0066FF" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="TechScoop" />
+
+    <!-- Site-wide JSON-LD: NewsMediaOrganization + WebSite + (homepage) ItemList.
+         NewsMediaOrganization is what Google requires for News eligibility and
+         publisher sitelinks. Per-page SSR adds Article/Breadcrumb on top. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "@id": "https://techscoop.io/#organization",
+      "name": "TechScoop",
+      "legalName": "TechScoop",
+      "alternateName": ["TechScoop MENA", "techscoop.", "techscoop"],
+      "url": "https://techscoop.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://assets.techscoop.io/logo.png",
+        "width": 512,
+        "height": 512,
+        "caption": "TechScoop"
+      },
+      "image": "https://assets.techscoop.io/og-image.png",
+      "description": "MENA's leading technology publication covering startups, venture capital, tech jobs and innovation across the Middle East and North Africa.",
+      "foundingDate": "2025",
+      "areaServed": [
+        { "@type": "Place", "name": "Middle East" },
+        { "@type": "Place", "name": "North Africa" },
+        { "@type": "Country", "name": "Saudi Arabia" },
+        { "@type": "Country", "name": "United Arab Emirates" }
+      ],
+      "knowsAbout": [
+        "Technology", "Startups", "Venture Capital", "Tech Jobs",
+        "Fintech", "AI", "Cybersecurity", "MENA Innovation"
+      ],
+      "publishingPrinciples": "https://techscoop.io/about#editorial-policy",
+      "actionableFeedbackPolicy": "https://techscoop.io/about#corrections",
+      "ethicsPolicy": "https://techscoop.io/about#ethics",
+      "diversityPolicy": "https://techscoop.io/about#diversity",
+      "correctionsPolicy": "https://techscoop.io/about#corrections",
+      "ownershipFundingInfo": "https://techscoop.io/about#ownership",
+      "missionCoveragePrioritiesPolicy": "https://techscoop.io/about#mission",
+      "verificationFactCheckingPolicy": "https://techscoop.io/about#fact-checking",
+      "unnamedSourcesPolicy": "https://techscoop.io/about#sources",
+      "sameAs": [
+        "https://www.linkedin.com/company/techscoop",
+        "https://www.instagram.com/techscoopmena",
+        "https://www.facebook.com/techscoop",
+        "https://x.com/techscoopmena",
+        "https://twitter.com/techscoopmena"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@techscoop.io",
+        "availableLanguage": ["English", "Arabic"]
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://techscoop.io/#website",
+      "url": "https://techscoop.io/",
+      "name": "TechScoop",
+      "description": "MENA's tech ecosystem platform — news, startups, jobs, investors, events.",
+      "publisher": { "@id": "https://techscoop.io/#organization" },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://techscoop.io/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "TechScoop sections",
+      "itemListElement": [
+        { "@type": "SiteNavigationElement", "position": 1, "name": "News",         "url": "https://techscoop.io/news" },
+        { "@type": "SiteNavigationElement", "position": 2, "name": "Jobs",         "url": "https://techscoop.io/jobs" },
+        { "@type": "SiteNavigationElement", "position": 3, "name": "Companies",    "url": "https://techscoop.io/companies" },
+        { "@type": "SiteNavigationElement", "position": 4, "name": "People",       "url": "https://techscoop.io/people" },
+        { "@type": "SiteNavigationElement", "position": 5, "name": "Investors",    "url": "https://techscoop.io/investors" },
+        { "@type": "SiteNavigationElement", "position": 6, "name": "Accelerators", "url": "https://techscoop.io/accelerators" },
+        { "@type": "SiteNavigationElement", "position": 7, "name": "Events",       "url": "https://techscoop.io/events" },
+        { "@type": "SiteNavigationElement", "position": 8, "name": "Resources",    "url": "https://techscoop.io/resources" }
+      ]
+    }
+    </script>
+    <!--SSR_WEBPAGE_PLACEHOLDER-->
+
+    <!-- CWV: preconnect to every third-party origin used above the fold so the
+         browser can start TLS handshake while the HTML is still parsing. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://assets.techscoop.io" crossorigin />
+    <link rel="dns-prefetch" href="https://assets.techscoop.io" />
+
+    <!-- Google Fonts loaded as non-render-blocking: preload-as-style swap pattern.
+         Saves ~200-500ms on the LCP path on slow connections by letting HTML
+         parse + paint while the stylesheet downloads in parallel.
+         display=swap is in the URL itself; FOUT > render-blocking. -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      />
+    </noscript>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Umami analytics: deferred + idle-callback to keep it off the INP critical
+         path. Falls back to a 3-second timeout if requestIdleCallback is unavailable
+         (Safari pre-16.4 / older browsers). -->
+    <script>
+      (function () {
+        var endpoint = "%VITE_ANALYTICS_ENDPOINT%";
+        var siteId = "%VITE_ANALYTICS_WEBSITE_ID%";
+        // When the env var is absent at build time the token is left in
+        // place verbatim — as "%VITE_...%", not "VITE_...". Bail on both
+        // shapes, otherwise the page requests "/%VITE_ANALYTICS_ENDPOINT%/umami"
+        // and takes a 400 plus a strict-MIME console error on every load.
+        function unresolved(v) {
+          return !v || v.indexOf("VITE_") === 0 || v.charAt(0) === "%";
+        }
+        if (unresolved(endpoint) || unresolved(siteId)) return;
+        function load() {
+          var s = document.createElement("script");
+          s.defer = true;
+          s.src = endpoint + "/umami";
+          s.setAttribute("data-website-id", siteId);
+          document.body.appendChild(s);
+        }
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(load, { timeout: 3000 });
+        } else {
+          setTimeout(load, 1500);
+        }
+      })();
+    </script>
+  </body>
+
+</html>
+<!-- v2.1 - AI Content collapsible menu, Sitemap Ping fix, Google Indexing API config -->

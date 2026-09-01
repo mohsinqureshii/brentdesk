@@ -1,0 +1,192 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 46,
+    "candidate_id": "R091",
+    "canonical_announcement_key": "Microsoft + HUMAIN long-term collab to bring ALLaM to Foundry and M365 Copilot",
+    "selection_reason": "Microsoft source; concrete integration pathway and FDE deployment model; Arabic AI gap addressed.",
+    "title": "Microsoft Brings HUMAIN's Arabic AI Models to Global Platforms",
+    "slug": "microsoft-brings-humain-s-arabic-ai-models-to-global-platforms",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-26",
+    "display_datetime_local": "2026-08-31T17:26:49+03:00",
+    "display_datetime_utc": "2026-08-31T14:26:49Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Saudi Arabia's national AI company HUMAIN has announced a long-term strategic collaboration with Microsoft to integrate its Arabic language model, ALLaM, into Microsoft's global AI ecosystem. This partnership, unveiled ahead of LEAP 2026…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "HUMAIN",
+      "Microsoft"
+    ],
+    "people_names": [
+      "Tareq Amin",
+      "Brad Smith",
+      "Naim Yazbeck"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Cloud Computing",
+      "Enterprise Software",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "DeepFest 2026"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "Cloud Computing",
+      "Enterprise Software",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "HUMAIN",
+      "Microsoft",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "HUMAIN Microsoft partnership",
+      "keywords": [
+        "HUMAIN Microsoft partnership",
+        "Arabic AI models",
+        "ALLaM Microsoft Foundry",
+        "LEAP 2026 AI announcements",
+        "Saudi Arabia AI transformation",
+        "Microsoft 365 Copilot Arabic",
+        "enterprise AI Middle East",
+        "Tareq Amin HUMAIN"
+      ],
+      "seo_title": "Microsoft Brings HUMAIN's Arabic AI Models to Global…",
+      "seo_description": "Saudi Arabia's national AI company HUMAIN has announced a long-term strategic collaboration with Microsoft to integrate its Arabic language model, ALLaM, into…",
+      "og_title": "Microsoft Brings HUMAIN's Arabic AI Models to Global Platforms",
+      "og_description": "Saudi Arabia's national AI company HUMAIN has announced a long-term strategic collaboration with Microsoft to integrate its Arabic language model, ALLaM, into Microsoft's global AI ecosystem. This…",
+      "google_news_keywords": [
+        "HUMAIN Microsoft partnership",
+        "Arabic AI models",
+        "ALLaM Microsoft Foundry",
+        "LEAP 2026 AI announcements",
+        "Saudi Arabia AI transformation",
+        "Microsoft 365 Copilot Arabic",
+        "enterprise AI Middle East",
+        "Tareq Amin HUMAIN"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/microsoft-brings-humain-s-arabic-ai-models-to-global-platforms",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Microsoft and HUMAIN announce long-term strategic collaboration to enable AI transformation in Saudi Arabia and beyond",
+      "primary_url": "https://news.microsoft.com/source/emea/2026/08/microsoft-and-humain-announce-long-term-strategic-collaboration-to-enable-ai-transformation-in-saudi-arabia-and-beyond-2/",
+      "supporting_urls": [
+        "https://www.middleeastainews.com/p/humain-arabic-models-coming-to-microsofts",
+        "https://www.channelinsider.com/channel-business/mergers-and-acquisitions/news-microsoft-humain-allam-arabic-ai-partnership-saudi-arabia-apac/"
+      ],
+      "verified_angle_summary": "Saudi Arabia's national AI company HUMAIN has announced a long-term strategic collaboration with Microsoft to integrate its Arabic language model, ALLaM, into Microsoft's global AI ecosystem. This partnership, unveiled ahead of LEAP 2026, will make ALLaM available through Microsoft Foundry and Microsoft 365 Copilot, enabling developers and enterprises to build customized Arabic-language AI applications and specialized agents for business workflows. Additionally, HUMAIN's AI experts will team up with Microsoft's Forward Deployed Engineers (FDEs) to provide hands-on support for organizations transitioning AI projects from experimentation to production-scale deployment. This move represents a significant step in addressing the historical lack of native Arabic support in major enterprise AI platforms and supports Saudi Arabia's broader push to build local AI capabilities.",
+      "verified_key_facts": "HUMAIN and Microsoft announced a strategic collaboration on August 26, 2026; The partnership aims to bring HUMAIN's ALLaM Arabic language models to Microsoft Foundry and Microsoft 365 Copilot; Organizations will be able to create specialized Arabic-language AI agents for business workflows; HUMAIN's AI experts and Microsoft's Forward Deployed Engineers (FDEs) will provide hands-on engineering support; The collaboration is designed to help enterprises move AI projects from experimentation to production; Further details and a broader set of capabilities are expected to be showcased at LEAP 2026; HUMAIN is a PIF-owned company focused on delivering full-stack AI capabilities globally.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "No official image URL available from the press release.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Microsoft Brings HUMAIN's Arabic AI Models to Global Platforms — LEAP and DeepFest 2026 news",
+      "caption_template": "Microsoft Brings HUMAIN's Arabic AI Models to Global Platforms. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Saudi Arabia's national AI company HUMAIN has announced a long-term strategic collaboration with Microsoft to integrate its Arabic language model, ALLaM, into Microsoft's global AI ecosystem. This partnership, unveiled ahead of LEAP 2026, will make ALLaM available through Microsoft Foundry and Microsoft 365 Copilot, enabling developers and enterprises to build customized Arabic-language AI applications and specialized agents for business workflows. Additionally, HUMAIN's AI experts will team up with Microsoft's Forward Deployed Engineers (FDEs) to provide hands-on support for organizations transitioning AI projects from experimentation to production-scale deployment. This move represents a significant step in addressing the historical lack of native Arabic support in major enterprise AI platforms and supports Saudi Arabia's broader push to build local AI capabilities.",
+      "key_facts": "HUMAIN and Microsoft announced a strategic collaboration on August 26, 2026; The partnership aims to bring HUMAIN's ALLaM Arabic language models to Microsoft Foundry and Microsoft 365 Copilot; Organizations will be able to create specialized Arabic-language AI agents for business workflows; HUMAIN's AI experts and Microsoft's Forward Deployed Engineers (FDEs) will provide hands-on engineering support; The collaboration is designed to help enterprises move AI projects from experimentation to production; Further details and a broader set of capabilities are expected to be showcased at LEAP 2026; HUMAIN is a PIF-owned company focused on delivering full-stack AI capabilities globally.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 46,
+    "candidate_id": "R091",
+    "slug": "microsoft-brings-humain-s-arabic-ai-models-to-global-platforms",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/046-microsoft-brings-humain-s-arabic-ai-models-to-global-platforms.webp",
+    "filename": "046-microsoft-brings-humain-s-arabic-ai-models-to-global-platforms.webp",
+    "mime_type": "image/webp",
+    "size": 265812,
+    "width": 1600,
+    "height": 900,
+    "sha256": "78c8b96d6884bd46f43bb5719394bde2691f49026d91475e706809c27fb8b642",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Microsoft Brings HUMAIN's Arabic AI Models to Global Platforms — LEAP and DeepFest 2026 news",
+    "caption": "Microsoft Brings HUMAIN's Arabic AI Models to Global Platforms. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/046.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

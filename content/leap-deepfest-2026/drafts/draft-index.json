@@ -1,0 +1,807 @@
+{
+  "count": 100,
+  "expected_count": 100,
+  "errors": [],
+  "drafts": [
+    {
+      "sequence": 1,
+      "slug": "aws-to-launch-saudi-cloud-region-in-december-2026-with-humain-ai-zone",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/001-aws-to-launch-saudi-cloud-region-in-december-2026-with-humain-ai-zone.json",
+      "reported_word_count": 1200,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 2,
+      "slug": "humain-and-datavolt-break-ground-on-100mw-ai-data-center-at-neom",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/002-humain-and-datavolt-break-ground-on-100mw-ai-data-center-at-neom.json",
+      "reported_word_count": 867,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 3,
+      "slug": "adobe-grants-4b-in-free-ai-tools-to-27m-saudi-residents",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/003-adobe-grants-4b-in-free-ai-tools-to-27m-saudi-residents.json",
+      "reported_word_count": 1034,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 4,
+      "slug": "honor-to-unveil-world-s-first-robot-phone-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/004-honor-to-unveil-world-s-first-robot-phone-at-leap-2026.json",
+      "reported_word_count": 950,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 5,
+      "slug": "amd-mcit-and-dco-launch-open-ai-developer-ecosystem-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/005-amd-mcit-and-dco-launch-open-ai-developer-ecosystem-at-leap-2026.json",
+      "reported_word_count": 1021,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 6,
+      "slug": "humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/006-humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026.json",
+      "reported_word_count": 899,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 7,
+      "slug": "humain-and-kora-co-develop-ai-native-linux-os-for-2027-launch",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/007-humain-and-kora-co-develop-ai-native-linux-os-for-2027-launch.json",
+      "reported_word_count": 945,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 8,
+      "slug": "aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/008-aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure.json",
+      "reported_word_count": 1223,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 9,
+      "slug": "lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/009-lenovo-unveils-first-saudi-made-laptop-at-leap-2026-ahead-of-mass-production.json",
+      "reported_word_count": 1097,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 10,
+      "slug": "pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/010-pasqal-and-kacst-launch-quantum-cryptography-research-ahead-of-leap-2026.json",
+      "reported_word_count": 888,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 11,
+      "slug": "data-dynamics-launches-enterprise-2-0-5-at-leap-2026-to-solve-ai-data-governance-bottleneck",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/011-data-dynamics-launches-enterprise-2-0-5-at-leap-2026-to-solve-ai-data-governance-bottleneck.json",
+      "reported_word_count": 985,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 12,
+      "slug": "think-unveils-think-fabric-at-leap-2026-to-optimize-bare-metal-ai-compute",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/012-think-unveils-think-fabric-at-leap-2026-to-optimize-bare-metal-ai-compute.json",
+      "reported_word_count": 1190,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 13,
+      "slug": "netapp-showcases-ai-ready-data-infrastructure-and-autonomous-security-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/013-netapp-showcases-ai-ready-data-infrastructure-and-autonomous-security-at-leap-2026.json",
+      "reported_word_count": 1117,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 14,
+      "slug": "ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/014-ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026.json",
+      "reported_word_count": 950,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 15,
+      "slug": "smobler-explores-robin-ai-expansion-to-halal-compliance-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/015-smobler-explores-robin-ai-expansion-to-halal-compliance-at-leap-2026.json",
+      "reported_word_count": 894,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 16,
+      "slug": "voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/016-voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026.json",
+      "reported_word_count": 951,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 17,
+      "slug": "salam-unveils-ai-enabled-cloud-and-connectivity-infrastructure-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/017-salam-unveils-ai-enabled-cloud-and-connectivity-infrastructure-at-leap-2026.json",
+      "reported_word_count": 985,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 18,
+      "slug": "mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/018-mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026.json",
+      "reported_word_count": 1200,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 19,
+      "slug": "aws-launches-free-ai-academy-and-hackathon-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/019-aws-launches-free-ai-academy-and-hackathon-at-leap-2026.json",
+      "reported_word_count": 1028,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 20,
+      "slug": "specialized-by-stc-unveils-national-capability-layers-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/020-specialized-by-stc-unveils-national-capability-layers-at-leap-2026.json",
+      "reported_word_count": 1154,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 21,
+      "slug": "ericsson-showcases-5g-advanced-and-ai-networks-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/021-ericsson-showcases-5g-advanced-and-ai-networks-at-leap-2026.json",
+      "reported_word_count": 983,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 22,
+      "slug": "huawei-unveils-ai-powered-enterprise-solutions-under-advancing-industrial-all-intelligence-theme-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/022-huawei-unveils-ai-powered-enterprise-solutions-under-advancing-industrial-all-intelligence-theme-at-leap-2026.json",
+      "reported_word_count": 944,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 23,
+      "slug": "cisco-unveils-saudi-cloud-data-centers-and-local-manufacturing-plans",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/023-cisco-unveils-saudi-cloud-data-centers-and-local-manufacturing-plans.json",
+      "reported_word_count": 1013,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 24,
+      "slug": "ibm-and-ejada-systems-use-ai-agent-bob-to-accelerate-enterprise-modernization-in-saudi-arabia",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/024-ibm-and-ejada-systems-use-ai-agent-bob-to-accelerate-enterprise-modernization-in-saudi-arabia.json",
+      "reported_word_count": 1056,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 25,
+      "slug": "sbm-unveils-maxera-3d-digital-twin-powered-by-ibm-maximo-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/025-sbm-unveils-maxera-3d-digital-twin-powered-by-ibm-maximo-at-leap-2026.json",
+      "reported_word_count": 1249,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 26,
+      "slug": "cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/026-cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026.json",
+      "reported_word_count": 1140,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 27,
+      "slug": "mobiz-launches-three-enterprise-ai-and-cloud-solutions-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/027-mobiz-launches-three-enterprise-ai-and-cloud-solutions-at-leap-2026.json",
+      "reported_word_count": 1188,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 28,
+      "slug": "horizontal-digital-debuts-agentic-ai-concierge-with-salesforce-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/028-horizontal-digital-debuts-agentic-ai-concierge-with-salesforce-at-leap-2026.json",
+      "reported_word_count": 1119,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 29,
+      "slug": "link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/029-link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026.json",
+      "reported_word_count": 882,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 30,
+      "slug": "twaasol-showcases-mena-first-cisco-meeting-rooms-certification-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/030-twaasol-showcases-mena-first-cisco-meeting-rooms-certification-at-leap-2026.json",
+      "reported_word_count": 911,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 31,
+      "slug": "connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/031-connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026.json",
+      "reported_word_count": 1028,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 32,
+      "slug": "jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/032-jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026.json",
+      "reported_word_count": 1156,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 33,
+      "slug": "mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/033-mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment.json",
+      "reported_word_count": 1234,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 34,
+      "slug": "accenture-to-unveil-sovereign-ai-strategy-research-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/034-accenture-to-unveil-sovereign-ai-strategy-research-at-leap-2026.json",
+      "reported_word_count": 1078,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 35,
+      "slug": "oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/035-oracle-and-amd-partner-on-50-000-mi450-gpu-supercluster-at-deepfest-2026.json",
+      "reported_word_count": 1176,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 36,
+      "slug": "amd-cisco-and-humain-launch-live-ai-infrastructure-in-saudi-arabia",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/036-amd-cisco-and-humain-launch-live-ai-infrastructure-in-saudi-arabia.json",
+      "reported_word_count": 987,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 37,
+      "slug": "snowflake-plans-strategic-mcit-initiative-at-leap-2026-for-saudi-ai-expansion",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/037-snowflake-plans-strategic-mcit-initiative-at-leap-2026-for-saudi-ai-expansion.json",
+      "reported_word_count": 1087,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 38,
+      "slug": "sparklabs-saudi-to-debut-8-portfolio-startups-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/038-sparklabs-saudi-to-debut-8-portfolio-startups-at-leap-2026.json",
+      "reported_word_count": 940,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 39,
+      "slug": "ignite-brings-10-promising-pakistani-startups-to-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/039-ignite-brings-10-promising-pakistani-startups-to-leap-2026.json",
+      "reported_word_count": 1105,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 40,
+      "slug": "new-taipei-city-government-brings-20-taiwanese-tech-companies-to-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/040-new-taipei-city-government-brings-20-taiwanese-tech-companies-to-leap-2026.json",
+      "reported_word_count": 1034,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 41,
+      "slug": "taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/041-taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut.json",
+      "reported_word_count": 965,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 42,
+      "slug": "leap-2026-tech-arena-showcases-unitree-and-agibot-humanoid-robots",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/042-leap-2026-tech-arena-showcases-unitree-and-agibot-humanoid-robots.json",
+      "reported_word_count": 960,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 43,
+      "slug": "livnsense-greenops-selected-as-top-100-rocket-fuel-finalist-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/043-livnsense-greenops-selected-as-top-100-rocket-fuel-finalist-at-leap-2026.json",
+      "reported_word_count": 1068,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 44,
+      "slug": "ntt-data-showcases-sovereign-ai-and-smart-cities-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/044-ntt-data-showcases-sovereign-ai-and-smart-cities-at-leap-2026.json",
+      "reported_word_count": 1115,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 45,
+      "slug": "saudi-arabia-launches-samai-2-ai-procurement-across-11-ministries",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/045-saudi-arabia-launches-samai-2-ai-procurement-across-11-ministries.json",
+      "reported_word_count": 1130,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 46,
+      "slug": "microsoft-brings-humain-s-arabic-ai-models-to-global-platforms",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/046-microsoft-brings-humain-s-arabic-ai-models-to-global-platforms.json",
+      "reported_word_count": 1182,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 47,
+      "slug": "leap-nights-partners-with-f1-saudi-arabia-for-2027-grand-prix-early-access",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/047-leap-nights-partners-with-f1-saudi-arabia-for-2027-grand-prix-early-access.json",
+      "reported_word_count": 929,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 48,
+      "slug": "unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/048-unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026.json",
+      "reported_word_count": 919,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 49,
+      "slug": "mxvi-secures-major-saudi-contract-and-showcases-vi5-in-vehicle-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/049-mxvi-secures-major-saudi-contract-and-showcases-vi5-in-vehicle-platform-at-leap-2026.json",
+      "reported_word_count": 937,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 50,
+      "slug": "octave-demonstrates-connected-intelligence-platform-for-asset-lifecycle-management-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/050-octave-demonstrates-connected-intelligence-platform-for-asset-lifecycle-management-at-leap-2026.json",
+      "reported_word_count": 1133,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 51,
+      "slug": "saudi-justice-ministry-unveils-ai-driven-user-experience-enhancements",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/051-saudi-justice-ministry-unveils-ai-driven-user-experience-enhancements.json",
+      "reported_word_count": 1191,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 52,
+      "slug": "riotec-connects-middle-east-integrators-with-taiwan-barcode-expertise",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/052-riotec-connects-middle-east-integrators-with-taiwan-barcode-expertise.json",
+      "reported_word_count": 857,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 53,
+      "slug": "tencent-cloud-inks-trukker-partnership-ahead-of-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/053-tencent-cloud-inks-trukker-partnership-ahead-of-leap-2026.json",
+      "reported_word_count": 851,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 54,
+      "slug": "24-omani-tech-companies-showcase-services-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/054-24-omani-tech-companies-showcase-services-at-leap-2026.json",
+      "reported_word_count": 945,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 55,
+      "slug": "saudi-red-crescent-deploys-specialized-emergency-teams-for-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/055-saudi-red-crescent-deploys-specialized-emergency-teams-for-leap-2026.json",
+      "reported_word_count": 956,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 56,
+      "slug": "riyadh-metro-launches-dedicated-leap-2026-shuttle-route",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/056-riyadh-metro-launches-dedicated-leap-2026-shuttle-route.json",
+      "reported_word_count": 862,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 57,
+      "slug": "saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/057-saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026.json",
+      "reported_word_count": 1029,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 58,
+      "slug": "tahakom-technology-unveils-smart-pass-and-siraj-ai-solutions-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/058-tahakom-technology-unveils-smart-pass-and-siraj-ai-solutions-at-leap-2026.json",
+      "reported_word_count": 860,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 59,
+      "slug": "leap-2026-tech-arena-showcases-ai-powered-prosthetics-and-brain-computer-interfaces",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/059-leap-2026-tech-arena-showcases-ai-powered-prosthetics-and-brain-computer-interfaces.json",
+      "reported_word_count": 1176,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 60,
+      "slug": "kanz-and-saudi-hrsd-bring-ai-guinness-world-record-to-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/060-kanz-and-saudi-hrsd-bring-ai-guinness-world-record-to-leap-2026.json",
+      "reported_word_count": 1051,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 61,
+      "slug": "mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/061-mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026.json",
+      "reported_word_count": 1069,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 62,
+      "slug": "saudi-arabia-s-digital-experience-maturity-rises-to-87",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/062-saudi-arabia-s-digital-experience-maturity-rises-to-87.json",
+      "reported_word_count": 949,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 63,
+      "slug": "masdar-showcases-data-and-ai-solutions-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/063-masdar-showcases-data-and-ai-solutions-at-leap-2026.json",
+      "reported_word_count": 925,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 64,
+      "slug": "saudi-council-of-engineers-launches-mu-tamad-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/064-saudi-council-of-engineers-launches-mu-tamad-platform-at-leap-2026.json",
+      "reported_word_count": 1093,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 65,
+      "slug": "saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/065-saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026.json",
+      "reported_word_count": 1040,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 66,
+      "slug": "microsoft-confirms-saudi-arabia-east-cloud-region-launch-for-november-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/066-microsoft-confirms-saudi-arabia-east-cloud-region-launch-for-november-2026.json",
+      "reported_word_count": 1162,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 67,
+      "slug": "saudi-ministry-of-interior-launches-tech-pavilion-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/067-saudi-ministry-of-interior-launches-tech-pavilion-at-leap-2026.json",
+      "reported_word_count": 941,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 68,
+      "slug": "saudi-passports-directorate-launches-resident-photo-update-on-absher",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/068-saudi-passports-directorate-launches-resident-photo-update-on-absher.json",
+      "reported_word_count": 1235,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 69,
+      "slug": "saudi-civil-defense-showcases-smart-helmet-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/069-saudi-civil-defense-showcases-smart-helmet-at-leap-2026.json",
+      "reported_word_count": 1110,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 70,
+      "slug": "saudi-border-guard-unveils-zawal-maritime-security-tech-at-leap",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/070-saudi-border-guard-unveils-zawal-maritime-security-tech-at-leap.json",
+      "reported_word_count": 853,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 71,
+      "slug": "saudi-ministry-of-interior-unveils-ai-powered-smart-healthcare-unit-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/071-saudi-ministry-of-interior-unveils-ai-powered-smart-healthcare-unit-at-leap-2026.json",
+      "reported_word_count": 1087,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 72,
+      "slug": "iqibla-unveils-smart-rings-and-kids-ai-phones-at-leap",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/072-iqibla-unveils-smart-rings-and-kids-ai-phones-at-leap.json",
+      "reported_word_count": 860,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 73,
+      "slug": "syria-debuts-at-leap-2026-highlighting-telecom-investments-and-silk-link-project",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/073-syria-debuts-at-leap-2026-highlighting-telecom-investments-and-silk-link-project.json",
+      "reported_word_count": 972,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 74,
+      "slug": "together-ai-and-humain-to-build-250mw-data-center-in-saudi-arabia",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/074-together-ai-and-humain-to-build-250mw-data-center-in-saudi-arabia.json",
+      "reported_word_count": 969,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 75,
+      "slug": "humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/075-humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network.json",
+      "reported_word_count": 1036,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 76,
+      "slug": "hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/076-hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026.json",
+      "reported_word_count": 968,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 77,
+      "slug": "biostar-launches-edgecomp-jetson-thor-systems-at-deepfest-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/077-biostar-launches-edgecomp-jetson-thor-systems-at-deepfest-2026.json",
+      "reported_word_count": 1012,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 78,
+      "slug": "cloudera-unveils-anywhere-cloud-with-zero-trust-governance-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/078-cloudera-unveils-anywhere-cloud-with-zero-trust-governance-at-leap-2026.json",
+      "reported_word_count": 1212,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 79,
+      "slug": "ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/079-ai-geo-navigators-unveils-mirsad-hazard-platform-at-leap-2026.json",
+      "reported_word_count": 851,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 80,
+      "slug": "astrik-to-showcase-classpedia-and-ai-enterprise-ecosystem-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/080-astrik-to-showcase-classpedia-and-ai-enterprise-ecosystem-at-leap-2026.json",
+      "reported_word_count": 1029,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 81,
+      "slug": "hp-s-riyadh-facility-begins-commercial-production-of-tech-products",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/081-hp-s-riyadh-facility-begins-commercial-production-of-tech-products.json",
+      "reported_word_count": 972,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 82,
+      "slug": "nc-ai-unveils-full-stack-physical-ai-at-leap-2026-for-middle-east-expansion",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/082-nc-ai-unveils-full-stack-physical-ai-at-leap-2026-for-middle-east-expansion.json",
+      "reported_word_count": 888,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 83,
+      "slug": "weride-showcases-robotaxi-gxr-and-robobus-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/083-weride-showcases-robotaxi-gxr-and-robobus-at-leap-2026.json",
+      "reported_word_count": 851,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 84,
+      "slug": "usetech-to-present-operational-technology-portfolio-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/084-usetech-to-present-operational-technology-portfolio-at-leap-2026.json",
+      "reported_word_count": 1023,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 85,
+      "slug": "humain-unveils-agentic-ai-pc-built-with-qualcomm-at-leap",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/085-humain-unveils-agentic-ai-pc-built-with-qualcomm-at-leap.json",
+      "reported_word_count": 1165,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 86,
+      "slug": "we-solutions-and-movandi-partner-on-saudi-advanced-wireless-deployment",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/086-we-solutions-and-movandi-partner-on-saudi-advanced-wireless-deployment.json",
+      "reported_word_count": 1204,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 87,
+      "slug": "pakistan-tech-firms-target-saudi-expansion-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/087-pakistan-tech-firms-target-saudi-expansion-at-leap-2026.json",
+      "reported_word_count": 1214,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 88,
+      "slug": "blossom-accelerator-named-official-leap-2026-soft-landing-partner-for-startups",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/088-blossom-accelerator-named-official-leap-2026-soft-landing-partner-for-startups.json",
+      "reported_word_count": 936,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 89,
+      "slug": "builders-tribe-and-p-sha-lead-founder-delegations-to-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/089-builders-tribe-and-p-sha-lead-founder-delegations-to-leap-2026.json",
+      "reported_word_count": 854,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 90,
+      "slug": "quikbot-and-efgh-partner-to-embed-real-time-insurance-into-physical-ai",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/090-quikbot-and-efgh-partner-to-embed-real-time-insurance-into-physical-ai.json",
+      "reported_word_count": 863,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 91,
+      "slug": "velaura-ai-secures-110m-series-a-at-1b-valuation-for-energy-efficient-ai-computing",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/091-velaura-ai-secures-110m-series-a-at-1b-valuation-for-energy-efficient-ai-computing.json",
+      "reported_word_count": 1087,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 92,
+      "slug": "leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/092-leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers.json",
+      "reported_word_count": 850,
+      "source_count": 4,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 93,
+      "slug": "live4well-showcases-ai-driven-preventive-health-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/093-live4well-showcases-ai-driven-preventive-health-platform-at-leap-2026.json",
+      "reported_word_count": 1017,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 94,
+      "slug": "leap-2026-debuts-gamex-creative-with-roblox-and-esl-faceit-experiences",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/094-leap-2026-debuts-gamex-creative-with-roblox-and-esl-faceit-experiences.json",
+      "reported_word_count": 1306,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 95,
+      "slug": "saudi-proptech-ghanem-secures-7-1m-to-expand-fractional-real-estate-platform",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/095-saudi-proptech-ghanem-secures-7-1m-to-expand-fractional-real-estate-platform.json",
+      "reported_word_count": 957,
+      "source_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 96,
+      "slug": "profit-co-spotlights-ai-powered-performance-management-platform-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/096-profit-co-spotlights-ai-powered-performance-management-platform-at-leap-2026.json",
+      "reported_word_count": 886,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 97,
+      "slug": "saudi-digital-exhibition-to-launch-20-digital-products-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/097-saudi-digital-exhibition-to-launch-20-digital-products-at-leap-2026.json",
+      "reported_word_count": 909,
+      "source_count": 1,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 98,
+      "slug": "saudia-secures-airbus-fleet-financing-mou-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/098-saudia-secures-airbus-fleet-financing-mou-at-leap-2026.json",
+      "reported_word_count": 1030,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 99,
+      "slug": "leap-2026-rescheduled-to-august-amid-regional-conflict",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/099-leap-2026-rescheduled-to-august-amid-regional-conflict.json",
+      "reported_word_count": 943,
+      "source_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 100,
+      "slug": "saudi-human-resources-ministry-brings-new-digital-services-to-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/100-saudi-human-resources-ministry-brings-new-digital-services-to-leap-2026.json",
+      "reported_word_count": 1110,
+      "source_count": 2,
+      "workflow_status": "draft"
+    }
+  ]
+}

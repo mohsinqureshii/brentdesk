@@ -1,0 +1,232 @@
+{
+  "results": [
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/002.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "repeated passage",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 2,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/006.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Generic padding and repetitive passages expanding a single announcement into over 1200 words.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 6,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/027.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Repetitive phrasing across paragraphs (e.g., 'The Agentic Software Development Platform addresses this need by providing tools that help development teams work more efficiently and effectively' and 'The Agentic Software Development Platform is positioned to help organizations achieve this goal by leveraging the power of AI to streamline the software development process') | Generic padding about 'fast-paced business environment' and 'competitive advantage' | Repetitive conclusions in the final section about 'realize the benefits of cloud computing more quickly'",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 27,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/028.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 28,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/032.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 32,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/034.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Generic padding and repetitive filler in the later sections (\"Operationalizing Sovereign AI Strategies\" and \"Future Outlook for Middle East AI Initiatives\") that inflate word count without adding verified facts.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 34,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/042.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "repetitive phrases | generic padding",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 42,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/045.json",
+      "output": {
+        "confidence": 90,
+        "editorial_issues": "repetition and generic padding | typo: \"is a a reflection\"",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 45,
+        "unsupported_claims": "Vision 2030 goals, which seek to diversify the economy and reduce dependence on traditional revenue streams — remove unsupported claim"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/051.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 51,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/056.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive explanation of 15-minute headways and predictability",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 56,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/065.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Paragraph 2 repeats paragraph 1 points about Smart Collection and Noura almost verbatim | Section 3 and 4 contain generic padding about AI implementation questions",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 65,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/066.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 66,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/072.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive writing: \"The integration of smart hardware, software services, and AI for Muslim life scenarios\" and \"Zikr Ring R1 and the premium Aura series faith jewelry\" are repeated verbatim multiple times. | Generic padding: \"The strategic move to capture a higher-end segment of the consumer market that values both religious observance and luxury design is a key element of the company's broader growth strategy.\"",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 72,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/077.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Repetitive sentences appended at paragraph ends | Filler content",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 77,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/084.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 84,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/086.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 86,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/093.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "\"The focus on preventive care reflects the industry's recognition of the importance of early intervention in mitigating the impact of chronic diseases.\" - generic padding | \"By leveraging the power of AI, healthcare providers can offer more personalized and proactive care, ultimately leading to better health outcomes for patients.\" - generic padding / promotional",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 93,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/095.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive padding across multiple paragraphs (e.g., \"accelerating product development and expanding market reach\" is repeated four times).",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 95,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/096.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 96,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    }
+  ]
+}

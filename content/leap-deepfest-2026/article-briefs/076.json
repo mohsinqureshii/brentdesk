@@ -1,0 +1,191 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 76,
+    "candidate_id": "S006",
+    "canonical_announcement_key": "HP launches Garage 2.0 AI startup incubator; Dhahran CoE progress",
+    "selection_reason": "Regional incubator launch + R&D outputs and local manufacturing progress; credible sources.",
+    "title": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026",
+    "slug": "hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T21:04:42+03:00",
+    "display_datetime_utc": "2026-08-31T18:04:42Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026, HP Inc. announced the launch of HP Garage 2.0 in Saudi Arabia, a new incubator designed to help startups develop AI solutions. Named after the original Palo Alto garage where the company was founded, the initiative brings…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "HP Inc.",
+      "HP"
+    ],
+    "people_names": [
+      "Fadle Saad"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Startup Ecosystem",
+      "Venture Capital",
+      "Future of Work",
+      "Industry 4.0",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "AI & Machine Learning",
+      "Startup Ecosystem",
+      "Venture Capital",
+      "Future of Work",
+      "Industry 4.0",
+      "HP Inc.",
+      "HP",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "HP Garage 2.0",
+      "keywords": [
+        "HP Garage 2.0",
+        "Saudi AI incubator",
+        "LEAP 2026 startups",
+        "HP Saudi Arabia",
+        "AI innovation Saudi",
+        "Vision 2030 startups",
+        "Fadle Saad HP",
+        "AI startup ecosystem"
+      ],
+      "seo_title": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026",
+      "seo_description": "At LEAP 2026, HP Inc. announced the launch of HP Garage 2.0 in Saudi Arabia, a new incubator designed to help startups develop AI solutions. Named after the…",
+      "og_title": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026",
+      "og_description": "At LEAP 2026, HP Inc. announced the launch of HP Garage 2.0 in Saudi Arabia, a new incubator designed to help startups develop AI solutions. Named after the original Palo Alto garage where the company…",
+      "google_news_keywords": [
+        "HP Garage 2.0",
+        "Saudi AI incubator",
+        "LEAP 2026 startups",
+        "HP Saudi Arabia",
+        "AI innovation Saudi",
+        "Vision 2030 startups",
+        "Fadle Saad HP",
+        "AI startup ecosystem"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "HP brings Garage 2.0 AI startup incubator to Saudi Arabia",
+      "primary_url": "https://www.middleeastainews.com/p/hp-brings-garage-20-ai-startup-incubator",
+      "supporting_urls": [
+        "https://almashhadnewspaper.com/?p=535"
+      ],
+      "verified_angle_summary": "At LEAP 2026, HP Inc. announced the launch of HP Garage 2.0 in Saudi Arabia, a new incubator designed to help startups develop AI solutions. Named after the original Palo Alto garage where the company was founded, the initiative brings together startups, educators, and industry partners to support skills development and innovation in alignment with Saudi Arabia's Vision 2030. Fadle Saad, Managing Director of HP's Regional Headquarters, emphasized that the initiative aims to give Saudi innovators the skills and opportunities to turn ideas into real-world impact. Additionally, HP reported progress on its AI R&D Center of Excellence in Dhahran, which is now producing tools like the Arabic-capable HP Agent One and FlowMaster, while its Riyadh manufacturing facility has begun commercial production.",
+      "verified_key_facts": "HP launched HP Garage 2.0 incubator in Saudi Arabia at LEAP 2026; The incubator targets startups, educators, and industry to develop AI solutions; The initiative aligns with Saudi Arabia's Vision 2030 and AI ambitions; HP's AI R&D Center of Excellence in Dhahran is now actively delivering tools like HP Agent One and FlowMaster; HP's Riyadh manufacturing facility is now in commercial production and shipping locally made products.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://substackcdn.com/image/fetch/$s_!CMc7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89d43599-50fd-4e72-b0be-988069d1fd92_1280x720.png",
+      "credit": "LEAP",
+      "license_note": "Image credit to LEAP; verify usage rights before publishing.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP 2026, HP Inc. announced the launch of HP Garage 2.0 in Saudi Arabia, a new incubator designed to help startups develop AI solutions. Named after the original Palo Alto garage where the company was founded, the initiative brings together startups, educators, and industry partners to support skills development and innovation in alignment with Saudi Arabia's Vision 2030. Fadle Saad, Managing Director of HP's Regional Headquarters, emphasized that the initiative aims to give Saudi innovators the skills and opportunities to turn ideas into real-world impact. Additionally, HP reported progress on its AI R&D Center of Excellence in Dhahran, which is now producing tools like the Arabic-capable HP Agent One and FlowMaster, while its Riyadh manufacturing facility has begun commercial production.",
+      "key_facts": "HP launched HP Garage 2.0 incubator in Saudi Arabia at LEAP 2026; The incubator targets startups, educators, and industry to develop AI solutions; The initiative aligns with Saudi Arabia's Vision 2030 and AI ambitions; HP's AI R&D Center of Excellence in Dhahran is now actively delivering tools like HP Agent One and FlowMaster; HP's Riyadh manufacturing facility is now in commercial production and shipping locally made products.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 76,
+    "candidate_id": "S006",
+    "slug": "hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/076-hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026.webp",
+    "filename": "076-hp-launches-garage-2-0-ai-startup-incubator-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 141362,
+    "width": 1600,
+    "height": 900,
+    "sha256": "a5546b87e7213c76e65f1677695afbc41304c544bf96a448418c9c5d54cddd8f",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "HP Launches Garage 2.0 AI Startup Incubator at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/076.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

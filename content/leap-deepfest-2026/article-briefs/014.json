@@ -1,0 +1,193 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 14,
+    "candidate_id": "R018",
+    "canonical_announcement_key": "IFS + Microsoft: Industrial AI from experimentation to execution",
+    "selection_reason": "Concrete industrial AI stack (IFS.ai, ALM, Nexus Black, IFS Zero) with ME focus and sessions; credible sources.",
+    "title": "IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026",
+    "slug": "ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-26",
+    "display_datetime_local": "2026-08-31T13:34:25+03:00",
+    "display_datetime_utc": "2026-08-31T10:34:25Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026 in Riyadh, IFS and Microsoft are partnering to demonstrate how Industrial AI can move from experimentation to real-world execution. The focus is on asset-intensive industries where complex operations, critical assets, field…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "IFS",
+      "Microsoft"
+    ],
+    "people_names": [
+      "Rahul Misra",
+      "Suliman Gaouda",
+      "Hasan Sakr"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Cloud Computing",
+      "Enterprise Software",
+      "Industry 4.0",
+      "Saudi Digital Economy",
+      "DeepFest 2026"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "Cloud Computing",
+      "Enterprise Software",
+      "Industry 4.0",
+      "Saudi Digital Economy",
+      "IFS",
+      "Microsoft",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Industrial AI",
+      "keywords": [
+        "Industrial AI",
+        "IFS",
+        "Microsoft",
+        "LEAP 2026",
+        "enterprise software",
+        "digital transformation",
+        "asset lifecycle management",
+        "field service management",
+        "Saudi Arabia"
+      ],
+      "seo_title": "IFS and Microsoft showcase real-world industrial AI…",
+      "seo_description": "At LEAP 2026 in Riyadh, IFS and Microsoft are partnering to demonstrate how Industrial AI can move from experimentation to real-world execution. The focus is on…",
+      "og_title": "IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026",
+      "og_description": "At LEAP 2026 in Riyadh, IFS and Microsoft are partnering to demonstrate how Industrial AI can move from experimentation to real-world execution. The focus is on asset-intensive industries where…",
+      "google_news_keywords": [
+        "Industrial AI",
+        "IFS",
+        "Microsoft",
+        "LEAP 2026",
+        "enterprise software",
+        "digital transformation",
+        "asset lifecycle management",
+        "field service management",
+        "Saudi Arabia"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "IFS brings industrial AI from experimentation to execution at LEAP 2026",
+      "primary_url": "https://www.zawya.com/en/press-release/ifs-brings-industrial-ai-from-experimentation-to-execution-at-leap-2026-469150",
+      "supporting_urls": [
+        "https://gecnewswire.com/ifs-to-showcase-industrial-ai-at-leap-2026-in-riyadh/"
+      ],
+      "verified_angle_summary": "At LEAP 2026 in Riyadh, IFS and Microsoft are partnering to demonstrate how Industrial AI can move from experimentation to real-world execution. The focus is on asset-intensive industries where complex operations, critical assets, field work, and service delivery are central to business performance. The partnership aims to accelerate digital transformation on a secure and scalable technology foundation, combining IFS's industry expertise with Microsoft Azure, data, and AI capabilities. Key areas of focus include IFS Loops, Industrial Agentic AI, Asset Lifecycle Management (ALM), Nexus Black (an Industrial AI co-innovation program), and IFS Zero (an agentic emissions operating system). This announcement is distinct as it specifically targets industrial and asset-heavy sectors in the context of Saudi Arabia's digital transformation, moving beyond generic AI applications.",
+      "verified_key_facts": "IFS and Microsoft partnered to showcase Industrial AI at LEAP 2026; Focus is on moving AI from experimentation to measurable real-world outcomes; Key solutions highlighted include IFS.ai, IFS Cloud, Nexus Black, and IFS Zero; Target audience includes asset-intensive industries in Saudi Arabia; IFS is exhibiting within the Microsoft Arabia Hub; IFS representatives, including Suliman Gaouda and Hasan Sakr, will speak at the Microsoft Theatre during the event.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://gecnewswire.com/wp-content/uploads/2026/08/Rahul-Misra-Senior-Vice-President-Managing-Director-MEA-at-IFS.-e1724673623728.jpg",
+      "credit": "IFS",
+      "license_note": "Official PR image provided by IFS, safe for editorial use.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP 2026 in Riyadh, IFS and Microsoft are partnering to demonstrate how Industrial AI can move from experimentation to real-world execution. The focus is on asset-intensive industries where complex operations, critical assets, field work, and service delivery are central to business performance. The partnership aims to accelerate digital transformation on a secure and scalable technology foundation, combining IFS's industry expertise with Microsoft Azure, data, and AI capabilities. Key areas of focus include IFS Loops, Industrial Agentic AI, Asset Lifecycle Management (ALM), Nexus Black (an Industrial AI co-innovation program), and IFS Zero (an agentic emissions operating system). This announcement is distinct as it specifically targets industrial and asset-heavy sectors in the context of Saudi Arabia's digital transformation, moving beyond generic AI applications.",
+      "key_facts": "IFS and Microsoft partnered to showcase Industrial AI at LEAP 2026; Focus is on moving AI from experimentation to measurable real-world outcomes; Key solutions highlighted include IFS.ai, IFS Cloud, Nexus Black, and IFS Zero; Target audience includes asset-intensive industries in Saudi Arabia; IFS is exhibiting within the Microsoft Arabia Hub; IFS representatives, including Suliman Gaouda and Hasan Sakr, will speak at the Microsoft Theatre during the event.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 14,
+    "candidate_id": "R018",
+    "slug": "ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/014-ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026.webp",
+    "filename": "014-ifs-and-microsoft-showcase-real-world-industrial-ai-applications-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 193002,
+    "width": 1600,
+    "height": 900,
+    "sha256": "e0196ac1dd9f3e7ead9ddacf4759bbd2db1594e187a043868440ac3c3d022cda",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/014.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

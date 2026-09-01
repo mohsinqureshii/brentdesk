@@ -1,0 +1,199 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 75,
+    "candidate_id": "S004",
+    "canonical_announcement_key": "HUMAIN + Applied Intuition to deploy national autonomous trucking network",
+    "selection_reason": "Official PRs; SDS/Vehicle OS + sovereign infra; national-scale physical AI logistics plan.",
+    "title": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network",
+    "slug": "humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T20:57:26+03:00",
+    "display_datetime_utc": "2026-08-31T17:57:26Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026, HUMAIN and Applied Intuition announced a strategic collaboration to establish a national-scale framework for physical AI in Saudi Arabia, beginning with the world's largest autonomous trucking network. The partnership aims to…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "HUMAIN",
+      "Applied Intuition",
+      "Public Investment Fund"
+    ],
+    "people_names": [
+      "Tareq Amin",
+      "Qasar Younis"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "AI Infrastructure",
+      "Telecommunications",
+      "Robotics",
+      "Autonomous Mobility",
+      "Future of Work",
+      "Industry 4.0",
+      "Logistics & Supply Chain"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "AI Infrastructure",
+      "Telecommunications",
+      "Robotics",
+      "Autonomous Mobility",
+      "HUMAIN",
+      "Applied Intuition",
+      "Public Investment Fund",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network",
+      "keywords": [
+        "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network",
+        "HUMAIN",
+        "Applied Intuition",
+        "autonomous trucking",
+        "physical AI",
+        "Saudi Arabia logistics",
+        "robotaxis",
+        "autonomous freight",
+        "Tareq Amin",
+        "Qasar Younis",
+        "LEAP 2026"
+      ],
+      "seo_title": "HUMAIN and Applied Intuition to Deploy National Autonomous…",
+      "seo_description": "At LEAP 2026, HUMAIN and Applied Intuition announced a strategic collaboration to establish a national-scale framework for physical AI in Saudi Arabia…",
+      "og_title": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network",
+      "og_description": "At LEAP 2026, HUMAIN and Applied Intuition announced a strategic collaboration to establish a national-scale framework for physical AI in Saudi Arabia, beginning with the world's largest autonomous…",
+      "google_news_keywords": [
+        "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network",
+        "HUMAIN",
+        "Applied Intuition",
+        "autonomous trucking",
+        "physical AI",
+        "Saudi Arabia logistics",
+        "robotaxis",
+        "autonomous freight",
+        "Tareq Amin",
+        "Qasar Younis"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "HUMAIN and Applied Intuition Announce Strategic Collaboration to Deploy Physical AI Across Saudi Arabia, Starting with Autonomous Trucking",
+      "primary_url": "https://www.prnewswire.com/ae/news-releases/humain-and-applied-intuition-announce-strategic-collaboration-to-deploy-physical-ai-across-saudi-arabia-starting-with-autonomous-trucking-302865099.html",
+      "supporting_urls": [
+        "https://en.sharikatmubasher.com/media-hub/news/21571626/humain-applied-intuition-to-deploy-autonomous-trucks-across-saudi-arabia?lang=en"
+      ],
+      "verified_angle_summary": "At LEAP 2026, HUMAIN and Applied Intuition announced a strategic collaboration to establish a national-scale framework for physical AI in Saudi Arabia, beginning with the world's largest autonomous trucking network. The partnership aims to deploy thousands of autonomous trucks across key Saudi logistics corridors by 2030. The initiative leverages HUMAIN's sovereign AI infrastructure and Applied Intuition's end-to-end physical AI platform, including its Self-Driving System (SDS) and Vehicle OS. The deployment will start with autonomous trucking to address workforce constraints, improve road safety, and increase freight capacity, before expanding into robotaxis, ports, mining, and agriculture. Applied Intuition has also established a Riyadh office to build a local team and support the long-term goal of making the Kingdom a global center for autonomous logistics.",
+      "verified_key_facts": "HUMAIN and Applied Intuition partnered to deploy physical AI across Saudi Arabia; The collaboration aims to build the world's largest autonomous trucking network by 2030; Thousands of autonomous trucks will be deployed across key Saudi logistics corridors; Applied Intuition will provide its end-to-end physical AI platform and Self-Driving System (SDS); The initiative will eventually expand into robotaxis, ports, mining, manufacturing, agriculture, and construction; Applied Intuition has established a local office in Riyadh to support the deployment; Tareq Amin is the CEO of HUMAIN; Qasar Younis is the CEO of Applied Intuition.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network — LEAP and DeepFest 2026 news",
+      "caption_template": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP 2026, HUMAIN and Applied Intuition announced a strategic collaboration to establish a national-scale framework for physical AI in Saudi Arabia, beginning with the world's largest autonomous trucking network. The partnership aims to deploy thousands of autonomous trucks across key Saudi logistics corridors by 2030. The initiative leverages HUMAIN's sovereign AI infrastructure and Applied Intuition's end-to-end physical AI platform, including its Self-Driving System (SDS) and Vehicle OS. The deployment will start with autonomous trucking to address workforce constraints, improve road safety, and increase freight capacity, before expanding into robotaxis, ports, mining, and agriculture. Applied Intuition has also established a Riyadh office to build a local team and support the long-term goal of making the Kingdom a global center for autonomous logistics.",
+      "key_facts": "HUMAIN and Applied Intuition partnered to deploy physical AI across Saudi Arabia; The collaboration aims to build the world's largest autonomous trucking network by 2030; Thousands of autonomous trucks will be deployed across key Saudi logistics corridors; Applied Intuition will provide its end-to-end physical AI platform and Self-Driving System (SDS); The initiative will eventually expand into robotaxis, ports, mining, manufacturing, agriculture, and construction; Applied Intuition has established a local office in Riyadh to support the deployment; Tareq Amin is the CEO of HUMAIN; Qasar Younis is the CEO of Applied Intuition.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 75,
+    "candidate_id": "S004",
+    "slug": "humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/075-humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network.webp",
+    "filename": "075-humain-and-applied-intuition-to-deploy-national-autonomous-trucking-network.webp",
+    "mime_type": "image/webp",
+    "size": 203346,
+    "width": 1600,
+    "height": 900,
+    "sha256": "45413db7ca4ac6c27fca708fe664cfcd80f3ebe7f2a33f782881e56c54d68cde",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network — LEAP and DeepFest 2026 news",
+    "caption": "HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/075.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

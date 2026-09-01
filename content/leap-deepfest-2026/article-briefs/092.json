@@ -1,0 +1,182 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 92,
+    "candidate_id": "R093",
+    "canonical_announcement_key": "LEAP 2026 mobility ops: Gulf Car (transport) + Makani (internal shuttles)",
+    "selection_reason": "Official event comms; specific operators and roles; complements metro shuttle story.",
+    "title": "LEAP 2026 Names Gulf Car and Makani as Official Transportation and Internal Shuttle Providers",
+    "slug": "leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-26",
+    "display_datetime_local": "2026-08-31T23:00:54+03:00",
+    "display_datetime_utc": "2026-08-31T20:00:54Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "As LEAP 2026 prepares to host its fifth edition at RECC Malham in Riyadh, the event has finalized its primary logistical partnerships to manage attendee mobility. Gulf Car has been named the official transportation provider, tasked with…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "Events & Conferences",
+    "category_names": [
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Gulf Car",
+      "Makani"
+    ],
+    "people_names": [],
+    "topic_names": [
+      "Logistics & Supply Chain",
+      "Geospatial Technology",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Logistics & Supply Chain",
+      "Geospatial Technology",
+      "Saudi Digital Economy",
+      "Gulf Car",
+      "Makani",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "LEAP 2026 transportation",
+      "keywords": [
+        "LEAP 2026 transportation",
+        "Gulf Car LEAP",
+        "Makani internal shuttle LEAP",
+        "LEAP Riyadh logistics",
+        "tech event transport Saudi Arabia",
+        "RECC Malham transport",
+        "Swvl LEAP 2026"
+      ],
+      "seo_title": "LEAP 2026 Names Gulf Car and Makani as Official…",
+      "seo_description": "As LEAP 2026 prepares to host its fifth edition at RECC Malham in Riyadh, the event has finalized its primary logistical partnerships to manage attendee…",
+      "og_title": "LEAP 2026 Names Gulf Car and Makani as Official Transportation and Internal Shuttle…",
+      "og_description": "As LEAP 2026 prepares to host its fifth edition at RECC Malham in Riyadh, the event has finalized its primary logistical partnerships to manage attendee mobility. Gulf Car has been named the official…",
+      "google_news_keywords": [
+        "LEAP 2026 transportation",
+        "Gulf Car LEAP",
+        "Makani internal shuttle LEAP",
+        "LEAP Riyadh logistics",
+        "tech event transport Saudi Arabia",
+        "RECC Malham transport",
+        "Swvl LEAP 2026"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "LEAP's Post - LinkedIn",
+      "primary_url": "https://www.linkedin.com/posts/leapandinnovate_leap26-gulfcar-transportationpartner-activity-7498063151905677312-p0Ab",
+      "supporting_urls": [
+        "https://www.facebook.com/LEAPandInnovate/posts/getting-to-and-around-leap-has-never-been-easierwere-proud-to-have-gulf-car-as-o/1424741993130981/",
+        "https://www.swvl.com/leap",
+        "https://www.linkedin.com/posts/leapandinnovate_leap26-makani-internalshuttle-activity-7498275286958915584-8_vn"
+      ],
+      "verified_angle_summary": "As LEAP 2026 prepares to host its fifth edition at RECC Malham in Riyadh, the event has finalized its primary logistical partnerships to manage attendee mobility. Gulf Car has been named the official transportation provider, tasked with helping attendees travel seamlessly to and from the venue. Complementing the external transit, Makani has been appointed as the official internal shuttle provider to facilitate effortless movement within the expansive exhibition grounds, ensuring attendees can navigate between sessions, activations, and meetings without delay. Additionally, corporate transport solutions like Swvl are offering dedicated delegate and group shuttles, including airport transfers and daily hotel-to-venue routes. This multi-tiered transport strategy addresses the significant logistical challenges of moving hundreds of thousands of visitors across the sprawling RECC Malham complex.",
+      "verified_key_facts": "Gulf Car is the official transportation provider for LEAP 2026.; Makani is the official internal shuttle provider for LEAP 2026.; Swvl offers dedicated delegate transport and group shuttles for the event.; LEAP 2026 takes place from August 31 to September 3, 2026.; The event is held at RECC Malham in Riyadh, Saudi Arabia.; The transport strategy aims to ensure seamless travel to, from, and within the venue.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "LEAP 2026 Names Gulf Car and Makani as Official Transportation and Internal Shuttle Providers — LEAP and DeepFest 2026 news",
+      "caption_template": "LEAP 2026 Names Gulf Car and Makani as Official Transportation and Internal Shuttle Providers. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "As LEAP 2026 prepares to host its fifth edition at RECC Malham in Riyadh, the event has finalized its primary logistical partnerships to manage attendee mobility. Gulf Car has been named the official transportation provider, tasked with helping attendees travel seamlessly to and from the venue. Complementing the external transit, Makani has been appointed as the official internal shuttle provider to facilitate effortless movement within the expansive exhibition grounds, ensuring attendees can navigate between sessions, activations, and meetings without delay. Additionally, corporate transport solutions like Swvl are offering dedicated delegate and group shuttles, including airport transfers and daily hotel-to-venue routes. This multi-tiered transport strategy addresses the significant logistical challenges of moving hundreds of thousands of visitors across the sprawling RECC Malham complex.",
+      "key_facts": "Gulf Car is the official transportation provider for LEAP 2026.; Makani is the official internal shuttle provider for LEAP 2026.; Swvl offers dedicated delegate transport and group shuttles for the event.; LEAP 2026 takes place from August 31 to September 3, 2026.; The event is held at RECC Malham in Riyadh, Saudi Arabia.; The transport strategy aims to ensure seamless travel to, from, and within the venue.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 92,
+    "candidate_id": "R093",
+    "slug": "leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/092-leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers.webp",
+    "filename": "092-leap-2026-names-gulf-car-and-makani-as-official-transportation-and-internal-shuttle-providers.webp",
+    "mime_type": "image/webp",
+    "size": 174644,
+    "width": 1600,
+    "height": 900,
+    "sha256": "d63583173e7c9e324b728a7afc4cc80c53e39065a4526b0f88b253cdc823be76",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "LEAP 2026 Names Gulf Car and Makani as Official Transportation and Internal Shuttle Providers — LEAP and DeepFest 2026 news",
+    "caption": "LEAP 2026 Names Gulf Car and Makani as Official Transportation and Internal Shuttle Providers. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/092.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

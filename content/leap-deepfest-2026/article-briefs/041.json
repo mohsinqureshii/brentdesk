@@ -1,0 +1,193 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 41,
+    "candidate_id": "R067",
+    "canonical_announcement_key": "Taiwan Excellence brings 22 AI hardware brands (‘Taiwan AI Island’)",
+    "selection_reason": "First-ever pavilion with named OEMs and launch event; foundational AI hardware layer angle.",
+    "title": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026 Debut",
+    "slug": "taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-29",
+    "display_datetime_local": "2026-08-31T16:50:30+03:00",
+    "display_datetime_utc": "2026-08-31T13:50:30Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Taiwan Excellence is making its inaugural appearance at LEAP 2026 with a dedicated pavilion themed 'Taiwan AI Island,' bringing 22 award-winning technology brands to Riyadh. Instead of a generic delegation overview, this angle focuses on…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Taiwan Excellence",
+      "TAITRA",
+      "ASUS",
+      "Pegatron",
+      "Advantech",
+      "MSI",
+      "Lanner Electronics"
+    ],
+    "people_names": [],
+    "topic_names": [
+      "Smart Cities",
+      "Startup Ecosystem",
+      "Industry 4.0",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Smart Cities",
+      "Startup Ecosystem",
+      "Industry 4.0",
+      "Saudi Digital Economy",
+      "Taiwan Excellence",
+      "TAITRA",
+      "ASUS",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Taiwan Excellence LEAP 2026",
+      "keywords": [
+        "Taiwan Excellence LEAP 2026",
+        "Taiwan AI Island",
+        "AI hardware brands",
+        "smart city solutions",
+        "edge AI computing",
+        "Saudi Vision 2030 tech",
+        "ICT infrastructure",
+        "AI servers",
+        "TAITRA Riyadh"
+      ],
+      "seo_title": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026…",
+      "seo_description": "Taiwan Excellence is making its inaugural appearance at LEAP 2026 with a dedicated pavilion themed 'Taiwan AI Island,' bringing 22 award-winning technology…",
+      "og_title": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026 Debut",
+      "og_description": "Taiwan Excellence is making its inaugural appearance at LEAP 2026 with a dedicated pavilion themed 'Taiwan AI Island,' bringing 22 award-winning technology brands to Riyadh. Instead of a generic…",
+      "google_news_keywords": [
+        "Taiwan Excellence LEAP 2026",
+        "Taiwan AI Island",
+        "AI hardware brands",
+        "smart city solutions",
+        "edge AI computing",
+        "Saudi Vision 2030 tech",
+        "ICT infrastructure",
+        "AI servers",
+        "TAITRA Riyadh"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Taiwan Excellence’s Post",
+      "primary_url": "https://www.linkedin.com/posts/taiwan-excellence_taiwanexcellence-saudivision2030-leap2026-activity-7499359888838627328-HgoN",
+      "supporting_urls": [
+        "https://www.taiwanexcellence.org/en/press/events/1104"
+      ],
+      "verified_angle_summary": "Taiwan Excellence is making its inaugural appearance at LEAP 2026 with a dedicated pavilion themed 'Taiwan AI Island,' bringing 22 award-winning technology brands to Riyadh. Instead of a generic delegation overview, this angle focuses on the specific hardware and infrastructure capabilities being showcased across AI computing, industrial edge AI, and smart mobility. The pavilion features major manufacturers including ASUS, Pegatron, Advantech, and MSI, demonstrating advanced solutions like AI servers, liquid cooling, and edge computing systems. The presence of these 22 companies highlights Taiwan's strategic alignment with Saudi Vision 2030, positioning Taiwanese ICT manufacturing as the foundational hardware layer powering global AI deployment and smart city infrastructure in the Middle East.",
+      "verified_key_facts": "Taiwan Excellence is making its first-ever appearance at LEAP 2026; The pavilion features 22 award-winning Taiwanese brands; The exhibition is themed 'Taiwan AI Island' with the slogan 'If AI drives the future, Taiwan powers it'; Key participating companies include ASUS, Pegatron, Advantech, MSI, and Lanner Electronics; The showcase covers AI computing, industrial edge AI, smart mobility, and digital living; Featured technologies include advanced AI servers, liquid cooling, edge AI computing, and EV charging; A dedicated product launch event 'LEAP into the Future' is scheduled for August 31, 2026, at Hall 5, Booth F50; The participation is organized by Taiwan's Bureau of Foreign Trade and implemented by TAITRA.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://backend.taiwanexcellence.org/upload/en/event/1104/files/507E6EFE-785D-B5E7-67D1-600DE49C4F7B.pdf",
+      "credit": "Taiwan Excellence / TAITRA",
+      "license_note": "Official event e-brochure cover or graphics; standard press usage applies.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026 Debut — LEAP and DeepFest 2026 news",
+      "caption_template": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026 Debut. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Taiwan Excellence is making its inaugural appearance at LEAP 2026 with a dedicated pavilion themed 'Taiwan AI Island,' bringing 22 award-winning technology brands to Riyadh. Instead of a generic delegation overview, this angle focuses on the specific hardware and infrastructure capabilities being showcased across AI computing, industrial edge AI, and smart mobility. The pavilion features major manufacturers including ASUS, Pegatron, Advantech, and MSI, demonstrating advanced solutions like AI servers, liquid cooling, and edge computing systems. The presence of these 22 companies highlights Taiwan's strategic alignment with Saudi Vision 2030, positioning Taiwanese ICT manufacturing as the foundational hardware layer powering global AI deployment and smart city infrastructure in the Middle East.",
+      "key_facts": "Taiwan Excellence is making its first-ever appearance at LEAP 2026; The pavilion features 22 award-winning Taiwanese brands; The exhibition is themed 'Taiwan AI Island' with the slogan 'If AI drives the future, Taiwan powers it'; Key participating companies include ASUS, Pegatron, Advantech, MSI, and Lanner Electronics; The showcase covers AI computing, industrial edge AI, smart mobility, and digital living; Featured technologies include advanced AI servers, liquid cooling, edge AI computing, and EV charging; A dedicated product launch event 'LEAP into the Future' is scheduled for August 31, 2026, at Hall 5, Booth F50; The participation is organized by Taiwan's Bureau of Foreign Trade and implemented by TAITRA.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 41,
+    "candidate_id": "R067",
+    "slug": "taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/041-taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut.webp",
+    "filename": "041-taiwan-excellence-brings-22-ai-hardware-brands-to-leap-2026-debut.webp",
+    "mime_type": "image/webp",
+    "size": 226556,
+    "width": 1600,
+    "height": 900,
+    "sha256": "d84ee9749aa06e320579ddd54b06eea047bddb62edd95072a230852295463fd6",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026 Debut — LEAP and DeepFest 2026 news",
+    "caption": "Taiwan Excellence Brings 22 AI Hardware Brands to LEAP 2026 Debut. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/041.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

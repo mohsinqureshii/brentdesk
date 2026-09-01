@@ -1,0 +1,188 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 48,
+    "candidate_id": "B003",
+    "canonical_announcement_key": "Unifonic agentic AI CX platform + Agentic Marketing (Segmentify integration)",
+    "selection_reason": "Zawya + trade coverage; concrete agentic workflows and acquisition-driven personalization.",
+    "title": "Unifonic Unveils Agentic AI Customer Experience Strategy at LEAP 2026",
+    "slug": "unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T17:41:21+03:00",
+    "display_datetime_utc": "2026-08-31T14:41:21Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Unifonic is using LEAP 2026 to showcase its transition to \"Agentic AI\" for customer experience (CX). The company's platform aims to move beyond AI assistance to end-to-end execution of customer journeys while maintaining human control. A…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "Unifonic",
+      "Segmentify"
+    ],
+    "people_names": [
+      "Ahmed Hamdan",
+      "Mohammed Sleeq"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Enterprise Software",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "DeepFest 2026"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "Enterprise Software",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "Unifonic",
+      "Segmentify",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Unifonic",
+      "keywords": [
+        "Unifonic",
+        "Agentic AI",
+        "customer experience",
+        "LEAP 2026",
+        "AI-native CX platform",
+        "Segmentify",
+        "enterprise automation",
+        "Saudi Arabia AI"
+      ],
+      "seo_title": "Unifonic Unveils Agentic AI Customer Experience Strategy at…",
+      "seo_description": "Unifonic is using LEAP 2026 to showcase its transition to \"Agentic AI\" for customer experience (CX). The company's platform aims to move beyond AI assistance to…",
+      "og_title": "Unifonic Unveils Agentic AI Customer Experience Strategy at LEAP 2026",
+      "og_description": "Unifonic is using LEAP 2026 to showcase its transition to \"Agentic AI\" for customer experience (CX). The company's platform aims to move beyond AI assistance to end-to-end execution of customer…",
+      "google_news_keywords": [
+        "Unifonic",
+        "Agentic AI",
+        "customer experience",
+        "LEAP 2026",
+        "AI-native CX platform",
+        "Segmentify",
+        "enterprise automation",
+        "Saudi Arabia AI"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Unifonic demonstrates how Agentic AI is redefining customer experiences at LEAP 2026",
+      "primary_url": "https://www.zawya.com/en/press-release/companies-news/unifonic-demonstrates-how-agentic-ai-is-redefining-customer-experiences-at-leap-2026-472859",
+      "supporting_urls": [
+        "https://arabianreseller.com/2026/08/31/unifonic-showcases-how-agentic-ai-is-redefining-customer-experience-at-leap-2026/"
+      ],
+      "verified_angle_summary": "Unifonic is using LEAP 2026 to showcase its transition to \"Agentic AI\" for customer experience (CX). The company's platform aims to move beyond AI assistance to end-to-end execution of customer journeys while maintaining human control. A key highlight is \"Agentic Marketing,\" an AI-powered solution for campaign execution. The announcement also highlights Unifonic's recent acquisition of Segmentify, which serves as the hyper-personalisation engine for these new agentic capabilities. The news was announced on August 31, 2026, and verified against Zawya and Arabian Reseller. A check of existing coverage files confirmed this angle has not been previously selected, making it a unique and material addition to the LEAP 2026 coverage.",
+      "verified_key_facts": "Unifonic showcased its AI-native CX platform at LEAP 2026; Focus is on Agentic AI moving beyond assistance to end-to-end action; Introduced Agentic Marketing for AI-driven campaign execution; Platform supports seamless AI-to-human handover; Highlighted integration of Segmentify following recent acquisition; Segmentify provides hyper-personalisation for the agentic marketing engine; Quotes provided by CEO Ahmed Hamdan and COO Mohammed Sleeq",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Unifonic Unveils Agentic AI Customer Experience Strategy at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Unifonic Unveils Agentic AI Customer Experience Strategy at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Unifonic is using LEAP 2026 to showcase its transition to \"Agentic AI\" for customer experience (CX). The company's platform aims to move beyond AI assistance to end-to-end execution of customer journeys while maintaining human control. A key highlight is \"Agentic Marketing,\" an AI-powered solution for campaign execution. The announcement also highlights Unifonic's recent acquisition of Segmentify, which serves as the hyper-personalisation engine for these new agentic capabilities. The news was announced on August 31, 2026, and verified against Zawya and Arabian Reseller. A check of existing coverage files confirmed this angle has not been previously selected, making it a unique and material addition to the LEAP 2026 coverage.",
+      "key_facts": "Unifonic showcased its AI-native CX platform at LEAP 2026; Focus is on Agentic AI moving beyond assistance to end-to-end action; Introduced Agentic Marketing for AI-driven campaign execution; Platform supports seamless AI-to-human handover; Highlighted integration of Segmentify following recent acquisition; Segmentify provides hyper-personalisation for the agentic marketing engine; Quotes provided by CEO Ahmed Hamdan and COO Mohammed Sleeq",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 48,
+    "candidate_id": "B003",
+    "slug": "unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/048-unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026.webp",
+    "filename": "048-unifonic-unveils-agentic-ai-customer-experience-strategy-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 223074,
+    "width": 1600,
+    "height": 900,
+    "sha256": "2b76302c6b024921fe1ceecbe9f9895e4b9f63d06c9eb88ec17d3c0e4c78b987",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Unifonic Unveils Agentic AI Customer Experience Strategy at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Unifonic Unveils Agentic AI Customer Experience Strategy at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/048.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

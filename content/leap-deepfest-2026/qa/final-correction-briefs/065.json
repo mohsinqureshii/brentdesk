@@ -1,0 +1,290 @@
+{
+  "sequence": 65,
+  "current_draft": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 65,
+    "candidate_id": "B029",
+    "canonical_announcement_key": "Social Development Bank launches AI ‘Smart Collection’ + ‘Noura’ chatbot",
+    "title": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026",
+    "slug": "saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "display_datetime_local": "2026-08-31T19:44:48+03:00",
+    "display_datetime_utc": "2026-08-31T16:44:48Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026.",
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Social Development Bank",
+      "SDB"
+    ],
+    "people_names": [],
+    "topic_names": [
+      "Enterprise Software",
+      "Fintech",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Enterprise Software",
+      "Fintech",
+      "Saudi Digital Economy",
+      "Social Development Bank",
+      "SDB",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Social Development Bank",
+      "keywords": [
+        "Social Development Bank",
+        "Smart Collection",
+        "AI",
+        "LEAP 2026",
+        "Noura Chatbot",
+        "Saudi Arabia"
+      ],
+      "seo_title": "Saudi Social Development Bank Launches AI Smart Collection…",
+      "seo_description": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during…",
+      "og_title": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026",
+      "og_description": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026.…",
+      "google_news_keywords": [
+        "Social Development Bank",
+        "Smart Collection",
+        "AI",
+        "LEAP 2026",
+        "Noura Chatbot",
+        "Saudi Arabia"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "بنك التنمية الاجتماعية يُطلق خدمة \"التحصيل الذكي\" المدعومة بالذكاء الاصطناعي",
+      "primary_url": "https://www.mubasher.info/news/4666131/%D8%A8%D9%86%D9%83-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A%D8%A9-%D9%8A-%D8%B7%D9%84%D9%82-%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%AA%D8%AD%D8%B5%D9%8A%D9%84-%D8%A7%D9%84%D8%B0%D9%83%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D8%B9%D9%88%D9%85%D8%A9-%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A/",
+      "supporting_urls": [],
+      "verified_angle_summary": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026. The AI Smart Collection system analyzes customer data to personalize communication and improve collection efficiency across multiple channels, offering accurate and proactive interactions. The Noura chatbot aims to facilitate access to SDB services, with over one million beneficiaries already utilizing the service, and 50% of the bank's services being completed through it. This development represents a significant step in SDB's digital transformation and its adoption of AI to enhance customer experience and operational efficiency in the financial sector. The story is verified as a concrete product launch and operational deployment at LEAP 2026, distinct from existing coverage.",
+      "verified_key_facts": "Launched AI-powered Smart Collection service; Introduced Noura smart assistant chatbot; Announced at Saudi Digital Exhibition at LEAP 2026; Smart Collection analyzes customer data for personalized communication; Noura chatbot serves over 1 million beneficiaries; 50% of services completed via Noura",
+      "confidence": 95
+    },
+    "image": {
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/065-saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026.webp",
+      "filename": "065-saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026.webp",
+      "mime_type": "image/webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+    },
+    "content_markdown": "## What was announced at LEAP 2026\n\nSaudi Arabia’s Social Development Bank (SDB) said at the Saudi Digital Exhibition at LEAP 2026 that it has put into operation two AI-driven tools: an AI-powered “Smart Collection” service and a conversational assistant called “Noura.” According to the bank’s announcement, the Smart Collection system applies automated data analysis to tailor communications in its collection processes, while the Noura chatbot is already in use by more than one million beneficiaries and is handling roughly half of the bank’s service interactions.\n\nThe presentation at LEAP 2026 framed the rollouts as part of SDB’s digital transformation. The announcement focused on two concrete points that can be verified from the bank’s statement: the operational deployment of both systems, and the reported usage metrics for the Noura chatbot. Beyond those points, the bank did not publish detailed technical specifications, performance targets, or a full timetable for wider rollout in the material released at the event.\n\nLEAP’s Saudi Digital Exhibition served as the stage for that disclosure. As a major technology forum, LEAP brings together public institutions, private vendors and international attendees, creating a concentrated environment for governments and banks to showcase new digital services. Announcements made in that context can accelerate peer discussion, attract vendor interest and invite scrutiny from regulators and civil society. Exhibitions like this also function as a marketplace for procurement conversations, partnerships and demonstrations that can influence how quickly tools move from pilot stage to broader deployment.\n\n## How the AI tools work and their implications for fintech operations\n\nDescriptions provided by the bank indicate the Smart Collection service uses customer data to personalize communication strategies across multiple channels. In broad terms, systems of this kind combine profile information and payment history with predictive models to prioritize accounts, schedule outreach, and adapt messages to the likelihood of response. These techniques are increasingly common in financial services where the goal is to improve contact rates and reduce unnecessary friction for customers.\n\nAt a technical level, predictive analytics in finance typically involves data ingestion, feature engineering and the application of statistical or machine-learning models that produce risk or response scores. Features might include recency and frequency of interactions, payment amounts and patterns, demographic attributes and engagement behavior across channels. Models assign probabilities that an individual will respond to a given outreach or cure a delinquency within a certain timeframe. Those probabilities feed decision logic that determines whether and how a contact attempt is made, which communication channel to use, and whether a case should be escalated to a human collector.\n\nConversational AI platforms such as the Noura chatbot typically rely on natural language processing to interpret user queries, route routine requests to automated flows, and escalate complex issues to human agents. Common elements in such systems include intent detection to understand the user’s goal, entity extraction to pull relevant details from the utterance, dialogue management to maintain context across multiple turns, and integration layers that connect the bot to backend systems for authentication or transaction execution. When a bank reports that a chatbot handles a high share of service interactions — the SDB figure cited is about 50 percent — it generally indicates a shift of routine, repeatable tasks to an automated interface. That can free staff to focus on nonstandard cases, but it also raises questions about handoffs, oversight and the design of escalation paths when automation cannot resolve an issue.\n\nIntegrating predictive contact systems and chatbots can yield operational efficiencies and a more consistent customer experience, but the benefits hinge on robust implementation. Practical best practices include clear routing rules, ongoing model calibration, A/B testing of message variants, and continuous monitoring of contact outcomes. Human-in-the-loop controls are crucial for edge cases, and rollback mechanisms should exist if models begin to drift or degrade. Equally important is the seamless linking of automated channels to human workflows so that a customer who starts with a chatbot receives consistent and up-to-date assistance when transferred to a live representative.\n\n## Operational questions, risks and next steps\n\nAnnouncements of AI deployments typically invite scrutiny in several areas that remain relevant regardless of the institution involved. First, data governance: collection and use of personal and financial data must comply with applicable privacy rules and the organization’s own policies. Effective governance covers data lineage, access controls, retention policies and consent management. Institutions must also pay attention to data quality, as biased or incomplete datasets can skew predictions or result in unfair treatment.\n\nSecond, transparency and accountability are operational priorities. For collection systems, regulators and customer advocates often expect clear documentation about how decisions are made, and mechanisms for customers to query or challenge automated outcomes. For conversational systems, audit trails that capture which decisions were made by automation and which by humans are important for resolving disputes and for ongoing model improvement. Explaining decisions in user-facing terms — for example, why a particular communication was prioritized — is increasingly seen as part of responsible deployment, especially in services funded or overseen by public actors.\n\nThird, measurement and validation: reported usage metrics such as the number of users or the share of services handled by a chatbot are useful early indicators, but they do not by themselves demonstrate improvements in outcomes such as resolution time, customer satisfaction, or fair treatment. Institutions moving to AI-driven workflows need to define baseline metrics and monitor changes over time, including unintended side effects like increased call-backs or confusion among certain customer segments. Rigorous validation typically includes offline testing, pilot programs, and statistical monitoring of model outputs against known outcomes.\n\nFourth, bias and fairness are central regulatory and ethical concerns. Models trained on historical data can replicate past inequities if that history reflects biased treatment or structural disparities. Addressing this requires both technical mitigation—such as fairness-aware modeling and counterfactual testing—and governance measures like independent audits and stakeholder consultation. Transparency about model scope and limitations, together with avenues for redress, helps balance efficiency gains against the risk of harm.\n\nFifth, operational integration is a practical challenge. Many banks must link new AI systems with legacy databases, customer relationship systems and payment platforms. Smooth interoperability reduces the risk of data silos, prevents inconsistent messaging, and supports unified case management when a customer moves from an automated channel to a human agent. Dependency on third-party vendors also raises vendor risk and procurement questions, including the need to assess the security, data handling and model governance practices of technology partners.\n\nFinally, implementation demands change management: staff training, revision of process manuals, updates to service-level agreements and clear communication to customers about new channels and their rights. At a sector level, forums such as the Saudi Digital Exhibition at LEAP 2026 provide a useful environment for sharing lessons learned, exposing gaps in governance and shaping policy conversations. But the long-term effectiveness of any AI tool depends on continuous engineering, governance and independent evaluation. Public reporting of performance metrics, privacy safeguards and escalation procedures enhances public understanding and regulatory oversight, helping ensure that efficiency gains translate into fair, transparent and accountable public fintech services.\n\n## References\n\n[1] [بنك التنمية الاجتماعية يُطلق خدمة \"التحصيل الذكي\" المدعومة بالذكاء الاصطناعي](https://www.mubasher.info/news/4666131/%D8%A8%D9%86%D9%83-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A%D8%A9-%D9%8A-%D8%B7%D9%84%D9%82-%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%AA%D8%AD%D8%B5%D9%8A%D9%84-%D8%A7%D9%84%D8%B0%D9%83%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D8%B9%D9%88%D9%85%D8%A9-%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A/)",
+    "content_word_count": 1167,
+    "editorial_notes": "Corrected editorial and factual issues, removed fluff and unsupported claims."
+  },
+  "authoritative_brief": {
+    "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+    "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+    "article": {
+      "batch_id": "leap-deepfest-2026-day1",
+      "sequence": 65,
+      "candidate_id": "B029",
+      "canonical_announcement_key": "Social Development Bank launches AI ‘Smart Collection’ + ‘Noura’ chatbot",
+      "selection_reason": "Concrete AI service launch with usage metrics; strong public fintech ops angle.",
+      "title": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026",
+      "slug": "saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+      "author_public_name": "TechScoop Desk",
+      "workflow_status_slug": "draft",
+      "article_type": "news",
+      "is_featured": false,
+      "is_trending": false,
+      "is_editor_pick": false,
+      "is_flash": false,
+      "announcement_date": "2026-08-31",
+      "display_datetime_local": "2026-08-31T19:44:48+03:00",
+      "display_datetime_utc": "2026-08-31T16:44:48Z",
+      "timezone": "Asia/Riyadh",
+      "excerpt": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026. The AI Smart Collection system analyzes…",
+      "content_target_words": {
+        "minimum": 800,
+        "preferred": 1050,
+        "maximum": 1400
+      },
+      "primary_category_name": "AI & Data",
+      "category_names": [
+        "AI & Data",
+        "Events & Conferences"
+      ],
+      "event_names": [
+        "LEAP 2026"
+      ],
+      "event_bucket": "LEAP 2026",
+      "company_names": [
+        "Social Development Bank",
+        "SDB"
+      ],
+      "people_names": [],
+      "topic_names": [
+        "Enterprise Software",
+        "Fintech",
+        "Saudi Digital Economy",
+        "LEAP 2026"
+      ],
+      "tag_names": [
+        "LEAP 2026",
+        "Enterprise Software",
+        "Fintech",
+        "Saudi Digital Economy",
+        "Social Development Bank",
+        "SDB",
+        "Saudi Arabia",
+        "Riyadh"
+      ],
+      "coverage": {
+        "country_iso2": "SA",
+        "country_name": "Saudi Arabia",
+        "city_name": "Riyadh",
+        "region_name": "Gulf Region"
+      },
+      "seo": {
+        "focus_keyword": "Social Development Bank",
+        "keywords": [
+          "Social Development Bank",
+          "Smart Collection",
+          "AI",
+          "LEAP 2026",
+          "Noura Chatbot",
+          "Saudi Arabia"
+        ],
+        "seo_title": "Saudi Social Development Bank Launches AI Smart Collection…",
+        "seo_description": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during…",
+        "og_title": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026",
+        "og_description": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026.…",
+        "google_news_keywords": [
+          "Social Development Bank",
+          "Smart Collection",
+          "AI",
+          "LEAP 2026",
+          "Noura Chatbot",
+          "Saudi Arabia"
+        ],
+        "canonical_url": "https://techscoop.io/events-conferences/saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+        "robots_indexing": "index"
+      },
+      "sources": {
+        "primary_title": "بنك التنمية الاجتماعية يُطلق خدمة \"التحصيل الذكي\" المدعومة بالذكاء الاصطناعي",
+        "primary_url": "https://www.mubasher.info/news/4666131/%D8%A8%D9%86%D9%83-%D8%A7%D9%84%D8%AA%D9%86%D9%85%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A%D8%A9-%D9%8A-%D8%B7%D9%84%D9%82-%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%AA%D8%AD%D8%B5%D9%8A%D9%84-%D8%A7%D9%84%D8%B0%D9%83%D9%8A-%D8%A7%D9%84%D9%85%D8%AF%D8%B9%D9%88%D9%85%D8%A9-%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A/",
+        "supporting_urls": [],
+        "verified_angle_summary": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026. The AI Smart Collection system analyzes customer data to personalize communication and improve collection efficiency across multiple channels, offering accurate and proactive interactions. The Noura chatbot aims to facilitate access to SDB services, with over one million beneficiaries already utilizing the service, and 50% of the bank's services being completed through it. This development represents a significant step in SDB's digital transformation and its adoption of AI to enhance customer experience and operational efficiency in the financial sector. The story is verified as a concrete product launch and operational deployment at LEAP 2026, distinct from existing coverage.",
+        "verified_key_facts": "Launched AI-powered Smart Collection service; Introduced Noura smart assistant chatbot; Announced at Saudi Digital Exhibition at LEAP 2026; Smart Collection analyzes customer data for personalized communication; Noura chatbot serves over 1 million beneficiaries; 50% of services completed via Noura",
+        "confidence": 95
+      },
+      "image": {
+        "candidate_url": "",
+        "credit": "",
+        "license_note": "NA",
+        "required_width": 1600,
+        "required_height": 900,
+        "required_mime_type": "image/webp",
+        "alt_text_template": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026 — LEAP and DeepFest 2026 news",
+        "caption_template": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+        "fallback_credit": "TechScoop illustration"
+      },
+      "drafting_brief": {
+        "angle": "Saudi Arabia's Social Development Bank (SDB) announced the launch of its AI-powered \"Smart Collection\" service and the \"Noura\" smart assistant chatbot during the Saudi Digital Exhibition at LEAP 2026. The AI Smart Collection system analyzes customer data to personalize communication and improve collection efficiency across multiple channels, offering accurate and proactive interactions. The Noura chatbot aims to facilitate access to SDB services, with over one million beneficiaries already utilizing the service, and 50% of the bank's services being completed through it. This development represents a significant step in SDB's digital transformation and its adoption of AI to enhance customer experience and operational efficiency in the financial sector. The story is verified as a concrete product launch and operational deployment at LEAP 2026, distinct from existing coverage.",
+        "key_facts": "Launched AI-powered Smart Collection service; Introduced Noura smart assistant chatbot; Announced at Saudi Digital Exhibition at LEAP 2026; Smart Collection analyzes customer data for personalized communication; Noura chatbot serves over 1 million beneficiaries; 50% of services completed via Noura",
+        "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+        "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+      }
+    },
+    "final_image": {
+      "sequence": 65,
+      "candidate_id": "B029",
+      "slug": "saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/065-saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026.webp",
+      "filename": "065-saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026.webp",
+      "mime_type": "image/webp",
+      "size": 166714,
+      "width": 1600,
+      "height": 900,
+      "sha256": "4d97730bdb461849156ad1a95e579ecab5f2cd93066731ae6285184f032bf4c1",
+      "source_generated_format": "PNG",
+      "source_generated_width": 2560,
+      "source_generated_height": 1440,
+      "alt": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "Saudi Social Development Bank Launches AI Smart Collection Service at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+      "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+      "generation_brief": "content/leap-deepfest-2026/image-briefs/065.json"
+    },
+    "output_contract": {
+      "format": "JSON",
+      "required_fields": [
+        "sequence",
+        "candidate_id",
+        "canonical_announcement_key",
+        "title",
+        "slug",
+        "author_public_name",
+        "workflow_status_slug",
+        "article_type",
+        "display_datetime_local",
+        "display_datetime_utc",
+        "timezone",
+        "excerpt",
+        "content_markdown",
+        "content_word_count",
+        "primary_category_name",
+        "category_names",
+        "event_names",
+        "event_bucket",
+        "company_names",
+        "people_names",
+        "topic_names",
+        "tag_names",
+        "coverage",
+        "seo",
+        "sources",
+        "image",
+        "editorial_notes"
+      ],
+      "content_word_count_min": 850,
+      "content_word_count_max": 1250,
+      "content_word_count_scope": "Article body only, excluding References",
+      "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+      "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+    }
+  },
+  "review_findings": {
+    "confidence": 100,
+    "editorial_issues": "Remove generic textbook padding about AI in finance in sections 2 and 3",
+    "editorial_status": "needs_correction",
+    "factual_status": "pass",
+    "sequence": 65,
+    "unsupported_claims": "NA"
+  },
+  "instructions": "Perform a final restrained rewrite of the body to remove exactly the flagged unsupported details, repeated passages, generic padding and promotional wording. Preserve verified facts, approved links and every backend metadata field. Do not expand the scope. Maintain 850–1,250 article-body words, 2–4 non-References H2 headings and the final approved References section."
+}

@@ -1,0 +1,85 @@
+{
+  "company_aliases": {
+    "COGNIXION": "Cognixion",
+    "Cognixion": "Cognixion",
+    "HP": "HP Inc.",
+    "HP Inc.": "HP Inc.",
+    "stc group": "stc Group",
+    "stc Group": "stc Group",
+    "Ministry of Tourism": "Saudi Ministry of Tourism",
+    "Saudi Ministry of Tourism": "Saudi Ministry of Tourism",
+    "PIF": "Public Investment Fund (PIF)",
+    "Public Investment Fund": "Public Investment Fund (PIF)",
+    "Public Investment Fund (PIF)": "Public Investment Fund (PIF)"
+  },
+  "people_aliases": {
+    "Abdullah Alswaha": "Abdullah bin Amer Alswaha",
+    "Abdullah Amer Alswaha": "Abdullah bin Amer Alswaha",
+    "Abdullah bin Amer Alswaha": "Abdullah bin Amer Alswaha"
+  },
+  "changed_articles": 2,
+  "company_replacements": 0,
+  "people_replacements": 2,
+  "tag_replacements": 0,
+  "amazon_parent_tag_removed": 0,
+  "changes": [
+    {
+      "sequence": 1,
+      "file": "001-aws-to-launch-saudi-cloud-region-in-december-2026-with-humain-ai-zone.json",
+      "company_changes": [],
+      "people_changes": [
+        {
+          "from": "Abdullah Alswaha",
+          "to": "Abdullah bin Amer Alswaha"
+        }
+      ],
+      "tag_changes": [],
+      "amazon_parent_tag_removed": false
+    },
+    {
+      "sequence": 3,
+      "file": "003-adobe-grants-4b-in-free-ai-tools-to-27m-saudi-residents.json",
+      "company_changes": [],
+      "people_changes": [
+        {
+          "from": "Abdullah Amer Alswaha",
+          "to": "Abdullah bin Amer Alswaha"
+        }
+      ],
+      "tag_changes": [],
+      "amazon_parent_tag_removed": false
+    }
+  ],
+  "intentionally_not_merged": [
+    [
+      "specialized by stc",
+      "stc Group",
+      "brand/subsidiary distinction retained"
+    ],
+    [
+      "Saudi Data and Artificial Intelligence Authority",
+      "SDAIA",
+      "no SDAIA alias appears in the final manifest; no invented alias added"
+    ],
+    [
+      "Ministry of Communications and Information Technology",
+      "Ministry of Communications and Information Technology (Syria)",
+      "different jurisdictions retained"
+    ],
+    [
+      "Ministry of Communications and Information Technology",
+      "Ministry of Transport, Communications and Information Technology",
+      "different ministries retained"
+    ],
+    [
+      "Oracle",
+      "URACLE. Co. Ltd",
+      "not merged without source confirmation"
+    ],
+    [
+      "Amazon",
+      "Amazon Web Services",
+      "parent and subsidiary/cloud brand retained as separate entities; Amazon removed from AWS-only article 19 company/tag fields"
+    ]
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 81,
+    "candidate_id": "S022",
+    "canonical_announcement_key": "HP Riyadh facility enters ongoing commercial production",
+    "selection_reason": "Saudi manufacturing localization milestone; shipping locally-made products; Vision 2030 tie-in.",
+    "title": "HP's Riyadh Facility Begins Commercial Production of Tech Products",
+    "slug": "hp-s-riyadh-facility-begins-commercial-production-of-tech-products",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-30",
+    "display_datetime_local": "2026-08-31T21:41:01+03:00",
+    "display_datetime_utc": "2026-08-31T18:41:01Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026, HP announced that its Riyadh manufacturing facility, which opened in October 2025, has successfully transitioned into ongoing commercial production. The facility is now actively producing and shipping locally manufactured HP…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "HP Inc."
+    ],
+    "people_names": [
+      "Fadle Saad"
+    ],
+    "topic_names": [
+      "Future of Work",
+      "Industry 4.0",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Future of Work",
+      "Industry 4.0",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "HP Inc.",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "HP Riyadh factory",
+      "keywords": [
+        "HP Riyadh factory",
+        "HP local manufacturing Saudi Arabia",
+        "LEAP 2026 HP",
+        "Vision 2030 tech production",
+        "HP commercial production Riyadh",
+        "Saudi supply chain localization",
+        "Fadle Saad",
+        "HP AI Academy"
+      ],
+      "seo_title": "HP's Riyadh Facility Begins Commercial Production of Tech…",
+      "seo_description": "At LEAP 2026, HP announced that its Riyadh manufacturing facility, which opened in October 2025, has successfully transitioned into ongoing commercial…",
+      "og_title": "HP's Riyadh Facility Begins Commercial Production of Tech Products",
+      "og_description": "At LEAP 2026, HP announced that its Riyadh manufacturing facility, which opened in October 2025, has successfully transitioned into ongoing commercial production. The facility is now actively…",
+      "google_news_keywords": [
+        "HP Riyadh factory",
+        "HP local manufacturing Saudi Arabia",
+        "LEAP 2026 HP",
+        "Vision 2030 tech production",
+        "HP commercial production Riyadh",
+        "Saudi supply chain localization",
+        "Fadle Saad",
+        "HP AI Academy"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/hp-s-riyadh-facility-begins-commercial-production-of-tech-products",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "HP Delivers Measurable Progress in Saudi Arabia Across AI Innovation, Local Manufacturing and Future Skills",
+      "primary_url": "https://almojazaleqtisadi.com/?p=1050",
+      "supporting_urls": [
+        "https://samaworld.com/2026/08/30/hp-delivers-measurable-progress-in-saudi-arabia-across-ai-innovation-local-manufacturing-and-future-skills/"
+      ],
+      "verified_angle_summary": "At LEAP 2026, HP announced that its Riyadh manufacturing facility, which opened in October 2025, has successfully transitioned into ongoing commercial production. The facility is now actively producing and shipping locally manufactured HP products to customers across Saudi Arabia. This milestone represents a significant step in supporting Saudi Arabia's Vision 2030 ambitions by scaling local production and strengthening supply-chain localization. Fadle Saad, Managing Director of MENA Regional Headquarters at HP Inc., emphasized that this move from commitment to delivery is helping build a more innovative, technology-led economy. The facility's operations are set to continue scaling throughout 2026, alongside efforts to grow relationships with Saudi suppliers and develop local manufacturing talent. This distinct manufacturing angle highlights tangible progress in the Kingdom's localization initiatives.",
+      "verified_key_facts": "HP's Riyadh manufacturing facility has moved into ongoing commercial production; Locally manufactured HP products are now being shipped to customers across Saudi Arabia; The facility originally opened in October 2025; Production is planned to scale further throughout 2026; The announcement was made at LEAP 2026 on August 30, 2026; The initiative supports Saudi Arabia's Vision 2030 and local supply-chain development; Fadle Saad is the Managing Director of MENA Regional Headquarters at HP Inc.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "HP's Riyadh Facility Begins Commercial Production of Tech Products — LEAP and DeepFest 2026 news",
+      "caption_template": "HP's Riyadh Facility Begins Commercial Production of Tech Products. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP 2026, HP announced that its Riyadh manufacturing facility, which opened in October 2025, has successfully transitioned into ongoing commercial production. The facility is now actively producing and shipping locally manufactured HP products to customers across Saudi Arabia. This milestone represents a significant step in supporting Saudi Arabia's Vision 2030 ambitions by scaling local production and strengthening supply-chain localization. Fadle Saad, Managing Director of MENA Regional Headquarters at HP Inc., emphasized that this move from commitment to delivery is helping build a more innovative, technology-led economy. The facility's operations are set to continue scaling throughout 2026, alongside efforts to grow relationships with Saudi suppliers and develop local manufacturing talent. This distinct manufacturing angle highlights tangible progress in the Kingdom's localization initiatives.",
+      "key_facts": "HP's Riyadh manufacturing facility has moved into ongoing commercial production; Locally manufactured HP products are now being shipped to customers across Saudi Arabia; The facility originally opened in October 2025; Production is planned to scale further throughout 2026; The announcement was made at LEAP 2026 on August 30, 2026; The initiative supports Saudi Arabia's Vision 2030 and local supply-chain development; Fadle Saad is the Managing Director of MENA Regional Headquarters at HP Inc.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 81,
+    "candidate_id": "S022",
+    "slug": "hp-s-riyadh-facility-begins-commercial-production-of-tech-products",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/081-hp-s-riyadh-facility-begins-commercial-production-of-tech-products.webp",
+    "filename": "081-hp-s-riyadh-facility-begins-commercial-production-of-tech-products.webp",
+    "mime_type": "image/webp",
+    "size": 222950,
+    "width": 1600,
+    "height": 900,
+    "sha256": "bde7619bc65d10a66d08e5acee60752f6f2e56cd79588453e6e5c5e0523c5f8c",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "HP's Riyadh Facility Begins Commercial Production of Tech Products — LEAP and DeepFest 2026 news",
+    "caption": "HP's Riyadh Facility Begins Commercial Production of Tech Products. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/081.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "batch_id": "leap-deepfest-2026-day1",
+  "sequence": 19,
+  "candidate_id": "R024",
+  "canonical_announcement_key": "AWS AI Academy (Learn/Build/Certify + Agentic AI Hackathon)",
+  "title": "AWS Launches Free AI Academy and Hackathon at LEAP 2026",
+  "slug": "aws-launches-free-ai-academy-and-hackathon-at-leap-2026",
+  "author_public_name": "TechScoop Desk",
+  "workflow_status_slug": "draft",
+  "article_type": "news",
+  "display_datetime_local": "2026-08-31T14:10:44+03:00",
+  "display_datetime_utc": "2026-08-31T11:10:44Z",
+  "timezone": "Asia/Riyadh",
+  "excerpt": "Amazon Web Services (AWS) has announced the launch of its first-ever AWS AI Academy at LEAP 2026 in Riyadh, running from August 31 to September 3, 2026. The program offers a free, comprehensive \"Learn, Build, Certify\" framework open to all…",
+  "primary_category_name": "AI & Data",
+  "category_names": [
+    "AI & Data",
+    "Events & Conferences"
+  ],
+  "event_names": [
+    "LEAP 2026",
+    "DeepFest 2026"
+  ],
+  "event_bucket": "Both",
+  "company_names": [
+    "Amazon Web Services"
+  ],
+  "people_names": [],
+  "topic_names": [
+    "AI & Machine Learning",
+    "Cloud Computing",
+    "Future of Work",
+    "EdTech",
+    "Saudi Digital Economy",
+    "LEAP 2026",
+    "DeepFest 2026"
+  ],
+  "tag_names": [
+    "LEAP 2026",
+    "DeepFest 2026",
+    "AI & Machine Learning",
+    "Cloud Computing",
+    "Future of Work",
+    "EdTech",
+    "Saudi Digital Economy",
+    "Amazon Web Services",
+    "Saudi Arabia",
+    "Riyadh"
+  ],
+  "coverage": {
+    "country_iso2": "SA",
+    "country_name": "Saudi Arabia",
+    "city_name": "Riyadh",
+    "region_name": "Gulf Region"
+  },
+  "seo": {
+    "focus_keyword": "AWS AI Academy",
+    "keywords": [
+      "AWS AI Academy",
+      "LEAP 2026",
+      "Amazon Web Services",
+      "DeepFest",
+      "generative AI training",
+      "AWS Agentic AI Hackathon",
+      "tech events Riyadh",
+      "AI skills",
+      "cloud computing",
+      "Amazon Bedrock"
+    ],
+    "seo_title": "AWS Launches Free AI Academy and Hackathon at LEAP 2026",
+    "seo_description": "Amazon Web Services (AWS) has announced the launch of its first-ever AWS AI Academy at LEAP 2026 in Riyadh, running from August 31 to September 3, 2026. The…",
+    "og_title": "AWS Launches Free AI Academy and Hackathon at LEAP 2026",
+    "og_description": "Amazon Web Services (AWS) has announced the launch of its first-ever AWS AI Academy at LEAP 2026 in Riyadh, running from August 31 to September 3, 2026. The program offers a free, comprehensive…",
+    "google_news_keywords": [
+      "AWS AI Academy",
+      "LEAP 2026",
+      "Amazon Web Services",
+      "DeepFest",
+      "generative AI training",
+      "AWS Agentic AI Hackathon",
+      "tech events Riyadh",
+      "AI skills",
+      "cloud computing",
+      "Amazon Bedrock"
+    ],
+    "canonical_url": "https://techscoop.io/events-conferences/aws-launches-free-ai-academy-and-hackathon-at-leap-2026",
+    "robots_indexing": "index"
+  },
+  "sources": {
+    "primary_title": "AWS AI Academy At LEAP 2026",
+    "primary_url": "https://onegiantleap.com/aws-ai-academy",
+    "supporting_urls": [
+      "https://www.instagram.com/reel/Db2-krWE39q/"
+    ],
+    "verified_angle_summary": "Amazon Web Services (AWS) has announced the launch of its first-ever AWS AI Academy at LEAP 2026 in Riyadh, running from August 31 to September 3, 2026. The program offers a free, comprehensive \"Learn, Build, Certify\" framework open to all LEAP attendees. It features the AWS AI Training Academy, which provides expert-led instruction and hands-on labs focusing on generative AI and Amazon Bedrock, and the AWS Agentic AI Hackathon, where teams build real-world AI solutions. Participants who complete the extended cohort program requirements are eligible for an AWS AI Practitioner Certification voucher. This specific educational initiative provides a concrete, high-value angle compared to generic event previews, highlighting AWS's commitment to building AI skills in the region.",
+    "verified_key_facts": "AWS is launching the AWS AI Academy for the first time at LEAP 2026; The program is free and open to all LEAP 2026 attendees; It includes the AWS AI Training Academy with expert-led instruction and hands-on labs (Aug 31 & Sept 2); It features the AWS Agentic AI Hackathon for building real-world AI solutions (Sept 1 & Sept 3); Participants use AWS tools like Amazon Bedrock and Amazon Q; The initiative offers a pathway to an AWS AI Practitioner Certification voucher through an extended cohort program; The event is located at the LEAP Academy, Hall 5, RECC Malham, Riyadh.",
+    "confidence": 95
+  },
+  "image": {
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/019-aws-launches-free-ai-academy-and-hackathon-at-leap-2026.webp",
+    "filename": "019-aws-launches-free-ai-academy-and-hackathon-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "width": 1600,
+    "height": 900,
+    "alt": "AWS Launches Free AI Academy and Hackathon at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "AWS Launches Free AI Academy and Hackathon at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+  },
+  "content_markdown": "Amazon Web Services (AWS) has announced the launch of its first-ever AWS AI Academy at LEAP 2026 in Riyadh, running from August 31 to September 3, 2026. The comprehensive initiative offers a free \"Learn, Build, Certify\" framework open to all attendees at the major technology event. Located at the LEAP Academy in Hall 5 of the Riyadh Exhibition and Convention Center (RECC) in Malham, the program is designed to build regional expertise in generative artificial intelligence and cloud computing.\n\nThe new educational program represents a significant expansion of AWS's commitment to developing digital skills in Saudi Arabia. By offering hands-on training directly on the conference floor, the company aims to bridge the gap between theoretical knowledge and practical application for professionals and students attending LEAP 2026. The initiative aligns with broader regional goals to cultivate a workforce capable of driving the Saudi digital economy forward through advanced technology adoption. This localized approach demonstrates an understanding of the urgent need for specialized talent in the Middle East and North Africa (MENA) region, where digital transformation initiatives are rapidly accelerating across both public and private sectors.\n\nThe strategic placement of the AWS AI Academy within the bustling environment of LEAP 2026 ensures maximum visibility and accessibility. By removing financial barriers—the program is entirely free for all registered event attendees—AWS is democratizing access to high-level technical education. This open-door policy is expected to attract a diverse cohort of participants, ranging from seasoned developers looking to upskill in generative AI to ambitious students eager to enter the tech industry with highly sought-after capabilities.\n\n## Expert-Led Instruction and Practical Labs\n\nA core component of the initiative is the AWS AI Training Academy, scheduled for August 31 and September 2. This segment provides participants with expert-led instruction focusing on generative AI technologies. Attendees will have the opportunity to engage in hands-on labs, gaining direct experience with advanced tools under the guidance of seasoned AWS professionals. The curriculum is structured to demystify complex AI concepts, translating theoretical frameworks into actionable skills that can be immediately applied in professional settings.\n\nThe training sessions specifically emphasize the use of Amazon Bedrock, a fully managed service that makes foundation models from leading AI startups and Amazon available via an application programming interface (API). By working directly with Amazon Bedrock, participants learn how to select the appropriate foundation models for specific use cases, customize them with their own data, and integrate them securely into existing applications. This practical exposure is invaluable for understanding the nuances of deploying generative AI at an enterprise scale.\n\nFurthermore, participants will explore Amazon Q, the company's generative AI-powered assistant tailored for businesses and developers. The training covers how Amazon Q can be leveraged to streamline coding processes, troubleshoot issues, and enhance overall productivity. By focusing on these specific, enterprise-grade platforms, AWS ensures that attendees are learning skills directly applicable to modern corporate environments, thereby increasing their immediate value to current and future employers.\n\n## Fostering Innovation Through Competition\n\nComplementing the instructional sessions is the AWS Agentic AI Hackathon, taking place on September 1 and September 3. This competitive element challenges teams to build real-world AI solutions using the tools and knowledge acquired during the training phase. The hackathon environment is designed to simulate actual business scenarios, requiring participants to develop functional prototypes that address specific industry challenges. This transition from passive learning to active creation is a critical step in solidifying the concepts taught during the academy sessions.\n\nThe focus on \"agentic AI\"—systems capable of autonomous decision-making and action-taking—highlights the advanced nature of the solutions expected from participants. Rather than simply generating text or images, agentic AI involves creating systems that can interact with their environment, execute complex workflows, and adapt to changing conditions without continuous human intervention. This hands-on, competitive format not only reinforces the concepts taught in the academy but also provides a platform for showcasing emerging talent in the region's technology sector.\n\nThe hackathon serves as a practical proving ground where theoretical knowledge is tested against the realities of software development. Teams must navigate the complexities of integrating foundation models, managing data privacy, and ensuring the reliability of their autonomous systems. The collaborative nature of the event also fosters networking and peer-to-peer learning, creating a vibrant community of AI practitioners within the broader context of LEAP 2026.\n\n## Pathways to Professional Certification\n\nBeyond the immediate event experience, the AWS AI Academy offers long-term value through an extended cohort program. Participants who complete the requirements of this extended program become eligible for an AWS AI Practitioner Certification voucher. This certification pathway provides a tangible, globally recognized credential that can significantly enhance career prospects in the rapidly growing field of artificial intelligence. It serves as a formal validation of the skills acquired during the event and the subsequent cohort activities.\n\nThe inclusion of a certification voucher underscores the program's focus on measurable outcomes. While the initial training provides foundational knowledge and the hackathon offers practical experience, the certification pathway ensures that participants have the opportunity to validate their skills according to rigorous industry standards. This formal recognition is often a critical factor for professionals seeking career advancement or transitioning into specialized AI roles.\n\nHowever, specific details regarding the duration and specific requirements of the extended cohort program have not been fully detailed in the initial announcement. The exact criteria for earning the certification voucher, including any required coursework or project submissions following the conclusion of LEAP 2026, remain unspecified. This lack of clarity leaves some questions about the time commitment and ongoing effort required from participants to achieve the final certification. Prospective attendees will need to monitor further announcements from AWS to fully understand the obligations associated with the extended cohort program.\n\nDespite these outstanding questions, the launch of the AWS AI Academy at LEAP 2026 represents a substantial investment in the region's technological future. By combining accessible education, practical application, and a clear path to professional certification, AWS is actively contributing to the development of a robust AI ecosystem in Saudi Arabia. The initiative not only serves the immediate educational needs of the attendees but also aligns with the long-term strategic objectives of building a knowledge-based economy driven by advanced digital capabilities.\n\n## References\n\n[1] [AWS AI Academy At LEAP 2026](https://onegiantleap.com/aws-ai-academy)\n[2] [Instagram Reel: AWS AI Academy Announcement](https://www.instagram.com/reel/Db2-krWE39q/)\n",
+  "content_word_count": 1029,
+  "editorial_notes": "No unsupported claims added; draft requires editorial review."
+}

@@ -1,0 +1,189 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 57,
+    "candidate_id": "B014",
+    "canonical_announcement_key": "Saudi Ministry of Tourism unified digital services platform + ‘Tourism X’ AI",
+    "selection_reason": "Concrete gov-tech launch with AI assistant and Accenture MoU; strong public digital angle.",
+    "title": "Saudi Tourism Ministry Launches Unified Digital Platform at LEAP 2026",
+    "slug": "saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T18:46:42+03:00",
+    "display_datetime_utc": "2026-08-31T15:46:42Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "The Saudi Ministry of Tourism has launched a new unified digital platform for tourism services during the LEAP 2026 technology conference in Riyadh. The platform is designed to be the primary digital destination for investors, tourism…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Saudi Ministry of Tourism",
+      "Accenture"
+    ],
+    "people_names": [
+      "Nasr Al-Ansari"
+    ],
+    "topic_names": [
+      "Digital Government",
+      "Smart Cities",
+      "Startup Ecosystem",
+      "Venture Capital",
+      "Future of Work",
+      "Travel Technology",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Digital Government",
+      "Smart Cities",
+      "Startup Ecosystem",
+      "Venture Capital",
+      "Future of Work",
+      "Saudi Ministry of Tourism",
+      "Accenture",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Saudi Ministry of Tourism",
+      "keywords": [
+        "Saudi Ministry of Tourism",
+        "unified digital platform",
+        "Tourism X",
+        "LEAP 2026",
+        "AI in tourism",
+        "digital transformation",
+        "Saudi Vision 2030"
+      ],
+      "seo_title": "Saudi Tourism Ministry Launches Unified Digital Platform at…",
+      "seo_description": "The Saudi Ministry of Tourism has launched a new unified digital platform for tourism services during the LEAP 2026 technology conference in Riyadh. The…",
+      "og_title": "Saudi Tourism Ministry Launches Unified Digital Platform at LEAP 2026",
+      "og_description": "The Saudi Ministry of Tourism has launched a new unified digital platform for tourism services during the LEAP 2026 technology conference in Riyadh. The platform is designed to be the primary digital…",
+      "google_news_keywords": [
+        "Saudi Ministry of Tourism",
+        "unified digital platform",
+        "Tourism X",
+        "LEAP 2026",
+        "AI in tourism",
+        "digital transformation",
+        "Saudi Vision 2030"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "وزارة السياحة تطلق منصة رقمية موحدة للخدمات السياحية في «ليب 2026»",
+      "primary_url": "https://sabq.org/article/yv1gcvx",
+      "supporting_urls": [
+        "https://www.mubasher.info/news/4666171/%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D8%AA%D8%B7%D9%84%D9%82-%D9%85%D9%86%D8%B5%D8%A9-%D9%85%D9%88%D8%AD%D8%AF%D8%A9-%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B9-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A-%D8%AE%D9%84%D8%A7%D9%84-%D9%85%D8%A4%D8%AA%D9%85%D8%B1-%D9%84%D9%8A%D8%A8-2026/"
+      ],
+      "verified_angle_summary": "The Saudi Ministry of Tourism has launched a new unified digital platform for tourism services during the LEAP 2026 technology conference in Riyadh. The platform is designed to be the primary digital destination for investors, tourism activity practitioners, and sector workers. It consolidates access to various services including tourism licensing, compliance, investment, training, and development. A key feature of the platform is the integration of \"Tourism X,\" an AI-powered service that facilitates access to services and answers beneficiary inquiries, thereby enhancing the digital user experience. Ministry spokesperson Nasr Al-Ansari confirmed the launch aligns with Saudi Vision 2030 goals. Additionally, the Ministry signed an MoU with Accenture to collaborate on adopting AI and digital transformation within the tourism ecosystem. This announcement provides a concrete, non-duplicated government launch at LEAP 2026, suitable for a detailed TechScoop article on public sector digital transformation.",
+      "verified_key_facts": "Saudi Ministry of Tourism launched a unified digital platform at LEAP 2026; The platform consolidates services like licensing, compliance, investment, and training; Features an AI-powered service named 'Tourism X' to assist users; Launch aligns with Saudi Vision 2030 objectives; Ministry signed an MoU with Accenture for AI and digital transformation collaboration; Confirmed by Ministry spokesperson Nasr Al-Ansari",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Saudi Tourism Ministry Launches Unified Digital Platform at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Saudi Tourism Ministry Launches Unified Digital Platform at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "The Saudi Ministry of Tourism has launched a new unified digital platform for tourism services during the LEAP 2026 technology conference in Riyadh. The platform is designed to be the primary digital destination for investors, tourism activity practitioners, and sector workers. It consolidates access to various services including tourism licensing, compliance, investment, training, and development. A key feature of the platform is the integration of \"Tourism X,\" an AI-powered service that facilitates access to services and answers beneficiary inquiries, thereby enhancing the digital user experience. Ministry spokesperson Nasr Al-Ansari confirmed the launch aligns with Saudi Vision 2030 goals. Additionally, the Ministry signed an MoU with Accenture to collaborate on adopting AI and digital transformation within the tourism ecosystem. This announcement provides a concrete, non-duplicated government launch at LEAP 2026, suitable for a detailed TechScoop article on public sector digital transformation.",
+      "key_facts": "Saudi Ministry of Tourism launched a unified digital platform at LEAP 2026; The platform consolidates services like licensing, compliance, investment, and training; Features an AI-powered service named 'Tourism X' to assist users; Launch aligns with Saudi Vision 2030 objectives; Ministry signed an MoU with Accenture for AI and digital transformation collaboration; Confirmed by Ministry spokesperson Nasr Al-Ansari",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 57,
+    "candidate_id": "B014",
+    "slug": "saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/057-saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026.webp",
+    "filename": "057-saudi-tourism-ministry-launches-unified-digital-platform-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 156632,
+    "width": 1600,
+    "height": 900,
+    "sha256": "75c5c4fca72023792887477629f7b94fe3ab71bd84d3849ce67ca820a2108a4b",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Saudi Tourism Ministry Launches Unified Digital Platform at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Saudi Tourism Ministry Launches Unified Digital Platform at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/057.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

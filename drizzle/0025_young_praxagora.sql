@@ -1,0 +1,60 @@
+CREATE TABLE IF NOT EXISTS `claimed_profiles` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`userId` int NOT NULL,
+	`entityType` enum('person','company','accelerator','event','investor') NOT NULL,
+	`entityId` int NOT NULL,
+	`entityName` varchar(255) NOT NULL,
+	`entitySlug` varchar(255),
+	`entityLogo` text,
+	`status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+	`role` enum('owner','admin','editor') NOT NULL DEFAULT 'owner',
+	`verificationNote` text,
+	`requestNote` text,
+	`reviewedById` int,
+	`reviewedAt` timestamp,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `claimed_profiles_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS `job_applications` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`jobId` int NOT NULL,
+	`userId` int,
+	`applicantName` varchar(255) NOT NULL,
+	`applicantEmail` varchar(320) NOT NULL,
+	`applicantPhone` varchar(32),
+	`cvUrl` text,
+	`coverLetter` text,
+	`linkedinUrl` text,
+	`portfolioUrl` text,
+	`currentCompany` varchar(255),
+	`currentTitle` varchar(255),
+	`yearsOfExperience` int,
+	`expectedSalary` decimal(12,2),
+	`expectedSalaryCurrency` varchar(3) DEFAULT 'USD',
+	`noticePeriod` varchar(64),
+	`applicationMethod` enum('internal','external') NOT NULL DEFAULT 'internal',
+	`status` enum('new','reviewed','shortlisted','interview','offered','hired','rejected','withdrawn') NOT NULL DEFAULT 'new',
+	`statusNote` text,
+	`rating` int,
+	`isViewed` boolean DEFAULT false,
+	`viewedAt` timestamp,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `job_applications_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS `job_clicks` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`jobId` int NOT NULL,
+	`userId` int,
+	`userName` varchar(255),
+	`userAvatar` text,
+	`userTitle` varchar(255),
+	`userCompany` varchar(255),
+	`clickType` enum('view','apply_click','save','share','external_apply') NOT NULL DEFAULT 'view',
+	`referrer` varchar(512),
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `job_clicks_id` PRIMARY KEY(`id`)
+);

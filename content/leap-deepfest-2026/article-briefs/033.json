@@ -1,0 +1,186 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 33,
+    "candidate_id": "R048",
+    "canonical_announcement_key": "MOZN expands to enterprise AI platform after HUMAIN investment",
+    "selection_reason": "Strategic pivot with defined solution areas and sessions; sovereign AI and FDE execution model.",
+    "title": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following HUMAIN Investment",
+    "slug": "mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-25",
+    "display_datetime_local": "2026-08-31T15:52:24+03:00",
+    "display_datetime_utc": "2026-08-31T12:52:24Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026, MOZN is pivoting from its previous focus on specific fraud products to a comprehensive enterprise AI platform strategy, supported by a recent strategic investment from HUMAIN. The newly announced MOZN AI Platform features six…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "MOZN",
+      "HUMAIN"
+    ],
+    "people_names": [
+      "Malik Alyousef"
+    ],
+    "topic_names": [
+      "AI Infrastructure",
+      "Enterprise Software",
+      "Startup Ecosystem",
+      "Fintech",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "DeepFest 2026"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI Infrastructure",
+      "Enterprise Software",
+      "Startup Ecosystem",
+      "Fintech",
+      "Logistics & Supply Chain",
+      "MOZN",
+      "HUMAIN",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "MOZN LEAP 2026",
+      "keywords": [
+        "MOZN LEAP 2026",
+        "enterprise AI platform",
+        "sovereign AI Saudi Arabia",
+        "MOZN HUMAIN investment",
+        "Forward-Deployed Engineering",
+        "Malik Alyousef LEAP 2026",
+        "Fraud & Investigation Intelligence"
+      ],
+      "seo_title": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following…",
+      "seo_description": "At LEAP 2026, MOZN is pivoting from its previous focus on specific fraud products to a comprehensive enterprise AI platform strategy, supported by a recent…",
+      "og_title": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following HUMAIN Investment",
+      "og_description": "At LEAP 2026, MOZN is pivoting from its previous focus on specific fraud products to a comprehensive enterprise AI platform strategy, supported by a recent strategic investment from HUMAIN. The newly…",
+      "google_news_keywords": [
+        "MOZN LEAP 2026",
+        "enterprise AI platform",
+        "sovereign AI Saudi Arabia",
+        "MOZN HUMAIN investment",
+        "Forward-Deployed Engineering",
+        "Malik Alyousef LEAP 2026",
+        "Fraud & Investigation Intelligence"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "MOZN at LEAP 2026: Bringing Enterprise AI Into Real-World Operations",
+      "primary_url": "https://www.mozn.ai/blog/leap-2026-riyadh",
+      "supporting_urls": [],
+      "verified_angle_summary": "At LEAP 2026, MOZN is pivoting from its previous focus on specific fraud products to a comprehensive enterprise AI platform strategy, supported by a recent strategic investment from HUMAIN. The newly announced MOZN AI Platform features six defined solution areas, including Fraud & Investigation Intelligence and Procurement & Supply Chain Intelligence. This shift emphasizes \"Forward-Deployed Engineering\" and \"Sovereign AI,\" aiming to transition organizations from isolated AI experiments to secure, scalable production environments. Co-Founder Malik Alyousef will detail this transition during his session on the AI Leaders Stage. This angle provides a concrete, strategic corporate development story distinct from generic sovereign AI discussions or broad event previews.",
+      "verified_key_facts": "MOZN is a Platinum Sponsor at LEAP 2026 (Aug 31-Sep 3, 2026); The MOZN AI Platform features six enterprise AI solution areas; The platform is built on three pillars: Solutions for High-Assurance Domains, Sovereign AI, and Forward-Deployed Engineering; The announcement builds on a recent strategic investment in MOZN by HUMAIN; Malik Alyousef, Co-Founder and Deputy CEO of MOZN, will speak on the AI Leaders Stage on Sept 1; The six solution areas include Fraud & Investigation, Procurement & Supply Chain, Finance & Budget, Regulatory & Governance, Enterprise Knowledge, and Predictive Intelligence.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following HUMAIN Investment — LEAP and DeepFest 2026 news",
+      "caption_template": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following HUMAIN Investment. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP 2026, MOZN is pivoting from its previous focus on specific fraud products to a comprehensive enterprise AI platform strategy, supported by a recent strategic investment from HUMAIN. The newly announced MOZN AI Platform features six defined solution areas, including Fraud & Investigation Intelligence and Procurement & Supply Chain Intelligence. This shift emphasizes \"Forward-Deployed Engineering\" and \"Sovereign AI,\" aiming to transition organizations from isolated AI experiments to secure, scalable production environments. Co-Founder Malik Alyousef will detail this transition during his session on the AI Leaders Stage. This angle provides a concrete, strategic corporate development story distinct from generic sovereign AI discussions or broad event previews.",
+      "key_facts": "MOZN is a Platinum Sponsor at LEAP 2026 (Aug 31-Sep 3, 2026); The MOZN AI Platform features six enterprise AI solution areas; The platform is built on three pillars: Solutions for High-Assurance Domains, Sovereign AI, and Forward-Deployed Engineering; The announcement builds on a recent strategic investment in MOZN by HUMAIN; Malik Alyousef, Co-Founder and Deputy CEO of MOZN, will speak on the AI Leaders Stage on Sept 1; The six solution areas include Fraud & Investigation, Procurement & Supply Chain, Finance & Budget, Regulatory & Governance, Enterprise Knowledge, and Predictive Intelligence.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 33,
+    "candidate_id": "R048",
+    "slug": "mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/033-mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment.webp",
+    "filename": "033-mozn-expands-enterprise-ai-focus-at-leap-2026-following-humain-investment.webp",
+    "mime_type": "image/webp",
+    "size": 208678,
+    "width": 1600,
+    "height": 900,
+    "sha256": "864a1a28f28874823215623300292494b74d81a94578928336ba98f72e53f111",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following HUMAIN Investment — LEAP and DeepFest 2026 news",
+    "caption": "MOZN Expands Enterprise AI Focus at LEAP 2026 Following HUMAIN Investment. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/033.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

@@ -1,0 +1,86 @@
+User-agent: *
+Allow: /
+
+# Primary sitemap index — Cloudflare seo-worker proxies to /api/ on origin.
+Sitemap: https://techscoop.io/sitemap.xml
+
+# Sub-sitemaps (apex URLs)
+Sitemap: https://techscoop.io/sitemap-articles.xml
+Sitemap: https://techscoop.io/sitemap-news.xml
+Sitemap: https://techscoop.io/sitemap-jobs.xml
+Sitemap: https://techscoop.io/sitemap-people.xml
+Sitemap: https://techscoop.io/sitemap-investors.xml
+Sitemap: https://techscoop.io/sitemap-companies.xml
+Sitemap: https://techscoop.io/sitemap-accelerators.xml
+Sitemap: https://techscoop.io/sitemap-events.xml
+Sitemap: https://techscoop.io/sitemap-resources.xml
+Sitemap: https://techscoop.io/sitemap-research.xml
+Sitemap: https://techscoop.io/sitemap-categories.xml
+Sitemap: https://techscoop.io/sitemap-tags.xml
+Sitemap: https://techscoop.io/sitemap-authors.xml
+Sitemap: https://techscoop.io/sitemap-images.xml
+Sitemap: https://techscoop.io/sitemap-pages.xml
+
+# /api/ mirrors — never intercepted by platform edge; safe fallback for GSC.
+Sitemap: https://techscoop.io/api/sitemap.xml
+Sitemap: https://techscoop.io/api/sitemap-articles.xml
+Sitemap: https://techscoop.io/api/sitemap-companies.xml
+Sitemap: https://techscoop.io/api/sitemap-jobs.xml
+
+# Block admin, auth, and personalised paths
+Disallow: /admin/
+Disallow: /api/trpc/
+Disallow: /api/oauth/
+Disallow: /dashboard/
+Disallow: /go/
+Disallow: /login
+Disallow: /signin
+Disallow: /signup
+Disallow: /claim/
+Disallow: /profile
+Disallow: /account
+Disallow: /settings
+Disallow: /search
+
+# Block faceted/filter/UTM URLs (duplicate-content prevention)
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?category=
+Disallow: /*?q=
+Disallow: /*?tag=
+Disallow: /*?topic=
+Disallow: /*?page=
+Disallow: /*?utm_*
+Disallow: /*?ref=
+
+# Legacy WordPress patterns (also 410/301 at Express layer)
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: /tag/*/feed
+Disallow: /tags/*/feed
+
+Disallow: /_next/
+Disallow: /src/
+Disallow: /@
+
+Allow: /ads.txt
+Allow: /robots.txt
+Allow: /sitemap*.xml
+Allow: /rss.xml
+Allow: /feed.xml
+
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-News
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0

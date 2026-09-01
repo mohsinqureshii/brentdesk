@@ -1,0 +1,46 @@
+{
+  "name": "TechScoop - MENA's Tech Ecosystem",
+  "short_name": "TechScoop",
+  "description": "MENA's leading technology publication covering startups, venture capital, tech jobs, and innovation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait-primary",
+  "categories": ["news", "business", "technology"],
+  "icons": [
+    {
+      "src": "/assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Latest News",
+      "short_name": "News",
+      "url": "/",
+      "icons": []
+    },
+    {
+      "name": "Tech Jobs",
+      "short_name": "Jobs",
+      "url": "/jobs",
+      "icons": []
+    },
+    {
+      "name": "Companies",
+      "short_name": "Companies",
+      "url": "/companies",
+      "icons": []
+    }
+  ]
+}

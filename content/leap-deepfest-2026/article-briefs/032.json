@@ -1,0 +1,189 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 32,
+    "candidate_id": "R046",
+    "canonical_announcement_key": "Jisr launches integrated HR + Finance platform (next-gen)",
+    "selection_reason": "Specific platform expansion, scale metrics, compliance and capacity modernization; Saudi SaaS story.",
+    "title": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at LEAP 2026",
+    "slug": "jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-31",
+    "display_datetime_local": "2026-08-31T15:45:08+03:00",
+    "display_datetime_utc": "2026-08-31T12:45:08Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026, Saudi technology company Jisr announced the launch of its next-generation platform designed to unify human resources and financial operations. The expanded system connects employee management, payroll, payments, expenses, and…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "Enterprise",
+    "category_names": [
+      "Enterprise",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Jisr",
+      "Merak Capital"
+    ],
+    "people_names": [
+      "Mohammed Akkar"
+    ],
+    "topic_names": [
+      "Enterprise Software",
+      "Venture Capital",
+      "Fintech",
+      "Future of Work",
+      "Logistics & Supply Chain",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Enterprise Software",
+      "Venture Capital",
+      "Fintech",
+      "Future of Work",
+      "Logistics & Supply Chain",
+      "Jisr",
+      "Merak Capital",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Jisr HR platform",
+      "keywords": [
+        "Jisr HR platform",
+        "LEAP 2026 announcements",
+        "Saudi HR tech",
+        "finance management software",
+        "enterprise digital transformation",
+        "Mohammed Akkar",
+        "Merak Capital",
+        "payroll automation",
+        "Saudi labor law compliance"
+      ],
+      "seo_title": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at…",
+      "seo_description": "At LEAP 2026, Saudi technology company Jisr announced the launch of its next-generation platform designed to unify human resources and financial operations. The…",
+      "og_title": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at LEAP 2026",
+      "og_description": "At LEAP 2026, Saudi technology company Jisr announced the launch of its next-generation platform designed to unify human resources and financial operations. The expanded system connects employee…",
+      "google_news_keywords": [
+        "Jisr HR platform",
+        "LEAP 2026 announcements",
+        "Saudi HR tech",
+        "finance management software",
+        "enterprise digital transformation",
+        "Mohammed Akkar",
+        "Merak Capital",
+        "payroll automation",
+        "Saudi labor law compliance"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "LEAP 2026 sees launch of new technologies for HR and financial operations",
+      "primary_url": "https://www.zawya.com/en/press-release/events-conferences/leap-2026-sees-launch-of-new-technologies-for-hr-and-financial-operations-472694",
+      "supporting_urls": [],
+      "verified_angle_summary": "At LEAP 2026, Saudi technology company Jisr announced the launch of its next-generation platform designed to unify human resources and financial operations. The expanded system connects employee management, payroll, payments, expenses, and accounting processes into a single ecosystem, moving away from fragmented digital systems. Jisr, which currently serves over 5,000 organizations and processes more than SAR 10 billion in payroll, aims to bridge the gap between HR and finance departments. The platform upgrade includes modernizing 70% of its technology workloads to double transaction capacity without increasing costs, while ensuring compliance with Saudi regulations such as GOSI and the Wage Protection System. This angle is distinct as it focuses on a specific enterprise SaaS launch and its operational impact, rather than general event overviews.",
+      "verified_key_facts": "Jisr launched a next-generation HR and finance platform at LEAP 2026; The platform integrates employee operations, payroll, payments, expenses, and accounting; Jisr currently serves over 5,000 HR and finance teams and supports more than 800,000 employees; The value of payroll processed through the platform exceeds SAR 10 billion; Jisr modernized approximately 70% of its technology workloads to double transaction capacity; The platform complies with Saudi Labor Law, GOSI, Wage Protection System, and Saudization requirements; The company experienced over 100% annual growth following a $30 million Series A funding round led by Merak Capital in 2023.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "No suitable official press image found; using NA.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "At LEAP 2026, Saudi technology company Jisr announced the launch of its next-generation platform designed to unify human resources and financial operations. The expanded system connects employee management, payroll, payments, expenses, and accounting processes into a single ecosystem, moving away from fragmented digital systems. Jisr, which currently serves over 5,000 organizations and processes more than SAR 10 billion in payroll, aims to bridge the gap between HR and finance departments. The platform upgrade includes modernizing 70% of its technology workloads to double transaction capacity without increasing costs, while ensuring compliance with Saudi regulations such as GOSI and the Wage Protection System. This angle is distinct as it focuses on a specific enterprise SaaS launch and its operational impact, rather than general event overviews.",
+      "key_facts": "Jisr launched a next-generation HR and finance platform at LEAP 2026; The platform integrates employee operations, payroll, payments, expenses, and accounting; Jisr currently serves over 5,000 HR and finance teams and supports more than 800,000 employees; The value of payroll processed through the platform exceeds SAR 10 billion; Jisr modernized approximately 70% of its technology workloads to double transaction capacity; The platform complies with Saudi Labor Law, GOSI, Wage Protection System, and Saudization requirements; The company experienced over 100% annual growth following a $30 million Series A funding round led by Merak Capital in 2023.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 32,
+    "candidate_id": "R046",
+    "slug": "jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/032-jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026.webp",
+    "filename": "032-jisr-unveils-next-gen-integrated-hr-and-finance-platform-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 143104,
+    "width": 1600,
+    "height": 900,
+    "sha256": "2bb85d00755983ef3d17db793e0746ebf055b97a8690a1cdf479ea610a2ed9cc",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Jisr Unveils Next-Gen Integrated HR and Finance Platform at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/032.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

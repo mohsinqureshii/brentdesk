@@ -1,0 +1,30 @@
+{
+  "sequence": 5,
+  "candidate_id": "R005",
+  "slug": "amd-mcit-and-dco-launch-open-ai-developer-ecosystem-at-leap-2026",
+  "title": "AMD, MCIT and DCO Launch Open AI Developer Ecosystem at LEAP 2026",
+  "event_names": [
+    "DeepFest 2026"
+  ],
+  "company_names": [
+    "AMD",
+    "Ministry of Communications and Information Technology",
+    "Digital Cooperation Organization"
+  ],
+  "people_names": [
+    "Lisa Su",
+    "Abdullah bin Amer Alswaha",
+    "Deemah AlYahya"
+  ],
+  "image_prompt": "Create a premium editorial technology-news hero image for TechScoop's coverage of DeepFest 2026 in Riyadh.\n\nStory: AMD, MCIT and DCO Launch Open AI Developer Ecosystem at LEAP 2026\nVerified angle: AMD has partnered with Saudi Arabia's Ministry of Communications and Information Technology (MCIT) and the Digital Cooperation Organization (DCO) to launch a new open developer ecosystem. Announced at LEAP 2026 on August 31, the initiative aims to accelerate AI innovation by providing developers and startups with access to AMD's full stack of AI technologies, including the ROCm open software ecosystem, alongside DCO's AI Ethics and Responsible Governance training. The collaboration kicks off with an inaugural DevDay Workshop at LEAP 2026. This angle is distinct as it specifically covers the strategic capability-building partnership aimed at expanding local AI skills and translating Saudi Arabia's AI investments into practical applications, differentiating it from general event overviews or other specific product launches.\nPrincipal organizations or institutions: AMD, Ministry of Communications and Information Technology, Digital Cooperation Organization.\nRelevant people for editorial context only: Lisa Su, Abdullah bin Amer Alswaha, Deemah AlYahya.\n\nSubject direction: a high-energy startup and investment ecosystem scene with pitch-stage lighting, product prototypes and connected capital pathways, with no legible screens. Make the image materially specific to this announcement through objects, setting and visual metaphor; do not create a generic conference crowd.\n\nComposition: cinematic 16:9 landscape hero, 1600×900 final-use ratio, single strong focal point slightly right of center, generous clean negative space on the left, layered depth, crisp silhouette at thumbnail size. Where people are contextually useful, show only distant or over-the-shoulder editorial silhouettes unless an exact reference portrait is supplied; do not invent a recognizable face.\n\nVisual style: match the supplied reference image's premium MENA enterprise-news aesthetic—dark navy and deep indigo foundation, electric cyan and violet data light, restrained warm sand-gold accents, photorealistic materials blended with elegant 3D editorial visualization, controlled volumetric lighting, credible business-technology tone.\n\nText/content: no text, no letters, no numbers, no logos, no watermarks, no badges, no brand marks, no national emblems, no fake signage and no readable user-interface elements.\n\nAvoid: protected product trade dress, fabricated press photography, handshakes, crowded collage layouts, duplicated subjects, fantasy sci-fi excess, inaccurate corporate logos, distorted anatomy, recognizable but invented executives, and visual claims that go beyond the verified angle.\n",
+  "requested_filename": "005-amd-mcit-and-dco-launch-open-ai-developer-ecosystem-at-leap-2026.png",
+  "target_width": 1600,
+  "target_height": 900,
+  "credit": "TechScoop illustration",
+  "source_url": "https://techscoop.io",
+  "license": "TechScoop original",
+  "rights_status": "generated",
+  "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+  "alt": "AMD, MCIT and DCO Launch Open AI Developer Ecosystem at LEAP 2026 — LEAP and DeepFest 2026 news",
+  "caption": "AMD, MCIT and DCO Launch Open AI Developer Ecosystem at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage."
+}

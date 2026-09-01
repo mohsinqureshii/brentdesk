@@ -1,0 +1,195 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 31,
+    "candidate_id": "R042",
+    "canonical_announcement_key": "CONNECT PS debuts Cisco Splunk Observability for contact centers",
+    "selection_reason": "Concrete integration/use-case (observability in CC); Saudi operations lead named; image available.",
+    "title": "CONNECT PS and Cisco Debut Splunk Observability for Contact Centers at LEAP 2026",
+    "slug": "connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-16",
+    "display_datetime_local": "2026-08-31T15:37:53+03:00",
+    "display_datetime_utc": "2026-08-31T12:37:53Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "CONNECT Professional Services (CONNECT PS) is returning to LEAP 2026 for its third consecutive year, hosted at the Cisco booth. The primary focus of their presence is the debut of a unique Cisco Splunk Observability experience specifically…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "CONNECT Professional Services",
+      "CONNECT PS",
+      "Cisco",
+      "Splunk"
+    ],
+    "people_names": [
+      "Ahmed Tolba"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Data & Analytics",
+      "Cybersecurity",
+      "Enterprise Software",
+      "Future of Work",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "AI & Machine Learning",
+      "Data & Analytics",
+      "Cybersecurity",
+      "Enterprise Software",
+      "Future of Work",
+      "CONNECT Professional Services",
+      "CONNECT PS",
+      "Cisco",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "CONNECT PS",
+      "keywords": [
+        "CONNECT PS",
+        "Cisco Splunk Observability",
+        "LEAP 2026",
+        "contact centers",
+        "future-proofed workplaces",
+        "Ahmed Tolba",
+        "digital collaboration",
+        "enterprise communications",
+        "AI in workplace"
+      ],
+      "seo_title": "CONNECT PS and Cisco Debut Splunk Observability for Contact…",
+      "seo_description": "CONNECT Professional Services (CONNECT PS) is returning to LEAP 2026 for its third consecutive year, hosted at the Cisco booth. The primary focus of their…",
+      "og_title": "CONNECT PS and Cisco Debut Splunk Observability for Contact Centers at LEAP 2026",
+      "og_description": "CONNECT Professional Services (CONNECT PS) is returning to LEAP 2026 for its third consecutive year, hosted at the Cisco booth. The primary focus of their presence is the debut of a unique Cisco…",
+      "google_news_keywords": [
+        "CONNECT PS",
+        "Cisco Splunk Observability",
+        "LEAP 2026",
+        "contact centers",
+        "future-proofed workplaces",
+        "Ahmed Tolba",
+        "digital collaboration",
+        "enterprise communications",
+        "AI in workplace"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "CONNECT PS Strengthens Its Presence At LEAP 2026, Showcasing a Unique Cisco Splunk Observability Experience For Modern Contact Centers",
+      "primary_url": "https://followict.news/en/connect-ps-strengthens-its-presence-at-leap-2026-showcasing-a-unique-cisco-splunk-observability-experience-for-modern-contact-centers/",
+      "supporting_urls": [
+        "https://egyeconomy.com/en/16/08/2026/76959/"
+      ],
+      "verified_angle_summary": "CONNECT Professional Services (CONNECT PS) is returning to LEAP 2026 for its third consecutive year, hosted at the Cisco booth. The primary focus of their presence is the debut of a unique Cisco Splunk Observability experience specifically tailored for modern contact centers, under their broader \"Future-Proofed Workplaces\" concept. Ahmed Tolba, Managing Director of CONNECT PS's Saudi Arabia operations, highlighted that the solution provides advanced performance monitoring, data analytics, and event correlation to proactively identify and resolve issues before they impact customer experience. This angle moves beyond a generic partnership announcement by focusing on the specific integration of Splunk Observability within contact center environments and the shift toward unified ecosystems combining communications, AI, and security.",
+      "verified_key_facts": "CONNECT Professional Services (CONNECT PS) is participating in LEAP 2026 for the third consecutive year; They will be hosted at the Cisco booth; The showcase centers on the \"Future-Proofed Workplaces\" concept; A key highlight is the debut of a Cisco Splunk Observability experience for modern contact centers; The solution provides advanced performance monitoring, data analytics, and event correlation; Ahmed Tolba is the Managing Director of CONNECT PS's Saudi Arabia operations; The partnership aims to integrate communications, collaboration, AI, and security into a unified ecosystem",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://followict.news/wp-content/uploads/2026/08/IMG-20260816-WA00072.jpg",
+      "credit": "CONNECT Professional Services",
+      "license_note": "Press image supplied by CONNECT PS for PR purposes. Editorial use permitted.",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "CONNECT PS and Cisco Debut Splunk Observability for Contact Centers at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "CONNECT PS and Cisco Debut Splunk Observability for Contact Centers at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "CONNECT Professional Services (CONNECT PS) is returning to LEAP 2026 for its third consecutive year, hosted at the Cisco booth. The primary focus of their presence is the debut of a unique Cisco Splunk Observability experience specifically tailored for modern contact centers, under their broader \"Future-Proofed Workplaces\" concept. Ahmed Tolba, Managing Director of CONNECT PS's Saudi Arabia operations, highlighted that the solution provides advanced performance monitoring, data analytics, and event correlation to proactively identify and resolve issues before they impact customer experience. This angle moves beyond a generic partnership announcement by focusing on the specific integration of Splunk Observability within contact center environments and the shift toward unified ecosystems combining communications, AI, and security.",
+      "key_facts": "CONNECT Professional Services (CONNECT PS) is participating in LEAP 2026 for the third consecutive year; They will be hosted at the Cisco booth; The showcase centers on the \"Future-Proofed Workplaces\" concept; A key highlight is the debut of a Cisco Splunk Observability experience for modern contact centers; The solution provides advanced performance monitoring, data analytics, and event correlation; Ahmed Tolba is the Managing Director of CONNECT PS's Saudi Arabia operations; The partnership aims to integrate communications, collaboration, AI, and security into a unified ecosystem",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 31,
+    "candidate_id": "R042",
+    "slug": "connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/031-connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026.webp",
+    "filename": "031-connect-ps-and-cisco-debut-splunk-observability-for-contact-centers-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 189774,
+    "width": 1600,
+    "height": 900,
+    "sha256": "2d54152e306c8e0a435268f3a11feb4b146b3f4fa8b2c6d25a8b57d6a196f659",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "CONNECT PS and Cisco Debut Splunk Observability for Contact Centers at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "CONNECT PS and Cisco Debut Splunk Observability for Contact Centers at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/031.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

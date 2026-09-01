@@ -1,0 +1,203 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 87,
+    "candidate_id": "R026",
+    "canonical_announcement_key": "Pakistan tech firms seek deeper Saudi foothold (pavilion, KAACIB Riyadh office)",
+    "selection_reason": "Arab News coverage; concrete cross-border expansion wins and regulated solutions (ZATCA).",
+    "title": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026",
+    "slug": "pakistan-tech-firms-target-saudi-expansion-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-30",
+    "display_datetime_local": "2026-08-31T22:24:35+03:00",
+    "display_datetime_utc": "2026-08-31T19:24:35Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Pakistani technology companies are leveraging LEAP 2026 to expand their footprint in Saudi Arabia's rapidly growing digital economy. The delegation, supported by the Pakistan Software Export Board and Trade Development Authority of…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Pakistan Software Export Board",
+      "Trade Development Authority of Pakistan",
+      "ByteCorp. Technologies",
+      "KAACIB",
+      "Fortify",
+      "FifthThought",
+      "MaalBardaar"
+    ],
+    "people_names": [
+      "Shaza Fatima Khawaja",
+      "Abdul Muqsit Abbasi",
+      "Khizer Ahmed Siddiqui",
+      "Syed Zain Ali",
+      "Rajiv Pardhan",
+      "Faiz Hanif"
+    ],
+    "topic_names": [
+      "Enterprise Software",
+      "Digital Government",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Geospatial Technology",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Enterprise Software",
+      "Digital Government",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Geospatial Technology",
+      "Pakistan Software Export Board",
+      "Trade Development Authority of Pakistan",
+      "ByteCorp. Technologies",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Pakistan tech firms",
+      "keywords": [
+        "Pakistan tech firms",
+        "LEAP 2026",
+        "Saudi Arabia expansion",
+        "Riyadh tech event",
+        "Pakistan Software Export Board",
+        "IT Minister Shaza Fatima Khawaja",
+        "Saudi Vision 2030",
+        "tech partnerships",
+        "Middle East tech ecosystem"
+      ],
+      "seo_title": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026",
+      "seo_description": "Pakistani technology companies are leveraging LEAP 2026 to expand their footprint in Saudi Arabia's rapidly growing digital economy. The delegation, supported…",
+      "og_title": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026",
+      "og_description": "Pakistani technology companies are leveraging LEAP 2026 to expand their footprint in Saudi Arabia's rapidly growing digital economy. The delegation, supported by the Pakistan Software Export Board and…",
+      "google_news_keywords": [
+        "Pakistan tech firms",
+        "LEAP 2026",
+        "Saudi Arabia expansion",
+        "Riyadh tech event",
+        "Pakistan Software Export Board",
+        "IT Minister Shaza Fatima Khawaja",
+        "Saudi Vision 2030",
+        "tech partnerships",
+        "Middle East tech ecosystem"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/pakistan-tech-firms-target-saudi-expansion-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Pakistan tech firms eye deeper Saudi foothold as they head to Riyadh for LEAP 2026",
+      "primary_url": "https://www.arabnews.com/node/2656296/pakistan",
+      "supporting_urls": [
+        "https://www.arabnews.com/node/2656393/pakistan"
+      ],
+      "verified_angle_summary": "Pakistani technology companies are leveraging LEAP 2026 to expand their footprint in Saudi Arabia's rapidly growing digital economy. The delegation, supported by the Pakistan Software Export Board and Trade Development Authority of Pakistan, features a dedicated pavilion with 20 companies. Pakistan's IT Minister Shaza Fatima Khawaja is attending to inaugurate the pavilion and deliver a keynote. Returning firms like ByteCorp and KAACIB are building on previous successes, with KAACIB opening a Riyadh office. Newer entrants are tailoring products for Saudi real estate, logistics, and enterprise technology, such as Stellisys offering ZATCA-compliant invoicing. This specific angle highlights cross-border tech expansion and the tangible business impact of LEAP 2026, distinct from general event overviews.",
+      "verified_key_facts": "Pakistan has a dedicated pavilion at LEAP 2026 featuring 20 technology companies; The pavilion is supported by the Pakistan Software Export Board and Trade Development Authority of Pakistan; Pakistan's IT Minister Shaza Fatima Khawaja is attending LEAP 2026 to inaugurate the pavilion and deliver a keynote; KAACIB is opening a local office in Riyadh following its participation in LEAP 2025; Stellisys is showcasing a Saudi version of its platform with ZATCA-compliant invoicing and an AI layer; Pakistan's participation in LEAP 2025 generated $9.74 million in business and 78 leads according to PSEB.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2026/08/30/4514301-1406734346.jpg",
+      "credit": "Arab News / PID",
+      "license_note": "Editorial use only; credited to PID/File via Arab News",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Pakistani technology companies are leveraging LEAP 2026 to expand their footprint in Saudi Arabia's rapidly growing digital economy. The delegation, supported by the Pakistan Software Export Board and Trade Development Authority of Pakistan, features a dedicated pavilion with 20 companies. Pakistan's IT Minister Shaza Fatima Khawaja is attending to inaugurate the pavilion and deliver a keynote. Returning firms like ByteCorp and KAACIB are building on previous successes, with KAACIB opening a Riyadh office. Newer entrants are tailoring products for Saudi real estate, logistics, and enterprise technology, such as Stellisys offering ZATCA-compliant invoicing. This specific angle highlights cross-border tech expansion and the tangible business impact of LEAP 2026, distinct from general event overviews.",
+      "key_facts": "Pakistan has a dedicated pavilion at LEAP 2026 featuring 20 technology companies; The pavilion is supported by the Pakistan Software Export Board and Trade Development Authority of Pakistan; Pakistan's IT Minister Shaza Fatima Khawaja is attending LEAP 2026 to inaugurate the pavilion and deliver a keynote; KAACIB is opening a local office in Riyadh following its participation in LEAP 2025; Stellisys is showcasing a Saudi version of its platform with ZATCA-compliant invoicing and an AI layer; Pakistan's participation in LEAP 2025 generated $9.74 million in business and 78 leads according to PSEB.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 87,
+    "candidate_id": "R026",
+    "slug": "pakistan-tech-firms-target-saudi-expansion-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/087-pakistan-tech-firms-target-saudi-expansion-at-leap-2026.webp",
+    "filename": "087-pakistan-tech-firms-target-saudi-expansion-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 190384,
+    "width": 1600,
+    "height": 900,
+    "sha256": "01a16a9e904ae5b1b456ba96336995b6b97b92e9f0675dc6cfbbfdedf7314029",
+    "source_generated_format": "PNG",
+    "source_generated_width": 1672,
+    "source_generated_height": 941,
+    "alt": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Pakistan Tech Firms Target Saudi Expansion at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/087.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

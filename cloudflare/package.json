@@ -1,0 +1,14 @@
+{
+  "name": "techscoop-seo-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker that bypasses Manus edge interception of /sitemap*.xml and /robots.txt",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}

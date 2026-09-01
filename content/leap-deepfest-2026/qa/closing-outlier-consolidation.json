@@ -1,0 +1,98 @@
+{
+  "applied": [
+    {
+      "sequence": 2,
+      "slug": "humain-and-datavolt-break-ground-on-100mw-ai-data-center-at-neom",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/002-humain-and-datavolt-break-ground-on-100mw-ai-data-center-at-neom.json",
+      "reported_word_count": 992,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 6,
+      "slug": "humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/006-humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026.json",
+      "reported_word_count": 927,
+      "reported_h2_count": 2,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 27,
+      "slug": "mobiz-launches-three-enterprise-ai-and-cloud-solutions-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/027-mobiz-launches-three-enterprise-ai-and-cloud-solutions-at-leap-2026.json",
+      "reported_word_count": 935,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 34,
+      "slug": "accenture-to-unveil-sovereign-ai-strategy-research-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/034-accenture-to-unveil-sovereign-ai-strategy-research-at-leap-2026.json",
+      "reported_word_count": 878,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 42,
+      "slug": "leap-2026-tech-arena-showcases-unitree-and-agibot-humanoid-robots",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/042-leap-2026-tech-arena-showcases-unitree-and-agibot-humanoid-robots.json",
+      "reported_word_count": 975,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 45,
+      "slug": "saudi-arabia-launches-samai-2-ai-procurement-across-11-ministries",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/045-saudi-arabia-launches-samai-2-ai-procurement-across-11-ministries.json",
+      "reported_word_count": 988,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 56,
+      "slug": "riyadh-metro-launches-dedicated-leap-2026-shuttle-route",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/056-riyadh-metro-launches-dedicated-leap-2026-shuttle-route.json",
+      "reported_word_count": 983,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 65,
+      "slug": "saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/065-saudi-social-development-bank-launches-ai-smart-collection-service-at-leap-2026.json",
+      "reported_word_count": 900,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 72,
+      "slug": "iqibla-unveils-smart-rings-and-kids-ai-phones-at-leap",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/072-iqibla-unveils-smart-rings-and-kids-ai-phones-at-leap.json",
+      "reported_word_count": 867,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 77,
+      "slug": "biostar-launches-edgecomp-jetson-thor-systems-at-deepfest-2026",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/077-biostar-launches-edgecomp-jetson-thor-systems-at-deepfest-2026.json",
+      "reported_word_count": 925,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    },
+    {
+      "sequence": 95,
+      "slug": "saudi-proptech-ghanem-secures-7-1m-to-expand-fractional-real-estate-platform",
+      "path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/drafts/raw/095-saudi-proptech-ghanem-secures-7-1m-to-expand-fractional-real-estate-platform.json",
+      "reported_word_count": 903,
+      "reported_h2_count": 3,
+      "workflow_status": "draft"
+    }
+  ],
+  "errors": [
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/closing-correction-briefs/093.json",
+      "error": "identity changed for sequence 93"
+    }
+  ]
+}

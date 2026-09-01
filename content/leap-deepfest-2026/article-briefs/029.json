@@ -1,0 +1,186 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 29,
+    "candidate_id": "R040",
+    "canonical_announcement_key": "Link Development ‘Frontier Ascent’ governed agentic AI operating model",
+    "selection_reason": "Full Microsoft stack integration with sovereign data option and product suite; strong B2B angle.",
+    "title": "Link Development Launches Frontier Ascent Agentic AI Operating Model at LEAP 2026",
+    "slug": "link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-03",
+    "display_datetime_local": "2026-08-31T15:23:21+03:00",
+    "display_datetime_utc": "2026-08-31T12:23:21Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Link Development has announced it will launch \"Frontier Ascent,\" a governed agentic AI operating model, at LEAP 2026 alongside its partner Microsoft. Unlike piecemeal AI deployments, Frontier Ascent provides a complete transformation…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "Link Development",
+      "Microsoft"
+    ],
+    "people_names": [
+      "Ehab Geddawy",
+      "Anas Saad"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Enterprise Software",
+      "Saudi Digital Economy",
+      "DeepFest 2026"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "Enterprise Software",
+      "Saudi Digital Economy",
+      "Link Development",
+      "Microsoft",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Link Development LEAP 2026",
+      "keywords": [
+        "Link Development LEAP 2026",
+        "Frontier Ascent AI",
+        "Agentic AI operating model",
+        "Microsoft Frontier Partner",
+        "AI CRM transformation",
+        "governed AI deployment",
+        "Microsoft Foundry Saudi Arabia",
+        "Sovereign Data AI Kingdom"
+      ],
+      "seo_title": "Link Development Launches Frontier Ascent Agentic AI…",
+      "seo_description": "Link Development has announced it will launch \"Frontier Ascent,\" a governed agentic AI operating model, at LEAP 2026 alongside its partner Microsoft. Unlike…",
+      "og_title": "Link Development Launches Frontier Ascent Agentic AI Operating Model at LEAP 2026",
+      "og_description": "Link Development has announced it will launch \"Frontier Ascent,\" a governed agentic AI operating model, at LEAP 2026 alongside its partner Microsoft. Unlike piecemeal AI deployments, Frontier Ascent…",
+      "google_news_keywords": [
+        "Link Development LEAP 2026",
+        "Frontier Ascent AI",
+        "Agentic AI operating model",
+        "Microsoft Frontier Partner",
+        "AI CRM transformation",
+        "governed AI deployment",
+        "Microsoft Foundry Saudi Arabia",
+        "Sovereign Data AI Kingdom"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Architecting the Intelligent Enterprise: Link Development’s Frontier Ascent at LEAP 2026",
+      "primary_url": "https://linkdevelopment.com/newsroom/events/architecting-the-intelligent-enterprise-link-developments-frontier-ascent-at-leap-2026/",
+      "supporting_urls": [
+        "https://linkdevelopment.com/leap-2026/"
+      ],
+      "verified_angle_summary": "Link Development has announced it will launch \"Frontier Ascent,\" a governed agentic AI operating model, at LEAP 2026 alongside its partner Microsoft. Unlike piecemeal AI deployments, Frontier Ascent provides a complete transformation journey from consulting to implementation, delivering a governed operating model that clients own and operate. The model integrates the full Microsoft AI stack, including Microsoft 365 Copilot, Copilot Studio, Microsoft Foundry, Fabric, and Agent 365. It also features a Sovereign Data & AI offering to ensure data stays within Saudi Arabia, aligning with Saudi Vision 2030. The launch includes proprietary products built on Microsoft technologies, such as SellBig (real-estate CRM), ServeStream (low-code service automation), and Globby 4.0 (an agentic chatbot). This angle is distinct from existing coverage as it specifically focuses on Link Development's new comprehensive AI operating model and its integration with the Microsoft ecosystem, rather than general event overviews or other specific product launches.",
+      "verified_key_facts": "Link Development is launching Frontier Ascent, a governed agentic AI operating model, at LEAP 2026; The launch is in partnership with Microsoft, where Link Development is recognized as a Frontier Partner; Frontier Ascent integrates the full Microsoft AI stack, including Copilot, Foundry, Fabric, and Agent 365; The model includes a Sovereign Data & AI offering to ensure data remains in Saudi Arabia; Link Development will showcase proprietary products like SellBig, ServeStream, and Globby 4.0; The initiative targets transformation goals aligned with Saudi Vision 2030; Ehab Geddawy and Anas Saad are listed as speakers for the event.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Link Development Launches Frontier Ascent Agentic AI Operating Model at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Link Development Launches Frontier Ascent Agentic AI Operating Model at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Link Development has announced it will launch \"Frontier Ascent,\" a governed agentic AI operating model, at LEAP 2026 alongside its partner Microsoft. Unlike piecemeal AI deployments, Frontier Ascent provides a complete transformation journey from consulting to implementation, delivering a governed operating model that clients own and operate. The model integrates the full Microsoft AI stack, including Microsoft 365 Copilot, Copilot Studio, Microsoft Foundry, Fabric, and Agent 365. It also features a Sovereign Data & AI offering to ensure data stays within Saudi Arabia, aligning with Saudi Vision 2030. The launch includes proprietary products built on Microsoft technologies, such as SellBig (real-estate CRM), ServeStream (low-code service automation), and Globby 4.0 (an agentic chatbot). This angle is distinct from existing coverage as it specifically focuses on Link Development's new comprehensive AI operating model and its integration with the Microsoft ecosystem, rather than general event overviews or other specific product launches.",
+      "key_facts": "Link Development is launching Frontier Ascent, a governed agentic AI operating model, at LEAP 2026; The launch is in partnership with Microsoft, where Link Development is recognized as a Frontier Partner; Frontier Ascent integrates the full Microsoft AI stack, including Copilot, Foundry, Fabric, and Agent 365; The model includes a Sovereign Data & AI offering to ensure data remains in Saudi Arabia; Link Development will showcase proprietary products like SellBig, ServeStream, and Globby 4.0; The initiative targets transformation goals aligned with Saudi Vision 2030; Ehab Geddawy and Anas Saad are listed as speakers for the event.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 29,
+    "candidate_id": "R040",
+    "slug": "link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/029-link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026.webp",
+    "filename": "029-link-development-launches-frontier-ascent-agentic-ai-operating-model-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 129996,
+    "width": 1600,
+    "height": 900,
+    "sha256": "35ee4450f56d75e3188bcd446db93a2d7d18824ea7e336abf865947b234b60c0",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Link Development Launches Frontier Ascent Agentic AI Operating Model at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Link Development Launches Frontier Ascent Agentic AI Operating Model at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/029.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

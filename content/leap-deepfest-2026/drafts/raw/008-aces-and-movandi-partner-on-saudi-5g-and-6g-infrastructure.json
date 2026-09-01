@@ -1,0 +1,114 @@
+{
+  "batch_id": "leap-deepfest-2026-day1",
+  "sequence": 8,
+  "candidate_id": "R010",
+  "canonical_announcement_key": "ACES + Movandi MoU to localize 5G/6G infra (mmWave + Open RAN)",
+  "title": "ACES and Movandi Partner on Saudi 5G and 6G Infrastructure",
+  "slug": "aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure",
+  "author_public_name": "TechScoop Desk",
+  "workflow_status_slug": "draft",
+  "article_type": "news",
+  "display_datetime_local": "2026-08-31T12:50:50+03:00",
+  "display_datetime_utc": "2026-08-31T09:50:50Z",
+  "timezone": "Asia/Riyadh",
+  "excerpt": "At LEAP 2026, Saudi-licensed digital infrastructure company ACES and California-based wireless connectivity firm Movandi announced a strategic partnership to accelerate 5G and 6G infrastructure in Saudi Arabia and the Middle East.",
+  "primary_category_name": "AI & Data",
+  "category_names": [
+    "AI & Data",
+    "Events & Conferences"
+  ],
+  "event_names": [
+    "LEAP 2026"
+  ],
+  "event_bucket": "LEAP 2026",
+  "company_names": [
+    "ACES",
+    "Movandi"
+  ],
+  "people_names": [
+    "Maryam Rofougaran",
+    "Akram Aburas"
+  ],
+  "topic_names": [
+    "Telecommunications",
+    "5G & 6G",
+    "Logistics & Supply Chain",
+    "Saudi Digital Economy",
+    "LEAP 2026"
+  ],
+  "tag_names": [
+    "LEAP 2026",
+    "Telecommunications",
+    "5G & 6G",
+    "Logistics & Supply Chain",
+    "Saudi Digital Economy",
+    "ACES",
+    "Movandi",
+    "Saudi Arabia",
+    "Riyadh"
+  ],
+  "coverage": {
+    "country_iso2": "SA",
+    "country_name": "Saudi Arabia",
+    "city_name": "Riyadh",
+    "region_name": "Gulf Region"
+  },
+  "seo": {
+    "focus_keyword": "ACES and",
+    "keywords": [
+      "ACES and",
+      "ACES Movandi partnership",
+      "Saudi Arabia 5G infrastructure",
+      "Middle East 6G networks",
+      "LEAP 2026 telecom announcements",
+      "Open RAN small cells",
+      "mmWave connectivity",
+      "wireless infrastructure Saudi Vision 2030",
+      "Movandi RF technologies"
+    ],
+    "seo_title": "ACES and Movandi Partner on Saudi 5G and 6G Infrastructure",
+    "seo_description": "At LEAP 2026, Saudi-licensed digital infrastructure company ACES and California-based wireless connectivity firm Movandi announced a strategic partnership to…",
+    "og_title": "ACES and Movandi Partner on Saudi 5G and 6G Infrastructure",
+    "og_description": "At LEAP 2026, Saudi-licensed digital infrastructure company ACES and California-based wireless connectivity firm Movandi announced a strategic partnership to accelerate 5G and 6G infrastructure in…",
+    "google_news_keywords": [
+      "ACES Movandi partnership",
+      "Saudi Arabia 5G infrastructure",
+      "Middle East 6G networks",
+      "LEAP 2026 telecom announcements",
+      "Open RAN small cells",
+      "mmWave connectivity",
+      "wireless infrastructure Saudi Vision 2030",
+      "Movandi RF technologies"
+    ],
+    "canonical_url": "https://techscoop.io/events-conferences/aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure",
+    "robots_indexing": "index"
+  },
+  "sources": {
+    "primary_title": "ACES and Movandi Announce Strategic Partnership to Accelerate Next-Generation 5G and 6G Wireless Infrastructure in Saudi Arabia and the Middle East at LEAP 2026",
+    "primary_url": "https://www.businesswire.com/news/home/20260831198696/en/",
+    "supporting_urls": [
+      "https://www.morningstar.com/news/business-wire/20260831198696/aces-and-movandi-announce-strategic-partnership-to-accelerate-next-generation-5g-and-6g-wireless-infrastructure-in-saudi-arabia-and-the-middle-east-at-leap-2026",
+      "https://ca.finance.yahoo.com/news/aces-movandi-announce-strategic-partnership-103000916.html"
+    ],
+    "verified_angle_summary": "At LEAP 2026, Saudi-licensed digital infrastructure company ACES and California-based wireless connectivity firm Movandi announced a strategic partnership to accelerate 5G and 6G infrastructure in Saudi Arabia and the Middle East. Formalized through a Memorandum of Understanding, the collaboration merges ACES’ local R&D in 5G small cells and Open RAN with Movandi’s mmWave, RFIC, and beamforming technologies. The partnership aims to localize technology development and scale commercialization across the region, aligning with Saudi Vision 2030 digital infrastructure goals. This specific angle focuses on the technical integration of mmWave and O-RAN technologies and the localization of wireless infrastructure R&D in the Kingdom.",
+    "verified_key_facts": "ACES and Movandi signed an MoU at LEAP 2026; The partnership focuses on next-generation 5G and future 6G wireless technologies; Collaboration combines ACES' local R&D in 5G small cells and Open RAN with Movandi's mmWave and RF technologies; ACES has already developed an O-RAN compliant shareable 5G small cell solution in Saudi Arabia; The partnership aims to support Saudi Vision 2030 digital infrastructure goals; Movandi is headquartered in Irvine, California, with new operations in Muscat, Oman; ACES supports over 800 million users annually across its wireless networks.",
+    "confidence": 95
+  },
+  "image": {
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/008-aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure.webp",
+    "filename": "008-aces-and-movandi-partner-on-saudi-5g-and-6g-infrastructure.webp",
+    "mime_type": "image/webp",
+    "width": 1600,
+    "height": 900,
+    "alt": "ACES and Movandi Partner on Saudi 5G and 6G Infrastructure — LEAP and DeepFest 2026 news",
+    "caption": "ACES and Movandi Partner on Saudi 5G and 6G Infrastructure. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+  },
+  "content_markdown": "The rapid expansion of next-generation digital infrastructure in the Middle East has taken a significant step forward as Saudi-licensed digital infrastructure company ACES and California-based wireless connectivity firm Movandi announced a strategic partnership at LEAP 2026. Formalized through a Memorandum of Understanding in Riyadh, the collaboration aims to accelerate the deployment of 5G and future 6G networks across Saudi Arabia and the broader region. The agreement merges ACES’ local research and development capabilities in 5G small cells and Open Radio Access Network (Open RAN) architectures with Movandi’s specialized mmWave, radio frequency integrated circuit (RFIC), and beamforming technologies, as outlined in their joint announcement [[1]](#1).\n\nBy integrating these complementary strengths, the partnership seeks to localize technology development and scale commercialization, directly supporting the digital infrastructure goals outlined in Saudi Vision 2030. This ACES Movandi partnership represents a critical effort to build high-capacity, low-latency networks capable of supporting the Kingdom's ambitious technological and economic transformations. The strategic alliance, unveiled during one of the region's premier technology gatherings, underscores the growing momentum behind advanced telecommunications infrastructure in the Gulf. As data consumption surges and new enterprise applications demand large-scale network performance, the collaboration between a regional infrastructure leader and a specialized technology innovator highlights the multifaceted approach required to build the networks of the future. The initiative not only addresses immediate connectivity needs but also lays the groundwork for the next decade of digital innovation across various sectors, from logistics and supply chain management to smart city deployments. The focus on integrating advanced radio frequency capabilities with open network architectures demonstrates a forward-looking approach to overcoming the inherent challenges of deploying high-frequency spectrum in complex environments.\n\n## Technical Integration for High-Performance Networks\n\nThe core of the collaboration focuses on the technical integration of advanced wireless technologies to overcome the challenges of deploying dense, high-performance networks. Movandi, headquartered in Irvine, California, brings its expertise in mmWave and RF technologies, which are essential for delivering the multi-gigabit speeds and ultra-low latency promised by advanced 5G and emerging 6G standards. These technologies are particularly crucial for urban environments and industrial applications where network capacity and reliability are paramount. The ability to effectively harness mmWave spectrum is often cited as a key differentiator in realizing the full potential of 5G, enabling use cases that require massive bandwidth and near-instantaneous response times. The integration of these advanced RF components is expected to significantly enhance the performance and efficiency of wireless deployments in the region, providing the foundation for next-generation digital services that rely on uninterrupted, high-speed data transmission.\n\nACES contributes its established local presence and engineering capabilities to the joint effort. The company has already developed an O-RAN compliant shareable 5G small cell solution within Saudi Arabia, demonstrating its commitment to localized innovation. By combining this local innovation with Movandi's RFIC and beamforming advancements, the partnership aims to create robust, scalable infrastructure solutions tailored to the specific needs of the Middle Eastern market. The integration of Open RAN principles is significant, as it promotes interoperability and vendor diversity, potentially reducing deployment costs and accelerating innovation cycles. This open architecture approach is gaining traction globally as operators seek greater flexibility and efficiency in their network deployments. The synergy between ACES's localized small cell development and Movandi's specialized RF components creates a compelling proposition for operators looking to densify their networks in challenging environments, particularly in high-traffic urban centers and specialized industrial zones where traditional macro-cell deployments may be insufficient or impractical.\n\n## Localizing Research and Development\n\nA central pillar of the MoU is the commitment to localizing wireless infrastructure R&D in the Kingdom. This aligns closely with Saudi Vision 2030's objective of building a knowledge-based economy and reducing reliance on imported technology. By conducting R&D locally, ACES and Movandi intend to foster domestic talent and create solutions optimized for regional deployment scenarios. This localized approach is expected to streamline the commercialization process, allowing for faster rollout of advanced network infrastructure. The emphasis on domestic capability building is a recurring theme in Saudi Arabia's digital strategy, ensuring that technological advancements translate into sustainable economic benefits and specialized employment opportunities within the telecommunications sector. The localized development of these technologies also ensures that the resulting infrastructure is highly attuned to the specific regulatory and operational environments of the region, facilitating smoother integration with existing networks and systems.\n\nThe partnership also highlights the growing importance of the Middle East as a hub for telecommunications innovation. Movandi's recent expansion, including new operations in Muscat, Oman, underscores the region's strategic value for global connectivity firms seeking to participate in the rapid modernization of Gulf infrastructure. For ACES, which currently supports over 800 million users annually across its wireless networks, the collaboration provides access to advanced technologies that can enhance its service offerings and maintain its competitive edge in a rapidly evolving market. The scale of ACES's existing operations provides a substantial platform for the deployment and testing of these new integrated solutions, offering a clear path from research and development to large-scale commercial application. This regional focus ensures that the technologies developed are precisely tuned to the unique environmental and operational requirements of the Middle East, paving the way for more resilient and capable communication networks that can withstand the demands of a rapidly digitizing economy.\n\n## Future Implications and Industry Context\n\nThe strategic alignment between ACES and Movandi at LEAP 2026 reflects a broader industry trend toward collaborative ecosystems in the development of 5G and 6G networks. As the demands on digital infrastructure continue to grow—driven by smart city initiatives, industrial automation, and immersive consumer applications—partnerships that bridge local expertise with specialized global technologies become increasingly vital. The successful integration of mmWave and O-RAN technologies could serve as a model for future infrastructure deployments in the region. The telecommunications landscape is shifting from monolithic, single-vendor solutions toward more modular, integrated approaches that leverage the best available technologies from diverse innovators. This transition is essential for operators seeking to optimize their capital expenditures while delivering the high-performance connectivity required by next-generation applications, from autonomous vehicles to advanced industrial robotics.\n\nHowever, the transition from MoU to widespread commercial deployment involves significant technical and operational hurdles. The practical implementation of these integrated solutions will require sustained investment, rigorous testing, and close coordination with regulatory bodies and telecommunications operators across the region. While the partnership outlines a clear technical scope and a strong commitment to localization, the timeline for widespread commercial availability of these jointly developed 5G and 6G solutions remains to be seen. The industry will be watching closely to see how effectively ACES and Movandi can translate their shared vision into tangible infrastructure advancements that meet the demanding requirements of modern digital economies. The ultimate success of the initiative will depend on the partners' ability to navigate the complexities of network integration, spectrum management, and market adoption in a highly competitive environment. The long-term impact of this collaboration will be measured by its ability to deliver reliable, high-capacity connectivity that underpins the digital transformation of industries and communities across the Kingdom and the broader Middle East, ultimately contributing to the realization of a fully connected and digitally empowered society.\n\n## References\n\n[1]: https://www.businesswire.com/news/home/20260831198696/en/ \"ACES and Movandi Announce Strategic Partnership to Accelerate Next-Generation 5G and 6G Wireless Infrastructure in Saudi Arabia and the Middle East at LEAP 2026\"\n[2]: https://www.morningstar.com/news/business-wire/20260831198696/aces-and-movandi-announce-strategic-partnership-to-accelerate-next-generation-5g-and-6g-wireless-infrastructure-in-saudi-arabia-and-the-middle-east-at-leap-2026 \"Morningstar coverage of ACES and Movandi partnership\"\n[3]: https://ca.finance.yahoo.com/news/aces-movandi-announce-strategic-partnership-103000916.html \"Yahoo Finance coverage of ACES and Movandi partnership\"\n",
+  "content_word_count": 1186,
+  "editorial_notes": "No unsupported claims added; draft requires editorial review."
+}

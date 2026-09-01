@@ -1,0 +1,320 @@
+{
+  "sequence": 6,
+  "current_draft": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 6,
+    "candidate_id": "R006",
+    "canonical_announcement_key": "HUMAIN + MinIO strategic partnership to co-develop HUMAIN Fabric (AI-native data platform)",
+    "title": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026",
+    "slug": "humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "display_datetime_local": "2026-08-31T12:36:19+03:00",
+    "display_datetime_utc": "2026-08-31T09:36:19Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner.",
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "DeepFest 2026"
+    ],
+    "event_bucket": "DeepFest 2026",
+    "company_names": [
+      "HUMAIN",
+      "MinIO",
+      "PIF"
+    ],
+    "people_names": [
+      "Tareq Amin",
+      "Anand Babu Periasamy"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "AI Infrastructure",
+      "Data & Analytics",
+      "Enterprise Software",
+      "Autonomous Mobility",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy"
+    ],
+    "tag_names": [
+      "DeepFest 2026",
+      "AI & Machine Learning",
+      "AI Infrastructure",
+      "Data & Analytics",
+      "Enterprise Software",
+      "Autonomous Mobility",
+      "HUMAIN",
+      "MinIO",
+      "PIF",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "HUMAIN Fabric",
+      "keywords": [
+        "HUMAIN Fabric",
+        "HUMAIN MinIO partnership",
+        "AI data fabric",
+        "AI-native platform",
+        "LEAP 2026 AI announcements",
+        "sovereign AI infrastructure",
+        "Tareq Amin",
+        "Anand Babu Periasamy"
+      ],
+      "seo_title": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at…",
+      "seo_description": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's…",
+      "og_title": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026",
+      "og_description": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner…",
+      "google_news_keywords": [
+        "HUMAIN MinIO partnership",
+        "AI data fabric",
+        "HUMAIN Fabric",
+        "AI-native platform",
+        "LEAP 2026 AI announcements",
+        "sovereign AI infrastructure",
+        "Tareq Amin",
+        "Anand Babu Periasamy"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "HUMAIN and MinIO Announce Strategic Partnership to Build AI Data Fabric",
+      "primary_url": "https://www.prnewswire.com/news-releases/humain-and-minio-announce-strategic-partnership-to-build-ai-data-fabric-302865004.html",
+      "supporting_urls": [],
+      "verified_angle_summary": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner, providing high-performance object storage and persistent memory for the HUMAIN AI Stack (including HUMAIN Brain and HUMAIN One). The collaboration focuses on building sovereign, AI-native data infrastructure capable of supporting autonomous AI agents at an enterprise scale. The partnership will begin with deployments in Saudi Arabia before expanding globally. This angle is distinct from general HUMAIN Chat announcements, focusing specifically on the foundational data infrastructure and the strategic B2B partnership with MinIO.",
+      "verified_key_facts": "HUMAIN and MinIO announced a strategic partnership at LEAP 2026; MinIO is now HUMAIN's data and memory foundation partner; The companies are co-developing HUMAIN Fabric, an AI-native unified data platform; The partnership aims to build infrastructure for autonomous AI agents and enterprise AI; Deployments will begin in Saudi Arabia before expanding globally; HUMAIN is a PIF company led by CEO Tareq Amin; MinIO is led by Co-Founder and CEO Anand Babu (AB) Periasamy",
+      "confidence": 95
+    },
+    "image": {
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/006-humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026.webp",
+      "filename": "006-humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026.webp",
+      "mime_type": "image/webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+    },
+    "content_markdown": "At LEAP 2026 in Riyadh, HUMAIN and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native unified data platform. The collaboration designates MinIO as the data and memory foundation partner for HUMAIN, a company backed by the Public Investment Fund (PIF). This initiative focuses on building sovereign, AI-native data infrastructure capable of supporting autonomous AI agents at an enterprise scale. The announcement at the technology conference establishes a formal framework for the co-development of a platform designed to address the specific data management requirements of advanced artificial intelligence applications. By integrating MinIO's storage capabilities with HUMAIN's technology, the partnership aims to create a comprehensive data foundation for enterprise AI deployments. This development represents a targeted effort to build specialized infrastructure that can support the complex operational demands of modern artificial intelligence systems. The strategic alignment between the two organizations highlights a shared focus on developing solutions that cater to the evolving needs of the enterprise technology sector.\n\nThe core of the partnership involves the integration of MinIO's high-performance object storage and persistent memory into the HUMAIN AI Stack. This stack includes key components such as HUMAIN Brain and HUMAIN One. By serving as the foundational data and memory layer, MinIO provides the underlying architecture necessary for processing and managing the large volumes of data required by artificial intelligence workloads. The collaboration is specifically structured to address the foundational data infrastructure, distinguishing it from general announcements related to end-user applications like HUMAIN Chat. This focus on the backend architecture underscores the critical role that robust data storage and memory management play in the effective deployment of autonomous AI agents. The co-development of HUMAIN Fabric is intended to yield a platform that can handle the rigorous performance requirements of enterprise-scale AI operations, providing a reliable foundation for complex computational tasks. The technical integration of these systems is a central component of the partnership's strategy to deliver a cohesive AI-native data platform.\n\n## Local Deployment and Sovereign Infrastructure\n\nThe initial phase of the partnership will focus on deployments within Saudi Arabia. This localized approach aligns with regional requirements for data sovereignty and secure digital infrastructure. By establishing the foundational technology in Riyadh, the organizations aim to create a compliant environment for enterprise AI adoption before pursuing broader market opportunities. The decision to begin deployments in Saudi Arabia reflects a strategic prioritization of the local market and its specific regulatory landscape. This approach allows HUMAIN and MinIO to refine their technology and operational models within a defined geographical context, ensuring that the platform meets the necessary standards for data protection and sovereignty. The focus on sovereign infrastructure is particularly relevant for government entities and large enterprises that require stringent control over their data assets. By building a platform that prioritizes data sovereignty, the partnership addresses a key concern for organizations seeking to implement artificial intelligence technologies while maintaining compliance with regional regulations.\n\nHUMAIN, led by CEO Tareq Amin, and MinIO, under the leadership of Co-Founder and CEO Anand Babu (AB) Periasamy, have structured the partnership to support the specific operational demands of autonomous AI agents. The localized deployment strategy allows the companies to optimize the performance of HUMAIN Fabric within the Saudi market. The leadership of both organizations has emphasized the importance of building a robust foundation for AI development, recognizing that the success of advanced applications depends heavily on the underlying data infrastructure. The collaboration brings together HUMAIN's expertise in AI technology with MinIO's established capabilities in high-performance object storage. This combination of specialized knowledge and technological resources is intended to facilitate the development of a platform that can meet the complex requirements of enterprise customers. The strategic direction set by the leadership teams of both companies underscores their commitment to delivering a comprehensive solution for AI data management.\n\nFollowing this initial phase in Saudi Arabia, the partnership plans to expand its deployments globally. This phased expansion strategy allows the organizations to extend the reach of the co-developed data platform to international enterprises. The global rollout will build upon the foundational work completed during the initial deployments, leveraging the insights and operational experience gained in the Saudi market. The expansion plan indicates a long-term ambition to establish HUMAIN Fabric as a widely adopted standard for AI-native data infrastructure. By scaling their solutions to meet international demand, HUMAIN and MinIO aim to address the growing global requirement for specialized data platforms capable of supporting autonomous AI agents. The successful execution of this global expansion will depend on the ability of the partnership to adapt its technology and operational models to diverse regulatory environments and market conditions. This international focus represents a significant component of the overall strategic vision for the co-developed platform.\n\n## Foundational Architecture for Enterprise AI\n\nThe collaboration between HUMAIN and MinIO specifically targets the foundational layer of AI infrastructure. Unlike general AI applications, HUMAIN Fabric is intended to serve as the underlying data and memory foundation for enterprise-scale AI operations. This strategic focus emphasizes the importance of robust data management capabilities in the deployment of autonomous agents and sophisticated AI models. The development of a unified data platform is designed to streamline the complex processes associated with managing the large datasets required for artificial intelligence workloads. By providing a cohesive architecture that integrates storage, memory, and processing capabilities, the partnership aims to simplify the implementation of enterprise AI solutions. The focus on the foundational layer reflects an understanding that effective AI deployment requires more than just advanced algorithms; it necessitates a comprehensive infrastructure capable of supporting the rigorous demands of modern computational tasks.\n\nThe co-development effort reflects a broader industry requirement for scalable and performant data storage solutions tailored to the unique demands of artificial intelligence. By combining HUMAIN's AI stack with MinIO's storage technology, the partnership aims to deliver a comprehensive platform for organizations seeking to implement sovereign AI infrastructure. The long-term impact of this collaboration will depend on the successful integration of these technologies and their adoption by enterprise customers in Saudi Arabia and global markets. The partnership represents a significant investment in the development of specialized infrastructure designed to support the next generation of artificial intelligence applications. The focus on building a sovereign, AI-native data platform addresses a critical need within the enterprise technology sector, providing a framework for the secure and efficient management of AI workloads. The outcome of this collaboration will be closely monitored by industry observers as an indicator of the viability and effectiveness of specialized AI infrastructure solutions.\n\nThe strategic B2B partnership between HUMAIN and MinIO highlights the growing importance of specialized infrastructure in the enterprise AI sector. As organizations increasingly seek to deploy autonomous AI agents and other advanced applications, the demand for robust data management platforms is expected to rise. The co-development of HUMAIN Fabric represents a targeted response to this demand, offering a specialized solution designed to meet the specific requirements of AI workloads. The collaboration between a PIF-backed company and a leading provider of high-performance object storage underscores the strategic value of partnerships in addressing complex technological challenges. The focus on building a comprehensive data foundation for enterprise AI deployments reflects a shared vision for the future of artificial intelligence infrastructure. The successful implementation of HUMAIN Fabric has the potential to influence the broader development of AI technologies, providing a model for how organizations can build and deploy specialized infrastructure to support advanced computational tasks.\n\n## References\n[1] [HUMAIN and MinIO Announce Strategic Partnership to Build AI Data Fabric](https://www.prnewswire.com/news-releases/humain-and-minio-announce-strategic-partnership-to-build-ai-data-fabric-302865004.html)",
+    "content_word_count": 1225,
+    "editorial_notes": "No unsupported claims added; draft requires editorial review."
+  },
+  "authoritative_brief": {
+    "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+    "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+    "article": {
+      "batch_id": "leap-deepfest-2026-day1",
+      "sequence": 6,
+      "candidate_id": "R006",
+      "canonical_announcement_key": "HUMAIN + MinIO strategic partnership to co-develop HUMAIN Fabric (AI-native data platform)",
+      "selection_reason": "Primary PR details roles, scope, and productization of sovereign AI data fabric; strong infra B2B angle.",
+      "title": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026",
+      "slug": "humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+      "author_public_name": "TechScoop Desk",
+      "workflow_status_slug": "draft",
+      "article_type": "news",
+      "is_featured": false,
+      "is_trending": false,
+      "is_editor_pick": false,
+      "is_flash": false,
+      "announcement_date": "2026-08-31",
+      "display_datetime_local": "2026-08-31T12:36:19+03:00",
+      "display_datetime_utc": "2026-08-31T09:36:19Z",
+      "timezone": "Asia/Riyadh",
+      "excerpt": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner, providing high-performance object storage…",
+      "content_target_words": {
+        "minimum": 800,
+        "preferred": 1050,
+        "maximum": 1400
+      },
+      "primary_category_name": "AI & Data",
+      "category_names": [
+        "AI & Data",
+        "Events & Conferences"
+      ],
+      "event_names": [
+        "DeepFest 2026"
+      ],
+      "event_bucket": "DeepFest 2026",
+      "company_names": [
+        "HUMAIN",
+        "MinIO",
+        "PIF"
+      ],
+      "people_names": [
+        "Tareq Amin",
+        "Anand Babu Periasamy"
+      ],
+      "topic_names": [
+        "AI & Machine Learning",
+        "AI Infrastructure",
+        "Data & Analytics",
+        "Enterprise Software",
+        "Autonomous Mobility",
+        "Startup Ecosystem",
+        "Logistics & Supply Chain",
+        "Saudi Digital Economy"
+      ],
+      "tag_names": [
+        "DeepFest 2026",
+        "AI & Machine Learning",
+        "AI Infrastructure",
+        "Data & Analytics",
+        "Enterprise Software",
+        "Autonomous Mobility",
+        "HUMAIN",
+        "MinIO",
+        "PIF",
+        "Saudi Arabia",
+        "Riyadh"
+      ],
+      "coverage": {
+        "country_iso2": "SA",
+        "country_name": "Saudi Arabia",
+        "city_name": "Riyadh",
+        "region_name": "Gulf Region"
+      },
+      "seo": {
+        "focus_keyword": "HUMAIN MinIO partnership",
+        "keywords": [
+          "HUMAIN MinIO partnership",
+          "AI data fabric",
+          "HUMAIN Fabric",
+          "AI-native platform",
+          "LEAP 2026 AI announcements",
+          "sovereign AI infrastructure",
+          "Tareq Amin",
+          "Anand Babu Periasamy"
+        ],
+        "seo_title": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at…",
+        "seo_description": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's…",
+        "og_title": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026",
+        "og_description": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner…",
+        "google_news_keywords": [
+          "HUMAIN MinIO partnership",
+          "AI data fabric",
+          "HUMAIN Fabric",
+          "AI-native platform",
+          "LEAP 2026 AI announcements",
+          "sovereign AI infrastructure",
+          "Tareq Amin",
+          "Anand Babu Periasamy"
+        ],
+        "canonical_url": "https://techscoop.io/events-conferences/humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+        "robots_indexing": "index"
+      },
+      "sources": {
+        "primary_title": "HUMAIN and MinIO Announce Strategic Partnership to Build AI Data Fabric",
+        "primary_url": "https://www.prnewswire.com/news-releases/humain-and-minio-announce-strategic-partnership-to-build-ai-data-fabric-302865004.html",
+        "supporting_urls": [],
+        "verified_angle_summary": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner, providing high-performance object storage and persistent memory for the HUMAIN AI Stack (including HUMAIN Brain and HUMAIN One). The collaboration focuses on building sovereign, AI-native data infrastructure capable of supporting autonomous AI agents at an enterprise scale. The partnership will begin with deployments in Saudi Arabia before expanding globally. This angle is distinct from general HUMAIN Chat announcements, focusing specifically on the foundational data infrastructure and the strategic B2B partnership with MinIO.",
+        "verified_key_facts": "HUMAIN and MinIO announced a strategic partnership at LEAP 2026; MinIO is now HUMAIN's data and memory foundation partner; The companies are co-developing HUMAIN Fabric, an AI-native unified data platform; The partnership aims to build infrastructure for autonomous AI agents and enterprise AI; Deployments will begin in Saudi Arabia before expanding globally; HUMAIN is a PIF company led by CEO Tareq Amin; MinIO is led by Co-Founder and CEO Anand Babu (AB) Periasamy",
+        "confidence": 95
+      },
+      "image": {
+        "candidate_url": "https://mma.prnewswire.com/media/2347101/HUMAIN_Logo.jpg",
+        "credit": "HUMAIN",
+        "license_note": "Official company logo from PR Newswire release, likely fair use for news reporting.",
+        "required_width": 1600,
+        "required_height": 900,
+        "required_mime_type": "image/webp",
+        "alt_text_template": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026 — LEAP and DeepFest 2026 news",
+        "caption_template": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+        "fallback_credit": "TechScoop illustration"
+      },
+      "drafting_brief": {
+        "angle": "At LEAP 2026, HUMAIN (a PIF company) and MinIO announced a strategic partnership to co-develop HUMAIN Fabric, an AI-native data platform. MinIO becomes HUMAIN's data and memory foundation partner, providing high-performance object storage and persistent memory for the HUMAIN AI Stack (including HUMAIN Brain and HUMAIN One). The collaboration focuses on building sovereign, AI-native data infrastructure capable of supporting autonomous AI agents at an enterprise scale. The partnership will begin with deployments in Saudi Arabia before expanding globally. This angle is distinct from general HUMAIN Chat announcements, focusing specifically on the foundational data infrastructure and the strategic B2B partnership with MinIO.",
+        "key_facts": "HUMAIN and MinIO announced a strategic partnership at LEAP 2026; MinIO is now HUMAIN's data and memory foundation partner; The companies are co-developing HUMAIN Fabric, an AI-native unified data platform; The partnership aims to build infrastructure for autonomous AI agents and enterprise AI; Deployments will begin in Saudi Arabia before expanding globally; HUMAIN is a PIF company led by CEO Tareq Amin; MinIO is led by Co-Founder and CEO Anand Babu (AB) Periasamy",
+        "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+        "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+      }
+    },
+    "final_image": {
+      "sequence": 6,
+      "candidate_id": "R006",
+      "slug": "humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026",
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/006-humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026.webp",
+      "filename": "006-humain-and-minio-partner-to-build-ai-native-data-fabric-at-leap-2026.webp",
+      "mime_type": "image/webp",
+      "size": 208280,
+      "width": 1600,
+      "height": 900,
+      "sha256": "7abd2e49071d13ccca8d9966258552ea633cfb155387e798593b50e83f99cad6",
+      "source_generated_format": "PNG",
+      "source_generated_width": 2560,
+      "source_generated_height": 1440,
+      "alt": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "HUMAIN and MinIO Partner to Build AI-Native Data Fabric at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+      "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+      "generation_brief": "content/leap-deepfest-2026/image-briefs/006.json"
+    },
+    "output_contract": {
+      "format": "JSON",
+      "required_fields": [
+        "sequence",
+        "candidate_id",
+        "canonical_announcement_key",
+        "title",
+        "slug",
+        "author_public_name",
+        "workflow_status_slug",
+        "article_type",
+        "display_datetime_local",
+        "display_datetime_utc",
+        "timezone",
+        "excerpt",
+        "content_markdown",
+        "content_word_count",
+        "primary_category_name",
+        "category_names",
+        "event_names",
+        "event_bucket",
+        "company_names",
+        "people_names",
+        "topic_names",
+        "tag_names",
+        "coverage",
+        "seo",
+        "sources",
+        "image",
+        "editorial_notes"
+      ],
+      "content_word_count_min": 850,
+      "content_word_count_max": 1250,
+      "content_word_count_scope": "Article body only, excluding References",
+      "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+      "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+    }
+  },
+  "review_findings": {
+    "confidence": 100,
+    "editorial_issues": "Generic padding and repetitive passages expanding a single announcement into over 1200 words.",
+    "editorial_status": "needs_correction",
+    "factual_status": "pass",
+    "sequence": 6,
+    "unsupported_claims": "NA"
+  },
+  "instructions": "Write a fresh, restrained 850–1,000-word body rather than patching repeated prose. Cover the verified announcement, named facts, practical implications, explicit limitations and concrete follow-up questions once each. No paragraph may restate a previous point. Remove the reviewer-quoted unsupported or generic phrases. Preserve all metadata, source URLs and image data."
+}

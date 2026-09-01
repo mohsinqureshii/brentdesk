@@ -1,0 +1,114 @@
+{
+  "batch_id": "leap-deepfest-2026-day1",
+  "sequence": 26,
+  "candidate_id": "R036",
+  "canonical_announcement_key": "Cloudflare AI security for agentic infrastructure (Zero Trust, Firewall for AI)",
+  "title": "Cloudflare Spotlights Agentic AI Infrastructure and Security at LEAP 2026",
+  "slug": "cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026",
+  "author_public_name": "TechScoop Desk",
+  "workflow_status_slug": "draft",
+  "article_type": "news",
+  "display_datetime_local": "2026-08-31T15:01:34+03:00",
+  "display_datetime_utc": "2026-08-31T12:01:34Z",
+  "timezone": "Asia/Riyadh",
+  "excerpt": "At LEAP 2026, Cloudflare is showcasing its vision for securing AI workloads and managing agentic infrastructure. The company is highlighting tools like Cloudflare One for Zero Trust, Firewall for AI to prevent prompt injections, and AI…",
+  "primary_category_name": "AI & Data",
+  "category_names": [
+    "AI & Data",
+    "Events & Conferences"
+  ],
+  "event_names": [
+    "DeepFest 2026"
+  ],
+  "event_bucket": "DeepFest 2026",
+  "company_names": [
+    "Cloudflare"
+  ],
+  "people_names": [
+    "Ercan Aydin"
+  ],
+  "topic_names": [
+    "AI & Machine Learning",
+    "AI Infrastructure",
+    "Cloud Computing",
+    "Cybersecurity",
+    "Autonomous Mobility",
+    "Logistics & Supply Chain",
+    "Saudi Digital Economy",
+    "DeepFest 2026"
+  ],
+  "tag_names": [
+    "DeepFest 2026",
+    "AI & Machine Learning",
+    "AI Infrastructure",
+    "Cloud Computing",
+    "Cybersecurity",
+    "Autonomous Mobility",
+    "Cloudflare",
+    "Saudi Arabia",
+    "Riyadh"
+  ],
+  "coverage": {
+    "country_iso2": "SA",
+    "country_name": "Saudi Arabia",
+    "city_name": "Riyadh",
+    "region_name": "Gulf Region"
+  },
+  "seo": {
+    "focus_keyword": "at LEAP",
+    "keywords": [
+      "at LEAP",
+      "agentic AI infrastructure",
+      "Cloudflare LEAP 2026",
+      "AI security",
+      "Zero Trust",
+      "Cloudflare One",
+      "Ercan Aydin",
+      "AI Gateway",
+      "Saudi Arabia digital transformation"
+    ],
+    "seo_title": "Cloudflare Spotlights Agentic AI Infrastructure and Security…",
+    "seo_description": "At LEAP 2026, Cloudflare is showcasing its vision for securing AI workloads and managing agentic infrastructure. The company is highlighting tools like…",
+    "og_title": "Cloudflare Spotlights Agentic AI Infrastructure and Security at LEAP 2026",
+    "og_description": "At LEAP 2026, Cloudflare is showcasing its vision for securing AI workloads and managing agentic infrastructure. The company is highlighting tools like Cloudflare One for Zero Trust, Firewall for AI…",
+    "google_news_keywords": [
+      "Cloudflare LEAP 2026",
+      "agentic AI infrastructure",
+      "AI security",
+      "Zero Trust",
+      "Cloudflare One",
+      "Ercan Aydin",
+      "AI Gateway",
+      "Saudi Arabia digital transformation"
+    ],
+    "canonical_url": "https://techscoop.io/events-conferences/cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026",
+    "robots_indexing": "index"
+  },
+  "sources": {
+    "primary_title": "Cloudflare to spotlight AI Security and Agentic Infrastructure Vision at LEAP 2026",
+    "primary_url": "https://cxodx.com/cloudflare-to-spotlight-ai-security-and-agentic-infrastructure-vision-at-leap-2026/",
+    "supporting_urls": [
+      "https://techxmedia.com/en/cloudflare-to-showcase-ai-security-at-leap-2026/"
+    ],
+    "verified_angle_summary": "At LEAP 2026, Cloudflare is showcasing its vision for securing AI workloads and managing agentic infrastructure. The company is highlighting tools like Cloudflare One for Zero Trust, Firewall for AI to prevent prompt injections, and AI Gateway for traffic control. A major focus is on securing autonomous AI agents, treating them with the same identity and permission rigor as human users. Ercan Aydin, Area Vice President for the Middle East, Turkey & Africa, emphasized that as Saudi Arabia moves AI into production, the need for secure, visible, and governed AI infrastructure becomes critical. This angle is distinct as it specifically addresses the emerging challenge of securing active AI agents rather than just passive AI models.",
+    "verified_key_facts": "Cloudflare is showcasing its AI security and agentic infrastructure vision at LEAP 2026 in Riyadh (August 31 - September 3); The company emphasizes the need to treat AI agents with strict identity and permission controls, similar to human users; Key technologies highlighted include Cloudflare One (Zero Trust), Cloudflare Workers, Firewall for AI, and AI Gateway; Cloudflare introduced AI Crawl Control and Pay Per Crawl to give publishers control over AI access to content; Ercan Aydin, Area VP for Middle East, Turkey & Africa, noted that Saudi Arabia is rapidly moving AI from experimentation to production; Cloudflare's H1 2026 DDoS Threat Report showed a surge in attacks reaching terabit-per-second ranges, underscoring the need for AI-driven defense.",
+    "confidence": 95
+  },
+  "image": {
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/026-cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026.webp",
+    "filename": "026-cloudflare-spotlights-agentic-ai-infrastructure-and-security-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "width": 1600,
+    "height": 900,
+    "alt": "Cloudflare Spotlights Agentic AI Infrastructure and Security at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Cloudflare Spotlights Agentic AI Infrastructure and Security at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+  },
+  "content_markdown": "Cloudflare used LEAP 2026 in Riyadh to lay out a practical, security-first approach for managing AI workloads and the new class of agentic infrastructure emerging in enterprise environments. The company presented its roadmap for protecting systems where autonomous agents act on behalf of organizations, and where those agents’ behaviors and interactions require the same identity and permission controls historically applied to human users. The demonstration at LEAP, running August 31 to September 3, framed the challenge as distinct from securing passive machine-learning models: active agents execute actions, make requests, and interact with other systems, and therefore expand the attack surface in novel ways.\n\nCentral to Cloudflare’s message was the need to treat autonomous agents as first-class identities within corporate security models. The company highlighted Cloudflare One as a cornerstone for applying Zero Trust principles to agentic infrastructure, ensuring continuous authentication and authorization for every interaction an agent initiates. By extending the same rigor used for employees and contractors to software agents, organizations can enforce least-privilege access, log decisions, and revoke capabilities as circumstances change. That approach reframes agents not as ephemeral processes but as entities requiring governance, auditability, and lifecycle management.\n\n## Securing Autonomous AI Agents\n\nCloudflare also underscored tooling designed to prevent some of the most specific risks that target models and their interfaces. The company described Firewall for AI as a purpose-built layer to defend against attacks such as prompt injection—malicious inputs crafted to alter an agent’s behavior or expose sensitive data. Complementing the firewall, AI Gateway was presented as a traffic-control plane for AI workloads, enabling organizations to inspect, filter, and route agent-originated requests between services and external endpoints. Together with Cloudflare Workers, which provides a serverless execution environment at the network edge, these components allow security policies and custom logic to be enforced with low latency, close to where agents operate.\n\nThe focus on agent identity and permissioning is not merely theoretical; it responds to an observable shift in how organizations are deploying AI. Ercan Aydin, Cloudflare’s Area Vice President for the Middle East, Turkey & Africa, emphasized that in Saudi Arabia the technology is moving rapidly from experimentation into production. As organizations transition to operational deployments, the expectations for uptime, compliance, and risk management increase. That makes governance features and transparent telemetry essential, because production-grade agentic systems must meet the same standards for accountability and regulatory compliance as other critical infrastructure.\n\nCloudflare’s presentations at LEAP made clear that operational AI introduces both functional and security complexity. Agents that autonomously browse, query, and act can inadvertently leak secrets, execute unintended transactions, or be manipulated into carrying out harmful tasks. Treating those agents as identities with defined permissions mitigates these risks by constraining the scope of their actions, applying robust authentication, and making their behavior observable through centralized logs and policy controls. This identity-centric posture also supports incident response: when an agent behaves anomalously, administrators can trace its activity, isolate its access, and remediate configurations without having to take down broader services.\n\n## Publisher Control and Threat Mitigation\n\nAnother strand of Cloudflare’s LEAP coverage addressed how content providers and publishers can exert control over how AI systems consume and use their material. The company introduced AI Crawl Control and Pay Per Crawl as mechanisms to regulate access to web content by AI consumers. These features aim to give publishers fine-grained options to allow, throttle, or monetize automated content ingestion so that data owners retain agency over how models see and repurpose their material. In the context of agentic systems that may scrape or query large swaths of online content autonomously, these controls offer publishers a way to assert policy and economic choices over AI interactions.\n\nCloudflare tied its product messaging to hard trends in the threat landscape. The company’s H1 2026 DDoS Threat Report revealed a surge in distributed denial-of-service attacks, with some incidents reaching terabit-per-second scale. Such volumetric attacks and increasingly complex, multi-vector campaigns underscore the need for automated, scalable defenses that can respond at network speed. Cloudflare argued that defending agentic environments requires similar automation and scale: both to protect agents from being abused as attack vectors, and to shield services that agents depend on from disruption. The implication is that operators should deploy defenses that are capable of contextual decision-making and high-throughput mitigation.\n\nAt the architectural level, Cloudflare pitched a cohesive stack that blends Zero Trust access control, edge computing, specialized firewalls for model interfaces, and gateway-level observability. The promise is not merely blocking bad traffic, but enabling secure, auditable operations for agents that interact with internal systems, third-party APIs, and external platforms. Cloudflare Workers, running at the edge, was highlighted for its ability to host bespoke security logic—rate-limiting calls from specific agent identities, sanitizing inputs to prevent injection attacks, or enriching requests with identity assertions before they reach backend services. This combination aims to preserve performance while adding governance and defense capabilities.\n\n## Moving AI into Production\n\nThe emphasis on securing active agents rather than focusing solely on model integrity represents a shift in how vendors and enterprises conceptualize AI risk. Rather than treating models as static artifacts to be trained and validated, this operational lens recognizes agents as components of distributed systems that require lifecycle controls, policy enforcement, and resilience planning. For regions like Saudi Arabia where deployments are becoming production-grade, that operational perspective is particularly urgent: large-scale adoption brings higher stakes for availability, privacy, and regulatory compliance.\n\nCloudflare’s showcase at LEAP 2026 presented a pragmatic set of tools and a clear narrative: as agents take on more autonomous responsibilities, they must be integrated into identity and permission frameworks, monitored through gateway controls, and protected by defenses tuned for model-targeted threats. For organizations moving from pilots to full-scale AI operations, those capabilities are positioned as prerequisites for safe adoption. The company’s propositions—Zero Trust via Cloudflare One, firewalling model interfaces, edge-enforced policies with Workers, traffic control through AI Gateway, and publisher-focused crawl controls—come together as an operational playbook for managing agentic infrastructure in production environments.\n\n## References\n\n[1]: https://cxodx.com/cloudflare-to-spotlight-ai-security-and-agentic-infrastructure-vision-at-leap-2026/ \"Cloudflare to spotlight AI Security and Agentic Infrastructure Vision at LEAP 2026\"\n\n[2]: https://techxmedia.com/en/cloudflare-to-showcase-ai-security-at-leap-2026/ \"Cloudflare to showcase AI security at LEAP 2026\"",
+  "content_word_count": 992,
+  "editorial_notes": "No unsupported claims added; draft requires editorial review."
+}

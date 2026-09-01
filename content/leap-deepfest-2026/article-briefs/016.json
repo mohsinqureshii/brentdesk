@@ -1,0 +1,191 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 16,
+    "candidate_id": "R020",
+    "canonical_announcement_key": "Voiset 2.0 MENA launch with full Arabic/RTL and bilingual voice",
+    "selection_reason": "Product GA with localization specifics and MCP integrations; app availability across platforms.",
+    "title": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support to MENA at LEAP 2026",
+    "slug": "voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-25",
+    "display_datetime_local": "2026-08-31T13:48:56+03:00",
+    "display_datetime_utc": "2026-08-31T10:48:56Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Voiset, an AI-powered personal planner, is officially entering the MENA market with the launch of Voiset 2.0 at LEAP 2026. The major update introduces full Arabic right-to-left (RTL) interface support and bilingual (Arabic and English)…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Voiset",
+      "Union Smart Technology"
+    ],
+    "people_names": [
+      "Denis Kirichenko"
+    ],
+    "topic_names": [
+      "Enterprise Software",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "Enterprise Software",
+      "Startup Ecosystem",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "Voiset",
+      "Union Smart Technology",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Voiset 2.0",
+      "keywords": [
+        "Voiset 2.0",
+        "AI personal planner",
+        "LEAP 2026",
+        "MENA tech expansion",
+        "Arabic AI tools",
+        "voice productivity",
+        "RTL interface",
+        "Claude integration",
+        "AI scheduling",
+        "Union Smart Technology"
+      ],
+      "seo_title": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support…",
+      "seo_description": "Voiset, an AI-powered personal planner, is officially entering the MENA market with the launch of Voiset 2.0 at LEAP 2026. The major update introduces full…",
+      "og_title": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support to MENA at LEAP 2026",
+      "og_description": "Voiset, an AI-powered personal planner, is officially entering the MENA market with the launch of Voiset 2.0 at LEAP 2026. The major update introduces full Arabic right-to-left (RTL) interface support…",
+      "google_news_keywords": [
+        "Voiset 2.0",
+        "AI personal planner",
+        "LEAP 2026",
+        "MENA tech expansion",
+        "Arabic AI tools",
+        "voice productivity",
+        "RTL interface",
+        "Claude integration",
+        "AI scheduling",
+        "Union Smart Technology"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Popular AI planner Voiset launches version 2.0 and enters MENA at LEAP 2026 with full Arabic support",
+      "primary_url": "https://finance.yahoo.com/technology/ai/articles/popular-ai-planner-voiset-launches-172900543.html",
+      "supporting_urls": [
+        "https://www.voiset.io/blog/personal-planning-with-voiset-2-0"
+      ],
+      "verified_angle_summary": "Voiset, an AI-powered personal planner, is officially entering the MENA market with the launch of Voiset 2.0 at LEAP 2026. The major update introduces full Arabic right-to-left (RTL) interface support and bilingual (Arabic and English) voice recognition, addressing a key demand from early regional users. Voiset 2.0 functions as a productivity assistant, allowing users to schedule tasks and manage calendars via voice or text, with natural language processing and automatic rescheduling. The platform also integrates with Claude and ChatGPT via the Model Context Protocol (MCP), enabling advanced task management within AI assistant environments. The MENA launch targets professionals, entrepreneurs, and small business owners in the region, capitalizing on the growing demand for localized productivity solutions amid Saudi Arabia's Vision 2030 expansion. This angle is distinct and highly specific to Voiset's product capabilities and regional strategy, supported by official press releases and company blog posts.",
+      "verified_key_facts": "Voiset 2.0 launches at LEAP 2026 (Aug 31-Sep 3) marking the company's official entry into the MENA market; The new version features a fully localized Arabic right-to-left (RTL) interface; Voice input now supports bilingual Arabic and English recognition simultaneously; Voiset 2.0 integrates with Claude and ChatGPT via the Model Context Protocol (MCP); The app is available on iOS, Android, and web with instant synchronization; The core product automatically builds and reschedules daily plans based on natural language voice or text inputs; Voiset targets entrepreneurs, small business owners, and professionals needing automated scheduling; The company highlights the MENA region's rapid growth under Saudi Vision 2030 as a key driver for localized productivity tools.",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "https://www.voiset.io/blog/personal-planning-with-voiset-2-0",
+      "credit": "Voiset",
+      "license_note": "Official blog/press image, assumed cleared for press use",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support to MENA at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support to MENA at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Voiset, an AI-powered personal planner, is officially entering the MENA market with the launch of Voiset 2.0 at LEAP 2026. The major update introduces full Arabic right-to-left (RTL) interface support and bilingual (Arabic and English) voice recognition, addressing a key demand from early regional users. Voiset 2.0 functions as a productivity assistant, allowing users to schedule tasks and manage calendars via voice or text, with natural language processing and automatic rescheduling. The platform also integrates with Claude and ChatGPT via the Model Context Protocol (MCP), enabling advanced task management within AI assistant environments. The MENA launch targets professionals, entrepreneurs, and small business owners in the region, capitalizing on the growing demand for localized productivity solutions amid Saudi Arabia's Vision 2030 expansion. This angle is distinct and highly specific to Voiset's product capabilities and regional strategy, supported by official press releases and company blog posts.",
+      "key_facts": "Voiset 2.0 launches at LEAP 2026 (Aug 31-Sep 3) marking the company's official entry into the MENA market; The new version features a fully localized Arabic right-to-left (RTL) interface; Voice input now supports bilingual Arabic and English recognition simultaneously; Voiset 2.0 integrates with Claude and ChatGPT via the Model Context Protocol (MCP); The app is available on iOS, Android, and web with instant synchronization; The core product automatically builds and reschedules daily plans based on natural language voice or text inputs; Voiset targets entrepreneurs, small business owners, and professionals needing automated scheduling; The company highlights the MENA region's rapid growth under Saudi Vision 2030 as a key driver for localized productivity tools.",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 16,
+    "candidate_id": "R020",
+    "slug": "voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/016-voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026.webp",
+    "filename": "016-voiset-2-0-brings-ai-voice-planning-and-full-arabic-support-to-mena-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 163206,
+    "width": 1600,
+    "height": 900,
+    "sha256": "c8e1abe5cab926daeca7704a7200f48ec41bef0ef75d5fd0263a3b4199057b0f",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support to MENA at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Voiset 2.0 Brings AI Voice Planning and Full Arabic Support to MENA at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/016.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

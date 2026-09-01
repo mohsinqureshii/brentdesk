@@ -1,0 +1,1204 @@
+{
+  "results": [
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/001.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 1,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/002.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive sentence at the end of the article: \"The project will significantly enhance the region's capabilities...\" is repeated 9 times.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 2,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/003.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 3,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/004.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 4,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/005.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive paragraphs at the end of the article | Promotional or keyword-stuffed language",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 5,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/006.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "repetitive or keyword-stuffed writing | promotional tone",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 6,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/007.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 7,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/008.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 8,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/009.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 9,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/010.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "needs_correction",
+        "sequence": 10,
+        "unsupported_claims": "a joint venture with Eleven Ventures — NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/011.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 11,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/012.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 12,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/013.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 13,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/014.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 14,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/015.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 15,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/016.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 16,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/017.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 17,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/018.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 18,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/019.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 19,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/020.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 20,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/021.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 21,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/022.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 22,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/023.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "The draft is extremely repetitive, promotional, and padded. It reads like a PR piece rather than professional newsroom copy. Examples of padding include \"The broader implications of these initiatives extend beyond the technology sector...\", \"This localized infrastructure is expected to have a profound impact on the Kingdom's digital landscape...\", and repetitive phrases about Vision 2030 and economic benefits. | The prose needs significant tightening and removal of fluff.",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 23,
+        "unsupported_claims": "Cisco announced at LEAP 2026 — Cisco announced at LEAP"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/024.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 24,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/025.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 25,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/026.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive writing and keyword stuffing (excessive use of \"artificial intelligence\" instead of \"AI\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 26,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/027.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Highly repetitive and padded prose (\"The Audit Ready Compliance Platform is designed to simplify the often-complex process of maintaining compliance\" repeats the previous paragraph; paragraphs 7, 8, 9 simply restate paragraphs 2, 3, 4 without adding new information) | Keyword stuffing (\"Mobiz LEAP 2026 announcements underscore...\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 27,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/028.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Capitalization issue at the start of paragraph (\"the result is not yet clear...\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 28,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/029.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 29,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/030.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 30,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/031.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "The prose uses repetitive, promotional, and keyword-stuffed language (\"highly specialized\", \"robust, proactive\", \"comprehensive data analytics\", \"intelligent event correlation\", \"deliberate strategic shift\", \"industry-leading\", \"unified, cohesive ecosystem\"). It does not read like professional newsroom copy.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 31,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/032.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "The second half of the article repeats the exact same points and statistics (SAR 10 billion, 800k employees, Merak Capital funding, compliance mandates) already covered in the first half. The structure is repetitive and padded, failing the professional newsroom standard.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 32,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/033.json",
+      "output": {
+        "confidence": 90,
+        "editorial_issues": "Repetitive, padded writing in the later paragraphs.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 33,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/034.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "The draft includes significant sections of hallucinated analysis and commentary under the headings \"Strategic Partnerships and Capability Building\", \"The Role of Government and Policy\", and \"Future Outlook and Investment Trends\" which pad the word count and read like repetitive AI-generated fluff rather than professional newsroom copy.",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 34,
+        "unsupported_claims": "Saudi Arabia's Vision 2030 and the UAE's National Strategy for Artificial Intelligence — Remove references to specific national strategies not in the source | healthcare, finance, and energy leading the way in AI adoption — Remove specific sector predictions not in the source"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/035.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Paragraph 2 duplicates entire sentences from Paragraph 5 (\"The partnership demonstrates the company's ability to deliver not just individual processors...\" and \"The public nature of the announcement at DeepFest 2026 also signals...\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 35,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/036.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 36,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/037.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 37,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/038.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Promotional tone in \"highly anticipated\", \"formidable institutional partners\", \"massive technology conferences\", \"pushing the boundaries\", \"impressive breadth of innovation\", \"robust, highly coordinated network\", \"powerful consortium\", \"remarkably strong operational foundation\". Needs neutral, professional newsroom copy.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 38,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/039.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive and promotional writing (e.g., \"significant and highly anticipated move designed to elevate\", \"concerted and well-resourced effort\", \"diverse and highly relevant cross-section of high-growth sectors\", \"accurately reflecting the broadening scope, increasing sophistication, and growing maturity\", \"immense scale of the event provides an unparalleled platform\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 39,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/040.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 40,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/041.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 41,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/042.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "\"The focus on real-world applications at the Tech Arena LEAP 2026 is a a reflection\" — \"is a reflection\"",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 42,
+        "unsupported_claims": "\"The A2 Ultra is designed to showcase the integration of advanced artificial intelligence with sophisticated mechanical engineering, aiming to perform a wide range of tasks that were previously thought to be exclusive to human capabilities.\" — NA | \"The focus on humanoid robots in Riyadh reflects a growing recognition of their potential to address complex challenges in logistics, manufacturing, and service sectors.\" — NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/043.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 43,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/044.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 44,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/045.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Repetitive phrasing: \"shifting the narrative from strategic vision to immediate, large-scale government deployment\" is repeated twice in the opening paragraph. | Keyword stuffing: \"artificial intelligence\" is used repetitively and unnaturally throughout the text. | Repetitive phrasing: \"The SAMAI 2 initiative represents a massive, structured procurement window for international AI vendors\" is repeated.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 45,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/046.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "The prose contains repetitive phrasing (\"HUMAIN Microsoft partnership\") and some promotional tone, but it's acceptable for news. The article reads mostly fine, though a bit repetitive. | Repetitive phrasing \"HUMAIN Microsoft partnership\" in multiple paragraphs.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 46,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/047.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "repetitive prose | promotional tone | keyword-stuffed writing",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 47,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/048.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 48,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/049.json",
+      "output": {
+        "confidence": 90,
+        "editorial_issues": "Repetitive phrasing and promotional tone throughout | Lack of original newsroom style",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 49,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/050.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 50,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/051.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Prose is highly repetitive and padded, reading like promotional copy rather than a professional newsroom article. It relies heavily on generic, repetitive phrases (\"This involves...\", \"This not only...\", \"By leveraging...\") and stretches a brief 6-point fact summary into over 1,100 words. The opening paragraph is wordy and not concise.",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 51,
+        "unsupported_claims": "intelligent chatbots and automated document processing — NA | Predictive analytics can identify potential areas of dispute — NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/052.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 52,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/053.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 53,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/054.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 54,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/055.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 55,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/056.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive and keyword-stuffed writing | Overly analytical and promotional tone",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 56,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/057.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 57,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/058.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 58,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/059.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 59,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/060.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Wordy, repetitive sections on Vision 2030 and functional portfolios | Prose lacks tight newsroom pacing and is overly promotional/repetitive in later paragraphs",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 60,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/061.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "repetitive boilerplate paragraphs | keyword-stuffed writing | promotional tone",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 61,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/062.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "The draft is excessively repetitive, promotional, and keyword-stuffed. It reads like a press release rather than professional newsroom copy. Examples of promotional/repetitive language: \"significant milestone reflects the Kingdom's accelerated digital transformation efforts,\" \"demonstrating an expanding scope of digital governance,\" \"remarkable aspect,\" \"sheer volume,\" \"impressive score,\" \"consistent high performance,\" \"crucial component,\" \"fundamental aspect,\" \"proactive approach.\" It also repeatedly states the index reached 87.06% and mentions Saudi Vision 2030 and digital transformation in a generic, promotional manner.",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 62,
+        "unsupported_claims": "Musaned — remove from company_names | Qiwa — remove from company_names | Logisti — remove from company_names | Nama — remove from company_names | Ministry of Tourism — remove from company_names | Geospatial Technology — remove from topic_names and tag_names | Travel Technology — remove from topic_names and tag_names"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/063.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 63,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/064.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 64,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/065.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive and promotional writing (\"a concrete move\", \"significant step\", \"critical milestone\", \"new standard for operational excellence\") | Fluff/filler in the second half of the article (paragraphs 15-18 are pure filler, summarizing the same points repeatedly and making generic statements about Vision 2030 and digital economy)",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 65,
+        "unsupported_claims": "providing social loans and supporting small and medium enterprises — NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/066.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Prose is highly repetitive, duplicating entire paragraphs verbatim | Contains keyword-stuffed paragraphs (\"Microsoft Saudi Arabia East will be a key part... LEAP 2026 Microsoft is a big deal...\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 66,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/067.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 67,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/068.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Draft is excessively long, repetitive, and padded with generic filler about digital transformation, LEAP 2026, and the digital economy instead of delivering concrete news. | The article is heavily padded to meet a word count, rather than being written like professional newsroom copy.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 68,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/069.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Repetitive, promotional, and keyword-stuffed writing in the final paragraph",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 69,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/070.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Repetitive writing: \"Zawal portal is expected to play a pivotal role\", \"The Zawal portal represents a significant milestone\" are promotional/repetitive | Unanswered questions section reads like filler/speculation without evidence",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 70,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/071.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 71,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/072.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive writing at the end of the article (\"The company is committed to innovation and growth in the technology sector.\" repeated numerous times)",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 72,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/073.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "repetitive phrasing | promotional tone",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 73,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/074.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 74,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/075.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive phrasing and keyword stuffing (\"HUMAIN and Applied Intuition to Deploy National Autonomous Trucking Network\" appears awkwardly in the opening sentence and repeatedly in SEO fields) | Promotional tone (\"bold step towards a more connected and efficient future\", \"powerful example of what can be achieved\") | Repetitive conclusions and filler content in the last few paragraphs",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 75,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/076.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive writing: The second paragraph is repeated exactly three times.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 76,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/077.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "highly repetitive and keyword-stuffed text with verbatim paragraphs duplicated multiple times",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 77,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/078.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Draft is highly repetitive and contains extensive promotional filler (\"The strategic importance of this announcement cannot be overstated\", \"Looking ahead, the success...\", \"As the technology landscape continues to evolve...\"). Needs significant trimming to meet professional newsroom standards.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 78,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/079.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 79,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/080.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "Keyword stuffing: Unnatural phrasing like 'Classpedia education platform', 'Synclo AI enterprise capabilities', and 'Chattrik communication tools' in the same paragraph | Keyword stuffing: Unnatural insertion of 'Pakistan tech startups at LEAP 2026'",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 80,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/081.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 81,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/082.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 82,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/083.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 83,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/084.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive, keyword-stuffed final paragraph with generic filler sentences | Poorly structured conclusion lacking original professional newsroom copy standards",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 84,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/085.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive and keyword-stuffed phrasing (\"HUMAIN AI PC\", \"Qualcomm Snapdragon X2 Elite\", \"LEAP 2026\", \"Saudi digital economy\", \"enterprise environments\") | Promotional tone (\"formidable chipset\", \"computational muscle\", \"powerful statement of intent\") | Repetitive paragraph structure and content (e.g. repeating the 80 trillion ops, the 2027 OS transition, and the 1 million target)",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 85,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/086.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "The article is highly repetitive, keyword-stuffed, and reads like promotional material rather than professional newsroom copy. Multiple paragraphs restate the same points about \"advanced wireless technologies,\" \"digital transformation,\" and \"local integration capabilities\" without adding new information. The structure is padded and lacks conciseness.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 86,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/087.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 87,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/088.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "The final paragraph before References contains repetitive, keyword-stuffed, promotional writing (\"The initiative aligns with broader economic diversification goals...\", \"This comprehensive approach is designed to foster...\", etc.) which violates the professional newsroom quality standard.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 88,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/089.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 89,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/090.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 90,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/091.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 91,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/092.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 92,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/093.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Promotional and repetitive boilerplate in final paragraph",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 93,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/094.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 94,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/095.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive boilerplate writing at the end of the article (\"The strategic initiatives are designed to foster sustainable growth...\" through the end of the paragraph) | Keyword-stuffed phrasing in the second paragraph (\"The Ghanem funding is expected to play...\", \"This Al-Romaih Group investment highlights the growing interest in innovative property investment KSA models.\")",
+        "editorial_status": "needs_correction",
+        "factual_status": "needs_correction",
+        "sequence": 95,
+        "unsupported_claims": "blockchain and artificial intelligence — NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/096.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Repetitive and keyword-stuffed writing. The phrase 'The platform connects organizational goals and performance management with analytics and AI-powered insights, embedding performance into the daily flow of work' is repeated 5 times. The last three paragraphs are verbatim repetitions of source facts and the introduction.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 96,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/097.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "Draft uses repetitive phrasing (e.g., \"The exhibition will...\", \"These products are expected to...\", \"The agreements will...\", \"The discussions on...\") | Contains significant promotional/filler language (\"underscoring the growing importance of the Saudi market in the global digital landscape\", \"fostering a deeper understanding\", \"robust pipeline of digital initiatives\") | Repetitive conclusions at the end of each section.",
+        "editorial_status": "needs_correction",
+        "factual_status": "pass",
+        "sequence": 97,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/098.json",
+      "output": {
+        "confidence": 95,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 98,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/099.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 99,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    },
+    {
+      "input": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/qa/review-packets/100.json",
+      "output": {
+        "confidence": 100,
+        "editorial_issues": "NA",
+        "editorial_status": "pass",
+        "factual_status": "pass",
+        "sequence": 100,
+        "unsupported_claims": "NA"
+      },
+      "error": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+SOURCE	https://finance.yahoo.com/technology/ai/articles/data-dynamics-launches-enterprise-2-095800017.html	COUNT	5
+  43	Data Dynamics Launches Enterprise 2.0.5 for Governed AI at LEAP 2026
+  59	Data Dynamics Launches Enterprise 2.0.5 at LEAP 2026 for AI Governance
+  73	Data Dynamics Debuts Enterprise 2.0.5 for Governed AI Data Layer at LEAP 2026
+  75	Data Dynamics Launches Enterprise 2.0.5 at LEAP 2026 to Scale Governed AI
+  100	Data Dynamics Unveils Enterprise 2.0.5 at LEAP 2026 to Scale AI Safely
+SOURCE	https://mea.newsroom.ibm.com/Ejada-IBM-Bob	COUNT	2
+  31	IBM and Ejada Systems Use AI Agent Bob to Accelerate Enterprise Modernization in Saudi Arabia
+  32	IBM and Ejada Systems Accelerate Saudi Enterprise Modernization with IBM Bob
+SOURCE	https://news.adobe.com/news/2026/08/adobe-mcit-and-humain-expand-partnership	COUNT	6
+  3	Adobe grants $4B in free AI tools to 27M Saudi residents
+  21	Adobe Offers $4B in Free AI Tools to Saudis with Culturally Tuned Model
+  25	Adobe Commits $4B to Free AI Tools for 27M Saudi Citizens at LEAP 2026
+  52	Adobe, HUMAIN to Give 27M Saudis Free Access to AI Creative Tools
+  80	Adobe pledges $4 billion in free AI creative tools for Saudi residents at LEAP 2026
+  92	Adobe, MCIT, and HUMAIN Launch $4B Initiative at LEAP 2026
+SOURCE	https://news.lenovo.com/pressroom/press-releases/unveils-first-laptop-manufactured-saudi-arabia-supporting-the-kingdoms-vision-for-advanced-manufacturing/	COUNT	2
+  11	Lenovo Unveils First Saudi-Made Laptop at LEAP 2026 Ahead of Mass Production
+  49	Lenovo Unveils First Saudi-Manufactured Laptop at LEAP 2026
+SOURCE	https://onegiantleap.com/aws-ai-academy	COUNT	2
+  24	AWS Launches Free AI Academy and Hackathon at LEAP 2026
+  34	AWS AI Academy Brings Free Agentic AI Training and Hackathons to LEAP 2026
+SOURCE	https://www.aboutamazon.com/news/aws/aws-cloud-region-saudi-arabia	COUNT	4
+  1	AWS to Launch Saudi Cloud Region in December 2026 with HUMAIN AI Zone
+  37	AWS Unveils 2026 Saudi Region Launch with 50MW AI Zone and ZainTECH Partnership
+  55	AWS to Launch Saudi Cloud Region and 50MW AI Zone with HUMAIN
+  74	AWS Accelerates Saudi Cloud Region Launch to December 2026
+SOURCE	https://www.kitsapsun.com/press-release/story/791482/leap-2026-opens-tomorrow-what-to-watch-as-the-global-technology-community-gathers-in-riyadh/	COUNT	2
+  68	LEAP 2026 Tech Arena Showcases Unitree and AGIBOT Humanoid Robots
+  94	LEAP Nights Partners With F1 Saudi Arabia For 2027 Grand Prix Early Access
+SOURCE	https://www.prnewswire.com/news-releases/data-dynamics-launches-enterprise-2-0-5-at-leap-2026--bringing-governed-ai-to-the-data-layer-302864847.html	COUNT	2
+  14	Data Dynamics launches Enterprise 2.0.5 at LEAP 2026 to solve AI data governance bottleneck
+  61	Data Dynamics Launches Enterprise 2.0.5 for Governed AI at DeepFest 2026
+SOURCE	https://www.prnewswire.com/news-releases/humain-and-kora-partner-to-build-operating-system-at-leap-2026-302865087.html	COUNT	3
+  9	HUMAIN and KORA Co-Develop AI-Native Linux OS for 2027 Launch
+  51	HUMAIN and KORA Co-Develop AI-Native Linux OS for 2027
+  70	HUMAIN and KORA to Develop AI-Native Linux OS at LEAP 2026
+SOURCE	https://www.prnewswire.com/news-releases/think-unveils-think-fabric-a-new-approach-to-bare-metal-heterogeneous-ai-compute-built-for-the-age-of-efficiency-302864558.html	COUNT	2
+  15	Think Unveils Think Fabric at LEAP 2026 to Optimize Bare-Metal AI Compute
+  16	Think Launches Think Fabric Bare-Metal AI Compute Platform at LEAP 2026
+SOURCE	https://www.zawya.com/en/press-release/companies-news/specialized-by-stc-unveils-national-capability-layers-at-leap-2026-472860	COUNT	2
+  27	Specialized by stc Unveils National Capability Layers at LEAP 2026
+  95	Specialized by stc Unveils Business Critical Network and Hadath Platform at LEAP 2026
+SOURCE	https://www.zawya.com/en/press-release/ifs-brings-industrial-ai-from-experimentation-to-execution-at-leap-2026-469150	COUNT	2
+  18	IFS and Microsoft showcase real-world industrial AI applications at LEAP 2026
+  97	IFS Partners With Microsoft to Bring Industrial AI Execution to LEAP 2026

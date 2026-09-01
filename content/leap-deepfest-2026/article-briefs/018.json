@@ -1,0 +1,191 @@
+{
+  "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+  "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+  "article": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 18,
+    "candidate_id": "R023",
+    "canonical_announcement_key": "Mannai IT Saudi showcases AI for smart cities and connected stadiums",
+    "selection_reason": "Saudi HQ expansion + concrete sector solutions; tied to sports/smart-city build-out.",
+    "title": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026",
+    "slug": "mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "is_featured": false,
+    "is_trending": false,
+    "is_editor_pick": false,
+    "is_flash": false,
+    "announcement_date": "2026-08-27",
+    "display_datetime_local": "2026-08-31T14:03:28+03:00",
+    "display_datetime_utc": "2026-08-31T11:03:28Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "Mannai Information Technology Saudi Arabia (MIT KSA), a part of Mannai Corporation, has announced its participation in LEAP 2026. The company is set to showcase its latest AI-powered innovations tailored for connected stadiums, smart…",
+    "content_target_words": {
+      "minimum": 800,
+      "preferred": 1050,
+      "maximum": 1400
+    },
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Mannai Information Technology Saudi Arabia",
+      "Mannai Corporation QPSC"
+    ],
+    "people_names": [
+      "Lakshimi Narayanan"
+    ],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Cloud Computing",
+      "Cybersecurity",
+      "Enterprise Software",
+      "Smart Cities",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "AI & Machine Learning",
+      "Cloud Computing",
+      "Cybersecurity",
+      "Enterprise Software",
+      "Smart Cities",
+      "Mannai Information Technology Saudi Arabia",
+      "Mannai Corporation QPSC",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Mannai IT Saudi",
+      "keywords": [
+        "Mannai IT Saudi",
+        "LEAP 2026",
+        "AI innovation",
+        "smart cities",
+        "connected stadiums",
+        "digital transformation Saudi Arabia",
+        "Vision 2030",
+        "Lakshimi Narayanan"
+      ],
+      "seo_title": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026",
+      "seo_description": "Mannai Information Technology Saudi Arabia (MIT KSA), a part of Mannai Corporation, has announced its participation in LEAP 2026. The company is set to showcase…",
+      "og_title": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026",
+      "og_description": "Mannai Information Technology Saudi Arabia (MIT KSA), a part of Mannai Corporation, has announced its participation in LEAP 2026. The company is set to showcase its latest AI-powered innovations…",
+      "google_news_keywords": [
+        "Mannai IT Saudi",
+        "LEAP 2026",
+        "AI innovation",
+        "smart cities",
+        "connected stadiums",
+        "digital transformation Saudi Arabia",
+        "Vision 2030",
+        "Lakshimi Narayanan"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "Mannai Information Technology to highlight future of sports, smart cities, enterprises through AI and digital innovation at LEAP",
+      "primary_url": "https://www.tahawultech.com/news/mannai-information-technology-to-highlight-future-of-sports-smart-cities-enterprises-through-ai-and-digital-innovation-at-leap/",
+      "supporting_urls": [
+        "https://www.intelligentcio.com/me/2026/08/31/mannai-it-to-showcase-ai-powered-innovation-at-leap-2026/"
+      ],
+      "verified_angle_summary": "Mannai Information Technology Saudi Arabia (MIT KSA), a part of Mannai Corporation, has announced its participation in LEAP 2026. The company is set to showcase its latest AI-powered innovations tailored for connected stadiums, smart cities, and enterprises. This move aligns with Saudi Arabia's Vision 2030, which emphasizes technological advancement and economic diversification. Following the recent opening of its regional headquarters in Riyadh, MIT KSA aims to leverage AI, cloud computing, and digital infrastructure to support the Kingdom's growing sports industry, including preparations for the FIFA World Cup 2034. The angle focuses specifically on how Mannai IT is positioning itself as a key technology partner in Saudi Arabia's digital future, highlighting practical, outcome-driven solutions over standalone technologies. This specific focus on smart city and connected stadium infrastructure makes it a distinct and newsworthy angle for LEAP 2026 coverage.",
+      "verified_key_facts": "Mannai Information Technology Saudi Arabia (MIT KSA) will participate in LEAP 2026 from August 31 to September 3; The focus will be on AI, connected stadiums, smart cities, cybersecurity, and cloud transformation; MIT KSA recently opened its regional headquarters in Riyadh; The technological push aligns with Saudi Vision 2030 and preparations for the FIFA World Cup 2034; Lakshimi Narayanan is the General Manager of MIT KSA; The company aims to showcase practical, real-world outcomes of AI and digital infrastructure",
+      "confidence": 95
+    },
+    "image": {
+      "candidate_url": "",
+      "credit": "",
+      "license_note": "NA",
+      "required_width": 1600,
+      "required_height": 900,
+      "required_mime_type": "image/webp",
+      "alt_text_template": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption_template": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "fallback_credit": "TechScoop illustration"
+    },
+    "drafting_brief": {
+      "angle": "Mannai Information Technology Saudi Arabia (MIT KSA), a part of Mannai Corporation, has announced its participation in LEAP 2026. The company is set to showcase its latest AI-powered innovations tailored for connected stadiums, smart cities, and enterprises. This move aligns with Saudi Arabia's Vision 2030, which emphasizes technological advancement and economic diversification. Following the recent opening of its regional headquarters in Riyadh, MIT KSA aims to leverage AI, cloud computing, and digital infrastructure to support the Kingdom's growing sports industry, including preparations for the FIFA World Cup 2034. The angle focuses specifically on how Mannai IT is positioning itself as a key technology partner in Saudi Arabia's digital future, highlighting practical, outcome-driven solutions over standalone technologies. This specific focus on smart city and connected stadium infrastructure makes it a distinct and newsworthy angle for LEAP 2026 coverage.",
+      "key_facts": "Mannai Information Technology Saudi Arabia (MIT KSA) will participate in LEAP 2026 from August 31 to September 3; The focus will be on AI, connected stadiums, smart cities, cybersecurity, and cloud transformation; MIT KSA recently opened its regional headquarters in Riyadh; The technological push aligns with Saudi Vision 2030 and preparations for the FIFA World Cup 2034; Lakshimi Narayanan is the General Manager of MIT KSA; The company aims to showcase practical, real-world outcomes of AI and digital infrastructure",
+      "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+      "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+    }
+  },
+  "final_image": {
+    "sequence": 18,
+    "candidate_id": "R023",
+    "slug": "mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026",
+    "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/018-mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026.webp",
+    "filename": "018-mannai-it-saudi-showcases-ai-for-smart-cities-at-leap-2026.webp",
+    "mime_type": "image/webp",
+    "size": 268956,
+    "width": 1600,
+    "height": 900,
+    "sha256": "c1356efd6a8a9ee2cf9a667a353c271a4898fc4c35c816e4b0207c76872249fd",
+    "source_generated_format": "PNG",
+    "source_generated_width": 2560,
+    "source_generated_height": 1440,
+    "alt": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026 — LEAP and DeepFest 2026 news",
+    "caption": "Mannai IT Saudi Showcases AI for Smart Cities at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+    "credit": "TechScoop illustration",
+    "source_url": "https://techscoop.io",
+    "license": "TechScoop original",
+    "rights_status": "generated",
+    "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+    "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+    "generation_brief": "content/leap-deepfest-2026/image-briefs/018.json"
+  },
+  "output_contract": {
+    "format": "JSON",
+    "required_fields": [
+      "sequence",
+      "candidate_id",
+      "canonical_announcement_key",
+      "title",
+      "slug",
+      "author_public_name",
+      "workflow_status_slug",
+      "article_type",
+      "display_datetime_local",
+      "display_datetime_utc",
+      "timezone",
+      "excerpt",
+      "content_markdown",
+      "content_word_count",
+      "primary_category_name",
+      "category_names",
+      "event_names",
+      "event_bucket",
+      "company_names",
+      "people_names",
+      "topic_names",
+      "tag_names",
+      "coverage",
+      "seo",
+      "sources",
+      "image",
+      "editorial_notes"
+    ],
+    "content_word_count_min": 850,
+    "content_word_count_max": 1250,
+    "content_word_count_scope": "Article body only, excluding References",
+    "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+    "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+  }
+}

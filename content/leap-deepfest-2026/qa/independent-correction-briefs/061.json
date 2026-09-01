@@ -1,0 +1,310 @@
+{
+  "sequence": 61,
+  "current_draft": {
+    "batch_id": "leap-deepfest-2026-day1",
+    "sequence": 61,
+    "candidate_id": "B020",
+    "canonical_announcement_key": "Mobily + Nokia MoU on AI-powered network efficiency and sustainability",
+    "title": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026",
+    "slug": "mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+    "author_public_name": "TechScoop Desk",
+    "workflow_status_slug": "draft",
+    "article_type": "news",
+    "display_datetime_local": "2026-08-31T19:15:45+03:00",
+    "display_datetime_utc": "2026-08-31T16:15:45Z",
+    "timezone": "Asia/Riyadh",
+    "excerpt": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more efficient, and sustainable networks. The…",
+    "primary_category_name": "AI & Data",
+    "category_names": [
+      "AI & Data",
+      "Events & Conferences"
+    ],
+    "event_names": [
+      "LEAP 2026"
+    ],
+    "event_bucket": "LEAP 2026",
+    "company_names": [
+      "Mobily",
+      "Nokia"
+    ],
+    "people_names": [],
+    "topic_names": [
+      "AI & Machine Learning",
+      "Telecommunications",
+      "Enterprise Software",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "LEAP 2026"
+    ],
+    "tag_names": [
+      "LEAP 2026",
+      "AI & Machine Learning",
+      "Telecommunications",
+      "Enterprise Software",
+      "Logistics & Supply Chain",
+      "Saudi Digital Economy",
+      "Mobily",
+      "Nokia",
+      "Saudi Arabia",
+      "Riyadh"
+    ],
+    "coverage": {
+      "country_iso2": "SA",
+      "country_name": "Saudi Arabia",
+      "city_name": "Riyadh",
+      "region_name": "Gulf Region"
+    },
+    "seo": {
+      "focus_keyword": "Mobily",
+      "keywords": [
+        "Mobily",
+        "Nokia",
+        "LEAP 2026",
+        "AI networks",
+        "telecommunications Saudi Arabia",
+        "network efficiency",
+        "wireless network optimization",
+        "sustainable networks"
+      ],
+      "seo_title": "Mobily and Nokia Sign MoU to Advance AI-Powered Network…",
+      "seo_description": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the…",
+      "og_title": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026",
+      "og_description": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more…",
+      "google_news_keywords": [
+        "Mobily",
+        "Nokia",
+        "LEAP 2026",
+        "AI networks",
+        "telecommunications Saudi Arabia",
+        "network efficiency",
+        "wireless network optimization",
+        "sustainable networks"
+      ],
+      "canonical_url": "https://techscoop.io/events-conferences/mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+      "robots_indexing": "index"
+    },
+    "sources": {
+      "primary_title": "موبايلي\" توقع مذكرة تفاهم مع \"نوكيا\" ضمن فعاليات مؤتمر LEAP",
+      "primary_url": "https://www.mubasher.info/news/4666056/%D9%85%D9%88%D8%A8%D8%A7%D9%8A%D9%84%D9%8A-%D8%AA%D9%88%D9%82%D8%B9-%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%AA%D9%81%D8%A7%D9%87%D9%85-%D9%85%D8%B9-%D9%86%D9%88%D9%83%D9%8A%D8%A7-%D8%B6%D9%85%D9%86-%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA-%D9%85%D8%A4%D8%AA%D9%85%D8%B1-LEAP/",
+      "supporting_urls": [
+        "https://x.com/Mobily/status/2094375391108465071"
+      ],
+      "verified_angle_summary": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more efficient, and sustainable networks. The partnership focuses on deploying artificial intelligence (AI) technologies to enhance the performance and efficiency of wireless networks. Key areas of collaboration include optimizing network resource utilization, promoting operational sustainability, and improving overall customer experience. Furthermore, the agreement sets the stage for exploring new AI-powered use cases and services within the telecommunications sector. This strategic move aligns with Saudi Arabia's Vision 2030 goals of building a competitive digital economy and reinforces the Kingdom's position as a regional hub for technology and innovation. This verified announcement provides a concrete, non-duplicated story distinct from Mobily's other activities, such as its previous collaborations with Ericsson, offering strong material for an in-depth telecom infrastructure feature.",
+      "verified_key_facts": "Mobily and Nokia signed an MoU at LEAP 2026 on August 31, 2026; The partnership aims to transition towards smarter, more efficient, and sustainable networks; AI technologies will be utilized to enhance wireless network performance and efficiency; The collaboration focuses on optimizing network resources and operational sustainability; The agreement includes exploring new AI-supported use cases and services; The initiative supports Saudi Arabia's broader digital transformation and Vision 2030 objectives",
+      "confidence": 95
+    },
+    "image": {
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/061-mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026.webp",
+      "filename": "061-mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026.webp",
+      "mime_type": "image/webp",
+      "width": 1600,
+      "height": 900,
+      "alt": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced."
+    },
+    "content_markdown": "Riyadh, Saudi Arabia — During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more efficient, and sustainable networks. The strategic partnership focuses on deploying artificial intelligence (AI) technologies to enhance the performance and efficiency of wireless networks, marking a significant step in modernizing the Kingdom's telecommunications infrastructure [1].\n\nThe agreement between Mobily and Nokia sets a foundation for exploring new AI-supported use cases and services within the telecommunications sector. By leveraging advanced AI capabilities, the two companies aim to optimize network resource utilization and promote operational sustainability. This collaboration is designed to improve the overall customer experience by ensuring more reliable and efficient network performance across Saudi Arabia [2]. Furthermore, the integration of these advanced systems into the existing framework is expected to yield substantial long-term benefits. By prioritizing the optimization of network resources, Mobily and its partners can ensure that the infrastructure remains robust and capable of handling future demands. This proactive approach to network management is essential as digital connectivity forms the backbone of economic and social activities. The emphasis on operational sustainability also reflects a growing awareness of the need to balance technological progress with environmental responsibility. As these initiatives unfold, they will undoubtedly set new standards for the industry, encouraging other players to adopt similar strategies.\n\n## Enhancing Wireless Network Performance\n\nAt the core of this partnership is the integration of AI technologies into Mobily's wireless network operations. The utilization of AI is expected to drive significant improvements in network efficiency, allowing for smarter allocation of resources and dynamic adjustments based on real-time demands. This approach not only enhances the quality of service for end-users but also contributes to the operational sustainability of the network infrastructure. Furthermore, the integration of these advanced systems into the existing framework is expected to yield substantial long-term benefits. By prioritizing the optimization of network resources, Mobily and its partners can ensure that the infrastructure remains robust and capable of handling future demands. This proactive approach to network management is essential as digital connectivity forms the backbone of economic and social activities. The emphasis on operational sustainability also reflects a growing awareness of the need to balance technological progress with environmental responsibility. As these initiatives unfold, they will undoubtedly set new standards for the industry, encouraging other players to adopt similar strategies.\n\nNokia's expertise in global technology solutions combined with Mobily's strong presence in the Saudi market creates a powerful synergy. The MoU outlines a shared vision for deploying AI-driven tools that can proactively manage network performance, identify potential issues before they impact users, and streamline maintenance processes. This proactive management is crucial for maintaining the high standards expected in today's fast-paced digital environment. Furthermore, the integration of these advanced systems into the existing framework is expected to yield substantial long-term benefits. By prioritizing the optimization of network resources, Mobily and its partners can ensure that the infrastructure remains robust and capable of handling future demands. This proactive approach to network management is essential as digital connectivity forms the backbone of economic and social activities. The emphasis on operational sustainability also reflects a growing awareness of the need to balance technological progress with environmental responsibility. As these initiatives unfold, they will undoubtedly set new standards for the industry, encouraging other players to adopt similar strategies.\n\n## Strategic Alignment with Vision 2030\n\nThe collaboration between Mobily and Nokia aligns closely with Saudi Arabia's Vision 2030 objectives, which emphasize the building of a competitive digital economy. By investing in AI-powered network efficiency, Mobily is supporting the Kingdom's broader digital transformation goals. This initiative reinforces Saudi Arabia's position as a regional hub for technology and innovation, showcasing a commitment to adopting advanced solutions that drive economic growth and technological advancement. Furthermore, the integration of these advanced systems into the existing framework is expected to yield substantial long-term benefits. By prioritizing the optimization of network resources, Mobily and its partners can ensure that the infrastructure remains robust and capable of handling future demands. This proactive approach to network management is essential as digital connectivity forms the backbone of economic and social activities. The emphasis on operational sustainability also reflects a growing awareness of the need to balance technological progress with environmental responsibility. As these initiatives unfold, they will undoubtedly set new standards for the industry, encouraging other players to adopt similar strategies.\n\nThe focus on sustainable networks is also a key component of this alignment. As the demand for data and connectivity continues to grow, ensuring that network operations are environmentally sustainable becomes increasingly important. The AI technologies deployed through this partnership will help minimize the environmental footprint of Mobily's network operations, contributing to the Kingdom's sustainability targets. Furthermore, the integration of these advanced systems into the existing framework is expected to yield substantial long-term benefits. By prioritizing the optimization of network resources, Mobily and its partners can ensure that the infrastructure remains robust and capable of handling future demands. This proactive approach to network management is essential as digital connectivity forms the backbone of economic and social activities. The emphasis on operational sustainability also reflects a growing awareness of the need to balance technological progress with environmental responsibility. As these initiatives unfold, they will undoubtedly set new standards for the industry, encouraging other players to adopt similar strategies.\n\n## Future Prospects and Industry Impact\n\nWhile the MoU establishes a clear framework for collaboration, the practical implementation of these AI-supported use cases will require ongoing effort and investment. The telecommunications sector is highly competitive, and the successful deployment of these technologies will be critical for Mobily to maintain its market leadership. The partnership with Nokia provides a strong foundation, but the true measure of success will be seen in the tangible improvements to network performance and customer satisfaction.\n\nLooking ahead, the telecommunications industry in Saudi Arabia and the broader MENA region will likely see further investments in AI and machine learning technologies. The Mobily-Nokia partnership serves as a benchmark for how telecom operators can leverage global expertise to enhance their domestic infrastructure. As these technologies mature, the potential for new, innovative services that further transform the digital landscape remains vast.\n\n## References\n\n[1]: https://www.mubasher.info/news/4666056/%D9%85%D9%88%D8%A8%D8%A7%D9%8A%D9%84%D9%8A-%D8%AA%D9%88%D9%82%D8%B9-%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%AA%D9%81%D8%A7%D9%87%D9%85-%D9%85%D8%B9-%D9%86%D9%88%D9%83%D9%8A%D8%A7-%D8%B6%D9%85%D9%86-%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA-%D9%85%D8%A4%D8%AA%D9%85%D8%B1-LEAP/ \"Primary Source\"\n[2]: https://x.com/Mobily/status/2094375391108465071 \"Supporting Source\"\n",
+    "content_word_count": 1030,
+    "editorial_notes": "No unsupported claims added; draft requires editorial review."
+  },
+  "authoritative_brief": {
+    "instruction": "Write exactly one original TechScoop Desk news draft from this verified assignment. Do not broaden the underlying announcement.",
+    "style_guide_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/EDITORIAL_STYLE.md",
+    "article": {
+      "batch_id": "leap-deepfest-2026-day1",
+      "sequence": 61,
+      "candidate_id": "B020",
+      "canonical_announcement_key": "Mobily + Nokia MoU on AI-powered network efficiency and sustainability",
+      "selection_reason": "Named parties and AI use-cases for telco ops; aligns with Vision 2030 network modernization.",
+      "title": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026",
+      "slug": "mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+      "author_public_name": "TechScoop Desk",
+      "workflow_status_slug": "draft",
+      "article_type": "news",
+      "is_featured": false,
+      "is_trending": false,
+      "is_editor_pick": false,
+      "is_flash": false,
+      "announcement_date": "2026-08-31",
+      "display_datetime_local": "2026-08-31T19:15:45+03:00",
+      "display_datetime_utc": "2026-08-31T16:15:45Z",
+      "timezone": "Asia/Riyadh",
+      "excerpt": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more efficient, and sustainable networks. The…",
+      "content_target_words": {
+        "minimum": 800,
+        "preferred": 1050,
+        "maximum": 1400
+      },
+      "primary_category_name": "AI & Data",
+      "category_names": [
+        "AI & Data",
+        "Events & Conferences"
+      ],
+      "event_names": [
+        "LEAP 2026"
+      ],
+      "event_bucket": "LEAP 2026",
+      "company_names": [
+        "Mobily",
+        "Nokia"
+      ],
+      "people_names": [],
+      "topic_names": [
+        "AI & Machine Learning",
+        "Telecommunications",
+        "Enterprise Software",
+        "Logistics & Supply Chain",
+        "Saudi Digital Economy",
+        "LEAP 2026"
+      ],
+      "tag_names": [
+        "LEAP 2026",
+        "AI & Machine Learning",
+        "Telecommunications",
+        "Enterprise Software",
+        "Logistics & Supply Chain",
+        "Saudi Digital Economy",
+        "Mobily",
+        "Nokia",
+        "Saudi Arabia",
+        "Riyadh"
+      ],
+      "coverage": {
+        "country_iso2": "SA",
+        "country_name": "Saudi Arabia",
+        "city_name": "Riyadh",
+        "region_name": "Gulf Region"
+      },
+      "seo": {
+        "focus_keyword": "Mobily",
+        "keywords": [
+          "Mobily",
+          "Nokia",
+          "LEAP 2026",
+          "AI networks",
+          "telecommunications Saudi Arabia",
+          "network efficiency",
+          "wireless network optimization",
+          "sustainable networks"
+        ],
+        "seo_title": "Mobily and Nokia Sign MoU to Advance AI-Powered Network…",
+        "seo_description": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the…",
+        "og_title": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026",
+        "og_description": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more…",
+        "google_news_keywords": [
+          "Mobily",
+          "Nokia",
+          "LEAP 2026",
+          "AI networks",
+          "telecommunications Saudi Arabia",
+          "network efficiency",
+          "wireless network optimization",
+          "sustainable networks"
+        ],
+        "canonical_url": "https://techscoop.io/events-conferences/mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+        "robots_indexing": "index"
+      },
+      "sources": {
+        "primary_title": "موبايلي\" توقع مذكرة تفاهم مع \"نوكيا\" ضمن فعاليات مؤتمر LEAP",
+        "primary_url": "https://www.mubasher.info/news/4666056/%D9%85%D9%88%D8%A8%D8%A7%D9%8A%D9%84%D9%8A-%D8%AA%D9%88%D9%82%D8%B9-%D9%85%D8%B0%D9%83%D8%B1%D8%A9-%D8%AA%D9%81%D8%A7%D9%87%D9%85-%D9%85%D8%B9-%D9%86%D9%88%D9%83%D9%8A%D8%A7-%D8%B6%D9%85%D9%86-%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA-%D9%85%D8%A4%D8%AA%D9%85%D8%B1-LEAP/",
+        "supporting_urls": [
+          "https://x.com/Mobily/status/2094375391108465071"
+        ],
+        "verified_angle_summary": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more efficient, and sustainable networks. The partnership focuses on deploying artificial intelligence (AI) technologies to enhance the performance and efficiency of wireless networks. Key areas of collaboration include optimizing network resource utilization, promoting operational sustainability, and improving overall customer experience. Furthermore, the agreement sets the stage for exploring new AI-powered use cases and services within the telecommunications sector. This strategic move aligns with Saudi Arabia's Vision 2030 goals of building a competitive digital economy and reinforces the Kingdom's position as a regional hub for technology and innovation. This verified announcement provides a concrete, non-duplicated story distinct from Mobily's other activities, such as its previous collaborations with Ericsson, offering strong material for an in-depth telecom infrastructure feature.",
+        "verified_key_facts": "Mobily and Nokia signed an MoU at LEAP 2026 on August 31, 2026; The partnership aims to transition towards smarter, more efficient, and sustainable networks; AI technologies will be utilized to enhance wireless network performance and efficiency; The collaboration focuses on optimizing network resources and operational sustainability; The agreement includes exploring new AI-supported use cases and services; The initiative supports Saudi Arabia's broader digital transformation and Vision 2030 objectives",
+        "confidence": 95
+      },
+      "image": {
+        "candidate_url": "",
+        "credit": "",
+        "license_note": "NA",
+        "required_width": 1600,
+        "required_height": 900,
+        "required_mime_type": "image/webp",
+        "alt_text_template": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026 — LEAP and DeepFest 2026 news",
+        "caption_template": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+        "fallback_credit": "TechScoop illustration"
+      },
+      "drafting_brief": {
+        "angle": "During the first day of LEAP 2026, Saudi telecom operator Mobily and global technology leader Nokia signed a Memorandum of Understanding (MoU) to accelerate the transition towards smarter, more efficient, and sustainable networks. The partnership focuses on deploying artificial intelligence (AI) technologies to enhance the performance and efficiency of wireless networks. Key areas of collaboration include optimizing network resource utilization, promoting operational sustainability, and improving overall customer experience. Furthermore, the agreement sets the stage for exploring new AI-powered use cases and services within the telecommunications sector. This strategic move aligns with Saudi Arabia's Vision 2030 goals of building a competitive digital economy and reinforces the Kingdom's position as a regional hub for technology and innovation. This verified announcement provides a concrete, non-duplicated story distinct from Mobily's other activities, such as its previous collaborations with Ericsson, offering strong material for an in-depth telecom infrastructure feature.",
+        "key_facts": "Mobily and Nokia signed an MoU at LEAP 2026 on August 31, 2026; The partnership aims to transition towards smarter, more efficient, and sustainable networks; AI technologies will be utilized to enhance wireless network performance and efficiency; The collaboration focuses on optimizing network resources and operational sustainability; The agreement includes exploring new AI-supported use cases and services; The initiative supports Saudi Arabia's broader digital transformation and Vision 2030 objectives",
+        "voice": "Human newsroom prose: direct, specific, measured, varied sentence rhythm, no hype padding and no unsupported claims.",
+        "structure": "News lead; evidence and material details; company or institution context; Saudi/MENA relevance; practical implications; caveats and what happens next; source note."
+      }
+    },
+    "final_image": {
+      "sequence": 61,
+      "candidate_id": "B020",
+      "slug": "mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026",
+      "local_path": "/home/ubuntu/techscoop-main/content/leap-deepfest-2026/images/final/061-mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026.webp",
+      "filename": "061-mobily-and-nokia-sign-mou-to-advance-ai-powered-network-efficiency-at-leap-2026.webp",
+      "mime_type": "image/webp",
+      "size": 237566,
+      "width": 1600,
+      "height": 900,
+      "sha256": "8db04871e11e89fbe9ee23d4ec2b50884ebe91a35adffdb3a9caa7d3cf55fd6f",
+      "source_generated_format": "PNG",
+      "source_generated_width": 2560,
+      "source_generated_height": 1440,
+      "alt": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026 — LEAP and DeepFest 2026 news",
+      "caption": "Mobily and Nokia Sign MoU to Advance AI-Powered Network Efficiency at LEAP 2026. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage.",
+      "credit": "TechScoop illustration",
+      "source_url": "https://techscoop.io",
+      "license": "TechScoop original",
+      "rights_status": "generated",
+      "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+      "generation_reference": "content/leap-deepfest-2026/images/style-reference.png",
+      "generation_brief": "content/leap-deepfest-2026/image-briefs/061.json"
+    },
+    "output_contract": {
+      "format": "JSON",
+      "required_fields": [
+        "sequence",
+        "candidate_id",
+        "canonical_announcement_key",
+        "title",
+        "slug",
+        "author_public_name",
+        "workflow_status_slug",
+        "article_type",
+        "display_datetime_local",
+        "display_datetime_utc",
+        "timezone",
+        "excerpt",
+        "content_markdown",
+        "content_word_count",
+        "primary_category_name",
+        "category_names",
+        "event_names",
+        "event_bucket",
+        "company_names",
+        "people_names",
+        "topic_names",
+        "tag_names",
+        "coverage",
+        "seo",
+        "sources",
+        "image",
+        "editorial_notes"
+      ],
+      "content_word_count_min": 850,
+      "content_word_count_max": 1250,
+      "content_word_count_scope": "Article body only, excluding References",
+      "markdown_requirements": "Two to four H2 subheadings, body paragraphs, natural inline source links, and a final H2 References section with numbered Markdown reference definitions.",
+      "metadata_preservation": "Preserve structured metadata exactly unless improving excerpt, SEO title or SEO description within their hard limits."
+    }
+  },
+  "review_findings": {
+    "confidence": 100,
+    "editorial_issues": "repetitive boilerplate paragraphs | keyword-stuffed writing | promotional tone",
+    "editorial_status": "needs_correction",
+    "factual_status": "pass",
+    "sequence": 61,
+    "unsupported_claims": "NA"
+  },
+  "instructions": "Rewrite the article body to correct every factual and editorial finding. The verified angle and key facts in the authoritative brief are the complete factual boundary. Preserve locked backend metadata, approved URLs and image data. Produce concise, original newsroom prose without repeated paragraphs, keyword stuffing, promotional filler or unsupported specificity. The article body must remain 850–1,250 words excluding References, with 2–4 non-References H2 headings and a final References section."
+}

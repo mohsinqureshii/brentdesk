@@ -1,0 +1,30 @@
+{
+  "sequence": 85,
+  "candidate_id": "B043",
+  "slug": "humain-unveils-agentic-ai-pc-built-with-qualcomm-at-leap",
+  "title": "HUMAIN Unveils Agentic AI PC Built With Qualcomm at LEAP",
+  "event_names": [
+    "LEAP 2026"
+  ],
+  "company_names": [
+    "HUMAIN",
+    "Qualcomm",
+    "Microsoft"
+  ],
+  "people_names": [
+    "Tareq Amin",
+    "Wassim Chourbaji",
+    "Naim Yazbeck"
+  ],
+  "image_prompt": "Create a premium editorial technology-news hero image for TechScoop's coverage of LEAP 2026 in Riyadh.\n\nStory: HUMAIN Unveils Agentic AI PC Built With Qualcomm at LEAP\nVerified angle: Saudi AI company HUMAIN, backed by PIF, unveiled its first enterprise AI PC, the Horizon Ultra, at LEAP 2026. Developed in partnership with Qualcomm over 12 months, the device is powered by the Snapdragon X2 Elite platform and delivers up to 80 trillion AI operations per second. Rather than a traditional application-based interface, the PC is designed around an \"agentic AI\" operating system focused on user intent. HUMAIN also expanded its strategic collaboration with Microsoft, announcing the PC will initially launch with Windows before HUMAIN transitions to its own OS in 2027. The device will be available for enterprise purchase starting September 20, 2026, with a target of one million units across the Middle East and Africa by 2030. The launch represents a significant shift for Saudi Arabia from consuming global technology to designing end-user hardware for the AI era.\nPrincipal organizations or institutions: HUMAIN, Qualcomm, Microsoft.\nRelevant people for editorial context only: Tareq Amin, Wassim Chourbaji, Naim Yazbeck.\n\nSubject direction: advanced Saudi technology manufacturing with precision robotics, semiconductor or device assembly and realistic engineered materials. Make the image materially specific to this announcement through objects, setting and visual metaphor; do not create a generic conference crowd.\n\nComposition: cinematic 16:9 landscape hero, 1600×900 final-use ratio, single strong focal point slightly right of center, generous clean negative space on the left, layered depth, crisp silhouette at thumbnail size. Where people are contextually useful, show only distant or over-the-shoulder editorial silhouettes unless an exact reference portrait is supplied; do not invent a recognizable face.\n\nVisual style: match the supplied reference image's premium MENA enterprise-news aesthetic—dark navy and deep indigo foundation, electric cyan and violet data light, restrained warm sand-gold accents, photorealistic materials blended with elegant 3D editorial visualization, controlled volumetric lighting, credible business-technology tone.\n\nText/content: no text, no letters, no numbers, no logos, no watermarks, no badges, no brand marks, no national emblems, no fake signage and no readable user-interface elements.\n\nAvoid: protected product trade dress, fabricated press photography, handshakes, crowded collage layouts, duplicated subjects, fantasy sci-fi excess, inaccurate corporate logos, distorted anatomy, recognizable but invented executives, and visual claims that go beyond the verified angle.\n",
+  "requested_filename": "085-humain-unveils-agentic-ai-pc-built-with-qualcomm-at-leap.png",
+  "target_width": 1600,
+  "target_height": 900,
+  "credit": "TechScoop illustration",
+  "source_url": "https://techscoop.io",
+  "license": "TechScoop original",
+  "rights_status": "generated",
+  "rights_notes": "Original editorial illustration generated for TechScoop's LEAP and DeepFest 2026 news coverage; no third-party logos, faces or protected trade dress intentionally reproduced.",
+  "alt": "HUMAIN Unveils Agentic AI PC Built With Qualcomm at LEAP — LEAP and DeepFest 2026 news",
+  "caption": "HUMAIN Unveils Agentic AI PC Built With Qualcomm at LEAP. Image prepared for TechScoop's LEAP and DeepFest 2026 coverage."
+}
