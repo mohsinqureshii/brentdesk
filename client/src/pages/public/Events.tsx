@@ -570,8 +570,8 @@ function SearchHero({
             Shape the <span className="text-emerald-600 dark:text-emerald-400">future.</span>
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            From global conferences to local meetups — find the events that connect,
-            educate and move the region&rsquo;s tech community forward.
+            From global expos to regional forums — find the events that connect
+            the people building the region&rsquo;s industry.
           </p>
 
           <form
