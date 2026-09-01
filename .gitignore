@@ -112,3 +112,11 @@ temp/
 # Claude Code agent worktrees — local-only sandboxes, never committed
 .claude/worktrees/
 .project-config.json
+
+# Generated SEO artifacts — produced at build by scripts/generate-sitemaps.ts
+# and scripts/prerender.ts from live publication config; never committed
+client/public/sitemap*.xml
+client/public/rss.xml
+client/public/feed.xml
+client/public/jobs-feed.xml
+client/public/robots.txt

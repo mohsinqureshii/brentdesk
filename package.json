@@ -11,8 +11,6 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
-    "editorial:validate:leap": "tsx scripts/import-leap-deepfest-editorial-batch.ts",
-    "editorial:import:leap": "tsx scripts/import-leap-deepfest-editorial-batch.ts --execute --confirm-unpublished-drafts",
     "prerender": "tsx scripts/prerender.ts",
     "sitemaps": "tsx scripts/generate-sitemaps.ts",
     "build:local": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts"
