@@ -23,6 +23,7 @@
 
 import "dotenv/config";
 import bcrypt from "bcryptjs";
+import { publication } from "../shared/publication";
 import { drizzle } from "drizzle-orm/mysql2";
 import { eq } from "drizzle-orm";
 import {
@@ -32,6 +33,8 @@ import {
   sectors,
   roles,
   adSlots,
+  adCampaigns,
+  adCreatives,
   homepageSections,
   users,
 } from "../drizzle/schema";
@@ -355,6 +358,63 @@ async function seedAdSlots() {
 }
 
 // ------------------------------------------------------------------
+// House ads — real self-promotional creatives so every ad slot renders
+// a clearly-labeled ADVERTISEMENT during development and before direct
+// campaigns are sold. Served at the lowest priority by the ad engine.
+// ------------------------------------------------------------------
+async function seedHouseAds() {
+  const existing = await db.select({ id: adCampaigns.id }).from(adCampaigns).where(eq(adCampaigns.name, "BrentDesk House")).limit(1);
+  if (existing.length) {
+    console.log("[seed] house ads: already present");
+    return;
+  }
+  await db.insert(adCampaigns).values({
+    name: "BrentDesk House",
+    campaignType: "house",
+    objective: "awareness",
+    pricingModel: "flat",
+    status: "active",
+  });
+  const [campaign] = await db.select({ id: adCampaigns.id }).from(adCampaigns).where(eq(adCampaigns.name, "BrentDesk House")).limit(1);
+  const creatives = [
+    {
+      name: "House — Advertise",
+      nativeHeadline: "Reach the people building the region",
+      nativeDescription: "Put your brand in front of decision-makers across construction, energy, infrastructure and logistics.",
+      nativeCta: "Advertise with us",
+      clickUrl: "/advertise",
+    },
+    {
+      name: "House — Newsletter",
+      nativeHeadline: publication.newsletter.name,
+      nativeDescription: publication.newsletter.description,
+      nativeCta: "Subscribe",
+      clickUrl: "/newsletter",
+    },
+    {
+      name: "House — Events",
+      nativeHeadline: "Where the industry meets",
+      nativeDescription: "Conferences, expos and forums across Saudi Arabia, the GCC and MENA.",
+      nativeCta: "Browse events",
+      clickUrl: "/events",
+    },
+  ];
+  for (const creative of creatives) {
+    await db.insert(adCreatives).values({
+      campaignId: campaign.id,
+      name: creative.name,
+      format: "native",
+      nativeHeadline: creative.nativeHeadline,
+      nativeDescription: creative.nativeDescription,
+      nativeCta: creative.nativeCta,
+      clickUrl: creative.clickUrl,
+      status: "approved",
+    });
+  }
+  console.log("[seed] house ads: campaign + 3 native creatives added");
+}
+
+// ------------------------------------------------------------------
 // Homepage sections — CMS-driven homepage
 // ------------------------------------------------------------------
 async function seedHomepageSections() {
@@ -422,6 +482,7 @@ async function main() {
   await seedSectors();
   await seedRoles();
   await seedAdSlots();
+  await seedHouseAds();
   await seedHomepageSections();
   await seedAdminUser();
   console.log("[seed] BrentDesk bootstrap complete");

@@ -1621,8 +1621,8 @@ export const emailCampaigns = mysqlTable("email_campaigns", {
 	name: varchar({ length: 255 }).notNull(),
 	subject: varchar({ length: 255 }).notNull(),
 	preheader: varchar({ length: 255 }),
-	fromName: varchar({ length: 128 }).default('TechScoop'),
-	fromEmail: varchar({ length: 320 }).default('newsletter@techscoop.io'),
+	fromName: varchar({ length: 128 }).default('BrentDesk'),
+	fromEmail: varchar({ length: 320 }).default('newsletter@brentdesk.com'),
 	replyTo: varchar({ length: 320 }),
 	listId: int(),
 	templateId: int(),
@@ -2575,7 +2575,7 @@ export const jobSectors = mysqlTable("job_sectors", {
 
 export const jobs = mysqlTable("jobs", {
 	id: int().autoincrement().primaryKey(),
-	tenantId: int("tenant_id"),                                                                     // NULL = legacy public job board (techscoop.io)
+	tenantId: int("tenant_id"),                                                                     // NULL = legacy public job board
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
 	description: text(),
@@ -3415,7 +3415,7 @@ export const tags = mysqlTable("tags", {
 // ============================================================
 // TALENT PLATFORM — Phase 1a: Multi-tenancy
 // ----------------------------------------------------------------------
-// tenants:               one row per SaaS customer (techscoop.io legacy
+// tenants:               one row per SaaS customer (the legacy
 //                        public job board has no row — `tenantId IS NULL`
 //                        on `jobs` / `job_applications` is the marker).
 // tenant_memberships:    users ↔ tenants with a tenant-scoped role.

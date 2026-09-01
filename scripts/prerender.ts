@@ -3,7 +3,7 @@
 /**
  * Pre-rendering script
  * Generates static HTML files for all articles with article-specific OG meta tags
- * This solves the Manus static file serving limitation by pre-rendering all content
+ * (works around static-file serving limitations on some hosts)
  */
 
 import { publication, getBaseUrl } from "../shared/publication";

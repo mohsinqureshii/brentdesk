@@ -105,9 +105,6 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
-.manus/
-.manus-logs/
-.webdev/
 
 # Claude Code agent worktrees — local-only sandboxes, never committed
 .claude/worktrees/

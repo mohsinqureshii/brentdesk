@@ -1475,11 +1475,33 @@ export const aiContentRouter = router({
     .mutation(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
-      await (db as any).$client.execute(
-        `INSERT INTO ai_editorial_feedback (discovered_article_id, article_id, editor_id, action, feedback_notes, edit_distance)
-         VALUES (?, ?, ?, ?, ?, ?)`,
-        [input.discoveredArticleId || null, input.articleId || null, ctx.user.id, input.action, input.feedbackNotes || null, input.editDistance || null]
-      );
+      // The feedback ledger is ai_agent_editorial_feedback (the previously
+      // referenced ai_editorial_feedback table never existed, so this write
+      // silently failed and broke the Stage-3 learning loop). The table
+      // requires a discovered article and uses its own action vocabulary,
+      // so map the editor action and stash free-text notes in the JSON
+      // features column.
+      if (input.discoveredArticleId) {
+        const actionMap: Record<string, string> = {
+          approve: "generated",
+          publish: "published",
+          edit: "published_edited",
+          reject: "rejected",
+          request_revision: "flagged",
+        };
+        await (db as any).$client.execute(
+          `INSERT INTO ai_agent_editorial_feedback (discovered_article_id, article_id, editor_id, action, edit_distance, feedback_features)
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          [
+            input.discoveredArticleId,
+            input.articleId || null,
+            ctx.user.id,
+            actionMap[input.action] ?? "flagged",
+            input.editDistance || null,
+            input.feedbackNotes ? JSON.stringify({ notes: input.feedbackNotes }) : null,
+          ]
+        );
+      }
       // Update Stage 3 score for the source based on feedback
       if (input.discoveredArticleId) {
         const adjustment = input.action === 'publish' ? 5 : input.action === 'reject' ? -5 : 0;
@@ -1499,7 +1521,7 @@ export const aiContentRouter = router({
       const db = await getDb();
       if (!db) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
       const [rows] = await (db as any).$client.execute(
-        `SELECT f.*, u.name as editor_name FROM ai_editorial_feedback f
+        `SELECT f.*, u.name as editor_name FROM ai_agent_editorial_feedback f
          LEFT JOIN users u ON f.editor_id = u.id
          ORDER BY f.created_at DESC LIMIT ?`,
         [input?.limit || 50]

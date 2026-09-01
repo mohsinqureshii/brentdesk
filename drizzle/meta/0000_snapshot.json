@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "48ce4793-4749-485e-ac7b-cbd2b5c6c125",
+  "id": "91495778-214f-401e-82d2-c82c60c586a8",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "accelerator_alumni_companies": {
@@ -12398,7 +12398,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false,
-          "default": "'TechScoop'"
+          "default": "'BrentDesk'"
         },
         "fromEmail": {
           "name": "fromEmail",
@@ -12406,7 +12406,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false,
-          "default": "'newsletter@techscoop.io'"
+          "default": "'newsletter@brentdesk.com'"
         },
         "replyTo": {
           "name": "replyTo",

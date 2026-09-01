@@ -39,10 +39,15 @@ export function getSessionCookieOptions(
   //       ? hostname
   //       : undefined;
 
+  // `lax` blocks the session cookie on cross-site POSTs (CSRF mitigation
+  // for the cookie-authenticated tRPC mutations) while still sending it on
+  // top-level navigations. The app serves its own API on the same origin,
+  // so `none` was never required; `none` also silently downgrades to
+  // being rejected by browsers on non-secure requests.
   return {
     httpOnly: true,
     path: "/",
-    sameSite: "none",
+    sameSite: "lax",
     secure: isSecureRequest(req),
   };
 }

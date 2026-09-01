@@ -1,6 +1,6 @@
 /**
  * LLM Provider Abstraction Layer
- * Supports multiple LLM providers: Built-in (Manus), OpenAI, Anthropic, Google, DeepSeek, Mistral
+ * Supports multiple LLM providers: Built-in (legacy proxy/Gemini), OpenAI, Anthropic, Google, DeepSeek, Mistral
  * Provides unified interface with automatic failover, cost tracking, and usage logging
  */
 import { invokeLLM, type Message } from "../../_core/llm";
@@ -63,7 +63,7 @@ export interface LLMResponse {
 // ============================================================
 
 export const MODEL_REGISTRY: LLMModel[] = [
-  // Built-in (Manus default)
+  // Built-in (legacy proxy / Gemini fallback)
   { id: "builtin-default", name: "Built-in Default", provider: "builtin", contextWindow: 128000, maxOutput: 16384, costPer1kInput: 0, costPer1kOutput: 0, supportsJson: true, supportsVision: true, tier: "standard" },
   // OpenAI
   { id: "gpt-4o", name: "GPT-4o", provider: "openai", contextWindow: 128000, maxOutput: 16384, costPer1kInput: 0.0025, costPer1kOutput: 0.01, supportsJson: true, supportsVision: true, tier: "premium" },
