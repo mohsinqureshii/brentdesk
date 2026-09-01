@@ -4,7 +4,7 @@
  */
 
 import { z } from "zod";
-import { eq, and, desc, asc, like, or, sql, inArray } from "drizzle-orm";
+import { eq, and, desc, asc, like, or, sql, inArray, type SQL } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
 import { getDb } from "../../db";
 import { 
@@ -25,6 +25,7 @@ import {
   investors,
   workflowStatuses,
 } from "../../../drizzle/schema";
+import { boolInt, toDbDate } from "../../_core/dbValues";
 import { slugService } from "../../services/slug.service";
 import { editionOrderBias } from "../../services/editionOrder";
 import { seoService } from "../../services/seo.service";
@@ -174,7 +175,7 @@ export const companiesRouter = router({
         conditions.push(or(
           sql`LOWER(${companies.name}) LIKE LOWER(${`%${filters.search}%`})`,
           sql`LOWER(${companies.tagline}) LIKE LOWER(${`%${filters.search}%`})`
-        ) as any);
+        ) as SQL);
       }
       if (filters.industry) {
         conditions.push(eq(companies.industry, filters.industry));
@@ -183,10 +184,10 @@ export const companiesRouter = router({
         conditions.push(eq(companies.stage, filters.stage));
       }
       if (filters.location) {
-        conditions.push(sql`LOWER(${companies.location}) LIKE LOWER(${`%${filters.location}%`})` as any);
+        conditions.push(sql`LOWER(${companies.location}) LIKE LOWER(${`%${filters.location}%`})`);
       }
       if (filters.isFeatured !== undefined) {
-        conditions.push(eq(companies.isFeatured, filters.isFeatured as any));
+        conditions.push(eq(companies.isFeatured, filters.isFeatured ? 1 : 0));
       }
 
       const sortColumn = {
@@ -268,7 +269,7 @@ export const companiesRouter = router({
 
       // Increment view count
       await db.update(companies)
-        .set({ viewCount: (company.viewCount || 0) + 1 } as any)
+        .set({ viewCount: (company.viewCount || 0) + 1 })
         .where(eq(companies.id, company.id));
 
       // Get related taxonomy data
@@ -457,7 +458,7 @@ export const companiesRouter = router({
         conditions.push(eq(companies.stage, stage));
       }
       if (isFeatured !== undefined) {
-        conditions.push(eq(companies.isFeatured, isFeatured as any));
+        conditions.push(eq(companies.isFeatured, isFeatured ? 1 : 0));
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
@@ -559,10 +560,13 @@ export const companiesRouter = router({
 
       const result = await db.insert(companies).values({
         ...companyData,
+        isVerified: boolInt(companyData.isVerified),
+        isFeatured: boolInt(companyData.isFeatured),
+        hiringActively: boolInt(companyData.hiringActively),
         slug,
         statusId,
         createdByUserId: ctx.user.id,
-      } as any);
+      });
 
       const companyId = Number(result[0].insertId);
 
@@ -596,17 +600,22 @@ export const companiesRouter = router({
 
       const { id, regionIds, sectorIds, statusId: inputStatusId, ...companyData } = input;
 
-      const updateData: any = { ...companyData };
+      const updateData: Partial<typeof companies.$inferInsert> = {
+        ...companyData,
+        isVerified: boolInt(companyData.isVerified),
+        isFeatured: boolInt(companyData.isFeatured),
+        hiringActively: boolInt(companyData.hiringActively),
+      };
       if (inputStatusId) {
         updateData.statusId = inputStatusId;
         const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
         if (publishedStatus && inputStatusId === publishedStatus.id) {
-          updateData.publishedAt = new Date();
+          updateData.publishedAt = toDbDate(new Date());
         }
       }
 
       await db.update(companies)
-        .set(updateData as any)
+        .set(updateData)
         .where(eq(companies.id, id));
 
       if (regionIds !== undefined) {
@@ -682,13 +691,15 @@ export const companiesRouter = router({
         undefined
       );
 
-      const updateData: any = { statusId: result.newStatusId };
-      if ((result as any).isPublished) {
-        updateData.publishedAt = new Date();
+      const updateData: Partial<typeof companies.$inferInsert> = { statusId: result.newStatusId };
+      // TransitionResult does not declare isPublished; preserve the
+      // original runtime check for a possibly-present flag.
+      if ("isPublished" in result && result.isPublished) {
+        updateData.publishedAt = toDbDate(new Date());
       }
 
       await db.update(companies)
-        .set(updateData as any)
+        .set(updateData)
         .where(eq(companies.id, input.id));
 
       return result;
@@ -770,8 +781,8 @@ export const companiesRouter = router({
         employeeCount: input.employeeCount,
         totalFunding: input.totalFunding,
         statusId,
-        publishedAt: input.publishDirectly && ctx.user.role === "admin" ? new Date() : undefined,
-      } as any);
+        publishedAt: input.publishDirectly && ctx.user.role === "admin" ? toDbDate(new Date()) : undefined,
+      });
 
       const companyId = Number(result[0].insertId);
 
@@ -831,7 +842,7 @@ export const companiesRouter = router({
         conditions.push(eq(companies.stage, stage));
       }
       if (isFeatured !== undefined) {
-        conditions.push(eq(companies.isFeatured, isFeatured as any));
+        conditions.push(eq(companies.isFeatured, isFeatured ? 1 : 0));
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
@@ -900,10 +911,10 @@ export const companiesRouter = router({
       if (!["admin", "editor", "senior_editor", "author"].includes(ctx.user.role)) throw new Error("Unauthorized");
       const { id, ...data } = input;
       if (id) {
-        await db.update(companyProducts).set(data as any).where(eq(companyProducts.id, id));
+        await db.update(companyProducts).set(data).where(eq(companyProducts.id, id));
         return { id };
       } else {
-        const result = await db.insert(companyProducts).values(data as any);
+        const result = await db.insert(companyProducts).values(data);
         return { id: Number(result[0].insertId) };
       }
     }),
@@ -937,10 +948,10 @@ export const companiesRouter = router({
       if (!["admin", "editor", "senior_editor", "author"].includes(ctx.user.role)) throw new Error("Unauthorized");
       const { id, ...data } = input;
       if (id) {
-        await db.update(companyAwards).set(data as any).where(eq(companyAwards.id, id));
+        await db.update(companyAwards).set(data).where(eq(companyAwards.id, id));
         return { id };
       } else {
-        const result = await db.insert(companyAwards).values(data as any);
+        const result = await db.insert(companyAwards).values(data);
         return { id: Number(result[0].insertId) };
       }
     }),
@@ -974,10 +985,10 @@ export const companiesRouter = router({
       if (!["admin", "editor", "senior_editor", "author"].includes(ctx.user.role)) throw new Error("Unauthorized");
       const { id, ...data } = input;
       if (id) {
-        await db.update(companyUpdates).set(data as any).where(eq(companyUpdates.id, id));
+        await db.update(companyUpdates).set(data).where(eq(companyUpdates.id, id));
         return { id };
       } else {
-        const result = await db.insert(companyUpdates).values(data as any);
+        const result = await db.insert(companyUpdates).values(data);
         return { id: Number(result[0].insertId) };
       }
     }),
@@ -1000,7 +1011,7 @@ export const companiesRouter = router({
       const status = await workflowService.getStatusBySlug("editorial", input.statusSlug);
       if (!status) throw new Error("Status not found");
       await db.update(companies)
-        .set({ statusId: status.id, ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {}) } as any)
+        .set({ statusId: status.id, ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {}) })
         .where(inArray(companies.id, input.ids));
       return { success: true, count: input.ids.length };
     }),

@@ -233,11 +233,13 @@ for old-host (`manus`) identifiers. CI-enforced going forward.
 
 ## W. Known limitations (not hidden)
 
-1. **`as any` debt remains.** The root causes were fixed in the schema and the five core
-   content routers were cleaned with narrow adapters, but roughly a thousand casts remain
-   across the wider server codebase (talent platform, admin routers, services). They are
-   masks, not correctness bugs — tests and runtime verify behavior — but they weaken the
-   type boundary. Backlog item.
+1. **`as any` debt remains.** The root causes were fixed in the schema, and the five
+   core content routers (news/companies/people/events/jobs) were cleaned to **zero casts**
+   using narrow boundary adapters (`server/_core/dbValues.ts`: boolInt/toDbDate) — 226
+   casts removed with no behavior change. **950 casts remain** across the wider server
+   codebase (talent platform, admin routers, services). They are masks, not correctness
+   bugs — tests and runtime verify behavior — but they weaken the type boundary. Backlog
+   item, with the adapter pattern established.
 2. **Domain assumption.** `brentdesk.com` is used as the canonical domain in
    `shared/publication.ts`, `client/index.html` and brand assets. If the real domain
    differs, change those two files (+ assets) and set BASE_URL.
