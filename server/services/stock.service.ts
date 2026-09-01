@@ -25,27 +25,23 @@ export interface StockCategory {
   symbols: string[];
 }
 
-// Default stock categories with symbols
+// Default ticker categories — commodities and regional industry, matching
+// the publication's physical-economy beat.
 export const DEFAULT_STOCK_CATEGORIES: StockCategory[] = [
   {
-    id: "global",
-    label: "Global Tech",
-    symbols: ["^GSPC", "^IXIC", "^DJI", "AAPL", "MSFT", "GOOGL"],
-  },
-  {
-    id: "uae",
-    label: "UAE Stocks",
-    symbols: ["ETISALAT.AD", "FAB.AD", "EMAAR.DU", "DIB.DU", "ADNOCDIST.AD"],
+    id: "markets",
+    label: "Markets",
+    symbols: ["BZ=F", "CL=F", "NG=F", "^DJI", "^GSPC", "SAR=X"],
   },
   {
     id: "saudi",
-    label: "Saudi Stocks",
-    symbols: ["2222.SR", "1120.SR", "7010.SR", "1180.SR", "2010.SR"],
+    label: "Saudi Industry",
+    symbols: ["2222.SR", "2010.SR", "1211.SR", "2082.SR", "1120.SR"],
   },
   {
-    id: "qatar",
-    label: "Qatar Stocks",
-    symbols: ["QNBK.QA", "ORDS.QA", "QEWS.QA", "QIIK.QA"],
+    id: "uae",
+    label: "UAE Industry",
+    symbols: ["ADNOCDIST.AD", "EMAAR.DU", "FAB.AD", "DIB.DU"],
   },
 ];
 

@@ -7,11 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { trpc } from "@/lib/trpc";
+import { publication } from "@shared/publication";
 
 const Newsletter = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
-  const [selectedNewsletters, setSelectedNewsletters] = useState<string[]>(["daily"]);
+  const [selectedNewsletters, setSelectedNewsletters] = useState<string[]>(["daily-brief"]);
 
   const subscribe = trpc.submissions.newsletter.useMutation({
     onSuccess: (data) => {
@@ -48,80 +49,68 @@ const Newsletter = () => {
   };
 
   const toggleNewsletter = (id: string) => {
-    setSelectedNewsletters(prev => 
+    setSelectedNewsletters(prev =>
       prev.includes(id) ? prev.filter(n => n !== id) : [...prev, id]
     );
   };
 
   const newsletters = [
     {
-      id: "daily",
-      name: "Daily Digest",
-      frequency: "Every weekday",
-      description: "The top tech stories you need to start your day. Curated headlines, breaking news, and must-read articles.",
-      subscribers: "180K+",
-      color: "emerald"
+      id: "daily-brief",
+      name: publication.newsletter.name,
+      frequency: "Every morning",
+      description: publication.newsletter.description,
     },
     {
-      id: "startup",
-      name: "Startup Weekly",
-      frequency: "Every Tuesday",
-      description: "Funding rounds, acquisitions, and startup news from around the world. Essential for founders and investors.",
-      subscribers: "85K+",
-      color: "blue"
+      id: "projects-weekly",
+      name: "Projects Weekly",
+      frequency: "Weekly",
+      description: "Major project awards, tenders, and milestones across construction and infrastructure — tracked from announcement to delivery.",
     },
     {
-      id: "ai",
-      name: "AI Insider",
-      frequency: "Every Thursday",
-      description: "Deep dives into artificial intelligence, machine learning, and the future of technology.",
-      subscribers: "120K+",
-      color: "purple"
+      id: "energy-brief",
+      name: "Energy Brief",
+      frequency: "Weekly",
+      description: "Oil & gas, power, utilities and renewables: upstream developments, offtake deals, and the policy moves shaping regional energy.",
     },
     {
-      id: "markets",
-      name: "Market Watch",
-      frequency: "Every Friday",
-      description: "Tech stock movements, IPO updates, and financial analysis for the tech sector.",
-      subscribers: "65K+",
-      color: "orange"
+      id: "jobs-alerts",
+      name: "Job Alerts",
+      frequency: "As posted",
+      description: "New roles across the industries we cover — engineering, construction, energy, logistics, and operations.",
+    },
+    {
+      id: "event-updates",
+      name: "Event Updates",
+      frequency: "Monthly",
+      description: "Upcoming conferences, exhibitions, and industry gatherings across Saudi Arabia, the GCC, and MENA.",
     }
   ];
 
   const benefits = [
-    "Curated by industry experts",
+    "Written by our newsroom",
     "No spam, ever",
     "Unsubscribe anytime",
-    "Exclusive insights"
+    "Free to read"
   ];
-
-  const getColorClasses = (color: string) => {
-    const colors: Record<string, { bg: string; text: string; border: string }> = {
-      emerald: { bg: "bg-emerald-500/10", text: "text-emerald-500", border: "border-emerald-500/50" },
-      blue: { bg: "bg-blue-500/10", text: "text-blue-500", border: "border-blue-500/50" },
-      purple: { bg: "bg-purple-500/10", text: "text-purple-500", border: "border-purple-500/50" },
-      orange: { bg: "bg-orange-500/10", text: "text-orange-500", border: "border-orange-500/50" }
-    };
-    return colors[color] || colors.emerald;
-  };
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-emerald-500/10 via-background to-blue-500/10">
+      <section className="relative py-20 bg-[#0b0d12]">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-500 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-gray-200 mb-6">
               <Mail className="w-4 h-4" />
-              <span className="text-sm font-medium">250K+ Subscribers</span>
+              <span className="text-sm font-medium">{publication.newsletter.name}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Stay Ahead of Tech
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              The Industrial Economy, Every Morning
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
-              Join 250,000+ tech leaders, founders, and enthusiasts who get the best of TechScoop delivered straight to their inbox.
+            <p className="text-lg text-gray-300 mb-8">
+              {publication.newsletter.description} Contract awards, project milestones, energy moves, and the people behind them — in one concise read.
             </p>
 
             {/* Quick Subscribe Form */}
@@ -132,11 +121,11 @@ const Newsletter = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 bg-card border-border"
+                className="flex-1 bg-white text-gray-900 border-white/20 placeholder:text-gray-500"
               />
               <Button
                 type="submit"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
                 disabled={subscribe.isPending}
               >
                 {subscribe.isPending ? (
@@ -150,8 +139,8 @@ const Newsletter = () => {
             {/* Benefits */}
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle className="w-4 h-4 text-emerald-500" />
+                <div key={index} className="flex items-center gap-2 text-sm text-gray-300">
+                  <CheckCircle className="w-4 h-4 text-blue-500" />
                   {benefit}
                 </div>
               ))}
@@ -166,39 +155,34 @@ const Newsletter = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Choose Your Newsletters</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Select the newsletters that match your interests. You can update your preferences anytime.
+              Select the briefings that match your work. You can update your preferences anytime.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {newsletters.map((newsletter) => {
-              const colors = getColorClasses(newsletter.color);
               const isSelected = selectedNewsletters.includes(newsletter.id);
-              
+
               return (
-                <div 
+                <div
                   key={newsletter.id}
                   onClick={() => toggleNewsletter(newsletter.id)}
-                  className={`p-6 rounded-2xl bg-card border cursor-pointer transition-all duration-300 ${
-                    isSelected ? colors.border : "border-border hover:border-muted-foreground/50"
+                  className={`p-6 rounded-lg bg-card border cursor-pointer transition-all duration-300 ${
+                    isSelected ? "border-blue-600/50" : "border-border hover:border-muted-foreground/50"
                   }`}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`px-3 py-1 rounded-full ${colors.bg} ${colors.text} text-xs font-medium`}>
+                    <div className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-xs font-medium">
                       {newsletter.frequency}
                     </div>
                     <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                      isSelected ? `${colors.border} ${colors.bg}` : "border-muted-foreground/30"
+                      isSelected ? "border-blue-600/50 bg-blue-600/10" : "border-muted-foreground/30"
                     }`}>
-                      {isSelected && <CheckCircle className={`w-4 h-4 ${colors.text}`} />}
+                      {isSelected && <CheckCircle className="w-4 h-4 text-blue-600" />}
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-2">{newsletter.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{newsletter.description}</p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Users className="w-4 h-4" />
-                    {newsletter.subscribers} subscribers
-                  </div>
+                  <p className="text-muted-foreground text-sm">{newsletter.description}</p>
                 </div>
               );
             })}
@@ -206,14 +190,14 @@ const Newsletter = () => {
 
           {/* Subscribe Button */}
           <div className="text-center mt-8">
-            <Button 
+            <Button
               onClick={() => {
                 toast({
-                  title: "Preferences saved!",
-                  description: `You'll receive ${selectedNewsletters.length} newsletter(s).`,
+                  title: "Preferences saved",
+                  description: `You'll receive ${selectedNewsletters.length} newsletter(s). Enter your email above to subscribe.`,
                 });
               }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-8"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
               disabled={selectedNewsletters.length === 0}
             >
               Subscribe to {selectedNewsletters.length} Newsletter{selectedNewsletters.length !== 1 ? 's' : ''}
@@ -228,48 +212,48 @@ const Newsletter = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">What to Expect</h2>
             <p className="text-muted-foreground">
-              Here's a preview of what lands in your inbox
+              A sample of how {publication.newsletter.name} lands in your inbox
             </p>
           </div>
 
-          <div className="p-8 rounded-2xl bg-background border border-border">
+          <div className="p-8 rounded-lg bg-background border border-border">
             <div className="flex items-center gap-4 mb-6 pb-6 border-b border-border">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
-                <span className="text-2xl font-bold text-emerald-500">TS</span>
+              <div className="w-12 h-12 rounded-lg bg-[#0b0d12] flex items-center justify-center">
+                <span className="text-2xl font-bold text-white">B</span>
               </div>
               <div>
-                <h4 className="font-bold text-foreground">TechScoop Daily Digest</h4>
-                <p className="text-sm text-muted-foreground">January 17, 2026</p>
+                <h4 className="font-bold text-foreground">{publication.newsletter.name}</h4>
+                <p className="text-sm text-muted-foreground">Your morning briefing</p>
               </div>
             </div>
 
             <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <Zap className="w-4 h-4 text-amber-500" />
-                  <span className="text-xs font-medium text-amber-500 uppercase">Top Story</span>
+                  <Zap className="w-4 h-4 text-blue-600" />
+                  <span className="text-xs font-medium text-blue-600 uppercase">Top Story</span>
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  AI Startup Raises $500M in Record Series B Round
+                  Main contract awarded on a giga-project package
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  The funding round values the company at $5 billion, making it one of the fastest-growing AI companies in history...
+                  The day's most consequential story, with the parties, scope, and what it signals for the wider program...
                 </p>
               </div>
 
               <div className="grid gap-4">
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
-                  <TrendingUp className="w-5 h-5 text-emerald-500" />
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
                   <div>
-                    <h4 className="font-medium text-foreground text-sm">Tech Stocks Rally on Strong Earnings</h4>
-                    <p className="text-xs text-muted-foreground">NASDAQ up 2.3% in early trading</p>
+                    <h4 className="font-medium text-foreground text-sm">Energy: capacity additions and offtake agreements</h4>
+                    <p className="text-xs text-muted-foreground">Power, oil &amp; gas, and renewables in brief</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
-                  <Zap className="w-5 h-5 text-blue-500" />
+                  <Users className="w-5 h-5 text-blue-600" />
                   <div>
-                    <h4 className="font-medium text-foreground text-sm">Major Tech Company Announces AR Glasses</h4>
-                    <p className="text-xs text-muted-foreground">Available later this year</p>
+                    <h4 className="font-medium text-foreground text-sm">People: appointments across the sector</h4>
+                    <p className="text-xs text-muted-foreground">Who's moving where, and why it matters</p>
                   </div>
                 </div>
               </div>

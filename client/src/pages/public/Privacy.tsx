@@ -4,6 +4,7 @@ import { AlertTriangle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { triggerCookiePreferences } from "@/components/CookieConsentBanner";
+import { publication } from "@shared/publication";
 
 interface Section {
   title: string;
@@ -12,7 +13,7 @@ interface Section {
 
 export default function Privacy() {
   useEffect(() => {
-    document.title = "Privacy Policy | TechScoop";
+    document.title = `Privacy Policy | ${publication.name}`;
   }, []);
 
   const placeholder = (
@@ -30,28 +31,20 @@ export default function Privacy() {
           <p>We collect the following categories of information:</p>
           <ul className="list-disc pl-6 space-y-1">
             <li>
-              <strong>Account information:</strong> name, email, password hash, role, and basic
-              profile fields you provide at signup.
+              <strong>Account information:</strong> name, email, password hash, and basic profile
+              fields you provide if you register for an account.
             </li>
             <li>
-              <strong>Candidate profile:</strong> work history, education, skills, locations,
-              salary expectations, and other details you add to your profile.
+              <strong>Newsletter subscription details:</strong> your email address, the newsletters
+              you select, and your consent preferences.
             </li>
             <li>
-              <strong>Resume content:</strong> documents you upload and the structured data we
-              extract from them.
+              <strong>Form submissions:</strong> information you send us through our contact and
+              advertising inquiry forms, such as your name, email, company, and message.
             </li>
             <li>
-              <strong>GitHub data:</strong> public repository metadata, contribution activity,
-              and other signals retrieved when you connect a GitHub account.
-            </li>
-            <li>
-              <strong>Assessment results:</strong> responses, scores, and metadata generated when
-              you take a TechScoop assessment.
-            </li>
-            <li>
-              <strong>Billing information:</strong> payment method tokens and invoice metadata
-              handled through our payment processor.
+              <strong>Usage data:</strong> device and browser information, pages visited, and
+              similar analytics data collected through cookies and comparable technologies.
             </li>
           </ul>
         </>
@@ -64,19 +57,11 @@ export default function Privacy() {
           {placeholder}
           <p>We use the information we collect to:</p>
           <ul className="list-disc pl-6 space-y-1">
-            <li>Match candidates with relevant jobs and recruiters.</li>
-            <li>
-              Provide recruiters and authorized hiring teams with access to candidate profiles
-              consistent with your visibility settings.
-            </li>
-            <li>
-              Process information using AI models &mdash; including large language models &mdash;
-              to summarize resumes, extract structured fields, evaluate assessments, and surface
-              insights. AI processing is disclosed explicitly here and may involve sub-processors
-              listed below.
-            </li>
-            <li>Operate, secure, and improve the Service.</li>
+            <li>Deliver the newsletters and briefings you subscribe to.</li>
+            <li>Respond to your inquiries, tips, and feedback.</li>
+            <li>Operate, secure, and improve the Service, including understanding which coverage our readers find useful.</li>
             <li>Communicate with you about your account and the Service.</li>
+            <li>Serve and measure advertising on the site, consistent with your cookie choices.</li>
           </ul>
         </>
       ),
@@ -87,18 +72,13 @@ export default function Privacy() {
         <>
           {placeholder}
           <p>
-            We share information with sub-processors who help us run the Service. A current
-            placeholder list includes:
+            We share information with service providers who help us run the Service — for example,
+            email delivery, hosting and infrastructure, and analytics vendors. These providers
+            process data on our behalf and are not permitted to use it for their own purposes.
           </p>
-          <ul className="list-disc pl-6 space-y-1">
-            <li>OpenAI &mdash; AI model inference for parsing and matching.</li>
-            <li>Stripe &mdash; payment processing.</li>
-            <li>AWS &mdash; hosting, storage, and infrastructure.</li>
-            <li>Additional analytics, email, and observability vendors (to be finalized).</li>
-          </ul>
           <p>
-            We do not sell personal information. A finalized sub-processor list with contractual
-            commitments will be published prior to launch.
+            We do not sell personal information. A finalized list of sub-processors with
+            contractual commitments will be published prior to launch.
           </p>
         </>
       ),
@@ -109,11 +89,9 @@ export default function Privacy() {
         <>
           {placeholder}
           <p>
-            We retain personal data for as long as your account is active or as needed to provide
-            the Service. Tenants (companies using TechScoop) may configure their own retention
-            policies for candidate data they control. After account closure or the end of a
-            retention window, we delete or anonymize data within a reasonable period, except
-            where retention is required by law.
+            We retain personal data for as long as your account or subscription is active or as
+            needed to provide the Service. After account closure or unsubscription, we delete or
+            anonymize data within a reasonable period, except where retention is required by law.
           </p>
         </>
       ),
@@ -127,31 +105,31 @@ export default function Privacy() {
           <ul className="list-disc pl-6 space-y-1">
             <li>
               <strong>Access</strong> &mdash; request a copy of the personal data we hold about
-              you (DSAR). You will be able to export your data from{" "}
-              <Link href="/me/data-export" className="text-primary underline hover:no-underline">
-                /me/data-export
-              </Link>{" "}
-              once that page is available.
+              you.
             </li>
             <li>
-              <strong>Erasure</strong> &mdash; ask us to delete your account and associated data
-              from{" "}
-              <Link
-                href="/me/account-settings"
-                className="text-primary underline hover:no-underline"
-              >
-                /me/account-settings
-              </Link>
-              .
+              <strong>Erasure</strong> &mdash; ask us to delete your account, subscription, and
+              associated data.
             </li>
             <li>
               <strong>Portability</strong> &mdash; receive your data in a machine-readable format.
             </li>
             <li>
-              <strong>Rectification</strong> &mdash; correct inaccurate data via your profile or
+              <strong>Rectification</strong> &mdash; correct inaccurate data via your account or
               by contacting us.
             </li>
           </ul>
+          <p>
+            To exercise any of these rights, contact us at{" "}
+            <a
+              href={`mailto:${publication.emails.hello}`}
+              className="text-primary underline hover:no-underline"
+            >
+              {publication.emails.hello}
+            </a>
+            . You can unsubscribe from any newsletter at any time using the link in the email
+            footer.
+          </p>
         </>
       ),
     },
@@ -162,7 +140,8 @@ export default function Privacy() {
           {placeholder}
           <p>
             We use cookies and similar technologies for essential functionality, analytics, and
-            (where you opt in) marketing. You can revisit your choices at any time via{" "}
+            (where you opt in) advertising and marketing. You can revisit your choices at any time
+            via{" "}
             <button
               type="button"
               onClick={triggerCookiePreferences}
@@ -181,11 +160,11 @@ export default function Privacy() {
         <>
           {placeholder}
           <p>
-            TechScoop operates across multiple data residency regions, including the United
-            States (us), the European Union (eu), and the Kingdom of Saudi Arabia (ksa). Where
-            personal data is transferred between regions, we rely on appropriate safeguards such
-            as standard contractual clauses or equivalent mechanisms recognized in the relevant
-            jurisdictions.
+            Our readers, and the service providers we rely on, are located in multiple countries.
+            Personal data may therefore be processed outside the country in which you live. Where
+            personal data is transferred between jurisdictions, we rely on appropriate safeguards
+            such as standard contractual clauses or equivalent mechanisms recognized under
+            applicable law.
           </p>
         </>
       ),
@@ -212,10 +191,10 @@ export default function Privacy() {
           <p>
             Privacy questions, requests, or complaints can be sent to{" "}
             <a
-              href="mailto:privacy@techscoop.com"
+              href={`mailto:${publication.emails.hello}`}
               className="text-primary underline hover:no-underline"
             >
-              privacy@techscoop.com
+              {publication.emails.hello}
             </a>
             .
           </p>
@@ -272,9 +251,15 @@ export default function Privacy() {
 
           <article className="prose prose-neutral dark:prose-invert max-w-none">
             <p className="lead">
-              This Privacy Policy explains how TechScoop collects, uses, and shares information
-              when you use our platform. It applies to candidates, recruiters, company users, and
-              visitors.
+              This Privacy Policy explains how {publication.legalName} (&ldquo;{publication.name}&rdquo;)
+              collects, uses, and shares information when you use {publication.domain} and the
+              services we provide through it (the &ldquo;Service&rdquo;). It applies to readers,
+              newsletter subscribers, and visitors. Your use of the Service is also governed by
+              our{" "}
+              <Link href="/terms" className="text-primary underline hover:no-underline">
+                Terms of Service
+              </Link>
+              .
             </p>
 
             {sections.map((section) => (
