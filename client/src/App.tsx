@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
+import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -19,8 +20,8 @@ import Events from "./pages/public/Events";
 import EventDetail from "./pages/public/EventDetail";
 import EventLive from "./pages/public/EventLive";
 import EventLivePost from "./pages/public/EventLivePost";
-import LiveConsole from "./pages/LiveConsole";
-import LiveConsolePicker from "./pages/LiveConsolePicker";
+const LiveConsole = lazy(() => import("./pages/LiveConsole"));
+const LiveConsolePicker = lazy(() => import("./pages/LiveConsolePicker"));
 import EventSubmit from "./pages/public/EventSubmit";
 import EventTicketsSuccess from "./pages/public/EventTicketsSuccess";
 import CategoryNews from "./pages/public/CategoryNews";
@@ -52,88 +53,88 @@ import ClaimedEntityEditor from "./pages/public/ClaimedEntityEditor";
 import TeamAccess from "./pages/public/TeamAccess";
 
 // Admin pages
-import Dashboard from "./pages/admin/Dashboard";
-import ArticlesList from "./pages/admin/ArticlesList";
-import ArticleEditor from "./pages/admin/ArticleEditor";
-import ArticlePreview from "./pages/admin/ArticlePreview";
-import MediaLibrary from "./pages/admin/MediaLibrary";
-import WorkflowQueue from "./pages/admin/WorkflowQueue";
-import ModerationQueue from "./pages/admin/ModerationQueue";
-import WordPressImport from "./pages/admin/WordPressImport";
-import SEOManager from "./pages/admin/SEOManager";
-import EditionsPage from "./pages/admin/Editions";
-import SearchAnalyticsPage from "./pages/admin/SearchAnalytics";
-import HomepageConfig from "./pages/admin/HomepageConfig";
-import HomepageSections from "./pages/admin/HomepageSections";
-import PopupsManager from "./pages/admin/PopupsManager";
-import TaxonomyManager from "./pages/admin/TaxonomyManager";
-import JobsList from "./pages/admin/JobsList";
-import PeopleList from "./pages/admin/PeopleList";
-import InvestorsList from "./pages/admin/InvestorsList";
-import InvestorEditor from "./pages/admin/InvestorEditor";
-import EventsList from "./pages/admin/EventsList";
-import ResourcesList from "./pages/admin/ResourcesList";
-import ResourceEditor from "./pages/admin/ResourceEditor";
-import AcceleratorsList from "./pages/admin/AcceleratorsList";
-import AcceleratorEditor from "./pages/admin/AcceleratorEditor";
-import CompaniesList from "./pages/admin/CompaniesList";
-import AdminLogin from "./pages/admin/AdminLogin";
-import TenantsList from "./pages/admin/TenantsList";
-import TenantEditor from "./pages/admin/TenantEditor";
-import TalentCandidatesList from "./pages/admin/TalentCandidatesList";
-import TalentCandidateDetail from "./pages/admin/TalentCandidateDetail";
-import TalentPipeline from "./pages/admin/TalentPipeline";
-import TalentInterviews from "./pages/admin/TalentInterviews";
-import TalentOffers from "./pages/admin/TalentOffers";
-import TalentAssessments from "./pages/admin/TalentAssessments";
-import TalentAssessmentEditor from "./pages/admin/TalentAssessmentEditor";
-import TalentApplicationDetail from "./pages/admin/TalentApplicationDetail";
-import TalentInterviewFeedback from "./pages/admin/TalentInterviewFeedback";
-import TalentReports from "./pages/admin/TalentReports";
-import TalentJobsList from "./pages/admin/TalentJobsList";
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const ArticlesList = lazy(() => import("./pages/admin/ArticlesList"));
+const ArticleEditor = lazy(() => import("./pages/admin/ArticleEditor"));
+const ArticlePreview = lazy(() => import("./pages/admin/ArticlePreview"));
+const MediaLibrary = lazy(() => import("./pages/admin/MediaLibrary"));
+const WorkflowQueue = lazy(() => import("./pages/admin/WorkflowQueue"));
+const ModerationQueue = lazy(() => import("./pages/admin/ModerationQueue"));
+const WordPressImport = lazy(() => import("./pages/admin/WordPressImport"));
+const SEOManager = lazy(() => import("./pages/admin/SEOManager"));
+const EditionsPage = lazy(() => import("./pages/admin/Editions"));
+const SearchAnalyticsPage = lazy(() => import("./pages/admin/SearchAnalytics"));
+const HomepageConfig = lazy(() => import("./pages/admin/HomepageConfig"));
+const HomepageSections = lazy(() => import("./pages/admin/HomepageSections"));
+const PopupsManager = lazy(() => import("./pages/admin/PopupsManager"));
+const TaxonomyManager = lazy(() => import("./pages/admin/TaxonomyManager"));
+const JobsList = lazy(() => import("./pages/admin/JobsList"));
+const PeopleList = lazy(() => import("./pages/admin/PeopleList"));
+const InvestorsList = lazy(() => import("./pages/admin/InvestorsList"));
+const InvestorEditor = lazy(() => import("./pages/admin/InvestorEditor"));
+const EventsList = lazy(() => import("./pages/admin/EventsList"));
+const ResourcesList = lazy(() => import("./pages/admin/ResourcesList"));
+const ResourceEditor = lazy(() => import("./pages/admin/ResourceEditor"));
+const AcceleratorsList = lazy(() => import("./pages/admin/AcceleratorsList"));
+const AcceleratorEditor = lazy(() => import("./pages/admin/AcceleratorEditor"));
+const CompaniesList = lazy(() => import("./pages/admin/CompaniesList"));
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const TenantsList = lazy(() => import("./pages/admin/TenantsList"));
+const TenantEditor = lazy(() => import("./pages/admin/TenantEditor"));
+const TalentCandidatesList = lazy(() => import("./pages/admin/TalentCandidatesList"));
+const TalentCandidateDetail = lazy(() => import("./pages/admin/TalentCandidateDetail"));
+const TalentPipeline = lazy(() => import("./pages/admin/TalentPipeline"));
+const TalentInterviews = lazy(() => import("./pages/admin/TalentInterviews"));
+const TalentOffers = lazy(() => import("./pages/admin/TalentOffers"));
+const TalentAssessments = lazy(() => import("./pages/admin/TalentAssessments"));
+const TalentAssessmentEditor = lazy(() => import("./pages/admin/TalentAssessmentEditor"));
+const TalentApplicationDetail = lazy(() => import("./pages/admin/TalentApplicationDetail"));
+const TalentInterviewFeedback = lazy(() => import("./pages/admin/TalentInterviewFeedback"));
+const TalentReports = lazy(() => import("./pages/admin/TalentReports"));
+const TalentJobsList = lazy(() => import("./pages/admin/TalentJobsList"));
 import CookieConsentBanner from "./components/CookieConsentBanner";
-import SystemHealth from "./pages/admin/SystemHealth";
+const SystemHealth = lazy(() => import("./pages/admin/SystemHealth"));
 import CandidateDashboard from "./pages/public/CandidateDashboard";
-import FundingTracker from "./pages/admin/FundingTracker";
-import JobEditor from "./pages/admin/JobEditor";
-import PersonEditor from "./pages/admin/PersonEditor";
-import EventEditor from "./pages/admin/EventEditor";
-import EventLiveComposer from "./pages/admin/EventLiveComposer";
-import EventSubmissionsQueue from "./pages/admin/EventSubmissionsQueue";
-import UsersManager from "./pages/admin/UsersManager";
-import SettingsPage from "./pages/admin/SettingsPage";
-import ProfilePage from "./pages/admin/ProfilePage";
-import AccountSettings from "./pages/admin/AccountSettings";
-import CompanyEditor from "./pages/admin/CompanyEditor";
-import RolesManager from "./pages/admin/RolesManager";
-import PartnersManager from "./pages/admin/PartnersManager";
-import NewsletterManager from "./pages/admin/NewsletterManager";
-import WritersManager from "./pages/admin/WritersManager";
-import AdvertisingManager from "./pages/admin/AdvertisingManager";
-import IntegrationHub from "./pages/admin/IntegrationHub";
-import ClaimRequests from "./pages/admin/ClaimRequests";
-import UserSubmissions from "./pages/admin/UserSubmissions";
-import MasterDataLocations from "./pages/admin/MasterDataLocations";
-import AIContentGenerator from "./pages/admin/ai/AIContentGenerator";
-import AgentDashboard from "./pages/admin/ai/AgentDashboard";
+const FundingTracker = lazy(() => import("./pages/admin/FundingTracker"));
+const JobEditor = lazy(() => import("./pages/admin/JobEditor"));
+const PersonEditor = lazy(() => import("./pages/admin/PersonEditor"));
+const EventEditor = lazy(() => import("./pages/admin/EventEditor"));
+const EventLiveComposer = lazy(() => import("./pages/admin/EventLiveComposer"));
+const EventSubmissionsQueue = lazy(() => import("./pages/admin/EventSubmissionsQueue"));
+const UsersManager = lazy(() => import("./pages/admin/UsersManager"));
+const SettingsPage = lazy(() => import("./pages/admin/SettingsPage"));
+const ProfilePage = lazy(() => import("./pages/admin/ProfilePage"));
+const AccountSettings = lazy(() => import("./pages/admin/AccountSettings"));
+const CompanyEditor = lazy(() => import("./pages/admin/CompanyEditor"));
+const RolesManager = lazy(() => import("./pages/admin/RolesManager"));
+const PartnersManager = lazy(() => import("./pages/admin/PartnersManager"));
+const NewsletterManager = lazy(() => import("./pages/admin/NewsletterManager"));
+const WritersManager = lazy(() => import("./pages/admin/WritersManager"));
+const AdvertisingManager = lazy(() => import("./pages/admin/AdvertisingManager"));
+const IntegrationHub = lazy(() => import("./pages/admin/IntegrationHub"));
+const ClaimRequests = lazy(() => import("./pages/admin/ClaimRequests"));
+const UserSubmissions = lazy(() => import("./pages/admin/UserSubmissions"));
+const MasterDataLocations = lazy(() => import("./pages/admin/MasterDataLocations"));
+const AIContentGenerator = lazy(() => import("./pages/admin/ai/AIContentGenerator"));
+const AgentDashboard = lazy(() => import("./pages/admin/ai/AgentDashboard"));
 // EntitiesManager / KeywordsManager / PolicyManager / TemplatesManager were
 // duplicates of admin/entityLinking, admin/taxonomy/keywords, /about anchors,
 // and /resources/templates. Deleted in the AI consolidation.
-import AIStudio from "./pages/admin/AIStudio";
-import AIAnalytics from "./pages/admin/ai/AIAnalytics";
-import AISettings from "./pages/admin/ai/AISettings";
-import BatchGeneration from "./pages/admin/ai/BatchGeneration";
-import ContentComparison from "./pages/admin/ai/ContentComparison";
-import ContentCalendar from "./pages/admin/ai/ContentCalendar";
-import SEOTools from "./pages/admin/ai/SEOTools";
-import ToneAnalyzer from "./pages/admin/ai/ToneAnalyzer";
-import PlagiarismCheck from "./pages/admin/ai/PlagiarismCheck";
-import SocialMedia from "./pages/admin/ai/SocialMedia";
-import NewsletterGenerator from "./pages/admin/ai/NewsletterGenerator";
-import ScriptGenerator from "./pages/admin/ai/ScriptGenerator";
-import CompetitiveIntel from "./pages/admin/ai/CompetitiveIntel";
-import Webhooks from "./pages/admin/ai/Webhooks";
-import APIAccess from "./pages/admin/ai/APIAccess";
+const AIStudio = lazy(() => import("./pages/admin/AIStudio"));
+const AIAnalytics = lazy(() => import("./pages/admin/ai/AIAnalytics"));
+const AISettings = lazy(() => import("./pages/admin/ai/AISettings"));
+const BatchGeneration = lazy(() => import("./pages/admin/ai/BatchGeneration"));
+const ContentComparison = lazy(() => import("./pages/admin/ai/ContentComparison"));
+const ContentCalendar = lazy(() => import("./pages/admin/ai/ContentCalendar"));
+const SEOTools = lazy(() => import("./pages/admin/ai/SEOTools"));
+const ToneAnalyzer = lazy(() => import("./pages/admin/ai/ToneAnalyzer"));
+const PlagiarismCheck = lazy(() => import("./pages/admin/ai/PlagiarismCheck"));
+const SocialMedia = lazy(() => import("./pages/admin/ai/SocialMedia"));
+const NewsletterGenerator = lazy(() => import("./pages/admin/ai/NewsletterGenerator"));
+const ScriptGenerator = lazy(() => import("./pages/admin/ai/ScriptGenerator"));
+const CompetitiveIntel = lazy(() => import("./pages/admin/ai/CompetitiveIntel"));
+const Webhooks = lazy(() => import("./pages/admin/ai/Webhooks"));
+const APIAccess = lazy(() => import("./pages/admin/ai/APIAccess"));
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import CategoryOrArticle from "./components/CategoryOrArticle";
 import ThreeSegmentRoute from "./components/ThreeSegmentRoute";
@@ -148,6 +149,16 @@ function Router() {
   return (
     <>
       <ScrollToTop />
+      {/* Admin and console pages are lazy-loaded; the fallback shows while
+          a chunk downloads. Public editorial pages stay statically imported
+          for instant first paint + SSR parity. */}
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center min-h-[50vh] text-muted-foreground text-sm">
+            Loading…
+          </div>
+        }
+      >
       <Switch>
         {/* Public routes - Main */}
         <Route path="/" component={News} />
@@ -385,6 +396,7 @@ function Router() {
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
+      </Suspense>
     </>
   );
 }

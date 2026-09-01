@@ -223,7 +223,10 @@ describe("emailDigest", () => {
     expect(Array.isArray(result.events)).toBe(true);
   });
 
-  it("should allow admin to trigger digest", async () => {
+  // triggerDigest calls notifyOwner, which requires the external notification
+  // proxy (BUILT_IN_FORGE_API_URL/KEY). Skip cleanly when it is not configured.
+  it.skipIf(!process.env.BUILT_IN_FORGE_API_URL || !process.env.BUILT_IN_FORGE_API_KEY)(
+    "should allow admin to trigger digest", async () => {
     const adminCaller = appRouter.createCaller(createAdminContext());
     const result = await adminCaller.emailDigest.triggerDigest({
       frequency: "weekly",

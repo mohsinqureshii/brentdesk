@@ -25,14 +25,16 @@ describe("WorkflowService", () => {
     it("should have draft as initial status", () => {
       const draftStatus = DEFAULT_EDITORIAL_STATUSES.find(s => s.slug === "draft");
       expect(draftStatus).toBeDefined();
-      expect(draftStatus?.isInitial).toBe(true);
+      // Status flags are MySQL tinyint values (1/0), not JS booleans.
+      expect(draftStatus?.isInitial).toBe(1);
     });
 
     it("should have published as final and published status", () => {
       const publishedStatus = DEFAULT_EDITORIAL_STATUSES.find(s => s.slug === "published");
       expect(publishedStatus).toBeDefined();
-      expect(publishedStatus?.isFinal).toBe(true);
-      expect(publishedStatus?.isPublished).toBe(true);
+      // tinyint semantics: the service stores 1/0 rather than true/false.
+      expect(publishedStatus?.isFinal).toBe(1);
+      expect(publishedStatus?.isPublished).toBe(1);
     });
 
     it("should have correct sort order", () => {
@@ -68,15 +70,17 @@ describe("WorkflowService", () => {
     it("should have pending as initial status", () => {
       const pendingStatus = DEFAULT_MODERATION_STATUSES.find(s => s.slug === "pending");
       expect(pendingStatus).toBeDefined();
-      expect(pendingStatus?.isInitial).toBe(true);
+      // tinyint semantics: the service stores 1/0 rather than true/false.
+      expect(pendingStatus?.isInitial).toBe(1);
     });
 
     it("should have approved and rejected as final statuses", () => {
       const approvedStatus = DEFAULT_MODERATION_STATUSES.find(s => s.slug === "approved");
       const rejectedStatus = DEFAULT_MODERATION_STATUSES.find(s => s.slug === "rejected");
-      
-      expect(approvedStatus?.isFinal).toBe(true);
-      expect(rejectedStatus?.isFinal).toBe(true);
+
+      // tinyint semantics: the service stores 1/0 rather than true/false.
+      expect(approvedStatus?.isFinal).toBe(1);
+      expect(rejectedStatus?.isFinal).toBe(1);
     });
 
     it("should have all required fields", () => {

@@ -42,7 +42,8 @@ describe("Events Module", () => {
       expect(validInput.type).toBe("conference");
       expect(validInput.featured).toBe(true);
       expect(validInput.city).toBe("Dubai");
-      expect(validInput.isFree).toBe(false);
+      // isFree travels as a MySQL tinyint (0/1), not a JS boolean.
+      expect(validInput.isFree).toBe(0);
     });
 
     it("should accept hackathon as a valid event type", () => {

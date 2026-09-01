@@ -26,6 +26,8 @@ import {
   workflowAuditLog,
   media,
   countries,
+  articleCompanies,
+  companies,
 } from "../../../drizzle/schema";
 import { slugService } from "../../services/slug.service";
 import { seoService } from "../../services/seo.service";
@@ -2149,6 +2151,36 @@ export const newsRouter = router({
     }))
     .query(async ({ input }) => {
       return relatedContentService.getRelatedArticles(input.articleId, input.limit);
+    }),
+
+  /**
+   * Companies linked to a published article (public read for the
+   * "Companies in this article" panel). Mirrors the admin
+   * entityLinking.getArticleCompanies shape minus editorial metadata.
+   */
+  getArticleCompanies: publicProcedure
+    .input(z.object({ articleId: z.number() }))
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return [];
+      const links = await db
+        .select({
+          id: articleCompanies.id,
+          articleId: articleCompanies.articleId,
+          companyId: articleCompanies.companyId,
+          mentionType: articleCompanies.mentionType,
+          company: {
+            id: companies.id,
+            name: companies.name,
+            slug: companies.slug,
+            logo: companies.logo,
+            industry: companies.industry,
+          },
+        })
+        .from(articleCompanies)
+        .leftJoin(companies, eq(articleCompanies.companyId, companies.id))
+        .where(eq(articleCompanies.articleId, input.articleId));
+      return links;
     }),
 
   /**

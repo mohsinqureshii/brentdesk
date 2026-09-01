@@ -5,6 +5,7 @@
  * - getTagBySlug endpoint
  * - getTagsForSitemap endpoint
  */
+import { publication } from "@shared/publication";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // Mock the database module
@@ -54,10 +55,10 @@ describe("Tag Pages Feature", () => {
     });
 
     it("should generate correct sitemap URL for tags", () => {
-      const baseUrl = "https://techscoop.io";
+      const baseUrl = publication.siteUrl;
       const tagSlug = "ai-regulation";
       const sitemapUrl = `${baseUrl}/tag/${tagSlug}`;
-      expect(sitemapUrl).toBe("https://techscoop.io/tag/ai-regulation");
+      expect(sitemapUrl).toBe(`${publication.siteUrl}/tag/ai-regulation`);
     });
   });
 

@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "91495778-214f-401e-82d2-c82c60c586a8",
+  "id": "329a97de-e4a7-4b1a-a751-a0474abe6cf0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "accelerator_alumni_companies": {
@@ -19865,12 +19865,13 @@
         }
       },
       "indexes": {
-        "idx_newsletter_subscriptions_email": {
-          "name": "idx_newsletter_subscriptions_email",
+        "newsletter_subscriptions_email_newsletter_unique": {
+          "name": "newsletter_subscriptions_email_newsletter_unique",
           "columns": [
-            "email"
+            "email",
+            "newsletterId"
           ],
-          "isUnique": false
+          "isUnique": true
         },
         "idx_newsletter_subscriptions_newsletter_id": {
           "name": "idx_newsletter_subscriptions_newsletter_id",

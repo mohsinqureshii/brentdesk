@@ -1,3 +1,4 @@
+import { publication } from "@shared/publication";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 /**
@@ -92,23 +93,23 @@ describe("Article URL Redirect Logic", () => {
 
   describe("Canonical URL Generation", () => {
     it("should generate canonical URL using primary category", () => {
-      const baseUrl = "https://techscoop.io";
+      const baseUrl = publication.siteUrl;
       const primaryCategorySlug = "social";
       const articleSlug = "my-article";
       
       const canonicalUrl = `${baseUrl}/${primaryCategorySlug}/${articleSlug}`;
-      expect(canonicalUrl).toBe("https://techscoop.io/social/my-article");
+      expect(canonicalUrl).toBe(`${publication.siteUrl}/social/my-article`);
     });
 
     it("should fallback to first category if no primary category", () => {
-      const baseUrl = "https://techscoop.io";
+      const baseUrl = publication.siteUrl;
       const primaryCategorySlug = null;
       const firstCategorySlug = "startups";
       const articleSlug = "my-article";
       
       const categorySlug = primaryCategorySlug || firstCategorySlug;
       const canonicalUrl = `${baseUrl}/${categorySlug}/${articleSlug}`;
-      expect(canonicalUrl).toBe("https://techscoop.io/startups/my-article");
+      expect(canonicalUrl).toBe(`${publication.siteUrl}/startups/my-article`);
     });
   });
 });

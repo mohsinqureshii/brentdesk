@@ -117,16 +117,22 @@ describe("schedulerService", () => {
 
       const timer = schedulerService.start(1000);
 
-      // Should run immediately
+      // start() defers the first run behind a 3s DB warm-up setTimeout, so
+      // nothing fires synchronously any more.
+      expect(publishSpy).not.toHaveBeenCalled();
+
+      // Advance time by 1 second — first interval tick
+      vi.advanceTimersByTime(1000);
       expect(publishSpy).toHaveBeenCalledTimes(1);
 
-      // Advance time by 1 second
+      // Advance time by another second — second interval tick
       vi.advanceTimersByTime(1000);
       expect(publishSpy).toHaveBeenCalledTimes(2);
 
-      // Advance time by another second
+      // At t=3000 both the third interval tick and the 3s warm-up
+      // setTimeout fire.
       vi.advanceTimersByTime(1000);
-      expect(publishSpy).toHaveBeenCalledTimes(3);
+      expect(publishSpy).toHaveBeenCalledTimes(4);
 
       clearInterval(timer);
       vi.useRealTimers();

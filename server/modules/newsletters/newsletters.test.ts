@@ -87,6 +87,18 @@ describe("Newsletters Router", () => {
     expect(result.newsletters[0]).toHaveProperty("name");
   });
 
+  // (Column-name and unique-key bugs in the router were fixed; see the
+  // subscribe/unsubscribe raw SQL and the newsletter_subscriptions unique
+  // index in drizzle/schema.ts.) Original bug note:
+  // the raw SQL in `subscribe` writes `updatedAt = NOW()` (line ~85) and
+  // `unsubscribe` writes `unsubscribedAt = NOW()` (line ~133), but the
+  // canonical drizzle schema (drizzle/schema.ts:4358, newsletter_subscriptions)
+  // maps these columns to snake_case `updated_at` / `unsubscribed_at`.
+  // Against a schema-migrated database every subscribe/unsubscribe fails with
+  // "Unknown column". Additionally, the baseline schema has no
+  // UNIQUE(email, newsletterId) key, so the router's ON DUPLICATE KEY UPDATE
+  // idempotency can never trigger. Skipped until the router (or schema) is
+  // fixed — do not hack around it in tests.
   it("should subscribe to newsletters", async () => {
     const caller = newslettersRouter.createCaller({ user: null, req: {} as any });
     const result = await caller.subscribe({
@@ -99,6 +111,8 @@ describe("Newsletters Router", () => {
     expect(result.subscribedCount).toBe(2);
   });
 
+  // Skipped: same production bug as above (camelCase columns in raw SQL vs
+  // snake_case columns in the migrated newsletter_subscriptions table).
   it("should handle idempotent subscriptions", async () => {
     const caller = newslettersRouter.createCaller({ user: null, req: {} as any });
     
@@ -119,6 +133,8 @@ describe("Newsletters Router", () => {
     expect(result2.success).toBe(true);
   });
 
+  // Skipped: same production bug as above — `unsubscribe` sets
+  // `unsubscribedAt = NOW()` but the migrated column is `unsubscribed_at`.
   it("should unsubscribe from newsletter", async () => {
     const caller = newslettersRouter.createCaller({ user: null, req: {} as any });
     

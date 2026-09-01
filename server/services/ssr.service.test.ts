@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { getBaseUrl, publication } from "@shared/publication";
 import {
   generateMetaTags,
   generateJsonLd,
@@ -7,16 +8,17 @@ import {
 } from "./ssr.service";
 
 describe("SSR Service", () => {
+  const BASE = getBaseUrl();
   const mockArticle = {
     title: "Test Article Title",
     description: "This is a test article description for SEO purposes.",
     image: "https://example.com/image.jpg",
-    url: "https://techscoop.io/startups/test-article",
+    url: `${BASE}/startups/test-article`,
     publishedAt: new Date("2026-01-15T10:00:00Z").toISOString(),
     updatedAt: new Date("2026-01-20T15:30:00Z").toISOString(),
     author: {
       name: "John Doe",
-      url: "https://techscoop.io/people/johndoe",
+      url: `${BASE}/people/johndoe`,
       image: "https://example.com/avatar.jpg",
     },
     category: {
@@ -29,7 +31,7 @@ describe("SSR Service", () => {
   describe("generateMetaTags", () => {
     it("should generate correct title tag", () => {
       const metaTags = generateMetaTags(mockArticle);
-      expect(metaTags).toContain("<title>Test Article Title | TechScoop</title>");
+      expect(metaTags).toContain(`<title>Test Article Title | ${publication.name}</title>`);
     });
 
     it("should generate meta description", () => {
@@ -56,7 +58,7 @@ describe("SSR Service", () => {
     it("should generate canonical URL", () => {
       const metaTags = generateMetaTags(mockArticle);
       expect(metaTags).toContain('rel="canonical"');
-      expect(metaTags).toContain("https://techscoop.io/startups/test-article");
+      expect(metaTags).toContain(`${BASE}/startups/test-article`);
     });
 
     it("should escape HTML special characters", () => {
@@ -87,7 +89,7 @@ describe("SSR Service", () => {
     it("should include publisher information", () => {
       const jsonLd = generateJsonLd(mockArticle);
       expect(jsonLd).toContain('"@type":"Organization"');
-      expect(jsonLd).toContain('"name":"TechScoop"');
+      expect(jsonLd).toContain(`"name":"${publication.name}"`);
     });
 
     it("should generate BreadcrumbList schema", () => {
@@ -118,12 +120,14 @@ describe("SSR Service", () => {
 
     it("should include category", () => {
       const content = generatePrerenderedContent(mockArticle);
-      expect(content).toContain("Category: Startups");
+      // The category is rendered as a link to its canonical bare-slug URL.
+      expect(content).toContain(`Category: <a href="${BASE}/startups">Startups</a>`);
     });
 
     it("should include author name", () => {
       const content = generatePrerenderedContent(mockArticle);
-      expect(content).toContain("By John Doe");
+      // The byline is rendered as a link to the author profile.
+      expect(content).toContain(`By <a href="${mockArticle.author.url}">John Doe</a>`);
     });
 
     it("should strip HTML tags from content", () => {

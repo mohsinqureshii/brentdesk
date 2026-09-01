@@ -188,8 +188,12 @@ export function AdUnit({
     "mobile-sticky": "fixed bottom-0 left-0 right-0 z-50 flex justify-center md:hidden",
   };
 
-  // Don't render anything while loading or when empty
-  if (isLoading || !adData || (adData?.type === "empty" && !adBlockerDetected)) {
+  // Collapse only once the slot has RESOLVED to empty. The container must
+  // render before data arrives: the lazy IntersectionObserver attaches to
+  // this element, and the query is enabled only after it intersects — the
+  // old gate returned null pre-data, so the observer never attached and
+  // lazy ads never loaded at all.
+  if (adData?.type === "empty" && !adBlockerDetected) {
     return null;
   }
 
@@ -200,17 +204,19 @@ export function AdUnit({
       data-ad-slot={slotKey}
       data-ad-variant={variant}
     >
-      {/* Advertisement label (IAB/Google policy) */}
-      <div className="flex items-center justify-center mb-0.5">
-        <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/60 font-medium">
-          Advertisement
-        </span>
-      </div>
+      {/* Advertisement label (IAB/Google policy) — only once a creative is in hand */}
+      {adData && adData.type !== "empty" && (
+        <div className="flex items-center justify-center mb-0.5">
+          <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/60 font-medium">
+            Advertisement
+          </span>
+        </div>
+      )}
 
-      {/* Loading state */}
-      {(isLoading || !isVisible) && (
+      {/* Reserved space while the slot loads (prevents layout shift) */}
+      {!adData && (
         <div
-          className="bg-muted/20 rounded animate-pulse"
+          className="bg-muted/20 rounded"
           style={{ width: "100%", maxWidth: dims.width, height: dims.height }}
         />
       )}

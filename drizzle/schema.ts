@@ -4367,7 +4367,7 @@ export const newsletterSubscriptions = mysqlTable("newsletter_subscriptions", {
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("idx_newsletter_subscriptions_email").on(table.email),
+	uniqueIndex("newsletter_subscriptions_email_newsletter_unique").on(table.email, table.newsletterId),
 	index("idx_newsletter_subscriptions_newsletter_id").on(table.newsletterId),
 	index("idx_newsletter_subscriptions_status").on(table.status),
 ]);

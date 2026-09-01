@@ -137,10 +137,20 @@ export const noindexPages = new Set([
  */
 function inject404Response(template: string, url: string): string {
   let html = injectCanonical(template, url);
-  html = html.replace(
-    /<meta[^>]*name="robots"[^>]*>/gi,
-    '<meta name="robots" content="noindex, follow" />'
-  );
+  if (/<meta[^>]*name="robots"[^>]*>/i.test(html)) {
+    html = html.replace(
+      /<meta[^>]*name="robots"[^>]*>/gi,
+      '<meta name="robots" content="noindex, follow" />'
+    );
+  } else {
+    // The shell template carries no robots meta of its own — append the
+    // noindex directive instead of silently doing nothing (entity-miss
+    // 404 pages used to ship with no robots directive at all).
+    html = html.replace(
+      /<\/head>/i,
+      '  <meta name="robots" content="noindex, follow" />\n  </head>'
+    );
+  }
   return html;
 }
 

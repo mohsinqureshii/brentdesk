@@ -7,6 +7,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 const mockFetch = vi.fn();
 vi.stubGlobal("fetch", mockFetch);
 
+import { getBaseUrl } from "@shared/publication";
+
 // Import after mocking
 import {
   notifySearchEngines,
@@ -35,13 +37,13 @@ describe("Indexing Notification Service", () => {
 
   describe("buildArticleUrl", () => {
     it("should build correct article URL with category and slug", () => {
-      const url = buildArticleUrl("funding", "startup-raises-10m");
-      expect(url).toBe("https://techscoop.io/funding/startup-raises-10m");
+      const url = buildArticleUrl("energy", "project-award");
+      expect(url).toBe(`${getBaseUrl()}/energy/project-award`);
     });
 
     it("should handle 'news' as default category", () => {
       const url = buildArticleUrl("news", "breaking-story");
-      expect(url).toBe("https://techscoop.io/news/breaking-story");
+      expect(url).toBe(`${getBaseUrl()}/news/breaking-story`);
     });
   });
 
@@ -55,7 +57,7 @@ describe("Indexing Notification Service", () => {
       });
 
       const results = await notifySearchEngines({
-        url: "https://techscoop.io/funding/test-article",
+        url: `${getBaseUrl()}/energy/test-article`,
       });
 
       // Should have at least 2 results (sitemap ping + IndexNow)
@@ -74,18 +76,23 @@ describe("Indexing Notification Service", () => {
     });
 
     it("should handle sitemap ping failure gracefully", async () => {
+      // pingSitemap now pings Bing AND Google in parallel (two fetches),
+      // so both must fail for the sitemap ping to report failure.
       mockFetch
-        .mockRejectedValueOnce(new Error("Network error")) // sitemap ping fails
+        .mockRejectedValueOnce(new Error("Network error")) // Bing ping fails
+        .mockRejectedValueOnce(new Error("Network error")) // Google ping fails
         .mockResolvedValueOnce({ status: 200, ok: true, text: async () => "OK" }); // IndexNow succeeds
 
       const results = await notifySearchEngines({
-        url: "https://techscoop.io/funding/test-article",
+        url: `${getBaseUrl()}/energy/test-article`,
       });
 
       const sitemapResult = results.find((r) => r.method === "sitemap_ping");
       expect(sitemapResult).toBeDefined();
       expect(sitemapResult!.success).toBe(false);
-      expect(sitemapResult!.message).toContain("Network error");
+      // Promise.allSettled swallows the individual fetch errors; the result
+      // reports the (zero) status rather than the network error text.
+      expect(sitemapResult!.message).toContain("Sitemap ping returned");
 
       const indexNowResult = results.find((r) => r.method === "indexnow");
       expect(indexNowResult).toBeDefined();
@@ -94,11 +101,12 @@ describe("Indexing Notification Service", () => {
 
     it("should handle IndexNow failure gracefully", async () => {
       mockFetch
-        .mockResolvedValueOnce({ status: 200, ok: true, text: async () => "OK" }) // sitemap ping succeeds
+        .mockResolvedValueOnce({ status: 200, ok: true, text: async () => "OK" }) // Bing sitemap ping succeeds
+        .mockResolvedValueOnce({ status: 404, ok: false, text: async () => "" }) // Google ping deprecated (expected)
         .mockResolvedValueOnce({ status: 422, ok: false, text: async () => "Invalid key" }); // IndexNow fails
 
       const results = await notifySearchEngines({
-        url: "https://techscoop.io/funding/test-article",
+        url: `${getBaseUrl()}/energy/test-article`,
       });
 
       const sitemapResult = results.find((r) => r.method === "sitemap_ping");
@@ -113,7 +121,7 @@ describe("Indexing Notification Service", () => {
       mockFetch.mockResolvedValue({ status: 200, ok: true, text: async () => "OK" });
 
       const results = await notifySearchEngines({
-        url: "https://techscoop.io/funding/test-article",
+        url: `${getBaseUrl()}/energy/test-article`,
       });
 
       const googleResult = results.find((r) => r.method === "google_indexing_api");
@@ -124,7 +132,7 @@ describe("Indexing Notification Service", () => {
       mockFetch.mockResolvedValue({ status: 200, ok: true, text: async () => "OK" });
 
       const results = await notifySearchEngines({
-        url: "https://techscoop.io/funding/test-article",
+        url: `${getBaseUrl()}/energy/test-article`,
       });
 
       for (const result of results) {
@@ -144,9 +152,9 @@ describe("Indexing Notification Service", () => {
       mockFetch.mockResolvedValue({ status: 200, ok: true, text: async () => "OK" });
 
       const urls = [
-        "https://techscoop.io/funding/article-1",
-        "https://techscoop.io/ai/article-2",
-        "https://techscoop.io/startups/article-3",
+        `${getBaseUrl()}/energy/article-1`,
+        `${getBaseUrl()}/manufacturing/article-2`,
+        `${getBaseUrl()}/logistics/article-3`,
       ];
 
       const results = await notifySearchEnginesBatch(urls);
@@ -163,7 +171,8 @@ describe("Indexing Notification Service", () => {
     it("should send correct IndexNow payload format", async () => {
       mockFetch.mockResolvedValue({ status: 200, ok: true, text: async () => "OK" });
 
-      await notifySearchEnginesBatch(["https://techscoop.io/news/test"]);
+      const testUrl = `${getBaseUrl()}/news/test`;
+      await notifySearchEnginesBatch([testUrl]);
 
       // Find the IndexNow call (POST to api.indexnow.org)
       const indexNowCall = mockFetch.mock.calls.find(
@@ -176,7 +185,7 @@ describe("Indexing Notification Service", () => {
       expect(body).toHaveProperty("key", INDEXNOW_KEY);
       expect(body).toHaveProperty("keyLocation");
       expect(body).toHaveProperty("urlList");
-      expect(body.urlList).toContain("https://techscoop.io/news/test");
+      expect(body.urlList).toContain(testUrl);
     });
   });
 
@@ -209,7 +218,7 @@ describe("Indexing Notification Service", () => {
       mockFetch.mockResolvedValue({ status: 202, ok: true, text: async () => "Accepted" });
 
       const result = await indexingNotificationService._submitIndexNow([
-        "https://techscoop.io/news/test",
+        `${getBaseUrl()}/news/test`,
       ]);
 
       expect(result.success).toBe(true);
@@ -220,7 +229,7 @@ describe("Indexing Notification Service", () => {
       mockFetch.mockRejectedValue(new Error("DNS resolution failed"));
 
       const result = await indexingNotificationService._submitIndexNow([
-        "https://techscoop.io/news/test",
+        `${getBaseUrl()}/news/test`,
       ]);
 
       expect(result.success).toBe(false);
@@ -231,7 +240,7 @@ describe("Indexing Notification Service", () => {
   describe("Google Indexing API", () => {
     it("should skip when no service account is configured", async () => {
       const result = await indexingNotificationService._submitGoogleIndexingApi({
-        url: "https://techscoop.io/news/test",
+        url: `${getBaseUrl()}/news/test`,
         type: "URL_UPDATED",
       });
 
@@ -244,7 +253,7 @@ describe("Indexing Notification Service", () => {
       mockFetch.mockResolvedValue({ status: 200, ok: true, text: async () => "OK" });
 
       const results = await notifySearchEngines({
-        url: "https://techscoop.io/funding/test",
+        url: `${getBaseUrl()}/energy/test`,
         type: "URL_UPDATED",
       });
 

@@ -6,7 +6,7 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Search, X, MapPin, Linkedin, ExternalLink, ChevronDown, ChevronUp, Briefcase, Users, Loader2 } from "lucide-react";
+import { Search, X, Linkedin, ExternalLink, ChevronDown, ChevronUp, Briefcase, Users, Loader2 } from "lucide-react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useEdition } from "@/hooks/useEdition";
@@ -40,21 +40,23 @@ function getAccentColor(index: number): AccentColor {
   return accentColorList[index % accentColorList.length];
 }
 
-const personTypes = ["All", "Founders", "Investors", "Operators", "Advisors"];
-const locations = [
-  "All Regions",
-  // GCC Countries
-  "UAE", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman",
-  // North Africa
-  "Egypt", "Morocco", "Tunisia", "Algeria",
-  // Levant
-  "Jordan", "Lebanon",
-  // Other Major Markets
-  "India", "Pakistan", "Turkey", "Israel",
-  // Global
-  "United States", "United Kingdom", "Singapore",
-];
-const sectors = ["All Sectors", "Fintech", "Mobility", "FoodTech", "E-commerce", "SaaS", "HealthTech"];
+const personTypes = ["All", "Executives", "Engineering", "Operations", "Government"];
+
+// Derive an industry-flavored role category from a person's job title.
+function classifyRole(title: string | null | undefined): "Executives" | "Engineering" | "Operations" | "Government" {
+  const t = (title || "").toLowerCase();
+  if (/minister|ministry|government|authority|municipal|regulator|commission|public sector/.test(t)) return "Government";
+  if (/engineer|technical|cto|architect|scientist|r&d|technolog/.test(t)) return "Engineering";
+  if (/operations|coo|supply chain|logistics|plant |procurement|maintenance|project manager|site manager|hse/.test(t)) return "Operations";
+  return "Executives";
+}
+
+const roleBadgeLabel: Record<ReturnType<typeof classifyRole>, string> = {
+  Executives: "Executive",
+  Engineering: "Engineering",
+  Operations: "Operations",
+  Government: "Government",
+};
 
 interface PersonData {
   id: number;
@@ -62,7 +64,6 @@ interface PersonData {
   slug: string;
   title: string | null;
   company: string | null;
-  location?: string | null;
   bio?: string | null;
   shortBio?: string | null;
   linkedIn?: string | null;
@@ -132,14 +133,7 @@ function PersonListItem({ person }: { person: PersonData }) {
         <div className="flex flex-wrap items-center gap-2 mt-3">
           {person.title && (
             <Badge className={`${tagColors[person.accentColor]} hover:opacity-80 border-0 rounded-full px-3 py-1 text-xs font-medium`}>
-              {person.title.includes("Founder") || person.title.includes("CEO") ? "Founder" : 
-               person.title.includes("Partner") || person.title.includes("Investor") ? "Investor" : "Operator"}
-            </Badge>
-          )}
-          {person.location && (
-            <Badge className={`${tagColors[person.accentColor]} hover:opacity-80 border-0 rounded-full px-3 py-1 text-xs font-medium`}>
-              <MapPin className="h-3 w-3 mr-1" />
-              {person.location}
+              {roleBadgeLabel[classifyRole(person.title)]}
             </Badge>
           )}
         </div>
@@ -166,8 +160,6 @@ function PersonListItem({ person }: { person: PersonData }) {
 export default function People() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedType, setSelectedType] = useState("All");
-  const [selectedLocation, setSelectedLocation] = useState("All Regions");
-  const [selectedSector, setSelectedSector] = useState("All Sectors");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
@@ -187,7 +179,7 @@ export default function People() {
   // Reset to page 1 when search or filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, selectedType, selectedLocation, selectedSector]);
+  }, [searchQuery, selectedType]);
 
   const people = useMemo(() => {
     if (!peopleData?.items) return [];
@@ -197,51 +189,24 @@ export default function People() {
       slug: p.slug,
       title: p.title,
       company: p.company,
-      location: null as string | null, // Not returned from list endpoint
       bio: null as string | null, // Not returned from list endpoint
       shortBio: p.shortBio,
       linkedIn: null as string | null, // Not returned from list endpoint
+      avatar: p.avatar,
       accentColor: getAccentColor(idx),
     }));
   }, [peopleData]);
 
   const filteredPeople = useMemo(() => {
-    return people.filter((person) => {
-      const matchesType = selectedType === "All" || 
-        (selectedType === "Founders" && (person.title?.includes("Founder") || person.title?.includes("CEO"))) ||
-        (selectedType === "Investors" && (person.title?.includes("Partner") || person.title?.includes("Investor"))) ||
-        (selectedType === "Operators" && !person.title?.includes("Founder") && !person.title?.includes("Partner"));
-      
-      const matchesLocation = (() => {
-        if (selectedLocation === "All Regions") return true;
-        const location = (person.location || "").toLowerCase();
-        const searchTerm = selectedLocation.toLowerCase();
-        
-        if (selectedLocation === "UAE") {
-          return location.includes("uae") || location.includes("dubai") || location.includes("abu dhabi") || location.includes("emirates");
-        }
-        if (selectedLocation === "Saudi Arabia") {
-          return location.includes("saudi") || location.includes("ksa") || location.includes("riyadh") || location.includes("jeddah");
-        }
-        if (selectedLocation === "United States") {
-          return location.includes("usa") || location.includes("united states") || location.includes("us") || location.includes("california") || location.includes("new york");
-        }
-        if (selectedLocation === "United Kingdom") {
-          return location.includes("uk") || location.includes("united kingdom") || location.includes("london") || location.includes("england");
-        }
-        return location.includes(searchTerm);
-      })();
-      
-      return matchesType && matchesLocation;
-    });
-  }, [people, selectedType, selectedLocation]);
+    return people.filter((person) =>
+      selectedType === "All" || classifyRole(person.title) === selectedType
+    );
+  }, [people, selectedType]);
 
-  const hasActiveFilters = selectedType !== "All" || selectedLocation !== "All Regions" || selectedSector !== "All Sectors";
+  const hasActiveFilters = selectedType !== "All";
 
   const clearFilters = () => {
     setSelectedType("All");
-    setSelectedLocation("All Regions");
-    setSelectedSector("All Sectors");
     setSearchQuery("");
   };
 
@@ -308,26 +273,6 @@ export default function People() {
                 >
                   {personTypes.map(type => (
                     <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-                
-                <select 
-                  value={selectedLocation}
-                  onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
-                >
-                  {locations.map(loc => (
-                    <option key={loc} value={loc}>{loc}</option>
-                  ))}
-                </select>
-
-                <select 
-                  value={selectedSector}
-                  onChange={(e) => setSelectedSector(e.target.value)}
-                  className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
-                >
-                  {sectors.map(sector => (
-                    <option key={sector} value={sector}>{sector}</option>
                   ))}
                 </select>
 

@@ -288,15 +288,18 @@ function CategorySection({ section }: { section: HomepageSection }) {
   });
   if (isLoading || !articles.length) return null;
   const [featured, ...rest] = articles as Article[];
+  const hasList = rest.length > 0;
 
   return (
     <section aria-label={section.name}>
       <SectionHeader title={section.name} accent={section.accentColor} link={section.viewMoreUrl} />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className={`grid grid-cols-1 gap-5 ${hasList ? "md:grid-cols-2" : ""}`}>
         <Link href={getArticleUrl(featured)} className="group bd-card overflow-hidden flex flex-col">
-          <div className="aspect-[16/9] overflow-hidden">
-            <Thumb article={featured} className="h-full w-full group-hover:scale-[1.02] transition-transform duration-300" />
-          </div>
+          {featured.featuredImageUrl && (
+            <div className="aspect-[16/9] overflow-hidden">
+              <Thumb article={featured} className="h-full w-full group-hover:scale-[1.02] transition-transform duration-300" />
+            </div>
+          )}
           <div className="p-4 flex-1 flex flex-col">
             {kicker(featured) && <div className="bd-kicker mb-1.5">{kicker(featured)}</div>}
             <h3 className="bd-headline text-lg text-foreground line-clamp-2">{featured.title}</h3>
@@ -308,11 +311,13 @@ function CategorySection({ section }: { section: HomepageSection }) {
             </div>
           </div>
         </Link>
-        <div className="bd-card px-5 py-1.5">
-          {rest.slice(0, 3).map((a) => (
-            <ArticleRow key={a.id} article={a} />
-          ))}
-        </div>
+        {hasList && (
+          <div className="bd-card px-5 py-1.5">
+            {rest.slice(0, 3).map((a) => (
+              <ArticleRow key={a.id} article={a} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

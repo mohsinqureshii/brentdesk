@@ -85,17 +85,11 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
     { enabled: companyId > 0 }
   );
 
-  // Fetch funding history
-  const { data: fundingData, isLoading: fundingLoading } = trpc.admin.funding.getCompanyFunding.useQuery(
-    { companyId },
-    { enabled: companyId > 0 }
-  );
-
   // Key people and recent news are optional - we'll skip if endpoints don't exist
   const keyPeopleEnabled = false; // Will add endpoint later
   const recentNewsEnabled = false; // Will add endpoint later
 
-  const isLoading = companyLoading || fundingLoading;
+  const isLoading = companyLoading;
 
   if (isLoading) {
     return (
@@ -115,8 +109,6 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
     return null;
   }
 
-  const fundingRounds = fundingData?.rounds || [];
-  const totalRaised = fundingData?.totalRaised || 0;
   const keyPeople: any[] = []; // Will be populated when endpoint is added
   const recentNews: any[] = []; // Will be populated when endpoint is added
 
@@ -143,11 +135,6 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
               {company.industry && (
                 <Badge variant="secondary" className="text-xs">
                   {company.industry}
-                </Badge>
-              )}
-              {company.stage && (
-                <Badge variant="outline" className="text-xs">
-                  {company.stage}
                 </Badge>
               )}
             </div>
@@ -184,51 +171,6 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
                 <Globe className="h-3 w-3" />
                 Website
               </a>
-            )}
-          </div>
-        )}
-
-        {/* Funding Summary */}
-        {(totalRaised > 0 || fundingRounds.length > 0) && (
-          <div className="bg-background/50 rounded-lg p-3">
-            <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="h-4 w-4 text-green-500" />
-              <span className="text-sm font-semibold text-foreground">Funding History</span>
-            </div>
-            {totalRaised > 0 && (
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingUp className="h-3 w-3 text-muted-foreground" />
-                <span className="text-xs text-muted-foreground">
-                  Total Raised: <span className="font-semibold text-foreground">{formatAmount(totalRaised)}</span>
-                </span>
-              </div>
-            )}
-            {fundingRounds.length > 0 && (
-              <div className="space-y-1.5">
-                {fundingRounds.slice(0, 3).map((round) => (
-                  <div key={round.id} className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="outline" className="text-[10px] px-1.5 py-0">
-                        {ROUND_TYPE_LABELS[round.roundType] || round.roundType}
-                      </Badge>
-                      <span className="text-muted-foreground">
-                        {formatDate(round.fundingDate)}
-                      </span>
-                    </div>
-                    <span className="font-medium text-foreground">
-                      {round.isUndisclosed ? "Undisclosed" : formatAmount(round.amountRaised, round.currency || "USD")}
-                    </span>
-                  </div>
-                ))}
-                {fundingRounds.length > 3 && (
-                  <Link
-                    href={`/companies/${company.slug || company.id}`}
-                    className="text-xs text-primary hover:underline block mt-1"
-                  >
-                    View all {fundingRounds.length} rounds →
-                  </Link>
-                )}
-              </div>
             )}
           </div>
         )}
@@ -306,7 +248,7 @@ interface ArticleCompanySnapshotsProps {
 }
 
 export function ArticleCompanySnapshots({ articleId }: ArticleCompanySnapshotsProps) {
-  const { data: linkedCompanies, isLoading } = trpc.admin.entityLinking.getArticleCompanies.useQuery(
+  const { data: linkedCompanies, isLoading } = trpc.news.getArticleCompanies.useQuery(
     { articleId },
     { enabled: articleId > 0 }
   );

@@ -1,7 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { createSign } from 'crypto';
 
-describe('Google Search Console credentials', () => {
+// Requires a provisioned Google service-account credential and live network
+// access to oauth2.googleapis.com — skip cleanly when not configured.
+const HAS_GOOGLE_CREDS = Boolean(process.env.GOOGLE_INDEXING_SERVICE_ACCOUNT);
+
+describe.runIf(HAS_GOOGLE_CREDS)('Google Search Console credentials', () => {
   it('should parse GOOGLE_INDEXING_SERVICE_ACCOUNT JSON and obtain an access token', async () => {
     const raw = process.env.GOOGLE_INDEXING_SERVICE_ACCOUNT;
     expect(raw, 'GOOGLE_INDEXING_SERVICE_ACCOUNT env var must be set').toBeTruthy();

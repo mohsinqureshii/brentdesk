@@ -10,3 +10,12 @@
 
 process.env.JWT_SECRET = process.env.JWT_SECRET || "vitest-secret";
 process.env.NODE_ENV = process.env.NODE_ENV || "test";
+
+// Vitest (via Vite) injects its resolved `base` option into process.env as
+// BASE_URL="/". shared/publication.getBaseUrl() treats any BASE_URL env var
+// as a deliberate override and strips trailing slashes, so "/" collapses to
+// "" and every module-level absolute-URL constant breaks under test. Strip
+// the injected value unless the environment provided a real http(s) URL.
+if (process.env.BASE_URL && !/^https?:\/\//i.test(process.env.BASE_URL)) {
+  delete process.env.BASE_URL;
+}

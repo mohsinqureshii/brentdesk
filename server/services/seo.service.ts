@@ -1197,7 +1197,7 @@ export class SeoService {
     return `User-agent: *
 Allow: /
 
-# Primary sitemap index — Cloudflare seo-worker proxies to /api/ on origin.
+# Primary sitemap index
 Sitemap: ${b}/sitemap.xml
 
 # Sub-sitemaps (apex URLs)

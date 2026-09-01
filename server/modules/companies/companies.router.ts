@@ -135,6 +135,8 @@ const listCompaniesSchema = z.object({
   search: z.string().optional(),
   industry: z.string().optional(),
   stage: z.enum(["pre_seed", "seed", "series_a", "series_b", "series_c", "series_d_plus", "public", "acquired"]).optional(),
+  /** Substring match on the free-text headquarters/location field. */
+  location: z.string().max(128).optional(),
   regionId: z.number().optional(),
   sectorId: z.number().optional(),
   isFeatured: z.union([z.boolean(), z.number()]).transform(v => Boolean(v)).optional(),
@@ -179,6 +181,9 @@ export const companiesRouter = router({
       }
       if (filters.stage) {
         conditions.push(eq(companies.stage, filters.stage));
+      }
+      if (filters.location) {
+        conditions.push(sql`LOWER(${companies.location}) LIKE LOWER(${`%${filters.location}%`})` as any);
       }
       if (filters.isFeatured !== undefined) {
         conditions.push(eq(companies.isFeatured, filters.isFeatured as any));

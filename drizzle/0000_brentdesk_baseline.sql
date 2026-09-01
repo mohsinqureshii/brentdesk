@@ -2772,7 +2772,8 @@ CREATE TABLE `newsletter_subscriptions` (
 	`source` varchar(128),
 	`created_at` timestamp NOT NULL DEFAULT (now()),
 	`updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
-	CONSTRAINT `newsletter_subscriptions_id` PRIMARY KEY(`id`)
+	CONSTRAINT `newsletter_subscriptions_id` PRIMARY KEY(`id`),
+	CONSTRAINT `newsletter_subscriptions_email_newsletter_unique` UNIQUE(`email`,`newsletterId`)
 );
 --> statement-breakpoint
 CREATE TABLE `newsletters` (
@@ -4123,7 +4124,6 @@ CREATE INDEX `idx_click_userId` ON `job_clicks` (`userId`);--> statement-breakpo
 CREATE INDEX `idx_click_type` ON `job_clicks` (`clickType`);--> statement-breakpoint
 CREATE INDEX `idx_jem_tenant` ON `job_embeddings_meta` (`tenant_id`);--> statement-breakpoint
 CREATE INDEX `idx_jobs_status` ON `jobs` (`statusId`);--> statement-breakpoint
-CREATE INDEX `idx_newsletter_subscriptions_email` ON `newsletter_subscriptions` (`email`);--> statement-breakpoint
 CREATE INDEX `idx_newsletter_subscriptions_newsletter_id` ON `newsletter_subscriptions` (`newsletterId`);--> statement-breakpoint
 CREATE INDEX `idx_newsletter_subscriptions_status` ON `newsletter_subscriptions` (`status`);--> statement-breakpoint
 CREATE INDEX `idx_newsletters_is_active` ON `newsletters` (`isActive`);--> statement-breakpoint

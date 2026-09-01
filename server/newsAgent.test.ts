@@ -42,11 +42,14 @@ describe("normaliseThreshold", () => {
 // ============================================================
 
 describe("scoreKeywordRelevance", () => {
-  it("gives high keyword score to MENA startup funding article", () => {
+  // Fixtures track the BrentDesk editorial universe (industry, infrastructure
+  // and the physical economy — see server/config/editorial.ts), not the
+  // previous publication's startup/VC beat.
+  it("gives high keyword score to a GCC industrial project article", () => {
     const item = {
-      title: "Saudi fintech startup Tabby raises $200M Series D in UAE",
-      summary: "Tabby, the leading BNPL platform in Saudi Arabia and UAE, has closed a $200M funding round led by STV and Sequoia Capital.",
-      sourceUrl: "https://example.com/tabby-funding",
+      title: "Saudi Arabia awards $2B EPC contract for NEOM infrastructure project",
+      summary: "The construction package covers roads, utilities and logistics facilities serving the NEOM industrial city, part of the kingdom's giga-project program.",
+      sourceUrl: "https://example.com/neom-epc-award",
     };
     const breakdown = scoreKeywordRelevance(item);
     expect(breakdown.keyword).toBeGreaterThan(0.5);
@@ -78,11 +81,11 @@ describe("scoreKeywordRelevance", () => {
     expect(titleScore).toBeGreaterThan(bodyScore);
   });
 
-  it("detects MENA entity signal for known companies", () => {
+  it("detects MENA entity signal for known industrial companies", () => {
     const item = {
-      title: "Careem expands to new markets",
-      summary: "Careem, the ride-hailing platform, announced expansion to Morocco and Tunisia.",
-      sourceUrl: "https://example.com/careem",
+      title: "Aramco expands Jubail refinery capacity",
+      summary: "Saudi Aramco and SABIC announced an expansion of petrochemical production at the Jubail industrial complex.",
+      sourceUrl: "https://example.com/aramco-jubail",
     };
     const breakdown = scoreKeywordRelevance(item);
     expect(breakdown.entitySignal).toBeGreaterThan(0);
@@ -109,13 +112,13 @@ describe("scoreKeywordRelevance", () => {
       title: "Tech news",
       summary: "Something happened.",
       sourceUrl: "https://example.com/recent",
-      publishedAt: new Date(Date.now().toISOString() - 1 * 3_600_000), // 1 hour ago
+      publishedAt: new Date(Date.now() - 1 * 3_600_000), // 1 hour ago
     };
     const oldItem = {
       title: "Tech news",
       summary: "Something happened.",
       sourceUrl: "https://example.com/old",
-      publishedAt: new Date(Date.now().toISOString() - 7 * 24 * 3_600_000), // 7 days ago
+      publishedAt: new Date(Date.now() - 7 * 24 * 3_600_000), // 7 days ago
     };
     const recentBreakdown = scoreKeywordRelevance(recentItem);
     const oldBreakdown = scoreKeywordRelevance(oldItem);
@@ -283,12 +286,12 @@ describe("blendScores", () => {
 // ============================================================
 
 describe("Scoring pipeline integration", () => {
-  it("MENA funding article scores above 0.4 without LLM", () => {
+  it("GCC industrial project article scores above 0.4 without LLM", () => {
     const item = {
-      title: "UAE-based fintech startup Tabby raises $200M Series D funding round",
-      summary: "Tabby, the leading buy-now-pay-later platform in Saudi Arabia and UAE, has closed a $200 million Series D funding round led by STV, Sequoia Capital, and PayPal Ventures. The round values the company at over $1.5 billion, making it one of the largest fintech fundraises in MENA history.",
-      sourceUrl: "https://example.com/tabby",
-      publishedAt: new Date(Date.now().toISOString() - 2 * 3_600_000), // 2 hours ago
+      title: "Saudi Arabia awards $2.5 billion EPC contract for Jubail petrochemical expansion",
+      summary: "The engineering, procurement and construction contract covers a new petrochemical complex in Jubail industrial city, expanding production capacity and supporting the kingdom's downstream localization program. The project includes utilities, logistics infrastructure and a desalination unit, with commissioning expected within three years.",
+      sourceUrl: "https://example.com/jubail-epc",
+      publishedAt: new Date(Date.now() - 1 * 3_600_000), // 1 hour ago
     };
     const breakdown = scoreKeywordRelevance(item);
     const score = blendScores(breakdown);
@@ -300,7 +303,7 @@ describe("Scoring pipeline integration", () => {
       title: "Apple announces new MacBook Pro with M4 chip",
       summary: "Apple has unveiled its latest MacBook Pro featuring the new M4 chip with improved performance and battery life.",
       sourceUrl: "https://example.com/apple",
-      publishedAt: new Date(Date.now().toISOString() - 48 * 3_600_000), // 2 days ago
+      publishedAt: new Date(Date.now() - 48 * 3_600_000), // 2 days ago
     };
     const breakdown = scoreKeywordRelevance(item);
     const score = blendScores(breakdown);
@@ -312,13 +315,13 @@ describe("Scoring pipeline integration", () => {
       title: "Saudi Arabia's NEOM raises $10B in new investment round",
       summary: "NEOM, the Saudi mega-project, has secured $10 billion in new investment from the Public Investment Fund and international partners.",
       sourceUrl: "https://example.com/neom",
-      publishedAt: new Date(Date.now().toISOString() - 1 * 3_600_000),
+      publishedAt: new Date(Date.now() - 1 * 3_600_000),
     };
     const globalItem = {
       title: "Microsoft acquires gaming studio for $500M",
       summary: "Microsoft has acquired a major gaming studio to expand its Xbox Game Studios portfolio.",
       sourceUrl: "https://example.com/microsoft",
-      publishedAt: new Date(Date.now().toISOString() - 1 * 3_600_000),
+      publishedAt: new Date(Date.now() - 1 * 3_600_000),
     };
     const menaScore = blendScores(scoreKeywordRelevance(menaItem));
     const globalScore = blendScores(scoreKeywordRelevance(globalItem));

@@ -1,10 +1,16 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { getBaseUrl, publication } from "@shared/publication";
 import { importEditorialBatch, validateEditorialBatchManifest, type EditorialBatchManifest } from "./services/editorialBatchImport.service";
 
 const tempDir = path.resolve(".tmp-editorial-batch-test");
 const imagePath = path.join(tempDir, "test.webp");
+
+// The validator requires the canonical desk author and a canonical URL rooted
+// at the publication base URL (see editorialBatchImport.service.ts).
+const DESK_AUTHOR = `${publication.name} Desk`;
+const BASE = getBaseUrl();
 
 function makeManifest(): EditorialBatchManifest {
   const words = Array.from({ length: 805 }, (_, index) => `word${index + 1}`).join(" ");
@@ -22,7 +28,7 @@ function makeManifest(): EditorialBatchManifest {
       canonical_announcement_key: `unique announcement ${sequence}`,
       title: `Unique LEAP 2026 Story ${sequence}`,
       slug: `unique-leap-2026-story-${sequence}`,
-      author_public_name: "TechScoop Desk" as const,
+      author_public_name: DESK_AUTHOR,
       workflow_status_slug: "draft" as const,
       article_type: "news" as const,
       display_datetime_local: local,
@@ -48,7 +54,7 @@ function makeManifest(): EditorialBatchManifest {
         og_title: `Unique LEAP 2026 Story ${sequence}`,
         og_description: `Verified Open Graph description for story ${sequence}.`,
         google_news_keywords: [`LEAP story keyword ${sequence}`, "LEAP 2026"],
-        canonical_url: `https://techscoop.io/events-conferences/unique-leap-2026-story-${sequence}`,
+        canonical_url: `${BASE}/events-conferences/unique-leap-2026-story-${sequence}`,
         robots_indexing: "index" as const,
       },
       sources: {
@@ -66,12 +72,12 @@ function makeManifest(): EditorialBatchManifest {
         width: 1600,
         height: 900,
         alt: `Relevant editorial image for unique story ${sequence}`,
-        caption: `TechScoop editorial image for story ${sequence}.`,
-        credit: "TechScoop illustration",
-        source_url: "https://techscoop.io",
-        license: "TechScoop original",
+        caption: `${publication.name} editorial image for story ${sequence}.`,
+        credit: `${publication.name} illustration`,
+        source_url: BASE,
+        license: `${publication.name} original`,
         rights_status: "generated" as const,
-        rights_notes: "Original editorial illustration prepared for TechScoop.",
+        rights_notes: `Original editorial illustration prepared for ${publication.name}.`,
       },
     };
   });
@@ -81,7 +87,7 @@ function makeManifest(): EditorialBatchManifest {
       id: "leap-deepfest-2026-day1",
       name: "LEAP and DeepFest 2026 Day 1",
       article_count: 100,
-      author_public_name: "TechScoop Desk",
+      author_public_name: DESK_AUTHOR,
       workflow_status_slug: "draft",
       public_publish_allowed: false,
       review_required: true,
