@@ -75,15 +75,26 @@ function kicker(article: Article): string | null {
 // Shared building blocks
 // ------------------------------------------------------------------
 
-function SectionHeader({ title, accent, link }: { title: string; accent?: string | null; link?: string | null }) {
+function SectionHeader({
+  title,
+  accent,
+  link,
+  compact = false,
+}: { title: string; accent?: string | null; link?: string | null; compact?: boolean }) {
   return (
-    <div className="flex items-center justify-between mb-4">
-      <h2 className="bd-section-title" style={{ ["--bd-accent" as string]: accent || undefined }}>
-        {title}
+    <div className="flex items-center justify-between gap-2 mb-4">
+      <h2
+        className={`bd-section-title min-w-0 ${compact ? "text-base whitespace-nowrap" : ""}`}
+        style={{ ["--bd-accent" as string]: accent || undefined }}
+      >
+        <span className="truncate">{title}</span>
       </h2>
       {link && (
-        <Link href={link} className="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-          View all <ArrowRight className="h-3.5 w-3.5" />
+        <Link
+          href={link}
+          className="shrink-0 text-xs font-semibold text-primary hover:underline flex items-center gap-1"
+        >
+          {compact ? "All" : "View all"} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       )}
     </div>
@@ -117,18 +128,27 @@ function MetaLine({ article, showRead = true }: { article: Article; showRead?: b
   );
 }
 
-/** Compact row: kicker + title + meta, thumbnail on the right. */
-function ArticleRow({ article }: { article: Article }) {
+/**
+ * Row: kicker + title + meta with a thumbnail on the right.
+ * `compact` shrinks the thumb for the narrow three-column editorial band,
+ * where a full-width thumb leaves the headline only a few characters.
+ */
+function ArticleRow({ article, compact = false }: { article: Article; compact?: boolean }) {
   return (
     <Link href={getArticleUrl(article)} className="group flex gap-3 py-3 border-b border-border last:border-0">
       <div className="min-w-0 flex-1">
         {kicker(article) && <div className="bd-kicker mb-1">{kicker(article)}</div>}
-        <h3 className="bd-headline text-[15px] line-clamp-2 text-foreground">{article.title}</h3>
+        <h3 className={`bd-headline line-clamp-3 text-foreground ${compact ? "text-[13.5px]" : "text-[15px]"}`}>
+          {article.title}
+        </h3>
         <div className="mt-1.5">
-          <MetaLine article={article} />
+          <MetaLine article={article} showRead={!compact} />
         </div>
       </div>
-      <Thumb article={article} className="h-16 w-24 rounded-md shrink-0" />
+      <Thumb
+        article={article}
+        className={compact ? "h-12 w-12 rounded shrink-0" : "h-16 w-24 rounded-md shrink-0"}
+      />
     </Link>
   );
 }
@@ -228,21 +248,46 @@ function CategoryChips() {
 // Headlines + In Brief band
 // ------------------------------------------------------------------
 
-function HeadlinesSection({ section }: { section: HomepageSection }) {
+/**
+ * The `headlines` CMS section feeds TWO columns of the editorial band —
+ * "Latest Headlines" and "Latest News" — which is how the section type is
+ * defined in the admin ("Latest Headlines + Latest News") and how the
+ * homepage design lays it out. One query is split across both columns so
+ * the two lists never repeat a story.
+ */
+function HeadlinesColumns({ section }: { section: HomepageSection }) {
+  const perColumn = section.articleCount || 5;
   const { data: articles = [] } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
-    limit: section.articleCount || 5,
+    limit: perColumn * 2,
   });
-  if (!articles.length) return null;
+  const rows = articles as Article[];
+  if (!rows.length) return null;
+
+  const headlines = rows.slice(0, perColumn);
+  const latest = rows.slice(perColumn);
+
   return (
-    <div className="bd-card p-5">
-      <SectionHeader title={section.name} accent={section.accentColor} link={section.viewMoreUrl || "/news"} />
-      <div>
-        {(articles as Article[]).map((a) => (
-          <ArticleRow key={a.id} article={a} />
-        ))}
+    <>
+      <div className="bd-card p-5">
+        <SectionHeader title={section.name} accent={section.accentColor} link={section.viewMoreUrl || "/news"} compact />
+        <div>
+          {headlines.map((a) => (
+            <ArticleRow key={a.id} article={a} compact />
+          ))}
+        </div>
       </div>
-    </div>
+      {latest.length > 0 && (
+        <div className="bd-card p-5">
+          <SectionHeader title="Latest News" accent={section.accentColor} link="/news" compact />
+          <div>
+            {latest.map((a) => (
+              <ArticleRow key={a.id} article={a} compact />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -590,8 +635,8 @@ export default function News() {
             <LeaderboardAd slotKey="home-leaderboard" />
 
             {(headlines || inBrief) && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {headlines && <HeadlinesSection section={headlines} />}
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-start">
+                {headlines && <HeadlinesColumns section={headlines} />}
                 {inBrief && <InBriefSection section={inBrief} />}
               </div>
             )}
