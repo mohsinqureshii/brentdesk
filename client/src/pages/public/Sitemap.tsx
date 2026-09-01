@@ -2,26 +2,22 @@ import { Link } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { 
-  Home, 
-  Briefcase, 
-  Building2, 
-  Users, 
-  TrendingUp, 
-  Rocket, 
-  Calendar, 
-  Newspaper, 
-  Mail, 
-  Info, 
-  Shield, 
+import {
+  Home,
+  Briefcase,
+  Building2,
+  Users,
+  Calendar,
+  Newspaper,
+  Mail,
+  Info,
+  Shield,
   FileText,
   Gift,
-  Scale,
   Wrench,
   BookOpen,
   Award,
   Calculator,
-  Package,
   Megaphone
 } from "lucide-react";
 
@@ -42,26 +38,8 @@ const siteRoutes = {
     links: [
       { label: "Jobs", href: "/jobs", description: "Browse tech job opportunities" },
       { label: "Companies", href: "/companies", description: "Discover MENA startups and companies" },
-      { label: "Investors", href: "/investors", description: "Find investors and VCs" },
       { label: "People", href: "/people", description: "Connect with tech professionals" },
-      { label: "Accelerators", href: "/accelerators", description: "Accelerator programs and grants" },
       { label: "Events", href: "/events", description: "Upcoming tech events" },
-    ]
-  },
-  resources: {
-    title: "Resources",
-    icon: Package,
-    links: [
-      { label: "Resources Hub", href: "/resources", description: "All founder resources" },
-      { label: "Founder Perks", href: "/resources/perks", description: "Deals and credits for startups" },
-      { label: "Templates", href: "/resources/templates", description: "Legal, finance & HR documents" },
-      { label: "Regulations Hub", href: "/resources/regulations", description: "Country-specific compliance guides" },
-      { label: "Tools Directory", href: "/resources/tools", description: "Curated software stack" },
-      { label: "Playbooks", href: "/resources/playbooks", description: "Step-by-step founder guides" },
-      { label: "Programs & Grants", href: "/accelerators", description: "Funding opportunities" },
-      { label: "Calculators", href: "/resources/calculators", description: "Financial planning tools" },
-      { label: "Vendors", href: "/resources/vendors", description: "Verified service providers" },
-      { label: "Starter Packs", href: "/resources/packs", description: "Curated resource bundles" },
     ]
   },
   company: {
@@ -165,24 +143,10 @@ const Sitemap = () => {
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <TrendingUp className="h-4 w-4 text-primary mt-1 shrink-0" />
-              <div>
-                <span className="font-medium text-foreground">Investor Profiles</span>
-                <p className="text-sm text-muted-foreground">/investors/:id</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-2">
               <Users className="h-4 w-4 text-primary mt-1 shrink-0" />
               <div>
                 <span className="font-medium text-foreground">People Profiles</span>
                 <p className="text-sm text-muted-foreground">/people/:id</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-2">
-              <Rocket className="h-4 w-4 text-primary mt-1 shrink-0" />
-              <div>
-                <span className="font-medium text-foreground">Accelerator Details</span>
-                <p className="text-sm text-muted-foreground">/accelerators/:id</p>
               </div>
             </li>
             <li className="flex items-start gap-2">
@@ -197,13 +161,6 @@ const Sitemap = () => {
               <div>
                 <span className="font-medium text-foreground">Author Pages</span>
                 <p className="text-sm text-muted-foreground">/author/:slug</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-2">
-              <Scale className="h-4 w-4 text-primary mt-1 shrink-0" />
-              <div>
-                <span className="font-medium text-foreground">Country Regulations</span>
-                <p className="text-sm text-muted-foreground">/resources/regulations/:country</p>
               </div>
             </li>
           </ul>

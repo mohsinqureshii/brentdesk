@@ -1150,12 +1150,10 @@ export default function CompanyProfile() {
                                   <td className="py-3 px-3">
                                     <div className="flex flex-wrap gap-1.5">
                                       {round.investors?.map((inv: any) => (
-                                        <Link key={inv.id} href={`/investors/${inv.slug}`}>
-                                          <Badge variant="outline" className="text-[11px] rounded-full cursor-pointer hover:bg-muted gap-1">
-                                            {inv.role === "lead" && <Star className="h-2.5 w-2.5 text-amber-500" />}
-                                            {inv.name}
-                                          </Badge>
-                                        </Link>
+                                        <Badge key={inv.id} variant="outline" className="text-[11px] rounded-full gap-1">
+                                          {inv.role === "lead" && <Star className="h-2.5 w-2.5 text-amber-500" />}
+                                          {inv.name}
+                                        </Badge>
                                       ))}
                                       {(!round.investors || round.investors.length === 0) && (
                                         <span className="text-xs text-muted-foreground">—</span>
@@ -1200,12 +1198,10 @@ export default function CompanyProfile() {
                               {round.investors && round.investors.length > 0 && (
                                 <div className="flex flex-wrap gap-2 mt-2">
                                   {round.investors.map((inv: any) => (
-                                    <Link key={inv.id} href={`/investors/${inv.slug}`}>
-                                      <Badge variant="outline" className="text-xs rounded-full cursor-pointer hover:bg-muted gap-1">
-                                        {inv.role === "lead" && <Star className="h-3 w-3 text-amber-500" />}
-                                        {inv.name}
-                                      </Badge>
-                                    </Link>
+                                    <Badge key={inv.id} variant="outline" className="text-xs rounded-full gap-1">
+                                      {inv.role === "lead" && <Star className="h-3 w-3 text-amber-500" />}
+                                      {inv.name}
+                                    </Badge>
                                   ))}
                                 </div>
                               )}
@@ -1229,25 +1225,23 @@ export default function CompanyProfile() {
                             </h2>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                               {uniqueInvestors.map((inv: any) => (
-                                <Link key={inv.id} href={`/investors/${inv.slug}`}>
-                                  <div className="flex items-center gap-2.5 p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
-                                    {inv.logo ? (
-                                      <img src={inv.logo} alt={inv.name} className="w-8 h-8 rounded-full object-cover" />
-                                    ) : (
-                                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white text-xs font-bold">
-                                        {inv.name?.charAt(0)}
+                                <div key={inv.id} className="flex items-center gap-2.5 p-3 rounded-lg border border-border">
+                                  {inv.logo ? (
+                                    <img src={inv.logo} alt={inv.name} className="w-8 h-8 rounded-full object-cover" />
+                                  ) : (
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white text-xs font-bold">
+                                      {inv.name?.charAt(0)}
+                                    </div>
+                                  )}
+                                  <div className="min-w-0">
+                                    <div className="text-xs font-medium truncate">{inv.name}</div>
+                                    {inv.role === "lead" && (
+                                      <div className="text-[10px] text-amber-600 dark:text-amber-400 flex items-center gap-0.5">
+                                        <Star className="h-2.5 w-2.5" /> Lead
                                       </div>
                                     )}
-                                    <div className="min-w-0">
-                                      <div className="text-xs font-medium truncate">{inv.name}</div>
-                                      {inv.role === "lead" && (
-                                        <div className="text-[10px] text-amber-600 dark:text-amber-400 flex items-center gap-0.5">
-                                          <Star className="h-2.5 w-2.5" /> Lead
-                                        </div>
-                                      )}
-                                    </div>
                                   </div>
-                                </Link>
+                                </div>
                               ))}
                             </div>
                           </CardContent>

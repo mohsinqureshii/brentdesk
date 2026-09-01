@@ -27,9 +27,6 @@ import {
   getCompanyForSSR,
   generateCompanyMetaTags,
   generateCompanyJsonLd,
-  getInvestorForSSR,
-  generateInvestorMetaTags,
-  generateInvestorJsonLd,
   getPersonForSSR,
   generatePersonMetaTags,
   generatePersonJsonLd,
@@ -39,9 +36,6 @@ import {
   getJobForSSR,
   generateJobMetaTags,
   generateJobJsonLd,
-  getAcceleratorForSSR,
-  generateAcceleratorMetaTags,
-  generateAcceleratorJsonLd,
   getAuthorForSSR,
   generateAuthorMetaTags,
   generateAuthorJsonLd,
@@ -67,7 +61,7 @@ const skipPrefixPaths = [
   '/sitemap', '/robots', '/favicon', '/assets', '/fonts', '/images',
   '/src/', '/@', '/rss', '/feed', '/subscribe', '/homepage',
   '/404', '/claimed-profiles', '/go/',
-  '/manus-storage/', // legacy Manus asset mount — files live in R2 now
+  '/legacy-storage/', // retired asset mount path — kept in the skip list so stale URLs 404 fast
 ];
 
 // Static-asset extensions must NEVER reach the SSR pipeline. A missing
@@ -109,14 +103,8 @@ export function isSystemUrl(url: string): boolean {
  */
 export const knownStaticPages = new Set([
   // Core pages
-  '/', '/news', '/jobs', '/companies', '/people', '/investors',
-  '/accelerators', '/events', '/funding', '/resources',
-  '/resources/perks', '/resources/tools', '/resources/playbooks',
-  '/resources/regulations', '/resources/templates', '/resources/calculators',
-  '/resources/calculators/cac-ltv', '/resources/calculators/dilution',
-  '/resources/calculators/mrr', '/resources/calculators/runway',
-  '/resources/calculators/saas-quick-ratio',
-  '/research', '/about', '/contact', '/advertise', '/newsletter',
+  '/', '/news', '/jobs', '/companies', '/people',
+  '/events', '/about', '/contact', '/advertise', '/newsletter',
   '/terms', '/privacy',
   // Search page - should be noindex but still a real page (handled separately)
   '/search',
@@ -244,22 +232,6 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     },
   },
   {
-    prefix: '/investors/',
-    getFn: getInvestorForSSR,
-    metaFn: generateInvestorMetaTags,
-    jsonLdFn: generateInvestorJsonLd,
-    noscriptFn: (inv) => {
-      const desc = inv.shortDescription || inv.description?.substring(0, 300) || `${inv.name} - Investor profile on ${SITE_NAME}`;
-      const details = [
-        inv.type ? `Type: ${inv.type}` : null,
-        inv.headquarters ? `Headquarters: ${inv.headquarters}` : null,
-        inv.aum ? `AUM: ${inv.aum}` : null,
-        inv.portfolioCount ? `Portfolio Companies: ${inv.portfolioCount}` : null,
-      ].filter(Boolean).join(' | ');
-      return `<noscript><div><h1>${inv.name}</h1><p>${desc}</p>${details ? `<p>${details}</p>` : ''}</div></noscript>`;
-    },
-  },
-  {
     prefix: '/people/',
     getFn: getPersonForSSR,
     metaFn: generatePersonMetaTags,
@@ -301,20 +273,6 @@ const entitySSRConfigs: EntitySSRConfig[] = [
         j.salaryMin && j.salaryMax ? `Salary: ${j.salaryMin} - ${j.salaryMax}` : null,
       ].filter(Boolean).join(' | ');
       return `<noscript><div><h1>${j.title} at ${j.companyName}</h1><p>${desc}</p>${details ? `<p>${details}</p>` : ''}</div></noscript>`;
-    },
-  },
-  {
-    prefix: '/accelerators/',
-    getFn: getAcceleratorForSSR,
-    metaFn: generateAcceleratorMetaTags,
-    jsonLdFn: generateAcceleratorJsonLd,
-    noscriptFn: (a) => {
-      const desc = a.shortDescription || a.description?.substring(0, 300) || `${a.name} - Accelerator profile on ${SITE_NAME}`;
-      const details = [
-        a.location ? `Location: ${a.location}` : null,
-        a.yearFounded ? `Founded: ${a.yearFounded}` : null,
-      ].filter(Boolean).join(' | ');
-      return `<noscript><div><h1>${a.name}</h1><p>${desc}</p>${details ? `<p>${details}</p>` : ''}</div></noscript>`;
     },
   },
   {
@@ -410,8 +368,8 @@ async function tryCategorySSR(url: string, template: string): Promise<{ html: st
         // It's a known static page - but still try category SSR for category pages
         // Only skip if it's a non-category static page
         const nonCategoryStatics = new Set([
-          'news', 'jobs', 'companies', 'people', 'investors', 'accelerators',
-          'events', 'funding', 'resources', 'research', 'about', 'contact',
+          'news', 'jobs', 'companies', 'people',
+          'events', 'about', 'contact',
           'advertise', 'newsletter', 'terms', 'privacy', 'search',
           'forgot-password', 'reset-password', 'verify-email',
         ]);

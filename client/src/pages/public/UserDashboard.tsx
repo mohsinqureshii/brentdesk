@@ -1093,7 +1093,6 @@ export default function UserDashboard() {
                   { icon: Briefcase, label: "Browse Jobs", href: "/jobs", color: "text-blue-600" },
                   { icon: Building2, label: "Explore Companies", href: "/companies", color: "text-green-600" },
                   { icon: TrendingUp, label: "Funding News", href: "/category/funding-vc", color: "text-purple-600" },
-                  { icon: BookOpen, label: "Resources", href: "/resources", color: "text-orange-600" },
                   { icon: Calendar, label: "Events", href: "/events", color: "text-pink-600" },
                 ].map((action) => (
                   <Link key={action.label} href={action.href}>

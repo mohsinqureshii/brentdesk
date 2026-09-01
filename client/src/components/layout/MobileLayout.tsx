@@ -20,14 +20,14 @@ const tabs = [
 // Routes that should show the mobile layout
 const mobileRoutes = [
   "/", "/jobs", "/explore", "/search-mobile", "/profile-mobile",
-  "/companies", "/people", "/investors", "/accelerators", "/events", "/resources",
+  "/companies", "/people", "/events",
 ];
 
 // Routes that should show back button instead of tabs
 const detailRoutePatterns = [
   /^\/[^/]+\/[^/]+$/, // /:category/:slug (articles)
-  /^\/companies\//, /^\/people\//, /^\/investors\//, /^\/accelerators\//,
-  /^\/events\//, /^\/jobs\/[^/]+$/, /^\/resources\//,
+  /^\/companies\//, /^\/people\//,
+  /^\/events\//, /^\/jobs\/[^/]+$/,
 ];
 
 function isDetailRoute(path: string): boolean {
@@ -39,7 +39,7 @@ function getActiveTab(path: string): string {
   if (path.startsWith("/jobs")) return "jobs";
   if (path.startsWith("/search-mobile")) return "search";
   if (path.startsWith("/profile-mobile") || path.startsWith("/profile") || path.startsWith("/dashboard")) return "profile";
-  if (["/companies", "/people", "/investors", "/accelerators", "/events", "/resources", "/funding"].some(r => path.startsWith(r))) return "explore";
+  if (["/companies", "/people", "/events"].some(r => path.startsWith(r))) return "explore";
   if (path.startsWith("/explore")) return "explore";
   return "";
 }

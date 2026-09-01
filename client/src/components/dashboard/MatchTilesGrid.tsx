@@ -16,12 +16,10 @@ const matchTiles = [
   { title: "All your matches", icon: Sparkles, count: 24, href: "/jobs?filter=matches", accentColor: "yellow" as const },
   { title: "Top picks for you", icon: Star, count: 8, href: "/jobs?filter=top-picks", accentColor: "coral" as const },
   { title: "Recently funded companies", icon: TrendingUp, count: 12, href: "/companies?filter=recently-funded", accentColor: "mint" as const },
-  { title: "Investors expanding", icon: Building2, count: 6, href: "/investors?filter=expanding", accentColor: "blue" as const },
   { title: "Remote jobs", icon: Globe, count: 45, href: "/jobs?filter=remote", accentColor: "mint" as const },
   { title: "High salary roles", icon: DollarSign, count: 18, href: "/jobs?filter=high-salary", accentColor: "coral" as const },
   { title: "New jobs this week", icon: Clock, count: 32, href: "/jobs?filter=new", accentColor: "blue" as const },
   { title: "Recommended companies", icon: Building2, count: 15, href: "/companies?filter=recommended", accentColor: "yellow" as const },
-  { title: "Recommended investors", icon: Users, count: 9, href: "/investors?filter=recommended", accentColor: "mint" as const },
   { title: "Apply with your profile", icon: FileCheck, count: 28, href: "/jobs?filter=easy-apply", accentColor: "coral" as const },
 ];
 

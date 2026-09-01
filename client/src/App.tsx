@@ -15,8 +15,6 @@ import Companies from "./pages/public/Companies";
 import CompanyProfile from "./pages/public/CompanyProfile";
 import People from "./pages/public/People";
 import PersonDetail from "./pages/public/PersonDetail";
-import Investors from "./pages/public/Investors";
-import InvestorDetail from "./pages/public/InvestorDetail";
 import Events from "./pages/public/Events";
 import EventDetail from "./pages/public/EventDetail";
 import EventLive from "./pages/public/EventLive";
@@ -25,8 +23,6 @@ import LiveConsole from "./pages/LiveConsole";
 import LiveConsolePicker from "./pages/LiveConsolePicker";
 import EventSubmit from "./pages/public/EventSubmit";
 import EventTicketsSuccess from "./pages/public/EventTicketsSuccess";
-import Accelerators from "./pages/public/Accelerators";
-import AcceleratorDetail from "./pages/public/AcceleratorDetail";
 import CategoryNews from "./pages/public/CategoryNews";
 import TagPage from "./pages/public/TagPage";
 import Author from "./pages/public/Author";
@@ -34,7 +30,6 @@ import About from "./pages/public/About";
 import Contact from "./pages/public/Contact";
 import Advertise from "./pages/public/Advertise";
 import Newsletter from "./pages/public/Newsletter";
-import SubmitStartup from "./pages/public/SubmitStartup";
 import SearchResults from "./pages/public/SearchResults";
 import Privacy from "./pages/public/Privacy";
 import Terms from "./pages/public/Terms";
@@ -47,7 +42,6 @@ import AssessmentTaker from "./pages/public/AssessmentTaker";
 import ApplicantTracker from "./pages/public/ApplicantTracker";
 import ClaimedProfiles from "./pages/public/ClaimedProfiles";
 import CompanyJobsDashboard from "./pages/public/CompanyJobsDashboard";
-import Funding from "./pages/public/Funding";
 import Signup from "./pages/public/Signup";
 import Signin from "./pages/public/Signin";
 import MyContent from "./pages/public/MyContent";
@@ -56,25 +50,6 @@ import MyJobEditor from "./pages/public/MyJobEditor";
 import MyEntityEditor from "./pages/public/MyEntityEditor";
 import ClaimedEntityEditor from "./pages/public/ClaimedEntityEditor";
 import TeamAccess from "./pages/public/TeamAccess";
-
-// Resources pages
-import ResourcesHub from "./pages/resources/ResourcesHub";
-import FounderPerks from "./pages/resources/FounderPerks";
-import PerkDetail from "./pages/resources/PerkDetail";
-import Templates from "./pages/resources/Templates";
-import TemplateDetail from "./pages/resources/TemplateDetail";
-import ToolsDirectory from "./pages/resources/ToolsDirectory";
-import Playbooks from "./pages/resources/Playbooks";
-import PlaybookDetail from "./pages/resources/PlaybookDetail";
-import RegulationsHub from "./pages/resources/RegulationsHub";
-import Calculators from "./pages/resources/Calculators";
-import Vendors from "./pages/resources/Vendors";
-import Packs from "./pages/resources/Packs";
-import CacLtvCalculator from "./pages/resources/calculators/CacLtvCalculator";
-import DilutionCalculator from "./pages/resources/calculators/DilutionCalculator";
-import MrrCalculator from "./pages/resources/calculators/MrrCalculator";
-import RunwayCalculator from "./pages/resources/calculators/RunwayCalculator";
-import SaasQuickRatioCalculator from "./pages/resources/calculators/SaasQuickRatioCalculator";
 
 // Admin pages
 import Dashboard from "./pages/admin/Dashboard";
@@ -196,11 +171,7 @@ function Router() {
         {/* People */}
         <Route path="/people" component={People} />
         <Route path="/people/:id" component={PersonDetail} />
-        
-        {/* Investors */}
-        <Route path="/investors" component={Investors} />
-        <Route path="/investors/:id" component={InvestorDetail} />
-        
+
         {/* Events */}
         <Route path="/events" component={Events} />
         {/* Public submission form — MUST come before /events/:id so
@@ -217,35 +188,7 @@ function Router() {
         {/* Reporter console — auth gated in-component via canPostLiveCheck */}
         <Route path="/live-console/:eventId" component={LiveConsole} />
         <Route path="/live-console" component={LiveConsolePicker} />
-        
-        {/* Accelerators */}
-        <Route path="/accelerators" component={Accelerators} />
-        <Route path="/accelerators/:id" component={AcceleratorDetail} />
-        
-        {/* Funding */}
-        <Route path="/funding" component={Funding} />
-        
-        {/* Resources */}
-        <Route path="/resources" component={ResourcesHub} />
-        <Route path="/resources/perks" component={FounderPerks} />
-        <Route path="/resources/perks/:id" component={PerkDetail} />
-        <Route path="/resources/templates" component={Templates} />
-        <Route path="/resources/templates/:slug" component={TemplateDetail} />
-        <Route path="/resources/tools" component={ToolsDirectory} />
-        <Route path="/resources/playbooks" component={Playbooks} />
-        <Route path="/resources/playbooks/:id" component={PlaybookDetail} />
-        <Route path="/resources/regulations" component={RegulationsHub} />
-        <Route path="/resources/regulations/:country" component={RegulationsHub} />
-        <Route path="/resources/calculators" component={Calculators} />
-        <Route path="/resources/calculators/cac-ltv" component={CacLtvCalculator} />
-        <Route path="/resources/calculators/dilution" component={DilutionCalculator} />
-        <Route path="/resources/calculators/mrr" component={MrrCalculator} />
-        <Route path="/resources/calculators/runway" component={RunwayCalculator} />
-        <Route path="/resources/calculators/saas-quick-ratio" component={SaasQuickRatioCalculator} />
-        <Route path="/resources/vendors" component={Vendors} />
-        <Route path="/resources/packs" component={Packs} />
-        <Route path="/resources/packs/:packId" component={Packs} />
-        
+
         {/* Mobile-specific routes */}
         <Route path="/explore" component={Explore} />
         <Route path="/search-mobile" component={MobileSearch} />
@@ -286,7 +229,6 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/advertise" component={Advertise} />
         <Route path="/newsletter" component={Newsletter} />
-        <Route path="/submit-startup" component={SubmitStartup} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route path="/sitemap" component={Sitemap} />

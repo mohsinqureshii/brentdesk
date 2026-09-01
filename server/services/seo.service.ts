@@ -988,23 +988,7 @@ export class SeoService {
           { path: "/jobs", priority: "0.8" },
           { path: "/companies", priority: "0.8" },
           { path: "/people", priority: "0.7" },
-          { path: "/investors", priority: "0.7" },
-          { path: "/accelerators", priority: "0.7" },
           { path: "/events", priority: "0.7" },
-          { path: "/funding", priority: "0.7" },
-          { path: "/resources", priority: "0.6" },
-          { path: "/resources/perks", priority: "0.6" },
-          { path: "/resources/tools", priority: "0.6" },
-          { path: "/resources/playbooks", priority: "0.6" },
-          { path: "/resources/regulations", priority: "0.6" },
-          { path: "/resources/templates", priority: "0.6" },
-          { path: "/resources/calculators", priority: "0.6" },
-          { path: "/resources/calculators/cac-ltv", priority: "0.5" },
-          { path: "/resources/calculators/dilution", priority: "0.5" },
-          { path: "/resources/calculators/mrr", priority: "0.5" },
-          { path: "/resources/calculators/runway", priority: "0.5" },
-          { path: "/resources/calculators/saas-quick-ratio", priority: "0.5" },
-          { path: "/research", priority: "0.6" },
           { path: "/about", priority: "0.5" },
           { path: "/contact", priority: "0.5" },
           { path: "/advertise", priority: "0.4" },
@@ -1063,12 +1047,8 @@ export class SeoService {
       .from(jobs).where(pubFilter(jobs)).orderBy(desc(jobs.updatedAt)).limit(1));
     const latestPerson = await safe("people", () => db.select({ updatedAt: people.updatedAt })
       .from(people).where(pubFilter(people)).orderBy(desc(people.updatedAt)).limit(1));
-    const latestInvestor = await safe("investors", () => db.select({ updatedAt: investors.updatedAt })
-      .from(investors).where(pubFilter(investors)).orderBy(desc(investors.updatedAt)).limit(1));
     const latestCompany = await safe("companies", () => db.select({ updatedAt: companies.updatedAt })
       .from(companies).where(pubFilter(companies)).orderBy(desc(companies.updatedAt)).limit(1));
-    const latestAccelerator = await safe("accelerators", () => db.select({ updatedAt: accelerators.updatedAt })
-      .from(accelerators).orderBy(desc(accelerators.updatedAt)).limit(1));
     // For events: use statusId OR publishedAt to match the sitemap generation logic
     const latestEvent = await safe("events", () => db.select({ updatedAt: events.updatedAt })
       .from(events)
@@ -1078,10 +1058,6 @@ export class SeoService {
           : isNotNull(events.publishedAt)
       )
       .orderBy(desc(events.updatedAt)).limit(1));
-    const latestResource = await safe("resources", () => db.select({ updatedAt: resources.updatedAt })
-      .from(resources).where(isNotNull(resources.publishedAt)).orderBy(desc(resources.updatedAt)).limit(1));
-    const latestResearch = await safe("research", () => db.select({ updatedAt: research.updatedAt })
-      .from(research).where(isNotNull(research.publishedAt)).orderBy(desc(research.updatedAt)).limit(1));
     const latestCategory = await safe("categories", () => db.select({ updatedAt: categories.updatedAt })
       .from(categories).orderBy(desc(categories.updatedAt)).limit(1));
 
@@ -1094,12 +1070,8 @@ export class SeoService {
       { name: "news", lastmod: toDateStr(latestArticle?.updatedAt), hasContent: !!latestArticle }, // Google News sitemap
       { name: "jobs", lastmod: toDateStr(latestJob?.updatedAt), hasContent: !!latestJob },
       { name: "people", lastmod: toDateStr(latestPerson?.updatedAt), hasContent: !!latestPerson },
-      { name: "investors", lastmod: toDateStr(latestInvestor?.updatedAt), hasContent: !!latestInvestor },
       { name: "companies", lastmod: toDateStr(latestCompany?.updatedAt), hasContent: !!latestCompany },
-      { name: "accelerators", lastmod: toDateStr(latestAccelerator?.updatedAt), hasContent: !!latestAccelerator },
       { name: "events", lastmod: toDateStr(latestEvent?.updatedAt), hasContent: !!latestEvent },
-      { name: "resources", lastmod: toDateStr(latestResource?.updatedAt), hasContent: !!latestResource },
-      { name: "research", lastmod: toDateStr(latestResearch?.updatedAt), hasContent: !!latestResearch },
       { name: "categories", lastmod: toDateStr(latestCategory?.updatedAt), hasContent: !!latestCategory },
       { name: "tags", lastmod: today, hasContent: true }, // Tags with articles
       { name: "authors", lastmod: today, hasContent: !!latestArticle }, // Authors with at least one published article
@@ -1233,12 +1205,8 @@ Sitemap: ${b}/sitemap-articles.xml
 Sitemap: ${b}/sitemap-news.xml
 Sitemap: ${b}/sitemap-jobs.xml
 Sitemap: ${b}/sitemap-people.xml
-Sitemap: ${b}/sitemap-investors.xml
 Sitemap: ${b}/sitemap-companies.xml
-Sitemap: ${b}/sitemap-accelerators.xml
 Sitemap: ${b}/sitemap-events.xml
-Sitemap: ${b}/sitemap-resources.xml
-Sitemap: ${b}/sitemap-research.xml
 Sitemap: ${b}/sitemap-categories.xml
 Sitemap: ${b}/sitemap-tags.xml
 Sitemap: ${b}/sitemap-authors.xml
@@ -1265,6 +1233,13 @@ Disallow: /profile
 Disallow: /account
 Disallow: /settings
 Disallow: /search
+
+# Retired public sections (no longer part of the publication)
+Disallow: /investors
+Disallow: /accelerators
+Disallow: /funding
+Disallow: /resources
+Disallow: /submit-startup
 
 # Block faceted/filter/UTM URLs (duplicate-content prevention)
 Disallow: /*?sort=
@@ -1470,7 +1445,6 @@ Crawl-delay: 0
       : isNotNull(table.publishedAt);
     const [jobCount] = await db.select({ count: count() }).from(jobs).where(statsFilter(jobs));
     const [peopleCount] = await db.select({ count: count() }).from(people).where(statsFilter(people));
-    const [investorCount] = await db.select({ count: count() }).from(investors).where(statsFilter(investors));
     // Events: use statusId OR publishedAt (same logic as sitemap generation)
     const [evtPubStatus] = await db.select({ id: workflowStatuses.id })
       .from(workflowStatuses)
@@ -1481,11 +1455,8 @@ Crawl-delay: 0
           ? or(eq(events.statusId, evtPubStatus.id), isNotNull(events.publishedAt))
           : isNotNull(events.publishedAt)
       );
-    const [resourceCount] = await db.select({ count: count() }).from(resources).where(isNotNull(resources.publishedAt));
-    const [researchCount] = await db.select({ count: count() }).from(research).where(isNotNull(research.publishedAt));
     const [categoryCount] = await db.select({ count: count() }).from(categories);
     const [companyCount] = await db.select({ count: count() }).from(companies).where(statsFilter(companies));
-    const [acceleratorCount] = await db.select({ count: count() }).from(accelerators);
 
     // Count Google News (last 48 hours)
     const cutoffDate = new Date();
@@ -1499,19 +1470,15 @@ Crawl-delay: 0
     }).length;
 
     // Static pages count - matches the actual list in generateSitemap("pages")
-    const staticPagesCount = 28;
+    const staticPagesCount = 12;
 
     const sitemaps = [
       { name: "articles", description: "All articles (full archive)", urlCount: Number(articleCount?.count) || 0, path: "/sitemap-articles.xml" },
       { name: "news", description: "Google News (last 48 hours)", urlCount: newsCount, path: "/sitemap-news.xml" },
       { name: "jobs", description: "Job listings", urlCount: Number(jobCount?.count) || 0, path: "/sitemap-jobs.xml" },
       { name: "people", description: "People profiles", urlCount: Number(peopleCount?.count) || 0, path: "/sitemap-people.xml" },
-      { name: "investors", description: "Investor profiles", urlCount: Number(investorCount?.count) || 0, path: "/sitemap-investors.xml" },
       { name: "companies", description: "Company profiles", urlCount: Number(companyCount?.count) || 0, path: "/sitemap-companies.xml" },
-      { name: "accelerators", description: "Accelerator profiles", urlCount: Number(acceleratorCount?.count) || 0, path: "/sitemap-accelerators.xml" },
       { name: "events", description: "Events", urlCount: Number(eventCount?.count) || 0, path: "/sitemap-events.xml" },
-      { name: "resources", description: "Resources", urlCount: Number(resourceCount?.count) || 0, path: "/sitemap-resources.xml" },
-      { name: "research", description: "Research reports", urlCount: Number(researchCount?.count) || 0, path: "/sitemap-research.xml" },
       { name: "categories", description: "Category pages", urlCount: Number(categoryCount?.count) || 0, path: "/sitemap-categories.xml" },
       { name: "pages", description: "Static pages", urlCount: staticPagesCount, path: "/sitemap-pages.xml" }
     ];

@@ -163,12 +163,12 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
 
   const utils = trpc.useUtils();
 
-  const { data, isLoading } = trpc.funding.list.useQuery({ companyId, limit: 50 });
+  const { data, isLoading } = trpc.admin.funding.list.useQuery({ companyId, limit: 50 });
   const rounds = data?.rounds || [];
 
-  const createMut = trpc.funding.create.useMutation({
+  const createMut = trpc.admin.funding.create.useMutation({
     onSuccess: () => {
-      utils.funding.list.invalidate({ companyId });
+      utils.admin.funding.list.invalidate({ companyId });
       toast.success("Funding round added");
       setDialogOpen(false);
       setEditingId(null);
@@ -180,9 +180,9 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
     },
   });
 
-  const updateMut = trpc.funding.update.useMutation({
+  const updateMut = trpc.admin.funding.update.useMutation({
     onSuccess: () => {
-      utils.funding.list.invalidate({ companyId });
+      utils.admin.funding.list.invalidate({ companyId });
       toast.success("Funding round updated");
       setDialogOpen(false);
       setEditingId(null);
@@ -191,16 +191,16 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
     onError: (e) => toast.error(e.message),
   });
 
-  const deleteMut = trpc.funding.delete.useMutation({
+  const deleteMut = trpc.admin.funding.delete.useMutation({
     onSuccess: () => {
-      utils.funding.list.invalidate({ companyId });
+      utils.admin.funding.list.invalidate({ companyId });
       toast.success("Funding round deleted");
     },
     onError: (e) => toast.error(e.message),
   });
 
-  const addInvestorMut = trpc.funding.addInvestor.useMutation();
-  const removeInvestorMut = trpc.funding.removeInvestor.useMutation();
+  const addInvestorMut = trpc.admin.funding.addInvestor.useMutation();
+  const removeInvestorMut = trpc.admin.funding.removeInvestor.useMutation();
 
   // ── Dialog helpers ──────────────────────────────────────────────────────────
   function openAdd() {
@@ -212,7 +212,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
   async function openEdit(round: any) {
     setEditingId(round.id);
     // Fetch full round with investors
-    const full = await utils.funding.getById.fetch({ id: round.id });
+    const full = await utils.admin.funding.getById.fetch({ id: round.id });
     const inv: InvestorEntry[] = ((full as any)?.investors || []).map((i: any) => ({
       linkId: i.id,
       investorId: i.investorId ?? i.investor?.id,
@@ -286,7 +286,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
         });
 
         // 2. Sync investors: remove ones no longer in form, upsert current ones
-        const currentFull = await utils.funding.getById.fetch({ id: editingId });
+        const currentFull = await utils.admin.funding.getById.fetch({ id: editingId });
         const currentInvIds = new Set(form.investors.map(i => i.investorId));
         const toRemove = ((currentFull as any)?.investors || []).filter(
           (i: any) => !currentInvIds.has(i.investorId ?? i.investor?.id)
@@ -300,7 +300,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
           })
         ));
 
-        utils.funding.list.invalidate({ companyId });
+        utils.admin.funding.list.invalidate({ companyId });
         setDialogOpen(false);
         setEditingId(null);
         setForm(EMPTY_FORM);

@@ -407,12 +407,6 @@ describe("Date Helper Functions", () => {
     
     expect(xml).toContain('<?xml version="1.0" encoding="UTF-8"?>');
     expect(xml).toContain("https://techscoop.io/");
-    expect(xml).toContain("https://techscoop.io/funding");
-    expect(xml).toContain("https://techscoop.io/resources");
-    expect(xml).toContain("https://techscoop.io/resources/perks");
-    expect(xml).toContain("https://techscoop.io/resources/playbooks");
-    expect(xml).toContain("https://techscoop.io/resources/regulations");
-    expect(xml).toContain("https://techscoop.io/resources/calculators");
     expect(xml).toContain("https://techscoop.io/about");
     expect(xml).toContain("https://techscoop.io/contact");
     expect(xml).toContain("https://techscoop.io/newsletter");
@@ -427,6 +421,14 @@ describe("Date Helper Functions", () => {
     expect(xml).not.toContain("/signup");
     expect(xml).not.toContain("/profile");
     expect(xml).not.toContain("/account");
+
+    // Must NOT contain retired public sections
+    expect(xml).not.toContain("/investors");
+    expect(xml).not.toContain("/accelerators");
+    expect(xml).not.toContain("/funding");
+    expect(xml).not.toContain("/resources");
+    expect(xml).not.toContain("/submit-startup");
+    expect(xml).not.toContain("/research");
   });
 
   it("should handle string dates in article sitemap generation", async () => {
@@ -499,18 +501,20 @@ describe("Sitemap Index - No Phantom Sitemaps", () => {
     // These sitemaps had no route handlers and caused 404s
     expect(xml).not.toContain("sitemap-playbooks.xml");
     expect(xml).not.toContain("sitemap-regulations.xml");
-    
+
+    // Retired public sections must no longer be indexed
+    expect(xml).not.toContain("sitemap-investors.xml");
+    expect(xml).not.toContain("sitemap-accelerators.xml");
+    expect(xml).not.toContain("sitemap-resources.xml");
+    expect(xml).not.toContain("sitemap-research.xml");
+
     // These should be present
     expect(xml).toContain("sitemap-articles.xml");
     expect(xml).toContain("sitemap-news.xml");
     expect(xml).toContain("sitemap-jobs.xml");
     expect(xml).toContain("sitemap-people.xml");
-    expect(xml).toContain("sitemap-investors.xml");
     expect(xml).toContain("sitemap-companies.xml");
-    expect(xml).toContain("sitemap-accelerators.xml");
     expect(xml).toContain("sitemap-events.xml");
-    expect(xml).toContain("sitemap-resources.xml");
-    expect(xml).toContain("sitemap-research.xml");
     expect(xml).toContain("sitemap-categories.xml");
     expect(xml).toContain("sitemap-tags.xml");
     expect(xml).toContain("sitemap-pages.xml");

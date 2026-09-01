@@ -29,16 +29,6 @@ import { peopleRouter } from "./modules/people/people.router";
 import { investorsRouter } from "./modules/investors/investors.router";
 import { eventsRouter } from "./modules/events/events.router";
 import { resourcesRouter } from "./modules/resources/resources.router";
-import { 
-  calculatorsRouter, 
-  vendorsRouter, 
-  regulationsRouter, 
-  founderDealsRouter, 
-  starterPacksRouter,
-  resourceReviewsRouter,
-  gatedContentRouter,
-  affiliateTrackingRouter
-} from "./modules/resources/resourcesEnhanced.router";
 import { acceleratorsRouter } from "./modules/accelerators/accelerators.router";
 import { companiesRouter } from "./modules/companies/companies.router";
 import { stocksRouter } from "./modules/stocks/stocks.router";
@@ -334,18 +324,9 @@ export const appRouter = router({
   investors: investorsRouter,
   events: eventsRouter,
   resources: resourcesRouter,
-  calculators: calculatorsRouter,
-  vendors: vendorsRouter,
-  regulations: regulationsRouter,
-  founderDeals: founderDealsRouter,
-  starterPacks: starterPacksRouter,
-  resourceReviews: resourceReviewsRouter,
-  gatedContent: gatedContentRouter,
-  affiliateTracking: affiliateTrackingRouter,
   accelerators: acceleratorsRouter,
   companies: companiesRouter,
   authors: authorsRouter,
-  funding: fundingRouter,
 
   // ============================================================
   // ADMIN MODULES

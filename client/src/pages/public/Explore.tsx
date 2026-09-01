@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { 
-  Building2, Users, TrendingUp, Rocket, Calendar, BookOpen, 
-  Briefcase, Newspaper, DollarSign, ArrowRight 
+import {
+  Building2, Users, Calendar,
+  Briefcase, Newspaper, ArrowRight
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -12,16 +12,12 @@ const sections = [
     items: [
       { label: "Companies", desc: "Startups & tech companies", icon: Building2, href: "/companies", color: "bg-blue-500/10 text-blue-500" },
       { label: "People", desc: "Founders, leaders & talent", icon: Users, href: "/people", color: "bg-purple-500/10 text-purple-500" },
-      { label: "Investors", desc: "VCs & angel investors", icon: TrendingUp, href: "/investors", color: "bg-emerald-500/10 text-emerald-500" },
-      { label: "Accelerators", desc: "Programs & incubators", icon: Rocket, href: "/accelerators", color: "bg-orange-500/10 text-orange-500" },
     ]
   },
   {
     title: "Discover",
     items: [
       { label: "Events", desc: "Conferences & meetups", icon: Calendar, href: "/events", color: "bg-pink-500/10 text-pink-500" },
-      { label: "Resources", desc: "Tools, guides & perks", icon: BookOpen, href: "/resources", color: "bg-cyan-500/10 text-cyan-500" },
-      { label: "Funding", desc: "Latest funding rounds", icon: DollarSign, href: "/funding", color: "bg-amber-500/10 text-amber-500" },
     ]
   },
   {

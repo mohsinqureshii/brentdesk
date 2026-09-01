@@ -128,7 +128,7 @@ function EntityList({
   totalPages: number;
   onPageChange: (p: number) => void;
   entityType: string;
-  detailPath: string;
+  detailPath: string | null;
   editPath: string;
   isLoading: boolean;
 }) {
@@ -188,7 +188,7 @@ function EntityList({
 
           {/* Actions */}
           <div className="flex items-center gap-1 shrink-0">
-            {item.statusSlug === "published" && (
+            {item.statusSlug === "published" && detailPath && (
               <Link href={`${detailPath}/${item.slug}`}>
                 <Button variant="ghost" size="sm" className="h-8 w-8 p-0" title="View public page">
                   <ExternalLink className="w-4 h-4" />
@@ -347,7 +347,7 @@ export default function MyContent() {
       color: "text-amber-600",
       bgColor: "bg-amber-500/10",
       createPath: "/dashboard/my-content/investor/new",
-      detailPath: "/investors",
+      detailPath: null,
       editPath: "/dashboard/my-content/investor",
     },
     {
@@ -369,7 +369,7 @@ export default function MyContent() {
       color: "text-cyan-600",
       bgColor: "bg-cyan-500/10",
       createPath: "/dashboard/my-content/accelerator/new",
-      detailPath: "/accelerators",
+      detailPath: null,
       editPath: "/dashboard/my-content/accelerator",
     },
   ];

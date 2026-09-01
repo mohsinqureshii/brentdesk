@@ -462,7 +462,7 @@ async function startServer() {
       });
     }
   });
-  // SEO API endpoints - bypass Manus platform CDN interception of /sitemap.xml and /robots.txt
+  // SEO API endpoints — /api/ mirrors survive any CDN interception of /sitemap.xml and /robots.txt
   // The platform intercepts these two specific filenames at the edge, so we serve them under /api/
   app.get("/api/sitemap.xml", async (req, res) => {
     try {
@@ -499,7 +499,7 @@ async function startServer() {
   // tag-feed handlers can intercept SEO file URLs and produce 301/410/SPA-fallback
   // responses, which is what GSC was reporting as "Article Not Found".
   //
-  // The /api/* aliases additionally bypass the Manus platform edge, which
+  // The /api/* aliases additionally survive edge/CDN interception, which
   // intercepts /sitemap*.xml and /robots.txt at CDN level on bare paths.
   app.use("/api", sitemapRoutes);
   app.use(sitemapRoutes);
@@ -600,8 +600,7 @@ async function startServer() {
           ["index", () => seoService.generateSitemapIndex()],
           ["news", () => seoService.generateGoogleNewsSitemap()],
           ["images", () => seoService.generateImagesSitemap()],
-          ...["articles", "jobs", "people", "investors", "companies",
-              "accelerators", "events", "resources", "research",
+          ...["articles", "jobs", "people", "companies", "events",
               "categories", "tags", "authors", "pages"]
             .map((m): [string, () => Promise<string>] =>
               [m, () => seoService.generateSitemap(m)]),
