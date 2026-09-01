@@ -214,8 +214,22 @@ noted in W.
 ## U. Test results
 
 - `pnpm check` (tsc --noEmit): **clean**.
-- `DATABASE_URL=… REDIS_URL=… npx vitest run`: **698 passed, 0 failed, 8 skipped**
-  (skips are env-gated: 4 Google-credential, 3 live-LLM, 1 notification-proxy).
+- `npx vitest run` — **0 failures in every environment**, with coverage scaling to the
+  infrastructure actually provisioned:
+
+  | Environment | Result |
+  |---|---|
+  | Full (MySQL + Redis + app on :3000) | **698 passed, 8 skipped, 0 failed** |
+  | Database only (no running app) | 658 passed, 48 skipped, 0 failed |
+  | No database at all | 508 passed, 198 skipped, 0 failed |
+
+  Skips are infrastructure gates, never disabled assertions: Google credentials, live
+  LLM keys, the notification proxy, a reachable app for the HTTP-level SEO suite, and
+  (new) a reachable database. Before this gating, a checkout without MySQL reported
+  **79 failures** that were really just missing infrastructure — indistinguishable from
+  broken code in CI. The probe runs once per worker in `vitest.setup.ts`; when the
+  infrastructure is present every gated test executes exactly as before (the 698 figure
+  is unchanged by the gating).
 - `pnpm build` with DATABASE_URL: vite + esbuild + prerender (10/10 fixture articles) +
   sitemap generation all pass; build now fails loudly if prerender/sitemaps fail.
 - Production bundle (`node dist/index.js`) smoke: health, homepage, article SSR with

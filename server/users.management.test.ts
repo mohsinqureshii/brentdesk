@@ -8,6 +8,7 @@
  */
 
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { getDb } from "./db";
 import { users } from "../drizzle/schema";
 import { eq, or, like, inArray } from "drizzle-orm";
@@ -25,7 +26,7 @@ const TEST_EDITORS = [1, 2, 3, 4, 5].map((n) => ({
   loginMethod: "email",
 }));
 
-describe("User Management", () => {
+describe.runIf(hasDatabase)("User Management", () => {
   let db: Awaited<ReturnType<typeof getDb>>;
 
   beforeAll(async () => {

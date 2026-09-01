@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { appRouter } from "../../routers";
 import type { TrpcContext } from "../../_core/context";
 
@@ -50,7 +51,7 @@ function createUnauthContext(): TrpcContext {
 // =====================
 // BOOKMARKS TESTS
 // =====================
-describe("bookmarks", () => {
+describe.runIf(hasDatabase)("bookmarks", () => {
   const ctx = createAuthContext();
   const caller = appRouter.createCaller(ctx);
 
@@ -155,7 +156,7 @@ describe("bookmarks", () => {
 // =====================
 // EMAIL DIGEST TESTS
 // =====================
-describe("emailDigest", () => {
+describe.runIf(hasDatabase)("emailDigest", () => {
   const ctx = createAuthContext();
   const caller = appRouter.createCaller(ctx);
 
@@ -240,7 +241,7 @@ describe("emailDigest", () => {
 // =====================
 // EDITOR'S PICK (NEWS ROUTER) TESTS
 // =====================
-describe("news.getEditorPicks", () => {
+describe.runIf(hasDatabase)("news.getEditorPicks", () => {
   it("should return editor picks articles", async () => {
     const caller = appRouter.createCaller(createUnauthContext());
     const result = await caller.news.getEditorPicks({ limit: 5 });

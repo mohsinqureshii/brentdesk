@@ -73,6 +73,19 @@ pnpm check                  # TypeScript
 pnpm test                   # vitest
 ```
 
+The test suite reports **zero failures with or without infrastructure** — suites that
+need something they cannot reach are skipped, not failed. Coverage scales with what is
+provisioned:
+
+| Provisioned | Coverage |
+|---|---|
+| `DATABASE_URL` + `REDIS_URL` + the app running on :3000 | full suite |
+| `DATABASE_URL` only | everything except the HTTP-level SEO suite |
+| nothing | pure unit/schema tests only |
+
+For the full run: start MySQL and Redis, apply migrations, seed, run `pnpm dev`, then
+`DATABASE_URL=… REDIS_URL=… pnpm test`.
+
 ## Documentation
 
 - `docs/brentdesk/BASELINE.md` — state of the codebase at migration start

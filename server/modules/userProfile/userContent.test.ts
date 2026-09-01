@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { appRouter } from "../../routers";
 import type { TrpcContext } from "../../_core/context";
 
@@ -45,7 +46,7 @@ function createUnauthContext(): TrpcContext {
 
 const caller = appRouter.createCaller;
 
-describe("userContent router", () => {
+describe.runIf(hasDatabase)("userContent router", () => {
   // ============================================================
   // MY CONTENT OVERVIEW
   // ============================================================

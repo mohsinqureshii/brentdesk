@@ -19,3 +19,23 @@ process.env.NODE_ENV = process.env.NODE_ENV || "test";
 if (process.env.BASE_URL && !/^https?:\/\//i.test(process.env.BASE_URL)) {
   delete process.env.BASE_URL;
 }
+
+// Probe the database once per worker so DB-backed suites can gate on
+// reachability (see test-support/dbAvailable.ts). Without this they fail
+// with connection errors on a checkout that has no MySQL, which reads as
+// broken code rather than missing infrastructure.
+{
+  let reachable = false;
+  if (process.env.DATABASE_URL) {
+    try {
+      const { createConnection } = await import("mysql2/promise");
+      const conn = await createConnection({ uri: process.env.DATABASE_URL, connectTimeout: 3000 });
+      await conn.query("SELECT 1");
+      await conn.end();
+      reachable = true;
+    } catch {
+      reachable = false;
+    }
+  }
+  process.env.__HAS_DATABASE = reachable ? "1" : "0";
+}

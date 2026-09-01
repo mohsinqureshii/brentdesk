@@ -1,4 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { appRouter } from "./routers";
 import type { TrpcContext } from "./_core/context";
 
@@ -53,7 +54,7 @@ function createAnonymousContext(): TrpcContext {
 // USER CONTENT TESTS
 // ============================================================
 
-describe("userContent", () => {
+describe.runIf(hasDatabase)("userContent", () => {
   describe("myContentStats", () => {
     it("returns content stats for authenticated user", async () => {
       const ctx = createUserContext();
@@ -180,7 +181,7 @@ describe("userContent", () => {
 // CLAIMED PROFILES TESTS
 // ============================================================
 
-describe("claimedProfiles", () => {
+describe.runIf(hasDatabase)("claimedProfiles", () => {
   describe("myClaimedProfiles", () => {
     it("returns claimed profiles for authenticated user", async () => {
       const ctx = createUserContext();
@@ -234,7 +235,7 @@ describe("claimedProfiles", () => {
 // CLAIMED PROFILE EDITING TESTS
 // ============================================================
 
-describe("claimedProfiles editing", () => {
+describe.runIf(hasDatabase)("claimedProfiles editing", () => {
   describe("getClaimedEntityForEdit", () => {
     it("rejects unauthenticated users", async () => {
       const ctx = createAnonymousContext();
@@ -387,7 +388,7 @@ describe("claimedProfiles editing", () => {
 // ADMIN USER SUBMISSIONS TESTS
 // ============================================================
 
-describe("admin.userSubmissions", () => {
+describe.runIf(hasDatabase)("admin.userSubmissions", () => {
   it("rejects non-admin users", async () => {
     const ctx = createUserContext({ role: "user" });
     const caller = appRouter.createCaller(ctx);

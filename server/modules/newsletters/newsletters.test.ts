@@ -1,9 +1,10 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { getDb } from "../../db";
 import { newslettersRouter } from "./newsletters.router";
 import { sql } from "drizzle-orm";
 
-describe("Newsletters Router", () => {
+describe.runIf(hasDatabase)("Newsletters Router", () => {
   let db: any;
 
   beforeAll(async () => {

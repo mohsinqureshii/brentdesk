@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { appRouter } from "./routers";
 import type { TrpcContext } from "./_core/context";
 
@@ -45,7 +46,7 @@ function createAnonymousContext(): TrpcContext {
 
 const caller = (ctx: TrpcContext) => appRouter.createCaller(ctx);
 
-describe("Inline Edit - checkCanEdit endpoint", () => {
+describe.runIf(hasDatabase)("Inline Edit - checkCanEdit endpoint", () => {
   describe("Anonymous users", () => {
     it("should return canEdit: false for anonymous users on company", async () => {
       const ctx = createAnonymousContext();
@@ -198,7 +199,7 @@ describe("Inline Edit - checkCanEdit endpoint", () => {
   });
 });
 
-describe("Expanded Editor Mutations - Input Validation", () => {
+describe.runIf(hasDatabase)("Expanded Editor Mutations - Input Validation", () => {
   describe("editClaimedPerson expanded fields", () => {
     it("should reject editClaimedPerson without authentication", async () => {
       const ctx = createAnonymousContext();
@@ -325,7 +326,7 @@ describe("Expanded Editor Mutations - Input Validation", () => {
   });
 });
 
-describe("Edit URL generation", () => {
+describe.runIf(hasDatabase)("Edit URL generation", () => {
   it("should generate correct dashboard edit URLs for claimed entities", async () => {
     const ctx = createAnonymousContext();
     // Test that the URL pattern is correct by checking admin URLs
