@@ -142,9 +142,19 @@ automatic latest-article fallbacks, Most Read / Industry Jobs / Upcoming Events 
 widgets (CMS `position: sidebar` rows are now actually rendered — previously computed
 and dead), newsletter box wired to the real subscribe mutation, Featured Companies and
 Events bands, market ticker (Brent/WTI/gas/indices; live when a quote provider is
-configured, labeled static fallback otherwise). Editors control sections, order,
+configured, labeled static fallback otherwise). The editorial band is the design's three
+columns — Latest Headlines | Latest News | In Brief — with the first two fed from the
+single `headlines` CMS section (which the admin itself defines as "Latest Headlines +
+Latest News"), split so the lists never repeat a story. Editors control sections, order,
 accents, counts and pinning through the existing admin. The old `HomepageConfig` mock
 admin page still exists but is superseded by Homepage Sections (see W).
+
+**One element of the reference design was deliberately not built: the Top Videos row.**
+There is no editorial video content model in this platform — the only `videoUrl` column
+belongs to `event_recordings` — so a videos row would have been either a fake feature or
+a new content model built on spec. Per the brief's "do not overbuild / do not build fake
+buttons", it is deferred to the backlog with the `videos` section type already reserved
+in the CMS enum.
 
 ## N. Advertising
 
@@ -281,6 +291,12 @@ for old-host (`manus`) identifiers. CI-enforced going forward.
     switcher is not mounted in the new header.
 12. **HomepageConfig mock admin page** (blocks) still routed at `/admin/homepage`;
     the real CMS is `/admin/homepage-sections`. Removing or wiring the mock is backlog.
+13. **Five CMS section types have no homepage renderer**: `videos`, `podcasts`,
+    `stocks`, `sidebar_links`, `sidebar_podcast`. None is created by the bootstrap seed
+    and the admin only lets editors add category sections, so nothing is lost today —
+    but a row inserted directly with one of those types would render nothing. `stocks`
+    is superseded by the always-on market ticker; `videos`/`podcasts` await a content
+    model (see M).
 
 ## X. Future backlog (separate from launch blockers — none of these block)
 
