@@ -387,7 +387,7 @@ export default function Events() {
     <div className="min-h-screen bg-background">
       <SEO
         title={`Events — ${publication.name}`}
-        description="The MENA tech events hub: conferences, summits, demo days, workshops, and live coverage of what's happening right now."
+        description="Industry events across Saudi Arabia, the GCC and MENA: conferences, expos, forums and live coverage of what's happening right now."
       />
       <Header />
 
@@ -514,7 +514,7 @@ export default function Events() {
 
 /** Topic chips seed the search box; they are plain queries, not a new
  *  taxonomy, so they can never drift out of sync with real data. */
-const POPULAR_TOPICS = ["AI", "Cybersecurity", "Fintech", "Startups", "Cloud", "Energy"];
+const POPULAR_TOPICS = ["Energy", "Construction", "Infrastructure", "Logistics", "Mining", "Manufacturing"];
 
 function SearchHero({
   filters,

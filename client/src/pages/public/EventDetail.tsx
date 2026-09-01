@@ -1180,8 +1180,8 @@ function HostYourEventBand() {
           Host your event on {publication.name}
         </h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          List your conference, meetup or hackathon in front of the region&rsquo;s
-          founders, investors and operators.
+          List your conference, expo or forum in front of the region&rsquo;s
+          industry leaders, engineers and decision-makers.
         </p>
       </div>
       <Link href="/events/submit" className="shrink-0">

@@ -10,8 +10,8 @@ const sections = [
   {
     title: "Ecosystem",
     items: [
-      { label: "Companies", desc: "Startups & tech companies", icon: Building2, href: "/companies", color: "bg-blue-500/10 text-blue-500" },
-      { label: "People", desc: "Founders, leaders & talent", icon: Users, href: "/people", color: "bg-purple-500/10 text-purple-500" },
+      { label: "Companies", desc: "Contractors, operators & manufacturers", icon: Building2, href: "/companies", color: "bg-blue-500/10 text-blue-500" },
+      { label: "People", desc: "Executives, engineers & leaders", icon: Users, href: "/people", color: "bg-purple-500/10 text-purple-500" },
     ]
   },
   {

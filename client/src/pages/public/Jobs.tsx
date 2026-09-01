@@ -1089,10 +1089,10 @@ export default function Jobs() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title="Tech Jobs in MENA - Dubai, Saudi Arabia, UAE Careers"
-        description="Find the best tech jobs in the Middle East and North Africa. Browse software engineering, product, design, and startup roles in Dubai, Riyadh, Abu Dhabi, and across the MENA region."
+        title={`Industry Jobs | ${publication.name}`}
+        description="Jobs in construction, energy, infrastructure, manufacturing and logistics across Saudi Arabia, the GCC and MENA — engineering, operations, HSE, project management and more."
         canonical={`${publication.siteUrl}/jobs`}
-        keywords="tech jobs MENA, Dubai tech jobs, Saudi Arabia IT jobs, UAE software engineer, startup jobs Middle East, remote tech jobs MENA, product manager Dubai, developer jobs Riyadh"
+        keywords="industrial jobs, construction jobs, energy jobs, engineering jobs, project management, HSE, Saudi Arabia jobs, GCC jobs"
         ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />

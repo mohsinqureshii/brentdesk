@@ -85,7 +85,7 @@ export default function Signin() {
 
           <h1 className="text-3xl font-bold text-zinc-900 mb-2">Welcome back</h1>
           <p className="text-zinc-500 mb-8">
-            Sign in to follow MENA tech, save articles, apply to jobs, and customise your news feed.
+            Sign in to follow the region's industry, save articles, apply to jobs, and customise your news feed.
           </p>
 
           <form onSubmit={handleSignin} className="space-y-5">
@@ -226,7 +226,7 @@ export default function Signin() {
                 Funding rounds. Founders. Jobs.
               </h2>
               <p className="text-sm text-white/70 leading-relaxed">
-                Independent reporting on the startups and investors building MENA's technology future — Saudi Arabia, the UAE, Egypt, and beyond.
+                Independent reporting on the companies and projects building the region's technology future — Saudi Arabia, the UAE, Egypt, and beyond.
               </p>
             </div>
 

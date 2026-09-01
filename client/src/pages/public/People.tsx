@@ -213,10 +213,10 @@ export default function People() {
   return (
     <div className="min-h-screen bg-card">
       <SEO
-        title="People Directory - MENA Tech Founders, Investors & Operators"
-        description="Connect with founders, investors, and operators across the MENA tech ecosystem. Discover profiles of startup CEOs, venture capitalists, and tech leaders in Dubai, Saudi Arabia, and the Middle East."
+        title={`People | ${publication.name}`}
+        description="Executives, engineers and decision-makers across construction, energy, infrastructure and industry in Saudi Arabia, the GCC and MENA."
         canonical={`${publication.siteUrl}/people`}
-        keywords="MENA tech founders, Dubai startup CEOs, Saudi Arabia investors, UAE venture capitalists, Middle East tech leaders, GCC entrepreneurs, startup operators"
+        keywords="industry executives, energy leaders, construction leaders, engineers, Saudi Arabia, GCC, MENA"
         ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />
@@ -227,12 +227,12 @@ export default function People() {
         <section className="bg-foreground text-background">
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
-              <Badge className="bg-[#4CB944] text-white border-0 mb-4">People Directory</Badge>
+              <Badge className="bg-primary text-white border-0 mb-4">People Directory</Badge>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
-                Discover the people building MENA's tech ecosystem
+                The people running the region's industry
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">
-                Connect with {peopleData?.total || 0}+ founders, investors, and operators shaping the future of technology in the Middle East.
+                Executives, engineers and decision-makers across construction, energy, infrastructure and logistics in Saudi Arabia, the GCC and MENA.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-background/60 text-sm">
@@ -241,7 +241,7 @@ export default function People() {
                 </div>
                 <div className="flex items-center gap-2 text-background/60 text-sm">
                   <Briefcase className="h-4 w-4" />
-                  <span>Founders, Investors & Operators</span>
+                  <span>Executives, Engineers & Leaders</span>
                 </div>
               </div>
             </div>

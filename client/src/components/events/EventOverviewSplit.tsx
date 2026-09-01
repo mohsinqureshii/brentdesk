@@ -91,8 +91,8 @@ export function buildEventStats({
     {
       key: "startups",
       value: num(event.expectedStartups),
-      label: "Startups",
-      singular: "Startup",
+      label: "Exhibitors",
+      singular: "Exhibitor",
       Icon: Rocket,
     },
     {

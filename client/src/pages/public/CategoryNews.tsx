@@ -23,19 +23,18 @@ import {
 
 // Default color mapping for categories
 const categoryColors: Record<string, string> = {
-  "ai": "bg-purple-500",
-  "artificial-intelligence": "bg-purple-500",
-  "fintech": "bg-green-500",
-  "startups": "bg-orange-500",
-  "venture": "bg-blue-500",
-  "funding-vc": "bg-amber-500",
-  "ecommerce": "bg-amber-500",
-  "healthtech": "bg-red-500",
-  "gaming": "bg-pink-500",
-  "security": "bg-slate-600",
-  "technology": "bg-cyan-500",
-  "cloud-infra-data-centers": "bg-indigo-500",
-  "enterprise": "bg-teal-500",
+  "construction": "bg-amber-700",
+  "infrastructure": "bg-cyan-700",
+  "energy": "bg-green-700",
+  "oil-gas": "bg-emerald-800",
+  "renewables": "bg-lime-700",
+  "manufacturing": "bg-violet-700",
+  "logistics": "bg-rose-700",
+  "real-estate": "bg-orange-700",
+  "transportation": "bg-blue-700",
+  "mining": "bg-stone-600",
+  "utilities": "bg-teal-700",
+  "industrial-technology": "bg-indigo-700",
 };
 
 // Helper function to format time ago

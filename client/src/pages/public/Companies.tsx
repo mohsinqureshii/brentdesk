@@ -77,10 +77,10 @@ export default function Companies() {
   return (
     <div className="min-h-screen bg-card">
       <SEO
-        title="Startup Directory - MENA Tech Companies & Startups"
-        description="Discover 1000+ top startups across the Middle East and North Africa. Browse tech companies by industry, funding stage, and location. Find unicorns, fintech, e-commerce, and AI startups in Dubai, Saudi Arabia, and the GCC."
+        title={`Companies | ${publication.name}`}
+        description="Profiles of the contractors, developers, operators, manufacturers and industrial companies shaping the region's physical economy — across Saudi Arabia, the GCC and MENA."
         canonical={`${publication.siteUrl}/companies`}
-        keywords="MENA startups, Dubai startups, Saudi Arabia tech companies, UAE unicorns, GCC startup directory, fintech MENA, e-commerce startups, AI companies Middle East"
+        keywords="industrial companies, contractors, developers, EPC, manufacturers, utilities, Saudi Arabia, GCC, MENA, company directory"
         ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />
@@ -91,12 +91,12 @@ export default function Companies() {
         <section className="bg-foreground text-background">
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
-              <Badge className="bg-[#4CB944] text-white border-0 mb-4">Startup Directory</Badge>
+              <Badge className="bg-primary text-white border-0 mb-4">Company Directory</Badge>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
-                Explore MENA's most innovative companies
+                The companies building the region
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">
-                Discover {totalCompanies.toLocaleString()}+ startups and tech companies building the future across the Gulf and Middle East.
+                Contractors, developers, operators and manufacturers across construction, energy, infrastructure and logistics in Saudi Arabia, the GCC and MENA.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-background/60 text-sm">
@@ -105,7 +105,7 @@ export default function Companies() {
                 </div>
                 <div className="flex items-center gap-2 text-background/60 text-sm">
                   <Globe className="h-4 w-4" />
-                  <span>GCC & MENA</span>
+                  <span>Saudi Arabia · GCC · MENA</span>
                 </div>
               </div>
             </div>

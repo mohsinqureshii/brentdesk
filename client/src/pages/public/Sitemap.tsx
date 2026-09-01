@@ -27,7 +27,7 @@ const siteRoutes = {
     title: "Main Pages",
     icon: Home,
     links: [
-      { label: "News Homepage", href: "/", description: "Latest MENA tech news and updates" },
+      { label: "News Homepage", href: "/", description: "Latest industry news and updates" },
       { label: "Dashboard", href: "/dashboard", description: "Your personalized dashboard" },
       { label: "Profile", href: "/profile", description: "Manage your profile settings" },
     ]
@@ -37,7 +37,7 @@ const siteRoutes = {
     icon: Building2,
     links: [
       { label: "Jobs", href: "/jobs", description: "Browse tech job opportunities" },
-      { label: "Companies", href: "/companies", description: "Discover MENA startups and companies" },
+      { label: "Companies", href: "/companies", description: "Company directory" },
       { label: "People", href: "/people", description: "Connect with tech professionals" },
       { label: "Events", href: "/events", description: "Upcoming tech events" },
     ]

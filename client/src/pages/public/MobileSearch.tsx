@@ -4,8 +4,8 @@ import { Search, X, TrendingUp, Clock, ArrowRight } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 
 const trendingTopics = [
-  "AI Startups", "Saudi Tech", "Fintech MENA", "Series A", "Dubai Unicorns",
-  "Climate Tech", "Web3", "SaaS", "Cybersecurity", "EdTech"
+  "NEOM", "Aramco", "EPC Awards", "Giga-projects", "Renewables",
+  "Data Centers", "Rail", "Ports", "Mining", "Industrial AI"
 ];
 
 export default function MobileSearch() {

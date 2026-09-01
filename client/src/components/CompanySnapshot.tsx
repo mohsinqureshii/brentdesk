@@ -17,20 +17,6 @@ interface CompanySnapshotProps {
   companyName?: string;
 }
 
-const ROUND_TYPE_LABELS: Record<string, string> = {
-  pre_seed: "Pre-Seed",
-  seed: "Seed",
-  series_a: "Series A",
-  series_b: "Series B",
-  series_c: "Series C",
-  series_d_plus: "Series D+",
-  bridge: "Bridge",
-  strategic: "Strategic",
-  venture_debt: "Venture Debt",
-  grant: "Grant",
-  undisclosed: "Undisclosed",
-};
-
 // Valid ISO 4217 currency codes (common ones)
 const VALID_CURRENCIES = new Set([
   "USD", "EUR", "GBP", "JPY", "CNY", "AED", "SAR", "QAR", "KWD", "BHD", "OMR",

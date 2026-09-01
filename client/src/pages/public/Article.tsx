@@ -11,6 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock, Share2, Bookmark, MessageCircle, ThumbsUp, Twitter, Linkedin, Facebook, Link2, ChevronLeft, ChevronRight, Play, TrendingUp, Mail, Loader2 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
@@ -42,19 +43,6 @@ function formatTime(date: Date | string | null): string {
 }
 
 // Helper to get placeholder image
-function getPlaceholderImage(index: number): string {
-  const images = [
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&auto=format&fit=crop&q=80",
-  ];
-  return images[index % images.length];
-}
-
 /**
  * ArticleContentWithAds — Splits article HTML content and inserts ads between paragraphs.
  * Inserts a mid-article ad after roughly 40% of paragraphs (minimum 3 paragraphs before first ad).
@@ -184,13 +172,15 @@ const RelatedArticlesCarousel = ({ articles }: { articles: RelatedArticle[] }) =
             className="group flex-shrink-0 w-[260px] sm:w-[280px] lg:w-[300px]"
           >
             <article className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={article.featuredImageUrl || getPlaceholderImage(idx)}
-                  alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+              {article.featuredImageUrl && (
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={article.featuredImageUrl}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
               <div className="p-4">
                 <Badge variant="secondary" className="text-xs mb-2">
                   {article.category || "News"}
@@ -443,25 +433,20 @@ export default function Article() {
       {/* Split Hero Section - Full Width */}
       <div className="w-full overflow-hidden">
         <div className="flex flex-col lg:flex-row min-h-[300px] sm:min-h-[380px] lg:min-h-[480px]">
-          {/* Left - Image (50% width) */}
-          <div className="w-full lg:w-1/2 h-[280px] sm:h-[320px] lg:h-auto relative overflow-hidden">
-            <img
-              src={article.featuredImageUrl || getPlaceholderImage(article.id)}
-              alt={article.title}
-              className="w-full h-full object-cover"
-            />
-            {!article.featuredImageUrl && (
-              <div className="absolute bottom-3 left-0 right-0 text-center">
-                <span className="text-xs text-white/70 bg-black/50 px-2 py-1 rounded">
-                  IMAGE CREDITS: <span className="underline">UNSPLASH</span>
-                </span>
-              </div>
-            )}
-          </div>
+          {/* Left - Image (50% width) — only when the article has real art */}
+          {article.featuredImageUrl && (
+            <div className="w-full lg:w-1/2 h-[280px] sm:h-[320px] lg:h-auto relative overflow-hidden">
+              <img
+                src={article.featuredImageUrl}
+                alt={article.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
           
-          {/* Right - Content on Black Background (50% width) */}
-          <div className="w-full lg:w-1/2 bg-black flex items-center">
-            <div className="w-full max-w-[700px] px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12">
+          {/* Right - Content on ink background (full width when no image) */}
+          <div className={`w-full ${article.featuredImageUrl ? "lg:w-1/2" : ""} bd-ink flex items-center`}>
+            <div className={`w-full ${article.featuredImageUrl ? "max-w-[700px]" : "max-w-[900px] mx-auto"} px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12`}>
               {/* Category & Social Row */}
               <div className="flex items-center justify-between mb-6 lg:mb-8">
                 <Badge className="bg-transparent border border-white/40 text-white hover:bg-white/10 text-xs uppercase tracking-widest font-medium px-3 py-1">
@@ -634,18 +619,20 @@ export default function Article() {
 
           {/* Sidebar - Fixed Width */}
           <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-5 sm:space-y-6">
-            {/* Newsletter CTA Green Card */}
-            <div className="bg-[#0a0] rounded-xl p-4 sm:p-5 text-white">
+            {/* Newsletter CTA */}
+            <div className="bd-ink rounded-xl p-4 sm:p-5 text-white">
               <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                <span className="font-bold text-base sm:text-lg">BD</span>
-                <span className="text-xs sm:text-sm opacity-90">{publication.newsletter.name}</span>
+                <Mail className="h-4 w-4 text-white/80" />
+                <span className="text-sm font-bold">{publication.newsletter.name}</span>
               </div>
-              <p className="text-xs sm:text-sm opacity-90 leading-relaxed mb-3 sm:mb-4">
-                Get ahead in the MENA tech scene — straight to your inbox. Join the industry's must-read daily newsletter covering startups, funding, and more.
+              <p className="text-xs sm:text-sm text-white/75 leading-relaxed mb-3 sm:mb-4">
+                {publication.newsletter.description}
               </p>
-              <Button className="w-full bg-white text-[#0a0] hover:bg-white/90 font-medium rounded-full text-sm h-9 sm:h-10">
-                Subscribe →
-              </Button>
+              <Link href="/newsletter">
+                <Button className="w-full bg-white text-black hover:bg-white/90 font-medium rounded-full text-sm h-9 sm:h-10">
+                  Subscribe →
+                </Button>
+              </Link>
             </div>
 
             {/* Company Snapshots */}
@@ -675,25 +662,13 @@ export default function Article() {
               </div>
             )}
 
-            {/* Newsletter CTA */}
-            <div className="bg-muted rounded-xl p-4 sm:p-5">
+            {/* Newsletter signup (wired) */}
+            <div className="bg-card border border-border rounded-xl p-4 sm:p-5">
               <div className="flex items-center gap-2 mb-2 sm:mb-3">
                 <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                <h3 className="font-bold text-sm sm:text-base text-foreground">Daily Newsletter</h3>
+                <h3 className="font-bold text-sm sm:text-base text-foreground">{publication.newsletter.name}</h3>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-                Get the latest tech news and startup updates delivered daily.
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter email"
-                  className="flex-1 min-w-0 px-3 py-2 text-xs sm:text-sm rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20"
-                />
-                <Button size="sm" className="bg-foreground text-background hover:bg-foreground/90 text-xs sm:text-sm h-9 px-3 sm:px-4">
-                  Subscribe
-                </Button>
-              </div>
+              <NewsletterSignup variant="inline" source="article-rail" />
             </div>
 
             {/* Sidebar Ad - Top */}

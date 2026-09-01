@@ -282,7 +282,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                 {[
                   { label: "Latest News", href: "/" },
                   { label: "Open Jobs", href: "/jobs" },
-                  { label: "Startups", href: "/companies" },
+                  { label: "Companies", href: "/companies" },
                   { label: "Upcoming Events", href: "/events" },
                 ].map((link) => (
                   <Link
