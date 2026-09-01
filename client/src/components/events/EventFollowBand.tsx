@@ -2,7 +2,7 @@
  * EventFollowBand — the closing two-column band.
  *
  *   ┌──────────────────────────┬───────────────────────────────┐
- *   │ Follow {event}           │ TECHSCOOP COVERAGE            │
+ *   │ Follow {event}           │ OUR COVERAGE                  │
  *   │ RSVP + newsletter opt-in │ up to three linked articles   │
  *   └──────────────────────────┴───────────────────────────────┘
  *
@@ -20,6 +20,7 @@ import { Link } from "wouter";
 import { ArrowRight, Users } from "lucide-react";
 import { toast } from "sonner";
 
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -163,7 +164,7 @@ function CoverageColumn({ event }: { event: EventRow }) {
     <div className="min-w-0">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          TechScoop coverage
+          {publication.name} coverage
         </h2>
         {articles.length > shown.length && (
           <Link

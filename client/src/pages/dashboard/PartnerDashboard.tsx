@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -65,7 +66,7 @@ export default function PartnerDashboard() {
       <div className="container py-12">
         <Card className="max-w-2xl mx-auto">
           <CardHeader className="text-center">
-            <CardTitle>Become a TechScoop Partner</CardTitle>
+            <CardTitle>Become a {publication.name} Partner</CardTitle>
             <CardDescription>
               Join our partner program to access exclusive benefits, affiliate commissions, and more.
             </CardDescription>
@@ -322,7 +323,7 @@ export default function PartnerDashboard() {
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
                 <CardTitle>Your Deals & Perks</CardTitle>
-                <CardDescription>Manage offers for TechScoop founders</CardDescription>
+                <CardDescription>Manage offers for {publication.name} founders</CardDescription>
               </div>
               <Button asChild>
                 <Link href="/dashboard/partner/deals/new">
@@ -361,7 +362,7 @@ export default function PartnerDashboard() {
                   <Gift className="w-12 h-12 mx-auto text-muted-foreground mb-4" />
                   <h3 className="font-semibold mb-2">No deals yet</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Create your first deal to offer discounts to TechScoop founders.
+                    Create your first deal to offer discounts to {publication.name} founders.
                   </p>
                   <Button asChild>
                     <Link href="/dashboard/partner/deals/new">Create Your First Deal</Link>

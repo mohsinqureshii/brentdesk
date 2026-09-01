@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock, Share2, Bookmark, MessageCircle, ThumbsUp, Twitter, Linkedin, Facebook, Link2, ChevronLeft, ChevronRight, Play, TrendingUp, Mail, Loader2 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import { publication } from "@shared/publication";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
@@ -197,7 +198,7 @@ const RelatedArticlesCarousel = ({ articles }: { articles: RelatedArticle[] }) =
                 <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 text-sm leading-snug">
                   {article.title}
                 </h4>
-                <p className="text-xs text-muted-foreground mt-2">{article.author || "TechScoop"}</p>
+                <p className="text-xs text-muted-foreground mt-2">{article.author || publication.name}</p>
               </div>
             </article>
           </Link>
@@ -377,15 +378,15 @@ export default function Article() {
   }
 
   const category = article.categories?.[0]?.name || "News";
-  const authorName = article.author?.name || "TechScoop";
+  const authorName = article.author?.name || publication.name;
   const authorAvatar = article.author?.avatar || "";
   const articleTagsList = article.tags || [];
 
   // Generate canonical URL using primary category
   const primaryCategorySlug = (article as any).primaryCategory?.slug || article.categories?.[0]?.slug;
   const canonicalUrl = primaryCategorySlug 
-    ? `https://techscoop.io/${primaryCategorySlug}/${article.slug}`
-    : `https://techscoop.io/article/${article.slug}`;
+    ? `${publication.siteUrl}/${primaryCategorySlug}/${article.slug}`
+    : `${publication.siteUrl}/article/${article.slug}`;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
@@ -419,7 +420,7 @@ export default function Article() {
           dateModified: article.updatedAt ? new Date(article.updatedAt).toISOString() : undefined,
           author: {
             name: authorName,
-            url: article.author?.username ? `https://techscoop.io/author/${article.author.username}` : undefined,
+            url: article.author?.username ? `${publication.siteUrl}/author/${article.author.username}` : undefined,
             image: authorAvatar || undefined,
           },
           mainEntityOfPage: canonicalUrl,
@@ -431,8 +432,8 @@ export default function Article() {
       <JsonLd
         type="BreadcrumbList"
         data={[
-          { name: 'Home', url: 'https://techscoop.io' },
-          { name: category, url: `https://techscoop.io/${primaryCategorySlug}` },
+          { name: 'Home', url: publication.siteUrl },
+          { name: category, url: `${publication.siteUrl}/${primaryCategorySlug}` },
           { name: article.title, url: canonicalUrl },
         ] as BreadcrumbItem[]}
       />
@@ -618,7 +619,7 @@ export default function Article() {
                     )}
                   </div>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-2">
-                    {article.author?.authorBio || article.author?.bio || `${authorName} is a reporter at TechScoop covering the MENA tech ecosystem.`}
+                    {article.author?.authorBio || article.author?.bio || `${authorName} is a reporter at ${publication.name} covering the region's physical economy.`}
                   </p>
                   <Link 
                     href={`/author/${article.author?.username || article.author?.id || 'unknown'}`}
@@ -636,8 +637,8 @@ export default function Article() {
             {/* Newsletter CTA Green Card */}
             <div className="bg-[#0a0] rounded-xl p-4 sm:p-5 text-white">
               <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                <span className="font-bold text-base sm:text-lg">TS</span>
-                <span className="text-xs sm:text-sm opacity-90">TechScoop TPC</span>
+                <span className="font-bold text-base sm:text-lg">BD</span>
+                <span className="text-xs sm:text-sm opacity-90">{publication.newsletter.name}</span>
               </div>
               <p className="text-xs sm:text-sm opacity-90 leading-relaxed mb-3 sm:mb-4">
                 Get ahead in the MENA tech scene — straight to your inbox. Join the industry's must-read daily newsletter covering startups, funding, and more.

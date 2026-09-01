@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from "react";
+import { publication } from "@shared/publication";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { SearchAnalyticsPanel } from "./SearchAnalytics";
 import { SEOToolsPanel } from "./ai/SEOTools";
@@ -1495,7 +1496,7 @@ export default function SEOManager() {
                     <textarea
                       value={importUrls}
                       onChange={(e) => setImportUrls(e.target.value)}
-                      placeholder={"One URL per line. Bare paths or full https://techscoop.io/... URLs both work.\n\n/old-wp-page\nhttps://techscoop.io/2023/06/some-article\n/category/old-name"}
+                      placeholder={`One URL per line. Bare paths or full ${publication.siteUrl}/... URLs both work.\n\n/old-wp-page\n${publication.siteUrl}/2023/06/some-article\n/category/old-name`}
                       rows={6}
                       className="w-full text-sm font-mono rounded-md border bg-background px-3 py-2"
                     />
@@ -1997,12 +1998,12 @@ export default function SEOManager() {
                 </CardHeader>
                 <CardContent>
                   <pre className="p-4 rounded-md bg-muted overflow-x-auto text-sm font-mono">
-{`<link rel="alternate" hreflang="en" 
-      href="https://techscoop.io/news/article-slug" />
-<link rel="alternate" hreflang="ar" 
-      href="https://techscoop.io/ar/news/article-slug" />
-<link rel="alternate" hreflang="x-default" 
-      href="https://techscoop.io/news/article-slug" />`}
+{`<link rel="alternate" hreflang="en"
+      href="${publication.siteUrl}/news/article-slug" />
+<link rel="alternate" hreflang="ar"
+      href="${publication.siteUrl}/ar/news/article-slug" />
+<link rel="alternate" hreflang="x-default"
+      href="${publication.siteUrl}/news/article-slug" />`}
                   </pre>
                 </CardContent>
               </Card>
@@ -2233,7 +2234,7 @@ export default function SEOManager() {
                           <div className="space-y-2">
                             <Label>Publication Name</Label>
                             <Input
-                              defaultValue={sitemapSettings.data?.news_publication_name as string || "TechScoop"}
+                              defaultValue={sitemapSettings.data?.news_publication_name as string || publication.name}
                               onBlur={(e) => 
                                 updateSitemapSettings.mutate({ news_publication_name: e.target.value })
                               }
@@ -2421,7 +2422,7 @@ export default function SEOManager() {
                       <div className="space-y-2">
                         <Label>Organization Name</Label>
                         <Input
-                          defaultValue={schemaSettings.data?.organization_name as string || "TechScoop"}
+                          defaultValue={schemaSettings.data?.organization_name as string || publication.name}
                           onBlur={(e) => 
                             updateSchemaSettings.mutate({ organization_name: e.target.value })
                           }
@@ -2430,7 +2431,7 @@ export default function SEOManager() {
                       <div className="space-y-2">
                         <Label>Logo URL</Label>
                         <Input
-                          defaultValue={schemaSettings.data?.organization_logo as string || "https://techscoop.com/logo.png"}
+                          defaultValue={schemaSettings.data?.organization_logo as string || `${publication.siteUrl}${publication.assets.logo}`}
                           onBlur={(e) => 
                             updateSchemaSettings.mutate({ organization_logo: e.target.value })
                           }
@@ -2439,7 +2440,7 @@ export default function SEOManager() {
                       <div className="space-y-2">
                         <Label>Search URL Template</Label>
                         <Input
-                          defaultValue={schemaSettings.data?.search_url_template as string || "https://techscoop.io/search?q={search_term_string}"}
+                          defaultValue={schemaSettings.data?.search_url_template as string || `${publication.siteUrl}/search?q={search_term_string}`}
                           onBlur={(e) => 
                             updateSchemaSettings.mutate({ search_url_template: e.target.value })
                           }
@@ -2466,27 +2467,27 @@ export default function SEOManager() {
 {`{
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  "headline": "AI Startup Raises $50M Series B",
-  "description": "Leading AI company secures major funding round...",
-  "image": "https://techscoop.com/images/article-hero.jpg",
+  "headline": "NEOM Awards $2B EPC Contract for Water Infrastructure",
+  "description": "Saudi giga-project awards major engineering, procurement and construction package...",
+  "image": "${publication.siteUrl}/images/article-hero.jpg",
   "datePublished": "2026-01-15T10:00:00Z",
   "dateModified": "2026-01-15T14:30:00Z",
   "author": {
     "@type": "Person",
     "name": "John Doe",
-    "url": "https://techscoop.com/people/john-doe"
+    "url": "${publication.siteUrl}/people/john-doe"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "${schemaSettings.data?.organization_name || 'TechScoop'}",
+    "name": "${schemaSettings.data?.organization_name || publication.name}",
     "logo": {
       "@type": "ImageObject",
-      "url": "${schemaSettings.data?.organization_logo || 'https://techscoop.com/logo.png'}"
+      "url": "${schemaSettings.data?.organization_logo || publication.siteUrl + publication.assets.logo}"
     }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://techscoop.com/news/ai-startup-funding"
+    "@id": "${publication.siteUrl}/news/neom-epc-contract"
   }
 }`}
                   </pre>

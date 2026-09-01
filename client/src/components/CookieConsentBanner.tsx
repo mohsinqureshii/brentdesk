@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -120,7 +121,7 @@ export function CookieConsentBanner() {
             <div className="flex-1 text-sm text-foreground">
               <p className="font-medium mb-1">We value your privacy</p>
               <p className="text-muted-foreground">
-                We use cookies to make TechScoop work and to understand how you use it. Read our{" "}
+                We use cookies to make {publication.name} work and to understand how you use it. Read our{" "}
                 <Link href="/privacy" className="underline hover:text-foreground">
                   Privacy Policy
                 </Link>

@@ -11,6 +11,7 @@
 
 import { useState } from "react";
 import { useLocation, Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -89,7 +90,7 @@ export default function AdminLogin() {
         <div className="w-full max-w-md mx-auto">
           {/* Wordmark */}
           <Link href="/" className="inline-block mb-12">
-            <span className="text-2xl font-bold tracking-tight text-[#1A1F36]">techscoop.</span>
+            <span className="text-2xl font-bold tracking-tight text-[#1A1F36]">{publication.wordmark}</span>
           </Link>
 
           <h1 className="text-xl font-semibold text-[#1A1F36] mb-2">Admin sign in</h1>
@@ -117,7 +118,7 @@ export default function AdminLogin() {
                   id="email"
                   type="email"
                   autoComplete="email"
-                  placeholder="you@techscoop.io"
+                  placeholder="name@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="h-12 rounded-md"
@@ -200,17 +201,17 @@ export default function AdminLogin() {
         <div className="relative w-full flex flex-col justify-between p-12 xl:p-16 text-white">
           {/* Top — wordmark */}
           <div>
-            <span className="text-3xl xl:text-4xl font-bold tracking-tight">techscoop.</span>
+            <span className="text-3xl xl:text-4xl font-bold tracking-tight">{publication.wordmark}</span>
           </div>
 
           {/* Middle — value prop */}
           <div className="max-w-sm">
             <p className="text-xs uppercase tracking-[0.2em] text-[#80B3FF]/80 mb-4">Admin portal</p>
             <h2 className="text-3xl xl:text-4xl font-bold leading-tight mb-4">
-              MENA's tech ecosystem, managed.
+              The region's physical economy, managed.
             </h2>
             <p className="text-sm text-white/70 leading-relaxed">
-              Editorial workflows, SEO automation, advertising, audience analytics — everything that keeps techscoop running, in one console.
+              Editorial workflows, SEO automation, advertising, audience analytics — everything that keeps {publication.name} running, in one console.
             </p>
           </div>
 
@@ -220,7 +221,7 @@ export default function AdminLogin() {
             className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors w-fit"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to techscoop.io
+            Back to {publication.domain}
           </Link>
         </div>
       </div>

@@ -8,7 +8,7 @@
  *
  * The submission mutation is a `publicProcedure` — the whole flow works
  * logged out, which is the point: most side-event hosts are partner orgs
- * who will never make a TechScoop account. On success we are explicit
+ * who will never make an account on the publication. On success we are explicit
  * that the listing is queued for review, never that it is live.
  */
 

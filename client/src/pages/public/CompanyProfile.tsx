@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { useParams } from "wouter";
+import { publication } from "@shared/publication";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Header } from "@/components/layout/Header";
@@ -238,16 +239,16 @@ export default function CompanyProfile() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${company.name} - Company Profile | TechScoop`}
-        description={shortDescription || company.tagline || company.description || `${company.name} company profile on TechScoop.`}
-        canonical={`https://techscoop.io/companies/${company.slug}`}
+        title={`${company.name} - Company Profile | ${publication.name}`}
+        description={shortDescription || company.tagline || company.description || `${company.name} company profile on ${publication.name}.`}
+        canonical={`${publication.siteUrl}/companies/${company.slug}`}
         ogImage={company.logo || undefined}
       />
       <JsonLd
         type="Organization"
         data={{
           name: company.name,
-          url: company.website || `https://techscoop.io/companies/${company.slug}`,
+          url: company.website || `${publication.siteUrl}/companies/${company.slug}`,
           logo: company.logo || undefined,
           description: shortDescription || company.tagline || company.description || undefined,
           // foundingDate not supported in schema
@@ -986,7 +987,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <Users className="h-5 w-5 text-muted-foreground" />
-                        Team Members on TechScoop
+                        Team Members on {publication.name}
                       </h2>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {teamMembers.map((member: any) => (

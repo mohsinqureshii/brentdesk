@@ -11,6 +11,7 @@
 import { Link, useParams } from "wouter";
 import { ArrowRight, Calendar, ChevronRight, Radio } from "lucide-react";
 
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -73,7 +74,7 @@ export default function EventLivePost() {
   };
   const eventSlug = post.event?.slug || slug || "";
   const eventTitle = post.event?.title || "Event";
-  const permalink = `https://techscoop.io/events/${eventSlug}/live/${post.id}`;
+  const permalink = `${publication.siteUrl}/events/${eventSlug}/live/${post.id}`;
 
   const plainBody = (post.body || "")
     .replace(/<[^>]+>/g, " ")

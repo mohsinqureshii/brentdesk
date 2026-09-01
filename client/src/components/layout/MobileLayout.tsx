@@ -1,5 +1,6 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { Newspaper, Briefcase, Compass, Search, User, ArrowLeft, Bell } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
@@ -85,7 +86,7 @@ export function MobileTopBar({ title, showBack }: { title?: string; showBack?: b
         ) : (
           <Link href="/">
             <span className="text-lg font-bold tracking-tight text-foreground">
-              techscoop<span className="text-primary">.</span>
+              {publication.name.toLowerCase()}<span className="text-primary">.</span>
             </span>
           </Link>
         )}

@@ -28,6 +28,7 @@ import {
   Twitter,
 } from "lucide-react";
 import { toast } from "sonner";
+import { publication } from "@shared/publication";
 import { Button } from "@/components/ui/button";
 
 type ShareChannel = "twitter" | "linkedin" | "whatsapp" | "copy" | "native";
@@ -39,7 +40,7 @@ interface EventShareButtonsProps {
   title: string;
   /**
    * Site origin override (defaults to window.location.origin in the
-   * browser, or "https://techscoop.io" for SSR). Useful for tests.
+   * browser, or the canonical site URL for SSR). Useful for tests.
    */
   origin?: string;
   /** Optional analytics hook; currently a no-op pending Wave 3 wiring. */
@@ -54,7 +55,7 @@ function getDefaultOrigin(): string {
   if (typeof window !== "undefined" && window.location?.origin) {
     return window.location.origin;
   }
-  return "https://techscoop.io";
+  return publication.siteUrl;
 }
 
 export default function EventShareButtons({

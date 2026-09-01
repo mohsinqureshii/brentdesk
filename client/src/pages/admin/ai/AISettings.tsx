@@ -3,6 +3,7 @@
  * Configure LLM providers, API keys, default models, and system preferences.
  */
 import { useState, useEffect } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { Button } from "@/components/ui/button";
@@ -174,7 +175,7 @@ export default function AISettings() {
               <div>
                 <p className="font-semibold">Built-in AI Provider</p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  TechScoop includes a built-in AI provider that works out of the box with no API key required.
+                  {publication.name} includes a built-in AI provider that works out of the box with no API key required.
                   Configure additional providers below for model selection and failover.
                 </p>
               </div>

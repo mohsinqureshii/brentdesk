@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from "react";
+import { publication } from "@shared/publication";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -283,7 +284,7 @@ export default function ProfilePage() {
                       />
                     </div>
                     <p className="text-xs text-[#697386]">
-                      Your profile URL: techscoop.com/author/{formData.username || "username"}
+                      Your profile URL: {publication.domain}/author/{formData.username || "username"}
                     </p>
                   </div>
                   <div className="space-y-2">

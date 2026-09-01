@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -50,12 +51,12 @@ const benefits = [
 
 const testimonials = [
   {
-    quote: "TechScoop helped me land my dream job at a Series A startup in Dubai.",
+    quote: `${publication.name} helped me land my dream job at an EPC contractor in Riyadh.`,
     author: "Sarah M.",
     role: "Product Manager"
   },
   {
-    quote: "The best resource for staying updated on MENA's tech ecosystem.",
+    quote: "The best resource for staying updated on the region's industrial economy.",
     author: "Ahmed K.",
     role: "Founder & CEO"
   }
@@ -290,7 +291,7 @@ export default function Signup() {
                             className="mt-1"
                           />
                           <label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
-                            I agree to TechScoop's{" "}
+                            I agree to {publication.name}'s{" "}
                             <Link href="/terms" className="text-foreground underline hover:no-underline">
                               Terms of Service
                             </Link>{" "}
@@ -309,7 +310,7 @@ export default function Signup() {
                             className="mt-1"
                           />
                           <label htmlFor="newsletter" className="text-sm text-muted-foreground leading-relaxed">
-                            Subscribe to TechScoop Weekly Digest (recommended)
+                            Subscribe to {publication.newsletter.name} (recommended)
                           </label>
                         </div>
                       </div>

@@ -4,6 +4,7 @@
  * Integrates with seoMeta table via tRPC procedures
  */
 import { useState, useEffect, useCallback } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -168,7 +169,7 @@ export function EntitySeoTab({ entityType, entityId, entityName, entityDescripti
 
   const displayTitle = seo.metaTitle || entityName || `${ENTITY_LABELS[entityType]} Profile`;
   const displayDescription = seo.metaDescription || entityDescription || "";
-  const displayUrl = entityUrl || `techscoop.com/${entityType}/${entityName.toLowerCase().replace(/\s+/g, "-")}`;
+  const displayUrl = entityUrl || `${publication.domain}/${entityType}/${entityName.toLowerCase().replace(/\s+/g, "-")}`;
 
   const titleLength = seo.metaTitle.length;
   const descLength = seo.metaDescription.length;
@@ -235,7 +236,7 @@ export function EntitySeoTab({ entityType, entityId, entityName, entityDescripti
           </span>
         </div>
         <Input
-          placeholder={`e.g. ${entityName} | TechScoop`}
+          placeholder={`e.g. ${entityName} | ${publication.name}`}
           value={seo.metaTitle}
           onChange={(e) => handleChange("metaTitle", e.target.value)}
           className={titleStatus === "long" ? "border-red-400" : titleStatus === "good" ? "border-green-400" : ""}
@@ -278,7 +279,7 @@ export function EntitySeoTab({ entityType, entityId, entityName, entityDescripti
       <div className="space-y-2">
         <Label className="font-medium flex items-center gap-2"><Globe className="h-4 w-4" /> Canonical URL</Label>
         <Input
-          placeholder="https://techscoop.com/..."
+          placeholder={`${publication.siteUrl}/...`}
           value={seo.canonicalUrl}
           onChange={(e) => handleChange("canonicalUrl", e.target.value)}
         />

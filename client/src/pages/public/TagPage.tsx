@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { useParams } from "wouter";
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { SEO } from "@/components/SEO";
 import { Header } from "@/components/layout/Header";
@@ -150,8 +151,8 @@ export default function TagPage() {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
         title={`${tag.name} - News & Articles`}
-        description={tag.description || `Latest ${tag.name} news, articles, and updates from TechScoop. Stay informed about ${tag.name} in the MENA tech ecosystem.`}
-        canonical={`https://techscoop.io${canonicalPath}`}
+        description={tag.description || `Latest ${tag.name} news, articles, and updates from ${publication.name}. Stay informed about ${tag.name} across the region's industrial economy.`}
+        canonical={`${publication.siteUrl}${canonicalPath}`}
       />
       <Header />
       
@@ -282,7 +283,7 @@ export default function TagPage() {
                         </p>
                         <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                           <span className="font-medium text-foreground truncate max-w-[100px] sm:max-w-none">
-                            {featuredArticle.author?.name || "TechScoop"}
+                            {featuredArticle.author?.name || publication.name}
                           </span>
                           <span className="flex items-center gap-1">
                             <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
@@ -324,7 +325,7 @@ export default function TagPage() {
                         </p>
                         <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs text-muted-foreground">
                           <span className="font-medium text-foreground truncate max-w-[80px] sm:max-w-none">
-                            {article.author?.name || "TechScoop"}
+                            {article.author?.name || publication.name}
                           </span>
                           <span className="flex items-center gap-0.5 sm:gap-1">
                             <Clock className="h-2.5 w-2.5 sm:h-3 sm:w-3" />

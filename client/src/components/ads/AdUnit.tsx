@@ -13,6 +13,7 @@
  */
 
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 
 // Standard IAB ad sizes
@@ -296,7 +297,7 @@ export function AdUnit({
               Support independent journalism
             </p>
             <p className="text-[10px] text-muted-foreground/50">
-              Consider disabling your ad blocker for TechScoop
+              Consider disabling your ad blocker for {publication.name}
             </p>
           </div>
         </div>

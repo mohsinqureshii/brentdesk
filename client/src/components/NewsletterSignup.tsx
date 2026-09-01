@@ -4,6 +4,7 @@
  */
 
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -144,9 +145,9 @@ export function NewsletterSignup({
           <Mail className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h3 className="font-semibold">Subscribe to TechScoop</h3>
+          <h3 className="font-semibold">Subscribe to {publication.name}</h3>
           <p className="text-sm text-muted-foreground">
-            Stay informed about MENA's tech ecosystem
+            {publication.tagline}
           </p>
         </div>
       </div>
@@ -190,7 +191,7 @@ export function NewsletterSignup({
             onCheckedChange={(checked) => setConsentMarketing(checked as boolean)}
           />
           <Label htmlFor="consent" className="text-xs text-muted-foreground cursor-pointer">
-            I agree to receive marketing communications and partner offers from TechScoop.
+            I agree to receive marketing communications and partner offers from {publication.name}.
           </Label>
         </div>
 

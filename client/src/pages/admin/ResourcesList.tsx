@@ -100,7 +100,7 @@ const typeTabs = [
 
 type SortField = "createdAt" | "title" | "viewCount" | "publishedAt";
 
-const PAGE_SIZE_KEY = "techscoop_resources_page_size";
+const PAGE_SIZE_KEY = "brentdesk_resources_page_size";
 
 export default function ResourcesList() {
   const [, navigate] = useLocation();

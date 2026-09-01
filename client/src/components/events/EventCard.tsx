@@ -35,6 +35,7 @@ import { Link } from "wouter";
 import { Bookmark, CalendarDays, MapPin, Radio } from "lucide-react";
 import { toast } from "sonner";
 
+import { publication } from "@shared/publication";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -214,7 +215,7 @@ export function useEventBookmark(event: BookmarkableEvent) {
 
     if (!isAuthenticated) {
       toast("Sign in to save events", {
-        description: "Bookmarks are stored on your TechScoop account.",
+        description: `Bookmarks are stored on your ${publication.name} account.`,
         action: {
           label: "Sign in",
           onClick: () => {

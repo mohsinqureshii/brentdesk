@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { 
@@ -67,7 +68,7 @@ const siteRoutes = {
     title: "Company",
     icon: Info,
     links: [
-      { label: "About Us", href: "/about", description: "Learn about TechScoop" },
+      { label: "About Us", href: "/about", description: `Learn about ${publication.name}` },
       { label: "Contact", href: "/contact", description: "Get in touch with us" },
       { label: "Newsletter", href: "/newsletter", description: "Subscribe to our newsletter" },
       { label: "Advertise", href: "/advertise", description: "Advertising opportunities" },
@@ -95,7 +96,7 @@ const Sitemap = () => {
             Sitemap
           </h1>
           <p className="text-background/70 text-lg max-w-2xl">
-            A complete overview of all pages and sections on TechScoop.
+            A complete overview of all pages and sections on {publication.name}.
           </p>
         </div>
       </section>
@@ -139,7 +140,7 @@ const Sitemap = () => {
         <div className="mt-16 p-6 bg-muted/50 rounded-xl border border-border">
           <h3 className="text-lg font-semibold text-foreground mb-3">Dynamic Pages</h3>
           <p className="text-muted-foreground mb-4">
-            In addition to the pages listed above, TechScoop has dynamic content pages including:
+            In addition to the pages listed above, {publication.name} has dynamic content pages including:
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <li className="flex items-start gap-2">

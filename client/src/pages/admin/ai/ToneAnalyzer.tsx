@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
@@ -134,7 +135,7 @@ export function ToneAnalyzerPanel() {
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="font-semibold">Editorial Policy Compliance</h3>
-                    <p className="text-sm text-muted-foreground">How well the content aligns with TechScoop editorial standards</p>
+                    <p className="text-sm text-muted-foreground">How well the content aligns with {publication.name} editorial standards</p>
                   </div>
                   <div className={`text-3xl font-bold ${result.editorialCompliance >= 80 ? "text-green-500" : result.editorialCompliance >= 60 ? "text-yellow-500" : "text-red-500"}`}>
                     {result.editorialCompliance}%

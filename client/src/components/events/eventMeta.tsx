@@ -10,6 +10,7 @@
 
 import { useEffect, useState } from "react";
 
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { asDate } from "./EventCard";
 
@@ -204,7 +205,7 @@ export function useExternalTicketClick(
     let target = externalUrl;
     try {
       const u = new URL(externalUrl);
-      u.searchParams.set("utm_source", "techscoop");
+      u.searchParams.set("utm_source", publication.name.toLowerCase());
       u.searchParams.set("utm_medium", "event");
       u.searchParams.set("utm_campaign", eventSlug);
       target = u.toString();

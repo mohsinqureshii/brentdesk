@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -98,7 +99,7 @@ function CoverageCard({ item }: { item: CoverageItem }) {
             <Icon className={`h-3.5 w-3.5 ${meta.tone}`} />
             <span className={meta.tone}>{meta.label}</span>
             {item.isUploaded && (
-              <span className="text-muted-foreground">· TechScoop asset</span>
+              <span className="text-muted-foreground">· {publication.name} asset</span>
             )}
           </div>
           <h3 className="flex items-start gap-1.5 font-semibold leading-snug">

@@ -5,6 +5,7 @@
  */
 import { useState, useEffect, useMemo } from "react";
 import { useLocation, Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import { SEO } from "@/components/SEO";
 import Footer from "@/components/layout/Footer";
@@ -151,8 +152,8 @@ export default function SearchResults() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={debouncedQuery ? `Search: ${debouncedQuery} | TechScoop` : "Search | TechScoop"}
-        description={`Search results for "${debouncedQuery}" on TechScoop - MENA's tech ecosystem platform`}
+        title={debouncedQuery ? `Search: ${debouncedQuery} | ${publication.name}` : `Search | ${publication.name}`}
+        description={`Search results for "${debouncedQuery}" on ${publication.name}`}
         noindex={true}
       />
       <Header />
@@ -226,7 +227,7 @@ export default function SearchResults() {
         {!debouncedQuery || debouncedQuery.length < 2 ? (
           <div className="text-center py-20">
             <Search className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-            <h2 className="text-xl font-semibold text-gray-600 mb-2">Search TechScoop</h2>
+            <h2 className="text-xl font-semibold text-gray-600 mb-2">Search {publication.name}</h2>
             <p className="text-muted-foreground">Enter at least 2 characters to search across all content</p>
           </div>
         ) : isLoading ? (

@@ -1,10 +1,11 @@
 /**
  * Admin Layout Component
- * Green/White Aramco-style design for TechScoop CMS
+ * Green/White Aramco-style design for the publication's CMS
  */
 
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -414,7 +415,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         />
       )}
 
-      {/* Sidebar — Square-style polish on TechScoop's emerald.
+      {/* Sidebar — Square-style polish on the publication's emerald.
           Solid emerald (no more 2-stop gradient noise), tighter section
           labels, refined hover/active states, thin divider above logout. */}
       <aside
@@ -428,7 +429,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         <div className="px-5 py-4 flex items-center gap-3 flex-shrink-0 border-b border-[#E0E3E8]">
           <img
             src="/assets/logo.png"
-            alt="TechScoop"
+            alt={publication.name}
             className="h-7 w-auto object-contain"
             style={{ maxWidth: '140px' }}
           />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
@@ -126,9 +127,9 @@ export default function Companies() {
       <SEO
         title="Startup Directory - MENA Tech Companies & Startups"
         description="Discover 1000+ top startups across the Middle East and North Africa. Browse tech companies by industry, funding stage, and location. Find unicorns, fintech, e-commerce, and AI startups in Dubai, Saudi Arabia, and the GCC."
-        canonical="https://techscoop.io/companies"
+        canonical={`${publication.siteUrl}/companies`}
         keywords="MENA startups, Dubai startups, Saudi Arabia tech companies, UAE unicorns, GCC startup directory, fintech MENA, e-commerce startups, AI companies Middle East"
-        ogImage="https://techscoop.io/og-companies.png"
+        ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />
       <Header />

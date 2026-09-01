@@ -20,6 +20,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useParams, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { AdminLayout } from "@/components/admin/AdminLayout";
@@ -1460,7 +1461,7 @@ function CoverageTab({ eventId }: { eventId: number }) {
 }
 
 // ============================================================
-// TAB: Articles (TechScoop articles linked to this event)
+// TAB: Articles (the publication's articles linked to this event)
 // ============================================================
 
 /**
@@ -1552,7 +1553,7 @@ function ArticlesTab({ eventId }: { eventId: number }) {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Link a TechScoop article</CardTitle>
+          <CardTitle>Link a {publication.name} article</CardTitle>
           <CardDescription>
             Optional. Linked articles surface on the public event page as
             related coverage — search our own published articles and pick how

@@ -76,7 +76,7 @@ const typeLabels: Record<string, string> = {
   freelance: "Freelance",
 };
 
-const PAGE_SIZE_KEY = "techscoop_jobs_page_size";
+const PAGE_SIZE_KEY = "brentdesk_jobs_page_size";
 
 export default function JobsList() {
   const [, navigate] = useLocation();

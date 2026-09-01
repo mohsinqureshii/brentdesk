@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
@@ -1090,9 +1091,9 @@ export default function Jobs() {
       <SEO
         title="Tech Jobs in MENA - Dubai, Saudi Arabia, UAE Careers"
         description="Find the best tech jobs in the Middle East and North Africa. Browse software engineering, product, design, and startup roles in Dubai, Riyadh, Abu Dhabi, and across the MENA region."
-        canonical="https://techscoop.io/jobs"
+        canonical={`${publication.siteUrl}/jobs`}
         keywords="tech jobs MENA, Dubai tech jobs, Saudi Arabia IT jobs, UAE software engineer, startup jobs Middle East, remote tech jobs MENA, product manager Dubai, developer jobs Riyadh"
-        ogImage="https://techscoop.io/og-jobs.png"
+        ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />
       <Header />

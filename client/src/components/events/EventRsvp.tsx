@@ -18,6 +18,7 @@
 
 import { useState } from "react";
 import { Bell, Check, Users } from "lucide-react";
+import { publication } from "@shared/publication";
 import { toast } from "sonner";
 
 import { trpc } from "@/lib/trpc";
@@ -52,7 +53,7 @@ export function useEventRsvp(eventId: number, slug: string) {
   const setStatus = (status: RsvpStatus) => {
     if (!user) {
       toast("Sign in to RSVP", {
-        description: "Your RSVP and reminder emails live on your TechScoop account.",
+        description: `Your RSVP and reminder emails live on your ${publication.name} account.`,
         action: { label: "Sign in", onClick: () => { window.location.href = "/signin"; } },
       });
       return;

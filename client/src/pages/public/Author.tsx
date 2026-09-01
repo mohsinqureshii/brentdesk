@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useParams } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -138,13 +139,13 @@ const Author = () => {
   // If the param differs (e.g. someone visits via numeric id), Google
   // would otherwise see two URLs for the same author profile.
   const canonicalUsername = author.username || id;
-  const authorCanonical = `https://techscoop.io/author/${canonicalUsername}`;
-  const authorBio = (author as any).authorBio || (author as any).bio || `Articles and analysis by ${displayName} on TechScoop.`;
+  const authorCanonical = `${publication.siteUrl}/author/${canonicalUsername}`;
+  const authorBio = (author as any).authorBio || (author as any).bio || `Articles and analysis by ${displayName} on ${publication.name}.`;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${displayName} | TechScoop`}
+        title={`${displayName} | ${publication.name}`}
         description={String(authorBio).slice(0, 160)}
         canonical={authorCanonical}
         ogImage={author.avatar || undefined}
@@ -356,8 +357,8 @@ const Author = () => {
             {/* Newsletter CTA */}
             <div className="bg-[#0a0] rounded-xl p-5 text-white">
               <div className="flex items-center gap-2 mb-3">
-                <span className="font-bold text-lg">TS</span>
-                <span className="text-sm opacity-90">TechScoop TPC</span>
+                <span className="font-bold text-lg">BD</span>
+                <span className="text-sm opacity-90">{publication.newsletter.name}</span>
               </div>
               <p className="text-sm opacity-90 leading-relaxed mb-4">
                 Get ahead in the MENA tech scene — straight to your inbox. Join the industry's must-read daily newsletter.

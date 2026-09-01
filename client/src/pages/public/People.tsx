@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
@@ -249,9 +250,9 @@ export default function People() {
       <SEO
         title="People Directory - MENA Tech Founders, Investors & Operators"
         description="Connect with founders, investors, and operators across the MENA tech ecosystem. Discover profiles of startup CEOs, venture capitalists, and tech leaders in Dubai, Saudi Arabia, and the Middle East."
-        canonical="https://techscoop.io/people"
+        canonical={`${publication.siteUrl}/people`}
         keywords="MENA tech founders, Dubai startup CEOs, Saudi Arabia investors, UAE venture capitalists, Middle East tech leaders, GCC entrepreneurs, startup operators"
-        ogImage="https://techscoop.io/og-people.png"
+        ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />
       <Header />

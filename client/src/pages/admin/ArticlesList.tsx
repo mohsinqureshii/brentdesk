@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect } from "react";
+import { publication } from "@shared/publication";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -114,7 +115,7 @@ const statusTabs = [
   { key: "trash", label: "Trash" },
 ];
 
-const PAGE_SIZE_KEY = "techscoop_articles_page_size";
+const PAGE_SIZE_KEY = "brentdesk_articles_page_size";
 
 export default function ArticlesList() {
   const [, navigate] = useLocation();
@@ -415,7 +416,7 @@ export default function ArticlesList() {
           <div>
             <h1 className="text-xl font-semibold text-[#1A1F36]">Articles</h1>
             <p className="text-[#697386] mt-0.5 text-[13px]">
-              Manage and publish articles across TechScoop
+              Manage and publish articles across {publication.name}
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
