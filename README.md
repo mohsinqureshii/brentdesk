@@ -121,10 +121,13 @@ time (optional, needs a reachable database) set `PRERENDER_ON_BUILD=1`.
 1. Provision MySQL and set the variables above.
 2. Start the app — it applies migrations automatically against an empty database.
 3. Seed system data once (categories, sectors, roles, ad slots, homepage
-   sections, and an admin login):
+   sections, and an admin login). The build compiles the seed to
+   `dist/seed.js` so it runs on plain Node — production images install no
+   dev dependencies, so `pnpm`/`tsx` are usually absent from them:
    ```bash
-   ADMIN_EMAIL=you@example.com ADMIN_PASSWORD='…' pnpm seed
+   ADMIN_EMAIL=you@example.com ADMIN_PASSWORD='…' node dist/seed.js
    ```
+   From a checkout with dev dependencies, `pnpm seed` does the same thing.
 4. Sign in at `/admin/login`.
 
 The seed is idempotent and inserts no editorial content. A Dockerfile is

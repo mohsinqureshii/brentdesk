@@ -562,11 +562,6 @@ async function startServer() {
     }
   });
   
-  // Apply pending drizzle migrations before serving. Non-fatal by design:
-  // a DB that was provisioned outside the migration journal logs an error
-  // and the server still boots. Skippable via SKIP_STARTUP_MIGRATIONS=1.
-  await runStartupMigrations();
-
   // development mode uses Vite, production mode uses static files.
   // The specifier is built at runtime so esbuild can't statically
   // resolve it — vite (a devDependency) must never end up in the
@@ -596,6 +591,20 @@ async function startServer() {
 
   server.listen(port, async () => {
     console.log(`[${publication.name}] Server running on http://localhost:${port}/`);
+
+    // Database work happens AFTER the port is open, never before. A managed
+    // platform (Railway, Render, Fly) routes traffic as soon as the service
+    // is up and returns "Application failed to respond" if the port stays
+    // shut — and on a first deploy the database is often still provisioning,
+    // so a baseline migration here can be slow or hang on connect. Binding
+    // first means the health check passes and the migration progress is
+    // visible in the deploy logs instead of the container looking dead.
+    // Skippable via SKIP_STARTUP_MIGRATIONS=1.
+    try {
+      await runStartupMigrations();
+    } catch (err) {
+      console.error("[Migrate] startup migrations failed (server still serving):", (err as Error).message);
+    }
 
     // Sitemap smoke test — runs every generator once at startup so column
     // typos / SQL errors surface in deploy logs instead of silently failing
