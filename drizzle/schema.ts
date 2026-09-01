@@ -2,7 +2,7 @@ import { mysqlTable, mysqlSchema, AnyMySqlColumn, index, uniqueIndex, int, varch
 import { sql } from "drizzle-orm"
 
 export const acceleratorAlumniCompanies = mysqlTable("accelerator_alumni_companies", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	cohortId: int("cohort_id"),
 	companyName: varchar("company_name", { length: 255 }).notNull(),
@@ -20,7 +20,7 @@ export const acceleratorAlumniCompanies = mysqlTable("accelerator_alumni_compani
 	isActive: tinyint("is_active").default(1),
 	linkedinUrl: text("linkedin_url"),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -29,7 +29,7 @@ export const acceleratorAlumniCompanies = mysqlTable("accelerator_alumni_compani
 ]);
 
 export const acceleratorBenefits = mysqlTable("accelerator_benefits", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	category: varchar({ length: 100 }),
 	title: varchar({ length: 255 }).notNull(),
@@ -37,14 +37,14 @@ export const acceleratorBenefits = mysqlTable("accelerator_benefits", {
 	icon: varchar({ length: 50 }),
 	value: varchar({ length: 100 }),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_benefits_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorCohorts = mysqlTable("accelerator_cohorts", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	cohortNumber: int("cohort_number").notNull(),
 	name: varchar({ length: 255 }),
@@ -61,7 +61,7 @@ export const acceleratorCohorts = mysqlTable("accelerator_cohorts", {
 	totalFundingRaised: varchar("total_funding_raised", { length: 100 }),
 	jobsCreated: int("jobs_created"),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -69,7 +69,7 @@ export const acceleratorCohorts = mysqlTable("accelerator_cohorts", {
 ]);
 
 export const acceleratorDeckSubmissions = mysqlTable("accelerator_deck_submissions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	userId: int("user_id"),
 	programId: int("program_id"),
@@ -79,41 +79,41 @@ export const acceleratorDeckSubmissions = mysqlTable("accelerator_deck_submissio
 	fileUrl: text("file_url").notNull(),
 	message: text(),
 	status: mysqlEnum(['pending','reviewed','accepted','rejected']).default('pending'),
-	submittedAt: timestamp("submitted_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	submittedAt: timestamp("submitted_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_deck_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorFaqs = mysqlTable("accelerator_faqs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	question: text().notNull(),
 	answer: text().notNull(),
 	category: varchar({ length: 100 }),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_faqs_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorMilestones = mysqlTable("accelerator_milestones", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	title: varchar({ length: 255 }).notNull(),
 	description: text(),
 	date: varchar({ length: 50 }),
 	type: mysqlEnum(['launch','cohort','partnership','achievement','funding','expansion']).default('achievement'),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_milestones_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorPartners = mysqlTable("accelerator_partners", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	type: varchar({ length: 100 }),
@@ -122,14 +122,14 @@ export const acceleratorPartners = mysqlTable("accelerator_partners", {
 	website: text(),
 	sinceYear: int("since_year"),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_partners_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorPrograms = mysqlTable("accelerator_programs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -145,7 +145,7 @@ export const acceleratorPrograms = mysqlTable("accelerator_programs", {
 	phases: json(),
 	weekByWeek: json("week_by_week"),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -153,21 +153,21 @@ export const acceleratorPrograms = mysqlTable("accelerator_programs", {
 ]);
 
 export const acceleratorReminders = mysqlTable("accelerator_reminders", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	programId: int("program_id"),
 	userId: int("user_id"),
 	email: varchar({ length: 320 }).notNull(),
 	reminderType: mysqlEnum("reminder_type", ['application_open','deadline','program_start']).default('application_open'),
 	isNotified: tinyint("is_notified").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_reminders_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorStats = mysqlTable("accelerator_stats", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	metricName: varchar("metric_name", { length: 100 }).notNull(),
 	metricValue: varchar("metric_value", { length: 100 }).notNull(),
@@ -175,14 +175,14 @@ export const acceleratorStats = mysqlTable("accelerator_stats", {
 	icon: varchar({ length: 50 }),
 	category: varchar({ length: 50 }),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_stats_accel_id").on(table.acceleratorId),
 ]);
 
 export const acceleratorTeamMembers = mysqlTable("accelerator_team_members", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	title: varchar({ length: 255 }),
@@ -193,7 +193,7 @@ export const acceleratorTeamMembers = mysqlTable("accelerator_team_members", {
 	email: varchar({ length: 320 }),
 	roleType: mysqlEnum("role_type", ['leadership','mentor','advisor','operations','partner']).default('operations'),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -201,7 +201,7 @@ export const acceleratorTeamMembers = mysqlTable("accelerator_team_members", {
 ]);
 
 export const acceleratorTestimonials = mysqlTable("accelerator_testimonials", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	acceleratorId: int("accelerator_id").notNull(),
 	quote: text().notNull(),
 	authorName: varchar("author_name", { length: 255 }).notNull(),
@@ -210,14 +210,14 @@ export const acceleratorTestimonials = mysqlTable("accelerator_testimonials", {
 	photo: text(),
 	cohortNumber: int("cohort_number"),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("acc_testimonials_accel_id").on(table.acceleratorId),
 ]);
 
 export const accelerators = mysqlTable("accelerators", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -239,7 +239,7 @@ export const accelerators = mysqlTable("accelerators", {
 	status: mysqlEnum(['active','upcoming','completed','paused']).default('active'),
 	isFeatured: tinyint().default(0),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	countryId: int(),
 	geoRegionId: int(),
@@ -277,20 +277,20 @@ export const accelerators = mysqlTable("accelerators", {
 	nextCohortDate: varchar("next_cohort_date", { length: 100 }),
 },
 (table) => [
-	index("accelerators_slug_unique").on(table.slug),
+	uniqueIndex("accelerators_slug_unique").on(table.slug),
 ]);
 
 export const adBlocklist = mysqlTable("ad_blocklist", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	type: mysqlEnum(['domain','keyword','category']).notNull(),
 	value: varchar({ length: 255 }).notNull(),
 	reason: text(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 });
 
 export const adCampaigns = mysqlTable("ad_campaigns", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	partnerId: int(),
 	name: varchar({ length: 255 }).notNull(),
 	campaignType: mysqlEnum(['direct','sponsorship','programmatic','house']).default('direct').notNull(),
@@ -303,7 +303,7 @@ export const adCampaigns = mysqlTable("ad_campaigns", {
 	targetCategories: json(),
 	targetGeos: json(),
 	targetDevices: json(),
-	startDate: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	startDate: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	endDate: timestamp({ mode: 'string' }),
 	frequencyCap: int(),
 	frequencyCapPeriod: mysqlEnum(['hour','day','week','month']),
@@ -315,21 +315,21 @@ export const adCampaigns = mysqlTable("ad_campaigns", {
 	conversions: int().default(0),
 	spend: decimal({ precision: 15, scale: 2 }).default('0.00'),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const adClicks = mysqlTable("ad_clicks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	impressionId: int().notNull(),
 	campaignId: int().notNull(),
 	creativeId: int().notNull(),
 	clickUrl: text().notNull(),
-	timestamp: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	timestamp: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const adCreatives = mysqlTable("ad_creatives", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	campaignId: int().notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	format: mysqlEnum(['banner','native','video','text']).default('banner').notNull(),
@@ -348,18 +348,18 @@ export const adCreatives = mysqlTable("ad_creatives", {
 	rejectionReason: text(),
 	impressions: int().default(0),
 	clicks: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const adFrequencyLog = mysqlTable("ad_frequency_log", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	campaignId: int().notNull(),
 	creativeId: int().notNull(),
 	sessionId: varchar({ length: 255 }),
 	userId: int(),
 	impressionCount: int().default(0),
-	firstSeen: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	firstSeen: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	lastSeen: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -367,7 +367,7 @@ export const adFrequencyLog = mysqlTable("ad_frequency_log", {
 ]);
 
 export const adImpressions = mysqlTable("ad_impressions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	campaignId: int().notNull(),
 	creativeId: int().notNull(),
 	slotId: int().notNull(),
@@ -378,11 +378,11 @@ export const adImpressions = mysqlTable("ad_impressions", {
 	userAgent: text(),
 	countryCode: varchar({ length: 2 }),
 	deviceType: varchar({ length: 32 }),
-	timestamp: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	timestamp: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const adSlots = mysqlTable("ad_slots", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 128 }).notNull(),
 	slotKey: varchar({ length: 64 }).notNull(),
 	pageType: varchar({ length: 64 }).notNull(),
@@ -392,26 +392,26 @@ export const adSlots = mysqlTable("ad_slots", {
 	isPremium: tinyint().default(0),
 	isActive: tinyint().default(1),
 	adsenseSlotId: varchar({ length: 128 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("ad_slots_slotKey_unique").on(table.slotKey),
+	uniqueIndex("ad_slots_slotKey_unique").on(table.slotKey),
 ]);
 
 export const adsenseSettings = mysqlTable("adsense_settings", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	publisherId: varchar({ length: 100 }),
 	autoAdsEnabled: tinyint().default(0),
 	adsenseEnabled: tinyint().default(0),
 	adsTxtContent: text(),
 	globalKillSwitch: tinyint().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow(),
 });
 
 export const affiliateClicks = mysqlTable("affiliate_clicks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	resourceId: int(),
 	partnerId: int(),
 	sessionId: varchar({ length: 64 }),
@@ -427,11 +427,11 @@ export const affiliateClicks = mysqlTable("affiliate_clicks", {
 	referer: text(),
 	countryCode: varchar({ length: 2 }),
 	deviceType: varchar({ length: 32 }),
-	clickedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	clickedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const affiliateConversions = mysqlTable("affiliate_conversions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	clickId: int(),
 	resourceId: int(),
 	partnerId: int(),
@@ -445,12 +445,12 @@ export const affiliateConversions = mysqlTable("affiliate_conversions", {
 	approvedById: int(),
 	approvedAt: timestamp({ mode: 'string' }),
 	notes: text(),
-	convertedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	convertedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const aiAbTestVariants = mysqlTable("ai_ab_test_variants", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	testName: varchar("test_name", { length: 255 }).notNull(),
 	sessionId: int("session_id"),
 	articleId: int("article_id"),
@@ -467,7 +467,7 @@ export const aiAbTestVariants = mysqlTable("ai_ab_test_variants", {
 	conversionRate: float("conversion_rate"),
 	startDate: timestamp("start_date", { mode: 'string' }),
 	endDate: timestamp("end_date", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -476,7 +476,7 @@ export const aiAbTestVariants = mysqlTable("ai_ab_test_variants", {
 ]);
 
 export const aiAgentCrawlLog = mysqlTable("ai_agent_crawl_log", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sourceId: int("source_id").notNull(),
 	status: varchar({ length: 32 }).notNull(),
 	articlesFound: int("articles_found").default(0),
@@ -487,7 +487,7 @@ export const aiAgentCrawlLog = mysqlTable("ai_agent_crawl_log", {
 	durationMs: int("duration_ms"),
 	errorMessage: text("error_message"),
 	crawlData: json("crawl_data"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_crawl_source").on(table.sourceId),
@@ -495,7 +495,7 @@ export const aiAgentCrawlLog = mysqlTable("ai_agent_crawl_log", {
 ]);
 
 export const aiAgentDiscoveredArticles = mysqlTable("ai_agent_discovered_articles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sourceId: int("source_id").notNull(),
 	crawlLogId: int("crawl_log_id"),
 	externalUrl: text("external_url").notNull(),
@@ -514,7 +514,7 @@ export const aiAgentDiscoveredArticles = mysqlTable("ai_agent_discovered_article
 	generationSessionId: int("generation_session_id"),
 	articleId: int("article_id"),
 	processedAt: timestamp("processed_at", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	channelType: mysqlEnum("channel_type", ['rss','atom','linkedin','whatsapp','twitter','email','scrape','api']).default('rss'),
 	editorialTier: tinyint("editorial_tier"),
 	category: varchar({ length: 128 }),
@@ -543,7 +543,7 @@ export const aiAgentDiscoveredArticles = mysqlTable("ai_agent_discovered_article
 ]);
 
 export const aiAgentEditorialFeedback = mysqlTable("ai_agent_editorial_feedback", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	discoveredArticleId: int("discovered_article_id").notNull(),
 	articleId: int("article_id"),
 	action: mysqlEnum(['generated','published','published_edited','rejected','dismissed','flagged']).notNull(),
@@ -553,7 +553,7 @@ export const aiAgentEditorialFeedback = mysqlTable("ai_agent_editorial_feedback"
 	sourceId: int("source_id"),
 	taxonomyCategory: varchar("taxonomy_category", { length: 128 }),
 	relevanceScore: int("relevance_score"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
 	index("idx_ai_feedback_discovered").on(table.discoveredArticleId),
@@ -564,7 +564,7 @@ export const aiAgentEditorialFeedback = mysqlTable("ai_agent_editorial_feedback"
 ]);
 
 export const aiAgentEntities = mysqlTable("ai_agent_entities", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	nameAr: varchar("name_ar", { length: 255 }),
 	nameUr: varchar("name_ur", { length: 255 }),
@@ -577,7 +577,7 @@ export const aiAgentEntities = mysqlTable("ai_agent_entities", {
 	lastSeenAt: timestamp("last_seen_at", { mode: 'string' }),
 	metadata: json(),
 	isActive: tinyint("is_active").default(1),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -589,7 +589,7 @@ export const aiAgentEntities = mysqlTable("ai_agent_entities", {
 ]);
 
 export const aiAgentKeywords = mysqlTable("ai_agent_keywords", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	keyword: varchar({ length: 255 }).notNull(),
 	language: varchar({ length: 8 }).default('en').notNull(),
 	weight: int().default(1).notNull(),
@@ -597,7 +597,7 @@ export const aiAgentKeywords = mysqlTable("ai_agent_keywords", {
 	keywordType: mysqlEnum("keyword_type", ['mena_entity','funding_signal','sector','geography','person','event','suppress']).default('mena_entity').notNull(),
 	isActive: tinyint("is_active").default(1),
 	matchCount: int("match_count").default(0),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -608,7 +608,7 @@ export const aiAgentKeywords = mysqlTable("ai_agent_keywords", {
 ]);
 
 export const aiAgentLlmProviders = mysqlTable("ai_agent_llm_providers", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 64 }).notNull(),
 	displayName: varchar("display_name", { length: 128 }).notNull(),
 	isEnabled: tinyint("is_enabled").default(1),
@@ -621,7 +621,7 @@ export const aiAgentLlmProviders = mysqlTable("ai_agent_llm_providers", {
 	lastFailureAt: timestamp("last_failure_at", { mode: 'string' }),
 	apiKeyMasked: varchar("api_key_masked", { length: 64 }),
 	rateLimit: int("rate_limit").default(60),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -630,7 +630,7 @@ export const aiAgentLlmProviders = mysqlTable("ai_agent_llm_providers", {
 ]);
 
 export const aiAgentSources = mysqlTable("ai_agent_sources", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	url: text().notNull(),
 	feedUrl: text("feed_url"),
@@ -651,7 +651,7 @@ export const aiAgentSources = mysqlTable("ai_agent_sources", {
 	priority: int().default(5),
 	notes: text(),
 	createdBy: int("created_by"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	channelType: mysqlEnum("channel_type", ['rss','atom','linkedin','whatsapp','twitter','email','scrape','api']).default('rss'),
 	editorialBrief: text("editorial_brief"),
@@ -673,7 +673,7 @@ export const aiAgentSources = mysqlTable("ai_agent_sources", {
 ]);
 
 export const aiAgentTaxonomy = mysqlTable("ai_agent_taxonomy", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	tier: tinyint().notNull(),
 	name: varchar({ length: 128 }).notNull(),
 	description: text(),
@@ -683,7 +683,7 @@ export const aiAgentTaxonomy = mysqlTable("ai_agent_taxonomy", {
 	autoGenerateThreshold: int("auto_generate_threshold").default(85),
 	sortOrder: int("sort_order").default(0),
 	isActive: tinyint("is_active").default(1),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -692,7 +692,7 @@ export const aiAgentTaxonomy = mysqlTable("ai_agent_taxonomy", {
 ]);
 
 export const aiApiKeys = mysqlTable("ai_api_keys", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	keyHash: varchar("key_hash", { length: 255 }).notNull(),
 	keyPrefix: varchar("key_prefix", { length: 16 }).notNull(),
@@ -704,12 +704,12 @@ export const aiApiKeys = mysqlTable("ai_api_keys", {
 	expiresAt: timestamp("expires_at", { mode: 'string' }),
 	totalRequests: int("total_requests").default(0),
 	createdById: int("created_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const aiBatchJobs = mysqlTable("ai_batch_jobs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	status: mysqlEnum(['pending','running','completed','failed','cancelled']).default('pending').notNull(),
 	totalItems: int("total_items").default(0),
@@ -723,12 +723,12 @@ export const aiBatchJobs = mysqlTable("ai_batch_jobs", {
 	createdById: int("created_by_id"),
 	startedAt: timestamp("started_at", { mode: 'string' }),
 	completedAt: timestamp("completed_at", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const aiCompetitorArticles = mysqlTable("ai_competitor_articles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sourceId: int("source_id").notNull(),
 	title: varchar({ length: 512 }).notNull(),
 	url: text().notNull(),
@@ -740,7 +740,7 @@ export const aiCompetitorArticles = mysqlTable("ai_competitor_articles", {
 	ourArticleId: int("our_article_id"),
 	coverageGap: tinyint("coverage_gap").default(0),
 	relevanceScore: float("relevance_score"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_comp_source").on(table.sourceId),
@@ -748,7 +748,7 @@ export const aiCompetitorArticles = mysqlTable("ai_competitor_articles", {
 ]);
 
 export const aiCompetitorSources = mysqlTable("ai_competitor_sources", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	url: text().notNull(),
 	feedUrl: text("feed_url"),
@@ -758,12 +758,12 @@ export const aiCompetitorSources = mysqlTable("ai_competitor_sources", {
 	lastCrawledAt: timestamp("last_crawled_at", { mode: 'string' }),
 	totalArticles: int("total_articles").default(0),
 	coverageScore: float("coverage_score"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const aiContentCalendar = mysqlTable("ai_content_calendar", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id"),
 	articleId: int("article_id"),
 	title: varchar({ length: 512 }).notNull(),
@@ -776,7 +776,7 @@ export const aiContentCalendar = mysqlTable("ai_content_calendar", {
 	priority: mysqlEnum(['low','medium','high','urgent']).default('medium').notNull(),
 	tags: json(),
 	createdById: int("created_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -785,7 +785,7 @@ export const aiContentCalendar = mysqlTable("ai_content_calendar", {
 ]);
 
 export const aiContentTemplates = mysqlTable("ai_content_templates", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -799,7 +799,7 @@ export const aiContentTemplates = mysqlTable("ai_content_templates", {
 	isActive: tinyint("is_active").default(1),
 	usageCount: int("usage_count").default(0),
 	createdBy: int("created_by"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -808,7 +808,7 @@ export const aiContentTemplates = mysqlTable("ai_content_templates", {
 ]);
 
 export const aiContentVersions = mysqlTable("ai_content_versions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id"),
 	articleId: int("article_id"),
 	versionNumber: int("version_number").default(1).notNull(),
@@ -818,7 +818,7 @@ export const aiContentVersions = mysqlTable("ai_content_versions", {
 	modelUsed: varchar("model_used", { length: 128 }),
 	diff: text(),
 	createdById: int("created_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_ver_session").on(table.sessionId),
@@ -826,7 +826,7 @@ export const aiContentVersions = mysqlTable("ai_content_versions", {
 ]);
 
 export const aiEditorialPolicies = mysqlTable("ai_editorial_policies", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -835,7 +835,7 @@ export const aiEditorialPolicies = mysqlTable("ai_editorial_policies", {
 	isDefault: tinyint("is_default").default(0),
 	isActive: tinyint("is_active").default(1),
 	createdBy: int("created_by"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -844,11 +844,11 @@ export const aiEditorialPolicies = mysqlTable("ai_editorial_policies", {
 ]);
 
 export const aiEntityAliases = mysqlTable("ai_entity_aliases", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar("entity_type", { length: 64 }).notNull(),
 	entityId: int("entity_id").notNull(),
 	alias: varchar({ length: 512 }).notNull(),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_aliases_entity").on(table.entityType, table.entityId),
@@ -856,7 +856,7 @@ export const aiEntityAliases = mysqlTable("ai_entity_aliases", {
 ]);
 
 export const aiEntityExtractions = mysqlTable("ai_entity_extractions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id").notNull(),
 	entityType: varchar("entity_type", { length: 64 }).notNull(),
 	extractedName: varchar("extracted_name", { length: 512 }).notNull(),
@@ -865,7 +865,7 @@ export const aiEntityExtractions = mysqlTable("ai_entity_extractions", {
 	matchStatus: varchar("match_status", { length: 32 }).default('pending'),
 	matchedEntityId: int("matched_entity_id"),
 	mentionType: varchar("mention_type", { length: 32 }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_extractions_session").on(table.sessionId),
@@ -874,7 +874,7 @@ export const aiEntityExtractions = mysqlTable("ai_entity_extractions", {
 ]);
 
 export const aiGenerationSessions = mysqlTable("ai_generation_sessions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionType: varchar("session_type", { length: 64 }).notNull(),
 	contentType: varchar("content_type", { length: 64 }).notNull(),
 	status: varchar({ length: 32 }).default('pending').notNull(),
@@ -906,7 +906,7 @@ export const aiGenerationSessions = mysqlTable("ai_generation_sessions", {
 	approvalNotes: text("approval_notes"),
 	approvedAt: timestamp("approved_at", { mode: 'string' }),
 	createdBy: int("created_by"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -919,7 +919,7 @@ export const aiGenerationSessions = mysqlTable("ai_generation_sessions", {
 ]);
 
 export const aiLlmUsageLogs = mysqlTable("ai_llm_usage_logs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id"),
 	provider: varchar({ length: 32 }).notNull(),
 	model: varchar({ length: 64 }).notNull(),
@@ -931,7 +931,7 @@ export const aiLlmUsageLogs = mysqlTable("ai_llm_usage_logs", {
 	estimatedCostUsd: varchar("estimated_cost_usd", { length: 32 }),
 	success: tinyint().default(1),
 	errorMessage: text("error_message"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_usage_provider").on(table.provider),
@@ -941,7 +941,7 @@ export const aiLlmUsageLogs = mysqlTable("ai_llm_usage_logs", {
 ]);
 
 export const aiPlagiarismChecks = mysqlTable("ai_plagiarism_checks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id"),
 	articleId: int("article_id"),
 	originalityScore: float("originality_score"),
@@ -950,14 +950,14 @@ export const aiPlagiarismChecks = mysqlTable("ai_plagiarism_checks", {
 	matches: json(),
 	status: mysqlEnum(['pending','checking','clean','flagged','error']).default('pending').notNull(),
 	checkedAt: timestamp("checked_at", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_plag_session").on(table.sessionId),
 ]);
 
 export const aiRevenueAttribution = mysqlTable("ai_revenue_attribution", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int("article_id").notNull(),
 	sessionId: int("session_id"),
 	date: timestamp({ mode: 'string' }).notNull(),
@@ -971,7 +971,7 @@ export const aiRevenueAttribution = mysqlTable("ai_revenue_attribution", {
 	totalRevenue: float("total_revenue"),
 	costToGenerate: float("cost_to_generate"),
 	roi: float(),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_rev_article").on(table.articleId),
@@ -979,7 +979,7 @@ export const aiRevenueAttribution = mysqlTable("ai_revenue_attribution", {
 ]);
 
 export const aiSocialPosts = mysqlTable("ai_social_posts", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id"),
 	articleId: int("article_id"),
 	platform: mysqlEnum(['twitter','linkedin','facebook','instagram','threads']).notNull(),
@@ -991,7 +991,7 @@ export const aiSocialPosts = mysqlTable("ai_social_posts", {
 	status: mysqlEnum(['draft','scheduled','published','failed']).default('draft').notNull(),
 	engagement: json(),
 	createdById: int("created_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -1000,7 +1000,7 @@ export const aiSocialPosts = mysqlTable("ai_social_posts", {
 ]);
 
 export const aiToneAnalysis = mysqlTable("ai_tone_analysis", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionId: int("session_id"),
 	articleId: int("article_id"),
 	overallTone: varchar("overall_tone", { length: 64 }),
@@ -1013,14 +1013,14 @@ export const aiToneAnalysis = mysqlTable("ai_tone_analysis", {
 	passiveVoicePercent: float("passive_voice_percent"),
 	toneBreakdown: json("tone_breakdown"),
 	suggestions: json(),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_tone_session").on(table.sessionId),
 ]);
 
 export const aiWebhookConfigs = mysqlTable("ai_webhook_configs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	url: text().notNull(),
 	secret: varchar({ length: 255 }),
@@ -1029,12 +1029,12 @@ export const aiWebhookConfigs = mysqlTable("ai_webhook_configs", {
 	headers: json(),
 	lastTriggeredAt: timestamp("last_triggered_at", { mode: 'string' }),
 	failureCount: int("failure_count").default(0),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const aiWebhookLogs = mysqlTable("ai_webhook_logs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	webhookId: int("webhook_id").notNull(),
 	event: varchar({ length: 128 }).notNull(),
 	payload: json(),
@@ -1042,33 +1042,41 @@ export const aiWebhookLogs = mysqlTable("ai_webhook_logs", {
 	responseBody: text("response_body"),
 	success: tinyint().default(0).notNull(),
 	durationMs: int("duration_ms"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_ai_wh_log_webhook").on(table.webhookId),
 ]);
 
 export const articleAccelerators = mysqlTable("article_accelerators", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	acceleratorId: int().notNull(),
 	mentionType: mysqlEnum(['primary','mentioned','interview','investor_in_round','partner','speaker','sponsor']).default('mentioned').notNull(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-});
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+},
+(table) => [
+	index("idx_article_accelerators_article").on(table.articleId),
+	index("idx_article_accelerators_acceleratorid").on(table.acceleratorId),
+]);
 
 export const articleCategories = mysqlTable("article_categories", {
 	articleId: int().notNull(),
 	categoryId: int().notNull(),
-});
+},
+(table) => [
+	index("idx_article_categories_article").on(table.articleId),
+	index("idx_article_categories_categoryid").on(table.categoryId),
+]);
 
 export const articleEditorialBatches = mysqlTable("article_editorial_batches", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	batchId: int().notNull(),
 	articleId: int().notNull(),
 	sequence: int().notNull(),
 	sourceCandidateId: varchar({ length: 32 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	uniqueIndex("article_editorial_batches_article_unique").on(table.articleId),
@@ -1077,16 +1085,20 @@ export const articleEditorialBatches = mysqlTable("article_editorial_batches", {
 ]);
 
 export const articleCompanies = mysqlTable("article_companies", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	companyId: int().notNull(),
 	mentionType: mysqlEnum(['primary','mentioned','interview','investor_in_round','partner','speaker','sponsor']).default('mentioned').notNull(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-});
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+},
+(table) => [
+	index("idx_article_companies_article").on(table.articleId),
+	index("idx_article_companies_companyid").on(table.companyId),
+]);
 
 export const articleEarnings = mysqlTable("article_earnings", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	writerId: int().notNull(),
 	periodMonth: varchar({ length: 7 }).notNull(),
@@ -1097,44 +1109,60 @@ export const articleEarnings = mysqlTable("article_earnings", {
 	totalRevenue: decimal({ precision: 15, scale: 2 }).default('0.00'),
 	writerShare: decimal({ precision: 15, scale: 2 }).default('0.00'),
 	status: mysqlEnum(['pending','calculated','paid']).default('pending').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
-});
+},
+(table) => [
+	index("idx_article_earnings_article").on(table.articleId),
+	index("idx_article_earnings_writerid").on(table.writerId),
+]);
 
 export const articleEvents = mysqlTable("article_events", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	eventId: int().notNull(),
 	mentionType: mysqlEnum(['primary','mentioned','interview','investor_in_round','partner','speaker','sponsor']).default('mentioned').notNull(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-});
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+},
+(table) => [
+	index("idx_article_events_article").on(table.articleId),
+	index("idx_article_events_eventid").on(table.eventId),
+]);
 
 export const articleInvestors = mysqlTable("article_investors", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	investorId: int().notNull(),
 	mentionType: mysqlEnum(['primary','mentioned','interview','investor_in_round','partner','speaker','sponsor']).default('mentioned').notNull(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-});
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+},
+(table) => [
+	index("idx_article_investors_article").on(table.articleId),
+	index("idx_article_investors_investorid").on(table.investorId),
+]);
 
 export const articleKeywords = mysqlTable("article_keywords", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	keywordId: int().notNull(),
 	keywordType: mysqlEnum(['focus','additional']).default('additional'),
 	sortOrder: int().default(0),
-});
+},
+(table) => [
+	index("idx_article_keywords_article").on(table.articleId),
+	index("idx_article_keywords_keywordid").on(table.keywordId),
+]);
 
 export const articleLocations = mysqlTable("article_locations", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	country: varchar({ length: 2 }).notNull(),
 	region: varchar({ length: 10 }),
 	city: varchar({ length: 255 }),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_article_locations_article").on(table.articleId),
@@ -1142,34 +1170,50 @@ export const articleLocations = mysqlTable("article_locations", {
 ]);
 
 export const articlePeople = mysqlTable("article_people", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	personId: int().notNull(),
 	mentionType: mysqlEnum(['primary','mentioned','interview','investor_in_round','partner','speaker','sponsor']).default('mentioned').notNull(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-});
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+},
+(table) => [
+	index("idx_article_people_article").on(table.articleId),
+	index("idx_article_people_personid").on(table.personId),
+]);
 
 export const articleRegions = mysqlTable("article_regions", {
 	articleId: int().notNull(),
 	regionId: int().notNull(),
-});
+},
+(table) => [
+	index("idx_article_regions_article").on(table.articleId),
+	index("idx_article_regions_regionid").on(table.regionId),
+]);
 
 export const articleRelatedEntities = mysqlTable("article_related_entities", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	sortOrder: int().default(0),
-});
+},
+(table) => [
+	index("idx_article_related_entities_article").on(table.articleId),
+	index("idx_article_related_entities_entity").on(table.entityType, table.entityId),
+]);
 
 export const articleSectors = mysqlTable("article_sectors", {
 	articleId: int().notNull(),
 	sectorId: int().notNull(),
-});
+},
+(table) => [
+	index("idx_article_sectors_article").on(table.articleId),
+	index("idx_article_sectors_sectorid").on(table.sectorId),
+]);
 
 export const articleSourceReferences = mysqlTable("article_source_references", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int().notNull(),
 	sourceType: mysqlEnum(['primary','supporting']).default('supporting').notNull(),
 	title: varchar({ length: 512 }),
@@ -1177,7 +1221,7 @@ export const articleSourceReferences = mysqlTable("article_source_references", {
 	publisher: varchar({ length: 255 }),
 	publishedAt: timestamp({ mode: 'string' }),
 	sortOrder: int().default(0).notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_article_source_references_article").on(table.articleId),
@@ -1187,15 +1231,23 @@ export const articleSourceReferences = mysqlTable("article_source_references", {
 export const articleTags = mysqlTable("article_tags", {
 	articleId: int().notNull(),
 	tagId: int().notNull(),
-});
+},
+(table) => [
+	index("idx_article_tags_article").on(table.articleId),
+	index("idx_article_tags_tagid").on(table.tagId),
+]);
 
 export const articleTopics = mysqlTable("article_topics", {
 	articleId: int().notNull(),
 	topicId: int().notNull(),
-});
+},
+(table) => [
+	index("idx_article_topics_article").on(table.articleId),
+	index("idx_article_topics_topicid").on(table.topicId),
+]);
 
 export const articles = mysqlTable("articles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
 	excerpt: text(),
@@ -1210,7 +1262,7 @@ export const articles = mysqlTable("articles", {
 	scheduledAt: timestamp({ mode: 'string' }),
 	wpOriginalId: int(),
 	wpOriginalUrl: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	isFlash: tinyint().default(0),
 	flashExpiresAt: timestamp({ mode: 'string' }),
@@ -1238,11 +1290,15 @@ export const articles = mysqlTable("articles", {
 	discoveredArticleId: int("discovered_article_id"),
 },
 (table) => [
-	index("articles_slug_unique").on(table.slug),
+	uniqueIndex("articles_slug_unique").on(table.slug),
+	index("idx_articles_status").on(table.statusId),
+	index("idx_articles_published_at").on(table.publishedAt),
+	index("idx_articles_primary_category").on(table.primaryCategoryId),
+	index("idx_articles_status_published").on(table.statusId, table.publishedAt),
 ]);
 
 export const auditLogs = mysqlTable("audit_logs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int(),
 	userEmail: varchar({ length: 320 }),
 	action: varchar({ length: 64 }).notNull(),
@@ -1252,11 +1308,16 @@ export const auditLogs = mysqlTable("audit_logs", {
 	metadata: json(),
 	ipAddress: varchar({ length: 45 }),
 	userAgent: text(),
-	timestamp: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-});
+	timestamp: timestamp({ mode: 'string' }).defaultNow().notNull(),
+},
+(table) => [
+	index("idx_audit_logs_user").on(table.userId),
+	index("idx_audit_logs_resource").on(table.resourceType, table.resourceId),
+	index("idx_audit_logs_timestamp").on(table.timestamp),
+]);
 
 export const bookmarks = mysqlTable("bookmarks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int().notNull(),
 	contentType: varchar({ length: 32 }).notNull(),
 	contentId: int().notNull(),
@@ -1264,7 +1325,7 @@ export const bookmarks = mysqlTable("bookmarks", {
 	contentSlug: varchar({ length: 500 }),
 	contentCategory: varchar({ length: 128 }),
 	contentImageUrl: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_bookmarks_user").on(table.userId),
@@ -1273,7 +1334,7 @@ export const bookmarks = mysqlTable("bookmarks", {
 ]);
 
 export const browsingHistory = mysqlTable("browsing_history", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int().notNull(),
 	contentType: varchar({ length: 32 }).notNull(),
 	contentId: int().notNull(),
@@ -1282,12 +1343,12 @@ export const browsingHistory = mysqlTable("browsing_history", {
 	contentCategory: varchar({ length: 128 }),
 	contentImageUrl: text(),
 	viewCount: int().default(1).notNull(),
-	lastViewedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	lastViewedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const calculators = mysqlTable("calculators", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -1304,7 +1365,7 @@ export const calculators = mysqlTable("calculators", {
 	isFeatured: tinyint().default(0),
 	usageCount: int().default(0),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -1314,7 +1375,7 @@ export const calculators = mysqlTable("calculators", {
 ]);
 
 export const categories = mysqlTable("categories", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -1322,15 +1383,15 @@ export const categories = mysqlTable("categories", {
 	module: mysqlEnum(['news','jobs','events','resources','research']).notNull(),
 	sortOrder: int().default(0),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("categories_slug_unique").on(table.slug),
+	uniqueIndex("categories_slug_unique").on(table.slug),
 ]);
 
 export const cities = mysqlTable("cities", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	countryId: int().notNull(),
 	geoRegionId: int(),
 	name: varchar({ length: 255 }).notNull(),
@@ -1338,11 +1399,11 @@ export const cities = mysqlTable("cities", {
 	longitude: decimal({ precision: 10, scale: 7 }),
 	isActive: tinyint().default(1),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const claimReviewHistory = mysqlTable("claim_review_history", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	claimId: int().notNull(),
 	reviewerId: int().notNull(),
 	reviewerName: varchar({ length: 255 }),
@@ -1350,11 +1411,11 @@ export const claimReviewHistory = mysqlTable("claim_review_history", {
 	comment: text(),
 	fromStatus: varchar({ length: 64 }),
 	toStatus: varchar({ length: 64 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const claimedProfiles = mysqlTable("claimed_profiles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int().notNull(),
 	entityType: mysqlEnum(['person','company','accelerator','event','investor']).notNull(),
 	entityId: int().notNull(),
@@ -1367,7 +1428,7 @@ export const claimedProfiles = mysqlTable("claimed_profiles", {
 	requestNote: text(),
 	reviewedById: int(),
 	reviewedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	proofText: text(),
 	companyEmail: varchar({ length: 320 }),
@@ -1379,7 +1440,7 @@ export const claimedProfiles = mysqlTable("claimed_profiles", {
 ]);
 
 export const companies = mysqlTable("companies", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	tagline: text(),
@@ -1402,7 +1463,7 @@ export const companies = mysqlTable("companies", {
 	viewCount: int().default(0),
 	claimedByUserId: int(),
 	publishedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	countryId: int(),
 	geoRegionId: int(),
@@ -1449,25 +1510,26 @@ export const companies = mysqlTable("companies", {
 	dataSource: varchar("data_source", { length: 50 }).default('editorial'),
 },
 (table) => [
-	index("companies_slug_unique").on(table.slug),
+	uniqueIndex("companies_slug_unique").on(table.slug),
+	index("idx_companies_status").on(table.statusId),
 ]);
 
 export const companyAwards = mysqlTable("company_awards", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	companyId: int("company_id").notNull(),
 	title: varchar({ length: 255 }).notNull(),
 	year: int(),
 	organization: varchar({ length: 255 }),
 	description: text(),
 	image: text(),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
 	index("idx_company_awards_company").on(table.companyId),
 ]);
 
 export const companyProducts = mysqlTable("company_products", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	companyId: int("company_id").notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	category: varchar({ length: 100 }),
@@ -1478,7 +1540,7 @@ export const companyProducts = mysqlTable("company_products", {
 	integrations: json(),
 	clients: json(),
 	sortOrder: int("sort_order").default(0),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -1496,7 +1558,7 @@ export const companySectors = mysqlTable("company_sectors", {
 });
 
 export const companyUpdates = mysqlTable("company_updates", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	companyId: int("company_id").notNull(),
 	type: mysqlEnum(['text','image','milestone','event','product_launch']).default('text'),
 	title: varchar({ length: 255 }),
@@ -1504,7 +1566,7 @@ export const companyUpdates = mysqlTable("company_updates", {
 	image: text(),
 	link: text(),
 	likesCount: int("likes_count").default(0),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
 	index("idx_company_updates_company").on(table.companyId),
@@ -1512,7 +1574,7 @@ export const companyUpdates = mysqlTable("company_updates", {
 ]);
 
 export const countries = mysqlTable("countries", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	iso2: varchar({ length: 2 }).notNull(),
 	iso3: varchar({ length: 3 }).notNull(),
@@ -1520,7 +1582,7 @@ export const countries = mysqlTable("countries", {
 	currency: varchar({ length: 3 }),
 	isActive: tinyint().default(1),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("iso2").on(table.iso2),
@@ -1528,7 +1590,7 @@ export const countries = mysqlTable("countries", {
 ]);
 
 export const crawlSessions = mysqlTable("crawl_sessions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	sessionType: mysqlEnum("session_type", ['scheduled','manual']).default('scheduled').notNull(),
 	status: mysqlEnum(['running','completed','failed','partial']).default('running').notNull(),
 	totalUrls: int("total_urls").default(0),
@@ -1536,7 +1598,7 @@ export const crawlSessions = mysqlTable("crawl_sessions", {
 	newIssuesFound: int("new_issues_found").default(0),
 	issuesResolved: int("issues_resolved").default(0),
 	errorMessage: text("error_message"),
-	startedAt: timestamp("started_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	startedAt: timestamp("started_at", { mode: 'string' }).defaultNow().notNull(),
 	completedAt: timestamp("completed_at", { mode: 'string' }),
 	triggeredById: int("triggered_by_id"),
 },
@@ -1546,16 +1608,16 @@ export const crawlSessions = mysqlTable("crawl_sessions", {
 ]);
 
 export const dealRedemptions = mysqlTable("deal_redemptions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	dealId: int().notNull(),
 	userId: int(),
 	email: varchar({ length: 320 }),
-	redeemedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	redeemedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	ipAddress: varchar({ length: 45 }),
 });
 
 export const emailCampaigns = mysqlTable("email_campaigns", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	subject: varchar({ length: 255 }).notNull(),
 	preheader: varchar({ length: 255 }),
@@ -1578,12 +1640,12 @@ export const emailCampaigns = mysqlTable("email_campaigns", {
 	unsubscribeCount: int().default(0),
 	complaintCount: int().default(0),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const emailDigestPreferences = mysqlTable("email_digest_preferences", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int().notNull(),
 	frequency: mysqlEnum(['daily','weekly','none']).default('none').notNull(),
 	categories: json(),
@@ -1592,7 +1654,7 @@ export const emailDigestPreferences = mysqlTable("email_digest_preferences", {
 	includeNews: tinyint().default(1),
 	includeRecommendations: tinyint().default(1),
 	lastSentAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -1600,7 +1662,7 @@ export const emailDigestPreferences = mysqlTable("email_digest_preferences", {
 ]);
 
 export const emailNotifications = mysqlTable("email_notifications", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	recipientEmail: varchar({ length: 320 }).notNull(),
 	recipientUserId: int(),
 	subject: varchar({ length: 512 }).notNull(),
@@ -1611,11 +1673,11 @@ export const emailNotifications = mysqlTable("email_notifications", {
 	status: mysqlEnum(['pending','sent','failed']).default('pending'),
 	sentAt: timestamp({ mode: 'string' }),
 	error: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const entityTeamMembers = mysqlTable("entity_team_members", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: mysqlEnum(['person','company','accelerator','event','investor']).notNull(),
 	entityId: int().notNull(),
 	entityName: varchar({ length: 255 }).notNull(),
@@ -1626,12 +1688,12 @@ export const entityTeamMembers = mysqlTable("entity_team_members", {
 	role: mysqlEnum(['admin','editor','viewer']).default('editor').notNull(),
 	status: mysqlEnum(['pending','accepted','declined','revoked']).default('pending').notNull(),
 	acceptedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const entityVersions = mysqlTable("entity_versions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	version: int().notNull(),
@@ -1640,7 +1702,7 @@ export const entityVersions = mysqlTable("entity_versions", {
 	changedByUserId: int(),
 	changeReason: text(),
 	suggestedUpdateId: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const eventCategories = mysqlTable("event_categories", {
@@ -1649,23 +1711,23 @@ export const eventCategories = mysqlTable("event_categories", {
 });
 
 export const eventGallery = mysqlTable("event_gallery", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	imageUrl: text().notNull(),
 	caption: varchar({ length: 255 }),
 	altText: varchar({ length: 255 }),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 });
 
 export const eventHighlights = mysqlTable("event_highlights", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	title: varchar({ length: 255 }).notNull(),
 	description: text(),
 	icon: varchar({ length: 64 }),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 });
 
 export const eventRegions = mysqlTable("event_regions", {
@@ -1674,7 +1736,7 @@ export const eventRegions = mysqlTable("event_regions", {
 });
 
 export const eventSchedule = mysqlTable("event_schedule", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	title: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -1699,7 +1761,7 @@ export const eventSectors = mysqlTable("event_sectors", {
 });
 
 export const eventSideEvents = mysqlTable("event_side_events", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -1711,7 +1773,7 @@ export const eventSideEvents = mysqlTable("event_side_events", {
 	capacity: int(),
 	registrationUrl: text(),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 	// Public submission workflow — community-proposed side events land as
 	// 'pending' and only appear publicly once an editor approves them.
 	status: mysqlEnum(['pending','approved','rejected']).default('approved').notNull(),
@@ -1728,7 +1790,7 @@ export const eventSideEvents = mysqlTable("event_side_events", {
 });
 
 export const eventSpeakers = mysqlTable("event_speakers", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	title: varchar({ length: 255 }),
@@ -1741,23 +1803,23 @@ export const eventSpeakers = mysqlTable("event_speakers", {
 	personId: int(),
 	isFeatured: tinyint().default(0),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 });
 
 export const eventFaqs = mysqlTable("event_faqs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	question: varchar({ length: 512 }).notNull(),
 	answer: text().notNull(),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 }, (table) => [
 	index("idx_event_faqs_event").on(table.eventId, table.sortOrder),
 ]);
 
 /** Press / media coverage: external link or an asset uploaded to R2. */
 export const eventCoverage = mysqlTable("event_coverage", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	title: varchar({ length: 512 }).notNull(),
 	url: text().notNull(),
@@ -1767,13 +1829,13 @@ export const eventCoverage = mysqlTable("event_coverage", {
 	isUploaded: tinyint().default(0).notNull(),
 	publishedAt: timestamp({ mode: 'string' }),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 }, (table) => [
 	index("idx_event_coverage_event").on(table.eventId, table.sortOrder),
 ]);
 
 export const eventSponsors = mysqlTable("event_sponsors", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	logo: text(),
@@ -1785,11 +1847,11 @@ export const eventSponsors = mysqlTable("event_sponsors", {
 	description: text(),
 	isConfirmed: tinyint().default(1).notNull(),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 });
 
 export const editorialBatches = mysqlTable("editorial_batches", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	batchKey: varchar({ length: 128 }).notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	status: mysqlEnum(['draft','ready_for_review','approved','importing','imported','failed']).default('draft').notNull(),
@@ -1800,7 +1862,7 @@ export const editorialBatches = mysqlTable("editorial_batches", {
 	approvedById: int(),
 	approvedAt: timestamp({ mode: 'string' }),
 	importedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -1809,18 +1871,18 @@ export const editorialBatches = mysqlTable("editorial_batches", {
 ]);
 
 export const eventTracks = mysqlTable("event_tracks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	description: text(),
 	color: varchar({ length: 7 }).default('#22c55e'),
 	icon: varchar({ length: 64 }),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 });
 
 export const events = mysqlTable("events", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
 	tagline: varchar({ length: 255 }),
@@ -1859,7 +1921,7 @@ export const events = mysqlTable("events", {
 	statusId: int().notNull(),
 	viewCount: int().default(0),
 	publishedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	countryId: int(),
 	geoRegionId: int(),
@@ -1909,7 +1971,9 @@ export const events = mysqlTable("events", {
 	ticketsRevenueCents: int().default(0),
 },
 (table) => [
-	index("events_slug_unique").on(table.slug),
+	uniqueIndex("events_slug_unique").on(table.slug),
+	index("idx_events_status").on(table.statusId),
+	index("idx_events_start_date").on(table.startDate),
 ]);
 
 // ============================================================
@@ -1923,7 +1987,7 @@ export const events = mysqlTable("events", {
  * independently of the event itself.
  */
 export const eventTickets = mysqlTable("event_tickets", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	name: varchar({ length: 128 }).notNull(),
 	description: text(),
@@ -1936,7 +2000,7 @@ export const eventTickets = mysqlTable("event_tickets", {
 	isActive: tinyint().default(1).notNull(),
 	sortOrder: int().default(0).notNull(),
 	maxPerOrder: int().default(10),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
 	index("idx_event_tickets_event").on(table.eventId),
@@ -1949,7 +2013,7 @@ export const eventTickets = mysqlTable("event_tickets", {
  * the campaign ends.
  */
 export const eventPromoCodes = mysqlTable("event_promo_codes", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	code: varchar({ length: 64 }).notNull(),
 	discountType: mysqlEnum(['percentage','fixed_cents']).notNull(),
@@ -1959,9 +2023,9 @@ export const eventPromoCodes = mysqlTable("event_promo_codes", {
 	validFrom: timestamp({ mode: 'string' }),
 	validUntil: timestamp({ mode: 'string' }),
 	isActive: tinyint().default(1).notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
-	index("event_promo_codes_event_code_unique").on(table.eventId, table.code),
+	uniqueIndex("event_promo_codes_event_code_unique").on(table.eventId, table.code),
 ]);
 
 /**
@@ -1972,7 +2036,7 @@ export const eventPromoCodes = mysqlTable("event_promo_codes", {
  *   manual     — admin-entered (comp tickets)
  */
 export const eventOrders = mysqlTable("event_orders", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	userId: int(),                                                 // null for guest orders
 	customerEmail: varchar({ length: 320 }).notNull(),
@@ -1992,7 +2056,7 @@ export const eventOrders = mysqlTable("event_orders", {
 	paidAt: timestamp({ mode: 'string' }),
 	refundedAt: timestamp({ mode: 'string' }),
 	notes: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
 	index("idx_event_orders_event").on(table.eventId),
@@ -2007,7 +2071,7 @@ export const eventOrders = mysqlTable("event_orders", {
  * snapshot so historical orders don't drift if tier prices change later.
  */
 export const eventOrderItems = mysqlTable("event_order_items", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	orderId: int().notNull(),
 	ticketId: int().notNull(),
 	quantity: int().notNull(),
@@ -2017,7 +2081,7 @@ export const eventOrderItems = mysqlTable("event_order_items", {
 	attendeeEmail: varchar({ length: 320 }),
 	qrCode: varchar({ length: 64 }),                               // unique check-in code per item
 	checkedInAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
 	index("idx_event_order_items_order").on(table.orderId),
 	index("idx_event_order_items_qrcode").on(table.qrCode),
@@ -2029,14 +2093,14 @@ export const eventOrderItems = mysqlTable("event_order_items", {
  * for the affiliate revenue dashboard.
  */
 export const eventExternalClicks = mysqlTable("event_external_clicks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	provider: mysqlEnum(['eventbrite','luma','external']).notNull(),
 	userId: int(),                                                 // null for anonymous
 	referrer: text(),
 	userAgent: text(),
 	ipHash: varchar({ length: 64 }),                               // sha256(ip) for unique-click counting without storing PII
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
 	index("idx_event_external_clicks_event").on(table.eventId),
 	index("idx_event_external_clicks_event_created").on(table.eventId, table.createdAt),
@@ -2049,7 +2113,7 @@ export const eventExternalClicks = mysqlTable("event_external_clicks", {
  * index live coverage in real time.
  */
 export const eventLivePosts = mysqlTable("event_live_posts", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	authorId: int().notNull(),                                     // user who posted (correspondent or admin)
 	headline: varchar({ length: 512 }),
@@ -2060,7 +2124,7 @@ export const eventLivePosts = mysqlTable("event_live_posts", {
 	speakerName: varchar({ length: 255 }),                         // for quote / session updates
 	companyName: varchar({ length: 255 }),                         // for funding announcements
 	fundingAmount: varchar({ length: 64 }),                        // "$2.5M" — display string
-	publishedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	publishedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	isPinned: tinyint().default(0).notNull(),
 	isDeleted: tinyint().default(0).notNull(),
@@ -2081,7 +2145,7 @@ export const eventLivePosts = mysqlTable("event_live_posts", {
  * mode renders these as a video grid and emits VideoObject schema.
  */
 export const eventRecordings = mysqlTable("event_recordings", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	scheduleId: int(),                                             // optional link to event_schedule row
 	title: varchar({ length: 512 }).notNull(),
@@ -2090,7 +2154,7 @@ export const eventRecordings = mysqlTable("event_recordings", {
 	thumbnailUrl: text(),
 	durationSeconds: int(),
 	sortOrder: int().default(0).notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
 	index("idx_event_recordings_event").on(table.eventId),
 ]);
@@ -2101,18 +2165,18 @@ export const eventRecordings = mysqlTable("event_recordings", {
  * Separate from purchases — many events are free RSVP.
  */
 export const eventAttendees = mysqlTable("event_attendees", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	userId: int().notNull(),
 	status: mysqlEnum(['interested','going','attended','not_going']).default('interested').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	// Email-reminder bookkeeping. Updated by eventReminders.service.ts
 	// after each successful per-attendee dispatch so the hourly cron
 	// never re-sends the same window's reminder. Null = never reminded.
 	lastReminderSentAt: timestamp({ mode: 'string' }),
 }, (table) => [
-	index("event_attendees_event_user_unique").on(table.eventId, table.userId),
+	uniqueIndex("event_attendees_event_user_unique").on(table.eventId, table.userId),
 	index("idx_event_attendees_event").on(table.eventId),
 ]);
 
@@ -2122,14 +2186,14 @@ export const eventAttendees = mysqlTable("event_attendees", {
  * privileges). Used for freelancers covering an event.
  */
 export const eventCorrespondents = mysqlTable("event_correspondents", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	eventId: int().notNull(),
 	userId: int().notNull(),
 	addedById: int(),                                              // admin who granted access
 	role: mysqlEnum(['lead','correspondent','photographer']).default('correspondent').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
-	index("event_correspondents_event_user_unique").on(table.eventId, table.userId),
+	uniqueIndex("event_correspondents_event_user_unique").on(table.eventId, table.userId),
 ]);
 
 /**
@@ -2138,7 +2202,7 @@ export const eventCorrespondents = mysqlTable("event_correspondents", {
  * confidence rejects in bulk and approves the rest.
  */
 export const eventSubmissions = mysqlTable("event_submissions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	submitterId: int().notNull(),
 	title: varchar({ length: 512 }).notNull(),
 	tagline: varchar({ length: 255 }),
@@ -2159,14 +2223,14 @@ export const eventSubmissions = mysqlTable("event_submissions", {
 	reviewedById: int(),
 	reviewedAt: timestamp({ mode: 'string' }),
 	approvedEventId: int(),                                        // FK to events.id once approved
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
 	index("idx_event_submissions_status").on(table.moderationStatus),
 	index("idx_event_submissions_submitter").on(table.submitterId),
 ]);
 
 export const founderDeals = mysqlTable("founder_deals", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	partnerId: int().notNull(),
 	resourceId: int(),
 	title: varchar({ length: 255 }).notNull(),
@@ -2185,22 +2249,22 @@ export const founderDeals = mysqlTable("founder_deals", {
 	status: mysqlEnum(['draft','active','paused','expired']).default('draft').notNull(),
 	isExclusive: tinyint().default(0),
 	isFeatured: tinyint().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const fundingRoundInvestors = mysqlTable("funding_round_investors", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	fundingRoundId: int().notNull(),
 	investorId: int().notNull(),
 	role: mysqlEnum(['lead','participant']).default('participant').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	investmentAmount: decimal({ precision: 15, scale: 2 }),
 	investmentCurrency: varchar({ length: 10 }).default('USD'),
 });
 
 export const fundingRounds = mysqlTable("funding_rounds", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int(),
 	companyId: int().notNull(),
 	roundType: mysqlEnum(['pre_seed','seed','series_a','series_b','series_c','series_d_plus','bridge','strategic','venture_debt','grant','undisclosed']).notNull(),
@@ -2221,31 +2285,31 @@ export const fundingRounds = mysqlTable("funding_rounds", {
 	notes: text(),
 	status: mysqlEnum(['confirmed','pending','disputed']).default('pending').notNull(),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const gatedDownloads = mysqlTable("gated_downloads", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	resourceId: int().notNull(),
 	leadId: int().notNull(),
-	downloadedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	downloadedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	ipAddress: varchar({ length: 45 }),
 	userAgent: text(),
 });
 
 export const geoRegions = mysqlTable("geo_regions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	countryId: int().notNull(),
 	name: varchar({ length: 255 }).notNull(),
 	code: varchar({ length: 10 }),
 	isActive: tinyint().default(1),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const gscIndexingCoverage = mysqlTable("gsc_indexing_coverage", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	url: text().notNull(),
 	pageType: varchar("page_type", { length: 64 }).default('article').notNull(),
 	coverageStatus: mysqlEnum("coverage_status", ['indexed','not_indexed','excluded','error','unknown']).default('unknown').notNull(),
@@ -2263,7 +2327,7 @@ export const gscIndexingCoverage = mysqlTable("gsc_indexing_coverage", {
 	indexingRequestStatus: varchar("indexing_request_status", { length: 64 }),
 	lastCrawledAt: timestamp("last_crawled_at", { mode: 'string' }),
 	lastGscSyncAt: timestamp("last_gsc_sync_at", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -2272,7 +2336,7 @@ export const gscIndexingCoverage = mysqlTable("gsc_indexing_coverage", {
 ]);
 
 export const homepageBlocks = mysqlTable("homepage_blocks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 128 }).notNull(),
 	slug: varchar({ length: 128 }).notNull(),
 	type: varchar({ length: 64 }).notNull(),
@@ -2283,15 +2347,15 @@ export const homepageBlocks = mysqlTable("homepage_blocks", {
 	isActive: tinyint().default(1),
 	startDate: timestamp({ mode: 'string' }),
 	endDate: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("homepage_blocks_slug_unique").on(table.slug),
+	uniqueIndex("homepage_blocks_slug_unique").on(table.slug),
 ]);
 
 export const homepageSections = mysqlTable("homepage_sections", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 128 }).notNull(),
 	slug: varchar({ length: 128 }).notNull(),
 	sectionType: mysqlEnum(['hero','trending','headlines','category','in_brief','podcasts','videos','stocks','sidebar_jobs','sidebar_events','sidebar_links','sidebar_podcast']).notNull(),
@@ -2309,15 +2373,15 @@ export const homepageSections = mysqlTable("homepage_sections", {
 	sortOrder: int().default(0),
 	isActive: tinyint().default(1),
 	position: mysqlEnum(['main','sidebar']).default('main'),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("homepage_sections_slug_unique").on(table.slug),
+	uniqueIndex("homepage_sections_slug_unique").on(table.slug),
 ]);
 
 export const indexingLogs = mysqlTable("indexing_logs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	articleId: int("article_id"),
 	articleTitle: varchar("article_title", { length: 512 }),
 	articleSlug: varchar("article_slug", { length: 512 }),
@@ -2328,7 +2392,7 @@ export const indexingLogs = mysqlTable("indexing_logs", {
 	message: text(),
 	trigger: mysqlEnum(['publish','transition','bulk_publish','scheduled','manual']).default('publish'),
 	triggeredBy: int("triggered_by"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_indexing_logs_article_id").on(table.articleId),
@@ -2337,7 +2401,7 @@ export const indexingLogs = mysqlTable("indexing_logs", {
 ]);
 
 export const indexingSubmissions = mysqlTable("indexing_submissions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	url: text().notNull(),
 	coverageId: int("coverage_id"),
 	submissionType: varchar("submission_type", { length: 32 }).default('URL_UPDATED').notNull(),
@@ -2348,14 +2412,14 @@ export const indexingSubmissions = mysqlTable("indexing_submissions", {
 	indexedAfterSubmission: tinyint("indexed_after_submission"),
 	checkedAt: timestamp("checked_at", { mode: 'string' }),
 	submittedById: int("submitted_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_sub_created").on(table.createdAt),
 ]);
 
 export const integrationConfigs = mysqlTable("integration_configs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	integrationId: varchar("integration_id", { length: 64 }).notNull(),
 	enabled: tinyint().default(0).notNull(),
 	publicConfig: json("public_config"),
@@ -2365,11 +2429,11 @@ export const integrationConfigs = mysqlTable("integration_configs", {
 	lastTestResult: text("last_test_result"),
 	createdById: int("created_by_id"),
 	updatedById: int("updated_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("integration_configs_integration_id_unique").on(table.integrationId),
+	uniqueIndex("integration_configs_integration_id_unique").on(table.integrationId),
 	index("idx_integration_configs_integration_id").on(table.integrationId),
 	index("idx_integration_configs_enabled").on(table.enabled),
 ]);
@@ -2385,7 +2449,7 @@ export const investorSectors = mysqlTable("investor_sectors", {
 });
 
 export const investors = mysqlTable("investors", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	type: mysqlEnum(['vc','angel','corporate_vc','family_office','accelerator','other']).notNull(),
@@ -2410,7 +2474,7 @@ export const investors = mysqlTable("investors", {
 	statusId: int().notNull(),
 	viewCount: int().default(0),
 	publishedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	countryId: int(),
 	geoRegionId: int(),
@@ -2437,11 +2501,12 @@ export const investors = mysqlTable("investors", {
 	youtube: varchar({ length: 512 }),
 },
 (table) => [
-	index("investors_slug_unique").on(table.slug),
+	uniqueIndex("investors_slug_unique").on(table.slug),
+	index("idx_investors_status").on(table.statusId),
 ]);
 
 export const jobApplications = mysqlTable("job_applications", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	tenantId: int("tenant_id"),                                                                     // mirrors jobs.tenant_id for fast tenant-scoped queries
 	jobId: int().notNull(),
 	userId: int(),
@@ -2464,7 +2529,7 @@ export const jobApplications = mysqlTable("job_applications", {
 	rating: int(),
 	isViewed: tinyint().default(0),
 	viewedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	currentStageId: int("current_stage_id"),                                                          // FK pipelineStages.id — set when application enters ATS pipeline (Phase 3)
 },
@@ -2481,7 +2546,7 @@ export const jobCategories = mysqlTable("job_categories", {
 });
 
 export const jobClicks = mysqlTable("job_clicks", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	jobId: int().notNull(),
 	userId: int(),
 	userName: varchar({ length: 255 }),
@@ -2490,7 +2555,7 @@ export const jobClicks = mysqlTable("job_clicks", {
 	userCompany: varchar({ length: 255 }),
 	clickType: mysqlEnum(['view','apply_click','save','share','external_apply']).default('view').notNull(),
 	referrer: varchar({ length: 512 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("idx_click_jobId").on(table.jobId),
@@ -2509,7 +2574,7 @@ export const jobSectors = mysqlTable("job_sectors", {
 });
 
 export const jobs = mysqlTable("jobs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	tenantId: int("tenant_id"),                                                                     // NULL = legacy public job board (techscoop.io)
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
@@ -2536,7 +2601,7 @@ export const jobs = mysqlTable("jobs", {
 	viewCount: int().default(0),
 	applicationCount: int().default(0),
 	postedById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	companyId: int(),
 	countryId: int(),
@@ -2548,16 +2613,17 @@ export const jobs = mysqlTable("jobs", {
 	visaSponsorship: tinyint("visa_sponsorship").default(0),
 },
 (table) => [
-	index("jobs_slug_unique").on(table.slug),
+	uniqueIndex("jobs_slug_unique").on(table.slug),
+	index("idx_jobs_status").on(table.statusId),
 ]);
 
 export const keywords = mysqlTable("keywords", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }),
 	description: text(),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	sortOrder: int().default(0),
 	keywordType: mysqlEnum(['primary','secondary']).default('secondary').notNull(),
@@ -2566,7 +2632,7 @@ export const keywords = mysqlTable("keywords", {
 });
 
 export const leads = mysqlTable("leads", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	subscriberId: int(),
 	email: varchar({ length: 320 }).notNull(),
 	firstName: varchar({ length: 128 }),
@@ -2587,12 +2653,12 @@ export const leads = mysqlTable("leads", {
 	consentTimestamp: timestamp({ mode: 'string' }),
 	ipAddress: varchar({ length: 45 }),
 	countryCode: varchar({ length: 2 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const media = mysqlTable("media", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	filename: varchar({ length: 255 }).notNull(),
 	originalFilename: varchar({ length: 255 }).notNull(),
 	mimeType: varchar({ length: 128 }).notNull(),
@@ -2610,12 +2676,12 @@ export const media = mysqlTable("media", {
 	license: varchar({ length: 128 }),
 	rightsStatus: mysqlEnum(['owned','licensed','editorial_use','generated','pending_review']).default('pending_review').notNull(),
 	rightsNotes: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const partnerApiKeys = mysqlTable("partner_api_keys", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	partnerId: int().notNull(),
 	keyName: varchar({ length: 128 }).notNull(),
 	apiKey: varchar({ length: 64 }).notNull(),
@@ -2625,14 +2691,14 @@ export const partnerApiKeys = mysqlTable("partner_api_keys", {
 	expiresAt: timestamp({ mode: 'string' }),
 	isActive: tinyint().default(1),
 	createdById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
-	index("partner_api_keys_apiKey_unique").on(table.apiKey),
+	uniqueIndex("partner_api_keys_apiKey_unique").on(table.apiKey),
 ]);
 
 export const partnerPayouts = mysqlTable("partner_payouts", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	partnerId: int().notNull(),
 	amount: decimal({ precision: 15, scale: 2 }).notNull(),
 	currency: varchar({ length: 3 }).default('USD'),
@@ -2644,21 +2710,21 @@ export const partnerPayouts = mysqlTable("partner_payouts", {
 	processedAt: timestamp({ mode: 'string' }),
 	processedById: int(),
 	notes: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const partnerUsers = mysqlTable("partner_users", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	partnerId: int().notNull(),
 	userId: int().notNull(),
 	role: mysqlEnum(['admin','manager','viewer']).default('viewer').notNull(),
 	invitedById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const partners = mysqlTable("partners", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	companyName: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	logo: text(),
@@ -2682,24 +2748,24 @@ export const partners = mysqlTable("partners", {
 	notes: text(),
 	contractUrl: text(),
 	contractExpiresAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("partners_slug_unique").on(table.slug),
+	uniqueIndex("partners_slug_unique").on(table.slug),
 ]);
 
 export const payoutLineItems = mysqlTable("payout_line_items", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	payoutId: int().notNull(),
 	conversionId: int().notNull(),
 	amount: decimal({ precision: 15, scale: 2 }).notNull(),
 	description: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const people = mysqlTable("people", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	title: varchar({ length: 255 }),
@@ -2716,7 +2782,7 @@ export const people = mysqlTable("people", {
 	statusId: int().notNull(),
 	viewCount: int().default(0),
 	publishedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	companyId: int(),
 	countryId: int(),
@@ -2747,7 +2813,8 @@ export const people = mysqlTable("people", {
 	github: varchar({ length: 512 }),
 },
 (table) => [
-	index("people_slug_unique").on(table.slug),
+	uniqueIndex("people_slug_unique").on(table.slug),
+	index("idx_people_status").on(table.statusId),
 ]);
 
 export const peopleRegions = mysqlTable("people_regions", {
@@ -2761,17 +2828,17 @@ export const peopleSectors = mysqlTable("people_sectors", {
 });
 
 export const permissions = mysqlTable("permissions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	resource: varchar({ length: 64 }).notNull(),
 	action: varchar({ length: 32 }).notNull(),
 	scope: mysqlEnum(['all','own','team']).default('own').notNull(),
 	description: text(),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const popups = mysqlTable("popups", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 128 }).notNull(),
 	title: varchar({ length: 255 }),
 	content: text(),
@@ -2789,12 +2856,12 @@ export const popups = mysqlTable("popups", {
 	endDate: timestamp({ mode: 'string' }),
 	viewCount: int().default(0),
 	clickCount: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const profileClaims = mysqlTable("profile_claims", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	claimantUserId: int(),
@@ -2807,42 +2874,42 @@ export const profileClaims = mysqlTable("profile_claims", {
 	moderatorId: int(),
 	moderatorNotes: text(),
 	reviewedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	requesterType: mysqlEnum(['internal','external']).default('external').notNull(),
 	source: varchar({ length: 64 }).default('public_form'),
 });
 
 export const redirects = mysqlTable("redirects", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	fromPath: varchar({ length: 768 }).notNull(),
 	toPath: varchar({ length: 768 }).notNull(),
 	statusCode: int().default(301).notNull(),
 	isActive: tinyint().default(1),
 	hitCount: int().default(0),
 	lastHitAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("redirects_fromPath_unique").on(table.fromPath),
+	uniqueIndex("redirects_fromPath_unique").on(table.fromPath),
 ]);
 
 export const regions = mysqlTable("regions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	code: varchar({ length: 10 }),
 	parentId: int(),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
-	index("regions_slug_unique").on(table.slug),
+	uniqueIndex("regions_slug_unique").on(table.slug),
 ]);
 
 export const regulations = mysqlTable("regulations", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
 	description: text(),
@@ -2867,7 +2934,7 @@ export const regulations = mysqlTable("regulations", {
 	viewCount: int().default(0),
 	isFeatured: tinyint().default(0),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -2878,7 +2945,7 @@ export const regulations = mysqlTable("regulations", {
 ]);
 
 export const research = mysqlTable("research", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
 	abstract: text(),
@@ -2894,15 +2961,16 @@ export const research = mysqlTable("research", {
 	viewCount: int().default(0),
 	downloadCount: int().default(0),
 	publishedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("research_slug_unique").on(table.slug),
+	uniqueIndex("research_slug_unique").on(table.slug),
+	index("idx_research_status").on(table.statusId),
 ]);
 
 export const researchAttachments = mysqlTable("research_attachments", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	researchId: int().notNull(),
 	mediaId: int().notNull(),
 	title: varchar({ length: 255 }),
@@ -2940,7 +3008,7 @@ export const resourceRegions = mysqlTable("resource_regions", {
 });
 
 export const resourceReviews = mysqlTable("resource_reviews", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	resourceId: int().notNull(),
 	userId: int(),
 	rating: decimal({ precision: 3, scale: 2 }).notNull(),
@@ -2951,7 +3019,7 @@ export const resourceReviews = mysqlTable("resource_reviews", {
 	isVerified: tinyint().default(0),
 	isApproved: tinyint().default(0),
 	helpfulCount: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -2971,7 +3039,7 @@ export const resourceTags = mysqlTable("resource_tags", {
 });
 
 export const resources = mysqlTable("resources", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	title: varchar({ length: 512 }).notNull(),
 	slug: varchar({ length: 512 }).notNull(),
 	description: text(),
@@ -2992,7 +3060,7 @@ export const resources = mysqlTable("resources", {
 	viewCount: int().default(0),
 	downloadCount: int().default(0),
 	publishedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	partnerId: int(),
 	affiliateUrl: text(),
@@ -3013,33 +3081,34 @@ export const resources = mysqlTable("resources", {
 	sortOrder: int().default(0),
 },
 (table) => [
-	index("resources_slug_unique").on(table.slug),
+	uniqueIndex("resources_slug_unique").on(table.slug),
+	index("idx_resources_status").on(table.statusId),
 ]);
 
 export const rolePermissions = mysqlTable("role_permissions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	roleId: int().notNull(),
 	permissionId: int().notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const roles = mysqlTable("roles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 64 }).notNull(),
 	displayName: varchar({ length: 128 }).notNull(),
 	description: text(),
 	roleType: mysqlEnum(['system','external']).default('system').notNull(),
 	parentRoleId: int(),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("roles_name_unique").on(table.name),
+	uniqueIndex("roles_name_unique").on(table.name),
 ]);
 
 export const searchAnalytics = mysqlTable("search_analytics", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	query: varchar({ length: 500 }).notNull(),
 	entityType: varchar("entity_type", { length: 50 }),
 	resultsCount: int("results_count").default(0),
@@ -3049,7 +3118,7 @@ export const searchAnalytics = mysqlTable("search_analytics", {
 	userAgent: varchar("user_agent", { length: 512 }),
 	clickedResultId: int("clicked_result_id"),
 	clickedResultType: varchar("clicked_result_type", { length: 50 }),
-	searchedAt: timestamp("searched_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	searchedAt: timestamp("searched_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("search_analytics_query_idx").on(table.query),
@@ -3059,36 +3128,36 @@ export const searchAnalytics = mysqlTable("search_analytics", {
 ]);
 
 export const sectors = mysqlTable("sectors", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
 	icon: varchar({ length: 255 }),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
-	index("sectors_slug_unique").on(table.slug),
+	uniqueIndex("sectors_slug_unique").on(table.slug),
 ]);
 
 export const seo404Monitor = mysqlTable("seo_404_monitor", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	requestedUrl: varchar({ length: 2048 }).notNull(),
 	hitCount: int().default(1).notNull(),
-	lastHitAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-	firstHitAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	lastHitAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+	firstHitAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	referrer: text(),
 	userAgent: text(),
 	suggestedRedirectUrl: text(),
 	suggestedConfidence: int().default(0),
 	isResolved: tinyint().default(0),
 	resolvedRedirectId: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const seoAuditHistory = mysqlTable("seo_audit_history", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	auditId: varchar({ length: 64 }).notNull(),
 	score: int().notNull(),
 	totalIssues: int().notNull(),
@@ -3098,14 +3167,14 @@ export const seoAuditHistory = mysqlTable("seo_audit_history", {
 	issuesSnapshot: json(),
 	triggeredBy: mysqlEnum(['manual','scheduled']).default('manual').notNull(),
 	runById: int(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("auditId").on(table.auditId),
 ]);
 
 export const seoAuditIgnoredIssues = mysqlTable("seo_audit_ignored_issues", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	issueId: varchar("issue_id", { length: 255 }).notNull(),
 	issueType: varchar("issue_type", { length: 64 }).notNull(),
 	entityType: varchar("entity_type", { length: 64 }).notNull(),
@@ -3113,14 +3182,14 @@ export const seoAuditIgnoredIssues = mysqlTable("seo_audit_ignored_issues", {
 	entityTitle: varchar("entity_title", { length: 500 }),
 	reason: text(),
 	ignoredById: int("ignored_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("issue_id_idx").on(table.issueId),
 ]);
 
 export const seoAuditSchedule = mysqlTable("seo_audit_schedule", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	isEnabled: tinyint().default(0),
 	frequency: mysqlEnum(['daily','weekly','monthly']).default('weekly').notNull(),
 	dayOfWeek: int().default(1),
@@ -3129,12 +3198,12 @@ export const seoAuditSchedule = mysqlTable("seo_audit_schedule", {
 	nextRunAt: timestamp({ mode: 'string' }),
 	notifyOnCritical: tinyint().default(1),
 	notifyEmail: varchar({ length: 320 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const seoHealthIssues = mysqlTable("seo_health_issues", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	pageUrl: text().notNull(),
@@ -3145,25 +3214,25 @@ export const seoHealthIssues = mysqlTable("seo_health_issues", {
 	isResolved: tinyint().default(0),
 	resolvedAt: timestamp({ mode: 'string' }),
 	resolvedById: int(),
-	lastCheckedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	lastCheckedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const seoHreflangMappings = mysqlTable("seo_hreflang_mappings", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	language: varchar({ length: 10 }).notNull(),
 	linkedEntityId: int(),
 	linkedUrl: text(),
 	isDefault: tinyint().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const seoIndexingRules = mysqlTable("seo_indexing_rules", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	module: varchar({ length: 64 }).notNull(),
 	pageType: varchar({ length: 64 }).notNull(),
 	indexingRule: varchar({ length: 64 }).default('index, follow').notNull(),
@@ -3171,12 +3240,12 @@ export const seoIndexingRules = mysqlTable("seo_indexing_rules", {
 	customCanonicalPattern: text(),
 	isEnabled: tinyint().default(1).notNull(),
 	priority: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const seoMeta = mysqlTable("seo_meta", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	metaTitle: varchar({ length: 255 }),
@@ -3188,25 +3257,25 @@ export const seoMeta = mysqlTable("seo_meta", {
 	canonicalUrl: text(),
 	robotsDirective: varchar({ length: 64 }).default('index,follow'),
 	structuredDataOverride: json(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const seoSettings = mysqlTable("seo_settings", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	settingKey: varchar({ length: 128 }).notNull(),
 	settingValue: json(),
 	settingGroup: varchar({ length: 64 }).default('general'),
 	description: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("seo_settings_key_unique").on(table.settingKey),
+	uniqueIndex("seo_settings_key_unique").on(table.settingKey),
 ]);
 
 export const settings = mysqlTable("settings", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	key: varchar({ length: 128 }).notNull(),
 	value: json(),
 	type: varchar({ length: 32 }).default('string'),
@@ -3217,11 +3286,11 @@ export const settings = mysqlTable("settings", {
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("settings_key_unique").on(table.key),
+	uniqueIndex("settings_key_unique").on(table.key),
 ]);
 
 export const starterPacks = mysqlTable("starter_packs", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	tagline: varchar({ length: 255 }),
@@ -3237,23 +3306,23 @@ export const starterPacks = mysqlTable("starter_packs", {
 	isFeatured: tinyint().default(0),
 	isActive: tinyint().default(1),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("starter_packs_slug_unique").on(table.slug),
+	uniqueIndex("starter_packs_slug_unique").on(table.slug),
 ]);
 
 export const subscriberLists = mysqlTable("subscriber_lists", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	subscriberId: int().notNull(),
 	listId: int().notNull(),
-	subscribedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	subscribedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	unsubscribedAt: timestamp({ mode: 'string' }),
 });
 
 export const subscribers = mysqlTable("subscribers", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	email: varchar({ length: 320 }).notNull(),
 	userId: int(),
 	firstName: varchar({ length: 128 }),
@@ -3283,15 +3352,15 @@ export const subscribers = mysqlTable("subscribers", {
 	emailsClicked: int().default(0),
 	ipAddress: varchar({ length: 45 }),
 	userAgent: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("subscribers_email_unique").on(table.email),
+	uniqueIndex("subscribers_email_unique").on(table.email),
 ]);
 
 export const subscriptionLists = mysqlTable("subscription_lists", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 128 }).notNull(),
 	slug: varchar({ length: 128 }).notNull(),
 	description: text(),
@@ -3300,15 +3369,15 @@ export const subscriptionLists = mysqlTable("subscription_lists", {
 	isDefault: tinyint().default(0),
 	subscriberCount: int().default(0),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("subscription_lists_slug_unique").on(table.slug),
+	uniqueIndex("subscription_lists_slug_unique").on(table.slug),
 ]);
 
 export const suggestedUpdates = mysqlTable("suggested_updates", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	submitterUserId: int(),
@@ -3322,25 +3391,25 @@ export const suggestedUpdates = mysqlTable("suggested_updates", {
 	moderatorId: int(),
 	moderatorNotes: text(),
 	reviewedAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 	requesterType: mysqlEnum(['internal','external']).default('external').notNull(),
 	source: varchar({ length: 64 }).default('public_form'),
 });
 
 export const tags = mysqlTable("tags", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	tagType: mysqlEnum(['product_tech','regulation','deal_business','sector','region','hub_program','investor','company','event','general']).default('general'),
 	isActive: tinyint().default(1),
 	sortOrder: int().default(0),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
-	index("tags_slug_unique").on(table.slug),
+	uniqueIndex("tags_slug_unique").on(table.slug),
 ]);
 
 // ============================================================
@@ -3356,7 +3425,7 @@ export const tags = mysqlTable("tags", {
 // ============================================================
 
 export const tenants = mysqlTable("tenants", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	slug: varchar({ length: 64 }).notNull(),                                                        // subdomain segment, lowercase
 	name: varchar({ length: 255 }).notNull(),
 	customDomain: varchar("custom_domain", { length: 255 }),                                        // CNAME target — paid tier
@@ -3367,34 +3436,34 @@ export const tenants = mysqlTable("tenants", {
 	brandingLogoUrl: text("branding_logo_url"),
 	brandingPrimaryColor: varchar("branding_primary_color", { length: 16 }),
 	trialEndsAt: timestamp("trial_ends_at", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-	index("tenants_slug_unique").on(table.slug),
-	index("tenants_custom_domain_unique").on(table.customDomain),
+	uniqueIndex("tenants_slug_unique").on(table.slug),
+	uniqueIndex("tenants_custom_domain_unique").on(table.customDomain),
 	index("idx_tenants_status").on(table.status),
 ]);
 
 export const tenantMemberships = mysqlTable("tenant_memberships", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	tenantId: int("tenant_id").notNull(),
 	userId: int("user_id").notNull(),
 	role: mysqlEnum(['owner','recruiter','hiring_manager','interviewer','viewer']).default('recruiter').notNull(),
 	status: mysqlEnum(['invited','active','suspended','left']).default('active').notNull(),
 	invitedById: int("invited_by_id"),
-	invitedAt: timestamp("invited_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	invitedAt: timestamp("invited_at", { mode: 'string' }).defaultNow().notNull(),
 	joinedAt: timestamp("joined_at", { mode: 'string' }),
 	lastActiveAt: timestamp("last_active_at", { mode: 'string' }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-	index("tenant_memberships_unique").on(table.tenantId, table.userId),
+	uniqueIndex("tenant_memberships_unique").on(table.tenantId, table.userId),
 	index("idx_tm_user").on(table.userId),
 	index("idx_tm_tenant_status").on(table.tenantId, table.status),
 ]);
 
 export const tenantAuditLog = mysqlTable("tenant_audit_log", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	tenantId: int("tenant_id").notNull(),
 	userId: int("user_id"),
 	action: varchar({ length: 64 }).notNull(),
@@ -3402,13 +3471,13 @@ export const tenantAuditLog = mysqlTable("tenant_audit_log", {
 	resourceId: int("resource_id"),
 	changes: json(),
 	ipAddress: varchar("ip_address", { length: 45 }),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
 	index("idx_tal_tenant_created").on(table.tenantId, table.createdAt),
 ]);
 
 export const technicalSeoIssues = mysqlTable("technical_seo_issues", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	coverageId: int("coverage_id"),
 	url: text().notNull(),
 	pageType: varchar("page_type", { length: 64 }).default('article').notNull(),
@@ -3428,7 +3497,7 @@ export const technicalSeoIssues = mysqlTable("technical_seo_issues", {
 	resolvedAt: timestamp("resolved_at", { mode: 'string' }),
 	flaggedForReview: tinyint("flagged_for_review").default(0),
 	reviewNotes: text("review_notes"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
@@ -3437,7 +3506,7 @@ export const technicalSeoIssues = mysqlTable("technical_seo_issues", {
 ]);
 
 export const technicalSeoReports = mysqlTable("technical_seo_reports", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	reportType: mysqlEnum("report_type", ['weekly','daily','manual']).default('weekly').notNull(),
 	reportDate: varchar("report_date", { length: 20 }).notNull(),
 	totalPages: int("total_pages").default(0),
@@ -3455,7 +3524,7 @@ export const technicalSeoReports = mysqlTable("technical_seo_reports", {
 	manualReviewUrls: text("manual_review_urls"),
 	reportNarrative: text("report_narrative"),
 	generatedById: int("generated_by_id"),
-	createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
 	index("tech_report_date_idx").on(table.reportDate),
@@ -3463,36 +3532,36 @@ export const technicalSeoReports = mysqlTable("technical_seo_reports", {
 ]);
 
 export const topics = mysqlTable("topics", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
 	isActive: tinyint().default(1),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 },
 (table) => [
-	index("topics_slug_unique").on(table.slug),
+	uniqueIndex("topics_slug_unique").on(table.slug),
 ]);
 
 export const userRoles = mysqlTable("user_roles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int().notNull(),
 	roleId: int().notNull(),
 	assignedById: int(),
 	expiresAt: timestamp({ mode: 'string' }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const users = mysqlTable("users", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	openId: varchar({ length: 64 }).notNull(),
 	name: text(),
 	email: varchar({ length: 320 }),
 	loginMethod: varchar({ length: 64 }),
 	role: mysqlEnum(['user','admin','editor','senior_editor','author','moderator','event_correspondent','event_tenant']).default('user').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
-	lastSignedIn: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	lastSignedIn: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	avatar: text(),
 	bio: text(),
 	password: varchar({ length: 255 }),
@@ -3513,12 +3582,12 @@ export const users = mysqlTable("users", {
 	cvUrl: text(),
 },
 (table) => [
-	index("users_openId_unique").on(table.openId),
-	index("users_username_unique").on(table.username),
+	uniqueIndex("users_openId_unique").on(table.openId),
+	uniqueIndex("users_username_unique").on(table.username),
 ]);
 
 export const vendors = mysqlTable("vendors", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 255 }).notNull(),
 	slug: varchar({ length: 255 }).notNull(),
 	description: text(),
@@ -3544,7 +3613,7 @@ export const vendors = mysqlTable("vendors", {
 	statusId: int().default(1).notNull(),
 	viewCount: int().default(0),
 	sortOrder: int().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP'),
+	createdAt: timestamp({ mode: 'string' }).defaultNow(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
@@ -3555,7 +3624,7 @@ export const vendors = mysqlTable("vendors", {
 ]);
 
 export const workflowAuditLog = mysqlTable("workflow_audit_log", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	entityType: varchar({ length: 64 }).notNull(),
 	entityId: int().notNull(),
 	fromStatusId: int(),
@@ -3563,11 +3632,11 @@ export const workflowAuditLog = mysqlTable("workflow_audit_log", {
 	userId: int().notNull(),
 	comment: text(),
 	metadata: json(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const workflowStatuses = mysqlTable("workflow_statuses", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	name: varchar({ length: 64 }).notNull(),
 	slug: varchar({ length: 64 }).notNull(),
 	description: text(),
@@ -3577,11 +3646,11 @@ export const workflowStatuses = mysqlTable("workflow_statuses", {
 	isInitial: tinyint().default(0),
 	isFinal: tinyint().default(0),
 	isPublished: tinyint().default(0),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const workflowTransitions = mysqlTable("workflow_transitions", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	workflowType: varchar({ length: 64 }).notNull(),
 	fromStatusId: int().notNull(),
 	toStatusId: int().notNull(),
@@ -3589,11 +3658,11 @@ export const workflowTransitions = mysqlTable("workflow_transitions", {
 	allowedRoles: json().notNull(),
 	requiresComment: tinyint().default(0),
 	notifyRoles: json(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const wpMigrationLog = mysqlTable("wp_migration_log", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	wpPostId: int().notNull(),
 	wpPostType: varchar({ length: 64 }).notNull(),
 	wpUrl: text().notNull(),
@@ -3602,11 +3671,11 @@ export const wpMigrationLog = mysqlTable("wp_migration_log", {
 	newUrl: text().notNull(),
 	status: mysqlEnum(['success','redirect_created','failed']).default('success'),
 	notes: text(),
-	migratedAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	migratedAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 export const writerApplications = mysqlTable("writer_applications", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int(),
 	email: varchar({ length: 320 }).notNull(),
 	fullName: varchar({ length: 255 }).notNull(),
@@ -3622,12 +3691,12 @@ export const writerApplications = mysqlTable("writer_applications", {
 	reviewedById: int(),
 	reviewedAt: timestamp({ mode: 'string' }),
 	reviewNotes: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const writerPayouts = mysqlTable("writer_payouts", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	writerId: int().notNull(),
 	amount: decimal({ precision: 15, scale: 2 }).notNull(),
 	currency: varchar({ length: 3 }).default('USD'),
@@ -3638,12 +3707,12 @@ export const writerPayouts = mysqlTable("writer_payouts", {
 	processedAt: timestamp({ mode: 'string' }),
 	processedById: int(),
 	notes: text(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 });
 
 export const writerProfiles = mysqlTable("writer_profiles", {
-	id: int().autoincrement().notNull(),
+	id: int().autoincrement().primaryKey(),
 	userId: int().notNull(),
 	tier: mysqlEnum(['new','regular','senior','expert']).default('new').notNull(),
 	revenueShareRate: decimal({ precision: 5, scale: 2 }).default('40.00'),
@@ -3658,16 +3727,16 @@ export const writerProfiles = mysqlTable("writer_profiles", {
 	taxFormUrl: text(),
 	taxFormVerified: tinyint().default(0),
 	status: mysqlEnum(['active','paused','terminated']).default('active').notNull(),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 	updatedAt: timestamp({ mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 },
 (table) => [
-	index("writer_profiles_userId_unique").on(table.userId),
+	uniqueIndex("writer_profiles_userId_unique").on(table.userId),
 ]);
 
 
 export const formSubmissions = mysqlTable("form_submissions", {
-	id: int().autoincrement().notNull().primaryKey(),
+	id: int().autoincrement().primaryKey().primaryKey(),
 	formType: varchar({ length: 64 }).notNull(),
 	email: varchar({ length: 320 }).notNull(),
 	name: varchar({ length: 255 }),
@@ -3675,7 +3744,7 @@ export const formSubmissions = mysqlTable("form_submissions", {
 	ipHash: varchar({ length: 16 }),
 	userAgent: varchar({ length: 512 }),
 	source: varchar({ length: 128 }),
-	createdAt: timestamp({ mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+	createdAt: timestamp({ mode: 'string' }).defaultNow().notNull(),
 });
 
 // ============================================================
@@ -3693,7 +3762,7 @@ export const formSubmissions = mysqlTable("form_submissions", {
 // rows get updated when the locale infrastructure lands.
 // ============================================================
 export const editions = mysqlTable("editions", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   countryId: int("country_id"),                                          // FK → countries.id; NULL only for the International row
   name: varchar({ length: 64 }).notNull(),                               // "Saudi Arabia", "International"
   slug: varchar({ length: 32 }).notNull(),                               // "sa", "ae", "intl"
@@ -3702,11 +3771,11 @@ export const editions = mysqlTable("editions", {
   isActive: tinyint("is_active").default(1).notNull(),
   supportedLocales: json("supported_locales").default(['en']),           // forward-compat: ["en","ar"], ["en","tr"], etc.
   sortOrder: int("sort_order").default(0).notNull(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("editions_slug_unique").on(table.slug),
-  index("editions_country_id_unique").on(table.countryId),
+  uniqueIndex("editions_slug_unique").on(table.slug),
+  uniqueIndex("editions_country_id_unique").on(table.countryId),
   index("idx_editions_active_sort").on(table.isActive, table.sortOrder),
 ]);
 
@@ -3723,7 +3792,7 @@ export const editions = mysqlTable("editions", {
 // -------------------- Phase 2 — Candidate core --------------------
 
 export const candidates = mysqlTable("candidates", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id"),                                                                        // NULL = global candidate (legacy)
   userId: int("user_id").notNull(),
   headline: varchar({ length: 255 }),
@@ -3751,28 +3820,28 @@ export const candidates = mysqlTable("candidates", {
   consentMarketingAt: timestamp("consent_marketing_at", { mode: 'string' }),
   consentThirdPartyAt: timestamp("consent_third_party_at", { mode: 'string' }),
   isArchived: tinyint("is_archived").default(0).notNull(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
   lastActiveAt: timestamp("last_active_at", { mode: 'string' }),
 }, (table) => [
-  index("candidates_tenant_user_unique").on(table.tenantId, table.userId),
+  uniqueIndex("candidates_tenant_user_unique").on(table.tenantId, table.userId),
   index("idx_candidates_user").on(table.userId),
   index("idx_candidates_tenant_active").on(table.tenantId, table.isArchived, table.lastActiveAt),
 ]);
 
 export const candidateTenantVisibility = mysqlTable("candidate_tenant_visibility", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   candidateId: int("candidate_id").notNull(),
   tenantId: int("tenant_id").notNull(),
   source: mysqlEnum(['signup','referral','imported','application','admin']).default('signup').notNull(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
-  index("cv_candidate_tenant_unique").on(table.candidateId, table.tenantId),
+  uniqueIndex("cv_candidate_tenant_unique").on(table.candidateId, table.tenantId),
   index("idx_cv_tenant").on(table.tenantId),
 ]);
 
 export const resumeParses = mysqlTable("resume_parses", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   candidateId: int("candidate_id").notNull(),
   mediaId: int("media_id").notNull(),
   provider: varchar({ length: 32 }),
@@ -3782,7 +3851,7 @@ export const resumeParses = mysqlTable("resume_parses", {
   qualityScore: int("quality_score"),
   error: text(),
   latencyMs: int("latency_ms"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_resume_parses_candidate").on(table.candidateId),
 ]);
@@ -3790,7 +3859,7 @@ export const resumeParses = mysqlTable("resume_parses", {
 // -------------------- Phase 3 — ATS pipeline --------------------
 
 export const pipelineStages = mysqlTable("pipeline_stages", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id"),                // NULL = global pipeline for legacy public jobs (migration 0046)
   jobId: int("job_id"),
   name: varchar({ length: 128 }).notNull(),
@@ -3801,28 +3870,28 @@ export const pipelineStages = mysqlTable("pipeline_stages", {
   isTerminal: tinyint("is_terminal").default(0).notNull(),
   isDefault: tinyint("is_default").default(0).notNull(),
   autoEmailTemplateId: int("auto_email_template_id"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_pipeline_tenant_job").on(table.tenantId, table.jobId, table.position),
 ]);
 
 export const candidateStageHistory = mysqlTable("candidate_stage_history", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   applicationId: int("application_id").notNull(),
   fromStageId: int("from_stage_id"),
   toStageId: int("to_stage_id").notNull(),
   movedById: int("moved_by_id").notNull(),
   reason: text(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_csh_application").on(table.applicationId),
   index("idx_csh_tenant_created").on(table.tenantId, table.createdAt),
 ]);
 
 export const interviews = mysqlTable("interviews", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   applicationId: int("application_id").notNull(),
   stageId: int("stage_id"),
@@ -3834,7 +3903,7 @@ export const interviews = mysqlTable("interviews", {
   assignedInterviewerIds: json("assigned_interviewer_ids"),
   status: mysqlEnum(['scheduled','rescheduled','completed','cancelled','no_show']).default('scheduled').notNull(),
   createdById: int("created_by_id").notNull(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_interviews_application").on(table.applicationId),
@@ -3842,7 +3911,7 @@ export const interviews = mysqlTable("interviews", {
 ]);
 
 export const interviewFeedback = mysqlTable("interview_feedback", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   interviewId: int("interview_id").notNull(),
   interviewerId: int("interviewer_id").notNull(),
@@ -3855,15 +3924,15 @@ export const interviewFeedback = mysqlTable("interview_feedback", {
   concerns: text(),
   notes: text(),
   submittedAt: timestamp("submitted_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("if_interview_interviewer_unique").on(table.interviewId, table.interviewerId),
+  uniqueIndex("if_interview_interviewer_unique").on(table.interviewId, table.interviewerId),
   index("idx_if_tenant").on(table.tenantId),
 ]);
 
 export const offers = mysqlTable("offers", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   applicationId: int("application_id").notNull(),
   extendedById: int("extended_by_id").notNull(),
@@ -3877,7 +3946,7 @@ export const offers = mysqlTable("offers", {
   letterBody: text("letter_body"),
   declineReason: text("decline_reason"),
   respondedAt: timestamp("responded_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_offers_application").on(table.applicationId),
@@ -3885,7 +3954,7 @@ export const offers = mysqlTable("offers", {
 ]);
 
 export const recruiterNotes = mysqlTable("recruiter_notes", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   applicationId: int("application_id"),
   candidateId: int("candidate_id"),
@@ -3893,7 +3962,7 @@ export const recruiterNotes = mysqlTable("recruiter_notes", {
   body: text().notNull(),
   visibility: mysqlEnum(['private','team','tenant']).default('team').notNull(),
   mentions: json(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_rn_application").on(table.applicationId),
@@ -3904,7 +3973,7 @@ export const recruiterNotes = mysqlTable("recruiter_notes", {
 // -------------------- Phase 4 — GitHub Intelligence --------------------
 
 export const githubProfiles = mysqlTable("github_profiles", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   candidateId: int("candidate_id").notNull(),
   githubUserId: bigint("github_user_id", { mode: 'number' }).notNull(),
   handle: varchar({ length: 128 }).notNull(),
@@ -3922,15 +3991,15 @@ export const githubProfiles = mysqlTable("github_profiles", {
   oauthScopes: json("oauth_scopes"),
   installationId: bigint("installation_id", { mode: 'number' }),
   lastSyncedAt: timestamp("last_synced_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("github_profiles_candidate_unique").on(table.candidateId),
-  index("github_profiles_user_unique").on(table.githubUserId),
+  uniqueIndex("github_profiles_candidate_unique").on(table.candidateId),
+  uniqueIndex("github_profiles_user_unique").on(table.githubUserId),
 ]);
 
 export const githubRepos = mysqlTable("github_repos", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   profileId: int("profile_id").notNull(),
   githubRepoId: bigint("github_repo_id", { mode: 'number' }).notNull(),
   name: varchar({ length: 255 }).notNull(),
@@ -3948,26 +4017,26 @@ export const githubRepos = mysqlTable("github_repos", {
   commitCount30d: int("commit_count_30d"),
   commitCountTotal: int("commit_count_total"),
   isArchived: tinyint("is_archived").default(0).notNull(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("github_repos_profile_repo_unique").on(table.profileId, table.githubRepoId),
+  uniqueIndex("github_repos_profile_repo_unique").on(table.profileId, table.githubRepoId),
   index("idx_github_repos_lang").on(table.primaryLanguage),
 ]);
 
 export const githubSignals = mysqlTable("github_signals", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   profileId: int("profile_id").notNull(),
   signalType: mysqlEnum("signal_type", ['language_distribution','contribution_cadence','project_velocity','collaboration','tech_stack','open_source_impact','ai_summary']).notNull(),
   payload: json().notNull(),
   score: int(),
-  computedAt: timestamp("computed_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  computedAt: timestamp("computed_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_gh_signals_profile_type").on(table.profileId, table.signalType),
 ]);
 
 export const githubFetchJobs = mysqlTable("github_fetch_jobs", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   profileId: int("profile_id").notNull(),
   jobType: mysqlEnum("job_type", ['initial_sync','incremental','signals_compute','manual_refresh']).notNull(),
   status: mysqlEnum(['queued','running','completed','failed','retrying']).default('queued').notNull(),
@@ -3976,7 +4045,7 @@ export const githubFetchJobs = mysqlTable("github_fetch_jobs", {
   completedAt: timestamp("completed_at", { mode: 'string' }),
   error: text(),
   payload: json(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_gfj_profile").on(table.profileId),
@@ -3986,7 +4055,7 @@ export const githubFetchJobs = mysqlTable("github_fetch_jobs", {
 // -------------------- Phase 5 — Assessment engine --------------------
 
 export const assessmentTemplates = mysqlTable("assessment_templates", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   name: varchar({ length: 255 }).notNull(),
   slug: varchar({ length: 255 }).notNull(),
@@ -3997,15 +4066,15 @@ export const assessmentTemplates = mysqlTable("assessment_templates", {
   totalPoints: int("total_points"),
   isActive: tinyint("is_active").default(1).notNull(),
   createdById: int("created_by_id"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("at_tenant_slug_unique").on(table.tenantId, table.slug),
+  uniqueIndex("at_tenant_slug_unique").on(table.tenantId, table.slug),
   index("idx_at_tenant_active").on(table.tenantId, table.isActive),
 ]);
 
 export const assessmentQuestions = mysqlTable("assessment_questions", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   templateId: int("template_id").notNull(),
   position: int().default(0).notNull(),
   type: mysqlEnum(['coding','multiple_choice','short_answer','long_answer','system_design','file_upload']).notNull(),
@@ -4018,14 +4087,14 @@ export const assessmentQuestions = mysqlTable("assessment_questions", {
   rubric: text(),
   points: int().default(10).notNull(),
   timeLimitSeconds: int("time_limit_seconds"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_aq_template").on(table.templateId, table.position),
 ]);
 
 export const assessmentAttempts = mysqlTable("assessment_attempts", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   templateId: int("template_id").notNull(),
   candidateId: int("candidate_id").notNull(),
@@ -4040,16 +4109,16 @@ export const assessmentAttempts = mysqlTable("assessment_attempts", {
   totalScore: int("total_score"),
   passed: tinyint(),
   proctorViolations: json("proctor_violations"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("aa_invite_token_unique").on(table.inviteToken),
+  uniqueIndex("aa_invite_token_unique").on(table.inviteToken),
   index("idx_aa_candidate").on(table.candidateId),
   index("idx_aa_tenant_status").on(table.tenantId, table.status),
 ]);
 
 export const assessmentAttemptAnswers = mysqlTable("assessment_attempt_answers", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   attemptId: int("attempt_id").notNull(),
   questionId: int("question_id").notNull(),
   answerText: text("answer_text"),
@@ -4061,14 +4130,14 @@ export const assessmentAttemptAnswers = mysqlTable("assessment_attempt_answers",
   llmFeedback: text("llm_feedback"),
   gradedById: int("graded_by_id"),
   gradedAt: timestamp("graded_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("aaa_attempt_question_unique").on(table.attemptId, table.questionId),
+  uniqueIndex("aaa_attempt_question_unique").on(table.attemptId, table.questionId),
 ]);
 
 export const assessmentCodeRuns = mysqlTable("assessment_code_runs", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   answerId: int("answer_id").notNull(),
   language: varchar({ length: 32 }).notNull(),
   sourceCode: text("source_code").notNull(),
@@ -4083,14 +4152,14 @@ export const assessmentCodeRuns = mysqlTable("assessment_code_runs", {
   runtimeMs: int("runtime_ms"),
   memoryKb: int("memory_kb"),
   passed: tinyint(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_acr_answer").on(table.answerId),
   index("idx_acr_token").on(table.judge0Token),
 ]);
 
 export const aiInterviewSessions = mysqlTable("ai_interview_sessions", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   attemptId: int("attempt_id").notNull(),
   candidateId: int("candidate_id").notNull(),
@@ -4104,34 +4173,34 @@ export const aiInterviewSessions = mysqlTable("ai_interview_sessions", {
   summary: text(),
   startedAt: timestamp("started_at", { mode: 'string' }),
   completedAt: timestamp("completed_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("ais_attempt_unique").on(table.attemptId),
+  uniqueIndex("ais_attempt_unique").on(table.attemptId),
   index("idx_ais_candidate").on(table.candidateId),
 ]);
 
 export const aiInterviewTurns = mysqlTable("ai_interview_turns", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   sessionId: int("session_id").notNull(),
   turnIndex: int("turn_index").notNull(),
   role: mysqlEnum(['interviewer','candidate']).notNull(),
   content: text().notNull(),
   tokenCount: int("token_count"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_ait_session_turn").on(table.sessionId, table.turnIndex),
 ]);
 
 export const plagiarismReports = mysqlTable("plagiarism_reports", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   attemptId: int("attempt_id").notNull(),
   answerId: int("answer_id").notNull(),
   method: mysqlEnum(['token_shingle','embedding_similarity','exact_match']).notNull(),
   similarityScore: decimal("similarity_score", { precision: 5, scale: 4 }),
   matchedSource: text("matched_source"),
   details: json(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_pr_attempt").on(table.attemptId),
 ]);
@@ -4139,7 +4208,7 @@ export const plagiarismReports = mysqlTable("plagiarism_reports", {
 // -------------------- Phase 6 — Scoring + Matching --------------------
 
 export const candidateScores = mysqlTable("candidate_scores", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   candidateId: int("candidate_id").notNull(),
   jobId: int("job_id"),
@@ -4150,14 +4219,14 @@ export const candidateScores = mysqlTable("candidate_scores", {
   matchScore: decimal("match_score", { precision: 6, scale: 2 }),
   weights: json(),
   explanation: text(),
-  computedAt: timestamp("computed_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  computedAt: timestamp("computed_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_cs_candidate_job").on(table.candidateId, table.jobId),
   index("idx_cs_tenant_score").on(table.tenantId, table.compositeScore),
 ]);
 
 export const candidateEmbeddingsMeta = mysqlTable("candidate_embeddings_meta", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   candidateId: int("candidate_id").notNull(),
   provider: varchar({ length: 32 }).notNull(),
@@ -4166,14 +4235,14 @@ export const candidateEmbeddingsMeta = mysqlTable("candidate_embeddings_meta", {
   qdrantPointId: varchar("qdrant_point_id", { length: 64 }).notNull(),
   payloadHash: varchar("payload_hash", { length: 64 }),
   indexedAt: timestamp("indexed_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
-  index("cem_candidate_unique").on(table.candidateId),
+  uniqueIndex("cem_candidate_unique").on(table.candidateId),
   index("idx_cem_tenant").on(table.tenantId),
 ]);
 
 export const jobEmbeddingsMeta = mysqlTable("job_embeddings_meta", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id"),
   jobId: int("job_id").notNull(),
   provider: varchar({ length: 32 }).notNull(),
@@ -4182,16 +4251,16 @@ export const jobEmbeddingsMeta = mysqlTable("job_embeddings_meta", {
   qdrantPointId: varchar("qdrant_point_id", { length: 64 }).notNull(),
   payloadHash: varchar("payload_hash", { length: 64 }),
   indexedAt: timestamp("indexed_at", { mode: 'string' }),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
-  index("jem_job_unique").on(table.jobId),
+  uniqueIndex("jem_job_unique").on(table.jobId),
   index("idx_jem_tenant").on(table.tenantId),
 ]);
 
 // -------------------- Phase 7 — Tenant billing --------------------
 
 export const tenantBillingSubscriptions = mysqlTable("tenant_billing_subscriptions", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   stripeCustomerId: varchar("stripe_customer_id", { length: 128 }),
   stripeSubscriptionId: varchar("stripe_subscription_id", { length: 128 }),
@@ -4203,17 +4272,17 @@ export const tenantBillingSubscriptions = mysqlTable("tenant_billing_subscriptio
   currentPeriodEnd: timestamp("current_period_end", { mode: 'string' }),
   cancelAtPeriodEnd: tinyint("cancel_at_period_end").default(0).notNull(),
   lastPayload: json("last_payload"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("tbs_tenant_unique").on(table.tenantId),
-  index("tbs_stripe_subscription_unique").on(table.stripeSubscriptionId),
+  uniqueIndex("tbs_tenant_unique").on(table.tenantId),
+  uniqueIndex("tbs_stripe_subscription_unique").on(table.stripeSubscriptionId),
 ]);
 
 // -------------------- Phase 8 — Compliance --------------------
 
 export const piiAccessLog = mysqlTable("pii_access_log", {
-  id: bigint({ mode: 'number' }).autoincrement().notNull(),
+  id: bigint({ mode: 'number' }).autoincrement().primaryKey(),
   tenantId: int("tenant_id"),
   actorUserId: int("actor_user_id").notNull(),
   actorRole: varchar("actor_role", { length: 64 }),
@@ -4222,7 +4291,7 @@ export const piiAccessLog = mysqlTable("pii_access_log", {
   action: mysqlEnum(['read','export','update','delete','consent']).notNull(),
   ipAddress: varchar("ip_address", { length: 45 }),
   userAgent: text("user_agent"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
   index("idx_pal_subject").on(table.subjectType, table.subjectId),
   index("idx_pal_actor_created").on(table.actorUserId, table.createdAt),
@@ -4230,7 +4299,7 @@ export const piiAccessLog = mysqlTable("pii_access_log", {
 ]);
 
 export const candidateErasureRequests = mysqlTable("candidate_erasure_requests", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id"),
   candidateId: int("candidate_id").notNull(),
   requestedById: int("requested_by_id").notNull(),
@@ -4240,7 +4309,7 @@ export const candidateErasureRequests = mysqlTable("candidate_erasure_requests",
   gracePeriodEndsAt: timestamp("grace_period_ends_at", { mode: 'string' }),
   executedAt: timestamp("executed_at", { mode: 'string' }),
   rejectionReason: text("rejection_reason"),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
   index("idx_cer_candidate").on(table.candidateId),
@@ -4248,19 +4317,60 @@ export const candidateErasureRequests = mysqlTable("candidate_erasure_requests",
 ]);
 
 export const retentionPolicies = mysqlTable("retention_policies", {
-  id: int().autoincrement().notNull(),
+  id: int().autoincrement().primaryKey(),
   tenantId: int("tenant_id").notNull(),
   subjectType: mysqlEnum("subject_type", ['candidate','application','assessment_attempt','interview']).notNull(),
   retentionDays: int("retention_days").notNull(),
   appliesWhen: mysqlEnum("applies_when", ['after_last_activity','after_status_terminal','after_creation']).default('after_last_activity').notNull(),
   isActive: tinyint("is_active").default(1).notNull(),
-  createdAt: timestamp("created_at", { mode: 'string' }).default('CURRENT_TIMESTAMP').notNull(),
+  createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
 }, (table) => [
-  index("rp_tenant_subject_unique").on(table.tenantId, table.subjectType),
+  uniqueIndex("rp_tenant_subject_unique").on(table.tenantId, table.subjectType),
   index("idx_rp_tenant_active").on(table.tenantId, table.isActive),
 ]);
 
 // Type exports for compatibility
+
+// ============================================================
+// Newsletters (public newsletter catalog + per-newsletter subscriptions)
+// Previously created outside the migration chain; brought into the schema
+// so fresh databases get them from the baseline migration.
+// ============================================================
+
+export const newsletters = mysqlTable("newsletters", {
+	id: int().autoincrement().primaryKey(),
+	slug: varchar({ length: 64 }).notNull(),
+	name: varchar({ length: 255 }).notNull(),
+	description: text(),
+	category: varchar({ length: 64 }),
+	frequency: mysqlEnum(['daily','weekly','biweekly','monthly']).default('weekly'),
+	isActive: tinyint().default(1),
+	subscriberCount: int().default(0),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
+},
+(table) => [
+	uniqueIndex("idx_newsletters_slug").on(table.slug),
+	index("idx_newsletters_is_active").on(table.isActive),
+]);
+
+export const newsletterSubscriptions = mysqlTable("newsletter_subscriptions", {
+	id: int().autoincrement().primaryKey(),
+	email: varchar({ length: 320 }).notNull(),
+	newsletterId: int().notNull(),
+	status: mysqlEnum(['subscribed','unsubscribed','bounced']).default('subscribed'),
+	subscribedAt: timestamp("subscribed_at", { mode: 'string' }).defaultNow().notNull(),
+	unsubscribedAt: timestamp("unsubscribed_at", { mode: 'string' }),
+	source: varchar({ length: 128 }),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
+},
+(table) => [
+	index("idx_newsletter_subscriptions_email").on(table.email),
+	index("idx_newsletter_subscriptions_newsletter_id").on(table.newsletterId),
+	index("idx_newsletter_subscriptions_status").on(table.status),
+]);
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
