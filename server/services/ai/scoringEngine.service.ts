@@ -1,11 +1,13 @@
 /**
- * TechScoop News Agent v2.0 — Three-Stage Scoring Engine
+ * News Agent v2.0 — Three-Stage Scoring Engine
  *
  * Stage 1: DB-driven keyword scoring (MENA entities, geography, funding signals)
  * Stage 2: LLM semantic scoring with structured JSON response
  * Stage 3: Editorial pattern adjustment (self-learning from feedback)
  */
 
+import { publication } from "../../../shared/publication";
+import { EDITORIAL_IDENTITY, SCORING_RUBRIC } from "../../config/editorial";
 import { getDb } from "../../db";
 import { invokeLLM } from "../../_core/llm";
 
@@ -174,19 +176,15 @@ export async function stage2LLMScore(
     .map(t => `  Tier ${t.tier}: ${t.name}`)
     .join("\n");
 
-  const systemPrompt = `You are an expert editorial AI for TechScoop, MENA's leading tech ecosystem platform covering startups, investors, jobs, and events across the GCC, Egypt, Jordan, Pakistan, and broader MENA region.
+  const systemPrompt = `You are an expert editorial AI for ${publication.name}. ${EDITORIAL_IDENTITY}
 
-Your task is to evaluate whether a news article is relevant and valuable for TechScoop's editorial mission.
+Your task is to evaluate whether a news article is relevant and valuable for ${publication.name}'s editorial mission.
 
 EDITORIAL TAXONOMY:
 ${taxonomyList}
 
 SCORING CRITERIA:
-- 90-100: Tier 1 story — MENA startup funding, unicorn news, major acquisition, regulatory change directly affecting MENA tech
-- 70-89: Tier 2 story — MENA sector news, fintech/healthtech/edtech with MENA angle, key person in MENA tech
-- 50-69: Tier 3 story — Global tech with clear MENA implications or MENA company mentioned
-- 30-49: Contextual — Tangentially relevant, global tech trend that could affect MENA
-- 0-29: Not relevant — No MENA angle, pure global tech without regional relevance
+${SCORING_RUBRIC}
 
 ${editorialBrief ? `SOURCE EDITORIAL BRIEF:\n${editorialBrief}\n` : ""}
 
@@ -196,11 +194,11 @@ Respond ONLY with valid JSON matching this exact schema:
   "tier": <1, 2, 3, or null>,
   "category": <string matching taxonomy name, or null>,
   "reasoning": <string, max 100 words explaining the score>,
-  "suggested_angle": <string, max 50 words — how TechScoop should cover this if relevant, or null>,
-  "mena_entities_detected": <array of MENA company/person/place names found in the article>
+  "suggested_angle": <string, max 50 words — how ${publication.name} should cover this if relevant, or null>,
+  "mena_entities_detected": <array of regional company/person/place names found in the article>
 }`;
 
-  const userPrompt = `Evaluate this article for TechScoop:
+  const userPrompt = `Evaluate this article for ${publication.name}:
 
 TITLE: ${article.title}
 EXCERPT: ${article.excerpt}
@@ -225,7 +223,7 @@ ${stage1Result.matchedEntities.length > 0 ? `DETECTED MENA ENTITIES: ${stage1Res
               tier: { type: ["integer", "null"], description: "Editorial tier 1, 2, 3, or null" },
               category: { type: ["string", "null"], description: "Taxonomy category name" },
               reasoning: { type: "string", description: "Brief reasoning for the score" },
-              suggested_angle: { type: ["string", "null"], description: "How TechScoop should cover this" },
+              suggested_angle: { type: ["string", "null"], description: "How the publication should cover this" },
               mena_entities_detected: { type: "array", items: { type: "string" }, description: "MENA entities found" },
             },
             required: ["score", "tier", "category", "reasoning", "suggested_angle", "mena_entities_detected"],

@@ -22,14 +22,15 @@
  * 'pending' and an admin will see it on the dashboard regardless.
  */
 
+import { EDITORIAL_SHORT } from "../config/editorial";
 import { eq } from "drizzle-orm";
 import { getDb } from "../db";
 import { eventSubmissions } from "../../drizzle/schema";
 import { invokeLLM } from "../_core/llm";
 
 const SYSTEM_PROMPT =
-  "You are a moderation assistant for TechScoop, a MENA tech publication. " +
-  "Users submit tech events (conferences, webinars, meetups, hackathons) " +
+  `You are a moderation assistant for ${EDITORIAL_SHORT}. ` +
+  "Users submit industry events (conferences, expos, forums, webinars) " +
   "to the public Events Hub. Your job is to triage submissions into 'looks " +
   "legitimate' vs 'looks suspicious' so a human moderator only has to spend " +
   "time on the latter.\n\n" +
@@ -39,7 +40,7 @@ const SYSTEM_PROMPT =
   "- Start date in the next ~2 years, not 50 years out, not deep in the past\n" +
   "- Organizer name + email on a corporate / org domain (not @test.com, not @example.com)\n" +
   "- Language quality: coherent sentences, no obvious spam phrasing\n" +
-  "- Fits TechScoop's beat: MENA region OR a virtual event from a credible global org\n\n" +
+  `- Fits the publication's beat: industry/infrastructure/energy events in Saudi Arabia, the GCC or MENA, OR a virtual industry event from a credible global org\n\n` +
   "Signals of SPAM / SCAM / TEST submissions:\n" +
   "- Lorem ipsum, 'test', 'asdf', single-character fields\n" +
   "- Crypto-airdrop, get-rich, MLM, adult content, fake giveaways\n" +

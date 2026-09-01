@@ -3,6 +3,8 @@
  * Core service for generating articles, entity profiles, resources, and any content type
  * Handles editorial policy enforcement, entity extraction, image search, and cross-table population
  */
+import { publication } from "../../../shared/publication";
+import { EDITORIAL_IDENTITY, HOUSE_STYLE } from "../../config/editorial";
 import { invokeLLMProvider, type LLMProvider, type LLMResponse } from "./llmProvider.service";
 import { getDb } from "../../db";
 import {
@@ -152,10 +154,13 @@ export async function getContentTemplate(templateId?: number, contentType?: stri
 // ============================================================
 
 function buildSystemPrompt(policy: EditorialPolicy | null, template: any | null, contentType: string): string {
-  let prompt = `You are TechScoop's AI Content Engine — a world-class editorial assistant for MENA's leading tech ecosystem platform. You produce publication-ready content that matches TechScoop's editorial voice and standards.
+  let prompt = `You are ${publication.name}'s AI Content Engine — a world-class editorial assistant for a professional industry publication. You produce publication-ready content that matches ${publication.name}'s editorial voice and standards.
 
 PLATFORM CONTEXT:
-TechScoop covers the Middle East and North Africa (MENA) tech ecosystem including startups, investors, funding rounds, accelerators, incubators, events, jobs, and people in the technology industry. Content focuses on the Gulf region (UAE, Saudi Arabia, Bahrain, Qatar, Kuwait, Oman) and broader MENA markets.
+${EDITORIAL_IDENTITY}
+
+HOUSE STYLE:
+${HOUSE_STYLE}
 
 OUTPUT FORMAT:
 - Return valid JSON matching the requested schema
@@ -192,15 +197,15 @@ OUTPUT FORMAT:
       prompt += `- ADDITIONAL CONTEXT: ${rules.customInstructions || rules.description}\n`;
     }
   } else {
-    // Default TechScoop editorial style
+    // Default editorial style
     prompt += `DEFAULT EDITORIAL POLICY:
-- Tone: Professional, authoritative, informative — like Bloomberg or TechCrunch for MENA
+- Tone: Professional, authoritative, informative — a serious business newsroom covering industry and infrastructure
 - Style: Clean, concise paragraphs. No bullet points in article body. No dashes (—) in running text.
 - Paragraph style: Full flowing paragraphs, 3-5 sentences each. No single-sentence paragraphs.
 - Heading style: Use H2 for major sections, H3 for subsections. Title case.
 - Word count: 600–1200 words for news, 1500–3000 for reports/interviews
-- AVOID: Dashes in text, bullet lists in articles, exclamation marks, clickbait, speculation, "breaking" unless truly breaking
-- MUST INCLUDE: Relevant context about the MENA tech ecosystem, company background, key people involved
+- AVOID: Dashes in text, bullet lists in articles, exclamation marks, clickbait, speculation, "breaking" unless truly breaking, marketing vocabulary ("revolutionizing", "game-changing", "cutting-edge")
+- MUST INCLUDE: Deal/project values, timelines and locations when known; company background; key people involved; why the story matters to the region's industrial economy
 `;
   }
 
@@ -363,7 +368,7 @@ function buildUserPrompt(input: ContentGenerationInput): string {
 
   switch (input.contentType) {
     case "article":
-      prompt = `Generate a complete article for TechScoop.
+      prompt = `Generate a complete article for ${publication.name}.
 
 `;
       if (input.title) prompt += `TITLE/TOPIC: ${input.title}\n`;
@@ -395,7 +400,7 @@ Return JSON with this structure:
       break;
 
     case "company":
-      prompt = `Generate a comprehensive company profile for TechScoop.
+      prompt = `Generate a comprehensive company profile for ${publication.name}.
 
 `;
       if (input.title) prompt += `COMPANY NAME: ${input.title}\n`;
@@ -427,7 +432,7 @@ Return JSON with:
       break;
 
     case "person":
-      prompt = `Generate a comprehensive person profile for TechScoop.
+      prompt = `Generate a comprehensive person profile for ${publication.name}.
 
 `;
       if (input.title) prompt += `PERSON NAME: ${input.title}\n`;
@@ -453,7 +458,7 @@ Return JSON with:
       break;
 
     case "investor":
-      prompt = `Generate a comprehensive investor profile for TechScoop.
+      prompt = `Generate a comprehensive investor profile for ${publication.name}.
 
 `;
       if (input.title) prompt += `INVESTOR NAME: ${input.title}\n`;
@@ -478,7 +483,7 @@ Return JSON with:
       break;
 
     case "event":
-      prompt = `Generate a comprehensive event listing for TechScoop.
+      prompt = `Generate a comprehensive event listing for ${publication.name}.
 
 `;
       if (input.title) prompt += `EVENT NAME: ${input.title}\n`;
@@ -504,7 +509,7 @@ Return JSON with:
       break;
 
     case "resource":
-      prompt = `Generate a comprehensive resource/report for TechScoop.
+      prompt = `Generate a comprehensive resource/report for ${publication.name}.
 
 `;
       if (input.title) prompt += `RESOURCE TITLE: ${input.title}\n`;
@@ -529,7 +534,7 @@ Return JSON with:
 
     default:
       // Generic / custom content type
-      prompt = `Generate content for TechScoop.
+      prompt = `Generate content for ${publication.name}.
 
 `;
       if (input.title) prompt += `TITLE/TOPIC: ${input.title}\n`;
@@ -891,7 +896,7 @@ async function searchArticleImage(title: string, contentType: string): Promise<{
     if (!forgeUrl || !forgeKey) return null;
 
     // Search for a relevant image using the Forge API search endpoint
-    const searchQuery = `${title} ${contentType === "article" ? "technology MENA" : contentType}`;
+    const searchQuery = `${title} ${contentType === "article" ? "industry infrastructure" : contentType}`;
     const response = await fetch(`${forgeUrl.replace(/\/+$/, "")}/v1/search/image`, {
       method: "POST",
       headers: {
@@ -1235,9 +1240,9 @@ export async function enhanceContent(
   const instructions: Record<string, string> = {
     seo: "Enhance this content for SEO. Improve keyword density, add relevant H2/H3 headings, optimize meta description. Keep the same facts and tone.",
     readability: "Improve readability. Break long paragraphs, simplify complex sentences, improve flow. Keep all facts intact.",
-    expand: "Expand this content with more detail, context, and analysis. Add relevant background information about the MENA tech ecosystem.",
+    expand: "Expand this content with more detail, context, and analysis. Add relevant background about the companies, projects and markets involved.",
     shorten: "Condense this content to be more concise while keeping all key facts and quotes. Target 60% of current length.",
-    tone: "Adjust the tone to be more professional and authoritative, matching Bloomberg/TechCrunch style for MENA tech coverage.",
+    tone: "Adjust the tone to be more professional and authoritative, matching a serious business newsroom covering industry and infrastructure.",
   };
 
   return generateContent({

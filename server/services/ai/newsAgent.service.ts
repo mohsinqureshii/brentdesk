@@ -6,7 +6,7 @@
  *
  * SCORING SIGNALS (all 0–1, blended into final 0–100 score):
  *  1. Keyword relevance   – MENA/tech/startup keyword density in title+summary
- *  2. LLM semantic score  – GPT rates topical fit for TechScoop editorial focus
+ *  2. LLM semantic score  – the LLM rates topical fit for the publication editorial focus
  *  3. Recency boost       – articles < 6h get +0.10, < 24h +0.05
  *  4. Title quality       – penalise clickbait/listicle patterns
  *  5. Content depth       – reward articles with substantial body text
@@ -14,6 +14,8 @@
  *  7. Novelty             – penalise topics already covered in last 7 days
  */
 
+import { publication } from "../../../shared/publication";
+import { EDITORIAL_IDENTITY, SCORING_RUBRIC } from "../../config/editorial";
 import { getDb } from "../../db";
 import {
   aiAgentSources, aiAgentCrawlLog, aiAgentDiscoveredArticles,
@@ -132,7 +134,7 @@ async function crawlRSS(url: string): Promise<DiscoveredItem[]> {
   try {
     const response = await fetch(feedUrl, {
       headers: {
-        "User-Agent": "TechScoop-Agent/1.0 (https://techscoop.io; news-aggregation-bot)",
+        "User-Agent": publication.bots.newsAgent,
         "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
         "Cache-Control": "no-cache",
       },
@@ -226,7 +228,7 @@ async function resolveRSSFeedUrl(url: string): Promise<string> {
     try {
       const resp = await fetch(candidate, {
         method: "HEAD",
-        headers: { "User-Agent": "TechScoop-Agent/1.0" },
+        headers: { "User-Agent": publication.bots.newsAgent },
         signal: AbortSignal.timeout(8000),
       });
       if (resp.ok) {
@@ -253,7 +255,7 @@ async function crawlWebPage(url: string, selectors: any): Promise<DiscoveredItem
   try {
     const response = await fetch(url, {
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; TechScoop-Agent/1.0; +https://techscoop.io)",
+        "User-Agent": publication.bots.newsAgent,
         "Accept": "text/html,application/xhtml+xml",
       },
       signal: AbortSignal.timeout(30000),
@@ -291,7 +293,7 @@ async function crawlWebPage(url: string, selectors: any): Promise<DiscoveredItem
       for (let i = 0; i < limit; i++) {
         try {
           const articleResp = await fetch(items[i].sourceUrl, {
-            headers: { "User-Agent": "Mozilla/5.0 (compatible; TechScoop-Agent/1.0)" },
+            headers: { "User-Agent": publication.bots.newsAgent },
             signal: AbortSignal.timeout(15000),
           });
           if (articleResp.ok) {
@@ -318,7 +320,7 @@ async function crawlAPI(url: string, selectors: any): Promise<DiscoveredItem[]> 
 
   try {
     const headers: Record<string, string> = {
-      "User-Agent": "TechScoop-Agent/1.0",
+      "User-Agent": publication.bots.newsAgent,
       "Accept": "application/json",
     };
     if (selectors?.headers) Object.assign(headers, selectors.headers);
@@ -418,7 +420,7 @@ async function crawlTwitter(query: string, config: any): Promise<DiscoveredItem[
 
 /**
  * Email IMAP adapter (stub)
- * Monitors an email inbox (e.g. press@techscoop.com) for press releases and news tips.
+ * Monitors an email inbox (e.g. the media@ mailbox) for press releases and news tips.
  * Requires IMAP credentials in source.scrapingConfig.credentials
  */
 async function crawlEmailIMAP(config: any): Promise<DiscoveredItem[]> {
@@ -436,33 +438,39 @@ async function crawlEmailIMAP(config: any): Promise<DiscoveredItem[]> {
 // ============================================================
 // MULTI-SIGNAL RELEVANCE SCORING
 // ============================================================
-// MENA-focused keyword sets with weights
+// Industrial-economy keyword sets with weights (BrentDesk editorial focus)
 const HIGH_VALUE_KEYWORDS = [
-  "mena", "middle east", "north africa", "saudi arabia", "uae", "dubai", "riyadh",
-  "abu dhabi", "qatar", "bahrain", "kuwait", "oman", "egypt", "jordan", "morocco",
-  "tunisia", "lebanon", "iraq", "startup", "funding", "venture capital", "series a",
-  "series b", "series c", "seed round", "pre-seed", "ipo", "unicorn", "acquisition",
-  "merger", "fintech", "edtech", "healthtech", "proptech", "insurtech", "agritech",
-  "cleantech", "deeptech", "artificial intelligence", "machine learning", "generative ai",
-  "large language model", "llm", "gpt", "digital transformation", "e-commerce",
-  "logistics", "mobility", "saas", "b2b", "accelerator", "incubator", "ecosystem",
+  "saudi arabia", "riyadh", "jeddah", "neom", "jubail", "yanbu", "dammam",
+  "uae", "dubai", "abu dhabi", "qatar", "bahrain", "kuwait", "oman", "gcc",
+  "mena", "middle east", "construction", "contract award", "epc", "tender",
+  "infrastructure", "megaproject", "giga-project", "oil", "gas", "lng",
+  "refinery", "petrochemical", "power plant", "renewable", "solar", "wind",
+  "hydrogen", "desalination", "utility", "grid", "pipeline", "manufacturing",
+  "factory", "industrial city", "localization", "mining", "metals", "steel",
+  "aluminium", "cement", "logistics", "port", "airport", "rail", "metro",
+  "road", "warehouse", "supply chain", "real estate development", "master plan",
+  "data center", "smart city", "asset management", "facilities management",
+  "heavy equipment", "machinery", "automation", "robotics", "industrial ai",
 ];
 
 const MEDIUM_VALUE_KEYWORDS = [
-  "technology", "tech", "investment", "investor", "raise", "raised", "launch",
-  "product", "platform", "app", "software", "cloud", "data", "analytics",
-  "blockchain", "crypto", "nft", "web3", "iot", "cybersecurity", "api",
-  "developer", "engineering", "cto", "ceo", "founder", "co-founder",
-  "partnership", "expansion", "growth", "revenue", "valuation", "exit",
+  "investment", "investor", "project", "joint venture", "partnership",
+  "acquisition", "merger", "contract", "award", "expansion", "capacity",
+  "production", "commissioning", "feasibility", "engineering", "procurement",
+  "maintenance", "operations", "energy", "industrial", "transport",
+  "chairman", "ceo", "managing director", "appointment", "billion", "million",
+  "sar", "aed", "capex", "financing", "project finance", "ipo",
 ];
 
 const MENA_ENTITIES = [
   "saudi", "emirati", "qatari", "bahraini", "kuwaiti", "omani", "egyptian",
-  "jordanian", "moroccan", "tunisian", "lebanese", "iraqi", "yemeni",
-  "stc", "aramco", "sabic", "etisalat", "du", "careem", "noon", "talabat",
-  "souq", "fetchr", "swvl", "tabby", "tamara", "sary", "jahez", "hunger station",
-  "mada", "benefit", "knet", "fawry", "paymob", "payfort", "tap payments",
-  "wamda", "flat6labs", "500 startups", "mbc", "rotana", "almarai",
+  "aramco", "sabic", "maaden", "neom", "red sea global", "roshn", "diriyah",
+  "qiddiya", "pif", "acwa power", "sec", "swcc", "stc", "salik", "adnoc",
+  "taqa", "masdar", "emaar", "aldar", "dp world", "ad ports", "qatarenergy",
+  "kahramaa", "koc", "knpc", "pdo", "omran", "almarai", "agility", "aramex",
+  "alstom", "siemens", "ge", "abb", "schneider", "bechtel", "jacobs", "aecom",
+  "parsons", "worleyparsons", "technip", "saipem", "petrofac", "larsen",
+  "hyundai e&c", "samsung c&t", "china state construction", "sinopec",
 ];
 
 const CLICKBAIT_PATTERNS = [
@@ -645,11 +653,11 @@ async function llmReScoreTopCandidates(
       messages: [
         {
           role: "system",
-          content: `You are the senior editor of TechScoop, MENA's leading technology and startup media platform. Your editorial focus is:\n- Funding rounds, M&A, and investment activity in MENA\n- Startup launches and product announcements from the region\n- Tech policy, regulation, and digital transformation in MENA governments\n- Key executive hires and leadership changes at MENA tech companies\n- Global tech news that directly impacts the MENA ecosystem\n- Emerging technologies (AI, fintech, healthtech, edtech) with MENA relevance\n\nScore each article 0.0–1.0 for editorial relevance. Be strict: generic global tech news with no MENA angle scores < 0.3. Strong MENA startup/funding news scores > 0.8.\n\nReturn ONLY a JSON array: [{"index": 1, "score": 0.85, "reason": "Saudi fintech funding round"}, ...]`,
+          content: `You are the senior editor of ${publication.name}. ${EDITORIAL_IDENTITY}\n\n${SCORING_RUBRIC}\n\nScore each article 0.0–1.0 for editorial relevance (divide the 0-100 rubric score by 100). Be strict: generic global tech/startup news with no industrial angle scores < 0.3. Strong Saudi/GCC industrial, construction, energy or infrastructure news scores > 0.8.\n\nReturn ONLY a JSON array: [{"index": 1, "score": 0.85, "reason": "Saudi EPC contract award"}, ...]`,
         },
         {
           role: "user",
-          content: `Score these ${candidates.length} articles for TechScoop editorial relevance:\n\n${articleList}`,
+          content: `Score these ${candidates.length} articles for ${publication.name} editorial relevance:\n\n${articleList}`,
         },
       ],
       provider,

@@ -3,6 +3,8 @@
  * Comprehensive tRPC router for the AI Content Generation system
  * Handles: content generation, entity management, policies, templates, settings, analytics, agent
  */
+import { publication } from "../../shared/publication";
+import { EDITORIAL_SHORT } from "../config/editorial";
 import { z } from "zod";
 import { protectedProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
@@ -541,7 +543,7 @@ export const aiContentRouter = router({
         const response = await invokeLLMProvider({
           messages: [
             { role: "system", content: "You are a helpful assistant." },
-            { role: "user", content: "Say 'Hello from TechScoop AI!' in one sentence." },
+            { role: "user", content: `Say 'Hello from ${publication.name} AI!' in one sentence.` },
           ],
           provider: input.provider as any,
           model: input.model,
@@ -1713,7 +1715,7 @@ export const aiContentRouter = router({
       const tone = input.tone || "news";
 
       const sys =
-        "You are an editorial assistant for TechScoop, a MENA tech publication. Given a writer's brief, " +
+        `You are an editorial assistant for ${EDITORIAL_SHORT}. Given a writer's brief, ` +
         "produce a complete article draft with metadata, entities, location, and funding details. " +
         "Return ONLY valid JSON matching this exact shape (no commentary, no Markdown code fences):\n" +
         "{\n" +

@@ -4,6 +4,7 @@
  * SEO, Social Media, Newsletter, Scripts, Entity Linking, Image Generation,
  * Webhooks, Competitive Intelligence, A/B Testing, Content Calendar, Revenue, API Keys
  */
+import { publication } from "../../shared/publication";
 import { z } from "zod";
 import { protectedProcedure, router } from "../_core/trpc";
 import { TRPCError } from "@trpc/server";
@@ -501,7 +502,7 @@ export const aiExtendedRouter = router({
   testWebhook: adminProcedure
     .input(z.object({ id: z.number() }))
     .mutation(async ({ input }) => {
-      await triggerWebhooks("test", { message: "Test webhook from TechScoop AI", webhookId: input.id });
+      await triggerWebhooks("test", { message: `Test webhook from ${publication.name} AI`, webhookId: input.id });
       return { success: true };
     }),
 

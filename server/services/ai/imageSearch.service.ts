@@ -3,6 +3,7 @@
  * Searches for relevant images from the media library, external APIs, and AI generation
  * Priority: Media Library → Unsplash → Pexels → AI Generation
  */
+import { publication } from "../../../shared/publication";
 import { ENV } from "../../_core/env";
 import { storagePut } from "../../storage";
 
@@ -370,7 +371,7 @@ export async function downloadAndStoreImage(
     // Download the image
     const response = await fetch(imageUrl, {
       headers: {
-        "User-Agent": "TechScoop/1.0 (https://techscoop.io)",
+        "User-Agent": publication.bots.imageSearch,
       },
     });
 

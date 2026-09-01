@@ -4,6 +4,8 @@
  * Plagiarism Check, SEO Optimization, Social Media, Newsletter, Podcast/Video Scripts,
  * Entity Relationship Linking, Image Generation, Webhook Notifications
  */
+import { publication } from "../../../shared/publication";
+import { EDITORIAL_SHORT, HOUSE_STYLE } from "../../config/editorial";
 import { getDb } from "../../db";
 import { invokeLLM, resolveEndpoint, resolveModel } from "../../_core/llm";
 import { generateImage } from "../../_core/imageGeneration";
@@ -148,7 +150,7 @@ export async function generateContentStreaming(
 }
 
 function buildStreamingSystemPrompt(input: ContentGenerationInput): string {
-  return `You are TechScoop's AI content writer. Write professional, engaging content about MENA tech ecosystem.
+  return `You are ${publication.name}'s AI content writer. You write for ${EDITORIAL_SHORT}. ${HOUSE_STYLE}
 
 Rules:
 - Write in complete paragraphs, no bullet points or dashes
@@ -604,7 +606,7 @@ export async function generateSocialPosts(input: {
     messages: [
       {
         role: "system",
-        content: `You are a social media expert for TechScoop, a MENA tech media platform.
+        content: `You are a social media expert for ${EDITORIAL_SHORT}.
 Generate engaging social media posts for each requested platform.
 
 For each platform, return an object with:
@@ -638,7 +640,7 @@ Return a JSON array of post objects.`
     posts = input.platforms.map(p => ({
       platform: p,
       content: `Check out our latest article: ${input.title}`,
-      hashtags: ["TechScoop", "MENATech"],
+      hashtags: [publication.name, "Infrastructure", "SaudiArabia"],
     }));
   }
 
@@ -689,21 +691,21 @@ export async function generateNewsletter(input: {
     messages: [
       {
         role: "system",
-        content: `You are TechScoop's newsletter editor. Create a compelling ${input.style || "weekly"} newsletter.
+        content: `You are ${publication.name}'s newsletter editor. You write for ${EDITORIAL_SHORT}. Create a compelling ${input.style || "weekly"} newsletter.
 
 Return a JSON object with:
 - subject: string (email subject line, max 60 chars)
 - preheader: string (preview text, max 100 chars)
-- htmlContent: string (full HTML email with inline styles, TechScoop branding, dark header, clean layout)
+- htmlContent: string (full HTML email with inline styles, ${publication.name} branding, dark header, clean layout)
 - textContent: string (plain text version)
 
-Use TechScoop's brand colors: dark background (#1a1a2e), accent blue (#4361ee).
+Use ${publication.name}'s brand colors: dark background (#0b0d12), accent blue (#2563eb).
 Include proper email HTML structure with tables for layout.
 Return ONLY valid JSON.`
       },
       {
         role: "user",
-        content: `Newsletter title: ${input.title || "TechScoop Weekly Digest"}\n\nArticles to include:\n${articleData.map(a => `- ${a.title} (${a.excerpt || ""})`).join("\n")}\n\n${input.customInstructions || ""}`
+        content: `Newsletter title: ${input.title || `${publication.newsletter.name} Digest`}\n\nArticles to include:\n${articleData.map(a => `- ${a.title} (${a.excerpt || ""})`).join("\n")}\n\n${input.customInstructions || ""}`
       }
     ],
   });
@@ -716,7 +718,7 @@ Return ONLY valid JSON.`
     result = jsonMatch ? JSON.parse(jsonMatch[0]) : {};
   } catch {
     result = {
-      subject: input.title || "TechScoop Weekly Digest",
+      subject: input.title || `${publication.newsletter.name} Digest`,
       preheader: "Latest from MENA's tech ecosystem",
       htmlContent: "<p>Newsletter content generation failed. Please try again.</p>",
       textContent: "Newsletter content generation failed. Please try again.",
@@ -742,7 +744,7 @@ export async function generateScript(input: {
     messages: [
       {
         role: "system",
-        content: `You are a ${input.type} script writer for TechScoop, a MENA tech media platform.
+        content: `You are a ${input.type} script writer for ${EDITORIAL_SHORT}.
 
 Create a professional ${input.type} script based on the provided article content.
 
@@ -981,7 +983,7 @@ export async function analyzeCompetitorArticle(input: {
 - topics: array of topic tags
 - entities: array of company/person/investor names mentioned
 - relevanceScore: 0-1 how relevant to MENA tech ecosystem
-- coverageGap: boolean - does TechScoop likely NOT have coverage of this topic?
+- coverageGap: boolean - does ${publication.name} likely NOT have coverage of this topic?
 
 Return ONLY valid JSON.`
       },

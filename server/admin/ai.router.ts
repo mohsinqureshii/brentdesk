@@ -2,6 +2,8 @@
  * AI Router - Provides AI-powered suggestions for entity creation
  */
 
+import { publication } from "../../shared/publication";
+import { EDITORIAL_SHORT } from "../config/editorial";
 import { z } from "zod";
 import { protectedProcedure, router } from "../_core/trpc";
 import { invokeLLM } from "../_core/llm";
@@ -506,7 +508,7 @@ Only include information you are confident about. For unknown fields, use empty 
         messages: [
           {
             role: "system",
-            content: `You are an SEO expert for TechScoop, a tech news platform focused on MENA region startups, funding, and technology. Generate SEO metadata for a ${entityLabel} profile page. Return valid JSON only.`
+            content: `You are an SEO expert for ${EDITORIAL_SHORT}. Generate SEO metadata for a ${entityLabel} profile page. Return valid JSON only.`
           },
           {
             role: "user",
@@ -521,7 +523,7 @@ Only include information you are confident about. For unknown fields, use empty 
             schema: {
               type: "object",
               properties: {
-                metaTitle: { type: "string", description: "SEO title, 50-60 chars, include entity name and TechScoop" },
+                metaTitle: { type: "string", description: `SEO title, 50-60 chars, include entity name and ${publication.name}` },
                 metaDescription: { type: "string", description: "Meta description, 150-160 chars, include call-to-action" },
                 keywords: { type: "string", description: "Comma-separated keywords relevant to MENA tech ecosystem" }
               },
