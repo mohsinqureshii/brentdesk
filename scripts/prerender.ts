@@ -7,6 +7,8 @@
  */
 
 import { publication, getBaseUrl } from "../shared/publication";
+
+const baseUrl = getBaseUrl();
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -38,7 +40,6 @@ try {
  * Generate OG meta tags for an article
  */
 function generateArticleMetaTags(article: any, category: any, author: any, mediaItem: any) {
-  const baseUrl = getBaseUrl();
   const articleUrl = `${baseUrl}/${category.slug}/${article.slug}`;
   const imageUrl = mediaItem?.url || `${baseUrl}${publication.assets.ogImage}`;
   
