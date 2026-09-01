@@ -1,11 +1,14 @@
 #!/usr/bin/env tsx
 
 /**
- * Pre-rendering script for TechScoop
+ * Pre-rendering script
  * Generates static HTML files for all articles with article-specific OG meta tags
- * This solves the Manus static file serving limitation by pre-rendering all content
+ * (works around static-file serving limitations on some hosts)
  */
 
+import { publication, getBaseUrl } from "../shared/publication";
+
+const baseUrl = getBaseUrl();
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -37,9 +40,8 @@ try {
  * Generate OG meta tags for an article
  */
 function generateArticleMetaTags(article: any, category: any, author: any, mediaItem: any) {
-  const baseUrl = 'https://techscoop.io';
   const articleUrl = `${baseUrl}/${category.slug}/${article.slug}`;
-  const imageUrl = mediaItem?.url || 'https://techscoop.io/assets/og-image.png';
+  const imageUrl = mediaItem?.url || `${baseUrl}${publication.assets.ogImage}`;
   
   // Escape quotes in text for HTML attributes
   const escapeHtml = (text: string) => {
@@ -54,11 +56,11 @@ function generateArticleMetaTags(article: any, category: any, author: any, media
 
   const title = escapeHtml(article.title);
   const description = escapeHtml(article.excerpt || article.title);
-  const authorName = escapeHtml(author?.name || 'TechScoop');
+  const authorName = escapeHtml(author?.name || publication.name);
 
   return `
     <!-- Article Meta Tags -->
-    <title>${title} | TechScoop</title>
+    <title>${title} | ${publication.name}</title>
     <meta name="title" content="${title}" />
     <meta name="description" content="${description}" />
     <meta name="author" content="${authorName}" />
@@ -73,7 +75,7 @@ function generateArticleMetaTags(article: any, category: any, author: any, media
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${publication.name}" />
     <meta property="og:locale" content="en_US" />
     <meta property="article:published_time" content="${typeof article.publishedAt === 'string' ? article.publishedAt : (article.publishedAt?.toISOString?.() || new Date().toISOString())}" />
     <meta property="article:author" content="${authorName}" />
@@ -84,7 +86,7 @@ function generateArticleMetaTags(article: any, category: any, author: any, media
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${description}" />
     <meta name="twitter:image" content="${imageUrl}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
   `;
 }
 
@@ -98,7 +100,7 @@ function buildWebPageJsonLdForArticle(articleUrl: string): string {
     "@type": "WebPage",
     "@id": `${articleUrl}#webpage`,
     url: articleUrl,
-    isPartOf: { "@id": "https://techscoop.io/#website" },
+    isPartOf: { "@id": `${baseUrl}/#website` },
     inLanguage: "en-US",
   };
   return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
@@ -178,7 +180,7 @@ async function prerender() {
 
         // Generate meta tags
         const metaTags = generateArticleMetaTags(article, category, author, featuredMedia);
-        const articleUrl = `https://techscoop.io/${category.slug}/${article.slug}`;
+        const articleUrl = `${baseUrl}/${category.slug}/${article.slug}`;
 
         // Inject into template
         const html = injectMetaTags(baseTemplate, metaTags, articleUrl);

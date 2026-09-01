@@ -70,7 +70,7 @@ const statusColors: Record<string, string> = {
   pending_review: "bg-yellow-100 text-yellow-600",
 };
 
-const PAGE_SIZE_KEY = "techscoop_investors_page_size";
+const PAGE_SIZE_KEY = "brentdesk_investors_page_size";
 
 export default function InvestorsList() {
   const [, navigate] = useLocation();

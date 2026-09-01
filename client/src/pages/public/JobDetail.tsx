@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { useParams } from "wouter";
+import { publication } from "@shared/publication";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
 import { BookmarkButton } from "@/components/BookmarkButton";
 import { JobApplicationModal } from "@/components/JobApplicationModal";
@@ -225,8 +226,8 @@ export default function JobDetail() {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
         title={`${job.title} at ${job.companyName}`}
-        description={`${job.title} job opportunity at ${job.companyName}. ${job.location ? `Location: ${job.location}.` : ""} ${salary ? `Salary: ${salary}.` : ""} Apply now on TechScoop.`}
-        canonical={`https://techscoop.io/jobs/${job.slug}`}
+        description={`${job.title} job opportunity at ${job.companyName}. ${job.location ? `Location: ${job.location}.` : ""} ${salary ? `Salary: ${salary}.` : ""} Apply now on ${publication.name}.`}
+        canonical={`${publication.siteUrl}/jobs/${job.slug}`}
       />
       <JsonLd
         type="JobPosting"
@@ -272,7 +273,7 @@ export default function JobDetail() {
             validThrough: validThroughIso,
             hiringOrganization: {
               name: job.companyName,
-              url: `https://techscoop.io/companies/${companySlug}`,
+              url: `${publication.siteUrl}/companies/${companySlug}`,
               logo: job.companyLogo || undefined,
             },
             jobLocation: hasAnyStructuredLocation
@@ -394,7 +395,7 @@ export default function JobDetail() {
                     <span className="font-semibold text-sm">Applied</span>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {applicationStatus?.application?.applicationMethod === "external" ? "Applied externally" : "Applied via TechScoop"}
+                    {applicationStatus?.application?.applicationMethod === "external" ? "Applied externally" : `Applied via ${publication.name}`}
                   </p>
                 </div>
               ) : (

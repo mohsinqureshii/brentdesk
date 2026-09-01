@@ -3,6 +3,7 @@ import {
   User, Settings, Bookmark, Bell, Shield, LogOut, LogIn,
   ChevronRight, Moon, Sun, ExternalLink, HelpCircle, FileText
 } from "lucide-react";
+import { publication } from "@shared/publication";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
@@ -57,7 +58,7 @@ export default function MobileProfile() {
         ) : (
           <div className="p-4 rounded-2xl bg-card border border-border mb-6 text-center">
             <User className="h-10 w-10 text-muted-foreground mx-auto mb-2" />
-            <p className="text-sm font-semibold text-foreground mb-1">Sign in to TechScoop</p>
+            <p className="text-sm font-semibold text-foreground mb-1">Sign in to {publication.name}</p>
             <p className="text-xs text-muted-foreground mb-3">Save articles, track companies, and get personalized content</p>
             <a
               href={getLoginUrl()}
@@ -147,7 +148,7 @@ export default function MobileProfile() {
 
         {/* App version */}
         <p className="text-center text-xs text-muted-foreground mt-6">
-          TechScoop v1.0 &middot; MENA's Tech Ecosystem
+          {publication.name} v1.0 &middot; {publication.tagline}
         </p>
       </div>
     </div>

@@ -9,11 +9,13 @@ export default defineConfig({
     alias: {
       "@": path.resolve(templateRoot, "client", "src"),
       "@shared": path.resolve(templateRoot, "shared"),
+      "@test": path.resolve(templateRoot, "test-support"),
       "@assets": path.resolve(templateRoot, "attached_assets"),
     },
   },
   test: {
     environment: "node",
     include: ["server/**/*.test.ts", "server/**/*.spec.ts"],
+    setupFiles: [path.resolve(templateRoot, "vitest.setup.ts")],
   },
 });

@@ -4,6 +4,12 @@
 
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import bcrypt from "bcryptjs";
+import { publication } from "@shared/publication";
+
+// Fixture accounts live on the publication's own domain (central config).
+const ADMIN_EMAIL = `admin@${publication.domain}`;
+const NO_PASSWORD_EMAIL = `nopassword@${publication.domain}`;
+const USER_EMAIL = `user@${publication.domain}`;
 
 // Mock the db module
 vi.mock("./db", () => ({
@@ -57,7 +63,7 @@ describe("Custom Login Authentication", () => {
     it("should find user by email", async () => {
       const mockUser = {
         id: 1,
-        email: "admin@techscoop.com",
+        email: ADMIN_EMAIL,
         name: "Admin",
         role: "admin",
         password: await bcrypt.hash("admin123", 10),
@@ -66,9 +72,9 @@ describe("Custom Login Authentication", () => {
 
       vi.mocked(db.getUserByEmail).mockResolvedValue(mockUser);
 
-      const user = await db.getUserByEmail("admin@techscoop.com");
+      const user = await db.getUserByEmail(ADMIN_EMAIL);
       expect(user).toBeDefined();
-      expect(user?.email).toBe("admin@techscoop.com");
+      expect(user?.email).toBe(ADMIN_EMAIL);
       expect(user?.role).toBe("admin");
     });
 
@@ -127,7 +133,7 @@ describe("Custom Login Authentication", () => {
       
       const mockUser = {
         id: 1,
-        email: "admin@techscoop.com",
+        email: ADMIN_EMAIL,
         name: "Admin",
         role: "admin",
         password: hashedPassword,
@@ -137,7 +143,7 @@ describe("Custom Login Authentication", () => {
       vi.mocked(db.getUserByEmail).mockResolvedValue(mockUser);
 
       // Step 1: Find user
-      const user = await db.getUserByEmail("admin@techscoop.com");
+      const user = await db.getUserByEmail(ADMIN_EMAIL);
       expect(user).toBeDefined();
 
       // Step 2: Verify password
@@ -156,7 +162,7 @@ describe("Custom Login Authentication", () => {
     it("should fail login for user without password", async () => {
       const mockUser = {
         id: 1,
-        email: "nopassword@techscoop.com",
+        email: NO_PASSWORD_EMAIL,
         name: "No Password User",
         role: "admin",
         password: null,
@@ -165,7 +171,7 @@ describe("Custom Login Authentication", () => {
 
       vi.mocked(db.getUserByEmail).mockResolvedValue(mockUser);
 
-      const user = await db.getUserByEmail("nopassword@techscoop.com");
+      const user = await db.getUserByEmail(NO_PASSWORD_EMAIL);
       expect(user).toBeDefined();
       expect(user!.password).toBeNull();
     });
@@ -176,7 +182,7 @@ describe("Custom Login Authentication", () => {
       
       const mockUser = {
         id: 2,
-        email: "user@techscoop.com",
+        email: USER_EMAIL,
         name: "Regular User",
         role: "user",
         password: hashedPassword,
@@ -185,7 +191,7 @@ describe("Custom Login Authentication", () => {
 
       vi.mocked(db.getUserByEmail).mockResolvedValue(mockUser);
 
-      const user = await db.getUserByEmail("user@techscoop.com");
+      const user = await db.getUserByEmail(USER_EMAIL);
       expect(user).toBeDefined();
 
       const allowedRoles = ["admin", "editor", "senior_editor", "author", "moderator"];

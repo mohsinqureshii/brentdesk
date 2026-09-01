@@ -23,10 +23,11 @@
  *   │  Big Event Title Goes Here                        │
  *   │  Venue · City                                     │
  *   │                                                   │
- *   │                              TechScoop Events     │
+ *   │                              ${publication.name} Events     │
  *   └───────────────────────────────────────────────────┘
  */
 
+import { publication } from "../../shared/publication";
 import { Router } from "express";
 import { eq } from "drizzle-orm";
 import { getDb } from "../db";
@@ -147,7 +148,7 @@ function buildSvg(opts: {
     <g transform="translate(80, ${HEIGHT - 60})">
       <circle cx="14" cy="-8" r="14" fill="#3b82f6" />
       <text x="38" y="0" font-size="22" font-weight="700" fill="#ffffff">
-        TechScoop Events
+        ${publication.name} Events
       </text>
     </g>
   </g>

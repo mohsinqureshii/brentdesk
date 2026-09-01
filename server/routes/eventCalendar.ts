@@ -15,6 +15,7 @@
  * for the line-folding rule and the escape characters below.
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { Router } from "express";
 import { eq } from "drizzle-orm";
 import { getDb } from "../db";
@@ -22,7 +23,7 @@ import { events } from "../../drizzle/schema";
 
 const router = Router();
 
-const SITE_ORIGIN = "https://techscoop.io";
+const SITE_ORIGIN = getBaseUrl();
 
 /**
  * Escape commas, semicolons, backslashes and newlines per RFC 5545 §3.3.11.
@@ -112,11 +113,11 @@ router.get("/events/:slug/calendar.ics", async (req, res) => {
     const lines: string[] = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//TechScoop//Events//EN",
+      `PRODID:-//${publication.name}//Events//EN`,
       "CALSCALE:GREGORIAN",
       "METHOD:PUBLISH",
       "BEGIN:VEVENT",
-      `UID:techscoop-event-${event.id}@techscoop.io`,
+      `UID:event-${event.id}@${publication.domain}`,
       `DTSTAMP:${icsUtcStamp(new Date())}`,
       `DTSTART:${icsUtcStamp(startIso)}`,
       `DTEND:${icsUtcStamp(endIso)}`,

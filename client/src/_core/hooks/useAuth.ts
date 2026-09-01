@@ -44,7 +44,7 @@ export function useAuth(options?: UseAuthOptions) {
 
   const state = useMemo(() => {
     localStorage.setItem(
-      "techscoop-user-info",
+      "brentdesk-user-info",
       JSON.stringify(meQuery.data)
     );
     return {

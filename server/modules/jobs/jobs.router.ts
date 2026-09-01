@@ -89,7 +89,7 @@ const listJobsSchema = z.object({
 
 // ------------------------------------------------------------
 // Tenant scope is resolved by the tenant extraction middleware and
-// placed on ctx. NULL = the legacy techscoop.io public job board;
+// placed on ctx. NULL = the legacy public job board;
 // concrete = a SaaS tenant's branded board. Both paths share the same
 // service + repository layer; scope only changes the WHERE clause.
 // ------------------------------------------------------------

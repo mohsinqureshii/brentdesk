@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
@@ -87,7 +88,7 @@ export function SocialMediaPanel() {
           </div>
           <div>
             <Label>Article URL</Label>
-            <Input value={articleUrl} onChange={e => setArticleUrl(e.target.value)} placeholder="https://techscoop.io/..." />
+            <Input value={articleUrl} onChange={e => setArticleUrl(e.target.value)} placeholder={`${publication.siteUrl}/...`} />
           </div>
           <div>
             <Label>Platforms</Label>

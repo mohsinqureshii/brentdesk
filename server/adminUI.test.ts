@@ -172,7 +172,7 @@ describe("Admin UI - Link Fixes", () => {
   });
 
   it("should use slug for public view links", () => {
-    const companySlug = "techscoop";
+    const companySlug = "acme-industrial";
     const viewLink = `/companies/${companySlug}`;
     expect(viewLink).toMatch(/\/companies\/[a-z-]+/);
   });

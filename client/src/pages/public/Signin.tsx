@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,7 +14,7 @@ import { trpc } from "@/lib/trpc";
  *
  * Left:   white panel with the auth form. No SSO yet — email/password only,
  *         Google/Microsoft slots pre-stubbed for later if/when you wire them.
- * Right:  black-to-emerald branded panel with the techscoop. wordmark, the
+ * Right:  black-to-emerald branded panel with the wordmark, the
  *         reader/founder/jobseeker value prop, and the "Don't have an
  *         account? Sign up" CTA. Collapses to nothing on phones — the panel
  *         is decorative on desktop, the form has its own sign-up link inline.
@@ -79,12 +80,12 @@ export default function Signin() {
         <div className="w-full max-w-md mx-auto">
           {/* Wordmark */}
           <Link href="/" className="inline-block mb-12">
-            <span className="text-2xl font-bold tracking-tight text-zinc-900">techscoop.</span>
+            <span className="text-2xl font-bold tracking-tight text-zinc-900">{publication.wordmark}</span>
           </Link>
 
           <h1 className="text-3xl font-bold text-zinc-900 mb-2">Welcome back</h1>
           <p className="text-zinc-500 mb-8">
-            Sign in to follow MENA tech, save articles, apply to jobs, and customise your news feed.
+            Sign in to follow the region's industry, save articles, apply to jobs, and customise your news feed.
           </p>
 
           <form onSubmit={handleSignin} className="space-y-5">
@@ -173,7 +174,7 @@ export default function Signin() {
 
           {/* Sign up link (visible on mobile too, where the right panel is hidden) */}
           <p className="text-center text-sm text-zinc-600 mt-8">
-            New to TechScoop?{" "}
+            New to {publication.name}?{" "}
             <Link href="/signup" className="font-semibold text-emerald-700 hover:text-emerald-800 hover:underline">
               Create a free account
             </Link>
@@ -212,7 +213,7 @@ export default function Signin() {
         <div className="relative w-full flex flex-col justify-between p-12 xl:p-16 text-white">
           {/* Top — wordmark */}
           <div>
-            <span className="text-3xl xl:text-4xl font-bold tracking-tight">techscoop.</span>
+            <span className="text-3xl xl:text-4xl font-bold tracking-tight">{publication.wordmark}</span>
           </div>
 
           {/* Middle — value prop tailored to readers, founders, jobseekers */}
@@ -225,7 +226,7 @@ export default function Signin() {
                 Funding rounds. Founders. Jobs.
               </h2>
               <p className="text-sm text-white/70 leading-relaxed">
-                Independent reporting on the startups and investors building MENA's technology future — Saudi Arabia, the UAE, Egypt, and beyond.
+                Independent reporting on the companies and projects building the region's technology future — Saudi Arabia, the UAE, Egypt, and beyond.
               </p>
             </div>
 
@@ -258,7 +259,7 @@ export default function Signin() {
               className="inline-flex items-center gap-2 text-xs text-white/60 hover:text-white transition-colors w-fit ml-1"
             >
               <ArrowLeft className="h-3 w-3" />
-              Back to techscoop.io
+              Back to {publication.domain}
             </Link>
           </div>
         </div>

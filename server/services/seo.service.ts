@@ -8,6 +8,7 @@
  * Sitemap format: sitemapindex with 12 sub-sitemaps (articles, news, jobs, people, etc.)
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { eq, and, isNotNull, desc, sql, count, or } from "drizzle-orm";
 import { getDb } from "../db";
 import { seoMeta, articles, jobs, people, investors, events, resources, research, redirects, categories, companies, accelerators, tags, articleTags, workflowStatuses, users, media } from "../../drizzle/schema";
@@ -122,11 +123,11 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "dateModified": toISOStr(entity.updatedAt as string),
     "author": {
       "@type": "Person",
-      "name": entity.authorName || "TechScoop Editorial"
+      "name": entity.authorName || `${publication.name} Editorial`
     },
     "publisher": {
       "@type": "Organization",
-      "name": "TechScoop",
+      "name": publication.name,
       "logo": {
         "@type": "ImageObject",
         "url": `${baseUrl}/logo.png`
@@ -293,7 +294,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "datePublished": toISOStr(entity.publishedAt as string),
     "author": {
       "@type": "Organization",
-      "name": "TechScoop Research"
+      "name": `${publication.name} Research`
     },
     "url": `${baseUrl}/research/${entity.slug}`,
     "isAccessibleForFree": entity.isPremium ? false : true
@@ -326,7 +327,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "datePublished": toISOStr(entity.publishedAt as string),
     "provider": {
       "@type": "Organization",
-      "name": "TechScoop"
+      "name": publication.name
     }
   }),
 
@@ -343,7 +344,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
       "name": entity.authorName
     } : {
       "@type": "Organization",
-      "name": "TechScoop"
+      "name": publication.name
     },
     "url": `${baseUrl}/resources/playbooks/${entity.slug}`,
     "estimatedCost": entity.isPremium ? "Paid" : "Free"
@@ -374,7 +375,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
     "dateModified": toISOStr(entity.updatedAt as string),
     "author": {
       "@type": "Organization",
-      "name": "TechScoop"
+      "name": publication.name
     },
     "url": `${baseUrl}/resources/regulations/${entity.country}/${entity.slug}`,
     "about": {
@@ -431,7 +432,7 @@ function mapAttendanceMode(format: string): string {
 export class SeoService {
   private baseUrl: string;
 
-  constructor(baseUrl: string = process.env.BASE_URL || "https://techscoop.io") {
+  constructor(baseUrl: string = getBaseUrl()) {
     this.baseUrl = baseUrl;
   }
 
@@ -575,7 +576,7 @@ export class SeoService {
     <loc>${this.escapeXml(item.loc)}</loc>
     <news:news>
       <news:publication>
-        <news:name>TechScoop</news:name>
+        <news:name>${publication.name}</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${item.publicationDate}</news:publication_date>
@@ -987,23 +988,7 @@ export class SeoService {
           { path: "/jobs", priority: "0.8" },
           { path: "/companies", priority: "0.8" },
           { path: "/people", priority: "0.7" },
-          { path: "/investors", priority: "0.7" },
-          { path: "/accelerators", priority: "0.7" },
           { path: "/events", priority: "0.7" },
-          { path: "/funding", priority: "0.7" },
-          { path: "/resources", priority: "0.6" },
-          { path: "/resources/perks", priority: "0.6" },
-          { path: "/resources/tools", priority: "0.6" },
-          { path: "/resources/playbooks", priority: "0.6" },
-          { path: "/resources/regulations", priority: "0.6" },
-          { path: "/resources/templates", priority: "0.6" },
-          { path: "/resources/calculators", priority: "0.6" },
-          { path: "/resources/calculators/cac-ltv", priority: "0.5" },
-          { path: "/resources/calculators/dilution", priority: "0.5" },
-          { path: "/resources/calculators/mrr", priority: "0.5" },
-          { path: "/resources/calculators/runway", priority: "0.5" },
-          { path: "/resources/calculators/saas-quick-ratio", priority: "0.5" },
-          { path: "/research", priority: "0.6" },
           { path: "/about", priority: "0.5" },
           { path: "/contact", priority: "0.5" },
           { path: "/advertise", priority: "0.4" },
@@ -1062,12 +1047,8 @@ export class SeoService {
       .from(jobs).where(pubFilter(jobs)).orderBy(desc(jobs.updatedAt)).limit(1));
     const latestPerson = await safe("people", () => db.select({ updatedAt: people.updatedAt })
       .from(people).where(pubFilter(people)).orderBy(desc(people.updatedAt)).limit(1));
-    const latestInvestor = await safe("investors", () => db.select({ updatedAt: investors.updatedAt })
-      .from(investors).where(pubFilter(investors)).orderBy(desc(investors.updatedAt)).limit(1));
     const latestCompany = await safe("companies", () => db.select({ updatedAt: companies.updatedAt })
       .from(companies).where(pubFilter(companies)).orderBy(desc(companies.updatedAt)).limit(1));
-    const latestAccelerator = await safe("accelerators", () => db.select({ updatedAt: accelerators.updatedAt })
-      .from(accelerators).orderBy(desc(accelerators.updatedAt)).limit(1));
     // For events: use statusId OR publishedAt to match the sitemap generation logic
     const latestEvent = await safe("events", () => db.select({ updatedAt: events.updatedAt })
       .from(events)
@@ -1077,10 +1058,6 @@ export class SeoService {
           : isNotNull(events.publishedAt)
       )
       .orderBy(desc(events.updatedAt)).limit(1));
-    const latestResource = await safe("resources", () => db.select({ updatedAt: resources.updatedAt })
-      .from(resources).where(isNotNull(resources.publishedAt)).orderBy(desc(resources.updatedAt)).limit(1));
-    const latestResearch = await safe("research", () => db.select({ updatedAt: research.updatedAt })
-      .from(research).where(isNotNull(research.publishedAt)).orderBy(desc(research.updatedAt)).limit(1));
     const latestCategory = await safe("categories", () => db.select({ updatedAt: categories.updatedAt })
       .from(categories).orderBy(desc(categories.updatedAt)).limit(1));
 
@@ -1093,12 +1070,8 @@ export class SeoService {
       { name: "news", lastmod: toDateStr(latestArticle?.updatedAt), hasContent: !!latestArticle }, // Google News sitemap
       { name: "jobs", lastmod: toDateStr(latestJob?.updatedAt), hasContent: !!latestJob },
       { name: "people", lastmod: toDateStr(latestPerson?.updatedAt), hasContent: !!latestPerson },
-      { name: "investors", lastmod: toDateStr(latestInvestor?.updatedAt), hasContent: !!latestInvestor },
       { name: "companies", lastmod: toDateStr(latestCompany?.updatedAt), hasContent: !!latestCompany },
-      { name: "accelerators", lastmod: toDateStr(latestAccelerator?.updatedAt), hasContent: !!latestAccelerator },
       { name: "events", lastmod: toDateStr(latestEvent?.updatedAt), hasContent: !!latestEvent },
-      { name: "resources", lastmod: toDateStr(latestResource?.updatedAt), hasContent: !!latestResource },
-      { name: "research", lastmod: toDateStr(latestResearch?.updatedAt), hasContent: !!latestResearch },
       { name: "categories", lastmod: toDateStr(latestCategory?.updatedAt), hasContent: !!latestCategory },
       { name: "tags", lastmod: today, hasContent: true }, // Tags with articles
       { name: "authors", lastmod: today, hasContent: !!latestArticle }, // Authors with at least one published article
@@ -1163,9 +1136,9 @@ export class SeoService {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TechScoop News</title>
+    <title>${publication.name} News</title>
     <link>${this.baseUrl}</link>
-    <description>Latest tech news and insights from TechScoop - MENA's leading technology publication</description>
+    <description>${publication.description}</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${this.baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>${items}
@@ -1204,9 +1177,9 @@ export class SeoService {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TechScoop Jobs</title>
+    <title>${publication.name} Jobs</title>
     <link>${this.baseUrl}/jobs</link>
-    <description>Latest tech job opportunities from TechScoop</description>
+    <description>Latest industry job opportunities from ${publication.name}</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${this.baseUrl}/jobs/rss.xml" rel="self" type="application/rss+xml"/>${items}
@@ -1224,7 +1197,7 @@ export class SeoService {
     return `User-agent: *
 Allow: /
 
-# Primary sitemap index — Cloudflare seo-worker proxies to /api/ on origin.
+# Primary sitemap index
 Sitemap: ${b}/sitemap.xml
 
 # Sub-sitemaps (apex URLs)
@@ -1232,12 +1205,8 @@ Sitemap: ${b}/sitemap-articles.xml
 Sitemap: ${b}/sitemap-news.xml
 Sitemap: ${b}/sitemap-jobs.xml
 Sitemap: ${b}/sitemap-people.xml
-Sitemap: ${b}/sitemap-investors.xml
 Sitemap: ${b}/sitemap-companies.xml
-Sitemap: ${b}/sitemap-accelerators.xml
 Sitemap: ${b}/sitemap-events.xml
-Sitemap: ${b}/sitemap-resources.xml
-Sitemap: ${b}/sitemap-research.xml
 Sitemap: ${b}/sitemap-categories.xml
 Sitemap: ${b}/sitemap-tags.xml
 Sitemap: ${b}/sitemap-authors.xml
@@ -1264,6 +1233,13 @@ Disallow: /profile
 Disallow: /account
 Disallow: /settings
 Disallow: /search
+
+# Retired public sections (no longer part of the publication)
+Disallow: /investors
+Disallow: /accelerators
+Disallow: /funding
+Disallow: /resources
+Disallow: /submit-startup
 
 # Block faceted/filter/UTM URLs (duplicate-content prevention)
 Disallow: /*?sort=
@@ -1322,7 +1298,7 @@ Crawl-delay: 0
   } {
     const defaults: Record<string, () => { title: string; description: string; image: string; canonicalPath: string }> = {
       article: () => ({
-        title: `${entity.title} | TechScoop`,
+        title: `${entity.title} | ${publication.name}`,
         description: (entity.excerpt as string)?.substring(0, 160) || "",
         image: entity.featuredImage as string || "",
         // Match the runtime route emitted by Article.tsx and prerender.ts:
@@ -1335,37 +1311,37 @@ Crawl-delay: 0
           : `/news/${entity.slug}`,
       }),
       job: () => ({
-        title: `${entity.title} at ${entity.companyName} | TechScoop Jobs`,
+        title: `${entity.title} at ${entity.companyName} | ${publication.name} Jobs`,
         description: `${entity.title} - ${entity.roleType} position at ${entity.companyName}. ${entity.location || 'Remote'}`,
         image: entity.companyLogo as string || "",
         canonicalPath: `/jobs/${entity.slug}`
       }),
       person: () => ({
-        title: `${entity.name}${entity.title ? ` - ${entity.title}` : ""} | TechScoop People`,
-        description: (entity.shortBio as string)?.substring(0, 160) || `${entity.name} profile on TechScoop`,
+        title: `${entity.name}${entity.title ? ` - ${entity.title}` : ""} | ${publication.name} People`,
+        description: (entity.shortBio as string)?.substring(0, 160) || `${entity.name} profile on ${publication.name}`,
         image: entity.avatar as string || "",
         canonicalPath: `/people/${entity.slug}`
       }),
       investor: () => ({
-        title: `${entity.name} | TechScoop Investors`,
-        description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.name} investor profile on TechScoop`,
+        title: `${entity.name} | ${publication.name} Investors`,
+        description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.name} investor profile on ${publication.name}`,
         image: entity.logo as string || "",
         canonicalPath: `/investors/${entity.slug}`
       }),
       event: () => ({
-        title: `${entity.title} | TechScoop Events`,
+        title: `${entity.title} | ${publication.name} Events`,
         description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.title} - ${entity.type} event`,
         image: entity.featuredImage as string || "",
         canonicalPath: `/events/${entity.slug}`
       }),
       resource: () => ({
-        title: `${entity.title} | TechScoop Resources`,
+        title: `${entity.title} | ${publication.name} Resources`,
         description: (entity.shortDescription as string)?.substring(0, 160) || `${entity.title} - ${entity.type}`,
         image: entity.featuredImage as string || "",
         canonicalPath: `/resources/${entity.slug}`
       }),
       research: () => ({
-        title: `${entity.title} | TechScoop Research`,
+        title: `${entity.title} | ${publication.name} Research`,
         description: (entity.abstract as string)?.substring(0, 160) || `${entity.title} - Research report`,
         image: entity.featuredImage as string || "",
         canonicalPath: `/research/${entity.slug}`
@@ -1373,7 +1349,7 @@ Crawl-delay: 0
     };
 
     return defaults[entityType]?.() || {
-      title: "TechScoop",
+      title: publication.name,
       description: "Tech news, jobs, and insights",
       image: "",
       canonicalPath: "/"
@@ -1469,7 +1445,6 @@ Crawl-delay: 0
       : isNotNull(table.publishedAt);
     const [jobCount] = await db.select({ count: count() }).from(jobs).where(statsFilter(jobs));
     const [peopleCount] = await db.select({ count: count() }).from(people).where(statsFilter(people));
-    const [investorCount] = await db.select({ count: count() }).from(investors).where(statsFilter(investors));
     // Events: use statusId OR publishedAt (same logic as sitemap generation)
     const [evtPubStatus] = await db.select({ id: workflowStatuses.id })
       .from(workflowStatuses)
@@ -1480,11 +1455,8 @@ Crawl-delay: 0
           ? or(eq(events.statusId, evtPubStatus.id), isNotNull(events.publishedAt))
           : isNotNull(events.publishedAt)
       );
-    const [resourceCount] = await db.select({ count: count() }).from(resources).where(isNotNull(resources.publishedAt));
-    const [researchCount] = await db.select({ count: count() }).from(research).where(isNotNull(research.publishedAt));
     const [categoryCount] = await db.select({ count: count() }).from(categories);
     const [companyCount] = await db.select({ count: count() }).from(companies).where(statsFilter(companies));
-    const [acceleratorCount] = await db.select({ count: count() }).from(accelerators);
 
     // Count Google News (last 48 hours)
     const cutoffDate = new Date();
@@ -1498,19 +1470,15 @@ Crawl-delay: 0
     }).length;
 
     // Static pages count - matches the actual list in generateSitemap("pages")
-    const staticPagesCount = 28;
+    const staticPagesCount = 12;
 
     const sitemaps = [
       { name: "articles", description: "All articles (full archive)", urlCount: Number(articleCount?.count) || 0, path: "/sitemap-articles.xml" },
       { name: "news", description: "Google News (last 48 hours)", urlCount: newsCount, path: "/sitemap-news.xml" },
       { name: "jobs", description: "Job listings", urlCount: Number(jobCount?.count) || 0, path: "/sitemap-jobs.xml" },
       { name: "people", description: "People profiles", urlCount: Number(peopleCount?.count) || 0, path: "/sitemap-people.xml" },
-      { name: "investors", description: "Investor profiles", urlCount: Number(investorCount?.count) || 0, path: "/sitemap-investors.xml" },
       { name: "companies", description: "Company profiles", urlCount: Number(companyCount?.count) || 0, path: "/sitemap-companies.xml" },
-      { name: "accelerators", description: "Accelerator profiles", urlCount: Number(acceleratorCount?.count) || 0, path: "/sitemap-accelerators.xml" },
       { name: "events", description: "Events", urlCount: Number(eventCount?.count) || 0, path: "/sitemap-events.xml" },
-      { name: "resources", description: "Resources", urlCount: Number(resourceCount?.count) || 0, path: "/sitemap-resources.xml" },
-      { name: "research", description: "Research reports", urlCount: Number(researchCount?.count) || 0, path: "/sitemap-research.xml" },
       { name: "categories", description: "Category pages", urlCount: Number(categoryCount?.count) || 0, path: "/sitemap-categories.xml" },
       { name: "pages", description: "Static pages", urlCount: staticPagesCount, path: "/sitemap-pages.xml" }
     ];

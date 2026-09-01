@@ -43,10 +43,10 @@ function setSitemapHeaders(res: any) {
     "Cache-Control",
     "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
   );
-  // Prevent Cloudflare/Manus from applying their default 90-day immutable cache.
+  // Prevent the CDN from applying a long immutable cache.
   res.set("CDN-Cache-Control", "max-age=3600");
   res.set("Cloudflare-CDN-Cache-Control", "max-age=3600");
-  // X-Robots-Tag MUST be index,follow on sitemaps; Manus default sometimes
+  // X-Robots-Tag MUST be index,follow on sitemaps; some hosts otherwise
   // injects noindex on .xml — override explicitly.
   res.set("X-Robots-Tag", "noarchive");
   // Disable platform/CDN HTML-rewriting that can corrupt XML.
@@ -72,7 +72,7 @@ router.get(["/sitemap.xml", "/sitemap-index.xml"], async (req, res) => {
 /**
  * Articles Sitemap - /api/sitemap-articles.xml
  * Full archive of all articles
- * NOTE: Using /api/ prefix to bypass Manus platform edge routing
+ * NOTE: /api/-prefixed mirror kept as a safe fallback for edge/CDN routing
  */
 router.get("/sitemap-articles.xml", async (req, res) => {
   try {
@@ -88,7 +88,7 @@ router.get("/sitemap-articles.xml", async (req, res) => {
 /**
  * Google News Sitemap - /api/sitemap-news.xml
  * Only includes articles from last 48 hours per Google News requirements
- * NOTE: Using /api/ prefix to bypass Manus platform edge routing
+ * NOTE: /api/-prefixed mirror kept as a safe fallback for edge/CDN routing
  */
 router.get("/sitemap-news.xml", async (req, res) => {
   try {
@@ -103,7 +103,7 @@ router.get("/sitemap-news.xml", async (req, res) => {
 
 /**
  * Jobs Sitemap - /api/sitemap-jobs.xml
- * NOTE: Using /api/ prefix to bypass Manus platform edge routing
+ * NOTE: /api/-prefixed mirror kept as a safe fallback for edge/CDN routing
  */
 router.get("/sitemap-jobs.xml", async (req, res) => {
   try {
@@ -118,7 +118,7 @@ router.get("/sitemap-jobs.xml", async (req, res) => {
 
 /**
  * People Sitemap - /api/sitemap-people.xml
- * NOTE: Using /api/ prefix to bypass Manus platform edge routing
+ * NOTE: /api/-prefixed mirror kept as a safe fallback for edge/CDN routing
  */
 router.get("/sitemap-people.xml", async (req, res) => {
   try {
@@ -127,20 +127,6 @@ router.get("/sitemap-people.xml", async (req, res) => {
     res.send(xml);
   } catch (error) {
     logSitemapError("people", error);
-    res.status(500).send("Error generating sitemap");
-  }
-});
-
-/**
- * Investors Sitemap - /sitemap-investors.xml
- */
-router.get("/sitemap-investors.xml", async (req, res) => {
-  try {
-    const xml = await seoService.generateSitemap("investors");
-    setSitemapHeaders(res);
-    res.send(xml);
-  } catch (error) {
-    logSitemapError("investors", error);
     res.status(500).send("Error generating sitemap");
   }
 });
@@ -155,34 +141,6 @@ router.get("/sitemap-events.xml", async (req, res) => {
     res.send(xml);
   } catch (error) {
     logSitemapError("events", error);
-    res.status(500).send("Error generating sitemap");
-  }
-});
-
-/**
- * Resources Sitemap - /sitemap-resources.xml
- */
-router.get("/sitemap-resources.xml", async (req, res) => {
-  try {
-    const xml = await seoService.generateSitemap("resources");
-    setSitemapHeaders(res);
-    res.send(xml);
-  } catch (error) {
-    logSitemapError("resources", error);
-    res.status(500).send("Error generating sitemap");
-  }
-});
-
-/**
- * Research Sitemap - /sitemap-research.xml
- */
-router.get("/sitemap-research.xml", async (req, res) => {
-  try {
-    const xml = await seoService.generateSitemap("research");
-    setSitemapHeaders(res);
-    res.send(xml);
-  } catch (error) {
-    logSitemapError("research", error);
     res.status(500).send("Error generating sitemap");
   }
 });
@@ -211,20 +169,6 @@ router.get("/sitemap-companies.xml", async (req, res) => {
     res.send(xml);
   } catch (error) {
     logSitemapError("companies", error);
-    res.status(500).send("Error generating sitemap");
-  }
-});
-
-/**
- * Accelerators Sitemap - /sitemap-accelerators.xml
- */
-router.get("/sitemap-accelerators.xml", async (req, res) => {
-  try {
-    const xml = await seoService.generateSitemap("accelerators");
-    setSitemapHeaders(res);
-    res.send(xml);
-  } catch (error) {
-    logSitemapError("accelerators", error);
     res.status(500).send("Error generating sitemap");
   }
 });

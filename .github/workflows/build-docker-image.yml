@@ -3,14 +3,14 @@ name: Build & Publish Docker Image
 # Builds the production Docker image from the repo's own Dockerfile on every
 # push to main and publishes it to GitHub Container Registry:
 #
-#   ghcr.io/mohsinqureshii/techscoop-main:latest   (tracks main)
-#   ghcr.io/mohsinqureshii/techscoop-main:<sha>    (immutable, per-commit)
+#   ghcr.io/mohsinqureshii/brentdesk:latest   (tracks main)
+#   ghcr.io/mohsinqureshii/brentdesk:<sha>    (immutable, per-commit)
 #
-# Why this exists: the Manus deploy pipeline builds from a sandbox snapshot
+# Why this exists: provides a portable container image build
 # of the source tree, not from git, so a green build here proves the repo
 # itself is deployable regardless of any external pipeline's state. The
 # published image can be pulled by any container host (Cloud Run, Railway,
-# a VPS running docker-compose) as a Manus-independent deploy path.
+# a VPS running docker-compose) as a host-independent deploy path.
 #
 # Deliberately uses only the GitHub-owned actions/checkout plus the docker
 # CLI preinstalled on ubuntu-latest — no marketplace actions — so repo

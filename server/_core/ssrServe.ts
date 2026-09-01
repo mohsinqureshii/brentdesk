@@ -27,9 +27,6 @@ import {
   getCompanyForSSR,
   generateCompanyMetaTags,
   generateCompanyJsonLd,
-  getInvestorForSSR,
-  generateInvestorMetaTags,
-  generateInvestorJsonLd,
   getPersonForSSR,
   generatePersonMetaTags,
   generatePersonJsonLd,
@@ -39,9 +36,6 @@ import {
   getJobForSSR,
   generateJobMetaTags,
   generateJobJsonLd,
-  getAcceleratorForSSR,
-  generateAcceleratorMetaTags,
-  generateAcceleratorJsonLd,
   getAuthorForSSR,
   generateAuthorMetaTags,
   generateAuthorJsonLd,
@@ -50,7 +44,11 @@ import {
 } from "../services/ssr.service";
 import { generateStaticPageMetaTags } from "./staticPagesSEO";
 
-const BASE_URL = "https://techscoop.io";
+import { publication, getBaseUrl } from "../../shared/publication";
+
+const BASE_URL = getBaseUrl();
+const SITE_NAME = publication.name;
+const DEFAULT_OG_IMAGE = `${BASE_URL}${publication.assets.ogImage}`;
 
 // ============================================================
 // URL Classification
@@ -63,7 +61,7 @@ const skipPrefixPaths = [
   '/sitemap', '/robots', '/favicon', '/assets', '/fonts', '/images',
   '/src/', '/@', '/rss', '/feed', '/subscribe', '/homepage',
   '/404', '/claimed-profiles', '/go/',
-  '/manus-storage/', // legacy Manus asset mount — files live in R2 now
+  '/legacy-storage/', // retired asset mount path — kept in the skip list so stale URLs 404 fast
 ];
 
 // Static-asset extensions must NEVER reach the SSR pipeline. A missing
@@ -105,14 +103,8 @@ export function isSystemUrl(url: string): boolean {
  */
 export const knownStaticPages = new Set([
   // Core pages
-  '/', '/news', '/jobs', '/companies', '/people', '/investors',
-  '/accelerators', '/events', '/funding', '/resources',
-  '/resources/perks', '/resources/tools', '/resources/playbooks',
-  '/resources/regulations', '/resources/templates', '/resources/calculators',
-  '/resources/calculators/cac-ltv', '/resources/calculators/dilution',
-  '/resources/calculators/mrr', '/resources/calculators/runway',
-  '/resources/calculators/saas-quick-ratio',
-  '/research', '/about', '/contact', '/advertise', '/newsletter',
+  '/', '/news', '/jobs', '/companies', '/people',
+  '/events', '/about', '/contact', '/advertise', '/newsletter',
   '/terms', '/privacy',
   // Search page - should be noindex but still a real page (handled separately)
   '/search',
@@ -145,10 +137,20 @@ export const noindexPages = new Set([
  */
 function inject404Response(template: string, url: string): string {
   let html = injectCanonical(template, url);
-  html = html.replace(
-    /<meta[^>]*name="robots"[^>]*>/gi,
-    '<meta name="robots" content="noindex, follow" />'
-  );
+  if (/<meta[^>]*name="robots"[^>]*>/i.test(html)) {
+    html = html.replace(
+      /<meta[^>]*name="robots"[^>]*>/gi,
+      '<meta name="robots" content="noindex, follow" />'
+    );
+  } else {
+    // The shell template carries no robots meta of its own — append the
+    // noindex directive instead of silently doing nothing (entity-miss
+    // 404 pages used to ship with no robots directive at all).
+    html = html.replace(
+      /<\/head>/i,
+      '  <meta name="robots" content="noindex, follow" />\n  </head>'
+    );
+  }
   return html;
 }
 
@@ -205,7 +207,7 @@ function buildWebPageJsonLd(canonicalUrl: string): string {
     obj["about"] = { "@id": `${BASE_URL}/#organization` };
     obj["primaryImageOfPage"] = {
       "@type": "ImageObject",
-      "url": "https://assets.techscoop.io/og-image.png",
+      "url": DEFAULT_OG_IMAGE,
     };
   }
   return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
@@ -230,7 +232,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateCompanyMetaTags,
     jsonLdFn: generateCompanyJsonLd,
     noscriptFn: (c) => {
-      const desc = c.shortDescription || c.tagline || c.description?.substring(0, 300) || `${c.name} - Company profile on TechScoop`;
+      const desc = c.shortDescription || c.tagline || c.description?.substring(0, 300) || `${c.name} - Company profile on ${SITE_NAME}`;
       const details = [
         c.industry ? `Industry: ${c.industry}` : null,
         c.location ? `Location: ${c.location}` : null,
@@ -240,28 +242,12 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     },
   },
   {
-    prefix: '/investors/',
-    getFn: getInvestorForSSR,
-    metaFn: generateInvestorMetaTags,
-    jsonLdFn: generateInvestorJsonLd,
-    noscriptFn: (inv) => {
-      const desc = inv.shortDescription || inv.description?.substring(0, 300) || `${inv.name} - Investor profile on TechScoop`;
-      const details = [
-        inv.type ? `Type: ${inv.type}` : null,
-        inv.headquarters ? `Headquarters: ${inv.headquarters}` : null,
-        inv.aum ? `AUM: ${inv.aum}` : null,
-        inv.portfolioCount ? `Portfolio Companies: ${inv.portfolioCount}` : null,
-      ].filter(Boolean).join(' | ');
-      return `<noscript><div><h1>${inv.name}</h1><p>${desc}</p>${details ? `<p>${details}</p>` : ''}</div></noscript>`;
-    },
-  },
-  {
     prefix: '/people/',
     getFn: getPersonForSSR,
     metaFn: generatePersonMetaTags,
     jsonLdFn: generatePersonJsonLd,
     noscriptFn: (p) => {
-      const desc = p.shortBio || p.bio?.substring(0, 300) || `${p.name} - Professional profile on TechScoop`;
+      const desc = p.shortBio || p.bio?.substring(0, 300) || `${p.name} - Professional profile on ${SITE_NAME}`;
       const details = [
         p.title ? `Title: ${p.title}` : null,
         p.company ? `Company: ${p.company}` : null,
@@ -276,7 +262,7 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     metaFn: generateEventMetaTags,
     jsonLdFn: generateEventJsonLd,
     noscriptFn: (e) => {
-      const desc = e.shortDescription || e.description?.substring(0, 300) || `${e.title} - Event on TechScoop`;
+      const desc = e.shortDescription || e.description?.substring(0, 300) || `${e.title} - Event on ${SITE_NAME}`;
       const details = [
         e.location ? `Location: ${e.location}` : null,
         e.eventDate ? `Date: ${new Date(e.eventDate).toLocaleDateString()}` : null,
@@ -300,26 +286,12 @@ const entitySSRConfigs: EntitySSRConfig[] = [
     },
   },
   {
-    prefix: '/accelerators/',
-    getFn: getAcceleratorForSSR,
-    metaFn: generateAcceleratorMetaTags,
-    jsonLdFn: generateAcceleratorJsonLd,
-    noscriptFn: (a) => {
-      const desc = a.shortDescription || a.description?.substring(0, 300) || `${a.name} - Accelerator profile on TechScoop`;
-      const details = [
-        a.location ? `Location: ${a.location}` : null,
-        a.yearFounded ? `Founded: ${a.yearFounded}` : null,
-      ].filter(Boolean).join(' | ');
-      return `<noscript><div><h1>${a.name}</h1><p>${desc}</p>${details ? `<p>${details}</p>` : ''}</div></noscript>`;
-    },
-  },
-  {
     prefix: '/author/',
     getFn: getAuthorForSSR,
     metaFn: generateAuthorMetaTags,
     jsonLdFn: generateAuthorJsonLd,
     noscriptFn: (a) => {
-      const desc = a.authorBio || a.bio?.substring(0, 300) || `${a.name} - Author at TechScoop`;
+      const desc = a.authorBio || a.bio?.substring(0, 300) || `${a.name} - Author at ${SITE_NAME}`;
       const details = [
         a.jobTitle ? `Role: ${a.jobTitle}` : null,
         a.articleCount ? `Articles: ${a.articleCount}` : null,
@@ -406,8 +378,8 @@ async function tryCategorySSR(url: string, template: string): Promise<{ html: st
         // It's a known static page - but still try category SSR for category pages
         // Only skip if it's a non-category static page
         const nonCategoryStatics = new Set([
-          'news', 'jobs', 'companies', 'people', 'investors', 'accelerators',
-          'events', 'funding', 'resources', 'research', 'about', 'contact',
+          'news', 'jobs', 'companies', 'people',
+          'events', 'about', 'contact',
           'advertise', 'newsletter', 'terms', 'privacy', 'search',
           'forgot-password', 'reset-password', 'verify-email',
         ]);
@@ -426,7 +398,7 @@ async function tryCategorySSR(url: string, template: string): Promise<{ html: st
       const metaTags = generateCategoryMetaTags(category);
       const jsonLd = generateCategoryJsonLd(category);
       const articlesList = category.recentArticles && category.recentArticles.length > 0
-        ? `<ul>${category.recentArticles.map(a => `<li><a href="https://techscoop.io/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
+        ? `<ul>${category.recentArticles.map(a => `<li><a href="${BASE_URL}/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
         : '';
       const prerendered = `<noscript><div><h1>${category.name} News</h1><p>${category.description || ''}</p>${articlesList}</div></noscript>`;
       const html = injectSSRContent(template, metaTags, jsonLd, prerendered);
@@ -465,7 +437,7 @@ async function trySubcategorySSR(url: string, template: string): Promise<{ html:
       const metaTags = generateCategoryMetaTags(categoryWithFullUrl);
       const jsonLd = generateCategoryJsonLd(categoryWithFullUrl);
       const articlesList = category.recentArticles && category.recentArticles.length > 0
-        ? `<ul>${category.recentArticles.map(a => `<li><a href="https://techscoop.io/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
+        ? `<ul>${category.recentArticles.map(a => `<li><a href="${BASE_URL}/${a.categorySlug}/${a.slug}">${escapeHtml(a.title)}</a></li>`).join('')}</ul>`
         : '';
       const prerendered = `<noscript><div><h1>${category.name} News</h1><p>${category.description || ''}</p>${articlesList}</div></noscript>`;
       const html = injectSSRContent(template, metaTags, jsonLd, prerendered);
@@ -657,10 +629,10 @@ async function tryEventLiveSSR(url: string, template: string): Promise<{ html: s
     const post = m[2] ? await getLivePostForSSR(Number(m[2])) : null;
     const title = post?.headline
       ? `${post.headline} — LIVE: ${event.title}`
-      : `LIVE: ${event.title} — Live Coverage | TechScoop`;
+      : `LIVE: ${event.title} — Live Coverage | ${SITE_NAME}`;
     const description = (post?.body ?? `Live updates, photos and breaking news from ${event.title}.`)
       .replace(/<[^>]+>/g, '').slice(0, 200);
-    const image = post?.imageUrl || event.featuredImage || 'https://assets.techscoop.io/og-image.png';
+    const image = post?.imageUrl || event.featuredImage || DEFAULT_OG_IMAGE;
 
     let html = template
       .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)

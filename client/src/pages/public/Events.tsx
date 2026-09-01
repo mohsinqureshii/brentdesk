@@ -47,6 +47,7 @@ import {
   X,
 } from "lucide-react";
 
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
@@ -278,7 +279,7 @@ export default function Events() {
     const link = document.createElement("link");
     link.rel = "alternate";
     link.type = "application/rss+xml";
-    link.title = "TechScoop — Upcoming Tech Events";
+    link.title = `${publication.name} — Upcoming Events`;
     link.href = href;
     document.head.appendChild(link);
     return () => link.remove();
@@ -385,8 +386,8 @@ export default function Events() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Events — TechScoop"
-        description="The MENA tech events hub: conferences, summits, demo days, workshops, and live coverage of what's happening right now."
+        title={`Events — ${publication.name}`}
+        description="Industry events across Saudi Arabia, the GCC and MENA: conferences, expos, forums and live coverage of what's happening right now."
       />
       <Header />
 
@@ -513,7 +514,7 @@ export default function Events() {
 
 /** Topic chips seed the search box; they are plain queries, not a new
  *  taxonomy, so they can never drift out of sync with real data. */
-const POPULAR_TOPICS = ["AI", "Cybersecurity", "Fintech", "Startups", "Cloud", "Energy"];
+const POPULAR_TOPICS = ["Energy", "Construction", "Infrastructure", "Logistics", "Mining", "Manufacturing"];
 
 function SearchHero({
   filters,
@@ -559,7 +560,7 @@ function SearchHero({
         {/* Left: promise, search, topics */}
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">
-            TechScoop Events
+            {publication.name} Events
           </p>
           <h1 className="mt-3 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
             Discover events.
@@ -569,8 +570,8 @@ function SearchHero({
             Shape the <span className="text-emerald-600 dark:text-emerald-400">future.</span>
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            From global conferences to local meetups — find the events that connect,
-            educate and move the region&rsquo;s tech community forward.
+            From global expos to regional forums — find the events that connect
+            the people building the region&rsquo;s industry.
           </p>
 
           <form
@@ -811,7 +812,7 @@ function TrendingPanel({
           </h2>
         </div>
         <p className="mt-0.5 pl-8 text-[11px] text-muted-foreground">
-          Ranked by RSVPs on TechScoop
+          Ranked by RSVPs on {publication.name}
         </p>
       </div>
 
@@ -872,7 +873,7 @@ function RelatedArticlesPanel() {
           </h2>
         </div>
         <p className="mt-0.5 pl-8 text-[11px] text-muted-foreground">
-          Reporting from the TechScoop newsroom
+          Reporting from the {publication.name} newsroom
         </p>
       </div>
 
@@ -1112,7 +1113,7 @@ function Masthead({
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-              TechScoop Events
+              {publication.name} Events
             </p>
             <h1 className="mt-3 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               Every conference, summit and demo day that matters.
@@ -1735,7 +1736,7 @@ function SubmitBand() {
             </h2>
             <p className="mt-2 text-muted-foreground">
               Get it in front of the region's founders, operators and investors.
-              Listing on the TechScoop events hub is free.
+              Listing on the {publication.name} events hub is free.
             </p>
           </div>
           <Link href="/events/submit" className="shrink-0">

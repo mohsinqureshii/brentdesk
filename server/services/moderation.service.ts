@@ -3,6 +3,7 @@
  * Handles profile claims, suggested updates, and version history (Crunchbase-style)
  */
 
+import { publication } from "../../shared/publication";
 import { eq, and, desc, sql } from "drizzle-orm";
 import { getDb } from "../db";
 import { 
@@ -541,7 +542,7 @@ export class ModerationService {
         await db.insert(emailNotifications).values({
           recipientEmail: mod.email,
           recipientUserId: mod.id,
-          subject: `[TechScoop] ${subject}`,
+          subject: `[${publication.name}] ${subject}`,
           body: `A new moderation item requires your attention.\n\nEntity Type: ${entityType}\nEntity ID: ${entityId}`,
           type: "moderation_new",
           entityType,
@@ -562,7 +563,7 @@ export class ModerationService {
 
     await db.insert(emailNotifications).values({
       recipientEmail: email,
-      subject: `[TechScoop] Profile Claim ${status === "approved" ? "Approved" : "Rejected"}`,
+      subject: `[${publication.name}] Profile Claim ${status === "approved" ? "Approved" : "Rejected"}`,
       body: statusText,
       type: "claim_decision",
       entityType,
@@ -580,7 +581,7 @@ export class ModerationService {
 
     await db.insert(emailNotifications).values({
       recipientEmail: email,
-      subject: `[TechScoop] Update Suggestion ${status === "approved" ? "Approved" : "Rejected"}`,
+      subject: `[${publication.name}] Update Suggestion ${status === "approved" ? "Approved" : "Rejected"}`,
       body: statusText,
       type: "update_decision",
       entityType,

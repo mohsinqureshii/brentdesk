@@ -5,6 +5,7 @@
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { publication } from "@shared/publication";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -1224,7 +1225,7 @@ export default function ArticleEditor() {
                     <>
                       <div className="flex items-center gap-1 mt-2 text-sm text-[#697386] flex-wrap">
                         <Globe className="h-4 w-4 flex-shrink-0" />
-                        <span className="flex-shrink-0">techscoop.com/</span>
+                        <span className="flex-shrink-0">{publication.domain}/</span>
                         {/* Show primary category slug only (no parent hierarchy) */}
                         {article.primaryCategoryId && categories && (() => {
                           const primaryCat = (categories as any[])?.find((c: { id: number }) => c.id === article.primaryCategoryId);
@@ -1962,7 +1963,7 @@ export default function ArticleEditor() {
                           {article.seoTitle || article.title || "Article Title"}
                         </p>
                         <p className="text-green-700 text-sm">
-                          techscoop.com/
+                          {publication.domain}/
                           {article.primaryCategoryId && categories && (() => {
                             const primaryCat = (categories as any[])?.find((c: { id: number }) => c.id === article.primaryCategoryId);
                             return primaryCat ? `${primaryCat.slug}/` : "";

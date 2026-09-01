@@ -82,7 +82,7 @@ export const newslettersRouter = router({
               VALUES (${email}, ${newsletterId}, 'subscribed', ${input.source || 'direct'})
               ON DUPLICATE KEY UPDATE
                 status = 'subscribed',
-                updatedAt = NOW()
+                updated_at = NOW()
             `);
 
             successCount++;
@@ -130,7 +130,7 @@ export const newslettersRouter = router({
         // Mark as unsubscribed
         await db.execute(sql`
           UPDATE newsletter_subscriptions
-          SET status = 'unsubscribed', unsubscribedAt = NOW()
+          SET status = 'unsubscribed', unsubscribed_at = NOW()
           WHERE email = ${input.email.toLowerCase()}
             AND newsletterId = ${newsletterId}
         `);

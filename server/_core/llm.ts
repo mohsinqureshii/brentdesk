@@ -212,8 +212,8 @@ const normalizeToolChoice = (
 /**
  * Endpoint resolution. Two supported backends, same OpenAI-compatible
  * wire format:
- *   1. Manus forge proxy (BUILT_IN_FORGE_API_URL/KEY) — the original
- *      "builtin" provider. Only available on Manus hosting.
+ *   1. Legacy hosting AI proxy (BUILT_IN_FORGE_API_URL/KEY) — the original
+ *      "builtin" provider. Only available on the previous hosting platform.
  *   2. Google Gemini's OpenAI-compatible endpoint, keyed by
  *      GEMINI_API_KEY (free tier at https://aistudio.google.com/apikey).
  *      The forge was already proxying to gemini-2.5-flash, so this is
@@ -223,7 +223,7 @@ const GEMINI_OPENAI_URL =
   "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions";
 
 /**
- * Model selection. Through the forge the model name is fixed by Manus;
+ * Model selection. Through the proxy the model name is fixed upstream;
  * direct Gemini defaults to the current flash generation (2.5-flash is
  * closed to new API projects) and can be overridden via GEMINI_MODEL.
  */
@@ -326,7 +326,7 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
 
   payload.max_tokens = 32768
   if (endpoint.viaGemini) {
-    // Google's OpenAI-compat endpoint doesn't accept the Manus-forge
+    // Google's OpenAI-compat endpoint doesn't accept the legacy proxy's
     // `thinking` field; reasoning_effort=low is the equivalent of the
     // small thinking budget we used through the forge.
     payload.reasoning_effort = "low";

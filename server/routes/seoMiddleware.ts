@@ -1,21 +1,31 @@
 /**
- * SEO Middleware
- * Handles all SEO-related URL fixes identified from Google Search Console:
- * 
- * 1. Returns 410 Gone for old WordPress URLs
- * 2. Redirects /news?tag=X to /tag/slug (new tag pages)
- * 3. Redirects /news?topic=X to /tag/slug or /category/slug
- * 4. Adds noindex X-Robots-Tag header for admin pages
- * 5. Normalizes trailing slashes (strip trailing slash, redirect)
- * 6. Handles /tag/slug/feed/ URLs (410 Gone - no RSS per tag)
- * 7. Handles old URL patterns that return soft 404s
- * 8. Adds canonical headers for filtered pages
+ * SEO Middleware — generic URL hygiene for the public site.
+ *
+ * 1. Returns 410 Gone for WordPress-shaped probe URLs (bot hygiene —
+ *    this app never ran WordPress; scanners probe these paths on every
+ *    site and a 410 beats a soft-404 SPA response)
+ * 2. Redirects /news?tag=X / /news?topic=X to canonical tag/category URLs
+ * 3. Adds noindex X-Robots-Tag header for admin pages
+ * 4. Normalizes /category/:slug to the canonical bare slug
+ * 5. Redirects 3-segment article URLs to the canonical 2-segment URL
+ * 6. Normalizes trailing slashes
+ * 7. /e/:slug short links for event sharing
+ *
+ * NOTE: the previous publication's historical redirect rules (its old
+ * WordPress tag/feed URL shapes, year archives, one-off page moves) were
+ * deliberately dropped — BrentDesk is a new publication and does not
+ * inherit that URL history. Operator-managed redirects live in the
+ * redirects table (Admin → SEO → Redirects).
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { Router, Request, Response, NextFunction } from "express";
 import { eq, and, isNotNull } from "drizzle-orm";
 import { getDb } from "../db";
 import { tags, categories } from "../../drizzle/schema";
+
+const BASE = getBaseUrl();
+const SITE = publication.name;
 
 const router = Router();
 
@@ -27,49 +37,7 @@ router.all(["/wp-admin", "/wp-admin/*", "/wp-content/*", "/wp-includes/*", "/wp-
     <!DOCTYPE html>
     <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
     <body><h1>410 Gone</h1><p>This resource has been permanently removed.</p>
-    <p><a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
-  `);
-});
-
-// ============================================================
-// 1b. LEGACY WORDPRESS TAG URLs → 301 to canonical /tag/:slug
-// /tags/foo, /tags/foo/, /tags/foo/page/2 all collapse to /tag/foo
-// ============================================================
-router.get(["/tags", "/tags/"], (_req, res) => {
-  res.redirect(301, "/news");
-});
-router.get(["/tags/:slug/feed", "/tags/:slug/feed/"], (_req, res) => {
-  res.status(410).set("Content-Type", "text/html").send(
-    `<!DOCTYPE html><html><head><title>410 Gone</title><meta name="robots" content="noindex"></head><body><h1>410 Gone</h1><p><a href="https://techscoop.io/rss.xml">Main RSS</a></p></body></html>`
-  );
-});
-router.get(
-  ["/tags/:slug/page/:page", "/tags/:slug/page/:page/", "/tags/:slug", "/tags/:slug/"],
-  (req, res) => {
-    const slug = String(req.params.slug || "").toLowerCase();
-    if (!slug) return res.redirect(301, "/news");
-    res.redirect(301, `/tag/${slug}`);
-  }
-);
-
-// ============================================================
-// 2. TAG FEED URLs → 410 Gone (/tag/*/feed/)
-// ============================================================
-router.get("/tag/:slug/feed", (req, res) => {
-  res.status(410).set("Content-Type", "text/html").send(`
-    <!DOCTYPE html>
-    <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
-    <body><h1>410 Gone</h1><p>Tag RSS feeds have been removed. Use our main RSS feed instead.</p>
-    <p><a href="https://techscoop.io/rss.xml">Main RSS Feed</a> | <a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
-  `);
-});
-
-router.get("/tag/:slug/feed/", (req, res) => {
-  res.status(410).set("Content-Type", "text/html").send(`
-    <!DOCTYPE html>
-    <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
-    <body><h1>410 Gone</h1><p>Tag RSS feeds have been removed. Use our main RSS feed instead.</p>
-    <p><a href="https://techscoop.io/rss.xml">Main RSS Feed</a> | <a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
+    <p><a href="${BASE}">Go to ${SITE}</a></p></body></html>
   `);
 });
 
@@ -169,88 +137,17 @@ router.get("/news", async (req: Request, res: Response, next: NextFunction) => {
 router.get("/events", (req: Request, res: Response, next: NextFunction) => {
   // If there's a city filter, add canonical pointing to base /events
   if (req.query.city) {
-    res.set("Link", '<https://techscoop.io/events>; rel="canonical"');
+    res.set("Link", `<${BASE}/events>; rel="canonical"`);
   }
   next();
 });
 
 // ============================================================
-// 6. OLD URL PATTERNS → Proper redirects or 410
+// 6. SHORT LINKS + CATEGORY URL NORMALIZATION
 // ============================================================
 
-// /homepage → /
-router.get("/homepage", (req, res) => {
-  res.redirect(301, "/");
-});
-
-// /subscribe/ → /newsletter
-router.get("/subscribe", (req, res) => {
-  res.redirect(301, "/newsletter");
-});
-router.get("/subscribe/", (req, res) => {
-  res.redirect(301, "/newsletter");
-});
-
-// /2025/ → / (year archive pages don't exist)
-router.get("/2025", (req, res) => {
-  res.redirect(301, "/");
-});
-router.get("/2025/", (req, res) => {
-  res.redirect(301, "/");
-});
-
-// /videos → / (no dedicated videos page)
-router.get("/videos", (req, res) => {
-  res.redirect(301, "/");
-});
-
-// /typography/ → 410 (test page)
-router.get("/typography", (req, res) => {
-  res.status(410).set("Content-Type", "text/html").send(`
-    <!DOCTYPE html>
-    <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
-    <body><h1>410 Gone</h1><p>This page has been removed.</p>
-    <p><a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
-  `);
-});
-router.get("/typography/", (req, res) => {
-  res.status(410).set("Content-Type", "text/html").send(`
-    <!DOCTYPE html>
-    <html><head><title>410 Gone</title><meta name="robots" content="noindex"></head>
-    <body><h1>410 Gone</h1><p>This page has been removed.</p>
-    <p><a href="https://techscoop.io">Go to TechScoop</a></p></body></html>
-  `);
-});
-
-// /terms-of-service/ → /terms (normalize)
-router.get("/terms-of-service", (req, res) => {
-  res.redirect(301, "/terms");
-});
-router.get("/terms-of-service/", (req, res) => {
-  res.redirect(301, "/terms");
-});
-
-// Old industry/country URLs → redirect to news
-router.get("/industry/:slug", (req, res) => {
-  res.redirect(301, "/news");
-});
-router.get("/industry/:slug/", (req, res) => {
-  res.redirect(301, "/news");
-});
-router.get("/country/:slug", (req, res) => {
-  res.redirect(301, "/news");
-});
-router.get("/country/:slug/", (req, res) => {
-  res.redirect(301, "/news");
-});
-
-// /contact-us → /contact (soft 404 fix)
-router.get("/contact-us", (req, res) => {
-  res.redirect(301, "/contact");
-});
-
 // /e/:slug → /events/:slug (short URL for share buttons)
-// Tweet-friendly redirect e.g. techscoop.io/e/leap-2026 → /events/leap-2026.
+// Tweet-friendly redirect e.g. <domain>/e/some-event → /events/some-event.
 // We preserve any hash/query the share link carried so deep-links like
 // /e/leap-2026#speaker-12 still land on the right element after the 301.
 router.get(["/e/:slug", "/e/:slug/"], (req, res) => {

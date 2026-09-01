@@ -1,3 +1,4 @@
+import { publication } from "@shared/publication";
 import { useEffect } from 'react';
 import { useSiteSettings } from '@/contexts/SiteSettingsContext';
 
@@ -35,7 +36,7 @@ export function SEO({
   article,
 }: SEOProps) {
   const { settings } = useSiteSettings();
-  const siteName = settings.site_title || 'TechScoop';
+  const siteName = settings.site_title || publication.name;
 
   useEffect(() => {
     // Update document title
@@ -118,7 +119,7 @@ export function SEO({
     setMeta('og:url', canonical, true);
     setMeta('og:image', ogImage, true);
     // Always use short brand name for og:site_name (not the full site title)
-    setMeta('og:site_name', 'TechScoop', true);
+    setMeta('og:site_name', siteName, true);
     setMeta('og:locale', 'en_US', true);
     if (ogImage) {
       setMeta('og:image:secure_url', ogImage, true);

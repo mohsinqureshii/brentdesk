@@ -14,7 +14,7 @@
  *   5. SPEAKERS      a row of portrait cards + "+N more".
  *   6. AGENDA        day tabs and a session preview beside the venue.
  *   7. AROUND        side events / tracks / highlights as image cards.
- *   8. FOLLOW BAND   RSVP + newsletter beside TechScoop coverage.
+ *   8. FOLLOW BAND   RSVP + newsletter beside our own coverage.
  *
  * Sections 4–8 are the Overview tab panel; the remaining tabs keep their
  * own panels (Speakers, Tickets, Agenda, Side Events, Venue, FAQs, plus
@@ -74,6 +74,7 @@ import {
   PartyPopper,
 } from "lucide-react";
 
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { stripHtml, sanitizeHtml, looksLikeHtml } from "@/lib/sanitizeHtml";
 import { isEventLive } from "@/lib/eventLive";
@@ -314,7 +315,7 @@ function EventDetailSkeleton() {
 // ================================================================
 
 function EventDetailContent({ event, mode }: { event: EventRow; mode: EventMode }) {
-  const eventUrl = `https://techscoop.io/events/${event.slug}`;
+  const eventUrl = `${publication.siteUrl}/events/${event.slug}`;
 
   // FAQs live in their own table (events.getFaqs). Resolving them here —
   // rather than inside the accordion — keeps a single source for the
@@ -400,8 +401,8 @@ function EventDetailContent({ event, mode }: { event: EventRow; mode: EventMode 
       },
       image: heroImage,
       organizer: {
-        name: event.organizerName || "TechScoop",
-        url: event.organizerWebsite || "https://techscoop.io",
+        name: event.organizerName || publication.name,
+        url: event.organizerWebsite || publication.siteUrl,
       },
       performer,
       offers,
@@ -412,8 +413,8 @@ function EventDetailContent({ event, mode }: { event: EventRow; mode: EventMode 
   }, [event, mode, heroImage, eventUrl]);
 
   const breadcrumbs = [
-    { name: "Home", url: "https://techscoop.io/" },
-    { name: "Events", url: "https://techscoop.io/events" },
+    { name: "Home", url: `${publication.siteUrl}/` },
+    { name: "Events", url: `${publication.siteUrl}/events` },
     { name: event.title, url: eventUrl },
   ];
 
@@ -435,7 +436,7 @@ function EventDetailContent({ event, mode }: { event: EventRow; mode: EventMode 
         // event.featuredImage. This keeps the social card on-brand
         // (date + title + venue overlay) even for events without a
         // cover image, and survives admins swapping the featured image.
-        ogImage={`https://techscoop.io/events/${event.slug}/og.png`}
+        ogImage={`${publication.siteUrl}/events/${event.slug}/og.png`}
       />
       <JsonLd type="Event" data={eventSchema} />
       <JsonLd type="BreadcrumbList" data={breadcrumbs} />
@@ -1145,7 +1146,7 @@ function MostAnticipated({ currentId }: { currentId: number }) {
             Most anticipated
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Upcoming events by interest on TechScoop
+            Upcoming events by interest on {publication.name}
           </p>
         </div>
         <Link
@@ -1176,11 +1177,11 @@ function HostYourEventBand() {
     <section className="flex flex-col gap-6 rounded-2xl border border-emerald-600/25 bg-emerald-50/60 px-7 py-8 dark:bg-emerald-500/[0.07] sm:flex-row sm:items-center sm:justify-between lg:px-10">
       <div className="min-w-0">
         <h2 className="text-xl font-bold tracking-tight text-foreground lg:text-2xl">
-          Host your event on TechScoop
+          Host your event on {publication.name}
         </h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          List your conference, meetup or hackathon in front of the region&rsquo;s
-          founders, investors and operators.
+          List your conference, expo or forum in front of the region&rsquo;s
+          industry leaders, engineers and decision-makers.
         </p>
       </div>
       <Link href="/events/submit" className="shrink-0">
@@ -2252,7 +2253,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
       <section className="rounded-2xl border border-[var(--border)] bg-muted/30 p-6 text-center">
         <h2 className="text-lg font-bold">Going next year?</h2>
         <p className="mt-1.5 text-sm text-muted-foreground">
-          Find the next edition and other upcoming events across the TechScoop
+          Find the next edition and other upcoming events across the {publication.name}{" "}
           hub.
         </p>
         <Link href="/events" className="mt-4 inline-block">

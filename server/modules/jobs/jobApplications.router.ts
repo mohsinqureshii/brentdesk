@@ -25,7 +25,7 @@ import {
 
 // ------------------------------------------------------------
 // Tenant scope is resolved by the tenant extraction middleware.
-// NULL = legacy techscoop.io public path; concrete = SaaS tenant.
+// NULL = legacy public path; concrete = SaaS tenant.
 // ------------------------------------------------------------
 function scope(ctx: { tenantId?: number | null }): number | null {
   return ctx.tenantId ?? null;

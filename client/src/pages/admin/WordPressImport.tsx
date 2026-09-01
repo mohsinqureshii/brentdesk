@@ -4,6 +4,7 @@
  */
 
 import { useState, useCallback } from "react";
+import { publication } from "@shared/publication";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -639,7 +640,7 @@ export default function WordPressImport() {
                 <AlertCircle className="h-4 w-4" />
                 <AlertTitle>URL Parity Check</AlertTitle>
                 <AlertDescription>
-                  This feature compares WordPress URLs with their new locations in TechScoop.
+                  This feature compares WordPress URLs with their new locations in {publication.name}.
                   Upload a list of WordPress URLs to check their migration status.
                 </AlertDescription>
               </Alert>
@@ -648,7 +649,7 @@ export default function WordPressImport() {
                 <CardHeader>
                   <CardTitle>URL Parity Report</CardTitle>
                   <CardDescription>
-                    Compare old WordPress URLs with new TechScoop URLs based on migration logs
+                    Compare old WordPress URLs with new {publication.name} URLs based on migration logs
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

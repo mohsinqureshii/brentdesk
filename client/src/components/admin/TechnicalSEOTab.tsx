@@ -3,6 +3,7 @@
  * 5-stage pipeline: Detect → Analyze → Fix → Submit → Report
  */
 import React, { useState, useMemo } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -626,7 +627,7 @@ export default function TechnicalSEOTab() {
                         <TableRow key={String(row.id)}>
                           <TableCell className="max-w-xs">
                             <a href={String(row.url)} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline flex items-center gap-1 truncate">
-                              {String(row.url).replace("https://techscoop.io", "")}
+                              {String(row.url).replace(publication.siteUrl, "")}
                               <ExternalLink className="h-3 w-3 flex-shrink-0" />
                             </a>
                           </TableCell>
@@ -859,7 +860,7 @@ export default function TechnicalSEOTab() {
                         <TableRow key={String(issue.id)} className="cursor-pointer hover:bg-muted/50">
                           <TableCell className="max-w-xs">
                             <span className="text-xs truncate block max-w-[200px]">
-                              {String(issue.url ?? "").replace("https://techscoop.io", "")}
+                              {String(issue.url ?? "").replace(publication.siteUrl, "")}
                             </span>
                           </TableCell>
                           <TableCell>
@@ -1094,7 +1095,7 @@ export default function TechnicalSEOTab() {
                 <div>
                   <p className="text-xs text-muted-foreground mb-1">URL</p>
                   <a href={String(selectedIssue.url)} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-xs flex items-center gap-1">
-                    {String(selectedIssue.url).replace("https://techscoop.io", "")}
+                    {String(selectedIssue.url).replace(publication.siteUrl, "")}
                     <ExternalLink className="h-3 w-3" />
                   </a>
                 </div>

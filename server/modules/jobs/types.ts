@@ -18,7 +18,7 @@
 // ============================================================
 //
 // Every service method that touches data takes a TenantScope. NULL is
-// the public job board (legacy techscoop.io job listings). A concrete
+// the public job board (legacy public job listings). A concrete
 // tenantId means a SaaS tenant's private/branded board.
 
 export type TenantScope = number | null;

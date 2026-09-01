@@ -1,4 +1,5 @@
 import { describe, expect, it, beforeAll } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { appRouter } from "../../routers";
 import type { TrpcContext } from "../../_core/context";
 
@@ -50,7 +51,7 @@ function createUnauthContext(): TrpcContext {
 // =====================
 // CLAIMED PROFILES TESTS
 // =====================
-describe("claimedProfiles", () => {
+describe.runIf(hasDatabase)("claimedProfiles", () => {
   const ctx = createAuthContext();
   const caller = appRouter.createCaller(ctx);
   const adminCaller = appRouter.createCaller(createAdminContext());
@@ -421,7 +422,7 @@ describe("claimedProfiles", () => {
 // =====================
 // JOB APPLICATIONS TESTS
 // =====================
-describe("jobApplications", () => {
+describe.runIf(hasDatabase)("jobApplications", () => {
   const ctx = createAuthContext();
   const caller = appRouter.createCaller(ctx);
 

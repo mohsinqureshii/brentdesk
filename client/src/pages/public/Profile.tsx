@@ -23,7 +23,7 @@ const INTEREST_SUGGESTIONS = [
   "EdTech", "PropTech", "CleanTech", "Cybersecurity", "Blockchain",
   "IoT", "Cloud Computing", "DevOps", "Mobile Apps", "Data Science",
   "Product Management", "Growth", "Marketing", "Sales", "Operations",
-  "Engineering", "Design", "Strategy", "Venture Capital", "Startups"
+  "Engineering", "Operations", "Project Management", "Energy", "Construction"
 ];
 
 const LOCATION_SUGGESTIONS = [

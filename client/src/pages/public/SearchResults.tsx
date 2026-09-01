@@ -1,10 +1,11 @@
 /**
  * Search Results Page
- * Unified search across all content types: articles, jobs, companies, people, investors, events, accelerators
+ * Unified search across all content types: articles, jobs, companies, people, events
  * Accessible at /search?q={query}&type={type}
  */
 import { useState, useEffect, useMemo } from "react";
 import { useLocation, Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import { SEO } from "@/components/SEO";
 import Footer from "@/components/layout/Footer";
@@ -20,9 +21,7 @@ import {
   Briefcase,
   Building2,
   Users,
-  DollarSign,
   Calendar,
-  Rocket,
   Loader2,
   MapPin,
   Clock,
@@ -40,9 +39,7 @@ const typeConfig = {
   job: { icon: Briefcase, label: "Jobs", color: "bg-emerald-100 text-emerald-700" },
   company: { icon: Building2, label: "Companies", color: "bg-purple-100 text-purple-700" },
   person: { icon: Users, label: "People", color: "bg-orange-100 text-orange-700" },
-  investor: { icon: DollarSign, label: "Investors", color: "bg-yellow-100 text-yellow-700" },
   event: { icon: Calendar, label: "Events", color: "bg-pink-100 text-pink-700" },
-  accelerator: { icon: Rocket, label: "Accelerators", color: "bg-cyan-100 text-cyan-700" },
 } as const;
 
 type ContentType = keyof typeof typeConfig;
@@ -106,30 +103,19 @@ export default function SearchResults() {
     { enabled: shouldFetch("person") }
   );
   
-  const { data: investorsData, isLoading: investorsLoading } = trpc.investors.list.useQuery(
-    { search: debouncedQuery, limit: activeType === "investor" ? 20 : 5, page: 1 },
-    { enabled: shouldFetch("investor") }
-  );
-  
   const { data: eventsData, isLoading: eventsLoading } = trpc.events.list.useQuery(
     { search: debouncedQuery, limit: activeType === "event" ? 20 : 5, page: 1 },
     { enabled: shouldFetch("event") }
   );
-  
-  const { data: acceleratorsData, isLoading: acceleratorsLoading } = trpc.accelerators.list.useQuery(
-    { search: debouncedQuery, limit: activeType === "accelerator" ? 20 : 5, page: 1 },
-    { enabled: shouldFetch("accelerator") }
-  );
 
-  const isLoading = articlesLoading || jobsLoading || companiesLoading || peopleLoading || investorsLoading || eventsLoading || acceleratorsLoading;
+  const isLoading = articlesLoading || jobsLoading || companiesLoading || peopleLoading || eventsLoading;
 
   // Log search analytics when results are ready
   const logSearchMutation = null;
   useEffect(() => {
     if (debouncedQuery.length >= 2 && !isLoading) {
       const total = (articlesData?.total || 0) + (jobsData?.total || 0) + (companiesData?.total || 0) +
-        (peopleData?.total || 0) + (investorsData?.total || 0) + (eventsData?.total || 0) +
-        ((acceleratorsData as any)?.pagination?.total || (acceleratorsData as any)?.total || 0);
+        (peopleData?.total || 0) + (eventsData?.total || 0);
       (logSearchMutation as any)?.mutate?.({ query: debouncedQuery, entityType: activeType, resultsCount: total });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -141,18 +127,16 @@ export default function SearchResults() {
     job: jobsData?.total || 0,
     company: companiesData?.total || 0,
     person: peopleData?.total || 0,
-    investor: investorsData?.total || 0,
     event: eventsData?.total || 0,
-    accelerator: (acceleratorsData as any)?.pagination?.total || (acceleratorsData as any)?.total || 0,
-  }), [articlesData, jobsData, companiesData, peopleData, investorsData, eventsData, acceleratorsData]);
+  }), [articlesData, jobsData, companiesData, peopleData, eventsData]);
 
   const totalResults = Object.values(counts).reduce((a, b) => a + b, 0);
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={debouncedQuery ? `Search: ${debouncedQuery} | TechScoop` : "Search | TechScoop"}
-        description={`Search results for "${debouncedQuery}" on TechScoop - MENA's tech ecosystem platform`}
+        title={debouncedQuery ? `Search: ${debouncedQuery} | ${publication.name}` : `Search | ${publication.name}`}
+        description={`Search results for "${debouncedQuery}" on ${publication.name}`}
         noindex={true}
       />
       <Header />
@@ -164,7 +148,7 @@ export default function SearchResults() {
             <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search articles, jobs, companies, people, investors, events..."
+              placeholder="Search articles, jobs, companies, people, events..."
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               className="h-14 pl-12 pr-12 text-lg"
@@ -226,7 +210,7 @@ export default function SearchResults() {
         {!debouncedQuery || debouncedQuery.length < 2 ? (
           <div className="text-center py-20">
             <Search className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-            <h2 className="text-xl font-semibold text-gray-600 mb-2">Search TechScoop</h2>
+            <h2 className="text-xl font-semibold text-gray-600 mb-2">Search {publication.name}</h2>
             <p className="text-muted-foreground">Enter at least 2 characters to search across all content</p>
           </div>
         ) : isLoading ? (
@@ -438,45 +422,6 @@ export default function SearchResults() {
               </ResultSection>
             )}
 
-            {/* Investors */}
-            {(activeType === "all" || activeType === "investor") && investorsData?.items && investorsData.items.length > 0 && (
-              <ResultSection
-                title="Investors"
-                icon={DollarSign}
-                count={counts.investor}
-                showViewAll={activeType === "all" && counts.investor > 5}
-                onViewAll={() => setActiveType("investor")}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {investorsData.items.map((investor: any) => (
-                    <Link
-                      key={investor.id}
-                      href={`/investors/${investor.slug || investor.id}`}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
-                    >
-                      {investor.logo ? (
-                        <img
-                          src={investor.logo}
-                          alt={investor.name}
-                          className="h-14 w-14 rounded-lg object-cover shrink-0"
-                        />
-                      ) : (
-                        <div className="h-14 w-14 rounded-lg bg-yellow-50 flex items-center justify-center shrink-0">
-                          <DollarSign className="h-6 w-6 text-yellow-300" />
-                        </div>
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
-                          {investor.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">{investor.type}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </ResultSection>
-            )}
-
             {/* Events */}
             {(activeType === "all" || activeType === "event") && eventsData?.items && eventsData.items.length > 0 && (
               <ResultSection
@@ -522,45 +467,6 @@ export default function SearchResults() {
                             </span>
                           )}
                         </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </ResultSection>
-            )}
-
-            {/* Accelerators */}
-            {(activeType === "all" || activeType === "accelerator") && acceleratorsData?.items && acceleratorsData.items.length > 0 && (
-              <ResultSection
-                title="Accelerators"
-                icon={Rocket}
-                count={counts.accelerator}
-                showViewAll={activeType === "all" && counts.accelerator > 5}
-                onViewAll={() => setActiveType("accelerator")}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {acceleratorsData.items.map((acc: any) => (
-                    <Link
-                      key={acc.id}
-                      href={`/accelerators/${acc.slug || acc.id}`}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
-                    >
-                      {acc.logo ? (
-                        <img
-                          src={acc.logo}
-                          alt={acc.name}
-                          className="h-14 w-14 rounded-lg object-cover shrink-0"
-                        />
-                      ) : (
-                        <div className="h-14 w-14 rounded-lg bg-cyan-50 flex items-center justify-center shrink-0">
-                          <Rocket className="h-6 w-6 text-cyan-300" />
-                        </div>
-                      )}
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
-                          {acc.name}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">{acc.location}</p>
                       </div>
                     </Link>
                   ))}

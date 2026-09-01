@@ -441,12 +441,12 @@ export default function CompanyEditor() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label>Company Name *</Label>
-                      <Input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} onBlur={() => !form.slug && generateSlug()} placeholder="TechScoop" />
+                      <Input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} onBlur={() => !form.slug && generateSlug()} placeholder="Acme Contracting" />
                     </div>
                     <div className="space-y-2">
                       <Label>Slug *</Label>
                       <div className="flex gap-2">
-                        <Input value={form.slug} onChange={e => setForm({ ...form, slug: e.target.value })} placeholder="techscoop" />
+                        <Input value={form.slug} onChange={e => setForm({ ...form, slug: e.target.value })} placeholder="acme-contracting" />
                         <Button type="button" variant="outline" onClick={generateSlug}>Generate</Button>
                       </div>
                     </div>

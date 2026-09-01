@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "wouter";
+import { publication } from "@shared/publication";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { Header } from "@/components/layout/Header";
@@ -115,7 +116,7 @@ export default function PersonDetail() {
         title={p.seo?.title || p.name}
         description={p.seo?.description}
         keywords={p.seo?.keywords}
-        canonical={`https://techscoop.io/people/${p.slug}`}
+        canonical={`${publication.siteUrl}/people/${p.slug}`}
         ogImage={p.avatar}
       />
       <JsonLd type="Person" data={{

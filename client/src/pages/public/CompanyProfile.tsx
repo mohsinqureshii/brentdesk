@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { useParams } from "wouter";
+import { publication } from "@shared/publication";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Header } from "@/components/layout/Header";
@@ -23,7 +24,6 @@ import {
   Users,
   Calendar,
   Building2,
-  TrendingUp,
   Briefcase,
   ExternalLink,
   DollarSign,
@@ -48,7 +48,6 @@ import {
   Facebook,
   Shield,
   CheckCircle2,
-  Clock,
   Rocket,
   Package,
   Newspaper,
@@ -63,7 +62,6 @@ import {
   BookOpen,
   GraduationCap,
   Handshake,
-  CircleDollarSign,
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
@@ -71,31 +69,6 @@ import { trpc } from "@/lib/trpc";
 import { ClaimProfileButton } from "@/components/ClaimProfileButton";
 import SEO from "@/components/SEO";
 import { JsonLd } from "@/components/JsonLd";
-
-const stageDisplayMap: Record<string, string> = {
-  pre_seed: "Pre-Seed",
-  seed: "Seed",
-  series_a: "Series A",
-  series_b: "Series B",
-  series_c: "Series C",
-  series_d_plus: "Series D+",
-  public: "Public",
-  acquired: "Acquired",
-};
-
-const roundTypeMap: Record<string, string> = {
-  pre_seed: "Pre-Seed",
-  seed: "Seed",
-  series_a: "Series A",
-  series_b: "Series B",
-  series_c: "Series C",
-  series_d_plus: "Series D+",
-  bridge: "Bridge",
-  strategic: "Strategic",
-  venture_debt: "Venture Debt",
-  grant: "Grant",
-  undisclosed: "Undisclosed",
-};
 
 const roleTypeMap: Record<string, string> = {
   full_time: "Full-time",
@@ -207,8 +180,6 @@ export default function CompanyProfile() {
   }
 
   const c = company as any;
-  const stageDisplay = stageDisplayMap[company.stage || ""] || company.stage || null;
-  const techStack = c.techStack as string[] | null;
   const keyPeople = c.keyPeople as Array<{ name: string; role: string; linkedIn?: string; category?: string }> | null;
   const shortDescription = c.shortDescription as string | null;
   const locationText = company.location || (company.regions && company.regions.length > 0 ? company.regions.map((r: any) => r.name).join(", ") : null);
@@ -221,7 +192,6 @@ export default function CompanyProfile() {
   const teamMembers = c.teamMembers || [];
   const openJobs = c.openJobs || [];
   const relatedArticles = c.relatedArticles || [];
-  const fundingRounds = c.fundingRounds || [];
   const products = c.products || [];
   const awards = c.awards || [];
   const updates = c.updates || [];
@@ -238,16 +208,16 @@ export default function CompanyProfile() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${company.name} - Company Profile | TechScoop`}
-        description={shortDescription || company.tagline || company.description || `${company.name} company profile on TechScoop.`}
-        canonical={`https://techscoop.io/companies/${company.slug}`}
+        title={`${company.name} - Company Profile | ${publication.name}`}
+        description={shortDescription || company.tagline || company.description || `${company.name} company profile on ${publication.name}.`}
+        canonical={`${publication.siteUrl}/companies/${company.slug}`}
         ogImage={company.logo || undefined}
       />
       <JsonLd
         type="Organization"
         data={{
           name: company.name,
-          url: company.website || `https://techscoop.io/companies/${company.slug}`,
+          url: company.website || `${publication.siteUrl}/companies/${company.slug}`,
           logo: company.logo || undefined,
           description: shortDescription || company.tagline || company.description || undefined,
           // foundingDate not supported in schema
@@ -346,17 +316,6 @@ export default function CompanyProfile() {
                     <Users className="h-3.5 w-3.5" />
                     {company.employeeCount}
                   </span>
-                )}
-                {stageDisplay && (
-                  <Badge variant="secondary" className="rounded-full text-xs font-medium">
-                    {stageDisplay}
-                  </Badge>
-                )}
-                {company.totalFunding && (
-                  <Badge variant="outline" className="rounded-full text-xs font-medium gap-1">
-                    <DollarSign className="h-3 w-3" />
-                    {company.totalFunding}
-                  </Badge>
                 )}
               </div>
 
@@ -499,9 +458,6 @@ export default function CompanyProfile() {
               <TabsTrigger value="products" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
                 Products {productCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{productCount}</Badge>}
               </TabsTrigger>
-              <TabsTrigger value="funding" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                Funding
-              </TabsTrigger>
               <TabsTrigger value="press" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
                 Press & Resources
               </TabsTrigger>
@@ -514,21 +470,7 @@ export default function CompanyProfile() {
               {/* ─── TAB: OVERVIEW ─── */}
               <TabsContent value="overview" className="mt-0 space-y-6">
                 {/* Overview Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {company.totalFunding && (
-                    <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
-                      <DollarSign className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
-                      <div className="text-lg font-bold text-foreground">{company.totalFunding}</div>
-                      <div className="text-[11px] text-muted-foreground">Total Funding</div>
-                    </div>
-                  )}
-                  {stageDisplay && (
-                    <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
-                      <TrendingUp className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
-                      <div className="text-lg font-bold text-foreground">{stageDisplay}</div>
-                      <div className="text-[11px] text-muted-foreground">Stage</div>
-                    </div>
-                  )}
+                <div className="grid grid-cols-2 gap-3">
                   {company.employeeCount && (
                     <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
@@ -544,26 +486,14 @@ export default function CompanyProfile() {
                 </div>
 
                 {/* Key Metrics Row (if available) */}
-                {(c.activeUsersRange || c.arrRange || c.countriesServed || c.clientsCount) && (
+                {(c.countriesServed || c.clientsCount) && (
                   <Card className="border border-border">
                     <CardContent className="p-5">
                       <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
                         <BarChart3 className="h-4 w-4 text-blue-500" />
                         Key Metrics
                       </h3>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        {c.activeUsersRange && (
-                          <div>
-                            <div className="text-xs text-muted-foreground uppercase tracking-wider">Active Users</div>
-                            <div className="text-sm font-semibold text-foreground mt-0.5">{c.activeUsersRange}</div>
-                          </div>
-                        )}
-                        {c.arrRange && (
-                          <div>
-                            <div className="text-xs text-muted-foreground uppercase tracking-wider">ARR</div>
-                            <div className="text-sm font-semibold text-foreground mt-0.5">{c.arrRange}</div>
-                          </div>
-                        )}
+                      <div className="grid grid-cols-2 gap-4">
                         {c.countriesServed && (
                           <div>
                             <div className="text-xs text-muted-foreground uppercase tracking-wider">Countries</div>
@@ -646,7 +576,7 @@ export default function CompanyProfile() {
 
                 {/* Details & Focus Areas - Side by Side */}
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {!!(company.industry || stageDisplay || locationText || company.foundedYear || company.employeeCount || company.totalFunding || c.activeUsersRange || c.countriesServed) && (
+                  {!!(company.industry || locationText || company.foundedYear || company.employeeCount || c.countriesServed) && (
                     <Card className="border border-border">
                       <CardContent className="p-5">
                         <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
@@ -655,23 +585,20 @@ export default function CompanyProfile() {
                         </h3>
                         <div className="space-y-3">
                           {company.industry && <DetailRow label="Industry" value={company.industry} />}
-                          {stageDisplay && <DetailRow label="Funding Stage" value={stageDisplay} />}
                           {locationText && <DetailRow label="Headquarters" value={locationText} />}
                           {company.foundedYear && <DetailRow label="Founded" value={String(company.foundedYear)} />}
                           {company.employeeCount && <DetailRow label="Team Size" value={`${company.employeeCount} employees`} />}
-                          {company.totalFunding && <DetailRow label="Total Funding" value={company.totalFunding} />}
-                          {c.activeUsersRange && <DetailRow label="Active Users" value={c.activeUsersRange} />}
                           {c.countriesServed && <DetailRow label="Countries" value={String(c.countriesServed)} />}
                         </div>
                       </CardContent>
                     </Card>
                   )}
-                  {!!((company.sectors && company.sectors.length > 0) || (company.regions && company.regions.length > 0) || (techStack && techStack.length > 0) || (certifications && certifications.length > 0)) && (
+                  {!!((company.sectors && company.sectors.length > 0) || (company.regions && company.regions.length > 0) || (certifications && certifications.length > 0)) && (
                     <Card className="border border-border">
                       <CardContent className="p-5">
                         <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
                           <span className="h-2 w-2 rounded-full bg-amber-500" />
-                          Focus & Technology
+                          Focus Areas
                         </h3>
                         <div className="space-y-3">
                           {company.sectors && company.sectors.length > 0 && (
@@ -690,16 +617,6 @@ export default function CompanyProfile() {
                               <div className="flex flex-wrap gap-1.5">
                                 {company.regions.map((r: any) => (
                                   <Badge key={r.id} variant="outline" className="rounded-full text-xs">{r.name}</Badge>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                          {techStack && techStack.length > 0 && (
-                            <div>
-                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">Tech Stack</div>
-                              <div className="flex flex-wrap gap-1.5">
-                                {techStack.map((t) => (
-                                  <Badge key={t} className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 border-0 rounded-full text-xs">{t}</Badge>
                                 ))}
                               </div>
                             </div>
@@ -986,7 +903,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <Users className="h-5 w-5 text-muted-foreground" />
-                        Team Members on TechScoop
+                        Team Members on {publication.name}
                       </h2>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {teamMembers.map((member: any) => (
@@ -1080,191 +997,6 @@ export default function CompanyProfile() {
                 )}
               </TabsContent>
 
-              {/* ─── TAB: FUNDING ─── */}
-              <TabsContent value="funding" className="mt-0 space-y-6">
-                {fundingRounds.length > 0 ? (
-                  <>
-                    {/* Funding Summary Cards */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <Card className="border border-emerald-200/50 dark:border-emerald-800/30 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20">
-                        <CardContent className="p-5 text-center">
-                          <DollarSign className="h-6 w-6 mx-auto mb-2 text-emerald-600 dark:text-emerald-400" />
-                          <div className="text-2xl font-bold text-foreground">{company.totalFunding || "N/A"}</div>
-                          <div className="text-xs text-muted-foreground mt-1">Total Raised</div>
-                        </CardContent>
-                      </Card>
-                      <Card className="border border-blue-200/50 dark:border-blue-800/30 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20">
-                        <CardContent className="p-5 text-center">
-                          <BarChart3 className="h-6 w-6 mx-auto mb-2 text-blue-600 dark:text-blue-400" />
-                          <div className="text-2xl font-bold text-foreground">{fundingRounds.length}</div>
-                          <div className="text-xs text-muted-foreground mt-1">Funding Rounds</div>
-                        </CardContent>
-                      </Card>
-                      <Card className="border border-amber-200/50 dark:border-amber-800/30 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20">
-                        <CardContent className="p-5 text-center">
-                          <TrendingUp className="h-6 w-6 mx-auto mb-2 text-amber-600 dark:text-amber-400" />
-                          <div className="text-2xl font-bold text-foreground">
-                            {roundTypeMap[fundingRounds[0]?.roundType] || fundingRounds[0]?.roundType || "N/A"}
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1">Latest Round</div>
-                        </CardContent>
-                      </Card>
-                    </div>
-
-                    {/* Funding Rounds Table */}
-                    <Card className="border border-border">
-                      <CardContent className="p-5 sm:p-6">
-                        <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-5">
-                          <CircleDollarSign className="h-5 w-5 text-emerald-500" />
-                          Funding Rounds
-                        </h2>
-                        <div className="overflow-x-auto">
-                          <table className="w-full text-sm">
-                            <thead>
-                              <tr className="border-b border-border">
-                                <th className="text-left py-3 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Round</th>
-                                <th className="text-left py-3 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Date</th>
-                                <th className="text-right py-3 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Amount</th>
-                                <th className="text-left py-3 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Investors</th>
-                              </tr>
-                            </thead>
-                            <tbody className="divide-y divide-border">
-                              {fundingRounds.map((round: any) => (
-                                <tr key={round.id} className="hover:bg-muted/30 transition-colors">
-                                  <td className="py-3 px-3">
-                                    <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border-0 text-xs">
-                                      {roundTypeMap[round.roundType] || round.roundType}
-                                    </Badge>
-                                  </td>
-                                  <td className="py-3 px-3 text-muted-foreground">
-                                    {round.fundingDate ? new Date(round.fundingDate).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "—"}
-                                  </td>
-                                  <td className="py-3 px-3 text-right font-semibold">
-                                    {round.isUndisclosed ? (
-                                      <span className="text-muted-foreground italic text-xs">Undisclosed</span>
-                                    ) : round.amountRaised ? (
-                                      formatCurrency(round.amountRaised, round.currency)
-                                    ) : "—"}
-                                  </td>
-                                  <td className="py-3 px-3">
-                                    <div className="flex flex-wrap gap-1.5">
-                                      {round.investors?.map((inv: any) => (
-                                        <Link key={inv.id} href={`/investors/${inv.slug}`}>
-                                          <Badge variant="outline" className="text-[11px] rounded-full cursor-pointer hover:bg-muted gap-1">
-                                            {inv.role === "lead" && <Star className="h-2.5 w-2.5 text-amber-500" />}
-                                            {inv.name}
-                                          </Badge>
-                                        </Link>
-                                      ))}
-                                      {(!round.investors || round.investors.length === 0) && (
-                                        <span className="text-xs text-muted-foreground">—</span>
-                                      )}
-                                    </div>
-                                  </td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* Funding Timeline */}
-                    <Card className="border border-border">
-                      <CardContent className="p-5 sm:p-6">
-                        <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-5">
-                          <Clock className="h-5 w-5 text-blue-500" />
-                          Funding Timeline
-                        </h2>
-                        <div className="relative pl-6 border-l-2 border-emerald-200 dark:border-emerald-800 space-y-6">
-                          {fundingRounds.map((round: any) => (
-                            <div key={round.id} className="relative">
-                              <div className="absolute -left-[29px] w-4 h-4 rounded-full bg-emerald-500 border-2 border-background" />
-                              <div className="flex items-center gap-2 mb-1">
-                                <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border-0 text-xs">
-                                  {roundTypeMap[round.roundType] || round.roundType}
-                                </Badge>
-                                <span className="text-xs text-muted-foreground">
-                                  {round.fundingDate ? new Date(round.fundingDate).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : ""}
-                                </span>
-                              </div>
-                              {round.amountRaised && !round.isUndisclosed && (
-                                <div className="text-lg font-bold text-foreground">
-                                  {formatCurrency(round.amountRaised, round.currency)}
-                                </div>
-                              )}
-                              {round.isUndisclosed ? (
-                                <div className="text-sm text-muted-foreground italic">Amount undisclosed</div>
-                              ) : null}
-                              {round.investors && round.investors.length > 0 && (
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                  {round.investors.map((inv: any) => (
-                                    <Link key={inv.id} href={`/investors/${inv.slug}`}>
-                                      <Badge variant="outline" className="text-xs rounded-full cursor-pointer hover:bg-muted gap-1">
-                                        {inv.role === "lead" && <Star className="h-3 w-3 text-amber-500" />}
-                                        {inv.name}
-                                      </Badge>
-                                    </Link>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* All Investors */}
-                    {(() => {
-                      const allInvestors = fundingRounds.flatMap((r: any) => r.investors || []);
-                      const uniqueInvestors = allInvestors.filter((inv: any, i: number, arr: any[]) => arr.findIndex((x: any) => x.id === inv.id) === i);
-                      if (uniqueInvestors.length === 0) return null;
-                      return (
-                        <Card className="border border-border">
-                          <CardContent className="p-5 sm:p-6">
-                            <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
-                              <Users className="h-5 w-5 text-purple-500" />
-                              Investors ({uniqueInvestors.length})
-                            </h2>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                              {uniqueInvestors.map((inv: any) => (
-                                <Link key={inv.id} href={`/investors/${inv.slug}`}>
-                                  <div className="flex items-center gap-2.5 p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
-                                    {inv.logo ? (
-                                      <img src={inv.logo} alt={inv.name} className="w-8 h-8 rounded-full object-cover" />
-                                    ) : (
-                                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-white text-xs font-bold">
-                                        {inv.name?.charAt(0)}
-                                      </div>
-                                    )}
-                                    <div className="min-w-0">
-                                      <div className="text-xs font-medium truncate">{inv.name}</div>
-                                      {inv.role === "lead" && (
-                                        <div className="text-[10px] text-amber-600 dark:text-amber-400 flex items-center gap-0.5">
-                                          <Star className="h-2.5 w-2.5" /> Lead
-                                        </div>
-                                      )}
-                                    </div>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })()}
-                  </>
-                ) : (
-                  <Card className="border border-border">
-                    <CardContent className="p-8 text-center">
-                      <CircleDollarSign className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-                      <h3 className="text-sm font-semibold text-foreground mb-1">No funding data</h3>
-                      <p className="text-xs text-muted-foreground">Funding information for {company.name} hasn't been added yet.</p>
-                    </CardContent>
-                  </Card>
-                )}
-              </TabsContent>
-
               {/* ─── TAB: PRESS & RESOURCES ─── */}
               <TabsContent value="press" className="mt-0 space-y-6">
                 {/* Press & PR */}
@@ -1305,16 +1037,8 @@ export default function CompanyProfile() {
                           </Button>
                         </a>
                       )}
-                      {c.pitchDeck && (
-                        <a href={c.pitchDeck} target="_blank" rel="noopener noreferrer">
-                          <Button variant="outline" size="sm" className="gap-1.5 text-xs rounded-full">
-                            <FileText className="h-3 w-3" />
-                            Pitch Deck
-                          </Button>
-                        </a>
-                      )}
                     </div>
-                    {!c.boilerplate && !c.mediaKit && !c.logoPack && !c.prContactEmail && !c.pitchDeck && (
+                    {!c.boilerplate && !c.mediaKit && !c.logoPack && !c.prContactEmail && (
                       <p className="text-sm text-muted-foreground italic">No press materials available yet.</p>
                     )}
                   </CardContent>

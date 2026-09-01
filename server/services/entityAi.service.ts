@@ -3,6 +3,7 @@
  * Analyzes article content to suggest companies, people, locations, funding, and tags
  */
 
+import { EDITORIAL_SHORT } from "../config/editorial";
 import { invokeLLM } from "../_core/llm";
 import { getDb } from "../db";
 import { companies, people, investors, accelerators, events, countries, geoRegions, cities, tags } from "../../drizzle/schema";
@@ -128,7 +129,7 @@ export async function suggestEntities(
     messages: [
       {
         role: "system",
-        content: `You are an entity extraction expert for TechScoop, a tech news publication focused on MENA region startups, funding, and technology.
+        content: `You are an entity extraction expert for ${EDITORIAL_SHORT}.
 
 Your task is to identify and extract entities mentioned in article content:
 1. Companies - Startups, tech companies, corporations mentioned
@@ -333,7 +334,7 @@ export async function suggestLocations(
     messages: [
       {
         role: "system",
-        content: `You are a geographic entity extraction expert for TechScoop, a tech news publication focused on MENA region startups.
+        content: `You are a geographic entity extraction expert for ${EDITORIAL_SHORT}.
 
 Your task is to identify geographic locations mentioned in article content:
 - Countries (use ISO 2-letter codes: US, UK, AE, SA, EG, IN, etc.)
@@ -439,7 +440,7 @@ export async function suggestFunding(
     messages: [
       {
         role: "system",
-        content: `You are a funding round extraction expert for TechScoop, a tech news publication.
+        content: `You are an investment and deal extraction expert for ${EDITORIAL_SHORT}. Deals include project finance, EPC contract values, corporate investment, M&A and funding rounds.
 
 Your task is to identify funding rounds mentioned in article content:
 - Company that raised funding
@@ -545,7 +546,7 @@ export async function suggestTags(
     messages: [
       {
         role: "system",
-        content: `You are a content tagging expert for TechScoop, a tech news publication.
+        content: `You are a content tagging expert for ${EDITORIAL_SHORT}.
 
 Your task is to suggest relevant tags for article content. Tags help with content discovery and categorization.
 

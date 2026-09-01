@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 
-describe("Google Indexing API Service Account", () => {
+// These tests validate a real Google service-account credential and perform a
+// live token exchange against oauth2.googleapis.com. They only make sense in
+// an environment where the credential is provisioned — skip cleanly otherwise.
+const HAS_GOOGLE_CREDS = Boolean(process.env.GOOGLE_INDEXING_SERVICE_ACCOUNT);
+
+describe.runIf(HAS_GOOGLE_CREDS)("Google Indexing API Service Account", () => {
   it("should have GOOGLE_INDEXING_SERVICE_ACCOUNT env var set", () => {
     const json = process.env.GOOGLE_INDEXING_SERVICE_ACCOUNT;
     expect(json).toBeDefined();

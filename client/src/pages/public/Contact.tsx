@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 import { trpc } from "@/lib/trpc";
+import { publication } from "@shared/publication";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -58,15 +59,16 @@ const Contact = () => {
     {
       icon: Newspaper,
       title: "News Tips",
-      description: "Got a news tip or inside information about a story we should cover? We'd love to hear from you. Please drop us a note at",
-      email: "tips@techscoop.io",
+      description: "Know about a contract award, project development, or industry move we should be covering? We'd love to hear from you. Please drop us a note at",
+      email: publication.emails.media,
       note: "If you prefer to remain anonymous, please mention that in your email and we will protect your identity."
     },
     {
-      icon: Calendar,
-      title: "Events Related Inquiries",
-      description: "If you have a question related to our events, please contact",
-      email: "events@techscoop.io",
+      icon: FileText,
+      title: "Press Releases & Announcements",
+      description: "Announcing a contract win, project milestone, executive appointment, or product for the industrial sector? Send your release to",
+      email: publication.emails.media,
+      note: "Please include the key facts — parties involved, scope, value if disclosed, and timeline — plus any supporting materials."
     },
     {
       icon: Megaphone,
@@ -74,32 +76,31 @@ const Contact = () => {
       description: "For advertising and sponsorship inquiries, please",
       linkText: "visit our advertise page",
       linkHref: "/advertise",
-      suffix: "and an account executive will get back to you quickly."
+      suffix: "and our media team will get back to you quickly."
     },
     {
-      icon: FileText,
-      title: "Pitches & Press Releases",
-      description: "Have a startup story, funding announcement, or product launch to share? Send your pitch to",
-      email: "editorial@techscoop.io",
-      note: "Please include relevant details such as funding amount, company background, and any supporting materials."
+      icon: Calendar,
+      title: "Events & Listings",
+      description: "Organizing an industry event, or want a role or event listed on the site? Please contact",
+      email: publication.emails.hello,
     },
     {
       icon: HelpCircle,
       title: "Corrections & Feedback",
       description: "We take accuracy seriously. If you've spotted an error in our reporting or have feedback about our coverage, please reach out to",
-      email: "connect@techscoop.io",
+      email: publication.emails.hello,
     }
   ];
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title="Contact Us - TechScoop"
-        description="Get in touch with TechScoop. Send us news tips, event inquiries, advertising requests, or general feedback."
-        canonical="https://techscoop.io/contact"
+        title={`Contact Us - ${publication.name}`}
+        description={`Get in touch with ${publication.name}. Send us news tips, press releases, event listings, advertising requests, or general feedback.`}
+        canonical={`${publication.siteUrl}/contact`}
       />
       <Header />
-      
+
       {/* Hero Section */}
       <section className="py-16 md:py-20 border-b border-border">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -107,7 +108,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Whether you have a news tip, want to partner with us, or just have a question — we're here to help. Choose the most relevant category below or use the general inquiry form.
+            Whether you have a news tip, want to work with us, or just have a question — we're here to help. Choose the most relevant category below or use the general inquiry form.
           </p>
         </div>
       </section>
@@ -119,25 +120,25 @@ const Contact = () => {
             {contactCategories.map((category, index) => (
               <div key={index} className="pb-10 border-b border-border last:border-b-0 last:pb-0">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <category.icon className="w-5 h-5 text-emerald-600" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center flex-shrink-0 mt-1">
+                    <category.icon className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-foreground mb-3">{category.title}</h2>
                     <p className="text-muted-foreground leading-relaxed">
                       {category.description}{" "}
                       {category.email && (
-                        <a 
-                          href={`mailto:${category.email}`} 
-                          className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2 font-medium"
+                        <a
+                          href={`mailto:${category.email}`}
+                          className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"
                         >
                           {category.email}
                         </a>
                       )}
                       {category.linkText && (
-                        <a 
-                          href={category.linkHref} 
-                          className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2 font-medium"
+                        <a
+                          href={category.linkHref}
+                          className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"
                         >
                           {category.linkText}
                         </a>
@@ -164,8 +165,8 @@ const Contact = () => {
           <h2 className="text-3xl font-bold text-foreground mb-3">Other Inquiries</h2>
           <p className="text-muted-foreground mb-8">
             For anything else, fill out the form below and we'll route your message to the right team. All inquiries are sent to{" "}
-            <a href="mailto:connect@techscoop.io" className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2 font-medium">
-              connect@techscoop.io
+            <a href={`mailto:${publication.emails.hello}`} className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
+              {publication.emails.hello}
             </a>.
           </p>
 
@@ -225,10 +226,10 @@ const Contact = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="News Tips">News Tips</SelectItem>
-                    <SelectItem value="Events Related Inquiries">Events Related Inquiries</SelectItem>
-                    <SelectItem value="Advertising & Sponsorships">Advertising & Sponsorships</SelectItem>
-                    <SelectItem value="Editorial Pitches">Editorial Pitches</SelectItem>
-                    <SelectItem value="Corrections & Feedback">Corrections & Feedback</SelectItem>
+                    <SelectItem value="Press Releases & Announcements">Press Releases &amp; Announcements</SelectItem>
+                    <SelectItem value="Advertising & Sponsorships">Advertising &amp; Sponsorships</SelectItem>
+                    <SelectItem value="Events & Listings">Events &amp; Listings</SelectItem>
+                    <SelectItem value="Corrections & Feedback">Corrections &amp; Feedback</SelectItem>
                     <SelectItem value="Partnership Inquiry">Partnership Inquiry</SelectItem>
                     <SelectItem value="Other">Other</SelectItem>
                   </SelectContent>
@@ -250,7 +251,7 @@ const Contact = () => {
               <Button
                 type="submit"
                 disabled={submit.isPending}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
               >
                 {submit.isPending ? (
                   <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending…</>

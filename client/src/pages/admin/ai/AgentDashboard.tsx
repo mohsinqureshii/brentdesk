@@ -5,6 +5,7 @@
  */
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { Button } from "@/components/ui/button";
@@ -248,7 +249,7 @@ function EditSourceDialog({ source, onSuccess }: { source: any; onSuccess: () =>
           <div>
             <Label className="flex items-center gap-1">
               Editorial Brief (LLM Context)
-              <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3 w-3 text-muted-foreground" /></TooltipTrigger><TooltipContent>This text is injected into the LLM prompt when scoring articles from this source. Describe what makes a good article from this source for TechScoop.</TooltipContent></Tooltip></TooltipProvider>
+              <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3 w-3 text-muted-foreground" /></TooltipTrigger><TooltipContent>This text is injected into the LLM prompt when scoring articles from this source. Describe what makes a good article from this source for {publication.name}.</TooltipContent></Tooltip></TooltipProvider>
             </Label>
             <textarea
               className="w-full min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"

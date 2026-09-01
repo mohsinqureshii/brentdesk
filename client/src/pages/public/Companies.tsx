@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
@@ -12,100 +13,52 @@ import { useEdition } from "@/hooks/useEdition";
 import { ListPagination, PageInfo } from "@/components/ListPagination";
 import { LeaderboardAd, SidebarAd, MobileStickyAd } from "@/components/ads/AdUnit";
 
-const industries = ["All", "Fintech", "E-commerce", "SaaS", "Logistics", "FoodTech", "Mobility", "Entertainment", "Healthcare", "AI"];
-const stages = ["All Stages", "Pre-Seed", "Seed", "Series A", "Series B", "Series C", "Series D+", "Public", "Acquired"];
+const industries = ["All", "Construction", "Energy", "Infrastructure", "Manufacturing", "Logistics", "Real Estate", "Transportation", "Mining", "Utilities", "Industrial Technology"];
 const locations = [
   "All Regions",
-  // GCC Countries
-  "UAE", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman",
-  // North Africa
-  "Egypt", "Morocco", "Tunisia", "Algeria",
-  // Levant
-  "Jordan", "Lebanon",
-  // Other Major Markets
-  "India", "Pakistan", "Turkey", "Israel",
-  // Global
-  "United States", "United Kingdom", "Singapore",
+  "Saudi Arabia", "UAE", "Qatar", "Kuwait", "Bahrain", "Oman", "Egypt",
 ];
 
+// Map location display labels to the substring sent to the server
+// (server does a case-insensitive substring match on the free-text location field).
+const locationServerValue: Record<string, string> = {
+  "Saudi Arabia": "Saudi",
+  "UAE": "UAE",
+  "Qatar": "Qatar",
+  "Kuwait": "Kuwait",
+  "Bahrain": "Bahrain",
+  "Oman": "Oman",
+  "Egypt": "Egypt",
+};
+
 const accentColors = ["orange", "blue", "purple", "teal", "pink", "green"] as const;
-
-// Map stage display names to API values
-const stageMap: Record<string, string | undefined> = {
-  "All Stages": undefined,
-  "Pre-Seed": "pre_seed",
-  "Seed": "seed",
-  "Series A": "series_a",
-  "Series B": "series_b",
-  "Series C": "series_c",
-  "Series D+": "series_d_plus",
-  "Public": "public",
-  "Acquired": "acquired",
-};
-
-// Map API stage values to display names
-const stageDisplayMap: Record<string, string> = {
-  "pre_seed": "Pre-Seed",
-  "seed": "Seed",
-  "series_a": "Series A",
-  "series_b": "Series B",
-  "series_c": "Series C",
-  "series_d_plus": "Series D+",
-  "public": "Public",
-  "acquired": "Acquired",
-};
 
 export default function Companies() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("All");
-  const [selectedStage, setSelectedStage] = useState("All Stages");
   const [selectedLocation, setSelectedLocation] = useState("All Regions");
   const [page, setPage] = useState(1);
 
   // Edition bias — surface companies in the visitor's country first.
   const { editionCountryId } = useEdition();
-  // Fetch companies from API
+  // Fetch companies from API — all filters applied server-side.
   const { data, isLoading, error } = trpc.companies.list.useQuery({
     page,
     limit: 20,
     editionCountryId: editionCountryId ?? undefined,
     search: searchQuery || undefined,
     industry: selectedIndustry === "All" ? undefined : selectedIndustry,
-    stage: stageMap[selectedStage] as any,
+    location: selectedLocation === "All Regions" ? undefined : locationServerValue[selectedLocation],
   });
 
   const companies = data?.items || [];
   const totalCompanies = data?.total || 0;
   const totalPages = data?.totalPages || 1;
 
-  // Filter by location client-side (since location is a string field)
-  const filteredCompanies = companies.filter((company) => {
-    if (selectedLocation === "All Regions") return true;
-    const location = (company.location || "").toLowerCase();
-    const searchTerm = selectedLocation.toLowerCase();
-    
-    // Handle common abbreviations and variations
-    if (selectedLocation === "UAE") {
-      return location.includes("uae") || location.includes("dubai") || location.includes("abu dhabi") || location.includes("emirates");
-    }
-    if (selectedLocation === "Saudi Arabia") {
-      return location.includes("saudi") || location.includes("ksa") || location.includes("riyadh") || location.includes("jeddah");
-    }
-    if (selectedLocation === "United States") {
-      return location.includes("usa") || location.includes("united states") || location.includes("us") || location.includes("california") || location.includes("new york");
-    }
-    if (selectedLocation === "United Kingdom") {
-      return location.includes("uk") || location.includes("united kingdom") || location.includes("london") || location.includes("england");
-    }
-    
-    return location.includes(searchTerm);
-  });
-
-  const hasActiveFilters = selectedIndustry !== "All" || selectedStage !== "All Stages" || selectedLocation !== "All Regions" || searchQuery !== "";
+  const hasActiveFilters = selectedIndustry !== "All" || selectedLocation !== "All Regions" || searchQuery !== "";
 
   const clearFilters = () => {
     setSelectedIndustry("All");
-    setSelectedStage("All Stages");
     setSelectedLocation("All Regions");
     setSearchQuery("");
     setPage(1);
@@ -124,11 +77,11 @@ export default function Companies() {
   return (
     <div className="min-h-screen bg-card">
       <SEO
-        title="Startup Directory - MENA Tech Companies & Startups"
-        description="Discover 1000+ top startups across the Middle East and North Africa. Browse tech companies by industry, funding stage, and location. Find unicorns, fintech, e-commerce, and AI startups in Dubai, Saudi Arabia, and the GCC."
-        canonical="https://techscoop.io/companies"
-        keywords="MENA startups, Dubai startups, Saudi Arabia tech companies, UAE unicorns, GCC startup directory, fintech MENA, e-commerce startups, AI companies Middle East"
-        ogImage="https://techscoop.io/og-companies.png"
+        title={`Companies | ${publication.name}`}
+        description="Profiles of the contractors, developers, operators, manufacturers and industrial companies shaping the region's physical economy — across Saudi Arabia, the GCC and MENA."
+        canonical={`${publication.siteUrl}/companies`}
+        keywords="industrial companies, contractors, developers, EPC, manufacturers, utilities, Saudi Arabia, GCC, MENA, company directory"
+        ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
         ogType="website"
       />
       <Header />
@@ -138,12 +91,12 @@ export default function Companies() {
         <section className="bg-foreground text-background">
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
-              <Badge className="bg-[#4CB944] text-white border-0 mb-4">Startup Directory</Badge>
+              <Badge className="bg-primary text-white border-0 mb-4">Company Directory</Badge>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
-                Explore MENA's most innovative companies
+                The companies building the region
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">
-                Discover {totalCompanies.toLocaleString()}+ startups and tech companies building the future across the Gulf and Middle East.
+                Contractors, developers, operators and manufacturers across construction, energy, infrastructure and logistics in Saudi Arabia, the GCC and MENA.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-background/60 text-sm">
@@ -152,7 +105,7 @@ export default function Companies() {
                 </div>
                 <div className="flex items-center gap-2 text-background/60 text-sm">
                   <Globe className="h-4 w-4" />
-                  <span>GCC & MENA</span>
+                  <span>Saudi Arabia · GCC · MENA</span>
                 </div>
               </div>
             </div>
@@ -188,19 +141,9 @@ export default function Companies() {
                   ))}
                 </select>
                 
-                <select 
-                  value={selectedStage}
-                  onChange={(e) => { setSelectedStage(e.target.value); setPage(1); }}
-                  className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
-                >
-                  {stages.map(stg => (
-                    <option key={stg} value={stg}>{stg}</option>
-                  ))}
-                </select>
-                
-                <select 
+                <select
                   value={selectedLocation}
-                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  onChange={(e) => { setSelectedLocation(e.target.value); setPage(1); }}
                   className="h-11 px-4 rounded-lg border border-border bg-background text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring cursor-pointer"
                 >
                   {locations.map(loc => (
@@ -259,18 +202,17 @@ export default function Companies() {
           {/* Companies List */}
           {!isLoading && !error && (
             <div className="divide-y divide-border">
-              {filteredCompanies.map((company, index) => (
-                <CompanyCardHybrid 
-                  key={company.id} 
+              {companies.map((company, index) => (
+                <CompanyCardHybrid
+                  key={company.id}
                   id={company.slug}
                   name={company.name}
                   tagline={company.tagline || ""}
-                  stage={stageDisplayMap[company.stage || ""] || company.stage || ""}
+                  stage=""
                   industry={company.industry || ""}
                   location={company.location || ""}
                   batch={company.foundedYear?.toString() || ""}
                   employees={company.employeeCount || ""}
-                  funding={company.totalFunding || ""}
                   logoUrl={company.logo || undefined}
                   accentColor={accentColors[index % accentColors.length]}
                 />
@@ -278,7 +220,7 @@ export default function Companies() {
             </div>
           )}
 
-          {!isLoading && !error && filteredCompanies.length === 0 && (
+          {!isLoading && !error && companies.length === 0 && (
             <div className="text-center py-10">
               <p className="text-muted-foreground text-lg mb-2">No companies found</p>
               <p className="text-caption text-muted-foreground mb-4">Try adjusting your search or filters</p>
@@ -289,7 +231,7 @@ export default function Companies() {
           )}
 
           {/* Pagination */}
-          {!isLoading && !error && filteredCompanies.length > 0 && totalPages > 1 && (
+          {!isLoading && !error && companies.length > 0 && totalPages > 1 && (
                         <div className="py-10 border-t border-border">
               <ListPagination
                 currentPage={page}

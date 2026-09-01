@@ -1,3 +1,4 @@
+import { publication } from "@shared/publication";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // Mock the database module
@@ -70,7 +71,7 @@ describe("User Profile & Dashboard Features", () => {
       // Full profile
       expect(calculateCompletion({
         name: "Mo", bio: "Tech journalist", jobTitle: "Editor",
-        company: "TechScoop", location: "Dubai", interests: ["AI"],
+        company: publication.name, location: "Dubai", interests: ["AI"],
         twitterHandle: "mo", website: "https://mo.com"
       })).toBe(100);
     });

@@ -71,7 +71,7 @@ const statusColors: Record<string, string> = {
   trash: "bg-red-100 text-red-500",
 };
 
-const PAGE_SIZE_KEY = "techscoop_accelerators_page_size";
+const PAGE_SIZE_KEY = "brentdesk_accelerators_page_size";
 
 export default function AcceleratorsList() {
   const searchParams = useSearch();

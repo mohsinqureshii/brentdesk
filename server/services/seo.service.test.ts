@@ -1,5 +1,10 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
+import { publication } from "@shared/publication";
 import { SeoService } from "./seo.service";
+
+// Exercise the service against the publication's canonical base URL from the
+// central config instead of a hardcoded brand domain.
+const BASE = publication.siteUrl;
 
 // Mock the database
 vi.mock("../db", () => ({
@@ -10,7 +15,7 @@ describe("SeoService", () => {
   let seoService: SeoService;
 
   beforeEach(() => {
-    seoService = new SeoService("https://techscoop.io");
+    seoService = new SeoService(BASE);
   });
 
   describe("constructor", () => {
@@ -30,7 +35,7 @@ describe("SeoService", () => {
       const entity = {
         title: "Test Article",
         excerpt: "This is a test article",
-        featuredImage: "https://techscoop.io/images/test.jpg",
+        featuredImage: `${BASE}/images/test.jpg`,
         slug: "test-article"
       };
       
@@ -99,7 +104,7 @@ describe("SeoService", () => {
     it("should return fallback defaults for unknown entity type", () => {
       const entity = { title: "Unknown" };
       const defaults = (seoService as any).getDefaults("unknown_type", entity);
-      expect(defaults.title).toBe("TechScoop");
+      expect(defaults.title).toBe(publication.name);
       expect(defaults.canonicalPath).toBe("/");
     });
   });
@@ -199,7 +204,7 @@ describe("SeoService", () => {
       const robots = seoService.generateRobotsTxt();
       expect(robots).toContain("User-agent: *");
       expect(robots).toContain("Allow: /");
-      expect(robots).toContain("Sitemap: https://techscoop.io/api/sitemap.xml");
+      expect(robots).toContain(`Sitemap: ${BASE}/api/sitemap.xml`);
     });
 
     it("should disallow admin pages", () => {
@@ -254,22 +259,22 @@ describe("SeoService", () => {
   describe("buildSitemapXml", () => {
     it("should generate valid XML with correct structure", () => {
       const urls = [
-        { loc: "https://techscoop.io/test", lastmod: "2026-02-14", priority: "0.8" },
-        { loc: "https://techscoop.io/test2", lastmod: "2026-02-13", priority: "0.6" },
+        { loc: `${BASE}/test`, lastmod: "2026-02-14", priority: "0.8" },
+        { loc: `${BASE}/test2`, lastmod: "2026-02-13", priority: "0.6" },
       ];
       const xml = (seoService as any).buildSitemapXml(urls);
       
       expect(xml).toContain('<?xml version="1.0" encoding="UTF-8"?>');
       expect(xml).toContain('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-      expect(xml).toContain("<loc>https://techscoop.io/test</loc>");
+      expect(xml).toContain(`<loc>${BASE}/test</loc>`);
       expect(xml).toContain("<lastmod>2026-02-14</lastmod>");
       expect(xml).toContain("<priority>0.8</priority>");
-      expect(xml).toContain("<loc>https://techscoop.io/test2</loc>");
+      expect(xml).toContain(`<loc>${BASE}/test2</loc>`);
     });
 
     it("should escape special XML characters in URLs", () => {
       const urls = [
-        { loc: "https://techscoop.io/test?a=1&b=2", lastmod: "2026-02-14", priority: "0.5" },
+        { loc: `${BASE}/test?a=1&b=2`, lastmod: "2026-02-14", priority: "0.5" },
       ];
       const xml = (seoService as any).buildSitemapXml(urls);
       expect(xml).toContain("&amp;");
@@ -289,7 +294,7 @@ describe("SeoService", () => {
     it("should generate valid Google News sitemap XML", () => {
       const items = [
         {
-          loc: "https://techscoop.io/news/test-article",
+          loc: `${BASE}/news/test-article`,
           title: "Test Article Title",
           publicationDate: "2026-02-14T10:00:00.000Z"
         }
@@ -297,7 +302,7 @@ describe("SeoService", () => {
       const xml = (seoService as any).buildGoogleNewsSitemapXml(items);
       
       expect(xml).toContain('xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"');
-      expect(xml).toContain("<news:name>TechScoop</news:name>");
+      expect(xml).toContain(`<news:name>${publication.name}</news:name>`);
       expect(xml).toContain("<news:language>en</news:language>");
       expect(xml).toContain("<news:publication_date>2026-02-14T10:00:00.000Z</news:publication_date>");
       expect(xml).toContain("<![CDATA[Test Article Title]]>");
@@ -306,7 +311,7 @@ describe("SeoService", () => {
     it("should handle CDATA for special characters in titles", () => {
       const items = [
         {
-          loc: "https://techscoop.io/news/test",
+          loc: `${BASE}/news/test`,
           title: "Test & Article <Title>",
           publicationDate: "2026-02-14T10:00:00.000Z"
         }
@@ -333,8 +338,8 @@ describe("SeoService", () => {
     });
 
     it("should handle strings with no special characters", () => {
-      const result = (seoService as any).escapeXml("https://techscoop.io/test");
-      expect(result).toBe("https://techscoop.io/test");
+      const result = (seoService as any).escapeXml(`${BASE}/test`);
+      expect(result).toBe(`${BASE}/test`);
     });
   });
 });
@@ -345,14 +350,14 @@ describe("JSON-LD Generators", () => {
     const entity = {
       title: "Test Article",
       excerpt: "This is a test",
-      featuredImage: "https://techscoop.io/test.jpg",
+      featuredImage: `${BASE}/test.jpg`,
       publishedAt: "2026-01-15T10:00:00.000Z", // String date (Drizzle mode: 'string')
       updatedAt: "2026-01-15T12:00:00.000Z",
       authorName: "John Doe",
       slug: "test-article"
     };
 
-    const seoService = new SeoService("https://techscoop.io");
+    const seoService = new SeoService(BASE);
     const defaults = (seoService as any).getDefaults("article", entity);
     
     expect(defaults).toBeDefined();
@@ -369,7 +374,7 @@ describe("JSON-LD Generators", () => {
       slug: "senior-engineer"
     };
 
-    const seoService = new SeoService("https://techscoop.io");
+    const seoService = new SeoService(BASE);
     const defaults = (seoService as any).getDefaults("job", entity);
     
     expect(defaults).toBeDefined();
@@ -386,7 +391,7 @@ describe("Date Helper Functions", () => {
   it("should handle string dates in sitemap generation (static pages)", async () => {
     // Static pages sitemap doesn't need DB, it uses hardcoded pages
     // This tests that the service can generate pages sitemap without crashing
-    const seoService = new SeoService("https://techscoop.io");
+    const seoService = new SeoService(BASE);
     
     // Mock getDb to return a minimal DB-like object
     const mockDb = {
@@ -406,18 +411,12 @@ describe("Date Helper Functions", () => {
     const xml = await seoService.generateSitemap("pages");
     
     expect(xml).toContain('<?xml version="1.0" encoding="UTF-8"?>');
-    expect(xml).toContain("https://techscoop.io/");
-    expect(xml).toContain("https://techscoop.io/funding");
-    expect(xml).toContain("https://techscoop.io/resources");
-    expect(xml).toContain("https://techscoop.io/resources/perks");
-    expect(xml).toContain("https://techscoop.io/resources/playbooks");
-    expect(xml).toContain("https://techscoop.io/resources/regulations");
-    expect(xml).toContain("https://techscoop.io/resources/calculators");
-    expect(xml).toContain("https://techscoop.io/about");
-    expect(xml).toContain("https://techscoop.io/contact");
-    expect(xml).toContain("https://techscoop.io/newsletter");
-    expect(xml).toContain("https://techscoop.io/terms");
-    expect(xml).toContain("https://techscoop.io/privacy");
+    expect(xml).toContain(`${BASE}/`);
+    expect(xml).toContain(`${BASE}/about`);
+    expect(xml).toContain(`${BASE}/contact`);
+    expect(xml).toContain(`${BASE}/newsletter`);
+    expect(xml).toContain(`${BASE}/terms`);
+    expect(xml).toContain(`${BASE}/privacy`);
     
     // Must NOT contain admin/dashboard/auth pages
     expect(xml).not.toContain("/admin");
@@ -427,10 +426,18 @@ describe("Date Helper Functions", () => {
     expect(xml).not.toContain("/signup");
     expect(xml).not.toContain("/profile");
     expect(xml).not.toContain("/account");
+
+    // Must NOT contain retired public sections
+    expect(xml).not.toContain("/investors");
+    expect(xml).not.toContain("/accelerators");
+    expect(xml).not.toContain("/funding");
+    expect(xml).not.toContain("/resources");
+    expect(xml).not.toContain("/submit-startup");
+    expect(xml).not.toContain("/research");
   });
 
   it("should handle string dates in article sitemap generation", async () => {
-    const seoService = new SeoService("https://techscoop.io");
+    const seoService = new SeoService(BASE);
     
     const mockDb = {
       select: vi.fn().mockReturnThis(),
@@ -469,7 +476,7 @@ describe("Date Helper Functions", () => {
 
 describe("Sitemap Index - No Phantom Sitemaps", () => {
   it("should NOT list sitemap-playbooks.xml in the index", async () => {
-    const seoService = new SeoService("https://techscoop.io");
+    const seoService = new SeoService(BASE);
     
     // Mock DB must handle two query patterns:
     // 1. workflowStatuses lookup: select().from().where() → resolves to [{ id: 1 }]
@@ -499,25 +506,27 @@ describe("Sitemap Index - No Phantom Sitemaps", () => {
     // These sitemaps had no route handlers and caused 404s
     expect(xml).not.toContain("sitemap-playbooks.xml");
     expect(xml).not.toContain("sitemap-regulations.xml");
-    
+
+    // Retired public sections must no longer be indexed
+    expect(xml).not.toContain("sitemap-investors.xml");
+    expect(xml).not.toContain("sitemap-accelerators.xml");
+    expect(xml).not.toContain("sitemap-resources.xml");
+    expect(xml).not.toContain("sitemap-research.xml");
+
     // These should be present
     expect(xml).toContain("sitemap-articles.xml");
     expect(xml).toContain("sitemap-news.xml");
     expect(xml).toContain("sitemap-jobs.xml");
     expect(xml).toContain("sitemap-people.xml");
-    expect(xml).toContain("sitemap-investors.xml");
     expect(xml).toContain("sitemap-companies.xml");
-    expect(xml).toContain("sitemap-accelerators.xml");
     expect(xml).toContain("sitemap-events.xml");
-    expect(xml).toContain("sitemap-resources.xml");
-    expect(xml).toContain("sitemap-research.xml");
     expect(xml).toContain("sitemap-categories.xml");
     expect(xml).toContain("sitemap-tags.xml");
     expect(xml).toContain("sitemap-pages.xml");
   });
 
   it("should use YYYY-MM-DD date format in sitemap index", async () => {
-    const seoService = new SeoService("https://techscoop.io");
+    const seoService = new SeoService(BASE);
     
     const mockDb = {
       select: vi.fn().mockReturnThis(),

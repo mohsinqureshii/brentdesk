@@ -19,6 +19,7 @@
  *                   intervention on system-design questions.
  */
 
+import { getBaseUrl } from "../../../../shared/publication";
 import crypto from "node:crypto";
 import { eq } from "drizzle-orm";
 
@@ -177,7 +178,7 @@ export class AttemptsService {
     // recruiter can resend manually via the UI.
     const { email, name } = await candidateEmail(input.candidateId);
     if (email) {
-      const inviteUrl = `${process.env.APP_BASE_URL || "https://techscoop.io"}/assessments/take/${inviteToken}`;
+      const inviteUrl = `${process.env.APP_BASE_URL || getBaseUrl()}/assessments/take/${inviteToken}`;
       const tenant = scope !== null ? await tenantsService.getById(scope) : null;
       const tenantName = tenant?.name || DEFAULT_TENANT_NAME;
       const { subject, html, text } = assessmentInviteTemplate.build({

@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link, useParams } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -138,13 +139,13 @@ const Author = () => {
   // If the param differs (e.g. someone visits via numeric id), Google
   // would otherwise see two URLs for the same author profile.
   const canonicalUsername = author.username || id;
-  const authorCanonical = `https://techscoop.io/author/${canonicalUsername}`;
-  const authorBio = (author as any).authorBio || (author as any).bio || `Articles and analysis by ${displayName} on TechScoop.`;
+  const authorCanonical = `${publication.siteUrl}/author/${canonicalUsername}`;
+  const authorBio = (author as any).authorBio || (author as any).bio || `Articles and analysis by ${displayName} on ${publication.name}.`;
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${displayName} | TechScoop`}
+        title={`${displayName} | ${publication.name}`}
         description={String(authorBio).slice(0, 160)}
         canonical={authorCanonical}
         ogImage={author.avatar || undefined}
@@ -152,7 +153,7 @@ const Author = () => {
       <Header />
 
       {/* Hero Section - Full Width Green Background */}
-      <section className="w-full bg-[#0a0]">
+      <section className="w-full bd-ink">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8">
             {/* Author Avatar */}
@@ -291,7 +292,7 @@ const Author = () => {
                       variant="outline"
                       size="lg"
                       disabled={isFetching}
-                      className="px-8 border-[#0a0] text-[#0a0] hover:bg-[#0a0] hover:text-white"
+                      className="px-8 border-[#0a0] text-[#0a0] hover:bd-ink hover:text-white"
                     >
                       {isFetching ? (
                         <>
@@ -354,15 +355,15 @@ const Author = () => {
             )}
 
             {/* Newsletter CTA */}
-            <div className="bg-[#0a0] rounded-xl p-5 text-white">
+            <div className="bd-ink rounded-xl p-5 text-white">
               <div className="flex items-center gap-2 mb-3">
-                <span className="font-bold text-lg">TS</span>
-                <span className="text-sm opacity-90">TechScoop TPC</span>
+                <span className="font-bold text-lg">BD</span>
+                <span className="text-sm opacity-90">{publication.newsletter.name}</span>
               </div>
               <p className="text-sm opacity-90 leading-relaxed mb-4">
-                Get ahead in the MENA tech scene — straight to your inbox. Join the industry's must-read daily newsletter.
+                The top industrial, infrastructure and energy stories from Saudi Arabia, the GCC and MENA — in your inbox every morning.
               </p>
-              <Button className="w-full bg-white text-[#0a0] hover:bg-white/90 font-medium rounded-full">
+              <Button className="w-full bg-white text-black hover:bg-white/90 font-medium rounded-full">
                 Subscribe →
               </Button>
             </div>

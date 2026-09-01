@@ -2,6 +2,7 @@
  * AI Extended Features Tests
  * Tests for all remaining features from sections 3.1, 3.2, 3.3
  */
+import { publication } from "@shared/publication";
 import { describe, it, expect, vi } from "vitest";
 
 // Mock the LLM provider
@@ -111,7 +112,7 @@ describe("AI Extended Features - Service Layer", () => {
   describe("SEO Optimization", () => {
     it("should generate SEO metadata structure", () => {
       const seo = {
-        metaTitle: "MENA Tech Funding Report 2026 | TechScoop",
+        metaTitle: `MENA Tech Funding Report 2026 | ${publication.name}`,
         metaDescription: "Comprehensive analysis of venture capital funding in the MENA region for 2026",
         focusKeywords: ["MENA tech", "funding", "venture capital", "2026"],
         slugSuggestion: "mena-tech-funding-report-2026",
@@ -142,7 +143,7 @@ describe("AI Extended Features - Service Layer", () => {
   describe("Newsletter Generation", () => {
     it("should define newsletter structure", () => {
       const newsletter = {
-        subject: "TechScoop Weekly: Top MENA Tech Stories",
+        subject: `${publication.name} Weekly: Top MENA Tech Stories`,
         preheader: "This week's biggest funding rounds and launches",
         sections: [
           { title: "Top Stories", articles: [1, 2, 3] },
@@ -164,7 +165,7 @@ describe("AI Extended Features - Service Layer", () => {
         title: "MENA Tech Weekly Roundup",
         duration: "15 minutes",
         segments: [
-          { name: "Intro", duration: "1 min", content: "Welcome to TechScoop..." },
+          { name: "Intro", duration: "1 min", content: `Welcome to ${publication.name}...` },
           { name: "Top Stories", duration: "8 min", content: "This week..." },
           { name: "Outro", duration: "1 min", content: "Thanks for listening..." },
         ],

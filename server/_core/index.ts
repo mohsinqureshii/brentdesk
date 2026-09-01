@@ -1,3 +1,4 @@
+import { publication, getBaseUrl } from "../../shared/publication";
 import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
@@ -55,12 +56,11 @@ async function runStartupMigrations(): Promise<void> {
     const db = await getDb();
     if (!db) return;
 
-    // SAFETY GATE: the migration chain contains a destructive
-    // regeneration pair (0034 drops most tables, 0035 recreates them).
-    // Auto-running it is only safe on a completely empty database —
-    // i.e. fresh provisioning. On a database that already has tables,
-    // never migrate automatically; require an explicit, deliberate
-    // RUN_STARTUP_MIGRATIONS=1 from an operator who has a backup.
+    // SAFETY GATE: full-chain replay only happens on a completely empty
+    // database (fresh provisioning). On a database that already has
+    // tables, never migrate automatically; reconcile the additive tail
+    // instead, and require an explicit RUN_STARTUP_MIGRATIONS=1 from an
+    // operator who has a backup for anything more.
     const { sql } = await import("drizzle-orm");
     const countRows: any = await db.execute(sql`
       SELECT COUNT(*) AS n FROM information_schema.tables
@@ -68,13 +68,11 @@ async function runStartupMigrations(): Promise<void> {
     const row = Array.isArray(countRows) ? (Array.isArray(countRows[0]) ? countRows[0][0] : countRows[0]) : countRows;
     const tableCount = Number(row?.n ?? row?.N ?? 0);
     if (tableCount > 0 && process.env.RUN_STARTUP_MIGRATIONS !== "1") {
-      // Non-empty database: never replay the full chain (it contains a
-      // destructive regeneration pair), but DO reconcile the additive
-      // tail (0036+). Those migrations only CREATE tables and ADD
-      // columns — jobs.tenant_id, the events-hub columns, tenants and
-      // talent-platform tables, integration_configs — and production
-      // databases provisioned before them break the jobs/events/talent
-      // code paths entirely.
+      // Non-empty database: never replay the full chain automatically,
+      // but DO reconcile the additive tail (every migration after the
+      // 0000 baseline). Additive migrations only CREATE tables and ADD
+      // columns/keys, and a database provisioned before them breaks the
+      // corresponding code paths entirely.
       await applyAdditiveTail().catch(err =>
         console.error("[Migrate] additive tail failed (continuing):", (err as Error).message),
       );
@@ -99,13 +97,11 @@ async function runStartupMigrations(): Promise<void> {
 
     console.log(`[Migrate] provisioning schema from ${folder}`);
 
-    // Custom journal-driven runner instead of drizzle's migrate(): the
-    // historical chain contains rename/regeneration statements that
-    // error benignly when replayed on a fresh database (drop of a
-    // never-created index, re-create of an existing table). Since this
-    // only ever runs against an EMPTY database (see gate above),
-    // tolerating those specific error codes is safe — it's initial
-    // provisioning, not evolution of live data.
+    // Custom journal-driven runner instead of drizzle's migrate(): it
+    // tolerates a small set of benign MySQL error codes so that partial
+    // provisioning (a crashed first boot) can re-run to completion.
+    // This branch only ever runs against an EMPTY database (see gate
+    // above) — it is initial provisioning, not evolution of live data.
     const journal = JSON.parse(
       fs.readFileSync(path.join(folder, "meta", "_journal.json"), "utf8"),
     ) as { entries: Array<{ tag: string; when: number }> };
@@ -179,15 +175,13 @@ async function runStartupMigrations(): Promise<void> {
 }
 
 /**
- * Reconcile the additive migration tail (journal idx >= 36) on a live,
- * non-empty database. Every file in this range only creates tables or
- * adds columns/keys — verified to contain no DROP TABLE / DROP COLUMN,
- * and re-checked per file at runtime as a hard safety invariant.
- * Missing objects (jobs.tenant_id, events hub columns, tenants,
- * integration_configs, talent platform tables) break entire modules
- * when the code deploys ahead of the schema.
+ * Reconcile the additive migration tail (every journal entry after the
+ * 0000 baseline) on a live, non-empty database. Tail migrations must only
+ * create tables or add columns/keys — re-checked per file at runtime as a
+ * hard safety invariant (any DROP TABLE/COLUMN is refused). Missing
+ * objects break entire modules when the code deploys ahead of the schema.
  */
-const ADDITIVE_TAIL_FROM_IDX = 36;
+const ADDITIVE_TAIL_FROM_IDX = 1;
 
 async function applyAdditiveTail(): Promise<void> {
   const { getDb } = await import("../db");
@@ -211,10 +205,8 @@ async function applyAdditiveTail(): Promise<void> {
   // production. A ledger has no such blind spot: each tag is applied once
   // and every future migration is picked up without editing this file.
   //
-  // The first run after this change re-applies 0036-0050 on an
-  // already-current database. That is safe: the tail is DDL guarded by the
-  // benign-error list below, and the one data statement (0041's edition
-  // seed) collides with editions_slug_unique and is tolerated as 1062.
+  // Tail DDL is guarded by the benign-error list below, so re-applying a
+  // tag on an already-current database is safe and recorded in the ledger.
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS _additive_migrations (
       tag varchar(255) NOT NULL,
@@ -229,7 +221,7 @@ async function applyAdditiveTail(): Promise<void> {
     (ledgerList as Array<{ tag: string }>).map(r => r.tag).filter(Boolean),
   );
 
-  console.log("[Migrate] schema behind code — applying additive tail (0036+)");
+  console.log("[Migrate] reconciling additive migration tail");
   const journal = JSON.parse(
     fs.readFileSync(path.join(folder, "meta", "_journal.json"), "utf8"),
   ) as { entries: Array<{ idx: number; tag: string }> };
@@ -306,7 +298,7 @@ async function startServer() {
   // ----------------------------------------------------------------
   // Tenant extraction — must come before /api/trpc so the tRPC context
   // can read req.tenantContext. Apex / reserved subdomains resolve as
-  // null (legacy techscoop.io behavior); tenant subdomains and custom
+  // null (legacy public-site behavior); tenant subdomains and custom
   // domains resolve as the tenant id. 60s in-process cache absorbs the
   // per-request lookup cost.
   // ----------------------------------------------------------------
@@ -440,7 +432,7 @@ async function startServer() {
         const testMeta = genMeta({
           title: "Health Check",
           description: "Test",
-          url: "https://techscoop.io/test",
+          url: `${getBaseUrl()}/test`,
           image: "https://example.com/test.jpg",
         });
         const hasOgImage = testMeta.includes('og:image');
@@ -470,7 +462,7 @@ async function startServer() {
       });
     }
   });
-  // SEO API endpoints - bypass Manus platform CDN interception of /sitemap.xml and /robots.txt
+  // SEO API endpoints — /api/ mirrors survive any CDN interception of /sitemap.xml and /robots.txt
   // The platform intercepts these two specific filenames at the edge, so we serve them under /api/
   app.get("/api/sitemap.xml", async (req, res) => {
     try {
@@ -507,7 +499,7 @@ async function startServer() {
   // tag-feed handlers can intercept SEO file URLs and produce 301/410/SPA-fallback
   // responses, which is what GSC was reporting as "Article Not Found".
   //
-  // The /api/* aliases additionally bypass the Manus platform edge, which
+  // The /api/* aliases additionally survive edge/CDN interception, which
   // intercepts /sitemap*.xml and /robots.txt at CDN level on bare paths.
   app.use("/api", sitemapRoutes);
   app.use(sitemapRoutes);
@@ -587,15 +579,23 @@ async function startServer() {
     serveStatic(app);
   }
 
-  const preferredPort = parseInt(process.env.PORT || "3000");
-  const port = await findAvailablePort(preferredPort);
+  // A platform-assigned PORT (Railway, Render, Fly, Heroku…) must be honored
+  // EXACTLY — the proxy routes to that port and nothing else. Scanning for a
+  // free port there produces a container that looks healthy while the edge
+  // gets connection-refused. Only fall back to scanning for local dev, where
+  // the goal is just to dodge a collision with another dev server.
+  const explicitPort = process.env.PORT ? parseInt(process.env.PORT, 10) : null;
+  const port =
+    explicitPort && Number.isFinite(explicitPort)
+      ? explicitPort
+      : await findAvailablePort(3000);
 
-  if (port !== preferredPort) {
-    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
+  if (!explicitPort && port !== 3000) {
+    console.log(`Port 3000 is busy, using port ${port} instead`);
   }
 
   server.listen(port, async () => {
-    console.log(`[TechScoop v2.1.0] Server running on http://localhost:${port}/`);
+    console.log(`[${publication.name}] Server running on http://localhost:${port}/`);
 
     // Sitemap smoke test — runs every generator once at startup so column
     // typos / SQL errors surface in deploy logs instead of silently failing
@@ -608,8 +608,7 @@ async function startServer() {
           ["index", () => seoService.generateSitemapIndex()],
           ["news", () => seoService.generateGoogleNewsSitemap()],
           ["images", () => seoService.generateImagesSitemap()],
-          ...["articles", "jobs", "people", "investors", "companies",
-              "accelerators", "events", "resources", "research",
+          ...["articles", "jobs", "people", "companies", "events",
               "categories", "tags", "authors", "pages"]
             .map((m): [string, () => Promise<string>] =>
               [m, () => seoService.generateSitemap(m)]),

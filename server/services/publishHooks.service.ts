@@ -19,6 +19,7 @@
  * All work is fire-and-forget; failures never block the publish flow.
  */
 
+import { getBaseUrl } from "../../shared/publication";
 import fs from "node:fs";
 import path from "node:path";
 import { notifySearchEngines } from "./indexingNotification.service";
@@ -26,7 +27,7 @@ import { seoService } from "./seo.service";
 
 const BASE_URL = process.env.BASE_URL && process.env.BASE_URL.startsWith("http")
   ? process.env.BASE_URL
-  : "https://techscoop.io";
+  : getBaseUrl();
 
 export type PublishedEntityType =
   | "article"

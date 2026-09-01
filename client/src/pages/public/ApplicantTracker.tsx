@@ -6,6 +6,7 @@
 
 import { useState, useMemo } from "react";
 import { useParams, Link, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Header } from "@/components/layout/Header";
@@ -486,7 +487,7 @@ export default function ApplicantTracker() {
                           </span>
                           <Badge variant="secondary" className="text-xs">
                             {app.applicationMethod === "profile" ? "Quick Apply" :
-                             app.applicationMethod === "internal" ? "TechScoop" : "Full Application"}
+                             app.applicationMethod === "internal" ? publication.name : "Full Application"}
                           </Badge>
                         </div>
 

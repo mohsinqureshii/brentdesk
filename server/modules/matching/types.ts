@@ -1,7 +1,7 @@
 /**
  * Matching Module — Public Types & DTOs
  * ----------------------------------------------------------------------
- * Phase 6 of the TechScoop Talent Platform — scoring + semantic match.
+ * Phase 6 of the Talent Platform — scoring + semantic match.
  * Consumers import from `../matching` (the boundary), never from
  * `drizzle/schema` or this file directly.
  *

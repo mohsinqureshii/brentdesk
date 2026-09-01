@@ -64,7 +64,7 @@ vi.mock("../services/indexingNotification.service", () => ({
       success: true,
       statusCode: 200,
       message: "Sitemap ping accepted",
-      url: "https://techscoop.io/test/article",
+      url: "https://news.example/test/article",
       timestamp: new Date().toISOString(),
     },
   ]),
@@ -74,21 +74,21 @@ vi.mock("../services/indexingNotification.service", () => ({
 
 vi.mock("../services/indexingNotification.helper", () => ({
   resolveArticleInfo: vi.fn().mockResolvedValue({
-    url: "https://techscoop.io/test/article",
+    url: "https://news.example/test/article",
     articleId: 1,
     articleTitle: "Test Article",
     articleSlug: "test-article",
   }),
   resolveArticleInfos: vi.fn().mockResolvedValue([
     {
-      url: "https://techscoop.io/test/article-1",
+      url: "https://news.example/test/article-1",
       articleId: 1,
       articleTitle: "Test Article 1",
       articleSlug: "test-article-1",
     },
   ]),
-  resolveArticleUrl: vi.fn().mockResolvedValue("https://techscoop.io/test/article"),
-  resolveArticleUrls: vi.fn().mockResolvedValue(["https://techscoop.io/test/article"]),
+  resolveArticleUrl: vi.fn().mockResolvedValue("https://news.example/test/article"),
+  resolveArticleUrls: vi.fn().mockResolvedValue(["https://news.example/test/article"]),
 }));
 
 describe("Indexing Admin Router", () => {
@@ -162,7 +162,7 @@ describe("Indexing Admin Router", () => {
       const { notifySearchEngines } = await import("../services/indexingNotification.service");
       
       await notifySearchEngines({
-        url: "https://techscoop.io/test/article",
+        url: "https://news.example/test/article",
         type: "URL_UPDATED",
         articleId: 1,
         articleTitle: "Test Article",
@@ -188,7 +188,7 @@ describe("Indexing Admin Router", () => {
       const triggers = ["publish", "transition", "bulk_publish", "scheduled", "manual"] as const;
       for (const trigger of triggers) {
         await notifySearchEngines({
-          url: "https://techscoop.io/test/article",
+          url: "https://news.example/test/article",
           trigger,
         });
       }
@@ -228,7 +228,7 @@ describe("Indexing Admin Router", () => {
       const info = await resolveArticleInfo(1);
       
       expect(info).toBeDefined();
-      expect(info?.url).toContain("techscoop.io");
+      expect(info?.url).toContain("news.example");
       expect(info?.articleId).toBe(1);
       expect(info?.articleTitle).toBe("Test Article");
       expect(info?.articleSlug).toBe("test-article");

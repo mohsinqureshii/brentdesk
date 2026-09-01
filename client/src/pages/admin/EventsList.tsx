@@ -135,7 +135,7 @@ const COL = {
 const TABLE_MIN_W =
   "min-w-[560px] sm:min-w-[700px] md:min-w-[1060px] lg:min-w-[1390px] xl:min-w-[1580px]";
 
-const PAGE_SIZE_KEY = "techscoop_events_page_size";
+const PAGE_SIZE_KEY = "brentdesk_events_page_size";
 
 type Timeframe = "upcoming" | "past" | "all";
 type TicketsFilter = "any" | "yes" | "no";

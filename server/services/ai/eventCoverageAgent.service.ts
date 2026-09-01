@@ -16,6 +16,7 @@
  * one indexed query, zero network calls.
  */
 
+import { publication } from "../../../shared/publication";
 import { getDb } from "../../db";
 import { events, eventLivePosts } from "../../../drizzle/schema";
 import { and, eq, isNotNull, sql } from "drizzle-orm";
@@ -67,7 +68,7 @@ async function fetchEventNews(eventTitle: string): Promise<RssItem[]> {
   const q = encodeURIComponent(`"${eventTitle}"`);
   const url = `https://news.google.com/rss/search?q=${q}&hl=en-US&gl=US&ceid=US:en`;
   const res = await fetch(url, {
-    headers: { "user-agent": "Mozilla/5.0 (compatible; TechScoopCoverageBot/1.0)" },
+    headers: { "user-agent": publication.bots.eventCoverage },
   });
   if (!res.ok) throw new Error(`Google News RSS ${res.status}`);
   const xml = await res.text();

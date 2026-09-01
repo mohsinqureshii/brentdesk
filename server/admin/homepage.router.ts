@@ -8,6 +8,7 @@ import { eq, asc, and, gte, lte, or, isNull } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../_core/trpc";
 import { getDb } from "../db";
 import { homepageBlocks, homepageSections, articles, categories, media } from "../../drizzle/schema";
+import { workflowService } from "../services/workflow.service";
 import { desc, sql } from "drizzle-orm";
 
 // ============================================================
@@ -358,6 +359,12 @@ export const homepageRouter = router({
       const limit = input.limit || section[0].articleCount || 4;
       const categoryId = section[0].categoryId;
 
+      // Resolve the published status by slug — status ids are seeded per
+      // environment and must never be hardcoded (the old literal 6 pointed
+      // at a different status on freshly-provisioned databases).
+      const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
+      if (!publishedStatus) return [];
+
       // Build query based on section type
       let query = db.select({
         id: articles.id,
@@ -376,7 +383,7 @@ export const homepageRouter = router({
         .leftJoin(categories, eq(articles.primaryCategoryId, categories.id))
         .leftJoin(media, eq(articles.featuredImageId, media.id))
         .where(and(
-          eq(articles.statusId, 6), // Published status
+          eq(articles.statusId, publishedStatus.id),
           categoryId ? eq(articles.primaryCategoryId, categoryId) : sql`1=1`
         ))
         .orderBy(desc(articles.publishedAt))

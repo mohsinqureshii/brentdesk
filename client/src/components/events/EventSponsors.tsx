@@ -92,7 +92,6 @@ const TIERS: Array<{
 
 function internalHref(s: EventSponsor): string | null {
   if (s.companySlug) return `/companies/${s.companySlug}`;
-  if (s.investorSlug) return `/investors/${s.investorSlug}`;
   return null;
 }
 

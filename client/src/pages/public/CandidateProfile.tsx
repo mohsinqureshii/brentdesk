@@ -14,6 +14,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { toast } from "sonner";
@@ -266,7 +267,7 @@ export default function CandidateProfile() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">My candidate profile</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Recruiters at companies you've applied to (and ones using TechScoop's matching) see this profile.
+            Recruiters at companies you've applied to (and ones using {publication.name}'s matching) see this profile.
           </p>
         </div>
 
@@ -541,7 +542,7 @@ export default function CandidateProfile() {
               onConsent={() => consentMut.mutate({ kind: "data_processing" })}
             />
             <ConsentRow
-              label="Allow TechScoop to send me job recommendations and product updates."
+              label={`Allow ${publication.name} to send me job recommendations and product updates.`}
               consentedAt={c?.consentMarketingAt}
               onConsent={() => consentMut.mutate({ kind: "marketing" })}
             />

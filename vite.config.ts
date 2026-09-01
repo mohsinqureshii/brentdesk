@@ -29,6 +29,8 @@ export default defineConfig({
           'vendor-trpc': ['@trpc/client', '@trpc/react-query', '@tanstack/react-query'],
           'vendor-ui': ['@radix-ui/react-dialog', '@radix-ui/react-select', '@radix-ui/react-tabs', '@radix-ui/react-dropdown-menu'],
           'vendor-editor': ['@tiptap/react', '@tiptap/starter-kit'],
+          'vendor-charts': ['recharts'],
+          'vendor-motion': ['framer-motion'],
         },
       },
     },

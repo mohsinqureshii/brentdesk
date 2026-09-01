@@ -28,6 +28,7 @@ import {
   Radio,
 } from "lucide-react";
 
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import {
   getEventLiveStatus,
@@ -194,7 +195,7 @@ export default function EventLive() {
 function EventLiveContent({ event }: { event: any }) {
   const status = getEventLiveStatus(event);
   const countdown = useCountdown(event.startDate);
-  const liveUrl = `https://techscoop.io/events/${event.slug}/live`;
+  const liveUrl = `${publication.siteUrl}/events/${event.slug}/live`;
 
   // ------------------------------------------------------------
   // Feed state — initial load, then buffered delta polling.

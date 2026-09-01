@@ -1,5 +1,5 @@
 /**
- * Admin Dashboard — TechScoop edition.
+ * Admin Dashboard.
  *
  * Multi-tab analytics surface for a tech-news platform. Tabs are workflow-
  * shaped: Home (everything-at-a-glance), Content (editorial pipeline + top
@@ -17,6 +17,7 @@
 
 import { useState } from "react";
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { AIAnalyticsPanel } from "./ai/AIAnalytics";
@@ -191,7 +192,7 @@ export default function AdminDashboard() {
           <div>
             <h1 className="text-xl font-semibold text-[#1A1F36]">Dashboard</h1>
             <p className="text-[#697386] mt-0.5 text-[13px]">
-              Editorial, SEO, audience, and revenue health across techscoop.io
+              Editorial, SEO, audience, and revenue health across {publication.domain}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">

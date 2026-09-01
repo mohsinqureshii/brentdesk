@@ -6,6 +6,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useLocation, useParams, Link } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -662,7 +663,7 @@ export default function MyJobEditor() {
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-2">
-                      Leave both empty to accept applications directly through TechScoop
+                      Leave both empty to accept applications directly through {publication.name}
                     </p>
                   </div>
 

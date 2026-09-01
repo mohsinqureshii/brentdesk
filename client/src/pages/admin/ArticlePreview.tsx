@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock, Share2, Bookmark, MessageCircle, ThumbsUp, Twitter, Linkedin, Facebook, Link2, ChevronLeft, ChevronRight, Play, TrendingUp, Mail, Loader2, AlertTriangle, ArrowLeft, Edit } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import { publication } from "@shared/publication";
 
 // Shared container class matching header
 const containerClass = "w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8";
@@ -193,7 +194,7 @@ export default function ArticlePreview() {
                   </Avatar>
                   <div>
                     <p className="font-semibold text-foreground">
-                      {article.author?.name || "TechScoop Staff"}
+                      {article.author?.name || `${publication.name} Staff`}
                     </p>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Clock className="h-4 w-4" />

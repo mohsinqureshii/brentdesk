@@ -1,3 +1,4 @@
+import { publication } from "../../shared/publication";
 /**
  * Event Image Sourcing — Wikimedia Commons
  * ----------------------------------------------------------------------
@@ -61,7 +62,7 @@ const COMMONS_ENDPOINT = "https://commons.wikimedia.org/w/api.php";
  * Wikimedia requires a descriptive User-Agent identifying the client
  * and a contact address; anonymous/browser-like agents are blocked.
  */
-const USER_AGENT = "TechScoop/1.0 (https://techscoop.io; events@techscoop.io)";
+const USER_AGENT = publication.bots.imageSearch;
 
 /** Per-request network budget. */
 const REQUEST_TIMEOUT_MS = 12_000;

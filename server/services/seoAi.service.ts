@@ -1,3 +1,4 @@
+import { EDITORIAL_SHORT } from "../config/editorial";
 import { invokeLLM } from "../_core/llm";
 import { getDb } from "../db";
 import { keywords, tags } from "../../drizzle/schema";
@@ -260,7 +261,7 @@ export async function generateAiSeoSuggestions(
     messages: [
       {
         role: "system",
-        content: `You are an SEO expert for TechScoop, a tech news publication focused on MENA region (Saudi Arabia, UAE, Egypt, Pakistan, Turkey, Qatar, Bahrain, etc.) startups, funding, and technology.
+        content: `You are an SEO expert for ${EDITORIAL_SHORT}.
 
 Your task is to analyze article content and suggest SEO elements that match our keyword and tag database.
 

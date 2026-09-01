@@ -16,9 +16,7 @@ import {
   Briefcase,
   Building2,
   Users,
-  DollarSign,
   Calendar,
-  Rocket,
   Loader2,
   ArrowRight,
 } from "lucide-react";
@@ -31,7 +29,7 @@ interface GlobalSearchProps {
 
 interface SearchResult {
   id: number | string;
-  type: "article" | "job" | "company" | "person" | "investor" | "event" | "accelerator";
+  type: "article" | "job" | "company" | "person" | "event";
   title: string;
   subtitle?: string;
   slug: string;
@@ -43,9 +41,7 @@ const typeConfig = {
   job: { icon: Briefcase, color: "bg-emerald-100 text-emerald-700", label: "Job", path: "/jobs" },
   company: { icon: Building2, color: "bg-purple-100 text-purple-700", label: "Company", path: "/companies" },
   person: { icon: Users, color: "bg-orange-100 text-orange-700", label: "Person", path: "/people" },
-  investor: { icon: DollarSign, color: "bg-yellow-100 text-yellow-700", label: "Investor", path: "/investors" },
   event: { icon: Calendar, color: "bg-pink-100 text-pink-700", label: "Event", path: "/events" },
-  accelerator: { icon: Rocket, color: "bg-cyan-100 text-cyan-700", label: "Accelerator", path: "/accelerators" },
 };
 
 export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
@@ -75,23 +71,13 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
     { enabled: debouncedQuery.length >= 2 }
   );
   
-  const { data: investorsData, isLoading: investorsLoading } = trpc.investors.list.useQuery(
-    { search: debouncedQuery, limit: 3 },
-    { enabled: debouncedQuery.length >= 2 }
-  );
-  
   const { data: eventsData, isLoading: eventsLoading } = trpc.events.list.useQuery(
     { search: debouncedQuery, limit: 3 },
     { enabled: debouncedQuery.length >= 2 }
   );
-  
-  const { data: acceleratorsData, isLoading: acceleratorsLoading } = trpc.accelerators.list.useQuery(
-    { search: debouncedQuery, limit: 3 },
-    { enabled: debouncedQuery.length >= 2 }
-  );
 
-  const isLoading = articlesLoading || jobsLoading || companiesLoading || 
-                    peopleLoading || investorsLoading || eventsLoading || acceleratorsLoading;
+  const isLoading = articlesLoading || jobsLoading || companiesLoading ||
+                    peopleLoading || eventsLoading;
 
   // Combine results
   const results: SearchResult[] = [];
@@ -140,17 +126,6 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
     }));
   }
   
-  if (investorsData?.items) {
-    investorsData.items.forEach(item => results.push({
-      id: item.id,
-      type: "investor",
-      title: item.name,
-      subtitle: item.type || undefined,
-      slug: item.slug,
-      image: item.logo as string | null | undefined,
-    }));
-  }
-  
   if (eventsData?.items) {
     eventsData.items.forEach((item: any) => results.push({
       id: item.id,
@@ -159,17 +134,6 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
       subtitle: item.city || undefined,
       slug: item.slug,
       image: item.featuredImage,
-    }));
-  }
-  
-  if (acceleratorsData?.items) {
-    acceleratorsData.items.forEach(item => results.push({
-      id: item.id,
-      type: "accelerator",
-      title: item.name,
-      subtitle: item.location || undefined,
-      slug: item.slug,
-      image: item.logo as string | null | undefined,
     }));
   }
 
@@ -220,7 +184,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             <Input
               ref={inputRef}
               type="search"
-              placeholder="Search articles, jobs, companies, people, investors, events..."
+              placeholder="Search articles, jobs, companies, people, events..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="h-14 pl-12 pr-12 text-lg border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
@@ -318,10 +282,8 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                 {[
                   { label: "Latest News", href: "/" },
                   { label: "Open Jobs", href: "/jobs" },
-                  { label: "Startups", href: "/companies" },
-                  { label: "Investors", href: "/investors" },
+                  { label: "Companies", href: "/companies" },
                   { label: "Upcoming Events", href: "/events" },
-                  { label: "Accelerators", href: "/accelerators" },
                 ].map((link) => (
                   <Link
                     key={link.label}

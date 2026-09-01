@@ -26,7 +26,10 @@ import {
   workflowAuditLog,
   media,
   countries,
+  articleCompanies,
+  companies,
 } from "../../../drizzle/schema";
+import { boolInt, toDbDate } from "../../_core/dbValues";
 import { slugService } from "../../services/slug.service";
 import { seoService } from "../../services/seo.service";
 import { workflowService } from "../../services/workflow.service";
@@ -160,10 +163,10 @@ export const newsRouter = router({
         );
       }
       if (filters.isFeatured !== undefined) {
-        conditions.push(eq(articles.isFeatured, filters.isFeatured as any));
+        conditions.push(eq(articles.isFeatured, filters.isFeatured ? 1 : 0));
       }
       if (filters.isTrending !== undefined) {
-        conditions.push(eq(articles.isTrending, filters.isTrending as any));
+        conditions.push(eq(articles.isTrending, filters.isTrending ? 1 : 0));
       }
 
       // Build query with all conditions
@@ -193,14 +196,14 @@ export const newsRouter = router({
         createdAt: articles.createdAt,
         // Primary coverage country surfaced for the article card flag.
         // Multi-country detail comes from getBySlug.coverageCountries.
-        coverageCountryId: (articles as any).coverageCountryId,
-        coverageCountryIso2: (countries as any).iso2,
-        coverageCountryName: (countries as any).name,
+        coverageCountryId: articles.coverageCountryId,
+        coverageCountryIso2: countries.iso2,
+        coverageCountryName: countries.name,
       }).from(articles)
-        .leftJoin(countries as any, eq((articles as any).coverageCountryId, (countries as any).id))
+        .leftJoin(countries, eq(articles.coverageCountryId, countries.id))
         .where(and(...conditions))
         .orderBy(
-          ...editionOrderBias((articles as any).coverageCountryId, input.editionCountryId),
+          ...editionOrderBias(articles.coverageCountryId, input.editionCountryId),
           sortOrder === "desc" ? desc(sortColumn) : asc(sortColumn),
         );
 
@@ -304,7 +307,7 @@ export const newsRouter = router({
 
       // Increment view count
       await db.update(articles)
-        .set({ viewCount: (article.viewCount || 0) + 1 } as any)
+        .set({ viewCount: (article.viewCount || 0) + 1 })
         .where(eq(articles.id, article.id));
 
       // Get related data - include full author info for author section
@@ -384,10 +387,10 @@ export const newsRouter = router({
           ...iso2.toUpperCase().split("").map((c) => 0x1f1e6 + c.charCodeAt(0) - 65),
         );
       };
-      if ((article as any).coverageCountryId) {
+      if (article.coverageCountryId) {
         const [primary] = await db.select({ id: countries.id, name: countries.name, iso2: countries.iso2 })
           .from(countries)
-          .where(eq(countries.id, (article as any).coverageCountryId))
+          .where(eq(countries.id, article.coverageCountryId))
           .limit(1);
         if (primary?.iso2) {
           coverageCountries.push({ ...primary, flagEmoji: flagFromIso2(primary.iso2) });
@@ -899,15 +902,15 @@ export const newsRouter = router({
         authorId: ctx.user.id,
         statusId: initialStatus.id,
         primaryCategoryId: primaryCatId,
-        isFeatured: (input.isFeatured ? 1 : 0) || false,
+        isFeatured: boolInt(input.isFeatured) ?? 0,
         featuredDurationHours: input.featuredDurationHours,
-        featuredExpiresAt,
-        isTrending: input.isTrending || false,
-        isEditorPick: input.isEditorPick || false,
-        isFlash: input.isFlash || false,
+        featuredExpiresAt: toDbDate(featuredExpiresAt),
+        isTrending: boolInt(input.isTrending) ?? 0,
+        isEditorPick: boolInt(input.isEditorPick) ?? 0,
+        isFlash: boolInt(input.isFlash) ?? 0,
         flashDurationHours: input.flashDurationHours,
-        flashExpiresAt,
-        scheduledAt: input.scheduledAt,
+        flashExpiresAt: toDbDate(flashExpiresAt),
+        scheduledAt: toDbDate(input.scheduledAt),
         // SEO fields
         seoTitle: input.seoTitle,
         seoDescription: input.seoDescription,
@@ -922,7 +925,7 @@ export const newsRouter = router({
         articleType: input.articleType || "news",
         googleNewsKeywords: input.googleNewsKeywords,
         coverageCountryId: input.coverageCountryId ?? null,
-      } as any);
+      });
 
       // Get inserted article
       const inserted = await db.select()
@@ -935,27 +938,27 @@ export const newsRouter = router({
       // Add taxonomies
       if (input.categoryIds?.length) {
         for (const categoryId of input.categoryIds) {
-          await db.insert(articleCategories).values({ articleId, categoryId } as any);
+          await db.insert(articleCategories).values({ articleId, categoryId });
         }
       }
       if (input.tagIds?.length) {
         for (const tagId of input.tagIds) {
-          await db.insert(articleTags).values({ articleId, tagId } as any);
+          await db.insert(articleTags).values({ articleId, tagId });
         }
       }
       if (input.topicIds?.length) {
         for (const topicId of input.topicIds) {
-          await db.insert(articleTopics).values({ articleId, topicId } as any);
+          await db.insert(articleTopics).values({ articleId, topicId });
         }
       }
       if (input.regionIds?.length) {
         for (const regionId of input.regionIds) {
-          await db.insert(articleRegions).values({ articleId, regionId } as any);
+          await db.insert(articleRegions).values({ articleId, regionId });
         }
       }
       if (input.sectorIds?.length) {
         for (const sectorId of input.sectorIds) {
-          await db.insert(articleSectors).values({ articleId, sectorId } as any);
+          await db.insert(articleSectors).values({ articleId, sectorId });
         }
       }
 
@@ -968,7 +971,7 @@ export const newsRouter = router({
         toStatusId: initialStatus.id,
         userId: ctx.user.id,
         comment: "Article created",
-      } as any);
+      });
 
       // Schedule debounced static-sitemap regeneration (fire-and-forget)
       try {
@@ -990,16 +993,28 @@ export const newsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
-      const { id, categoryIds, tagIds, topicIds, regionIds, sectorIds, status, ...updateData } = input;
+      const { id, categoryIds, tagIds, topicIds, regionIds, sectorIds, status, ...inputData } = input;
+
+      // DB-facing update payload — flags as tinyint numbers, dates as
+      // DB strings. Keys with undefined values are skipped by drizzle,
+      // so absent input fields stay untouched exactly as before.
+      const updateData: Partial<typeof articles.$inferInsert> = {
+        ...inputData,
+        isFeatured: boolInt(inputData.isFeatured),
+        isTrending: boolInt(inputData.isTrending),
+        isEditorPick: boolInt(inputData.isEditorPick),
+        isFlash: boolInt(inputData.isFlash),
+        scheduledAt: toDbDate(inputData.scheduledAt),
+      };
 
       // Handle publishedAt date - check if it's a future date for scheduling
       let isFutureDate = false;
-      if ((updateData as any).publishedAt) {
-        const publishedAtDate = new Date((updateData as any).publishedAt);
+      if (inputData.publishedAt) {
+        const publishedAtDate = new Date(inputData.publishedAt);
         const now = new Date();
         isFutureDate = publishedAtDate > now;
-        // Convert string to Date object for database
-        (updateData as Record<string, unknown>).publishedAt = publishedAtDate;
+        // Convert string to the DB timestamp representation
+        updateData.publishedAt = toDbDate(publishedAtDate);
       }
 
       // Handle status change if provided
@@ -1015,14 +1030,14 @@ export const newsRouter = router({
         const statusRecord = await workflowService.getStatusBySlug("editorial", effectiveStatus);
         if (statusRecord) {
           newStatusId = statusRecord.id;
-          (updateData as Record<string, unknown>).statusId = statusRecord.id;
+          updateData.statusId = statusRecord.id;
           // If transitioning to published (not scheduled), set publishedAt to now if not already set
-          if (effectiveStatus === "published" && !(updateData as any).publishedAt) {
-            (updateData as Record<string, unknown>).publishedAt = new Date();
+          if (effectiveStatus === "published" && !updateData.publishedAt) {
+            updateData.publishedAt = toDbDate(new Date());
           }
           // If scheduling, also set scheduledAt
-          if (effectiveStatus === "scheduled" && (updateData as any).publishedAt) {
-            (updateData as Record<string, unknown>).scheduledAt = (updateData as any).publishedAt;
+          if (effectiveStatus === "scheduled" && updateData.publishedAt) {
+            updateData.scheduledAt = updateData.publishedAt;
           }
         }
       }
@@ -1041,8 +1056,8 @@ export const newsRouter = router({
       }
 
       // Only admins can change author
-      if ((updateData as any).authorId && ctx.user.role !== "admin") {
-        delete (updateData as any).authorId;
+      if (updateData.authorId && ctx.user.role !== "admin") {
+        delete updateData.authorId;
       }
 
       // Update slug if title changed
@@ -1053,60 +1068,58 @@ export const newsRouter = router({
 
       // Calculate flash expiration if flash is being enabled
       if (updateData.isFlash && updateData.flashDurationHours) {
-        (updateData as Record<string, unknown>).flashExpiresAt = new Date();
-        ((updateData as Record<string, unknown>).flashExpiresAt as Date).setHours(
-          ((updateData as Record<string, unknown>).flashExpiresAt as Date).getHours() + updateData.flashDurationHours
-        );
-      } else if (updateData.isFlash === false) {
-        (updateData as Record<string, unknown>).flashExpiresAt = null;
-        (updateData as Record<string, unknown>).flashDurationHours = null;
+        const flashExpiresAt = new Date();
+        flashExpiresAt.setHours(flashExpiresAt.getHours() + updateData.flashDurationHours);
+        updateData.flashExpiresAt = toDbDate(flashExpiresAt);
+      } else if (updateData.isFlash === 0) {
+        updateData.flashExpiresAt = null;
+        updateData.flashDurationHours = null;
       }
 
       // Calculate featured expiration if featured is being enabled
       if (updateData.isFeatured && updateData.featuredDurationHours) {
-        (updateData as Record<string, unknown>).featuredExpiresAt = new Date();
-        ((updateData as Record<string, unknown>).featuredExpiresAt as Date).setHours(
-          ((updateData as Record<string, unknown>).featuredExpiresAt as Date).getHours() + updateData.featuredDurationHours
-        );
-      } else if (updateData.isFeatured === false) {
-        (updateData as Record<string, unknown>).featuredExpiresAt = null;
-        (updateData as Record<string, unknown>).featuredDurationHours = null;
+        const featuredExpiresAt = new Date();
+        featuredExpiresAt.setHours(featuredExpiresAt.getHours() + updateData.featuredDurationHours);
+        updateData.featuredExpiresAt = toDbDate(featuredExpiresAt);
+      } else if (updateData.isFeatured === 0) {
+        updateData.featuredExpiresAt = null;
+        updateData.featuredDurationHours = null;
       }
 
-      // Update article - cast to any to handle dynamic fields
+      // Update article
       await db.update(articles)
-        .set(updateData as any)
+        .set(updateData)
         .where(eq(articles.id, id));
 
       // Update taxonomies
       if (categoryIds !== undefined) {
         await db.delete(articleCategories).where(eq(articleCategories.articleId, id));
         for (const categoryId of categoryIds) {
-          await db.insert(articleCategories).values({ articleId: id, categoryId } as any);
+          await db.insert(articleCategories).values({ articleId: id, categoryId });
         }
       }
       if (tagIds !== undefined) {
         await db.delete(articleTags).where(eq(articleTags.articleId, id));
         for (const tagId of tagIds) {
-          await db.insert(articleTags).values({ articleId: id, tagId } as any);
+          await db.insert(articleTags).values({ articleId: id, tagId });
         }
       }
       if (topicIds !== undefined) {
         await db.delete(articleTopics).where(eq(articleTopics.articleId, id));
         for (const topicId of topicIds) {
-          await db.insert(articleTopics).values({ articleId: id, topicId } as any);
+          await db.insert(articleTopics).values({ articleId: id, topicId });
         }
       }
       if (regionIds !== undefined) {
         await db.delete(articleRegions).where(eq(articleRegions.articleId, id));
         for (const regionId of regionIds) {
-          await db.insert(articleRegions).values({ articleId: id, regionId } as any);
+          await db.insert(articleRegions).values({ articleId: id, regionId });
         }
       }
       if (sectorIds !== undefined) {
         await db.delete(articleSectors).where(eq(articleSectors.articleId, id));
         for (const sectorId of sectorIds) {
-          await db.insert(articleSectors).values({ articleId: id, sectorId } as any);
+          await db.insert(articleSectors).values({ articleId: id, sectorId });
         }
       }
 
@@ -1121,7 +1134,7 @@ export const newsRouter = router({
           toStatusId: newStatusId,
           userId: ctx.user.id,
           comment: `Status changed to ${status}`,
-        } as any);
+        });
       }
 
       // Notify search engines when article is published (fire-and-forget)
@@ -1178,7 +1191,7 @@ export const newsRouter = router({
 
       // Update article status
       await db.update(articles)
-        .set({ statusId: result.newStatusId } as any)
+        .set({ statusId: result.newStatusId })
         .where(eq(articles.id, input.articleId));
 
       // If transitioning to published, set publishedAt only if not already set
@@ -1193,7 +1206,7 @@ export const newsRouter = router({
         // Only set publishedAt if it's not already set
         if (!existingArticle[0]?.publishedAt) {
           await db.update(articles)
-            .set({ publishedAt: new Date().toISOString() } as any)
+            .set({ publishedAt: new Date().toISOString() })
             .where(eq(articles.id, input.articleId));
         }
       }
@@ -1345,7 +1358,7 @@ export const newsRouter = router({
 
       // Move articles to trash
       await db.update(articles)
-        .set({ statusId: trashStatus.id, updatedAt: new Date().toISOString() } as any)
+        .set({ statusId: trashStatus.id, updatedAt: new Date().toISOString() })
         .where(inArray(articles.id, input.ids));
 
       return { count: input.ids.length };
@@ -1439,7 +1452,7 @@ export const newsRouter = router({
         .from(articles)
         .where(and(
           eq(articles.statusId, publishedStatus.id),
-          gte(articles.publishedAt, cutoff as any)
+          gte(articles.publishedAt, toDbDate(cutoff))
         ))
         .orderBy(desc(articles.viewCount))
         .limit(input.limit);
@@ -1576,18 +1589,18 @@ export const newsRouter = router({
         
         // Update status for all articles
         await db.update(articles)
-          .set({ statusId: status.id } as any)
+          .set({ statusId: status.id })
           .where(inArray(articles.id, input.ids));
         
         // Set publishedAt only for articles that don't have it
         if (idsWithoutPublishedAt.length > 0) {
           await db.update(articles)
-            .set({ publishedAt: new Date().toISOString() } as any)
+            .set({ publishedAt: new Date().toISOString() })
             .where(inArray(articles.id, idsWithoutPublishedAt));
         }
       } else {
         await db.update(articles)
-          .set({ statusId: status.id } as any)
+          .set({ statusId: status.id })
           .where(inArray(articles.id, input.ids));
       }
 
@@ -2149,6 +2162,36 @@ export const newsRouter = router({
     }))
     .query(async ({ input }) => {
       return relatedContentService.getRelatedArticles(input.articleId, input.limit);
+    }),
+
+  /**
+   * Companies linked to a published article (public read for the
+   * "Companies in this article" panel). Mirrors the admin
+   * entityLinking.getArticleCompanies shape minus editorial metadata.
+   */
+  getArticleCompanies: publicProcedure
+    .input(z.object({ articleId: z.number() }))
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return [];
+      const links = await db
+        .select({
+          id: articleCompanies.id,
+          articleId: articleCompanies.articleId,
+          companyId: articleCompanies.companyId,
+          mentionType: articleCompanies.mentionType,
+          company: {
+            id: companies.id,
+            name: companies.name,
+            slug: companies.slug,
+            logo: companies.logo,
+            industry: companies.industry,
+          },
+        })
+        .from(articleCompanies)
+        .leftJoin(companies, eq(articleCompanies.companyId, companies.id))
+        .where(eq(articleCompanies.articleId, input.articleId));
+      return links;
     }),
 
   /**

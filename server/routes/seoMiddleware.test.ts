@@ -1,14 +1,36 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import express from 'express';
-import request from 'supertest';
+import type { Server } from 'node:http';
+import type { AddressInfo } from 'node:net';
+import seoMiddleware from './seoMiddleware';
 
-// We test the middleware behavior by creating a minimal Express app
-function createTestApp() {
+// Mount the real SEO middleware in a minimal Express app served on an
+// ephemeral port. Requests that no handler claims fall through to Express's
+// default 404. Redirects are inspected manually (no auto-follow).
+let server: Server;
+let baseUrl: string;
+
+beforeAll(async () => {
   const app = express();
-  
-  // Import and apply the SEO middleware
-  // Since the middleware uses DB, we'll test the URL pattern matching logic directly
-  return app;
+  app.use(seoMiddleware);
+  server = app.listen(0);
+  await new Promise<void>((resolve) => server.once('listening', resolve));
+  const { port } = server.address() as AddressInfo;
+  baseUrl = `http://127.0.0.1:${port}`;
+});
+
+afterAll(async () => {
+  await new Promise<void>((resolve, reject) =>
+    server.close((err) => (err ? reject(err) : resolve())),
+  );
+});
+
+async function get(path: string) {
+  const res = await fetch(`${baseUrl}${path}`, { redirect: 'manual' });
+  return {
+    status: res.status,
+    headers: Object.fromEntries(res.headers.entries()) as Record<string, string>,
+  };
 }
 
 describe('SEO Middleware URL Patterns', () => {
@@ -60,18 +82,13 @@ describe('SEO Middleware URL Patterns', () => {
     });
   });
 
-  describe('Tag feed URL detection', () => {
-    it('should detect /tag/*/feed/ patterns', () => {
-      const feedRegex = /^\/tag\/[^/]+\/feed\/?$/;
-      expect(feedRegex.test('/tag/fintech/feed/')).toBe(true);
-      expect(feedRegex.test('/tag/fintech/feed')).toBe(true);
-      expect(feedRegex.test('/tag/startup-funding-mena/feed/')).toBe(true);
-    });
-
-    it('should not match normal tag pages', () => {
-      const feedRegex = /^\/tag\/[^/]+\/feed\/?$/;
-      expect(feedRegex.test('/tag/fintech')).toBe(false);
-      expect(feedRegex.test('/tag/fintech/')).toBe(false);
+  describe('Legacy tag-feed URLs are no longer special-cased', () => {
+    // The previous publication's WordPress-era /tag/*/feed 410 handlers were
+    // deliberately dropped (BrentDesk does not inherit that URL history —
+    // see the NOTE in seoMiddleware.ts). Those URLs now simply fall through.
+    it('lets /tag/:slug/feed fall through to a normal 404', async () => {
+      const res = await get('/tag/fintech/feed');
+      expect(res.status).toBe(404);
     });
   });
 
@@ -121,58 +138,64 @@ describe('SEO Middleware URL Patterns', () => {
     });
   });
 
-  describe('Soft 404 patterns', () => {
-    const soft404Patterns = [
-      '/2025/',
-      '/subscribe/',
-      '/terms-of-service/',
-      '/videos',
-      '/typography/',
-      '/homepage',
-      '/homepage/',
-    ];
+  describe('Legacy WordPress-era one-off redirects were dropped', () => {
+    // The previous publication carried handlers for its historical URL
+    // shapes (/2025 year archives, /subscribe, /typography, /homepage, ...).
+    // BrentDesk deliberately does not inherit that URL history; these paths
+    // fall through the middleware untouched (Express default 404 here).
+    const legacyPaths = ['/2025', '/subscribe', '/typography', '/homepage'];
 
-    it('should identify known soft 404 paths', () => {
-      const soft404Regex = /^\/(2025|subscribe|terms-of-service|videos|typography|homepage)\/?$/;
-      for (const path of soft404Patterns) {
-        expect(soft404Regex.test(path), `Expected ${path} to match soft 404 pattern`).toBe(true);
-      }
+    for (const path of legacyPaths) {
+      it(`does not intercept ${path}`, async () => {
+        const res = await get(path);
+        expect(res.status).toBe(404);
+      });
+    }
+
+    it('still normalizes their trailing-slash variants like any other path', async () => {
+      const res = await get('/homepage/');
+      expect(res.status).toBe(301);
+      expect(res.headers.location).toBe('/homepage');
     });
   });
-});
 
-describe('Tag Consolidation Results', () => {
-  it('should have 50 curated tags defined', () => {
-    const curatedTags = require('/tmp/curated-tags.json').tags;
-    expect(curatedTags.length).toBe(50);
-  });
+  describe('Live middleware behavior', () => {
+    it('returns 410 Gone for WordPress probe URLs', async () => {
+      for (const path of ['/wp-login.php', '/xmlrpc.php', '/wp-admin/admin-ajax.php']) {
+        const res = await get(path);
+        expect(res.status, `${path} should be 410`).toBe(410);
+      }
+    });
 
-  it('should have unique slugs for all curated tags', () => {
-    const curatedTags = require('/tmp/curated-tags.json').tags;
-    const slugs = curatedTags.map((t: any) => t.slug);
-    expect(new Set(slugs).size).toBe(slugs.length);
-  });
+    it('sets a noindex X-Robots-Tag on admin and login paths', async () => {
+      for (const path of ['/admin/dashboard', '/login']) {
+        const res = await get(path);
+        expect(res.headers['x-robots-tag'], `${path} should carry noindex`).toBe('noindex, nofollow');
+      }
+    });
 
-  it('should have valid tagTypes for all curated tags', () => {
-    const validTypes = ['sector', 'region', 'deal_business', 'product_tech', 'general', 'hub_program', 'regulation', 'event'];
-    const curatedTags = require('/tmp/curated-tags.json').tags;
-    for (const tag of curatedTags) {
-      expect(validTypes.includes(tag.tagType), `Invalid tagType "${tag.tagType}" for ${tag.name}`).toBe(true);
-    }
-  });
+    it('normalizes /category/:slug to the canonical bare slug', async () => {
+      const res = await get('/category/energy');
+      expect(res.status).toBe(301);
+      expect(res.headers.location).toBe('/energy');
+    });
 
-  it('should include broader region tags instead of individual countries', () => {
-    const curatedTags = require('/tmp/curated-tags.json').tags;
-    const regionTags = curatedTags.filter((t: any) => t.tagType === 'region');
-    const regionNames = regionTags.map((t: any) => t.name);
-    
-    // Should have broader regions
-    expect(regionNames).toContain('Gulf Region');
-    expect(regionNames).toContain('Egypt & North Africa');
-    expect(regionNames).toContain('Levant');
-    
-    // Should still have key individual countries
-    expect(regionNames).toContain('Saudi Arabia');
-    expect(regionNames).toContain('UAE');
+    it('redirects /category/news to /news without a redirect loop', async () => {
+      const res = await get('/category/news');
+      expect(res.status).toBe(301);
+      expect(res.headers.location).toBe('/news');
+    });
+
+    it('redirects /e/:slug short links to /events/:slug preserving the query', async () => {
+      const res = await get('/e/leap-2026?utm_source=x');
+      expect(res.status).toBe(301);
+      expect(res.headers.location).toBe('/events/leap-2026?utm_source=x');
+    });
+
+    it('strips trailing slashes from content URLs', async () => {
+      const res = await get('/energy/');
+      expect(res.status).toBe(301);
+      expect(res.headers.location).toBe('/energy');
+    });
   });
 });

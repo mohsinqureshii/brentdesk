@@ -3,7 +3,7 @@
  * ----------------------------------------------------------------------
  * Read-only sync from Greenhouse Harvest API into the talent platform.
  * Pulls jobs + candidates + applications so a customer migrating from
- * Greenhouse can light up the TechScoop board with existing data.
+ * Greenhouse can light up the job board with existing data.
  *
  * Configuration:
  *   Stored in `integration_configs` table, integrationId='greenhouse'.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -29,12 +30,12 @@ const benefits = [
   {
     icon: Briefcase,
     title: "Personalized Job Matches",
-    description: "Get matched with startup jobs based on your skills and preferences"
+    description: "Get matched with industry roles based on your skills and preferences"
   },
   {
     icon: TrendingUp,
     title: "Track Companies & Funding",
-    description: "Follow your favorite startups and get notified about funding rounds"
+    description: "Follow companies and get notified about new projects and contract awards"
   },
   {
     icon: Bell,
@@ -50,12 +51,12 @@ const benefits = [
 
 const testimonials = [
   {
-    quote: "TechScoop helped me land my dream job at a Series A startup in Dubai.",
+    quote: `${publication.name} helped me land my dream job at an EPC contractor in Riyadh.`,
     author: "Sarah M.",
     role: "Product Manager"
   },
   {
-    quote: "The best resource for staying updated on MENA's tech ecosystem.",
+    quote: "The best resource for staying updated on the region's industrial economy.",
     author: "Ahmed K.",
     role: "Founder & CEO"
   }
@@ -161,10 +162,10 @@ export default function Signup() {
               <div className="text-white">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-sm font-medium mb-6">
                   <Sparkles className="h-4 w-4 text-yellow-400" />
-                  Join 50,000+ MENA tech professionals
+                  Join the region's industry professionals
                 </div>
                 <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  Your Gateway to MENA's Tech Ecosystem
+                  Your window on the region's industrial economy
                 </h1>
                 <p className="text-lg text-white/70 mb-8">
                   Create your free account to access personalized job matches, exclusive founder resources, 
@@ -290,7 +291,7 @@ export default function Signup() {
                             className="mt-1"
                           />
                           <label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
-                            I agree to TechScoop's{" "}
+                            I agree to {publication.name}'s{" "}
                             <Link href="/terms" className="text-foreground underline hover:no-underline">
                               Terms of Service
                             </Link>{" "}
@@ -309,7 +310,7 @@ export default function Signup() {
                             className="mt-1"
                           />
                           <label htmlFor="newsletter" className="text-sm text-muted-foreground leading-relaxed">
-                            Subscribe to TechScoop Weekly Digest (recommended)
+                            Subscribe to {publication.newsletter.name} (recommended)
                           </label>
                         </div>
                       </div>

@@ -14,8 +14,12 @@ import { adsenseSettings } from "../../drizzle/schema";
 
 const router = Router();
 
-// Known-good fallback — matches client/public/ads.txt.
-const DEFAULT_ADS_TXT = "google.com, pub-2487563355490273, DIRECT, f08c47fec0942fa0";
+// Fallback publisher line comes from env; with no publisher configured we
+// serve an empty (comment-only) ads.txt, which is valid and simply means
+// no programmatic seller is authorized yet.
+const DEFAULT_ADS_TXT = process.env.ADSENSE_PUBLISHER_ID
+  ? `google.com, ${process.env.ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0`
+  : "# No authorized sellers configured";
 
 // Cache ads.txt content for 5 minutes to reduce DB hits. On DB errors
 // we serve the last cached value (or the default) — never an error page.

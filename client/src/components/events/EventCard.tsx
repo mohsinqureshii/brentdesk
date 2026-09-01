@@ -35,6 +35,7 @@ import { Link } from "wouter";
 import { Bookmark, CalendarDays, MapPin, Radio } from "lucide-react";
 import { toast } from "sonner";
 
+import { publication } from "@shared/publication";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -214,7 +215,7 @@ export function useEventBookmark(event: BookmarkableEvent) {
 
     if (!isAuthenticated) {
       toast("Sign in to save events", {
-        description: "Bookmarks are stored on your TechScoop account.",
+        description: `Bookmarks are stored on your ${publication.name} account.`,
         action: {
           label: "Sign in",
           onClick: () => {
@@ -574,7 +575,7 @@ export function TrendingEventRow({
   const location = formatLocation(event.city, event.country, event.format);
 
   return (
-    <li className="group relative flex items-start gap-3">
+    <div className="group relative flex items-start gap-3">
       <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[11px] font-bold tabular-nums text-emerald-700 ring-1 ring-emerald-600/20 dark:bg-emerald-500/10 dark:text-emerald-300 dark:ring-emerald-400/25">
         {rank}
       </span>
@@ -602,13 +603,13 @@ export function TrendingEventRow({
           {formatShortDate(event.startDate)}
         </p>
       </div>
-    </li>
+    </div>
   );
 }
 
 export function TrendingEventRowSkeleton() {
   return (
-    <li className="flex items-start gap-3">
+    <div className="flex items-start gap-3">
       <Skeleton className="h-6 w-6 shrink-0 rounded-full" />
       <Skeleton className="h-12 w-12 shrink-0 rounded-lg" />
       <div className="min-w-0 flex-1">
@@ -616,6 +617,6 @@ export function TrendingEventRowSkeleton() {
         <Skeleton className="mt-2 h-2.5 w-[50%]" />
         <Skeleton className="mt-1.5 h-2.5 w-[40%]" />
       </div>
-    </li>
+    </div>
   );
 }

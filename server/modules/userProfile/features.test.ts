@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { hasDatabase } from "@test/dbAvailable";
 import { appRouter } from "../../routers";
 import type { TrpcContext } from "../../_core/context";
 
@@ -50,7 +51,7 @@ function createUnauthContext(): TrpcContext {
 // =====================
 // BOOKMARKS TESTS
 // =====================
-describe("bookmarks", () => {
+describe.runIf(hasDatabase)("bookmarks", () => {
   const ctx = createAuthContext();
   const caller = appRouter.createCaller(ctx);
 
@@ -155,7 +156,7 @@ describe("bookmarks", () => {
 // =====================
 // EMAIL DIGEST TESTS
 // =====================
-describe("emailDigest", () => {
+describe.runIf(hasDatabase)("emailDigest", () => {
   const ctx = createAuthContext();
   const caller = appRouter.createCaller(ctx);
 
@@ -223,7 +224,10 @@ describe("emailDigest", () => {
     expect(Array.isArray(result.events)).toBe(true);
   });
 
-  it("should allow admin to trigger digest", async () => {
+  // triggerDigest calls notifyOwner, which requires the external notification
+  // proxy (BUILT_IN_FORGE_API_URL/KEY). Skip cleanly when it is not configured.
+  it.skipIf(!process.env.BUILT_IN_FORGE_API_URL || !process.env.BUILT_IN_FORGE_API_KEY)(
+    "should allow admin to trigger digest", async () => {
     const adminCaller = appRouter.createCaller(createAdminContext());
     const result = await adminCaller.emailDigest.triggerDigest({
       frequency: "weekly",
@@ -237,7 +241,7 @@ describe("emailDigest", () => {
 // =====================
 // EDITOR'S PICK (NEWS ROUTER) TESTS
 // =====================
-describe("news.getEditorPicks", () => {
+describe.runIf(hasDatabase)("news.getEditorPicks", () => {
   it("should return editor picks articles", async () => {
     const caller = appRouter.createCaller(createUnauthContext());
     const result = await caller.news.getEditorPicks({ limit: 5 });

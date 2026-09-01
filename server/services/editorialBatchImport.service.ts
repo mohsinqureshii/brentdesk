@@ -1,3 +1,6 @@
+import { publication, getBaseUrl } from "../../shared/publication";
+
+const DESK_AUTHOR = `${publication.name} Desk`;
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { and, eq } from "drizzle-orm";
@@ -104,7 +107,7 @@ export interface EditorialBatchManifest {
     id: string;
     name: string;
     article_count: number;
-    author_public_name: "TechScoop Desk";
+    author_public_name: string; // canonical desk author, `${publication.name} Desk`
     workflow_status_slug: "draft";
     public_publish_allowed: false;
     review_required: true;
@@ -221,7 +224,7 @@ export async function validateEditorialBatchManifest(manifest: EditorialBatchMan
   if (manifest.batch.id !== "leap-deepfest-2026-day1") error("batch.id", "Unexpected batch ID.");
   if (manifest.batch.article_count !== 100) error("batch.article_count", "Batch must declare exactly 100 articles.");
   if (manifest.articles.length !== 100) error("articles", `Batch must contain exactly 100 articles; found ${manifest.articles.length}.`);
-  if (manifest.batch.author_public_name !== "TechScoop Desk") error("batch.author_public_name", "Author must be TechScoop Desk.");
+  if (manifest.batch.author_public_name !== DESK_AUTHOR) error("batch.author_public_name", `Author must be ${DESK_AUTHOR}.`);
   if (manifest.batch.workflow_status_slug !== "draft") error("batch.workflow_status_slug", "Batch must target draft status.");
   if (manifest.batch.public_publish_allowed !== false) error("batch.public_publish_allowed", "Publishing must remain disabled.");
   if (manifest.batch.review_required !== true) error("batch.review_required", "Editorial review must be required.");
@@ -256,7 +259,7 @@ export async function validateEditorialBatchManifest(manifest: EditorialBatchMan
     if (focusKeywords.has(focusKey)) error("seo.focus_keyword", "Focus keyword must be unique across the batch.", seq);
     focusKeywords.add(focusKey);
 
-    if (article.author_public_name !== "TechScoop Desk") error("author_public_name", "Author must be TechScoop Desk.", seq);
+    if (article.author_public_name !== DESK_AUTHOR) error("author_public_name", "Author must be the canonical desk Desk.", seq);
     if (article.workflow_status_slug !== "draft") error("workflow_status_slug", "Article must remain a draft.", seq);
     if (article.timezone !== "Asia/Riyadh") error("timezone", "Article timezone must be Asia/Riyadh.", seq);
     if (!article.display_datetime_local.startsWith("2026-08-31T")) error("display_datetime_local", "Display date must be 31 August 2026.", seq);
@@ -279,7 +282,7 @@ export async function validateEditorialBatchManifest(manifest: EditorialBatchMan
     if (!article.seo.seo_title || article.seo.seo_title.length > 65) error("seo.seo_title", "SEO title must be 1–65 characters.", seq);
     if (!article.seo.seo_description || article.seo.seo_description.length > 165) error("seo.seo_description", "SEO description must be 1–165 characters.", seq);
     if (article.seo.keywords.length < 5) warning("seo.keywords", "Use at least five natural keywords.", seq);
-    if (!article.seo.canonical_url.startsWith("https://techscoop.io/")) error("seo.canonical_url", "Canonical URL must use techscoop.io HTTPS.", seq);
+    if (!article.seo.canonical_url.startsWith(`${getBaseUrl()}/`)) error("seo.canonical_url", "Canonical URL must use the publication base URL over HTTPS.", seq);
 
     if (!article.sources.primary_url.startsWith("https://")) error("sources.primary_url", "Primary source must be an HTTPS URL.", seq);
     if (article.sources.confidence < 70) error("sources.confidence", "Source confidence must be at least 70.", seq);
@@ -316,7 +319,7 @@ async function requireDraftStatus(db: any) {
 async function requireDeskAuthor(db: any, publicName: string) {
   const rows = await db.select().from(users);
   const author = rows.find((row: any) => [row.publicName, row.name, row.username].filter(Boolean).some((value: string) => normalize(value) === normalize(publicName)));
-  if (!author) throw new Error(`Author '${publicName}' was not found. Create or rename the canonical TechScoop Desk backend user before import.`);
+  if (!author) throw new Error(`Author '${publicName}' was not found. Create or rename the canonical desk authop Desk backend user before import.`);
   return author;
 }
 

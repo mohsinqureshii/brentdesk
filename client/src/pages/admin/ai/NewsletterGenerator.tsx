@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -58,11 +59,11 @@ export function NewsletterGeneratorPanel() {
         <CardContent className="space-y-4">
           <div>
             <Label>Newsletter Title *</Label>
-            <Input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g., TechScoop Weekly: MENA Tech Roundup" />
+            <Input value={title} onChange={e => setTitle(e.target.value)} placeholder={`e.g., ${publication.name} Weekly: GCC Infrastructure Roundup`} />
           </div>
           <div>
             <Label>Key Topics (comma-separated)</Label>
-            <Textarea value={topics} onChange={e => setTopics(e.target.value)} rows={3} placeholder="e.g., Saudi Arabia funding, UAE startups, fintech, AI regulation" />
+            <Textarea value={topics} onChange={e => setTopics(e.target.value)} rows={3} placeholder="e.g., NEOM contract awards, GCC logistics, Saudi giga-projects, energy transition" />
           </div>
           <div>
             <Label>Tone</Label>

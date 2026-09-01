@@ -4,36 +4,37 @@ import { SEO } from "@/components/SEO";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title="About TechScoop - MENA's Leading Tech Publication"
-        description="TechScoop gives readers a front-row seat to the future of innovation across the Middle East and North Africa. Learn about our mission, editorial team, and values."
-        canonical="https://techscoop.io/about"
-        keywords="TechScoop, MENA tech news, Middle East tech publication, startup journalism, tech media MENA"
+        title={`About ${publication.name} - ${publication.tagline}`}
+        description={publication.description}
+        canonical={`${publication.siteUrl}/about`}
+        keywords={publication.keywords}
         ogType="website"
       />
       <Header />
-      
+
       <main className="w-full">
         {/* Hero Section */}
         <section className="py-16 md:py-20 border-b border-border">
           <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-              About TechScoop
+              About {publication.name}
             </h1>
 
             <div className="prose prose-lg max-w-none space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                TechScoop gives readers a front-row seat to the future of innovation across the Middle East and North Africa. It's where founders, operators, investors, and everyone who is tech-curious come to learn what's next, discover unexpected stories, and glean critical intelligence about the region's rapidly evolving technology landscape.
+                {publication.name} covers the physical economy — the industries that design, build, power, move and maintain the world around us. Our reporting spans construction, infrastructure, energy, oil &amp; gas, utilities, manufacturing, logistics, transportation, aviation, ports, rail, mining, metals, chemicals, real estate development, data centers and industrial technology.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We're at the forefront of the AI revolution reshaping industries from Riyadh to Cairo, the surge of venture capital flowing into the region, and the rise of homegrown startups competing on the global stage. We bring together individuals across all sectors of technology through our editorial coverage and events, providing the context and depth that the MENA tech ecosystem deserves.
+                Our coverage starts in Saudi Arabia, extends across the GCC and the wider MENA region, and follows the projects, companies and capital flows that connect those markets to the rest of the world. That priority order — Saudi Arabia, then the GCC, then MENA, then global — shapes what we cover first and in what depth.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                From tracking the latest funding rounds and acquisitions to profiling the founders building transformative companies, TechScoop has become the essential daily read for anyone who cares about technology and innovation in the Middle East and North Africa. Our coverage spans startups, venture capital, enterprise technology, fintech, AI, and the regulatory landscape shaping the region's digital future.
+                {publication.name} is written for the people who work in these industries: contractors, developers, engineers, operators, procurement teams, financiers and policymakers. We assume our readers know their sectors, and we aim to tell them something they can use.
               </p>
             </div>
           </div>
@@ -45,13 +46,13 @@ export default function About() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Our Mission</h2>
             <div className="space-y-5">
               <p className="text-muted-foreground leading-relaxed">
-                TechScoop was founded with a simple belief: the MENA region's technology ecosystem deserves world-class journalism. Too often, the stories of founders building remarkable companies in Saudi Arabia, the UAE, Egypt, and beyond go untold — or are told without the nuance and depth they deserve.
+                The industrial economy is reported in fragments — a contract award here, an executive appointment there, a project milestone buried in a quarterly filing. {publication.name} exists to bring that reporting together into structured, connected coverage: news, the companies behind it, the people who lead them, the projects they deliver, the events where the industry meets, and the jobs it creates.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We exist to change that. Our editorial team is committed to independent, rigorous reporting that serves the interests of our readers — not press releases, not hype cycles, and not advertiser agendas. When we cover a funding round, we dig into the terms. When we profile a founder, we ask the hard questions. When we analyze a market trend, we bring data and context, not speculation.
+                When we report on a project, we link it to the owners, contractors and consultants delivering it. When we cover an appointment, we connect it to the company's track record. The goal is a body of coverage that compounds — where each story adds context to the ones around it.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We believe that great technology journalism doesn't just report the news — it helps shape the ecosystem by holding companies accountable, surfacing important stories, and connecting the people who are building the future.
+                Our editorial decisions are driven by what matters to people working in these sectors, not by press-release volume or publicity cycles. We would rather publish one story that changes how a reader understands a market than ten that restate an announcement.
               </p>
             </div>
           </div>
@@ -63,13 +64,13 @@ export default function About() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">What We Cover</h2>
             <div className="space-y-5">
               <p className="text-muted-foreground leading-relaxed">
-                Our editorial coverage spans the full breadth of the MENA technology ecosystem. We report on startup funding rounds, from pre-seed to late-stage, and track the investors backing the region's most promising companies. We cover the enterprise technology decisions being made by the region's largest organizations, and the regulatory frameworks being built by governments from Riyadh to Abu Dhabi.
+                We report on contract awards, tenders and project milestones across construction and infrastructure; upstream, midstream and downstream developments in oil &amp; gas; power generation, transmission and renewables; and the manufacturing, logistics, transportation and mining activity that underpins regional economies. We also track the real estate developments, data centers and industrial technology reshaping how these sectors operate.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We pay particular attention to the sectors where MENA is emerging as a global leader: fintech and digital payments, AI and machine learning, e-commerce and logistics, cleantech and sustainability, and the digital transformation initiatives reshaping traditional industries. Our reporting extends to the accelerators, incubators, and government programs that are nurturing the next generation of founders.
+                Alongside daily news, we maintain structured coverage of the companies active in these markets — contractors, developers, operators, suppliers and financiers — and the executives and engineers who lead them. Our project coverage follows major programs from announcement through award, construction and delivery.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Beyond daily news, TechScoop produces in-depth features, founder profiles, market analysis, and data-driven reports that provide the context our readers need to make informed decisions — whether they're raising capital, hiring talent, expanding into new markets, or investing in the region's future.
+                We round this out with listings of industry events and conferences across the region, and job openings from the sectors we cover — so that {publication.name} serves as a working reference for the industry, not just a news feed.
               </p>
             </div>
           </div>
@@ -81,32 +82,32 @@ export default function About() {
           <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Editorial Policy &amp; Ethics</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              These are the standards every member of the TechScoop editorial team is expected to uphold.
+              These are the standards every member of the {publication.name} editorial team is expected to uphold.
               They govern how we source, verify, write, and correct every story we publish.
             </p>
             <div className="space-y-8">
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">Independence</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our editorial decisions are made independently of our business relationships. Advertising and sponsorship never influence what we cover or how we cover it. Our readers trust us because they know our reporting is driven by editorial judgment, not commercial interests.
+                  Editorial decisions are made independently of our business relationships. Advertising and sponsorship never determine what we cover or how we cover it. Sponsored and branded content is always clearly labelled and produced separately from news coverage.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">Accuracy</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We verify our reporting rigorously before publication. When we make mistakes — and we're human, so it happens — we correct them promptly and transparently. We believe accuracy is the foundation of trust, and trust is everything in journalism.
+                  We verify reporting before publication, and contract values, project scopes and timelines are checked against primary sources wherever possible. When we get something wrong, we correct it promptly and say so — accuracy is the basis of any claim to be a publication of record.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">Depth</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We don't just report what happened — we explain why it matters. Our readers are sophisticated professionals who deserve analysis, context, and insight alongside the facts. We aim to make every story we publish worth our readers' time.
+                  We do not just report what happened — we explain what it means for the market. Our readers are professionals who deserve context: how a contract fits a program, how a policy changes a sector's economics, how an appointment signals a company's direction.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">Fairness</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We give subjects of our reporting a fair opportunity to respond. We present multiple perspectives on complex issues. We distinguish clearly between news reporting and opinion. And we treat every company and founder we cover with the same standard of rigor, regardless of size or influence.
+                  We give the subjects of our reporting a fair opportunity to respond. We present multiple perspectives on contested issues, distinguish clearly between news and analysis, and apply the same standard of rigor to every company we cover, regardless of its size or commercial relationship with us.
                 </p>
               </div>
             </div>
@@ -124,10 +125,10 @@ export default function About() {
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Spotted an error? Email{" "}
-              <a href="mailto:corrections@techscoop.io" className="text-emerald-600 hover:underline">
-                corrections@techscoop.io
+              <a href={`mailto:${publication.emails.hello}`} className="text-blue-600 hover:underline">
+                {publication.emails.hello}
               </a>{" "}
-              or use our <Link href="/contact" className="text-emerald-600 hover:underline">contact form</Link>.
+              or use our <Link href="/contact" className="text-blue-600 hover:underline">contact form</Link>.
               We aim to respond to all correction requests within one business day.
             </p>
           </div>
@@ -138,10 +139,10 @@ export default function About() {
           <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Verification &amp; Fact-Checking</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Every story published on TechScoop is fact-checked against primary sources before it goes live.
-              For funding announcements we verify deal terms with at least two parties or with regulatory filings.
-              For market data we cite the original report. For quotes we retain the original audio or written
-              record.
+              Every story published on {publication.name} is checked against primary sources before it goes live.
+              For contract awards and project announcements we rely on official statements, tender documents,
+              regulatory filings or confirmation from the parties involved. For market data we cite the original
+              report. For quotes we retain the original audio or written record.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Senior editors review investigative pieces and any story that names individuals in a
@@ -173,13 +174,12 @@ export default function About() {
           <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Diversity &amp; Representation</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The MENA tech ecosystem is built by people from every country, background, and discipline
-              in the region. Our reporting reflects that. We actively seek out women founders, underrepresented
-              communities, and stories from outside the GCC's largest hubs.
+              The industrial economy is built by people from every country, background, and discipline.
+              Our reporting aims to reflect that — in the sources we quote, the leaders we profile, and the
+              stories we pursue beyond the region's largest hubs and best-known companies.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We track the diversity of our sources and panellists and publish an annual review of how we
-              are doing. Our editorial hiring is open to qualified candidates regardless of nationality,
+              Our editorial hiring is open to qualified candidates regardless of nationality,
               gender, religion, or background.
             </p>
           </div>
@@ -190,14 +190,13 @@ export default function About() {
           <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ownership &amp; Funding</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              TechScoop is operated by TechScoop Media. The publication is funded by a combination of
-              advertising, sponsored events, and partnership revenue. No advertiser, sponsor, or partner
+              {publication.name} is operated by {publication.legalName}. The publication is funded by
+              advertising, sponsorship, and partnership revenue. No advertiser, sponsor, or partner
               has any role in editorial decisions or pre-publication review of stories.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              When a story involves a company that is also a commercial partner of TechScoop, we disclose
-              the relationship in the article. For investor and accelerator commercial relationships, the
-              same disclosure rule applies.
+              When a story involves a company that is also a commercial partner of {publication.name}, we
+              disclose the relationship in the article.
             </p>
           </div>
         </section>
@@ -208,10 +207,14 @@ export default function About() {
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Events</h2>
             <div className="space-y-5">
               <p className="text-muted-foreground leading-relaxed">
-                TechScoop brings the community together through a series of events throughout the year. From intimate founder roundtables to large-scale conferences, our events are designed to foster meaningful connections between the people building MENA's technology future — founders, investors, corporate leaders, and policymakers.
+                {publication.name} maintains a calendar of the conferences, exhibitions and industry gatherings
+                that matter to the sectors we cover — from energy and construction summits in Riyadh and the GCC
+                to logistics, mining and manufacturing events across MENA and beyond.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Our events feature candid conversations, practical insights, and networking opportunities that you won't find anywhere else. We curate every panel, every speaker, and every session to ensure our attendees walk away with actionable knowledge and valuable relationships.
+                Where our team attends or covers an event, that coverage follows the same editorial standards as
+                the rest of the publication. Event organizers can reach us via the{" "}
+                <Link href="/contact" className="text-blue-600 hover:underline">contact page</Link>.
               </p>
             </div>
           </div>
@@ -222,11 +225,11 @@ export default function About() {
           <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Get in Touch</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Have a story tip, partnership inquiry, or feedback about our coverage? We'd love to hear from you. Visit our contact page or reach out directly to our team.
+              Have a story tip, a correction, a partnership inquiry, or feedback about our coverage? Visit our contact page or reach out directly by email.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
                   <Mail className="h-4 w-4" />
                   Contact Us
                 </Button>

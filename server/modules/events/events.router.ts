@@ -3,6 +3,7 @@
  * Conferences, webinars, and meetups
  */
 
+import { publication } from "../../../shared/publication";
 import { z } from "zod";
 import { eq, and, desc, asc, like, gte, lte, or, inArray, sql, getTableColumns } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
@@ -43,6 +44,7 @@ import {
   companies,
   investors
 } from "../../../drizzle/schema";
+import { boolInt, toDbDate } from "../../_core/dbValues";
 import { slugService } from "../../services/slug.service";
 import { editionOrderBias } from "../../services/editionOrder";
 import { seoService } from "../../services/seo.service";
@@ -284,7 +286,7 @@ async function resolveSectorsByEvent(db: any, eventIds: number[]) {
     .where(inArray(eventSectors.eventId, eventIds))
     .orderBy(asc(sectors.name));
 
-  for (const row of rows as any[]) {
+  for (const row of rows) {
     (grouped[row.eventId] ||= []).push({ id: row.id, name: row.name, slug: row.slug });
   }
   return grouped;
@@ -395,8 +397,8 @@ async function ensurePersonForSpeaker(db: any, speaker: {
     linkedIn: speaker.linkedinUrl ?? null,
     twitter: speaker.twitterUrl ?? null,
     statusId: initialStatus.id,
-    publishedAt: publishedStatus ? new Date() : null,
-  } as any);
+    publishedAt: publishedStatus ? toDbDate(new Date()) : null,
+  });
 
   const inserted = await db.select({ id: people.id })
     .from(people)
@@ -456,10 +458,10 @@ export const eventsRouter = router({
         conditions.push(sql`${eventEndExpr()} >= NOW()`);
       }
       if (filters.startDateFrom) {
-        conditions.push(gte(events.startDate, filters.startDateFrom as any));
+        conditions.push(gte(events.startDate, toDbDate(filters.startDateFrom)));
       }
       if (filters.startDateTo) {
-        conditions.push(lte(events.startDate, filters.startDateTo as any));
+        conditions.push(lte(events.startDate, toDbDate(filters.startDateTo)));
       }
 
       // Build query - include all sortBy options with fallbacks
@@ -478,16 +480,16 @@ export const eventsRouter = router({
       // sectorId is declared on the shared list schema and was accepted
       // here but never applied — a public sector filter would have
       // silently returned everything.
-      if ((filters as any).sectorId !== undefined) {
+      if (filters.sectorId !== undefined) {
         conditions.push(
-          sql`EXISTS (SELECT 1 FROM ${eventSectors} WHERE ${eventSectors.eventId} = ${events.id} AND ${eventSectors.sectorId} = ${(filters as any).sectorId})`
+          sql`EXISTS (SELECT 1 FROM ${eventSectors} WHERE ${eventSectors.eventId} = ${events.id} AND ${eventSectors.sectorId} = ${filters.sectorId})`
         );
       }
       if (filters.city) {
         conditions.push(eq(events.city, filters.city));
       }
       if (filters.isFree !== undefined) {
-        conditions.push(eq(events.isFree, filters.isFree as any));
+        conditions.push(eq(events.isFree, filters.isFree ? 1 : 0));
       }
 
       const results = await db.select({
@@ -520,7 +522,7 @@ export const eventsRouter = router({
       }).from(events)
         .where(and(...conditions))
         .orderBy(
-          ...editionOrderBias((events as any).countryId, input.editionCountryId),
+          ...editionOrderBias(events.countryId, input.editionCountryId),
           sortOrder === "desc" ? desc(sortColumn) : asc(sortColumn),
         );
 
@@ -590,7 +592,7 @@ export const eventsRouter = router({
 
       // Increment view count
       await db.update(events)
-        .set({ viewCount: (event.viewCount || 0) + 1 } as any)
+        .set({ viewCount: (event.viewCount || 0) + 1 })
         .where(eq(events.id, event.id));
 
       // Get related taxonomy data
@@ -699,7 +701,7 @@ export const eventsRouter = router({
       // the client doesn't have to re-do the date math. This same value
       // gates which JSON-LD payload we emit (LiveBlogPosting only in
       // live mode, VideoObject only post, etc).
-      const mode = resolveEventMode(event as any);
+      const mode = resolveEventMode(event);
 
       // Going + interested counts — drives the "N going" pill and the
       // RSVP buttons' filled-vs-outlined state in the hero. One row,
@@ -902,18 +904,18 @@ export const eventsRouter = router({
         country: events.country,
         startDate: events.startDate,
         endDate: events.endDate,
-        liveModeStartOverride: (events as any).liveModeStartOverride,
-        liveModeEndOverride: (events as any).liveModeEndOverride,
-        liveModeForce: (events as any).liveModeForce,
+        liveModeStartOverride: events.liveModeStartOverride,
+        liveModeEndOverride: events.liveModeEndOverride,
+        liveModeForce: events.liveModeForce,
       }).from(events)
         .where(and(
           eq(events.statusId, publishedStatus.id),
           or(
-            eq((events as any).liveModeForce, 'live'),
+            eq(events.liveModeForce, 'live'),
             and(
-              lte(events.startDate, windowTo as any),
+              lte(events.startDate, toDbDate(windowTo)),
               // endDate may be null for single-day events; fall back to startDate
-              gte(sql`COALESCE(${events.endDate}, ${events.startDate})`, windowFrom as any),
+              gte(sql`COALESCE(${events.endDate}, ${events.startDate})`, windowFrom),
             ),
           ),
         ));
@@ -927,7 +929,7 @@ export const eventsRouter = router({
           endDate: e.endDate,
           liveModeStartOverride: e.liveModeStartOverride,
           liveModeEndOverride: e.liveModeEndOverride,
-          liveModeForce: e.liveModeForce as any,
+          liveModeForce: e.liveModeForce,
         }, now) === 'live'
       );
 
@@ -1090,10 +1092,10 @@ export const eventsRouter = router({
         );
       }
       if (input.startDateFrom) {
-        conditions.push(gte(events.startDate, new Date(input.startDateFrom as any).toISOString()));
+        conditions.push(gte(events.startDate, new Date(input.startDateFrom).toISOString()));
       }
       if (input.startDateTo) {
-        conditions.push(lte(events.startDate, new Date(input.startDateTo as any).toISOString()));
+        conditions.push(lte(events.startDate, new Date(input.startDateTo).toISOString()));
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
@@ -1146,7 +1148,7 @@ export const eventsRouter = router({
 
       return {
         items: rawResults.map(row => {
-          const { statusSlug, workflowStatusName, workflowStatusColor, hasTicketsFlag, sideEventCountValue, ...eventRow } = row as any;
+          const { statusSlug, workflowStatusName, workflowStatusColor, hasTicketsFlag, sideEventCountValue, ...eventRow } = row;
           return {
             ...eventRow,
             status: statusSlug || 'draft',
@@ -1272,8 +1274,8 @@ export const eventsRouter = router({
         city: eventData.venueCity || eventData.city,
         country: eventData.country,
         virtualUrl: eventData.virtualUrl,
-        startDate: eventData.startDate,
-        endDate: eventData.endDate,
+        startDate: toDbDate(eventData.startDate),
+        endDate: toDbDate(eventData.endDate),
         timezone: eventData.timezone,
         registrationUrl: eventData.registrationUrl,
         ticketUrl: eventData.ticketUrl,
@@ -1296,7 +1298,7 @@ export const eventsRouter = router({
         expectedCountries: eventData.expectedCountries,
         statusId: initialStatus.id,
         createdByUserId: ctx.user.id,
-      } as any);
+      });
 
       // Get inserted event
       const inserted = await db.select()
@@ -1309,17 +1311,17 @@ export const eventsRouter = router({
       // Add taxonomies
       if (categoryIds?.length) {
         for (const categoryId of categoryIds) {
-          await db.insert(eventCategories).values({ eventId, categoryId } as any);
+          await db.insert(eventCategories).values({ eventId, categoryId });
         }
       }
       if (regionIds?.length) {
         for (const regionId of regionIds) {
-          await db.insert(eventRegions).values({ eventId, regionId } as any);
+          await db.insert(eventRegions).values({ eventId, regionId });
         }
       }
       if (sectorIds?.length) {
         for (const sectorId of sectorIds) {
-          await db.insert(eventSectors).values({ eventId, sectorId } as any);
+          await db.insert(eventSectors).values({ eventId, sectorId });
         }
       }
 
@@ -1339,46 +1341,45 @@ export const eventsRouter = router({
         throw new Error("Unauthorized");
       }
 
-      const { id, categoryIds, regionIds, sectorIds, speakers, agenda, featuredImageUrl, featuredImageId, venueCity, startTime, endTime, maxAttendees, ...updateData } = input;
+      const { id, categoryIds, regionIds, sectorIds, speakers, agenda, featuredImageUrl, featuredImageId, venueCity, startTime, endTime, maxAttendees, price, priceCurrency, status, isFree, isFeatured, startDate, endDate, ...updateData } = input;
 
-      // Map fields that have different names between schema and DB
-      const dbUpdate: Record<string, any> = { ...updateData };
+      // Map fields that have different names between schema and DB.
+      // Flags become tinyint numbers and dates DB strings; keys with
+      // undefined values are skipped by drizzle, as before.
+      const dbUpdate: Partial<typeof events.$inferInsert> = {
+        ...updateData,
+        startDate: toDbDate(startDate),
+        endDate: toDbDate(endDate),
+        isFree: boolInt(isFree),
+        isFeatured: boolInt(isFeatured),
+      };
       if (featuredImageUrl !== undefined) dbUpdate.featuredImage = featuredImageUrl;
       if (venueCity !== undefined) dbUpdate.city = venueCity;
-      if (updateData.price !== undefined) {
-        dbUpdate.ticketPrice = updateData.price;
-        delete dbUpdate.price;
-      }
-      if (updateData.priceCurrency !== undefined) {
-        dbUpdate.ticketCurrency = updateData.priceCurrency;
-        delete dbUpdate.priceCurrency;
-      }
-      // Convert booleans to tinyint
-      if (dbUpdate.isFree !== undefined) dbUpdate.isFree = dbUpdate.isFree ? 1 : 0;
-      if (dbUpdate.isFeatured !== undefined) dbUpdate.isFeatured = dbUpdate.isFeatured ? 1 : 0;
+      if (price !== undefined) dbUpdate.ticketPrice = price;
+      if (priceCurrency !== undefined) dbUpdate.ticketCurrency = priceCurrency;
 
       // Update event
       await db.update(events)
-        .set(dbUpdate as any)
+        .set(dbUpdate)
         .where(eq(events.id, id));
 
       // Update taxonomies
       if (categoryIds !== undefined) {
         await db.delete(eventCategories).where(eq(eventCategories.eventId, id));
         for (const categoryId of categoryIds) {
-          await db.insert(eventCategories).values({ eventId: id, categoryId } as any);
+          await db.insert(eventCategories).values({ eventId: id, categoryId });
         }
       }
       if (regionIds !== undefined) {
         await db.delete(eventRegions).where(eq(eventRegions.eventId, id));
         for (const regionId of regionIds) {
-          await db.insert(eventRegions).values({ eventId: id, regionId } as any);
+          await db.insert(eventRegions).values({ eventId: id, regionId });
         }
       }
       if (sectorIds !== undefined) {
         await db.delete(eventSectors).where(eq(eventSectors.eventId, id));
         for (const sectorId of sectorIds) {
-          await db.insert(eventSectors).values({ eventId: id, sectorId } as any);
+          await db.insert(eventSectors).values({ eventId: id, sectorId });
         }
       }
 
@@ -1412,14 +1413,14 @@ export const eventsRouter = router({
       }
 
       await db.update(events)
-        .set({ statusId: result.newStatusId } as any)
+        .set({ statusId: result.newStatusId })
         .where(eq(events.id, input.eventId));
 
       // If published, set publishedAt
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (result.newStatusId === publishedStatus?.id) {
         await db.update(events)
-          .set({ publishedAt: new Date().toISOString() } as any)
+          .set({ publishedAt: new Date().toISOString() })
           .where(eq(events.id, input.eventId));
       }
 
@@ -1467,7 +1468,7 @@ export const eventsRouter = router({
         .set({ 
           statusId: status.id,
           ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {})
-        } as any)
+        })
         .where(inArray(events.id, input.ids));
 
       return { success: true, count: input.ids.length };
@@ -1534,21 +1535,21 @@ export const eventsRouter = router({
       // The admin list filters by sector/city/timeframe/tickets; the export
       // accepted those inputs but ignored them, so a CSV taken under a
       // filter silently contained every event. Apply the same predicates.
-      if ((input as any).sectorId !== undefined) {
+      if (input.sectorId !== undefined) {
         conditions.push(
-          sql`EXISTS (SELECT 1 FROM ${eventSectors} WHERE ${eventSectors.eventId} = ${events.id} AND ${eventSectors.sectorId} = ${(input as any).sectorId})`
+          sql`EXISTS (SELECT 1 FROM ${eventSectors} WHERE ${eventSectors.eventId} = ${events.id} AND ${eventSectors.sectorId} = ${input.sectorId})`
         );
       }
-      if ((input as any).city) {
-        conditions.push(sql`LOWER(${events.city}) LIKE LOWER(${`%${(input as any).city}%`})`);
+      if (input.city) {
+        conditions.push(sql`LOWER(${events.city}) LIKE LOWER(${`%${input.city}%`})`);
       }
-      if ((input as any).timeframe === 'upcoming') {
+      if (input.timeframe === 'upcoming') {
         conditions.push(sql`${eventEndExpr()} >= NOW()`);
-      } else if ((input as any).timeframe === 'past') {
+      } else if (input.timeframe === 'past') {
         conditions.push(sql`${eventEndExpr()} < NOW()`);
       }
-      if ((input as any).hasTickets !== undefined) {
-        conditions.push((input as any).hasTickets ? sql`${hasTicketsExpr()}` : sql`NOT ${hasTicketsExpr()}`);
+      if (input.hasTickets !== undefined) {
+        conditions.push(input.hasTickets ? sql`${hasTicketsExpr()}` : sql`NOT ${hasTicketsExpr()}`);
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
@@ -1683,23 +1684,23 @@ export const eventsRouter = router({
         throw new Error('Unauthorized');
       }
 
-      const [sp] = await (db as any).select({
+      const [sp] = await db.select({
         id: eventSpeakers.id,
         personId: eventSpeakers.personId,
       }).from(eventSpeakers).where(eq(eventSpeakers.id, input.speakerId)).limit(1);
       if (!sp) throw new Error("Speaker not found");
       if (!sp.personId) throw new Error("Speaker is not linked to a person");
 
-      const [person] = await (db as any).select().from(people)
+      const [person] = await db.select().from(people)
         .where(eq(people.id, sp.personId)).limit(1);
       if (!person) throw new Error("Linked person not found");
 
       const blank = (v: unknown) => v === null || v === undefined || v === "";
-      const set: Record<string, unknown> = {};
+      const set: Partial<typeof people.$inferInsert> = {};
       const written: string[] = [];
 
       // speaker-editor field -> people column
-      const pairs: Array<[string, string, string | null | undefined]> = [
+      const pairs: Array<[string, "title" | "company" | "bio" | "avatar" | "linkedIn" | "twitter", string | null | undefined]> = [
         ["title", "title", input.title],
         ["company", "company", input.company],
         ["bio", "bio", input.bio],
@@ -1713,13 +1714,13 @@ export const eventsRouter = router({
 
       for (const [field, column, value] of pairs) {
         if (blank(value)) continue;
-        if (!blank((person as any)[column])) continue; // never overwrite
+        if (!blank(person[column])) continue; // never overwrite
         set[column] = value;
         written.push(field);
       }
 
       if (written.length) {
-        await (db as any).update(people).set(set as any).where(eq(people.id, sp.personId));
+        await db.update(people).set(set).where(eq(people.id, sp.personId));
       }
       return { success: true, personId: sp.personId, written };
     }),
@@ -1758,8 +1759,8 @@ export const eventsRouter = router({
         ...speaker,
         personId,
         isFeatured: input.isFeatured ? 1 : 0,
-      } as any);
-      return { success: true, id: (res as any)?.[0]?.insertId ?? null, personId };
+      });
+      return { success: true, id: res?.[0]?.insertId ?? null, personId };
     }),
 
   updateSpeaker: protectedProcedure
@@ -1813,23 +1814,26 @@ export const eventsRouter = router({
       // identity fields. Strip any the person already has so an edit
       // here can never silently diverge from /people/:slug — gaps are
       // filled through adminFillPersonGaps, which writes to the person.
-      let writable: Record<string, unknown> = { ...data };
+      let writable: Partial<typeof eventSpeakers.$inferInsert> = {
+        ...data,
+        isFeatured: boolInt(data.isFeatured),
+      };
       const effectivePersonId = personId ?? (personId === null ? null : undefined);
-      const linkedId = effectivePersonId ?? (await (db as any)
+      const linkedId = effectivePersonId ?? (await db
         .select({ personId: eventSpeakers.personId })
         .from(eventSpeakers).where(eq(eventSpeakers.id, id)).limit(1))[0]?.personId ?? null;
 
       if (linkedId) {
-        const [person] = await (db as any).select().from(people)
+        const [person] = await db.select().from(people)
           .where(eq(people.id, linkedId)).limit(1);
         if (person) {
-          const owned: Array<[string, string]> = [
+          const owned: Array<["name" | "title" | "company" | "bio" | "photo" | "linkedinUrl" | "twitterUrl", "name" | "title" | "company" | "bio" | "avatar" | "linkedIn" | "twitter"]> = [
             ["name", "name"], ["title", "title"], ["company", "company"],
             ["bio", "bio"], ["photo", "avatar"],
             ["linkedinUrl", "linkedIn"], ["twitterUrl", "twitter"],
           ];
           for (const [field, column] of owned) {
-            const personValue = (person as any)[column];
+            const personValue = person[column];
             if (personValue !== null && personValue !== undefined && personValue !== "") {
               delete writable[field];
             }
@@ -1840,7 +1844,7 @@ export const eventsRouter = router({
       await db.update(eventSpeakers).set({
         ...writable,
         ...(personId !== undefined ? { personId } : {}),
-      } as any).where(eq(eventSpeakers.id, id));
+      }).where(eq(eventSpeakers.id, id));
       return { success: true, personId: personId ?? null };
     }),
 
@@ -1953,7 +1957,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
-      await db.insert(eventTracks).values(input as any);
+      await db.insert(eventTracks).values(input);
       return { success: true };
     }),
 
@@ -1971,7 +1975,7 @@ export const eventsRouter = router({
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, ...data } = input;
-      await db.update(eventTracks).set(data as any).where(eq(eventTracks.id, id));
+      await db.update(eventTracks).set(data).where(eq(eventTracks.id, id));
       return { success: true };
     }),
 
@@ -2001,7 +2005,7 @@ export const eventsRouter = router({
       // Resolve the multi-speaker links (speakerIds json array, plus the
       // legacy single speakerId) in one extra query, not one per row.
       const perRowIds = rows.map(r => {
-        const ids = parseSpeakerIds((r as any).speakerIds);
+        const ids = parseSpeakerIds(r.speakerIds);
         if (r.speakerId && !ids.includes(r.speakerId)) ids.unshift(r.speakerId);
         return ids;
       });
@@ -2038,7 +2042,7 @@ export const eventsRouter = router({
       return rows.map((r, i) => ({
         ...r,
         speakerIds: perRowIds[i],
-        isFeatured: Boolean((r as any).isFeatured),
+        isFeatured: Boolean(r.isFeatured),
         speakers: perRowIds[i].map(id => speakerMap[id]).filter(Boolean),
       }));
     }),
@@ -2079,10 +2083,10 @@ export const eventsRouter = router({
       const res = await db.insert(eventSchedule).values({
         ...rest,
         ...(isFeatured !== undefined ? { isFeatured: isFeatured ? 1 : 0 } : {}),
-        startTime: parseTime(startTime) || new Date(),
-        endTime: parseTime(endTime),
-      } as any);
-      return { success: true, id: (res as any)?.[0]?.insertId ?? null };
+        startTime: toDbDate(parseTime(startTime) || new Date()),
+        endTime: toDbDate(parseTime(endTime)),
+      });
+      return { success: true, id: res?.[0]?.insertId ?? null };
     }),
 
   updateScheduleItem: protectedProcedure
@@ -2121,9 +2125,9 @@ export const eventsRouter = router({
       await db.update(eventSchedule).set({
         ...rest,
         ...(isFeatured !== undefined ? { isFeatured: isFeatured ? 1 : 0 } : {}),
-        ...(startTime !== undefined ? { startTime: parseTime(startTime) } : {}),
-        ...(endTime !== undefined ? { endTime: parseTime(endTime) } : {}),
-      } as any).where(eq(eventSchedule.id, id));
+        ...(startTime !== undefined ? { startTime: toDbDate(parseTime(startTime)) } : {}),
+        ...(endTime !== undefined ? { endTime: toDbDate(parseTime(endTime)) } : {}),
+      }).where(eq(eventSchedule.id, id));
       return { success: true };
     }),
 
@@ -2161,7 +2165,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
-      await db.insert(eventGallery).values(input as any);
+      await db.insert(eventGallery).values(input);
       return { success: true };
     }),
 
@@ -2178,7 +2182,7 @@ export const eventsRouter = router({
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, ...data } = input;
-      await db.update(eventGallery).set(data as any).where(eq(eventGallery.id, id));
+      await db.update(eventGallery).set(data).where(eq(eventGallery.id, id));
       return { success: true };
     }),
 
@@ -2243,9 +2247,9 @@ export const eventsRouter = router({
         // Editor-created side events are live immediately.
         status: input.status ?? 'approved',
         ...(isFree !== undefined ? { isFree: isFree ? 1 : 0 } : {}),
-        date: date ? new Date(date) : null,
-      } as any);
-      return { success: true, id: (res as any)?.[0]?.insertId ?? null };
+        date: date ? toDbDate(new Date(date)) : null,
+      });
+      return { success: true, id: res?.[0]?.insertId ?? null };
     }),
 
   updateSideEvent: protectedProcedure
@@ -2276,8 +2280,8 @@ export const eventsRouter = router({
       await db.update(eventSideEvents).set({
         ...rest,
         ...(isFree !== undefined ? { isFree: isFree ? 1 : 0 } : {}),
-        ...(date !== undefined ? { date: date ? new Date(date) : null } : {}),
-      } as any).where(eq(eventSideEvents.id, id));
+        ...(date !== undefined ? { date: date ? toDbDate(new Date(date)) : null } : {}),
+      }).where(eq(eventSideEvents.id, id));
       return { success: true };
     }),
 
@@ -2336,15 +2340,15 @@ export const eventsRouter = router({
       const { date, isFree, ...rest } = input;
       const res = await db.insert(eventSideEvents).values({
         ...rest,
-        date: date ? new Date(date) : null,
+        date: date ? toDbDate(new Date(date)) : null,
         isFree: isFree === undefined ? 1 : (isFree ? 1 : 0),
         status: 'pending',
         submittedByUserId: ctx.user?.id ?? null,
-      } as any);
+      });
 
       return {
         success: true as const,
-        id: (res as any)?.[0]?.insertId ?? null,
+        id: res?.[0]?.insertId ?? null,
         status: 'pending' as const,
       };
     }),
@@ -2417,7 +2421,7 @@ export const eventsRouter = router({
       await db.update(eventSideEvents).set({
         status: input.status,
         ...(input.moderationNotes !== undefined ? { moderationNotes: input.moderationNotes } : {}),
-      } as any).where(eq(eventSideEvents.id, input.id));
+      }).where(eq(eventSideEvents.id, input.id));
       return { success: true as const, id: input.id, status: input.status };
     }),
 
@@ -2466,11 +2470,11 @@ export const eventsRouter = router({
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, ...rest } = input;
       if (id) {
-        await db.update(eventFaqs).set(rest as any).where(eq(eventFaqs.id, id));
+        await db.update(eventFaqs).set(rest).where(eq(eventFaqs.id, id));
         return { id };
       }
-      const res = await db.insert(eventFaqs).values(rest as any);
-      return { id: (res as any)?.[0]?.insertId ?? null };
+      const res = await db.insert(eventFaqs).values(rest);
+      return { id: res?.[0]?.insertId ?? null };
     }),
 
   adminDeleteFaq: protectedProcedure
@@ -2519,14 +2523,14 @@ export const eventsRouter = router({
       const values = {
         ...rest,
         ...(isUploaded !== undefined ? { isUploaded: isUploaded ? 1 : 0 } : {}),
-        ...(publishedAt !== undefined ? { publishedAt: publishedAt ? new Date(publishedAt) : null } : {}),
+        ...(publishedAt !== undefined ? { publishedAt: publishedAt ? toDbDate(new Date(publishedAt)) : null } : {}),
       };
       if (id) {
-        await db.update(eventCoverage).set(values as any).where(eq(eventCoverage.id, id));
+        await db.update(eventCoverage).set(values).where(eq(eventCoverage.id, id));
         return { id };
       }
-      const res = await db.insert(eventCoverage).values(values as any);
-      return { id: (res as any)?.[0]?.insertId ?? null };
+      const res = await db.insert(eventCoverage).values(values);
+      return { id: res?.[0]?.insertId ?? null };
     }),
 
   adminDeleteCoverage: protectedProcedure
@@ -2563,7 +2567,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
-      await db.insert(eventHighlights).values(input as any);
+      await db.insert(eventHighlights).values(input);
       return { success: true };
     }),
 
@@ -2580,7 +2584,7 @@ export const eventsRouter = router({
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, ...data } = input;
-      await db.update(eventHighlights).set(data as any).where(eq(eventHighlights.id, id));
+      await db.update(eventHighlights).set(data).where(eq(eventHighlights.id, id));
       return { success: true };
     }),
 
@@ -2618,12 +2622,12 @@ export const eventsRouter = router({
         id: events.id,
         startDate: events.startDate,
         endDate: events.endDate,
-        liveModeStartOverride: (events as any).liveModeStartOverride,
-        liveModeEndOverride: (events as any).liveModeEndOverride,
-        liveModeForce: (events as any).liveModeForce,
+        liveModeStartOverride: events.liveModeStartOverride,
+        liveModeEndOverride: events.liveModeEndOverride,
+        liveModeForce: events.liveModeForce,
       }).from(events).where(eq(events.id, input.eventId)).limit(1);
       if (!rows.length) throw new Error("Event not found");
-      const e = rows[0] as any;
+      const e = rows[0];
       return {
         mode: resolveEventMode(e),
         startDate: e.startDate,
@@ -2669,13 +2673,13 @@ export const eventsRouter = router({
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, isActive, ...rest } = input;
-      const values: Record<string, any> = { ...rest, isActive: isActive ? 1 : 0 };
+      const values = { ...rest, isActive: isActive ? 1 : 0 };
       if (id) {
-        await db.update(eventTickets).set(values as any).where(eq(eventTickets.id, id));
+        await db.update(eventTickets).set(values).where(eq(eventTickets.id, id));
         return { id };
       }
-      const res = await db.insert(eventTickets).values(values as any);
-      return { id: (res as any)?.[0]?.insertId ?? null };
+      const res = await db.insert(eventTickets).values(values);
+      return { id: res?.[0]?.insertId ?? null };
     }),
 
   adminDeleteTicket: protectedProcedure
@@ -2717,13 +2721,13 @@ export const eventsRouter = router({
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, isActive, ...rest } = input;
-      const values: Record<string, any> = { ...rest, isActive: isActive ? 1 : 0 };
+      const values = { ...rest, isActive: isActive ? 1 : 0 };
       if (id) {
-        await db.update(eventPromoCodes).set(values as any).where(eq(eventPromoCodes.id, id));
+        await db.update(eventPromoCodes).set(values).where(eq(eventPromoCodes.id, id));
         return { id };
       }
-      const res = await db.insert(eventPromoCodes).values(values as any);
-      return { id: (res as any)?.[0]?.insertId ?? null };
+      const res = await db.insert(eventPromoCodes).values(values);
+      return { id: res?.[0]?.insertId ?? null };
     }),
 
   adminDeletePromoCode: protectedProcedure
@@ -2793,7 +2797,7 @@ export const eventsRouter = router({
         userId,
         role: input.role,
         addedById: ctx.user.id,
-      } as any);
+      });
       return { success: true };
     }),
 
@@ -2837,11 +2841,11 @@ export const eventsRouter = router({
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
       const { id, ...rest } = input;
       if (id) {
-        await db.update(eventRecordings).set(rest as any).where(eq(eventRecordings.id, id));
+        await db.update(eventRecordings).set(rest).where(eq(eventRecordings.id, id));
         return { id };
       }
-      const res = await db.insert(eventRecordings).values(rest as any);
-      return { id: (res as any)?.[0]?.insertId ?? null };
+      const res = await db.insert(eventRecordings).values(rest);
+      return { id: res?.[0]?.insertId ?? null };
     }),
 
   adminDeleteRecording: protectedProcedure
@@ -2869,12 +2873,12 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) throw new Error('Unauthorized');
-      const patch: Record<string, any> = {};
+      const patch: Partial<typeof events.$inferInsert> = {};
       if (input.force !== undefined) patch.liveModeForce = input.force;
       if (input.startOverride !== undefined) patch.liveModeStartOverride = input.startOverride;
       if (input.endOverride !== undefined) patch.liveModeEndOverride = input.endOverride;
       if (Object.keys(patch).length === 0) return { success: true };
-      await db.update(events).set(patch as any).where(eq(events.id, input.eventId));
+      await db.update(events).set(patch).where(eq(events.id, input.eventId));
       return { success: true };
     }),
 
@@ -2938,11 +2942,11 @@ export const eventsRouter = router({
         ...(isConfirmed !== undefined ? { isConfirmed: isConfirmed ? 1 : 0 } : {}),
       };
       if (id) {
-        await db.update(eventSponsors).set(values as any).where(eq(eventSponsors.id, id));
+        await db.update(eventSponsors).set(values).where(eq(eventSponsors.id, id));
         return { id };
       }
-      const res = await db.insert(eventSponsors).values(values as any);
-      return { id: (res as any)?.[0]?.insertId ?? null };
+      const res = await db.insert(eventSponsors).values(values);
+      return { id: res?.[0]?.insertId ?? null };
     }),
 
   /**
@@ -3031,7 +3035,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) return [];
       // Only staff may see unpublished links.
-      const staff = ['admin', 'editor', 'senior_editor'].includes((ctx as any)?.user?.role ?? '');
+      const staff = ['admin', 'editor', 'senior_editor'].includes(ctx.user?.role ?? '');
       return resolveEventArticles(db, input.eventId, !!input.includeUnpublished && staff);
     }),
 
@@ -3088,18 +3092,18 @@ export const eventsRouter = router({
 
       if (existing[0]?.id) {
         await db.update(articleEvents)
-          .set({ mentionType } as any)
+          .set({ mentionType })
           .where(eq(articleEvents.id, existing[0].id));
         return { success: true, id: existing[0].id as number };
       }
 
-      const res = await (db as any).insert(articleEvents).values({
+      const res = await db.insert(articleEvents).values({
         articleId: input.articleId,
         eventId: input.eventId,
         mentionType,
         createdById: ctx.user.id,
-      } as any);
-      return { success: true, id: (res as any)?.[0]?.insertId ?? null };
+      });
+      return { success: true, id: res?.[0]?.insertId ?? null };
     }),
 
   /** Remove an event ↔ article link by its article_events row id. */
@@ -3221,7 +3225,7 @@ export const eventsRouter = router({
 
       const nowMs = Date.now();
       let subtotalCents = 0;
-      const currency = (tierRows[0] as any)?.currency || 'USD';
+      const currency = tierRows[0]?.currency || 'USD';
       const validatedItems: Array<{
         ticketId: number; name: string; quantity: number;
         unitPriceCents: number; lineTotalCents: number; currency: string;
@@ -3292,8 +3296,8 @@ export const eventsRouter = router({
       const totalCents = Math.max(0, subtotalCents - discountCents);
 
       // 4. INSERT pending order header
-      const userId = (ctx as any)?.user?.id ?? null;
-      const orderInsert: any = {
+      const userId = ctx.user?.id ?? null;
+      const orderInsert: typeof eventOrders.$inferInsert = {
         eventId: input.eventId,
         userId,
         customerEmail: input.customer.email,
@@ -3309,8 +3313,8 @@ export const eventsRouter = router({
         status: 'pending',
         paymentProvider: 'stripe',
       };
-      const orderRes = await db.insert(eventOrders).values(orderInsert as any);
-      const orderId = (orderRes as any)?.[0]?.insertId;
+      const orderRes = await db.insert(eventOrders).values(orderInsert);
+      const orderId = orderRes?.[0]?.insertId;
       if (!orderId) throw new Error("Failed to create order");
 
       // 5. INSERT line items (with qrCode placeholders)
@@ -3323,12 +3327,12 @@ export const eventsRouter = router({
         qrCode: crypto.randomBytes(16).toString('hex'),
       }));
       if (itemRows.length > 0) {
-        await db.insert(eventOrderItems).values(itemRows as any);
+        await db.insert(eventOrderItems).values(itemRows);
       }
 
       // 6. Build absolute URLs for Stripe
-      const proto = (ctx as any)?.req?.protocol || 'https';
-      const host = (ctx as any)?.req?.headers?.host || process.env.PUBLIC_HOST || 'techscoop.io';
+      const proto = ctx.req?.protocol || 'https';
+      const host = ctx.req?.headers?.host || process.env.PUBLIC_HOST || publication.domain;
       const baseUrl = `${proto}://${host}`;
       const successUrl = `${baseUrl}/events/${evt.slug}/tickets/success?session_id={CHECKOUT_SESSION_ID}`;
       const cancelUrl = `${baseUrl}/events/${evt.slug}`;
@@ -3356,7 +3360,7 @@ export const eventsRouter = router({
 
       // 8. Persist the session id on the order row for webhook lookup
       await db.update(eventOrders)
-        .set({ stripeSessionId: session.sessionId } as any)
+        .set({ stripeSessionId: session.sessionId })
         .where(eq(eventOrders.id, orderId));
 
       return {
@@ -3450,7 +3454,7 @@ export const eventsRouter = router({
       const totalRow = await db.select({ c: sql<number>`COUNT(*)` })
         .from(eventOrders)
         .where(and(...conds));
-      const total = Number((totalRow as any)?.[0]?.c || 0);
+      const total = Number(totalRow?.[0]?.c || 0);
 
       return { rows, total, page: input.page, limit: input.limit };
     }),
@@ -3469,7 +3473,7 @@ export const eventsRouter = router({
       let paidCount = 0;
       let pendingCount = 0;
       let refundedCount = 0;
-      for (const o of allOrders as any[]) {
+      for (const o of allOrders) {
         if (o.status === 'paid') {
           paidCount++;
           totalRevenue += o.totalCents || 0;
@@ -3490,7 +3494,7 @@ export const eventsRouter = router({
         paidCount,
         pendingCount,
         refundedCount,
-        perTier: (tiers as any[]).map(t => ({
+        perTier: tiers.map(t => ({
           ticketId: t.id,
           name: t.name,
           sold: t.soldCount || 0,
@@ -3527,23 +3531,23 @@ export const eventsRouter = router({
 
       if (isFullRefund) {
         await db.update(eventOrders)
-          .set({ status: 'refunded', refundedAt: nowIso } as any)
+          .set({ status: 'refunded', refundedAt: nowIso })
           .where(eq(eventOrders.id, order.id));
 
         // Decrement counters (mirror of webhook charge.refunded)
         const items = await db.select().from(eventOrderItems)
           .where(eq(eventOrderItems.orderId, order.id));
-        for (const it of items as any[]) {
+        for (const it of items) {
           await db.update(eventTickets)
-            .set({ soldCount: sql`GREATEST(0, ${eventTickets.soldCount} - ${it.quantity})` } as any)
+            .set({ soldCount: sql`GREATEST(0, ${eventTickets.soldCount} - ${it.quantity})` })
             .where(eq(eventTickets.id, it.ticketId));
         }
-        const totalQty = (items as any[]).reduce((s, i) => s + (i.quantity || 0), 0);
+        const totalQty = items.reduce((s, i) => s + (i.quantity || 0), 0);
         await db.update(events)
           .set({
             ticketsSoldCount: sql`GREATEST(0, ${events.ticketsSoldCount} - ${totalQty})`,
             ticketsRevenueCents: sql`GREATEST(0, ${events.ticketsRevenueCents} - ${order.totalCents || 0})`,
-          } as any)
+          })
           .where(eq(events.id, order.eventId));
       }
 
@@ -3584,8 +3588,8 @@ export const eventsRouter = router({
       const tierMap = new Map<number, any>(tierRows.map((t: any) => [t.id, t]));
 
       let subtotalCents = 0;
-      const currency = (tierRows[0] as any)?.currency || 'USD';
-      const itemRows: any[] = [];
+      const currency = tierRows[0]?.currency || 'USD';
+      const itemRows: Array<{ ticketId: number; quantity: number; unitPriceCents: number; lineTotalCents: number }> = [];
       let totalQty = 0;
 
       for (const it of input.items) {
@@ -3619,8 +3623,8 @@ export const eventsRouter = router({
         paymentProvider: 'manual',
         paidAt: nowIso,
         notes: input.notes || null,
-      } as any);
-      const orderId = (orderRes as any)?.[0]?.insertId;
+      });
+      const orderId = orderRes?.[0]?.insertId;
       if (!orderId) throw new Error("Failed to create manual order");
 
       // Line items with qr codes
@@ -3629,19 +3633,19 @@ export const eventsRouter = router({
         orderId,
         qrCode: crypto.randomBytes(16).toString('hex'),
       }));
-      await db.insert(eventOrderItems).values(withQr as any);
+      await db.insert(eventOrderItems).values(withQr);
 
       // Bump tier soldCount + event counters
       for (const r of itemRows) {
         await db.update(eventTickets)
-          .set({ soldCount: sql`${eventTickets.soldCount} + ${r.quantity}` } as any)
+          .set({ soldCount: sql`${eventTickets.soldCount} + ${r.quantity}` })
           .where(eq(eventTickets.id, r.ticketId));
       }
       await db.update(events)
         .set({
           ticketsSoldCount: sql`${events.ticketsSoldCount} + ${totalQty}`,
           ticketsRevenueCents: sql`${events.ticketsRevenueCents} + ${subtotalCents}`,
-        } as any)
+        })
         .where(eq(events.id, input.eventId));
 
       return { orderId };
@@ -3690,7 +3694,7 @@ export const eventsRouter = router({
           referrer,
           userAgent,
           ipHash,
-        } as any);
+        });
       } catch (err) {
         // Swallow — analytics MUST NOT block a ticket click.
         // eslint-disable-next-line no-console
@@ -3722,7 +3726,7 @@ export const eventsRouter = router({
         .from(eventExternalClicks)
         .where(and(
           eq(eventExternalClicks.eventId, input.eventId),
-          gte(eventExternalClicks.createdAt, since as any),
+          gte(eventExternalClicks.createdAt, toDbDate(since)),
         ))
         .groupBy(eventExternalClicks.provider);
 
@@ -3749,7 +3753,7 @@ export const eventsRouter = router({
         .from(eventExternalClicks)
         .where(and(
           eq(eventExternalClicks.eventId, input.eventId),
-          gte(eventExternalClicks.createdAt, since as any),
+          gte(eventExternalClicks.createdAt, toDbDate(since)),
         ));
       const uniqueClickerCount = Number(uniquesRow[0]?.uniques || 0);
 
@@ -3764,7 +3768,7 @@ export const eventsRouter = router({
         .from(eventExternalClicks)
         .where(and(
           eq(eventExternalClicks.eventId, input.eventId),
-          gte(eventExternalClicks.createdAt, since as any),
+          gte(eventExternalClicks.createdAt, toDbDate(since)),
         ))
         .groupBy(sql`DATE(${eventExternalClicks.createdAt})`)
         .orderBy(sql`DATE(${eventExternalClicks.createdAt})`);
@@ -3833,7 +3837,7 @@ export const eventsRouter = router({
       const ok = await canPostLive(ctx.user.id, input.eventId);
       if (!ok) throw new Error("Unauthorized");
 
-      const res = await (db as any).insert(eventLivePosts).values({
+      const res = await db.insert(eventLivePosts).values({
         eventId: input.eventId,
         authorId: ctx.user.id,
         headline: input.headline ?? null,
@@ -3845,13 +3849,13 @@ export const eventsRouter = router({
         companyName: input.companyName ?? null,
         fundingAmount: input.fundingAmount ?? null,
         isPinned: input.isPinned ? 1 : 0,
-      } as any);
+      });
 
-      const insertId = (res as any)?.[0]?.insertId ?? null;
+      const insertId = res?.[0]?.insertId ?? null;
       if (!insertId) return { id: null };
 
       // Echo back the full row — saves the client a refetch.
-      const rows = await (db as any).select().from(eventLivePosts)
+      const rows = await db.select().from(eventLivePosts)
         .where(eq(eventLivePosts.id, insertId)).limit(1);
       return rows[0] ?? { id: insertId };
     }),
@@ -3879,7 +3883,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
-      const existing = await (db as any).select({
+      const existing = await db.select({
         id: eventLivePosts.id,
         eventId: eventLivePosts.eventId,
       }).from(eventLivePosts).where(eq(eventLivePosts.id, input.id)).limit(1);
@@ -3889,14 +3893,14 @@ export const eventsRouter = router({
       if (!ok) throw new Error("Unauthorized");
 
       const { id, isPinned, ...rest } = input;
-      const patch: Record<string, any> = {};
-      for (const [k, v] of Object.entries(rest)) {
-        if (v !== undefined) patch[k] = v;
+      const patch: Partial<typeof eventLivePosts.$inferInsert> = { ...rest };
+      for (const key of Object.keys(patch) as Array<keyof typeof patch>) {
+        if (patch[key] === undefined) delete patch[key];
       }
       if (isPinned !== undefined) patch.isPinned = isPinned ? 1 : 0;
       if (Object.keys(patch).length === 0) return { success: true };
 
-      await (db as any).update(eventLivePosts).set(patch as any)
+      await db.update(eventLivePosts).set(patch)
         .where(eq(eventLivePosts.id, id));
       return { success: true };
     }),
@@ -3912,7 +3916,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
-      const existing = await (db as any).select({
+      const existing = await db.select({
         id: eventLivePosts.id,
         eventId: eventLivePosts.eventId,
       }).from(eventLivePosts).where(eq(eventLivePosts.id, input.id)).limit(1);
@@ -3921,8 +3925,8 @@ export const eventsRouter = router({
       const ok = await canPostLive(ctx.user.id, existing[0].eventId);
       if (!ok) throw new Error("Unauthorized");
 
-      await (db as any).update(eventLivePosts)
-        .set({ isDeleted: 1 } as any)
+      await db.update(eventLivePosts)
+        .set({ isDeleted: 1 })
         .where(eq(eventLivePosts.id, input.id));
       return { success: true };
     }),
@@ -3937,7 +3941,7 @@ export const eventsRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
-      const existing = await (db as any).select({
+      const existing = await db.select({
         id: eventLivePosts.id,
         eventId: eventLivePosts.eventId,
         isPinned: eventLivePosts.isPinned,
@@ -3948,8 +3952,8 @@ export const eventsRouter = router({
       if (!ok) throw new Error("Unauthorized");
 
       const next = existing[0].isPinned ? 0 : 1;
-      await (db as any).update(eventLivePosts)
-        .set({ isPinned: next } as any)
+      await db.update(eventLivePosts)
+        .set({ isPinned: next })
         .where(eq(eventLivePosts.id, input.id));
       return { success: true, isPinned: Boolean(next) };
     }),
@@ -3991,13 +3995,13 @@ export const eventsRouter = router({
     .mutation(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
-      const existing = await (db as any).select({
+      const existing = await db.select({
         id: eventLivePosts.id, eventId: eventLivePosts.eventId,
       }).from(eventLivePosts).where(eq(eventLivePosts.id, input.id)).limit(1);
       if (!existing.length) throw new Error("Suggestion not found");
       const ok = await canPostLive(ctx.user.id, existing[0].eventId);
       if (!ok) throw new Error("Unauthorized");
-      await (db as any).update(eventLivePosts)
+      await db.update(eventLivePosts)
         .set({
           approvalStatus: 'approved',
           // Approval republishes: timestamp the moment it went live,
@@ -4005,7 +4009,7 @@ export const eventsRouter = router({
           publishedAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
           ...(input.headline !== undefined ? { headline: input.headline } : {}),
           ...(input.body !== undefined ? { body: input.body } : {}),
-        } as any)
+        })
         .where(eq(eventLivePosts.id, input.id));
       return { success: true };
     }),
@@ -4015,14 +4019,14 @@ export const eventsRouter = router({
     .mutation(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
-      const existing = await (db as any).select({
+      const existing = await db.select({
         id: eventLivePosts.id, eventId: eventLivePosts.eventId,
       }).from(eventLivePosts).where(eq(eventLivePosts.id, input.id)).limit(1);
       if (!existing.length) throw new Error("Suggestion not found");
       const ok = await canPostLive(ctx.user.id, existing[0].eventId);
       if (!ok) throw new Error("Unauthorized");
-      await (db as any).update(eventLivePosts)
-        .set({ approvalStatus: 'rejected' } as any)
+      await db.update(eventLivePosts)
+        .set({ approvalStatus: 'rejected' })
         .where(eq(eventLivePosts.id, input.id));
       return { success: true };
     }),
@@ -4046,8 +4050,8 @@ export const eventsRouter = router({
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) {
         throw new Error('Unauthorized');
       }
-      await (db as any).update(events)
-        .set({ claimedByUserId: input.userId } as any)
+      await db.update(events)
+        .set({ claimedByUserId: input.userId })
         .where(eq(events.id, input.eventId));
       return { success: true };
     }),
@@ -4065,8 +4069,8 @@ export const eventsRouter = router({
       if (!['admin', 'editor', 'senior_editor'].includes(ctx.user.role)) {
         throw new Error('Unauthorized');
       }
-      const rows = await (db as any).select({
-        claimedByUserId: (events as any).claimedByUserId,
+      const rows = await db.select({
+        claimedByUserId: events.claimedByUserId,
         userId: users.id,
         userName: users.name,
         userEmail: users.email,
@@ -4074,7 +4078,7 @@ export const eventsRouter = router({
         userRole: users.role,
       })
         .from(events)
-        .leftJoin(users, eq(users.id, (events as any).claimedByUserId))
+        .leftJoin(users, eq(users.id, events.claimedByUserId))
         .where(eq(events.id, input.eventId))
         .limit(1);
       if (!rows.length) return { claimedByUserId: null, user: null };
@@ -4120,14 +4124,14 @@ export const eventsRouter = router({
 
       if (existing.length > 0) {
         await db.update(eventAttendees)
-          .set({ status: input.status } as any)
-          .where(eq(eventAttendees.id, (existing[0] as any).id));
+          .set({ status: input.status })
+          .where(eq(eventAttendees.id, existing[0].id));
       } else {
         await db.insert(eventAttendees).values({
           eventId: input.eventId,
           userId: ctx.user.id,
           status: input.status,
-        } as any);
+        });
       }
 
       return { status: input.status };
@@ -4153,7 +4157,7 @@ export const eventsRouter = router({
         ))
         .limit(1);
 
-      return { status: (rows[0]?.status as any) ?? null };
+      return { status: rows[0]?.status ?? null };
     }),
 
   // ============================================================
@@ -4263,7 +4267,7 @@ export const eventsRouter = router({
         organizerName: input.organizerName,
         organizerEmail: input.organizerEmail,
         moderationStatus: "pending",
-      } as any);
+      });
       const rows = await db
         .select({ id: eventSubmissions.id })
         .from(eventSubmissions)
@@ -4391,7 +4395,7 @@ export const eventsRouter = router({
           moderationStatus: "approved",
           reviewedById: ctx.user.id,
           reviewedAt: new Date().toISOString(),
-        } as any)
+        })
         .where(eq(eventSubmissions.id, input.submissionId));
       return { success: true as const };
     }),
@@ -4416,7 +4420,7 @@ export const eventsRouter = router({
           moderationReasoning: input.reason ?? "No reason given",
           reviewedById: ctx.user.id,
           reviewedAt: new Date().toISOString(),
-        } as any)
+        })
         .where(eq(eventSubmissions.id, input.submissionId));
       return { success: true as const };
     }),
@@ -4443,7 +4447,7 @@ export const eventsRouter = router({
               moderationStatus: "approved",
               reviewedById: ctx.user.id,
               reviewedAt: new Date().toISOString(),
-            } as any)
+            })
             .where(eq(eventSubmissions.id, id));
           created += 1;
         } catch {
@@ -4464,7 +4468,7 @@ export const eventsRouter = router({
       // Reset to pending so the next moderation pass picks it up.
       await db
         .update(eventSubmissions)
-        .set({ moderationStatus: "pending" } as any)
+        .set({ moderationStatus: "pending" })
         .where(eq(eventSubmissions.id, input.submissionId));
       return { success: true as const };
     }),

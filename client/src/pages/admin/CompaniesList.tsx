@@ -79,7 +79,7 @@ const stageColors: Record<string, string> = {
   acquired: "bg-pink-100 text-pink-700",
 };
 
-const PAGE_SIZE_KEY = "techscoop_companies_page_size";
+const PAGE_SIZE_KEY = "brentdesk_companies_page_size";
 
 export default function CompaniesList() {
   const searchParams = useSearch();

@@ -9,6 +9,7 @@
  * 5. REPORT  – Generate weekly/daily summaries with AI narrative
  */
 
+import { publication, getBaseUrl } from "../../shared/publication";
 import { getDb } from "../db";
 import { invokeLLM } from "../_core/llm";
 import { notifySearchEngines } from "./indexingNotification.service";
@@ -26,7 +27,7 @@ import {
 } from "../../drizzle/schema";
 import { eq, and, or, isNull, lt, gte, sql, desc, inArray } from "drizzle-orm";
 
-const BASE_URL = process.env.BASE_URL || "https://techscoop.io";
+const BASE_URL = getBaseUrl();
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -171,7 +172,7 @@ async function checkUrl(url: string): Promise<{
           method: "GET",
           redirect: "manual",
           signal: controller.signal,
-          headers: { "User-Agent": "TechScoopSEOBot/1.0 (+https://techscoop.io/bot)" },
+          headers: { "User-Agent": publication.bots.seoAudit },
         });
         clearTimeout(timeout);
         httpStatus = res.status;

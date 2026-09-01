@@ -4,6 +4,7 @@
  */
 
 import { useState } from "react";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,17 +22,16 @@ interface NewsletterSignupProps {
 }
 
 const availableLists = [
-  { slug: "weekly-digest", name: "Weekly Digest", description: "Top stories every week" },
-  { slug: "founder-digest", name: "Founder Digest", description: "Insights for founders" },
-  { slug: "investor-brief", name: "Investor Brief", description: "Investment opportunities" },
-  { slug: "job-alerts", name: "Job Alerts", description: "New job listings" },
-  { slug: "event-updates", name: "Event Updates", description: "Upcoming events" },
-  { slug: "breaking-news", name: "Breaking News", description: "Real-time updates" },
+  { slug: "daily-brief", name: publication.newsletter.name, description: "Top industrial stories every morning" },
+  { slug: "projects-weekly", name: "Projects Weekly", description: "Major project awards and tenders" },
+  { slug: "energy-brief", name: "Energy Brief", description: "Oil & gas, power and renewables" },
+  { slug: "jobs-alerts", name: "Job Alerts", description: "New industry roles" },
+  { slug: "event-updates", name: "Event Updates", description: "Upcoming industry events" },
 ];
 
-export function NewsletterSignup({ 
-  variant = "inline", 
-  listSlug = "weekly-digest",
+export function NewsletterSignup({
+  variant = "inline",
+  listSlug = "daily-brief",
   source = "website",
   showLists = false,
   className = ""
@@ -110,7 +110,7 @@ export function NewsletterSignup({
       <div className={className}>
         <h3 className="font-semibold mb-2">Stay Updated</h3>
         <p className="text-sm text-muted-foreground mb-4">
-          Get the latest MENA tech news delivered to your inbox.
+          {publication.newsletter.description}
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
           <Input
@@ -144,9 +144,9 @@ export function NewsletterSignup({
           <Mail className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h3 className="font-semibold">Subscribe to TechScoop</h3>
+          <h3 className="font-semibold">Subscribe to {publication.name}</h3>
           <p className="text-sm text-muted-foreground">
-            Stay informed about MENA's tech ecosystem
+            {publication.tagline}
           </p>
         </div>
       </div>
@@ -190,7 +190,7 @@ export function NewsletterSignup({
             onCheckedChange={(checked) => setConsentMarketing(checked as boolean)}
           />
           <Label htmlFor="consent" className="text-xs text-muted-foreground cursor-pointer">
-            I agree to receive marketing communications and partner offers from TechScoop.
+            I agree to receive marketing communications and partner offers from {publication.name}.
           </Label>
         </div>
 

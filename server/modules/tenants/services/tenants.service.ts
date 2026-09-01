@@ -55,7 +55,7 @@ function membershipToDTO(row: any): TenantMembershipDTO {
 export class TenantsService {
   /**
    * Create a tenant + seed the owner membership. Super_admin only.
-   * The tenant becomes addressable at `<slug>.techscoop.com` after the
+   * The tenant becomes addressable at `<slug>.<platform domain>` after the
    * tenant cache TTL or on the next request that doesn't hit cache.
    */
   async createTenant(input: CreateTenantInput, requesterRole: string): Promise<TenantDTO> {

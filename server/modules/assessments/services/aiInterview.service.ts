@@ -19,6 +19,7 @@
  * mirrors the rest of the talent-platform AI surface.
  */
 
+import { publication } from "../../../../shared/publication";
 import { invokeLLMProvider, getLLMProviderConfigs } from "../../../services/ai/llmProvider.service";
 import * as repo from "../repositories/interview.repository";
 import * as attemptsRepo from "../repositories/attempts.repository";
@@ -31,7 +32,7 @@ import {
   TemplateNotFoundError,
 } from "../types";
 
-const SYSTEM_PROMPT_TEMPLATE = `You are an experienced technical interviewer running a structured screen for a software engineering role on behalf of TechScoop's Talent Platform.
+const SYSTEM_PROMPT_TEMPLATE = `You are an experienced technical interviewer running a structured screen for a software engineering role on behalf of ${publication.name}'s Talent Platform.
 
 Style:
 - Conversational and warm, but rigorous. Probe for depth, not breadth.

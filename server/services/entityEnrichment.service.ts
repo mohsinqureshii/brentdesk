@@ -20,7 +20,7 @@
  *   - Strict word count target (varies by entity, 100–200)
  *   - Third person, factual, no marketing fluff
  *   - Never invent facts not present in the input
- *   - MENA-aware editorial voice (matches TechScoop's house style)
+ *   - Region-aware editorial voice (matches the publication's house style)
  *
  * Returns plain text, ready to be saved to the entity's `description`
  * column. Caller is responsible for the actual UPDATE statement.
@@ -29,6 +29,7 @@
  * the current model pricing).
  */
 
+import { EDITORIAL_SHORT } from "../config/editorial";
 import { invokeLLM } from "../_core/llm";
 
 export type EnrichableType = "person" | "company" | "investor" | "event" | "accelerator" | "article";
@@ -62,7 +63,7 @@ export interface EnrichmentContext {
 }
 
 const SYSTEM_PROMPT_BASE =
-  "You are an editorial writer for TechScoop, a MENA tech publication. " +
+  `You are an editorial writer for ${EDITORIAL_SHORT}. ` +
   "Generate a factual third-person profile description from the structured " +
   "data provided. Rules:\n" +
   "- Use ONLY facts present in the input. Do NOT invent details.\n" +

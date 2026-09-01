@@ -3,6 +3,7 @@
  * Handles multi-step editorial approvals with configurable statuses and transitions
  */
 
+import { publication } from "../../shared/publication";
 import { eq, and, inArray } from "drizzle-orm";
 import { getDb } from "../db";
 import { 
@@ -418,7 +419,7 @@ export class WorkflowService {
         await db.insert(emailNotifications).values({
           recipientEmail: user.email,
           recipientUserId: user.id,
-          subject: `[TechScoop] ${entityType} workflow update: ${transitionName}`,
+          subject: `[${publication.name}] ${entityType} workflow update: ${transitionName}`,
           body: `A ${entityType} (ID: ${entityId}) has been moved to "${transitionName}".${comment ? `\n\nComment: ${comment}` : ""}`,
           type: "workflow_transition",
           entityType,

@@ -1,26 +1,23 @@
 import { Link } from "wouter";
+import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { 
-  Home, 
-  Briefcase, 
-  Building2, 
-  Users, 
-  TrendingUp, 
-  Rocket, 
-  Calendar, 
-  Newspaper, 
-  Mail, 
-  Info, 
-  Shield, 
+import {
+  Home,
+  Briefcase,
+  Building2,
+  Users,
+  Calendar,
+  Newspaper,
+  Mail,
+  Info,
+  Shield,
   FileText,
   Gift,
-  Scale,
   Wrench,
   BookOpen,
   Award,
   Calculator,
-  Package,
   Megaphone
 } from "lucide-react";
 
@@ -30,7 +27,7 @@ const siteRoutes = {
     title: "Main Pages",
     icon: Home,
     links: [
-      { label: "News Homepage", href: "/", description: "Latest MENA tech news and updates" },
+      { label: "News Homepage", href: "/", description: "Latest industry news and updates" },
       { label: "Dashboard", href: "/dashboard", description: "Your personalized dashboard" },
       { label: "Profile", href: "/profile", description: "Manage your profile settings" },
     ]
@@ -40,34 +37,16 @@ const siteRoutes = {
     icon: Building2,
     links: [
       { label: "Jobs", href: "/jobs", description: "Browse tech job opportunities" },
-      { label: "Companies", href: "/companies", description: "Discover MENA startups and companies" },
-      { label: "Investors", href: "/investors", description: "Find investors and VCs" },
+      { label: "Companies", href: "/companies", description: "Company directory" },
       { label: "People", href: "/people", description: "Connect with tech professionals" },
-      { label: "Accelerators", href: "/accelerators", description: "Accelerator programs and grants" },
       { label: "Events", href: "/events", description: "Upcoming tech events" },
-    ]
-  },
-  resources: {
-    title: "Resources",
-    icon: Package,
-    links: [
-      { label: "Resources Hub", href: "/resources", description: "All founder resources" },
-      { label: "Founder Perks", href: "/resources/perks", description: "Deals and credits for startups" },
-      { label: "Templates", href: "/resources/templates", description: "Legal, finance & HR documents" },
-      { label: "Regulations Hub", href: "/resources/regulations", description: "Country-specific compliance guides" },
-      { label: "Tools Directory", href: "/resources/tools", description: "Curated software stack" },
-      { label: "Playbooks", href: "/resources/playbooks", description: "Step-by-step founder guides" },
-      { label: "Programs & Grants", href: "/accelerators", description: "Funding opportunities" },
-      { label: "Calculators", href: "/resources/calculators", description: "Financial planning tools" },
-      { label: "Vendors", href: "/resources/vendors", description: "Verified service providers" },
-      { label: "Starter Packs", href: "/resources/packs", description: "Curated resource bundles" },
     ]
   },
   company: {
     title: "Company",
     icon: Info,
     links: [
-      { label: "About Us", href: "/about", description: "Learn about TechScoop" },
+      { label: "About Us", href: "/about", description: `Learn about ${publication.name}` },
       { label: "Contact", href: "/contact", description: "Get in touch with us" },
       { label: "Newsletter", href: "/newsletter", description: "Subscribe to our newsletter" },
       { label: "Advertise", href: "/advertise", description: "Advertising opportunities" },
@@ -95,7 +74,7 @@ const Sitemap = () => {
             Sitemap
           </h1>
           <p className="text-background/70 text-lg max-w-2xl">
-            A complete overview of all pages and sections on TechScoop.
+            A complete overview of all pages and sections on {publication.name}.
           </p>
         </div>
       </section>
@@ -139,7 +118,7 @@ const Sitemap = () => {
         <div className="mt-16 p-6 bg-muted/50 rounded-xl border border-border">
           <h3 className="text-lg font-semibold text-foreground mb-3">Dynamic Pages</h3>
           <p className="text-muted-foreground mb-4">
-            In addition to the pages listed above, TechScoop has dynamic content pages including:
+            In addition to the pages listed above, {publication.name} has dynamic content pages including:
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <li className="flex items-start gap-2">
@@ -164,24 +143,10 @@ const Sitemap = () => {
               </div>
             </li>
             <li className="flex items-start gap-2">
-              <TrendingUp className="h-4 w-4 text-primary mt-1 shrink-0" />
-              <div>
-                <span className="font-medium text-foreground">Investor Profiles</span>
-                <p className="text-sm text-muted-foreground">/investors/:id</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-2">
               <Users className="h-4 w-4 text-primary mt-1 shrink-0" />
               <div>
                 <span className="font-medium text-foreground">People Profiles</span>
                 <p className="text-sm text-muted-foreground">/people/:id</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-2">
-              <Rocket className="h-4 w-4 text-primary mt-1 shrink-0" />
-              <div>
-                <span className="font-medium text-foreground">Accelerator Details</span>
-                <p className="text-sm text-muted-foreground">/accelerators/:id</p>
               </div>
             </li>
             <li className="flex items-start gap-2">
@@ -196,13 +161,6 @@ const Sitemap = () => {
               <div>
                 <span className="font-medium text-foreground">Author Pages</span>
                 <p className="text-sm text-muted-foreground">/author/:slug</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-2">
-              <Scale className="h-4 w-4 text-primary mt-1 shrink-0" />
-              <div>
-                <span className="font-medium text-foreground">Country Regulations</span>
-                <p className="text-sm text-muted-foreground">/resources/regulations/:country</p>
               </div>
             </li>
           </ul>

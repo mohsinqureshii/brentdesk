@@ -12,6 +12,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "wouter";
+import { publication } from "@shared/publication";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
@@ -167,7 +168,7 @@ export default function TenantEditor() {
               </h1>
               {current && (
                 <p className="text-xs text-muted-foreground font-mono">
-                  {current.slug}.techscoop.com{" "}
+                  {current.slug}.{publication.domain}{" "}
                   {current.customDomain && <>· {current.customDomain}</>}
                 </p>
               )}
@@ -176,7 +177,7 @@ export default function TenantEditor() {
           <div className="flex gap-2">
             {!isCreate && current && (
               <a
-                href={`https://${current.slug}.techscoop.com`}
+                href={`https://${current.slug}.${publication.domain}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -334,7 +335,7 @@ function BrandingCard({
         <CardTitle>Branding</CardTitle>
         <CardDescription>
           Customize how the tenant's subdomain looks. Primary color drives buttons
-          and accents; logo replaces the TechScoop wordmark in the tenant's UI.
+          and accents; logo replaces the {publication.name} wordmark in the tenant's UI.
         </CardDescription>
       </CardHeader>
       <CardContent className="grid md:grid-cols-2 gap-4">

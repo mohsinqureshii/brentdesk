@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import { useParams, useLocation, Link } from "wouter";
+import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Header } from "@/components/layout/Header";
@@ -373,7 +374,7 @@ export default function TeamAccess() {
           <DialogHeader>
             <DialogTitle>Invite Team Member</DialogTitle>
             <DialogDescription>
-              Enter the email of the person you want to invite. They must have a TechScoop account.
+              Enter the email of the person you want to invite. They must have a {publication.name} account.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">

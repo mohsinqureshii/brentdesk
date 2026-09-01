@@ -1,8 +1,9 @@
 /**
  * PDF Resource Generator Service
- * Generates branded TechScoop PDF documents (reports, resources, whitepapers)
- * Uses HTML-to-PDF conversion with TechScoop branding
+ * Generates branded publication PDF documents (reports, resources, whitepapers)
+ * Uses HTML-to-PDF conversion with the publication branding from shared/publication.ts
  */
+import { publication } from "../../../shared/publication";
 import { storagePut } from "../../storage";
 import { ENV } from "../../_core/env";
 
@@ -33,16 +34,16 @@ export interface PDFGenerationResult {
 // BRANDING CONSTANTS
 // ============================================================
 
-const TECHSCOOP_BRAND = {
-  primaryColor: "#1a1a2e",
-  accentColor: "#6366f1",
+const PUBLICATION_BRAND = {
+  primaryColor: "#0b0d12",
+  accentColor: "#2563eb",
   textColor: "#1f2937",
   lightGray: "#f3f4f6",
-  logoUrl: "https://techscoop.io/logo.svg",
+  logoUrl: `${publication.siteUrl}${publication.assets.logo}`,
   fontFamily: "'Inter', 'Segoe UI', sans-serif",
-  siteName: "TechScoop",
-  siteUrl: "techscoop.io",
-  tagline: "MENA's Leading Tech Ecosystem Platform",
+  siteName: publication.name,
+  siteUrl: publication.domain,
+  tagline: publication.tagline,
 };
 
 // ============================================================
@@ -50,7 +51,7 @@ const TECHSCOOP_BRAND = {
 // ============================================================
 
 function buildPDFHTML(input: PDFGenerationInput): string {
-  const brand = TECHSCOOP_BRAND;
+  const brand = PUBLICATION_BRAND;
   const accentColor = input.brandColor || brand.accentColor;
   const date = input.date || new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
@@ -326,7 +327,7 @@ function buildPDFHTML(input: PDFGenerationInput): string {
   <!-- Cover Page -->
   <div class="cover-page">
     ${input.coverImageUrl ? '<div class="cover-image"></div>' : ""}
-    <div class="cover-logo">techscoop<span>.</span></div>
+    <div class="cover-logo">${publication.wordmark.replace(/\.$/, "")}<span>.</span></div>
     ${input.category ? `<div class="cover-category">${escapeHtml(input.category)}</div>` : ""}
     <div class="cover-title">${escapeHtml(input.title)}</div>
     ${input.subtitle ? `<div class="cover-subtitle">${escapeHtml(input.subtitle)}</div>` : ""}
@@ -343,7 +344,7 @@ function buildPDFHTML(input: PDFGenerationInput): string {
   <!-- Content -->
   <div class="content-page">
     <div class="page-header">
-      <span class="page-header-logo">techscoop.</span>
+      <span class="page-header-logo">${publication.wordmark}</span>
       <span>${escapeHtml(input.title)}</span>
     </div>
 
@@ -352,11 +353,11 @@ function buildPDFHTML(input: PDFGenerationInput): string {
     ${input.includeDisclaimer !== false ? `
     <div class="disclaimer">
       <div class="disclaimer-title">Disclaimer</div>
-      This document is produced by TechScoop for informational purposes only. The information contained herein is based on sources believed to be reliable, but TechScoop makes no representation or warranty, express or implied, as to the accuracy, completeness, or timeliness of the information. This document does not constitute investment advice, and TechScoop is not responsible for any decisions made based on the information provided.
+      This document is produced by ${publication.name} for informational purposes only. The information contained herein is based on sources believed to be reliable, but ${publication.name} makes no representation or warranty, express or implied, as to the accuracy, completeness, or timeliness of the information. This document does not constitute investment advice, and ${publication.name} is not responsible for any decisions made based on the information provided.
     </div>` : ""}
 
     <div class="page-footer">
-      <span>&copy; ${new Date().getFullYear()} TechScoop. All rights reserved.</span>
+      <span>&copy; ${new Date().getFullYear()} ${publication.legalName}. All rights reserved.</span>
       <span>${brand.siteUrl}</span>
     </div>
   </div>

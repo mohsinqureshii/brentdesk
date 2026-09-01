@@ -15,6 +15,7 @@ import {
   sectors,
   workflowStatuses
 } from "../../../drizzle/schema";
+import { boolInt, toDbDate } from "../../_core/dbValues";
 import { slugService } from "../../services/slug.service";
 import { editionOrderBias } from "../../services/editionOrder";
 import { seoService } from "../../services/seo.service";
@@ -131,7 +132,7 @@ export const peopleRouter = router({
         conditions.push(sql`LOWER(${people.name}) LIKE LOWER(${`%${filters.search}%`})`);
       }
       if (filters.isVerified !== undefined) {
-        conditions.push(eq(people.isVerified, filters.isVerified as any));
+        conditions.push(eq(people.isVerified, filters.isVerified ? 1 : 0));
       }
 
       // Build query - include all sortBy options with fallbacks
@@ -156,7 +157,7 @@ export const peopleRouter = router({
       }).from(people)
         .where(and(...conditions))
         .orderBy(
-          ...editionOrderBias((people as any).countryId, input.editionCountryId),
+          ...editionOrderBias(people.countryId, input.editionCountryId),
           sortOrder === "desc" ? desc(sortColumn) : asc(sortColumn),
         );
 
@@ -191,7 +192,7 @@ export const peopleRouter = router({
 
       // Increment view count
       await db.update(people)
-        .set({ viewCount: (person.viewCount || 0) + 1 } as any)
+        .set({ viewCount: (person.viewCount || 0) + 1 })
         .where(eq(people.id, person.id));
 
       // Get related data
@@ -319,7 +320,7 @@ export const peopleRouter = router({
         conditions.push(eq(people.statusId, parseInt(status)));
       }
       if (isVerified !== undefined) {
-        conditions.push(eq(people.isVerified, isVerified as any));
+        conditions.push(eq(people.isVerified, isVerified ? 1 : 0));
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
@@ -440,9 +441,10 @@ export const peopleRouter = router({
       // Create person
       await db.insert(people).values({
         ...personData,
+        isVerified: boolInt(personData.isVerified),
         slug,
         statusId,
-      } as any);
+      });
 
       // Get inserted person
       const inserted = await db.select()
@@ -455,12 +457,12 @@ export const peopleRouter = router({
       // Add taxonomies
       if (regionIds?.length) {
         for (const regionId of regionIds) {
-          await db.insert(peopleRegions).values({ personId, regionId } as any);
+          await db.insert(peopleRegions).values({ personId, regionId });
         }
       }
       if (sectorIds?.length) {
         for (const sectorId of sectorIds) {
-          await db.insert(peopleSectors).values({ personId, sectorId } as any);
+          await db.insert(peopleSectors).values({ personId, sectorId });
         }
       }
 
@@ -480,24 +482,29 @@ export const peopleRouter = router({
         throw new Error("Unauthorized");
       }
 
-      const { id, regionIds, sectorIds, ...updateData } = input;
+      const { id, regionIds, sectorIds, ...personData } = input;
 
-      // Update person
+      // Update person — flags become tinyint numbers; keys with
+      // undefined values are skipped by drizzle, as before.
+      const updateData: Partial<typeof people.$inferInsert> = {
+        ...personData,
+        isVerified: boolInt(personData.isVerified),
+      };
       await db.update(people)
-        .set(updateData as any)
+        .set(updateData)
         .where(eq(people.id, id));
 
       // Update taxonomies
       if (regionIds !== undefined) {
         await db.delete(peopleRegions).where(eq(peopleRegions.personId, id));
         for (const regionId of regionIds) {
-          await db.insert(peopleRegions).values({ personId: id, regionId } as any);
+          await db.insert(peopleRegions).values({ personId: id, regionId });
         }
       }
       if (sectorIds !== undefined) {
         await db.delete(peopleSectors).where(eq(peopleSectors.personId, id));
         for (const sectorId of sectorIds) {
-          await db.insert(peopleSectors).values({ personId: id, sectorId } as any);
+          await db.insert(peopleSectors).values({ personId: id, sectorId });
         }
       }
 
@@ -531,14 +538,14 @@ export const peopleRouter = router({
       }
 
       await db.update(people)
-        .set({ statusId: result.newStatusId } as any)
+        .set({ statusId: result.newStatusId })
         .where(eq(people.id, input.personId));
 
       // If published, set publishedAt
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (result.newStatusId === publishedStatus?.id) {
         await db.update(people)
-          .set({ publishedAt: new Date().toISOString() } as any)
+          .set({ publishedAt: new Date().toISOString() })
           .where(eq(people.id, input.personId));
       }
 
@@ -577,7 +584,7 @@ export const peopleRouter = router({
         throw new Error("Unauthorized");
       }
       await db.update(people)
-        .set({ isVerified: (input.isVerified ? 1 : 0) } as any)
+        .set({ isVerified: (input.isVerified ? 1 : 0) })
         .where(eq(people.id, input.personId));
       return { success: true };
     }),
@@ -605,7 +612,7 @@ export const peopleRouter = router({
         .set({ 
           statusId: status.id,
           ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {})
-        } as any)
+        })
         .where(inArray(people.id, input.ids));
 
       return { success: true, count: input.ids.length };
@@ -716,8 +723,8 @@ export const peopleRouter = router({
         cityId: input.cityId,
         location: input.location,
         statusId,
-        publishedAt: input.publishDirectly && ctx.user.role === "admin" ? new Date() : undefined,
-      } as any);
+        publishedAt: input.publishDirectly && ctx.user.role === "admin" ? toDbDate(new Date()) : undefined,
+      });
 
       // Get inserted person
       const inserted = await db.select()
@@ -755,7 +762,7 @@ export const peopleRouter = router({
         conditions.push(eq(people.statusId, parseInt(status)));
       }
       if (isVerified !== undefined) {
-        conditions.push(eq(people.isVerified, isVerified as any));
+        conditions.push(eq(people.isVerified, isVerified ? 1 : 0));
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;

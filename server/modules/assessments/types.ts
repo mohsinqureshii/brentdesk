@@ -1,7 +1,7 @@
 /**
  * Assessments Module — Public Types & DTOs
  * ----------------------------------------------------------------------
- * Phase 5 of the TechScoop Talent Platform. Owns assessment templates,
+ * Phase 5 of the Talent Platform. Owns assessment templates,
  * candidate attempts, Judge0-backed code runs, AI interview state, and
  * plagiarism reports. Consumers import from `../assessments` (the
  * boundary), never from `drizzle/schema` directly — that lets us swap

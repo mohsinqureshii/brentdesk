@@ -1,3 +1,9 @@
+import { publication, getBaseUrl } from "../../shared/publication";
+
+const BASE = getBaseUrl();
+const SITE = publication.name;
+const OG_IMAGE = `${BASE}${publication.assets.ogImage}`;
+
 import { getDb } from "../db";
 import { articles, categories, articleCategories, users, media, tags, articleTags, companies, investors, people, events, jobs, accelerators , eventLivePosts } from "../../drizzle/schema";
 import { eq, and, desc, isNotNull, count, sql } from "drizzle-orm";
@@ -143,10 +149,10 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
 
   const author = row.authorName
     ? {
-        name: row.authorName || 'TechScoop Staff',
+        name: row.authorName || `${SITE} Staff`,
         // Bylines link to /author/<username> (the editorial-author page).
         // /people/* is for tracked tech-people profiles, not staff writers.
-        url: `https://techscoop.io/author/${row.authorUsername || row.authorId || 'staff'}`,
+        url: `${BASE}/author/${row.authorUsername || row.authorId || 'staff'}`,
         image: row.authorAvatar,
       }
     : null;
@@ -154,8 +160,8 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
   console.log(`[SSR] Featured image URL: ${row.mediaUrl}`);
 
   const canonicalUrl = category
-    ? `https://techscoop.io/${category.slug}/${row.slug}`
-    : `https://techscoop.io/news/${row.slug}`;
+    ? `${BASE}/${category.slug}/${row.slug}`
+    : `${BASE}/news/${row.slug}`;
 
   // Internal-linking: pull up to 5 sibling articles in the same primary category.
   // Falls back to most-recent published if there's only one in the category.
@@ -176,7 +182,7 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
         .slice(0, 5)
         .map((s: any) => ({
           title: s.title,
-          url: `https://techscoop.io/${category.slug}/${s.slug}`,
+          url: `${BASE}/${category.slug}/${s.slug}`,
         }));
     }
   } catch (err) {
@@ -185,7 +191,7 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
 
   return {
     title: row.title,
-    description: row.excerpt || 'TechScoop - MENA\'s Tech Ecosystem Platform',
+    description: row.excerpt || publication.description,
     image: row.mediaUrl || null,
     imageWidth: row.mediaWidth || null,
     imageHeight: row.mediaHeight || null,
@@ -222,7 +228,7 @@ function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): string {
   return `<script type="application/ld+json">${JSON.stringify(list)}</script>`;
 }
 
-const BREADCRUMB_BASE = "https://techscoop.io";
+const BREADCRUMB_BASE = BASE;
 
 /**
  * Generate meta tags HTML for article
@@ -230,7 +236,7 @@ const BREADCRUMB_BASE = "https://techscoop.io";
 export function generateMetaTags(article: ArticleSSRData): string {
   // Use custom SEO fields if set, otherwise fall back to defaults
   const title = article.seoTitle || article.title;
-  const description = article.seoDescription || article.description || 'TechScoop - MENA\'s Tech Ecosystem Platform';
+  const description = article.seoDescription || article.description || publication.description;
   const escapedTitle = escapeHtml(title);
   const escapedDescription = escapeHtml(description);
   const publishedTime = safeISOString(article.publishedAt) || '';
@@ -259,7 +265,7 @@ export function generateMetaTags(article: ArticleSSRData): string {
   }
 
   let metaTags = `
-    <title>${escapedTitle} | TechScoop</title>
+    <title>${escapedTitle} | ${SITE}</title>
     <meta name="description" content="${escapedDescription}" />
     ${article.seoKeywords ? `<meta name="keywords" content="${escapeHtml(article.seoKeywords)}" />` : ''}
     
@@ -268,17 +274,17 @@ export function generateMetaTags(article: ArticleSSRData): string {
     <meta property="og:url" content="${article.url}" />
     <meta property="og:title" content="${escapedTitle}" />
     <meta property="og:description" content="${escapedDescription}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${imageMetaTags}
     ${publishedTime ? `<meta property="article:published_time" content="${publishedTime}" />` : ''}
     ${modifiedTime ? `<meta property="article:modified_time" content="${modifiedTime}" />` : ''}
     ${article.category ? `<meta property="article:section" content="${escapeHtml(article.category.name)}" />` : ''}
-    <meta property="article:publisher" content="https://techscoop.io" />
+    <meta property="article:publisher" content="${BASE}" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:url" content="${article.url}" />
     <meta name="twitter:title" content="${escapedTitle}" />
     <meta name="twitter:description" content="${escapedDescription}" />
@@ -316,16 +322,16 @@ export function generateJsonLd(article: ArticleSSRData): string {
       image: article.author.image || undefined,
     } : {
       '@type': 'Organization',
-      name: 'TechScoop',
-      url: 'https://techscoop.io',
+      name: SITE,
+      url: BASE,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'TechScoop',
-      url: 'https://techscoop.io',
+      name: SITE,
+      url: BASE,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://assets.techscoop.io/og-image.png',
+        url: OG_IMAGE,
       },
     },
     articleSection: article.category?.name,
@@ -348,13 +354,13 @@ export function generateJsonLd(article: ArticleSSRData): string {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://techscoop.io',
+        item: BASE,
       },
       article.category ? {
         '@type': 'ListItem',
         position: 2,
         name: article.category.name,
-        item: `https://techscoop.io/${article.category.slug}`,
+        item: `${BASE}/${article.category.slug}`,
       } : null,
       {
         '@type': 'ListItem',
@@ -393,7 +399,7 @@ export function generatePrerenderedContent(article: ArticleSSRData): string {
     <noscript>
       <article>
         <h1>${escapeHtml(article.title)}</h1>
-        ${article.category ? `<p>Category: <a href="https://techscoop.io/${escapeHtml(article.category.slug)}">${escapeHtml(article.category.name)}</a></p>` : ''}
+        ${article.category ? `<p>Category: <a href="${BASE}/${escapeHtml(article.category.slug)}">${escapeHtml(article.category.name)}</a></p>` : ''}
         ${article.author ? `<p>By <a href="${escapeHtml(article.author.url)}">${escapeHtml(article.author.name)}</a></p>` : ''}
         ${article.publishedAt ? `<p>Published: ${safeISOString(article.publishedAt)}</p>` : ''}
         <p>${escapeHtml(article.description)}</p>
@@ -455,7 +461,7 @@ export async function getTagForSSR(tagSlug: string): Promise<TagSSRData | null> 
     description: tag.description,
     tagType: tag.tagType,
     articleCount,
-    url: `https://techscoop.io/tag/${tag.slug}`,
+    url: `${BASE}/tag/${tag.slug}`,
   };
 }
 
@@ -469,7 +475,7 @@ export function generateTagMetaTags(tag: TagSSRData): string {
   const escapedDescription = escapeHtml(description);
 
   return `
-    <title>${escapedTitle} | TechScoop</title>
+    <title>${escapedTitle} | ${SITE}</title>
     <meta name="description" content="${escapedDescription}" />
     <meta name="keywords" content="${escapeHtml(tag.name)}, MENA tech, startup news, technology" />
     
@@ -478,7 +484,7 @@ export function generateTagMetaTags(tag: TagSSRData): string {
     <meta property="og:url" content="${tag.url}" />
     <meta property="og:title" content="${escapedTitle}" />
     <meta property="og:description" content="${escapedDescription}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
@@ -499,12 +505,12 @@ export function generateTagJsonLd(tag: TagSSRData): string {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `${tag.name} News & Articles`,
-    description: tag.description || `Latest ${tag.name} news and articles from TechScoop`,
+    description: tag.description || `Latest ${tag.name} news and articles from ${SITE}`,
     url: tag.url,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'TechScoop',
-      url: 'https://techscoop.io',
+      name: SITE,
+      url: BASE,
     },
     numberOfItems: tag.articleCount,
   };
@@ -517,13 +523,13 @@ export function generateTagJsonLd(tag: TagSSRData): string {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://techscoop.io',
+        item: BASE,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Tags',
-        item: 'https://techscoop.io/tags',
+        item: `${BASE}/tags`,
       },
       {
         '@type': 'ListItem',
@@ -548,9 +554,9 @@ export function generateTagPrerenderedContent(tag: TagSSRData): string {
     <noscript>
       <div>
         <h1>${escapeHtml(tag.name)} News & Articles</h1>
-        <p>${escapeHtml(tag.description || `Browse ${tag.articleCount} articles about ${tag.name} on TechScoop`)}</p>
+        <p>${escapeHtml(tag.description || `Browse ${tag.articleCount} articles about ${tag.name} on ${SITE}`)}</p>
         <p>Category: ${escapeHtml(tag.tagType || 'General')}</p>
-        <a href="https://techscoop.io">Back to TechScoop</a>
+        <a href="${BASE}">Back to ${SITE}</a>
       </div>
     </noscript>
   `;
@@ -609,7 +615,7 @@ export async function getCategoryForSSR(categorySlug: string): Promise<CategoryS
     name: category.name,
     slug: category.slug,
     description: category.description,
-    url: `https://techscoop.io/${category.slug}`,
+    url: `${BASE}/${category.slug}`,
     recentArticles: recentArticles.map(a => ({
       title: a.title,
       slug: a.slug,
@@ -623,12 +629,12 @@ export async function getCategoryForSSR(categorySlug: string): Promise<CategoryS
  */
 export function generateCategoryMetaTags(cat: CategorySSRData): string {
   const title = `${cat.name} News & Updates`;
-  const description = cat.description || `Latest ${cat.name} news, funding rounds, and analysis from the MENA tech ecosystem on TechScoop.`;
+  const description = cat.description || `Latest ${cat.name} news, projects and analysis on ${SITE}.`;
   const escapedTitle = escapeHtml(title);
   const escapedDescription = escapeHtml(description);
 
   return `
-    <title>${escapedTitle} | TechScoop</title>
+    <title>${escapedTitle} | ${SITE}</title>
     <meta name="description" content="${escapedDescription}" />
     
     <!-- Open Graph / Facebook -->
@@ -636,7 +642,7 @@ export function generateCategoryMetaTags(cat: CategorySSRData): string {
     <meta property="og:url" content="${cat.url}" />
     <meta property="og:title" content="${escapedTitle}" />
     <meta property="og:description" content="${escapedDescription}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
@@ -657,12 +663,12 @@ export function generateCategoryJsonLd(cat: CategorySSRData): string {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `${cat.name} News & Updates`,
-    description: cat.description || `Latest ${cat.name} news from TechScoop`,
+    description: cat.description || `Latest ${cat.name} news from ${SITE}`,
     url: cat.url,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'TechScoop',
-      url: 'https://techscoop.io',
+      name: SITE,
+      url: BASE,
     },
   };
 
@@ -670,7 +676,7 @@ export function generateCategoryJsonLd(cat: CategorySSRData): string {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://techscoop.io' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
       { '@type': 'ListItem', position: 2, name: cat.name, item: cat.url },
     ],
   };
@@ -725,29 +731,29 @@ export async function getCompanyForSSR(idOrSlug: string): Promise<CompanySSRData
 
   return {
     ...company,
-    url: `https://techscoop.io/companies/${company.slug || idOrSlug}`,
+    url: `${BASE}/companies/${company.slug || idOrSlug}`,
   };
 }
 
 export function generateCompanyMetaTags(c: CompanySSRData): string {
   const title = c.name;
-  const rawDesc = c.shortDescription || c.tagline || c.description?.substring(0, 300) || `${c.name} - Company profile on TechScoop`;
+  const rawDesc = c.shortDescription || c.tagline || c.description?.substring(0, 300) || `${c.name} - Company profile on ${SITE}`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(title);
   const d = escapeHtml(desc);
 
   return `
-    <title>${t} | TechScoop</title>
+    <title>${t} | ${SITE}</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${c.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${c.logo ? `<meta property="og:image" content="${c.logo}" />\n    <meta property="og:image:alt" content="${t} logo" />` : ''}
     <meta name="twitter:card" content="${c.logo ? 'summary_large_image' : 'summary'}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     ${c.logo ? `<meta name="twitter:image" content="${c.logo}" />` : ''}
@@ -817,30 +823,30 @@ export async function getInvestorForSSR(idOrSlug: string): Promise<InvestorSSRDa
 
   return {
     ...investor,
-    url: `https://techscoop.io/investors/${investor.slug || idOrSlug}`,
+    url: `${BASE}/investors/${investor.slug || idOrSlug}`,
   };
 }
 
 export function generateInvestorMetaTags(inv: InvestorSSRData): string {
   const title = inv.name;
   const typeLabel = inv.type?.replace('_', ' ') || 'Investor';
-  const rawDesc = inv.shortDescription || inv.description?.substring(0, 300) || `${inv.name} - ${typeLabel} profile on TechScoop`;
+  const rawDesc = inv.shortDescription || inv.description?.substring(0, 300) || `${inv.name} - ${typeLabel} profile on ${SITE}`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(title);
   const d = escapeHtml(desc);
 
   return `
-    <title>${t} | TechScoop</title>
+    <title>${t} | ${SITE}</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${inv.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${inv.logo ? `<meta property="og:image" content="${inv.logo}" />\n    <meta property="og:image:alt" content="${t} logo" />` : ''}
     <meta name="twitter:card" content="${inv.logo ? 'summary_large_image' : 'summary'}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     ${inv.logo ? `<meta name="twitter:image" content="${inv.logo}" />` : ''}
@@ -906,29 +912,29 @@ export async function getPersonForSSR(idOrSlug: string): Promise<PersonSSRData |
 
   return {
     ...person,
-    url: `https://techscoop.io/people/${person.slug || idOrSlug}`,
+    url: `${BASE}/people/${person.slug || idOrSlug}`,
   };
 }
 
 export function generatePersonMetaTags(p: PersonSSRData): string {
   const title = p.title && p.company ? `${p.name} - ${p.title} at ${p.company}` : p.name;
-  const rawDesc = p.shortBio || p.bio?.substring(0, 300) || `${p.name}${p.title ? `, ${p.title}` : ''}${p.company ? ` at ${p.company}` : ''} - Profile on TechScoop`;
+  const rawDesc = p.shortBio || p.bio?.substring(0, 300) || `${p.name}${p.title ? `, ${p.title}` : ''}${p.company ? ` at ${p.company}` : ''} - Profile on ${SITE}`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(title);
   const d = escapeHtml(desc);
 
   return `
-    <title>${t} | TechScoop</title>
+    <title>${t} | ${SITE}</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="${p.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${p.avatar ? `<meta property="og:image" content="${p.avatar}" />\n    <meta property="og:image:alt" content="${escapeHtml(p.name)}" />` : ''}
     <meta name="twitter:card" content="${p.avatar ? 'summary_large_image' : 'summary'}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     ${p.avatar ? `<meta name="twitter:image" content="${p.avatar}" />` : ''}
@@ -1012,7 +1018,7 @@ export async function getEventForSSR(idOrSlug: string): Promise<EventSSRData | n
 
   return {
     ...event,
-    url: `https://techscoop.io/events/${event.slug || idOrSlug}`,
+    url: `${BASE}/events/${event.slug || idOrSlug}`,
   };
 }
 
@@ -1021,23 +1027,23 @@ export function generateEventMetaTags(e: EventSSRData): string {
   const locationParts = [e.venue, e.city, e.country].filter(Boolean);
   const locationStr = locationParts.length > 0 ? ` in ${locationParts.join(', ')}` : '';
   const dateStr = e.startDate ? ` on ${new Date(e.startDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}` : '';
-  const rawDesc = e.shortDescription || e.description?.substring(0, 300) || `${e.title}${dateStr}${locationStr} - Tech event on TechScoop`;
+  const rawDesc = e.shortDescription || e.description?.substring(0, 300) || `${e.title}${dateStr}${locationStr} - Event on ${SITE}`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(title);
   const d = escapeHtml(desc);
 
   return `
-    <title>${t} | TechScoop</title>
+    <title>${t} | ${SITE}</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${e.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${e.featuredImage ? `<meta property="og:image" content="${e.featuredImage}" />\n    <meta property="og:image:alt" content="${t}" />` : ''}
     <meta name="twitter:card" content="${e.featuredImage ? 'summary_large_image' : 'summary'}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     ${e.featuredImage ? `<meta name="twitter:image" content="${e.featuredImage}" />` : ''}
@@ -1146,7 +1152,7 @@ export async function getJobForSSR(idOrSlug: string): Promise<JobSSRData | null>
 
   return {
     ...job,
-    url: `https://techscoop.io/jobs/${job.slug || idOrSlug}`,
+    url: `${BASE}/jobs/${job.slug || idOrSlug}`,
   };
 }
 
@@ -1156,23 +1162,23 @@ export function generateJobMetaTags(j: JobSSRData): string {
   if (j.location) locParts.push(j.location);
   if (j.isRemote) locParts.push('Remote');
   const locStr = locParts.length > 0 ? ` - ${locParts.join(', ')}` : '';
-  const rawDesc = j.description?.substring(0, 300) || `${j.title} at ${j.companyName}${locStr}. Apply now on TechScoop.`;
+  const rawDesc = j.description?.substring(0, 300) || `${j.title} at ${j.companyName}${locStr}. Apply now on ${SITE}.`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(title);
   const d = escapeHtml(desc);
 
   return `
-    <title>${t} | TechScoop Jobs</title>
+    <title>${t} | ${SITE} Jobs</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${j.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${j.companyLogo ? `<meta property="og:image" content="${j.companyLogo}" />\n    <meta property="og:image:alt" content="${escapeHtml(j.companyName)} logo" />` : ''}
     <meta name="twitter:card" content="${j.companyLogo ? 'summary_large_image' : 'summary'}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     ${j.companyLogo ? `<meta name="twitter:image" content="${j.companyLogo}" />` : ''}
@@ -1264,29 +1270,29 @@ export async function getAcceleratorForSSR(idOrSlug: string): Promise<Accelerato
 
   return {
     ...acc,
-    url: `https://techscoop.io/accelerators/${acc.slug || idOrSlug}`,
+    url: `${BASE}/accelerators/${acc.slug || idOrSlug}`,
   };
 }
 
 export function generateAcceleratorMetaTags(a: AcceleratorSSRData): string {
   const title = a.name;
-  const rawDesc = a.shortDescription || a.description?.substring(0, 300) || `${a.name} - Accelerator program on TechScoop`;
+  const rawDesc = a.shortDescription || a.description?.substring(0, 300) || `${a.name} - Accelerator program on ${SITE}`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(title);
   const d = escapeHtml(desc);
 
   return `
-    <title>${t} | TechScoop</title>
+    <title>${t} | ${SITE}</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${a.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${a.logo ? `<meta property="og:image" content="${a.logo}" />\n    <meta property="og:image:alt" content="${t} logo" />` : ''}
     <meta name="twitter:card" content="${a.logo ? 'summary_large_image' : 'summary'}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
     ${a.logo ? `<meta name="twitter:image" content="${a.logo}" />` : ''}
@@ -1370,7 +1376,7 @@ export async function getAuthorForSSR(idOrUsername: string): Promise<AuthorSSRDa
   const slug = author.username || `${author.id}`;
   return {
     id: author.id,
-    name: author.publicName || author.name || "TechScoop",
+    name: author.publicName || author.name || SITE,
     username: author.username,
     publicName: author.publicName,
     jobTitle: author.jobTitle,
@@ -1379,29 +1385,29 @@ export async function getAuthorForSSR(idOrUsername: string): Promise<AuthorSSRDa
     avatar: author.avatar,
     twitterHandle: author.twitterHandle,
     linkedinUrl: author.linkedinUrl,
-    url: `https://techscoop.io/author/${slug}`,
+    url: `${BASE}/author/${slug}`,
     articleCount: Number(c) || 0,
   };
 }
 
 export function generateAuthorMetaTags(a: AuthorSSRData): string {
   const role = a.jobTitle || "Writer";
-  const rawDesc = a.authorBio || a.bio?.substring(0, 300) || `${a.name} - ${role} at TechScoop. ${a.articleCount} article${a.articleCount === 1 ? "" : "s"} published.`;
+  const rawDesc = a.authorBio || a.bio?.substring(0, 300) || `${a.name} - ${role} at ${SITE}. ${a.articleCount} article${a.articleCount === 1 ? "" : "s"} published.`;
   const desc = stripHtml(rawDesc).substring(0, 160);
   const t = escapeHtml(`${a.name}${a.jobTitle ? ` — ${a.jobTitle}` : ""}`);
   const d = escapeHtml(desc);
   return `
-    <title>${t} | TechScoop</title>
+    <title>${t} | ${SITE}</title>
     <meta name="description" content="${d}" />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="${a.url}" />
     <meta property="og:title" content="${t}" />
     <meta property="og:description" content="${d}" />
-    <meta property="og:site_name" content="TechScoop" />
+    <meta property="og:site_name" content="${SITE}" />
     <meta property="og:locale" content="en_US" />
     ${a.avatar ? `<meta property="og:image" content="${a.avatar}" />\n    <meta property="og:image:alt" content="${escapeHtml(a.name)}" />` : ''}
     <meta name="twitter:card" content="${a.avatar ? "summary" : "summary"}" />
-    <meta name="twitter:site" content="@techscoopmena" />
+    <meta name="twitter:site" content="${publication.xHandle}" />
     ${a.twitterHandle ? `<meta name="twitter:creator" content="@${a.twitterHandle.replace(/^@/, "")}" />` : ''}
     <meta name="twitter:title" content="${t}" />
     <meta name="twitter:description" content="${d}" />
@@ -1424,7 +1430,7 @@ export function generateAuthorJsonLd(a: AuthorSSRData): string {
     url: a.url,
     image: a.avatar || undefined,
     jobTitle: a.jobTitle || undefined,
-    worksFor: { "@type": "Organization", "@id": "https://techscoop.io/#organization" },
+    worksFor: { "@type": "Organization", "@id": "${BASE}/#organization" },
     sameAs: sameAs.length > 0 ? sameAs : undefined,
   };
   const breadcrumb = breadcrumbJsonLd([
@@ -1554,5 +1560,5 @@ export async function getArticleCanonicalUrl(articleSlug: string): Promise<strin
   if (!result) return null;
   
   const catSlug = result.catSlug || 'news';
-  return `https://techscoop.io/${catSlug}/${articleSlug}`;
+  return `${BASE}/${catSlug}/${articleSlug}`;
 }

@@ -2,7 +2,7 @@
  * Jobs Module — Tenant Scope Guard
  * ----------------------------------------------------------------------
  * Every service method that touches data takes a TenantScope. NULL is
- * the public job board (legacy techscoop.io jobs). A concrete tenantId
+ * the public job board (legacy public jobs). A concrete tenantId
  * is a SaaS tenant's private board.
  *
  * Phase 1: the PHASE_0.5 stub that blocked non-null scope is gone —

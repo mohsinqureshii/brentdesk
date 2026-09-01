@@ -13,7 +13,7 @@
  * Tenant awareness:
  *   `createSession` now accepts an optional `tenantId`. The session
  *   payload carries it; downstream tRPC sees the tenant the user
- *   logged in to (which can be `null` for legacy techscoop.io users).
+ *   logged in to (which can be `null` for legacy public-site users).
  */
 
 import { getSessionStore, SessionInfo } from "./sessionStore";

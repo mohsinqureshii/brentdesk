@@ -1,5 +1,5 @@
 /**
- * TechScoop Main Router
+ * Main Router
  * Wires all module routers together
  */
 
@@ -11,6 +11,7 @@ import { z } from "zod";
 import bcrypt from "bcryptjs";
 import * as db from "./db";
 import { sdk } from "./_core/sdk";
+import { checkRateLimit, recordRequest } from "./middleware/rateLimit.middleware";
 
 // Module routers
 import { newsRouter } from "./modules/news/news.router";
@@ -29,16 +30,6 @@ import { peopleRouter } from "./modules/people/people.router";
 import { investorsRouter } from "./modules/investors/investors.router";
 import { eventsRouter } from "./modules/events/events.router";
 import { resourcesRouter } from "./modules/resources/resources.router";
-import { 
-  calculatorsRouter, 
-  vendorsRouter, 
-  regulationsRouter, 
-  founderDealsRouter, 
-  starterPacksRouter,
-  resourceReviewsRouter,
-  gatedContentRouter,
-  affiliateTrackingRouter
-} from "./modules/resources/resourcesEnhanced.router";
 import { acceleratorsRouter } from "./modules/accelerators/accelerators.router";
 import { companiesRouter } from "./modules/companies/companies.router";
 import { stocksRouter } from "./modules/stocks/stocks.router";
@@ -115,7 +106,16 @@ export const appRouter = router({
       }))
       .mutation(async ({ input, ctx }) => {
         const { email, password } = input;
-        
+
+        // Brute-force guard: 5 attempts / 15 min per client IP (see
+        // ENDPOINT_LIMITS in middleware/rateLimit.middleware.ts).
+        const clientIp = (ctx.req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() || ctx.req.socket?.remoteAddress || "unknown";
+        const limit = checkRateLimit({ identifier: clientIp, userType: "anonymous", endpoint: "auth.login" });
+        if (!limit.allowed) {
+          return { success: false, error: "Too many login attempts. Please wait and try again." };
+        }
+        recordRequest(clientIp, "auth.login");
+
         // Find user by email
         const user = await db.getUserByEmail(email);
         if (!user) {
@@ -161,7 +161,15 @@ export const appRouter = router({
       }))
       .mutation(async ({ input, ctx }) => {
         const { email, password, name } = input;
-        
+
+        // Registration abuse guard: 3 registrations / hour per client IP.
+        const clientIp = (ctx.req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() || ctx.req.socket?.remoteAddress || "unknown";
+        const limit = checkRateLimit({ identifier: clientIp, userType: "anonymous", endpoint: "auth.register" });
+        if (!limit.allowed) {
+          return { success: false, error: "Too many registration attempts. Please try again later." };
+        }
+        recordRequest(clientIp, "auth.register");
+
         // Check if email already exists
         const existingUser = await db.getUserByEmail(email);
         if (existingUser) {
@@ -334,18 +342,9 @@ export const appRouter = router({
   investors: investorsRouter,
   events: eventsRouter,
   resources: resourcesRouter,
-  calculators: calculatorsRouter,
-  vendors: vendorsRouter,
-  regulations: regulationsRouter,
-  founderDeals: founderDealsRouter,
-  starterPacks: starterPacksRouter,
-  resourceReviews: resourceReviewsRouter,
-  gatedContent: gatedContentRouter,
-  affiliateTracking: affiliateTrackingRouter,
   accelerators: acceleratorsRouter,
   companies: companiesRouter,
   authors: authorsRouter,
-  funding: fundingRouter,
 
   // ============================================================
   // ADMIN MODULES

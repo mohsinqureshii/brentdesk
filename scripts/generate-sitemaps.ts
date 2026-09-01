@@ -3,7 +3,7 @@
  * Static Sitemap Pre-Generation
  *
  * WHY THIS EXISTS
- * The Manus platform edge intercepts /sitemap*.xml and /robots.txt before they
+ * Some hosting edges intercept /sitemap*.xml and /robots.txt before they
  * reach Express, so the dynamic routes in server/routes/sitemaps.ts never run
  * for those URLs and Google receives the SPA fallback HTML ("Article Not Found").
  *
@@ -31,12 +31,8 @@ const MODULES = [
   "articles",
   "jobs",
   "people",
-  "investors",
   "companies",
-  "accelerators",
   "events",
-  "resources",
-  "research",
   "categories",
   "tags",
   "authors",

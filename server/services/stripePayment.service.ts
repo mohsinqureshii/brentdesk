@@ -24,6 +24,7 @@
  * doesn't add startup cost when no event uses internal ticketing.
  */
 
+import { publication } from "../../shared/publication";
 import { getEffectiveConfig } from "./integrationConfig.service";
 
 // ------------------------------------------------------------
@@ -227,7 +228,7 @@ async function getOrCreateCoupon(
     amount_off: amountOffCents,
     currency: currency.toLowerCase(),
     duration: "once",
-    name: `TechScoop ${currency.toUpperCase()} ${(amountOffCents / 100).toFixed(2)} off`,
+    name: `${publication.name} ${currency.toUpperCase()} ${(amountOffCents / 100).toFixed(2)} off`,
   });
   return id;
 }

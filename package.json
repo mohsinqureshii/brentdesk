@@ -1,18 +1,18 @@
 {
-  "name": "techscoop",
+  "name": "brentdesk",
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
-    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && ([ -n \"$DATABASE_URL\" ] && tsx scripts/prerender.ts || echo '[Build] Skipping prerender - DATABASE_URL not set') && ([ -n \"$DATABASE_URL\" ] && tsx scripts/generate-sitemaps.ts || echo '[Build] Skipping sitemap pre-gen - DATABASE_URL not set')",
+    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && (if [ \"$PRERENDER_ON_BUILD\" = \"1\" ]; then tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts; else echo '[Build] Skipping prerender/sitemaps (set PRERENDER_ON_BUILD=1 to enable; both are also produced at runtime)'; fi)",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
-    "editorial:validate:leap": "tsx scripts/import-leap-deepfest-editorial-batch.ts",
-    "editorial:import:leap": "tsx scripts/import-leap-deepfest-editorial-batch.ts --execute --confirm-unpublished-drafts",
+    "db:migrate": "drizzle-kit migrate",
+    "seed": "tsx scripts/seed-brentdesk.ts",
     "prerender": "tsx scripts/prerender.ts",
     "sitemaps": "tsx scripts/generate-sitemaps.ts",
     "build:local": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts"

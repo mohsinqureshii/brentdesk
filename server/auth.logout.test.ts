@@ -51,10 +51,13 @@ describe("auth.logout", () => {
     expect(result).toEqual({ success: true });
     expect(clearedCookies).toHaveLength(1);
     expect(clearedCookies[0]?.name).toBe(COOKIE_NAME);
+    // getSessionCookieOptions deliberately uses sameSite "lax" (CSRF
+    // mitigation for cookie-authenticated tRPC mutations on a same-origin
+    // API — see server/_core/cookies.ts).
     expect(clearedCookies[0]?.options).toMatchObject({
       maxAge: -1,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
       httpOnly: true,
       path: "/",
     });

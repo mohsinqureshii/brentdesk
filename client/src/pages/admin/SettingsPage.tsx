@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
+import { publication } from "@shared/publication";
 import AdminLayout from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -77,7 +78,7 @@ export default function SettingsPage() {
   // Load settings into state when fetched
   useEffect(() => {
     if (settings) {
-      setSiteTitle((settings.site_title as string) || "TechScoop");
+      setSiteTitle((settings.site_title as string) || publication.name);
       setSiteTagline((settings.site_tagline as string) || "");
       setSiteDescription((settings.site_description as string) || "");
       setContactEmail((settings.contact_email as string) || "");
