@@ -579,11 +579,19 @@ async function startServer() {
     serveStatic(app);
   }
 
-  const preferredPort = parseInt(process.env.PORT || "3000");
-  const port = await findAvailablePort(preferredPort);
+  // A platform-assigned PORT (Railway, Render, Fly, Heroku…) must be honored
+  // EXACTLY — the proxy routes to that port and nothing else. Scanning for a
+  // free port there produces a container that looks healthy while the edge
+  // gets connection-refused. Only fall back to scanning for local dev, where
+  // the goal is just to dodge a collision with another dev server.
+  const explicitPort = process.env.PORT ? parseInt(process.env.PORT, 10) : null;
+  const port =
+    explicitPort && Number.isFinite(explicitPort)
+      ? explicitPort
+      : await findAvailablePort(3000);
 
-  if (port !== preferredPort) {
-    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
+  if (!explicitPort && port !== 3000) {
+    console.log(`Port 3000 is busy, using port ${port} instead`);
   }
 
   server.listen(port, async () => {

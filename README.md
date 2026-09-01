@@ -86,6 +86,50 @@ provisioned:
 For the full run: start MySQL and Redis, apply migrations, seed, run `pnpm dev`, then
 `DATABASE_URL=… REDIS_URL=… pnpm test`.
 
+## Deploying
+
+The app is a single Node process serving the API and the built client. It needs
+MySQL; Redis is optional.
+
+**Required environment variables**
+
+| Variable | Notes |
+|---|---|
+| `DATABASE_URL` | `mysql://user:pass@host:port/db` |
+| `JWT_SECRET` | long random string |
+| `BASE_URL` | **the public URL of the deployment** — canonicals, sitemaps, RSS and OG tags are generated from it. Without it they fall back to `publication.siteUrl` in `shared/publication.ts`, which will be wrong on a platform-generated subdomain. |
+| `PORT` | supplied automatically by most platforms; the app binds to it exactly |
+
+See `.env.example` for the full optional set (S3/R2 media, Resend email, Stripe,
+AI providers, analytics).
+
+**Build and start**
+
+```bash
+pnpm install --frozen-lockfile
+pnpm build      # client + server bundle; no database needed
+pnpm start      # node dist/index.js
+```
+
+`pnpm build` deliberately does **not** touch the database, so an image build
+succeeds even where the database is unreachable from the builder. Sitemaps and
+feeds are produced at runtime; to also prerender static article HTML at build
+time (optional, needs a reachable database) set `PRERENDER_ON_BUILD=1`.
+
+**First deploy**
+
+1. Provision MySQL and set the variables above.
+2. Start the app — it applies migrations automatically against an empty database.
+3. Seed system data once (categories, sectors, roles, ad slots, homepage
+   sections, and an admin login):
+   ```bash
+   ADMIN_EMAIL=you@example.com ADMIN_PASSWORD='…' pnpm seed
+   ```
+4. Sign in at `/admin/login`.
+
+The seed is idempotent and inserts no editorial content. A Dockerfile is
+included if you prefer a container build over a buildpack.
+
 ## Documentation
 
 - `docs/brentdesk/BASELINE.md` — state of the codebase at migration start
