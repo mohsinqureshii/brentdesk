@@ -606,6 +606,21 @@ async function startServer() {
       console.error("[Migrate] startup migrations failed (server still serving):", (err as Error).message);
     }
 
+    // Optional one-shot bootstrap of system data (countries, editions,
+    // categories, sectors, roles, ad slots, homepage sections, and an admin
+    // user when ADMIN_EMAIL/ADMIN_PASSWORD are set). Idempotent, so leaving
+    // SEED_ON_BOOT=1 set is harmless — but it exists so a first deploy on a
+    // platform with no usable container shell can still bootstrap itself.
+    // It seeds no editorial content.
+    if (process.env.SEED_ON_BOOT === "1") {
+      try {
+        const { runSeed } = await import("../../scripts/seed-brentdesk");
+        await runSeed();
+      } catch (err) {
+        console.error("[seed] boot seed failed (server still serving):", (err as Error).message);
+      }
+    }
+
     // Sitemap smoke test — runs every generator once at startup so column
     // typos / SQL errors surface in deploy logs instead of silently failing
     // when Googlebot crawls a sitemap. Non-fatal: server keeps running even

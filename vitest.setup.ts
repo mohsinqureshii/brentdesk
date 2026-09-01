@@ -39,3 +39,10 @@ if (process.env.BASE_URL && !/^https?:\/\//i.test(process.env.BASE_URL)) {
   }
   process.env.__HAS_DATABASE = reachable ? "1" : "0";
 }
+
+// server/_core/env.ts also requires DATABASE_URL at import time, which made
+// 17 test files fail collection on a checkout with no .env — a missing
+// database reading as broken code again. Supply a placeholder only after the
+// probe above has run, so it never masks a real URL and __HAS_DATABASE stays
+// honest: suites that need a database skip, the rest run.
+process.env.DATABASE_URL = process.env.DATABASE_URL || "mysql://vitest:vitest@127.0.0.1:3306/vitest";
