@@ -81,6 +81,7 @@ const VALID = new Set([
 
 interface Article {
   commission: number; headline: string; slug: string; content: string;
+  events?: string[];
   primaryCategory: string; categories?: string[]; tags?: string[];
   companies?: string[]; eventDate: string; internalLinks?: string[];
   [k: string]: any;
@@ -147,14 +148,39 @@ function anchors(a: Article): string[] {
     const p = m[1];
     if (p.length >= 8 && !/^(Saudi Arabia|The |A |An |United States|United Arab|Abu Dhabi|New |More )/.test(p)) out.push(p);
   }
-  return [...new Set(out)].sort((x, y) => y.length - x.length);
+  return [...new Set(out)].filter(distinctive).sort((x, y) => y.length - x.length);
+}
+
+/** How many headlines in the archive a phrase fits.
+ *
+ *  A phrase that fits a hundred headlines identifies nothing. Across the Big
+ *  5 package "Construct Saudi" matched the project-name pattern in almost
+ *  every headline, so most articles ended up anchored on it and pointed at
+ *  whichever show piece happened to score highest — a link about nothing.
+ *  An anchor has to pick out its target. */
+const MAX_HEADLINE_SHARE = 3;
+const headlineFreq = new Map<string, number>();
+function distinctive(phrase: string): boolean {
+  let n = headlineFreq.get(phrase);
+  if (n === undefined) {
+    n = all.filter(x => x.headline.includes(phrase)).length;
+    headlineFreq.set(phrase, n);
+  }
+  return n <= MAX_HEADLINE_SHARE;
 }
 
 function relatedness(a: Article, b: Article): number {
   let score = 0;
   const ac = new Set(a.companies ?? []), bc = new Set(b.companies ?? []);
   for (const c of ac) if (bc.has(c)) score += 3;
+  // Two articles covering the same exhibition are about the same thing.
+  // The show names used to sit in `companies` and scored here as a side
+  // effect; they are events now, so count them deliberately.
+  const ae = new Set(a.events ?? []);
+  for (const e of b.events ?? []) if (ae.has(e)) score += 2;
   if (a.primaryCategory === b.primaryCategory) score += 2;
+  const acat = new Set(a.categories ?? []);
+  for (const c of b.categories ?? []) if (c !== b.primaryCategory && acat.has(c)) score += 1;
   const at = new Set((a.tags ?? []).map(t => t.toLowerCase()));
   for (const t of b.tags ?? []) if (at.has(t.toLowerCase())) score += 1;
   return score;

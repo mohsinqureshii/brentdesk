@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 1013,
+    "headline": "The Technology Stack Behind a Modern Saudi Building",
+    "slug": "technology-stack-modern-saudi-building-controls-data-2026",
+    "deck": "Code, envelope, plant, controls, metering and the data package handed to the operator. Each layer is bought by a different party, and the last one usually arrives incomplete.",
+    "excerpt": "A new Saudi building is now a stack of six layers, from the Saudi Building Code and Mostadam certification through cooling plant to building automation and the asset data handed to facilities management. The Kingdom's building automation market is forecast to roughly double this decade, but the layer that fails most often is the data handover.",
+    "content": "<p>Twenty years ago the technology in a Saudi commercial building was a chiller, a lift and a fire alarm panel. Today it is a stack of six layers, each procured by a different party under a different contract, and the building works only if all six line up. They frequently do not.</p><p>The bottom layer is regulatory. The Saudi Building Code sets the structural, fire, energy, mechanical, electrical and plumbing requirements a building has to satisfy, and its 2024 edition has been mandatory since the middle of last year. Compliance runs through municipal permitting: designs are reviewed through the Balady platform, inspections run through construction, and an occupancy certificate is required before the building can be brought fully into use. The Ministry of Municipalities and Housing issued <a href=\"https://saudigazette.com.sa/article/663295/saudi-arabia/saudi-arabia-issues-more-than-34000-building-permits-in-h1-2026\">more than 34,000 building permits</a> in the first half of 2026, all of them through that route.</p><p>The second layer is voluntary and increasingly commercial: sustainability certification. Mostadam, developed for the Saudi market by the Ministry of Municipal, Rural Affairs and Housing, is the domestic rating system, with separate schemes for design and construction and for operation of existing buildings. Its credit structure rewards decisions made early, which is the point: envelope performance, orientation, glazing ratio and shading cost almost nothing to change on a drawing and cannot be changed at all once the frame is up.</p><p>The third layer is the plant that serves the load the first two layers created. In a Saudi building that is overwhelmingly cooling, whether from a packaged unit, a building-level chiller plant or a district cooling connection. The Kingdom's HVAC market is forecast to grow from roughly $2.95bn in 2024 toward $4.82bn by 2030, and in a large building the mechanical package is usually the largest single subcontract after the frame.</p><p>The fourth layer is controls, and it is where the money is currently moving. The Saudi building automation market has been valued at about $1.5bn in 2022 with forecasts near $3.3bn by 2030, and the broader building energy efficiency systems category is put at around $3.0bn in 2025 with projections above $8bn by the middle of the next decade. Those numbers are estimates from different houses on different definitions, and should be read as direction rather than precision. The direction is that controls, sensing and the software that sits on top of them are becoming a material share of the cost of a building.</p><p>A building management system integrates lighting, cooling, ventilation, access and life safety, and increasingly does it over a network rather than through dedicated cabling. That brings a fifth layer with it: metering and connectivity. Sub-metering by floor, tenant and system is what makes an energy figure actionable; without it a building has one electricity bill and no idea which system produced it. Once meters and sensors are on a network, the building acquires an attack surface as well as a dashboard, which is why operational technology security has moved into the building services conversation from the industrial one.</p><p>The sixth layer is the one that decides whether the other five keep working: the data package handed to the people who will operate the building. Asset registers, equipment schedules, commissioning records, control system credentials, warranty terms, spares lists and as-built drawings that match what was actually installed. When that package is complete and structured, a facilities management team can run the building the way it was designed. When it is a stack of scanned PDFs and a box of manuals, the operator spends the first year of a ten-year contract resurveying an asset that was fully documented while it was being built.</p><p>That failure is not technical. It is contractual. The main contractor's obligation ends at handover, the commissioning agent is often demobilised before the building is fully occupied, and the operator is appointed too late to influence what it will inherit. Nothing in the standard sequence makes anyone responsible for the continuity between the design model and the operating asset.</p><p>Which is why the layer attracting most attention at industry level is not the newest technology but the oldest interface. The programme at Big 5 Construct Saudi in Riyadh at the end of August includes sessions on coordination between HVACR design, installation and facilities management, and on digital transparency across project stakeholders. Both are attempts at the same problem from opposite ends.</p><p>For a developer the practical test is simple enough to apply. Ask, at tender stage, who will own the asset data at handover, in what format, and who verifies that it matches the building. If nobody in the contract structure can answer, the stack will not hold, however good the individual layers are.</p>",
+    "author": "BrentDesk Research",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology",
+      "automation"
+    ],
+    "tags": [
+      "Smart Buildings",
+      "Building Automation",
+      "Mostadam",
+      "Saudi Building Code",
+      "Asset Data"
+    ],
+    "companies": [
+      "Ministry of Municipalities and Housing"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-12",
+    "informationCutoff": "2026-08-14",
+    "primarySourceUrl": "https://sbc.gov.sa/En/Pages/default.aspx",
+    "primarySourceName": "Saudi Building Code",
+    "secondarySourceUrls": [
+      "https://saudigazette.com.sa/article/663295/saudi-arabia/saudi-arabia-issues-more-than-34000-building-permits-in-h1-2026",
+      "https://balady.gov.sa/en/services/issuing-building-permit",
+      "https://www.kenresearch.com/saudi-arabia-building-automation-systems-market",
+      "https://www.researchandmarkets.com/reports/4557686/saudi-arabia-hvac-market-by-region",
+      "https://www.big5constructsaudi.com/"
+    ],
+    "seoTitle": "The Technology Stack Behind a Modern Saudi Building",
+    "seoDescription": "Code, certification, plant, controls, metering and asset data: the six layers of a new Saudi building, and the one that usually fails.",
+    "articleType": "report",
+    "wordCount": 774,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1116,
+    "headline": "Labour and Logistics Still Set the Pace on Saudi Sites",
+    "slug": "saudi-construction-labour-logistics-bottlenecks",
+    "deck": "A workforce of roughly 3.4 million and a cooling hiring market are the two facts most likely to decide whether the Kingdom's award flow converts into completed work.",
+    "excerpt": "Saudi Arabia's construction sector employed around 3.4 million people at the end of 2025, some 92 per cent of them non-Saudi, and hiring has since slowed to single-digit growth. Against an award flow near SAR30 billion in the strongest months of 2026, people and movement remain the binding constraints on delivery.",
+    "content": "<p>Procurement and supply-chain resilience have been running themes at Big 5 Construct Saudi this week, and most of the discussion has concerned things: materials, components, lead times, certification. The two constraints most likely to decide whether the Kingdom's award flow converts into completed buildings are not things. They are people and movement.</p><p>Start with the workforce, because the numbers are unambiguous. The General Authority for Statistics recorded roughly 3.4 million people working in Saudi construction in its fourth-quarter 2025 labour force survey, with around 92 per cent of them non-Saudi. That is one of the largest construction workforces in the world relative to population, and it is overwhelmingly imported, which makes it responsive to recruitment cycles, visa processing and origin-country conditions in a way a domestic workforce is not.</p><p>The direction of travel has changed. <a href=\"https://www.agbi.com/analysis/construction/2026/08/saudi-construction-hiring-slows-following-giga-project-rejig/\">Construction hiring in the Kingdom has slowed to single-digit growth</a> as giga-project ambitions are recalibrated and developers look for greater certainty before adding headcount. That is a rational response to a rescoped pipeline. It is also the point at which a market usually loses the specialists it will need eighteen months later, because the roles that go unfilled in a slowdown are the same ones that are scarce in an upturn: mechanical, electrical and plumbing tradespeople, site supervisors, commissioning engineers and specialist quantity surveyors.</p><p>The award data explains why the tension matters now rather than eventually. Saudi Arabia awarded 18 projects worth more than SAR30.03 billion in May, its strongest month of 2026, and the <a href=\"/supply-chain/big-5-exhibitors-saudi-procurement-demand\">Saudi Contractors Authority</a> recorded <a href=\"https://www.spa.gov.sa/en/N2628653\">25 projects worth over SAR29.5 billion in June</a>. Those packages will need staffing on a schedule that was set when hiring assumptions were more optimistic.</p><p>Logistics is the second constraint, and it is less discussed because it is nobody's line item until it fails. A delivery programme running at this rate places continuous demand on port capacity, customs clearance, inland haulage, laydown space and crane availability, and those resources are shared across projects that do not coordinate with each other. Two adjacent giga-project packages competing for the same low-loader fleet in the same week is not a supply-chain failure in any formal sense. It is simply a programme delay that nobody owns.</p><p>The response visible on the exhibition floor is inventory. A recurring argument from suppliers here has been that stock held inside the Kingdom, technical support in the same time zone and a second source identified in advance are worth paying for. That is a reasonable case, and it is the commercial expression of the same logistics problem: the value of local stock is precisely the movement it avoids.</p><p>It also connects to the localisation argument that has dominated the week. A factory inside Saudi Arabia is a logistics instrument before it is an industrial policy outcome. It shortens the distance between a problem discovered on a Riyadh pour and the technical team that can solve it, and it removes a sea leg and a customs process from a delivery schedule. Domestic manufacturers on this floor have made that case in preference to a price argument, and it is the stronger of the two.</p><p>Neither constraint has a purchasable solution. Training a commissioning engineer takes years and nobody's project budget carries it. Coordinating haulage across competing developers requires an authority none of them has granted. What can be done is narrower: qualify suppliers on the movement they avoid rather than the unit price they quote, and treat labour availability as a procurement input rather than a contractor's private difficulty. Both are contract design decisions, and both are cheaper than the delay they prevent.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "supply-chain",
+    "categories": [
+      "supply-chain",
+      "logistics",
+      "construction"
+    ],
+    "tags": [
+      "Construction Workforce",
+      "Logistics",
+      "Saudi Construction",
+      "Supply Chain",
+      "Project Delivery"
+    ],
+    "companies": [
+      "General Authority for Statistics",
+      "Saudi Contractors Authority"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.agbi.com/analysis/construction/2026/08/saudi-construction-hiring-slows-following-giga-project-rejig/",
+    "primarySourceName": "AGBI",
+    "secondarySourceUrls": [
+      "https://www.spa.gov.sa/en/N2628653",
+      "https://www.arabnews.com/node/2647366/business-economy",
+      "https://www.meed.com/market-talk-saudi-construction-moves-into-delivery-mode",
+      "https://www.zawya.com/en/projects/saudi-construction-industry-eyes-stronger-project-delivery-472960"
+    ],
+    "seoTitle": "Labour and Logistics Still Set the Pace on Saudi Sites",
+    "seoDescription": "Saudi construction employed about 3.4 million people at end-2025, 92 per cent non-Saudi, and hiring has cooled. People and movement bind delivery.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 599,
+    "replacementOf": null,
+    "replacementReason": null,
+    "imageReviewRequired": true,
+    "internalLinks": [
+      "big-5-exhibitors-saudi-procurement-demand"
+    ]
+  }
+]

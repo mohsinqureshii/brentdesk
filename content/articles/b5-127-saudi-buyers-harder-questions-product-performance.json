@@ -1,0 +1,56 @@
+[
+  {
+    "commission": 1127,
+    "headline": "Saudi Buyers Are Asking Harder Questions About Product Performance",
+    "slug": "saudi-buyers-harder-questions-product-performance-certification",
+    "deck": "Certification, tested performance, lifecycle cost and spare parts came up earlier in conversations at Big 5 than they used to. The regulatory reason is not hard to find.",
+    "excerpt": "Across four days at Big 5 Construct Saudi, buyers pressed exhibitors on certification, test conditions, warranties and spare parts before they pressed them on price. A mandatory Saudi Building Code, the SABER conformity regime and widening local content rules explain why.",
+    "content": "<p>The most useful thing to watch on an exhibition floor is not what is on the stands but what buyers do when they reach them. Across four days at Big 5 Construct Saudi, the pattern was consistent and it was not flattering to the marketing: the questions that stopped a conversation were about certificates, test conditions, warranty terms, spare parts and project references, and they were being asked earlier in the conversation than they used to be.</p>\n<p>That shift has a policy explanation as much as a commercial one. Saudi Arabia has spent the past two years converting product quality from a contractual preference into a regulatory gate. The Saudi Building Code Center was constituted as a standalone body by Council of Ministers Decision No 656 of 4 March 2025, moving administrative authority for the code from the Saudi Standards, Metrology and Quality Organization to the Ministry of Municipalities and Housing. The 2024 edition of the code became mandatory on 30 June 2025 after a 180-day transition, and a separate decision in October 2024 amended the code's implementation law so that an occupancy certificate is a prerequisite for full activation of a building's electrical supply.</p>\n<p>The practical effect is that a non-compliant product no longer produces an argument between a contractor and a consultant. It produces a building that cannot be energised. That changes who cares about a datasheet, and how early.</p>\n<p>Conformity assessment has grown up alongside it. Firms such as Fahes, a Riyadh-headquartered accredited conformity assessment body, now sit between manufacturers and the market issuing product conformity certificates through the <a href=\"https://fahes.com.sa/en/\">SABER and FASAH platforms</a> and running inspection and testing services for suppliers wanting to sell into the Kingdom. A supplier arriving at a Saudi tender without that paperwork is not making a weaker case; it is making no case at all.</p>\n<p>Procurement policy is pushing from the other direction. The <a href=\"/manufacturing/localization-saudi-manufacturing-big-5-construct-saudi-2026\">Local Content and Government Procurement Authority</a> confirmed in February that a minimum local content percentage inside an enterprise-level Local Content Certificate would become a prerequisite for benefiting from the mandatory list of national products, with 233 products subject to the requirement from 1 August this year, ceramic and porcelain tiles among them. Split air conditioners, water pumps, water valves and copper wires follow on 1 August 2027. BrentDesk has covered <a href=\"/supply-chain/saudi-mandatory-local-content-list-anchor-buyers\">the widening of that mandatory list</a> and the buying power behind it. The result is that a Saudi buyer now has two documents to reconcile for the same item: what the product is certified to do, and how much of it was made here.</p>\n<p>The third pressure is the least discussed and probably the most consequential. Saudi Arabia is not simply buying products; it is buying operating liabilities. A chiller, a pump, a valve or a facade system procured this year will be maintained for two or three decades by an owner who has to budget for it. That makes lifecycle cost, spare-parts availability and local after-sales presence commercial questions rather than technical ones, and it explains why the exchanges that ran longest on the show floor were about service networks and parts inventories rather than headline specifications.</p>\n<p>Some exhibitors have already built their pitch around it. Eurovent Certita Certification came to Riyadh promoting HVAC testing at 46C ambient conditions and demonstrated operability at 52C, on the argument that European rating points describe a climate Saudi Arabia does not have. Galaxy Technology exhibited its Albion Valves range with carbon transparency published across its cast-iron products. Masdar showed Kronospan carbon-negative wood-based panels and won the Big 5 Impact Trail award for best circular economy solution. In each case the claim being made is checkable, which is the point.</p>\n<p>What has not changed is the gap between a specification and a delivered product. Saudi contractors have spent a decade absorbing the cost of substitutions approved on paper and discovered on site, and the harder questions are a direct response to that experience. Certification does not eliminate the risk. It moves the argument to a document that someone other than the salesperson wrote, which is a meaningful improvement on the position the market was in five years ago.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "supply-chain",
+    "categories": [
+      "supply-chain",
+      "logistics"
+    ],
+    "tags": [
+      "Procurement",
+      "Certification",
+      "Saudi Building Code",
+      "Local Content",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [
+      "Saudi Building Code Center",
+      "Fahes",
+      "Local Content and Government Procurement Authority",
+      "Eurovent Certita Certification",
+      "Galaxy Technology",
+      "Masdar Building Materials"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.spa.gov.sa/en/N2514218",
+    "primarySourceName": "Saudi Press Agency",
+    "secondarySourceUrls": [
+      "https://fahes.com.sa/en/",
+      "https://practiceguides.chambers.com/practice-guides/construction-law-2026/saudi-arabia/trends-and-developments",
+      "https://www.eurovent-certification.com/en/cms/event/big-5-construct-saudi-2026",
+      "https://www.big5constructsaudi.com/"
+    ],
+    "internalLinks": [
+      "saudi-mandatory-local-content-list-anchor-buyers",
+      "eurovent-desert-certification-saudi-hvac-big-5-2026",
+      "localization-saudi-manufacturing-big-5-construct-saudi-2026"
+    ],
+    "seoTitle": "Saudi Buyers Get Tougher on Product Performance Claims",
+    "seoDescription": "Certification, tested performance and spare parts dominated buyer questions at Big 5 Construct Saudi as the Saudi Building Code and local content rules tighten.",
+    "articleType": "report",
+    "researchConfidence": "A",
+    "wordCount": 687,
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

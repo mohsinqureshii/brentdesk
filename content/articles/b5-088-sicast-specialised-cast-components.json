@@ -1,0 +1,48 @@
+[
+  {
+    "commission": 1088,
+    "headline": "Saudi Projects Need More Than Steel. They Need Specialised Castings",
+    "slug": "sicast-saudi-foundry-specialised-cast-components",
+    "deck": "A valve body or a pump casing is not a commodity. The Kingdom's foundry capacity is small, strategically placed and harder to build than a rolling mill.",
+    "excerpt": "Structural steel is the visible part of Saudi Arabia's metals localisation. The less visible part is the foundry sector: SICAST runs a wholly Saudi-owned plant producing castings for valves, pumps and turbines, a category where a single missing component can hold an entire facility.",
+    "content": "<p>Saudi Arabia's metals localisation story is usually told through tonnage. Rebar, sections, plate, coil and billet are counted in millions of tonnes, they support visible investment, and they anchor arguments about industrial self-sufficiency. The category that actually determines whether a Saudi plant, pumping station or process facility can be commissioned on time is much smaller and rarely counted: castings.</p><p>A valve body, a pump casing, an impeller or a turbine component is not a commodity. It is a shaped part in a specified alloy, produced to a metallurgical standard, heat treated, machined and tested, usually against an end-user's approved manufacturer list. Nothing about it is interchangeable. A pumping station missing one casting is a pumping station that does not run, and the lead time to obtain a replacement from an overseas foundry is measured in months rather than weeks — an exposure the Kingdom has spent a decade addressing in <a href=\"/article/saudi-oilfield-suppliers-local-manufacturing-ampo-arabia-zuluf-valves\">valves and oilfield components</a>.</p><p>The Specialized Industrial Casting Company, SICAST, was established to close part of that gap. The company is a wholly Saudi-owned foundry, part of the Khalifa A. Algosaibi group's industrial portfolio, producing steel and iron castings principally for valves, pumps and turbines. Its stated capacity is around 1,350 tonnes a month, and its process list runs from sand moulding and three-dimensional printed moulds through heat treatment to finishing. Its initial market was the oil and gas midstream and downstream chain, developed in alignment with Aramco's supplier requirements, which is the standard route into the Saudi industrial market for a component maker: qualify with the largest buyer, then sell the qualification to everyone else.</p><p>Foundries are considerably harder to establish than rolling mills, which is why there are so few of them in the Gulf relative to the size of the industrial base. The capital cost is moderate, but the capability is not: alloy control, moulding practice, gating and risering design, non-destructive testing and metallurgical quality assurance are accumulated skills, and rejection rates punish inexperience directly. Foundries are also environmentally demanding operations. SICAST's investment in thermal reclamation of used foundry sand, which mechanically and thermally strips the binders so the sand can be reused, addresses one of the industry's largest waste streams and is the kind of process spending that signals a plant built for a long life rather than a contract.</p><p>Three-dimensional printing of sand moulds is the more significant technical detail for buyers. Printed moulds remove the pattern-making step, which is the slowest and most expensive part of producing a small quantity of a non-standard part. For a Saudi operator holding an ageing pump with an obsolete casing, or a contractor needing a handful of specials for a plant modification, that changes the economics of local supply from impossible to routine. It is also the capability that makes a domestic foundry useful to the operating phase of an asset rather than only to its construction.</p><p>The demand behind this is broad. Water transmission and desalination, power generation, petrochemicals, mining and mineral processing, district cooling and the mechanical plant inside every large building all consume pumps and valves continuously, and all of them are expanding at once in the Kingdom. Aramco's iktva programme reached 70 percent local content in February with a 75 percent target for 2030, and the government mandatory list has been extended to categories including water pumps and water valves, which pulls castings into scope indirectly through the equipment that contains them.</p><p>The limitation is scale. A capacity of roughly 1,350 tonnes a month is meaningful for specials, spares and mid-sized components; it is not a substitute for the global casting supply chain that serves large rotating equipment. The realistic ambition for Saudi foundry capacity is not self-sufficiency but resilience: enough domestic capability to keep facilities running when an import route fails, to support maintenance and modification, and to qualify local suppliers into the approved lists that govern what operators are allowed to buy. On that measure the category is worth more attention than its tonnage suggests.</p>",
+    "author": "BrentDesk Research",
+    "primaryCategory": "manufacturing",
+    "categories": [
+      "manufacturing",
+      "metals",
+      "mining"
+    ],
+    "tags": [
+      "Castings",
+      "SICAST",
+      "Local Content",
+      "Foundry",
+      "Saudi Manufacturing"
+    ],
+    "companies": [
+      "Specialized Industrial Casting Company",
+      "Khalifa A. Algosaibi Investment",
+      "Aramco"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://theenergyyear.com/articles/a-local-foundry-industry-for-saudi-arabia/",
+    "primarySourceName": "The Energy Year",
+    "secondarySourceUrls": [
+      "https://www.zoominfo.com/c/specialized-industrial-casting-company-sicast/561038460",
+      "https://www.forbesmiddleeast.com/lists/top-100-arab-family-businesses-2026/khalifa-a-algosaibi-investment-kai/",
+      "https://www.spa.gov.sa/en/N2514218"
+    ],
+    "seoTitle": "Saudi Projects Need Specialised Castings, Not Just Steel",
+    "seoDescription": "SICAST runs a wholly Saudi-owned foundry making castings for valves, pumps and turbines, a category where one missing part can hold a facility.",
+    "articleType": "report",
+    "wordCount": 664,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "commission": 1119,
+    "headline": "Modular Construction Does Not Remove Site Problems, It Moves Them Earlier",
+    "slug": "modular-construction-moves-problems-earlier",
+    "deck": "Everything the method promises to take off a site has to happen somewhere. Mostly it happens in design coordination, on a factory floor and on a low-loader, months before anyone breaks ground.",
+    "excerpt": "The pitch for modular construction is fewer people on site and a shorter programme. What it actually does is relocate complexity into design coordination, manufacturing, logistics, sequencing and site readiness. Organisations that treat it as a procurement substitution rather than a different operating model tend to discover this late.",
+    "content": "<p>Modular construction closed the conference programme at Big 5 Construct Saudi this week, and the framing on the floor has been consistent with how the method is usually sold: fewer trades on site, less weather exposure, better quality control, a shorter programme. All of that is true and none of it is the whole picture. Modular does not remove complexity from a project. It moves it earlier, and it moves it somewhere the client has less visibility.</p><p>The first place it moves to is design coordination. A conventional project can carry unresolved design into construction, and does, routinely — a service route settled on site, a detail agreed with a subcontractor at the wall. A module has to be designed complete before the first unit is manufactured, with architectural, structural, mechanical and electrical design reconciled at the joint between modules. The design effort is not larger in total. It is compressed into a period before anything is visible, at a point when a client is used to seeing progress and now sees drawings.</p><p>The second is manufacturing. A factory is not a bigger site; it is a business with fixed costs and a production rate, and the module price a client is quoted assumes a loading. If the project's order slips by a quarter, the factory's other work fills the slot and the returning project queues. The commercial consequence of a delay under modular procurement is therefore different in kind from a site delay, and contracts written for site-built work handle it badly.</p><p>The third is logistics, which is where the method most often surprises people. Modules are oversize loads. The route from factory to site has to be surveyed, the vehicle and permit regime understood, the movement hours agreed with authorities, and the delivery sequence planned in the order the modules will be lifted rather than the order they were made. A module that arrives out of sequence is not merely inconvenient; on a constrained urban site with no laydown area, it has nowhere to be.</p><p>The fourth is sequencing, and the fifth is site readiness, and the two are the same problem seen from either end. Installation cannot start late and cannot pause. Foundations have to be complete and within tolerance, services terminated where the design says they are, crane position established, access maintained. A site-built programme absorbs a two-week slip in the substructure by resequencing the trades above. A modular programme absorbs it by paying for standing time on a crane, a delivery fleet and an installation crew, and then negotiating a new factory slot.</p><p>None of this is an argument against the method. It is an argument for buying it correctly. The organisations that get value out of modular in this region tend to have three characteristics: repeatable product, so a factory has a forward order book; a client organisation willing to freeze design and pay for the coordination that makes freezing possible; and a delivery team that treats the substructure as the critical path rather than a preliminary. Manufacturers in the Kingdom have been making steel-framed modules, cabins and bathroom and kitchen pods for decades, and the constraint has never been that they could not build them.</p><p>There is a workforce argument underneath all of this that deserves more weight than it gets. Saudi construction employs roughly 3.4 million people, hiring has cooled to single-digit growth, and the roles hardest to fill are the specialist trades and supervisors that a complex site consumes. Moving work into a factory converts some of that demand into a controlled indoor environment where labour can be trained, retained and supervised at a ratio a site cannot match. That is the strongest case for the method in this market, and it has nothing to do with speed.</p><p>What the show has been good at this week is putting the manufacturing side and the delivery side in the same building. What no exhibition can do is force the conversation that decides whether a modular programme works, which happens between a client and a designer eighteen months before a module is made, and which is where the complexity now lives.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction"
+    ],
+    "tags": [
+      "Modular Construction",
+      "Offsite Construction",
+      "Project Delivery",
+      "Big 5 Construct Saudi",
+      "Logistics"
+    ],
+    "companies": [],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/talks-features/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.spacemakerksa.com/Modular-Projects-Construction-Solutions-Saudi-arabia",
+      "https://www.agbi.com/analysis/construction/2026/08/saudi-construction-hiring-slows-following-giga-project-rejig/",
+      "https://www.big5constructsaudi.com/big-5-construct-saudi-returns-from-30-august-2-september-spotlighting-the-foundational-phase-of-construction-featuring-1000-exhibitors-from-over-50-countries/"
+    ],
+    "seoTitle": "Modular Moves Complexity Earlier, It Does Not Remove It",
+    "seoDescription": "Modular construction relocates complexity into design coordination, manufacturing, logistics, sequencing and site readiness rather than removing it.",
+    "articleType": "opinion",
+    "researchConfidence": "B",
+    "wordCount": 688,
+    "replacementOf": null,
+    "replacementReason": null,
+    "imageReviewRequired": true
+  }
+]

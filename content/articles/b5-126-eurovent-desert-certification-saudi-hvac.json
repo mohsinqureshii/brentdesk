@@ -1,0 +1,53 @@
+[
+  {
+    "commission": 1126,
+    "headline": "Eurovent Takes Its Desert Certification Argument to Saudi HVAC Buyers",
+    "slug": "eurovent-desert-certification-saudi-hvac-big-5-2026",
+    "deck": "The certification body exhibited at HVACR Saudi with a testing regime built for 46C, as Saudi cooling demand and local content rules both tighten.",
+    "excerpt": "Eurovent Certita Certification exhibited at Big 5 Construct Saudi alongside Eurovent Middle East, promoting a Desert Certification option that tests HVAC equipment at 46C and requires operability at 52C. The pitch lands as Saudi cooling demand climbs and local content rules reach split air conditioners.",
+    "content": "<p>Eurovent Certita Certification spent Big 5 Construct Saudi arguing a narrow point with wide consequences: that a performance figure on a chiller datasheet means very little in Riyadh unless it was measured somewhere that behaves like Riyadh. The French certification body exhibited at the HVACR Saudi hall alongside Eurovent Middle East, the regional arm of the European HVACR industry association, through the four days of the show at the Riyadh Front Exhibition &amp; Conference Center.</p>\n<p>Eurovent Certita Certification runs more than 40 certification programmes for heating, ventilation, air conditioning and refrigeration equipment, of which the <a href=\"https://www.eurovent-certification.com/en/our-company\">Eurovent Certified Performance</a> mark is the best known. The proposition is third-party verification: a manufacturer submits products, the certifier tests samples in independent laboratories against a defined ratings standard, and the published figures carry the mark. The alternative, which remains common across the Gulf, is a self-declared rating that no independent party has ever checked.</p>\n<p>The specific product the certifier brought to Riyadh is its Desert Certification option, built for Bahrain, Kuwait, Oman, Qatar, Saudi Arabia and the United Arab Emirates. Standard European ratings are established at moderate ambient conditions that no Saudi summer ever presents. Desert Certification instead tests at T1 conditions of 35C and T3 conditions of 46C, and requires demonstrated operability at 52C, with harsher requirements again for Kuwait. It also carries a Desert Seasonal Energy Efficiency Ratio, a part-load metric intended to describe how a machine behaves across a real operating year rather than at a single design point.</p>\n<p>That distinction between a design-point rating and a seasonal one is where most of the money sits. Air conditioning equipment in the Gulf rarely runs at full load; it spends most of its hours modulating. A unit that looks efficient at nominal conditions and degrades badly at part load will consume far more electricity over twenty years than its nameplate implies, and the difference is invisible on a comparison sheet that lists only full-load figures.</p>\n<p>The Saudi market gives that argument unusual weight this year. Cooling is the single largest use of electricity in the Kingdom through the summer months, and demand is being pushed by three build-outs at once: residential and commercial real estate, industrial facilities, and the data centre capacity described in BrentDesk's reporting on <a href=\"/data-centers/saudi-data-centre-power-demand-humain-datavolt-oxagon\">the new kind of load Saudi computing is placing on the grid</a>. Market researchers at IMARC put the Saudi air conditioning market at about $2.7bn in 2025, rising towards $5.2bn by 2034. Whatever the precise figure, the installed base being created now is the base that has to be operated for decades.</p>\n<p>Certification is also becoming a procurement instrument rather than a marketing one. Saudi Arabia already gates imported products through the SABER conformity platform, and the <a href=\"/supply-chain/saudi-buyers-harder-questions-product-performance-certification\">Saudi Building Code Center</a>, established as a standalone body by Council of Ministers decision in March 2025 and reporting to the Ministry of Municipalities and Housing, has tightened the link between technical compliance and permitting. The 2024 edition of the Saudi Building Code became mandatory on 30 June 2025 after a 180-day transition, and mechanical and electrical systems fall explicitly under its SBC 401 and SBC 501 requirements.</p>\n<p>Meanwhile the Local Content and Government Procurement Authority has confirmed that split air conditioners will be among the products subject to a minimum local content percentage from 1 August 2027 in order to benefit from the mandatory list of national products. Manufacturers building or expanding Saudi assembly to meet that requirement will need a credible, independent performance story to sit alongside the local content one, because a locally made unit that cannot demonstrate tested efficiency at 46C solves a policy problem and creates an operating one.</p>\n<p>None of this is settled. Third-party certification remains voluntary in most Saudi private-sector tenders, and the cost of submitting a range for testing is real for smaller manufacturers. But the direction of the questions being asked on the HVACR floor at Riyadh Front was consistent: buyers wanted to know who measured the number, under what conditions, and whether the same machine would repeat it in August.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "utilities",
+    "categories": [
+      "utilities"
+    ],
+    "tags": [
+      "HVAC",
+      "Certification",
+      "Big 5 Construct Saudi",
+      "Saudi Arabia",
+      "Cooling"
+    ],
+    "companies": [
+      "Eurovent Certita Certification",
+      "Eurovent Middle East",
+      "Saudi Building Code Center",
+      "Local Content and Government Procurement Authority"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.eurovent-certification.com/en/cms/event/big-5-construct-saudi-2026",
+    "primarySourceName": "Eurovent Certita Certification",
+    "secondarySourceUrls": [
+      "https://www.eurovent-certification.com/en/cms/news/energy-efficient-indoor-air-quality-at-the-big-5-saudi",
+      "https://www.eurovent-certification.com/en/our-company",
+      "https://www.big5constructsaudi.com/",
+      "https://www.spa.gov.sa/en/N2514218"
+    ],
+    "internalLinks": [
+      "saudi-data-centre-power-demand-humain-datavolt-oxagon",
+      "big-5-construct-saudi-2026-returns-riyadh-exhibitor-line-up",
+      "saudi-buyers-harder-questions-product-performance-certification"
+    ],
+    "seoTitle": "Eurovent Pushes Desert HVAC Certification in Saudi Arabia",
+    "seoDescription": "Eurovent Certita Certification exhibited at Big 5 Construct Saudi with a Desert Certification regime testing HVAC equipment at 46C and 52C operability.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "wordCount": 673,
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

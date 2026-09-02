@@ -1,0 +1,55 @@
+[
+  {
+    "commission": 1115,
+    "headline": "Project Tracking Tools Push Into Materials and Supplier Data",
+    "slug": "project-tracking-supply-chain-saudi-construction",
+    "deck": "Site monitoring has become routine. The harder extension is upstream, into what has been ordered, what has been made and what is on a ship.",
+    "excerpt": "Digital transparency ran through Big 5 Construct Saudi's technology and project management streams this week. The tools that track progress on site are now being pointed at the supply chain feeding it, with drones, scanning, sensor monitoring and analytics on one side and thin supplier data on the other.",
+    "content": "<p>Digital transparency appeared repeatedly across Big 5 Construct Saudi's <a href=\"https://www.big5constructsaudi.com/talks-features/\">conference streams</a> this week, which covered technology, project management, artificial intelligence, codes and standards, concrete, modular construction and HVACR. The phrase usually gets used about a construction site. The more consequential application is upstream of it.</p><p>Progress monitoring is close to solved as a technical matter. Drones fly a site on a schedule, laser scanning produces a measurable record of what has actually been built, sensor-based monitoring reports on equipment and environmental conditions, and automated plant produces its own telemetry. A project director in Riyadh can now know, with reasonable confidence and without leaving an office, how much structure exists and how it compares to the model. That capability has been commercially available long enough to be a procurement decision rather than a pilot.</p><p>What that visibility exposes is the limit on the other side. A weekly scan tells a project team that a floor is three days behind. It does not tell them that the reason is a fabricator in another country running two shifts short, that the replacement has an eleven-week lead time, or that a second source exists at a 14 per cent premium. Those facts belong to the supply chain, and the supply chain has not been instrumented.</p><p>The tools being aimed at that gap fall into three groups. The first is e-procurement, which formalises requisition, tender, award and call-off, and which in the Saudi public sector has a national spine: government tendering runs through Etimad and <a href=\"https://www.ivalua.com/blog/what-is-saudi-vision-2030-and-how-will-it-impact-procurement/\">the great majority of public procurement is now conducted digitally</a>. The second is analytics applied to purchasing history and market data, used to forecast price movement and flag suppliers whose behaviour has changed. The third is traceability, including distributed-ledger approaches intended to give a timestamped, tamper-resistant record of where an item came from and what certification travelled with it.</p><p>Each group works to the extent that suppliers feed it. That is the recurring constraint. A traceability record is only as good as the point at which the physical item is first scanned, and a lead-time forecast is only as good as the manufacturer's honesty about its own order book. Neither is a software characteristic. Both are contract terms.</p><p>The Saudi context makes the gap expensive rather than merely untidy. The Kingdom awarded more than SAR30.03 billion of construction contracts in May and the <a href=\"/supply-chain/big-5-exhibitors-saudi-procurement-demand\">Saudi Contractors Authority</a> recorded <a href=\"https://www.spa.gov.sa/en/N2628653\">25 projects worth over SAR29.5 billion in June</a>. A supply base serving that many simultaneous programmes is routinely committed several times over, and the conflict typically surfaces at the delivery date rather than at the order.</p><p>There is a practical middle path that several large clients in the region have taken, and it does not require a platform purchase at all. It is to make disclosure a qualification condition: a supplier bidding for a package states current lead time, committed capacity, stock held inside the Kingdom and the precise scope of its certification, in a standard format, and updates it monthly. That produces a dataset that the analytics layer can then work on. Buying the analytics first, which is the more common sequence, produces a well-designed screen with nothing behind it.</p><p>The show itself is a reminder of how the industry currently compensates. Buyers spend four days asking suppliers, in person, the questions a system ought to answer — certification scope, tested performance, lifecycle cost, warranty, local support, spare parts, references. That works, at the rate of a few dozen suppliers a week, once a year. It does not scale to a delivery programme running SAR29 billion a month.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology",
+      "supply-chain",
+      "logistics",
+      "construction"
+    ],
+    "tags": [
+      "Construction Technology",
+      "Supply Chain",
+      "Digital Transparency",
+      "Procurement",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Etimad",
+      "Saudi Contractors Authority"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/talks-features/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.ivalua.com/blog/what-is-saudi-vision-2030-and-how-will-it-impact-procurement/",
+      "https://www.spa.gov.sa/en/N2628653",
+      "https://www.meed.com/market-talk-saudi-construction-moves-into-delivery-mode",
+      "https://www.zawya.com/en/projects/saudi-construction-industry-eyes-stronger-project-delivery-472960"
+    ],
+    "seoTitle": "Project Tracking Moves Upstream Into Supplier Data",
+    "seoDescription": "Site monitoring is solved; the supply chain feeding it is not. E-procurement and traceability need supplier data that contracts do not yet require.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 598,
+    "replacementOf": null,
+    "replacementReason": null,
+    "imageReviewRequired": true,
+    "internalLinks": [
+      "big-5-exhibitors-saudi-procurement-demand"
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "commission": 1140,
+    "headline": "The Physical World Is Becoming Software-Defined, One Component at a Time",
+    "slug": "physical-world-software-defined-big-5-saudi-2026",
+    "deck": "Concrete that reports its own strength, chillers sold as datasets, valves with published carbon: what changes when products ship with data as standard.",
+    "excerpt": "Across Big 5 Construct Saudi, construction products increasingly arrived with data interfaces as standard: concrete sensors, seasonal performance datasets, published embodied carbon and plant telematics. The consequences run through procurement, warranty and operations rather than through any transformation programme.",
+    "content": "<p>Put a trade show for construction materials next to a trade show for artificial intelligence and the temptation is to treat them as opposites. Riyadh's calendar this year invited exactly that comparison, and the more useful observation runs the other way: the products in the halls at Riyadh Front are becoming software objects, and the change is happening component by component rather than through any digital transformation programme.</p>\n<p>The evidence is in what now ships with a data interface as standard.</p>\n<p>Concrete is the extreme case, because it is the least likely candidate. A cubic metre of concrete has no obvious place for electronics, and yet in-pour wireless sensing has become a normal specification on demanding structures. <a href=\"/industrial-technology/brickeye-lumicon-concrete-monitoring-sensors-saudi-projects\">Brickeye</a>, formerly AOMS Technologies, sells sensors under its LumiCon system that report internal temperature, temperature differential and maturity continuously, which turns an element that used to be assessed by crushing a cylinder days later into a monitored asset with a live strength curve. The company says the technology has run on more than 3,000 projects in over 20 countries.</p>\n<p>Cooling equipment carries the same shift in a different form. A chiller is now sold with a seasonal performance profile rather than a single rating; Eurovent Certita Certification's Desert Certification programme publishes a Desert Seasonal Energy Efficiency Ratio describing part-load behaviour across a year, tested at 35C and 46C with operability demonstrated to 52C. That is a dataset, not a specification line, and it is used by an energy model rather than by a purchasing clerk.</p>\n<p>Materials are being instrumented in a third way, through disclosure. Galaxy Technology exhibited its Albion Valves range with published carbon data across its cast-iron products, and Masdar took the Big 5 Impact Trail award for circular economy for Kronospan carbon-negative wood-based panels. Embodied-carbon figures are structured, comparable, machine-readable inputs to a procurement decision. A valve with an environmental product declaration behaves, commercially, like a valve with an API.</p>\n<p>Plant and machinery arrived at this earlier. Telematics on heavy equipment has been standard for a decade, and rebar processing lines, block plants and precast production report yield, downtime and rejection rates as a matter of course. Topwerk's HESS Group installations in Saudi Arabia describe fully automatic block plants with in-line finishing, which is a factory control system that happens to make concrete products.</p>\n<p>Buildings themselves close the loop. Building management systems, work-order platforms, asset registers and condition monitoring convert an operating asset into a queryable object, and the facilities management market has moved decisively in that direction as Saudi clients outsource and therefore have to verify.</p>\n<p>What makes this a structural change rather than a set of product features is what it does to the commercial relationships. Three things move.</p>\n<p>Procurement changes first. When performance is published, tested and comparable, a specification can require it, and a supplier who cannot produce the dataset is excluded rather than merely disadvantaged. Saudi Arabia's regulatory direction reinforces that: the 2024 Saudi Building Code has been mandatory since June 2025 and compliance runs through permitting, while conformity assessment through the SABER platform gates what can be sold at all.</p>\n<p>Warranty and liability change second. A component that logs its own operating conditions produces evidence about how it was installed, commissioned and run. That is useful to a manufacturer defending a claim and to an owner making one, and it will eventually be argued over in contracts.</p>\n<p>Operations change third, and most. An asset that reports its own condition allows maintenance to be scheduled against measured degradation rather than a fixed interval, which is the industrial pattern BrentDesk has tracked in <a href=\"/industrial-technology/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">predictive maintenance moving from alert to work order</a> and in <a href=\"/robotics/robotics-industrial-inspection-adnoc-taweelah-anybotics-spot\">robotic inspection entering process plants</a>.</p>\n<p>The limits are real. Data that stays inside a manufacturer's proprietary portal is not usable by an integrated operator, interoperability between systems remains poor, and a sensor on a building is worthless without a technician who acts on it. Saudi Arabia's constraint here is people, not devices. But the direction is not in doubt, and it is being set by what suppliers now consider a normal product, which is the most durable kind of change there is.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology"
+    ],
+    "tags": [
+      "Industrial Technology",
+      "Sensors",
+      "Digitalisation",
+      "Big 5 Construct Saudi",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Brickeye",
+      "Eurovent Certita Certification",
+      "Galaxy Technology",
+      "Masdar Building Materials",
+      "Topwerk"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.brickeye.com/concrete-monitoring",
+    "primarySourceName": "Brickeye",
+    "secondarySourceUrls": [
+      "https://www.eurovent-certification.com/en/cms/news/energy-efficient-indoor-air-quality-at-the-big-5-saudi",
+      "https://www.big5constructsaudi.com/leading-local-and-international-brands-to-showcase-solutions-at-big-5-construct-saudi-supporting-project-delivery-across-the-kingdom/",
+      "https://practiceguides.chambers.com/practice-guides/construction-law-2026/saudi-arabia/trends-and-developments"
+    ],
+    "internalLinks": [
+      "predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption",
+      "physical-economy-technology-market-2026",
+      "leap-big-5-construct-saudi-2026-concrete-compute-same-week",
+      "brickeye-lumicon-concrete-monitoring-sensors-saudi-projects"
+    ],
+    "seoTitle": "The Physical World Is Becoming Software-Defined",
+    "seoDescription": "Concrete sensors, seasonal chiller datasets and published embodied carbon: how construction products at Big 5 Saudi now ship with data as standard.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 690,
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

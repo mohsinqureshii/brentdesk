@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 1093,
+    "headline": "The Saudi Building Code Has Become a Commercial Issue, Not a Technical One",
+    "slug": "saudi-building-code-commercial-issue-cost-certification",
+    "deck": "Since the 2024 edition became mandatory, code compliance has been repriced into product selection, programme risk and the cost of housing.",
+    "excerpt": "More than a year after the 2024 edition became mandatory, the Saudi Building Code is showing up in commercial decisions rather than technical ones: which products can be specified, how long approvals take, what residential construction costs, and which buildings will need rehabilitation.",
+    "content": "<p>Building codes are usually discussed as an engineering matter and experienced as a commercial one. Saudi Arabia has reached the point where the second half of that sentence dominates. The 2024 edition of the Saudi Building Code has been mandatory since 30 June 2025, and more than a year of operating under it has pushed the code out of the technical departments and into procurement, programme and pricing decisions across the industry. That was audible on the floor at Big 5 Construct Saudi this week, where the code came up as often in conversations about products as in the sessions dedicated to it.</p><p>The clearest commercial effect is on what can be specified. A code that rests on documented conformity rather than professional judgement makes a product's paperwork part of the product. Conformity assessment bodies accepted for Saudi Building Code work stand between a manufacturer and an approval, and a supplier that has not been through that process is not cheaper, it is slower — sometimes indefinitely. That is why the questions being put to exhibitors this week were about test certificates, tested assemblies and Saudi-specific documentation before they were about price, and it is why manufacturers with local certification treat it as a commercial asset rather than an overhead.</p><p>The second effect is on programme. The expensive part of a code is rarely the requirement. It is the discovery, midway through a project, that a requirement was going to be demonstrated a different way. Fire and life safety is the sharpest example, because the choice between a prescriptive route and a performance-based justification has to be settled before the design is fixed, and the inspection that tests the decision arrives when the building is otherwise complete. But the same pattern applies to structural provisions, energy conservation and mechanical systems. Approval risk is schedule risk, and schedule risk on a Saudi programme with a fixed external deadline is the most expensive category of risk there is.</p><p>The third effect is on the cost of housing, and it is the one the Kingdom has been most willing to examine openly. Research from King Saud University has studied the <a href=\"https://www.mdpi.com/2075-5309/14/1/233\">impact of the Saudi Building Code on residential construction costs</a> directly, which is a more honest position than the usual official assumption that compliance is free. It is not: structural provisions, thermal performance requirements, documentation and supervision all carry a cost, and in the residential segment they land on the smallest developers and the least sophisticated contractors. Whether that cost is worth paying is not seriously in dispute among engineers. Where it lands, and whether it is absorbed by developers, buyers or public housing programmes, is a live policy question.</p><p>The fourth effect is the one nobody has priced yet. The 2024 edition added an assessment and rehabilitation code for existing concrete structures. A country only writes that code when its existing building stock has begun to need it. Saudi Arabia's construction booms of the 1970s, 1980s and 2000s produced a very large quantity of concrete now entering the phase where chloride-driven corrosion, carbonation and fatigue require assessment rather than assumption. A national standard for how that assessment is done creates, in effect, a rehabilitation market — and eventually a valuation question for owners of buildings that would not be approved if built today.</p><p>What makes all of this manageable rather than punitive is that the direction is not in doubt. The code framework rests on a royal decree with executive regulations defining permits, approvals and the classification of violations, and the <a href=\"/construction/saudi-building-code-enforcement-architecture-2024-edition\">Saudi Building Code Center</a> now operates as an independent body responsible for implementation. That is a durable institutional arrangement rather than a policy cycle, and the market has correctly read it as permanent.</p><p>The practical advice implicit in this week's programme was mundane and correct: settle the compliance pathway before the design is fixed, buy products whose documentation matches the tested assembly rather than the brochure, treat the approving authority's position as a procurement input, and keep the compliance record as the building goes up. Contractors who work that way find the code adds cost. Contractors who do not find it adds cost and time, and the time is what removes the margin.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction"
+    ],
+    "tags": [
+      "Saudi Building Code",
+      "Regulation",
+      "Construction Costs",
+      "Compliance"
+    ],
+    "companies": [
+      "Saudi Building Code Center",
+      "Saudi Standards, Metrology and Quality Organization",
+      "King Saud University"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf",
+    "primarySourceName": "Saudi Building Code Center",
+    "secondarySourceUrls": [
+      "https://www.mdpi.com/2075-5309/14/1/233",
+      "https://www.saso.gov.sa/en/sectors/product-safety/Documents/SBC-INSP-EN.pdf",
+      "https://www.gdnonline.com/Details/1404485",
+      "https://technicalreviewmiddleeast.com/construction/demystifying-the-saudi-building-code-for-mega-projects"
+    ],
+    "seoTitle": "The Saudi Building Code Is Now a Commercial Issue",
+    "seoDescription": "More than a year after the 2024 edition became mandatory, the Saudi Building Code is reshaping product choice, programme risk and build costs.",
+    "articleType": "opinion",
+    "wordCount": 702,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "internalLinks": [
+      "saudi-building-code-enforcement-architecture-2024-edition"
+    ]
+  }
+]

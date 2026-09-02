@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1129,
+    "headline": "What Saudi Contractors Actually Need, and It Isn't an AI Claim",
+    "slug": "what-saudi-contractors-actually-need-big-5-2026",
+    "deck": "Aggregated across four days of conversations at Big 5 Construct Saudi: fewer breakdowns, less rework, lower manpower dependency, and a number they can check.",
+    "excerpt": "Across four days at Big 5 Construct Saudi, the questions contractors put to exhibitors reduced to a short list: fewer breakdowns, faster completion, less rework, less manpower, better quality, safer sites, lower energy and lifecycle cost. Almost nobody asked about artificial intelligence.",
+    "content": "<p>Four days of conversations with contractors at Big 5 Construct Saudi produced a striking absence. Almost nobody asked about artificial intelligence. They asked about breakdowns.</p>\n<p>Aggregate the questions put to exhibitors across the halls at Riyadh Front and a short, repetitive list emerges. Contractors wanted to know whether a machine would run a full shift without stopping, whether a system would let them finish a floor faster, whether a product would cut the amount of work they had to redo, whether it would reduce how many people they needed on site, whether it would hold quality when the crew changed, whether it would make a site safer, whether it would cut energy consumption, and what it would cost to own over its life rather than to buy. That is the whole list. Everything else was a means to one of those ends.</p>\n<p>The list is not sentiment. It is a fairly precise description of where a Saudi contractor's margin is currently being destroyed.</p>\n<p>Start with people. Saudi Arabia's construction workforce runs to the millions and remains overwhelmingly expatriate, and the sector's own recruiters describe specialist roles staying open for months. The giga-project programme has bid up the price of experienced supervisors, planners and trade foremen faster than the general labour market, which means the marginal cost of putting another crew on a site is rising even where the labour itself is available. Anything that reduces headcount for the same output is therefore not a productivity story but a bidding story: it changes what a contractor can afford to tender.</p>\n<p>Rework is the second drain, and it has become more expensive since the 2024 edition of the Saudi Building Code became mandatory on 30 June 2025. Compliance is now enforced through permitting: an occupancy certificate has been a prerequisite for full electrical activation since a Council of Ministers decision in October 2024, and the <a href=\"/construction/big-5-construct-saudi-2026-closes-four-days-riyadh\">Saudi Building Code Center</a> was constituted as a standalone body under the Ministry of Municipalities and Housing in March 2025. A defect that used to be argued over at handover is now a building that will not be energised. Contractors asking about quality assurance were asking about that.</p>\n<p>Breakdowns matter for a related reason. Saudi project programmes have compressed as delivery deadlines have converged on 2030 and beyond, and BrentDesk's reporting on <a href=\"/construction/saudi-project-awards-2026-infrastructure-rotation\">bigger and fewer project awards</a> describes a market where a single package now carries more schedule risk than it did. An excavator out of service for a week on a linear infrastructure package costs sequence, not just plant hire. That is why availability, parts stock in the Kingdom and service response times came up more often than horsepower.</p>\n<p>What contractors were noticeably unwilling to buy was a claim. Vendors offering percentage improvements without a reference project, or describing an intelligent system without saying what it measured, ran into the same follow-up question: where has this run on a job like mine. It is a reasonable question, and in a market where a large share of exhibitors are showing a Saudi product for the first time, it is often the one that ends the conversation.</p>\n<p>The equipment they were willing to spend time on shared a characteristic. Whether it was a rebar processing line, a wall-finishing robot, a concrete monitoring sensor or a connected fleet system, the compelling versions did one repetitive, labour-intensive or difficult task and produced a number the contractor could check. Robotics vendors quoting cycle-time reductions on defined scopes were taken more seriously than platforms promising site-wide transformation, partly because the capital exposure is smaller and partly because the claim is falsifiable.</p>\n<p>Modular and offsite methods drew the most sceptical questioning of all, and for a specific reason. Contractors who have used them know that modular construction does not remove complexity from a project; it moves it earlier, into design freeze, factory scheduling, logistics and site readiness before a single module arrives. The firms asking about it were asking about the front end, not the installation.</p>\n<p>There is a version of this market where contractors are technology-averse. That is not what four days on the floor suggested. They are outcome-literate, and the outcomes they can name are narrow, measurable and financial. The suppliers who did well at Riyadh Front were the ones who had arrived with a number and a reference, and the ones who did badly had arrived with an adjective.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction",
+      "industrial-ai",
+      "industrial-technology"
+    ],
+    "tags": [
+      "Contractors",
+      "Construction Technology",
+      "Productivity",
+      "Saudi Arabia",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [
+      "Saudi Building Code Center"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://practiceguides.chambers.com/practice-guides/construction-law-2026/saudi-arabia/trends-and-developments",
+      "https://www.trade.gov/market-intelligence/saudi-arabia-construction-sector-opportunities",
+      "https://www.tradearabia.com/News/467194/Big-5-Construct-Saudi-brings-together-construction-project-leaders"
+    ],
+    "internalLinks": [
+      "saudi-project-awards-2026-infrastructure-rotation",
+      "saudi-buyers-harder-questions-product-performance-certification",
+      "big-5-construct-saudi-2026-closes-four-days-riyadh"
+    ],
+    "seoTitle": "What Saudi Contractors Actually Need From Suppliers",
+    "seoDescription": "Four days of conversations at Big 5 Construct Saudi: contractors asked about breakdowns, rework and manpower, not artificial intelligence.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 729,
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

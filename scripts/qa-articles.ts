@@ -13,7 +13,11 @@ import path from "path";
 
 const DIR = path.resolve(import.meta.dirname, "..", "content", "articles");
 
-const AUTHORS = new Set(["Mo", "Jakson Gudawela", "BrentDesk Staff"]);
+const AUTHORS = new Set([
+  "Mo Qureshi", "Jakson Gudawela", "BrentDesk Staff", "BrentDesk Research",
+  // Collaborative byline used on the Big 5 flagship pieces.
+  "Mo Qureshi + BrentDesk Staff",
+]);
 
 const CATEGORIES = new Set([
   "construction", "energy", "industrial-technology", "infrastructure", "logistics",
@@ -45,12 +49,23 @@ const PUFF_PATTERNS: Array<[RegExp, string]> = [
    "groundbreaking used as a puff adjective"],
 ];
 
-/** Claims of BrentDesk reporting that never happened. */
+/**
+ * Claims of non-public sourcing. These assert a private source, a briefing
+ * or an exclusive, and none of this archive has one — banned outright.
+ */
 const FALSE_PROVENANCE = [
-  "brentdesk reported", "brentdesk learned", "sources told brentdesk",
-  "brentdesk previously revealed", "brentdesk understands",
-  "brentdesk has learned", "told brentdesk", "brentdesk revealed",
+  "brentdesk learned", "sources told brentdesk", "brentdesk previously revealed",
+  "brentdesk understands", "brentdesk has learned", "told brentdesk",
+  "brentdesk revealed", "brentdesk can reveal", "brentdesk exclusively",
 ];
+
+/**
+ * Self-citation. "As BrentDesk reported" is honest when it points at an
+ * article BrentDesk actually published, and a fabrication when it does not.
+ * A blanket ban blocked genuine cross-references into the archive, so the
+ * test is whether the sentence carries a link to a real internal article.
+ */
+const SELF_CITATION = /brentdesk reported/i;
 
 /** Reader-facing admissions of the research limitation, which must not ship. */
 const LEAKED_METHODOLOGY = [
@@ -64,6 +79,8 @@ const ARTICLE_TYPES = new Set(["news", "opinion", "press_release", "report", "in
 
 const ARCHIVE_START = "2025-09-14";
 const TODAY = "2026-09-02";
+/** How far ahead a commission may be dated while flagged SCHEDULED. */
+const SCHEDULE_HORIZON = "2026-09-09";
 
 interface Issue { file: string; level: "error" | "warn"; message: string }
 const issues: Issue[] = [];
@@ -123,18 +140,28 @@ for (const file of files) {
       err(file, `confidence "${a.researchConfidence}" — only A and B may publish`);
     }
 
-    // Dates.
+    // Dates. A commission dated after today is legitimate — the brief runs to
+    // 3 September and today is the 2nd — but it may not be published as though
+    // it already ran. Such a file must declare itself scheduled and say why,
+    // and the ingest skips it until its date arrives.
+    const scheduled = a.status === "SCHEDULED";
+    if (scheduled && !a.scheduledReason) err(file, `status SCHEDULED with no scheduledReason`);
+    const latest = scheduled ? SCHEDULE_HORIZON : TODAY;
+
     for (const f of ["eventDate", "informationCutoff"]) {
       if (a[f] && !/^\d{4}-\d{2}-\d{2}$/.test(a[f])) err(file, `${f} not YYYY-MM-DD: "${a[f]}"`);
     }
-    if (a.eventDate < ARCHIVE_START || a.eventDate > TODAY) {
-      err(file, `eventDate ${a.eventDate} outside the archive window ${ARCHIVE_START}..${TODAY}`);
+    if (a.eventDate < ARCHIVE_START || a.eventDate > latest) {
+      err(file, `eventDate ${a.eventDate} outside the ${scheduled ? "scheduling" : "archive"} window ${ARCHIVE_START}..${latest}`);
+    }
+    if (scheduled && a.eventDate <= TODAY) {
+      err(file, `status SCHEDULED but eventDate ${a.eventDate} is not in the future — publish it instead`);
     }
     if (a.informationCutoff) {
       if (a.informationCutoff < a.eventDate) {
         err(file, `informationCutoff ${a.informationCutoff} precedes eventDate ${a.eventDate}`);
       }
-      if (a.informationCutoff > TODAY) err(file, `informationCutoff ${a.informationCutoff} is in the future`);
+      if (a.informationCutoff > latest) err(file, `informationCutoff ${a.informationCutoff} is in the future`);
     }
 
     // Sources.
@@ -160,7 +187,10 @@ for (const file of files) {
     const lower = scanned.toLowerCase();
     for (const p of BANNED_PHRASES) if (lower.includes(p)) err(file, `banned phrasing: "${p}"`);
     for (const [re, label] of PUFF_PATTERNS) if (re.test(scanned)) err(file, label);
-    for (const p of FALSE_PROVENANCE) if (lower.includes(p)) err(file, `false BrentDesk provenance: "${p}"`);
+    for (const p of FALSE_PROVENANCE) if (lower.includes(p)) err(file, `claims non-public sourcing: "${p}"`);
+    if (SELF_CITATION.test(html) && !/href="\/(article\/)?[a-z0-9-]+(\/[a-z0-9-]+)?"/.test(html)) {
+      err(file, `"BrentDesk reported" with no link to the article being cited`);
+    }
     for (const p of LEAKED_METHODOLOGY) if (lower.includes(p)) err(file, `research methodology leaked into copy: "${p}"`);
 
     const words = html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;

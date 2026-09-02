@@ -1,0 +1,54 @@
+[
+  {
+    "commission": 1076,
+    "headline": "Day Two at Big 5 Construct Saudi Showed a Harder Test for Construction Technology",
+    "slug": "big5-construct-saudi-day-two-construction-technology-test",
+    "deck": "Contractors on the Riyadh Front floor were not asking what the technology does. They were asking what it removes from a project.",
+    "excerpt": "On the second day of Big 5 Construct Saudi, the questions being put to technology suppliers had shifted from capability to consequence: fewer breakdowns, less rework, lower manpower dependency and evidence that a claim survives a Saudi summer. The show's 1,000-plus exhibitors are selling into a market that has started buying outcomes rather than features.",
+    "content": "<p>Walking the halls of Big 5 Construct Saudi on its second day, the most interesting thing about the technology on display was not the technology. It was the questions being asked in front of it. Across the equipment halls at Riyadh Front, the conversation that repeated itself was not what a machine or a platform could do, but what it took out of a project: how many breakdowns it prevented, how much rework it avoided, how many people it stopped a contractor from needing, and how much of the running cost it removed over a fifteen-year life rather than a twelve-month warranty.</p><p>That is a different exhibition from the one the sector was holding a few years ago, and it is a harder one for suppliers. The show opened on 30 August under the patronage of the Ministry of Industry and Mineral Resources, with more than 1,000 exhibitors from over 50 countries across general construction, concrete, heavy equipment, HVACR and facilities management. The volume of hardware has not changed much. What has changed is that a large share of it now arrives with sensors, controllers, telemetry and a software layer attached, and buyers have worked out that the software layer is where the claims are easiest to make and hardest to check.</p><p>The shift from purely mechanical equipment towards connected equipment is the most visible physical change on the floor. Machines that would once have been sold on horsepower, reach and price are being sold on uptime data, condition monitoring and remote diagnostics. The same drift is running through materials. Concrete, the least glamorous product in the building, is becoming a measurable digital asset, with maturity and temperature monitoring turning a pour into a data record rather than a cube test and a signature. For a contractor working to a fixed handover date, the value is not the sensor. It is being able to strike formwork a day earlier with evidence behind the decision.</p><p>Construction robotics is the part of this that has moved fastest from theoretical to specific. The applications people described as credible were narrow and repetitive: spraying, finishing, grinding, trenching, reinforcement processing, and inspection and monitoring work that is either dangerous or tedious enough that skilled people should not be doing it. Market estimates put the Saudi construction robots market at roughly $1.8 billion in 2025, with double-digit annual growth projected through the next decade, and the direction of travel is consistent with what the Kingdom's factories have already been doing — a pattern <a href=\"/article/saudi-arabia-factory-automation-robotics-aramco-alat-2026\">visible in Saudi industrial automation</a> well before it reached the building site.</p><p>What gives the shift credibility is that the labour question underneath it is real. Saudi Arabia is running the largest concurrent construction programme in its history while simultaneously operating and maintaining what it has already built, and the constraint is increasingly people rather than money. Automation that removes a repetitive task from a crew is not replacing a workforce that exists in surplus. It is stretching one that does not.</p><p>The scepticism on the floor was aimed at a narrower target: artificial intelligence as a marketing category. Contractors were not hostile to it, but they were consistently uninterested in the word. What they asked about instead were the outputs — fewer unplanned stoppages, faster completion, less rework, better quality records, safer sites, energy savings, lower lifecycle cost. Where a supplier could translate a model into one of those, the conversation continued. Where it could not, it did not. That is the correct filter, and it is the same filter industrial buyers elsewhere apply to <a href=\"/article/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">predictive maintenance software</a>: the technology only counts once someone changes a maintenance schedule because of it.</p><p>Sustainability claims are moving through the same filter. Among the exhibitors named by the organiser, Galaxy Technology brought Albion Valves with carbon transparency published across its cast-iron range, and Keller was showing ground improvement and foundation techniques, which are among the few construction interventions where a design change measurably removes both material and programme time. Both are examples of a claim being made in a form that can be checked. That is a lower bar than it sounds, and a lot of exhibits do not clear it.</p><p>The other reason the day was worth attending is more prosaic. Buyers were touching equipment, opening panels, comparing two competing products standing three metres apart, and asking about spare parts and local service coverage rather than specification sheets. Certification, tested performance, warranty terms, after-sales support and real project references came up more often than any single technology. In a market where the operating phase of Saudi Arabia's new assets will last decades longer than their construction, that is not conservatism. It is the beginning of buyers pricing the whole asset life rather than the invoice.</p><p>None of this means the sector has become hard to sell into. Saudi contractors are spending: the <a href=\"/construction/fawaz-al-shora-opens-big-5-construct-saudi-2026\">Saudi Contractors Authority</a> recorded 25 project awards worth more than SAR 29.5 billion in June alone, and the pipeline behind that is measured in the hundreds of billions of dollars. It means the sale now has to survive a question that was rarely asked in a hall like this before — what will this still be doing for me in year eleven.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction",
+      "robotics",
+      "industrial-technology"
+    ],
+    "tags": [
+      "Big 5 Construct Saudi",
+      "Construction Technology",
+      "Robotics",
+      "Riyadh"
+    ],
+    "companies": [
+      "Galaxy Technology",
+      "Keller",
+      "Saudi Contractors Authority"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-31",
+    "informationCutoff": "2026-08-31",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/b5cs-opens-under-patronage-of-the-ministry-of-industry-and-mineral-resources/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.big5constructsaudi.com/leading-local-and-international-brands-to-showcase-solutions-at-big-5-construct-saudi-supporting-project-delivery-across-the-kingdom/",
+      "https://www.imarcgroup.com/saudi-arabia-construction-robots-market",
+      "https://www.big5constructsaudi.com/saudi-contractors-authority-says-projects-awarded-in-june-2026-exceed-8bn/",
+      "https://www.tradearabia.com/News/467194/Big-5-Construct-Saudi-brings-together-construction-project-leaders"
+    ],
+    "seoTitle": "Big 5 Saudi Day Two: A Harder Test for Construction Tech",
+    "seoDescription": "On day two of Big 5 Construct Saudi, contractors judged technology on breakdowns, rework, manpower and lifecycle cost rather than capability claims.",
+    "articleType": "opinion",
+    "wordCount": 871,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "internalLinks": [
+      "fawaz-al-shora-opens-big-5-construct-saudi-2026"
+    ]
+  }
+]

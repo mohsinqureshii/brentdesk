@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1151,
+    "headline": "The AI Rack Has Become a Hydronic Problem, and Danfoss Is Selling the Valve Train",
+    "slug": "danfoss-cooltrain-picv-liquid-cooling-hydronic-balancing-saudi-data-centres",
+    "deck": "Direct-to-chip cooling turns every server rack into a branch of a chilled water system that has to be balanced, metered and shut off safely. That is HVACR work, and it is the sharpest overlap between Riyadh's two trade shows this week.",
+    "excerpt": "Danfoss launched CoolTrain in March 2026: ready-built valve trains that connect the technology cooling system to a server rack, with an AB-QM pressure independent control valve providing continuous hydronic balancing. It is a precise illustration of how AI infrastructure lands as a mechanical trade problem.",
+    "content": "<p>When a data centre moves from air cooling to direct-to-chip liquid cooling, something changes that is easy to miss from the technology side. Every rack stops being an electrical load in a room and becomes a branch of a hydronic circuit — a piece of pipework with a design flow rate, a pressure drop, an isolation requirement and a commissioning record. Multiply that by hundreds of racks whose loads swing with the workload, and the building has acquired a chilled water distribution problem of a kind that the mechanical services industry has spent decades solving in other buildings.</p><p>Danfoss launched a product for exactly that problem in March 2026. CoolTrain is a ready-built valve train — a factory-assembled connection set that links the technology cooling system to the rack, replacing an assembly that would otherwise be built up on site from individual components. The design intent is to make a rack connection a plug-in operation rather than a pipefitting exercise, in a build where installation labour and commissioning time are on the critical path.</p><p>The functional core of the assembly is a pressure independent control valve. Danfoss's AB-QM 4.0 valve delivers pressure-independent flow control of up to 83 litres per minute, or 22 gallons per minute, per liquid-cooled rack, providing automatic and continuous hydronic balancing so that coolant flow tracks the demand of each individual rack rather than the pressure conditions of the network. The train also includes motorised shut-off so a rack can be isolated without disturbing the rest of the loop, is built from corrosion-resistant materials rated for glycol concentrations up to 40 percent, and can be fitted with a digital fieldbus actuator that reports to a data centre infrastructure management system.</p><p>The reason a pressure independent valve matters here is worth stating plainly, because it is the whole argument. In a conventional balanced system, each branch is set once during commissioning to deliver its design flow at the design differential pressure. When other branches modulate, the differential pressure across the network shifts and every previously balanced branch delivers something other than its design flow. In a building this produces rooms that are slightly too warm or slightly too cold. On a rack of accelerators drawing tens of kilowatts, it produces thermal instability on the component least tolerant of it, and the usual defensive response is to overpump the whole system, which wastes energy continuously for the life of the facility.</p><p>A pressure independent valve removes that failure mode by holding the branch flow regardless of what the rest of the network is doing. The result is stated in the metrics data centre operators are measured on — power usage effectiveness, because pumping energy falls, and water usage effectiveness, because a stable, closed hydronic circuit reduces reliance on evaporative heat rejection.</p><p>That last point is where the Saudi relevance concentrates. The Kingdom's data centre water consumption is projected to rise from roughly 20.18 billion litres in 2025 to about 87.52 billion litres by 2030, in a country where a large share of supply is <a href=\"/water/saudi-desalination-eastern-province-capacity-expansion\">desalinated</a> and therefore carries an energy cost upstream of every litre. Closed-loop liquid cooling trades water for electricity and for a harder hydraulic design, which makes the quality of the hydronic design and its commissioning a direct determinant of operating cost rather than a detail. Saudi Arabia's data centre liquid cooling market is forecast to grow from around $48.6 million in 2026 to about $252.8 million by 2031.</p><p>Metering is the other half of the discipline that arrives with liquid. Once heat is being moved in water rather than air, the energy transferred to each circuit can be measured directly through flow and temperature difference, which turns cooling from an inferred overhead into an allocated, billable quantity. That capability is standard in district cooling and building energy management and largely novel inside a data hall, and it is the basis on which a colocation operator can charge for thermal capacity rather than for floor space.</p><p>None of this equipment or expertise sits in the artificial intelligence sector. Valves, actuators, pumps, balancing, commissioning and energy metering are the working vocabulary of the mechanical services industry, and in Riyadh this week that industry is at Riyadh Front for HVACR Saudi Arabia and <a href=\"/data-centers/leap-big-5-construct-saudi-2026-concrete-compute-same-week\">Big 5 Construct Saudi</a> rather than across town at LEAP. On artificial intelligence data centre bids in 2026, mechanical, electrical and controls scope accounts for roughly three-quarters of the guaranteed maximum price.</p><p>The practical implication for the Kingdom is a training question rather than a procurement one. The valve train can be bought. The engineers who can design, balance, commission and maintain a direct-to-chip loop to the tolerance a live AI cluster requires cannot be bought as quickly, and Saudi Arabia is already short of specialist mechanical and commissioning staff across its wider construction programme. The hardware will arrive on schedule. Whether it performs as designed depends on a trade skill that has to be built in parallel with the buildings.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "data-centers",
+    "categories": [
+      "data-centers",
+      "industrial-technology",
+      "industrial-ai"
+    ],
+    "tags": [
+      "Liquid Cooling",
+      "Danfoss",
+      "Hydronic Balancing",
+      "Data Centres",
+      "HVACR"
+    ],
+    "companies": [
+      "Danfoss"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.danfoss.com/en/industries/buildings-commercial/dps/data-center-liquid-cooling/",
+    "primarySourceName": "Danfoss",
+    "secondarySourceUrls": [
+      "https://www.dcpostmea.com/2026/03/danfoss-launches-cooltrain-for-next-generation-liquid-cooling-systems/",
+      "https://channelpostmea.com/2026/03/27/danfoss-unveils-cooltrain-to-tackle-energy-efficiency-and-deployment-challenges-in-liquid-cooling/",
+      "https://assets.danfoss.com/documents/latest/582987/AD550037469453en-000102.pdf",
+      "https://www.mordorintelligence.com/industry-reports/study-of-data-center-water-consumption-in-saudi-arabia",
+      "https://www.marketsandmarkets.com/Market-Reports/geography/data-center-liquid-cooling-market/Saudi-Arabia"
+    ],
+    "seoTitle": "The AI Rack Is Now a Hydronic Problem",
+    "seoDescription": "Danfoss CoolTrain valve trains bring pressure-independent balancing to direct-to-chip cooling, turning AI capacity into an HVACR commissioning question.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 827
+  }
+]

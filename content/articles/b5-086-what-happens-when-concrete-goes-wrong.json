@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 1086,
+    "headline": "What Happens When Concrete Goes Wrong on a Saudi Project",
+    "slug": "concrete-durability-repair-saudi-projects-big5",
+    "deck": "Heat, chlorides and a compressed programme make Gulf concrete unforgiving. The repair market at Riyadh Front exists because the mistakes are predictable.",
+    "excerpt": "Concrete failures in Saudi Arabia are rarely dramatic and almost always expensive, arriving as corrosion, cracking and premature repair years after handover. The conference programme at Big 5 Construct Saudi put concrete quality alongside code compliance for a reason.",
+    "content": "<p>Concrete is the most heavily used engineered material on earth and the one most often treated on site as though it were a commodity. In Saudi Arabia the gap between those two facts is expensive. Ambient temperatures above forty degrees, aggressive ground conditions in coastal and sabkha areas, chloride-laden groundwater, high evaporation rates and compressed construction programmes combine to make Gulf concrete unusually intolerant of ordinary mistakes, and the consequences arrive years after anyone is still on site.</p><p>The failure modes are well understood, which is precisely why they keep recurring. Hot-weather placement accelerates hydration and reduces the time available between batching and compaction, so a mix that performs in a laboratory can stiffen in a truck. Inadequate curing in dry heat produces plastic shrinkage cracking, which opens a path for water and chloride into the cover zone. Insufficient cover, or cover achieved on the drawing but not on the bar, allows chloride to reach reinforcement decades early. Once corrosion begins, the expanding oxide cracks and spalls the concrete that was protecting the steel, and the process becomes self-sustaining.</p><p>The remedies are equally well understood and consistently under-resourced: mix designs with supplementary cementitious materials that reduce permeability, admixtures selected for the actual placing temperature rather than a standard specification, chilled water or ice in the batching plant, night pours, curing regimes that are enforced rather than specified, cover meters used before the pour rather than after the defect, and cathodic protection or corrosion inhibitors where exposure justifies them. Each of those costs money in the first quarter of a project and saves considerably more in the seventh year.</p><p>That arithmetic is why the topic has moved up the agenda at Big 5 Construct Saudi, where the conference programme addressed improving concrete quality alongside navigating the Saudi Building Code, project governance and modular construction, and where <a href=\"/construction/totally-concrete-saudi-arabia-2026-mix-performance\">Totally Concrete Saudi Arabia</a> runs as a co-located specialised event. The code connection is not incidental. The Saudi Building Code's module structure includes dedicated concrete provisions, and the 2024 edition, mandatory since 30 June 2025, added an assessment and rehabilitation code for existing concrete structures as well as provisions for glass-fibre-reinforced polymer reinforcement. A national code that formally addresses rehabilitation is a code written for a building stock that has begun to need it.</p><p>Two structural features of the Saudi market make the problem harder than the engineering alone suggests. The first is programme pressure. A market delivering against fixed external deadlines rewards speed at the point where curing and testing are the easiest activities to compress, and the penalty for compressing them is invisible for years. The second is the split between the party that pours and the party that pays. A contractor's exposure typically ends with a defects liability period measured in months; the owner's exposure runs for the design life. Where those two horizons are not bridged by testing, supervision and durability specification, the incentive structure quietly favours the cheaper mix.</p><p>The response visible in the halls this week is measurement. Concrete is becoming a monitored material rather than a delivered one, with maturity and temperature sensors turning a pour into a data record and allowing formwork striking decisions to be made on evidence rather than a calendar. That does not improve a bad mix, but it removes one of the commonest sources of early damage — loading a structure before it has developed strength — and it produces the documentation the code increasingly expects.</p><p>The repair industry is the other half of the picture, and it is a mature one in the Gulf. Repair mortars, corrosion inhibitors, structural strengthening systems, injection resins and protective coatings are supplied by domestic manufacturers including <a href=\"/article/saudi-construction-chemicals-cmci-arkaz-henkel-polybit\">the Kingdom's construction chemicals producers</a>, whose technical departments spend much of their time diagnosing other people's pours. The existence of that industry at this scale is not a sign of a failing construction sector. It is a sign of an ageing one, and Saudi Arabia is about to have a great deal more concrete reaching the age at which the question is asked.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction"
+    ],
+    "tags": [
+      "Concrete",
+      "Durability",
+      "Saudi Building Code",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [
+      "Saudi Building Code Center"
+    ],
+    "events": [
+      "Big 5 Construct Saudi",
+      "Totally Concrete Saudi Arabia"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf",
+    "primarySourceName": "Saudi Building Code Center",
+    "secondarySourceUrls": [
+      "https://www.big5constructsaudi.com/specialised-events-totally-concrete-ksa/",
+      "https://www.big5constructsaudi.com/leading-local-and-international-brands-to-showcase-solutions-at-big-5-construct-saudi-supporting-project-delivery-across-the-kingdom/",
+      "https://www.zawya.com/en/projects/saudi-construction-industry-eyes-stronger-project-delivery-472960"
+    ],
+    "seoTitle": "When Concrete Goes Wrong on a Saudi Project",
+    "seoDescription": "Heat, chlorides and compressed programmes make Gulf concrete unforgiving. Why Saudi durability failures recur and what the 2024 code changed.",
+    "articleType": "news",
+    "wordCount": 674,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "internalLinks": [
+      "totally-concrete-saudi-arabia-2026-mix-performance"
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1066,
+    "headline": "Legend Robot's Pitch to Saudi Contractors Is Eight Square Metres in Five Minutes",
+    "slug": "legend-robot-putty-paint-spraying-robot-saudi-interior-finishing",
+    "deck": "A tablet-controlled spraying robot with a 3.3-metre or 6.2-metre reach, no programming required, and a claimed 10 million square metres of construction behind it.",
+    "excerpt": "Legend Robot builds putty and latex paint spraying robots aimed at interior finishing, controlled from a tablet interface designed for an ordinary site worker. Its argument to Gulf contractors is consistency and throughput on the last and most schedule-critical phase of a building.",
+    "content": "<p>Interior finishing is where construction programmes go wrong quietly. It comes last, it is labour-intensive, its quality is judged by anyone who walks into the room, and it sits directly between practical completion and handover. Legend Robot, a Shenzhen manufacturer, has built its business on automating one narrow slice of that phase.</p><p>The company's core products are putty and latex paint spraying robots in two working heights, 3.3 metres and 6.2 metres, mounted on a mobile base. The taller machine is aimed at high walls and stairwells, the compact one at standard residential and hotel rooms. Operation is through a tablet interface with a visual user interface that the company says requires no programming skill, allowing an ordinary worker to run the machine independently after basic training. In a demonstration the company documents, the robot completed automated putty spraying of an eight square metre wall in five minutes.</p><p>The company reports cumulative construction coverage of more than 10 million square metres and deployments across East Asia, West Asia, Western Europe and North America, with project references including a kindergarten build in Xinjiang and a Longfor residential development in Nanjing. Those references matter more than the specification sheet, because the question a contractor asks about a finishing robot is not whether it can spray but whether it can spray in a real building with real tolerances, obstructions and sequencing.</p><p>The value proposition breaks into three parts. The first is throughput: a machine that runs continuously through a shift on repetitive wall area, in a phase where the work fronts are numerous and identical. The second is consistency: sprayed film thickness that does not vary between operators or across the length of a shift, which reduces the snagging and rework that finishing generates more of than any other trade. The third is exposure: putty and paint spraying produces airborne dust and solvent, and moving the operator to a tablet several metres away is a measurable improvement in working conditions.</p><p>What the machine does not do is remove the trade. Preparation, masking, corners, cutting in, detail work and defect repair remain manual. The realistic model is a smaller crew supported by a machine on the open wall area, not an unmanned site, and suppliers who oversell that distinction lose credibility quickly with contractors who have seen finishing go wrong.</p><p>The Saudi opportunity is a volume opportunity. The Kingdom is delivering residential towers, hotels, hospitals and offices in quantity across the giga-project developments and the Riyadh market, all of which are dominated by repeated room types. It is also carrying a shortage of skilled construction workers running into the hundreds of thousands, with specialist roles taking months to fill, against a construction workforce that already exceeded 3.4 million at the end of 2025. Finishing trades are among the hardest to staff at the required rate, and finishing delay is the most expensive kind because it holds up revenue.</p><p>The obstacles are commercial rather than technical. Utilisation determines payback, and a machine tied to a single project sits idle between packages, which points toward specialist finishing subcontractors or rental fleets rather than main contractors as the natural owners. Service is the other constraint: a spraying robot is a pump, a manipulator and a control system operating in a dusty environment, and it will need parts and technicians available inside the Kingdom rather than a container away.</p><p>Those are the questions being asked on the floor at Big 5 Construct Saudi this week, where more than 1,000 exhibitors from over 50 countries are showing at Riyadh Front. Saudi contractors have become notably resistant to automation pitched as a capability and notably receptive to automation pitched as fewer breakdowns, less rework, faster completion and lower manpower dependency. A finishing robot with a five-minute wall and a tablet a labourer can use is, at least, an argument in the right currency.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "robotics",
+    "categories": [
+      "robotics",
+      "industrial-technology",
+      "automation",
+      "construction"
+    ],
+    "tags": [
+      "Legend Robot",
+      "Construction Robotics",
+      "Interior Finishing",
+      "Automation",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [
+      "Legend Robot"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.legendrobot.com/products/putty-latex-paint-spraying-robot-6m2/",
+    "primarySourceName": "Legend Robot",
+    "secondarySourceUrls": [
+      "https://www.legendrobot.com/news/legend-robot-debuts-smart-paint-spraying-robot-in-xinjiang-kindergarten-project.html",
+      "https://www.legendrobot.com/robotics-and-construction-how-legend-robot-is-building-the-future.html",
+      "https://www.legendrobot.com/longfor-tianyao-nanjing/",
+      "https://www.big5constructsaudi.com/"
+    ],
+    "seoTitle": "Legend Robot's Saudi Pitch: 8 Square Metres in 5 Minutes",
+    "seoDescription": "Legend Robot's tablet-controlled putty and paint spraying robots target Saudi interior finishing, the phase where programmes slip before handover.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 643
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1007,
+    "headline": "The Biggest Saudi Construction Opportunity May Start After Handover",
+    "slug": "saudi-facilities-management-opportunity-after-handover-2026",
+    "deck": "A building costs more to run than it costs to build. Saudi Arabia is about to find that out at scale, across a generation of assets delivered inside a decade.",
+    "excerpt": "Saudi Arabia's facilities management market is sized at roughly $52bn to $55bn in 2026 and is forecast to grow faster than construction output for the rest of the decade. The Kingdom is handing over an unusually large volume of new assets in a short window, and the operating cost of those buildings will outrun what they cost to build.",
+    "content": "<p>Almost everything written about Saudi construction is about the moment a contract is signed. Very little of it is about the forty years that follow, which is where most of the money in a building actually goes.</p><p>The rule of thumb across commercial property is that the capital cost of a building is a fraction of what it costs to own over its life, with operations, maintenance, energy, cleaning, security and replacement consuming the rest. The exact ratio is argued over and varies wildly by asset type. The direction is not in dispute. A hospital, a stadium, a data hall or a mixed-use district costs more to run than it cost to build, and the difference compounds.</p><p>Saudi Arabia is unusual in that it will discover this across a very large asset base in a very short window. The Kingdom has commissioned an extraordinary quantity of new building inside a decade, much of it complex and much of it publicly or quasi-publicly owned. Almost none of it existed in 2016. All of it comes with a service and replacement liability that starts on the day the contractor demobilises.</p><p>The market forecasts reflect that. Estimates of the Saudi facilities management market cluster between about $52bn and $55bn for 2026, with <a href=\"https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market\">Mordor Intelligence</a> putting it at roughly $54.6bn and projecting about $78bn by 2031, and Astute Analytica forecasting around $135bn by 2035 from a 2025 base of about $51bn. Research houses rarely agree on the level, and the gap between these numbers should be treated as a measure of definitional disagreement rather than precision. What they agree on is the slope: facilities management is expected to grow faster than construction output for the rest of the decade.</p><p>That is a structurally different business from contracting, and Saudi firms built for one are not automatically good at the other. Construction is a project business: it wins a job, staffs up, delivers and demobilises, and its risk is concentrated in pricing and programme. Facilities management is an annuity business: it wins a contract, holds it for three to ten years, and its risk is concentrated in labour cost, energy price and the condition of the asset it inherited. The margin is thinner, the revenue is far more predictable, and the capital requirement is a fraction of what a main contractor carries.</p><p>Which is precisely why contractors want it. An annuity attached to an asset you built is the closest thing in construction to recurring revenue, and it smooths a balance sheet exposed to the fewer, larger, longer packages the Saudi market is now letting. Award value in the Kingdom has been rotating toward utilities, water, hydrocarbons and heavy civil work, with the average package roughly doubling in size and delivery horizons stretching to the end of the decade. An operations contract that pays monthly from the day of handover is a useful counterweight.</p><p>The obstacle is what gets handed over. A facilities management contract is only as good as the information that comes with the building: asset registers, equipment schedules, warranty terms, commissioning records, spares lists, control system credentials and as-built drawings that match what was actually installed. On a great many projects, in the Kingdom and everywhere else, that package is incomplete, out of date or delivered as a stack of PDFs nobody can query. The operator then spends the first eighteen months of a ten-year contract surveying a building that was documented in full while it was being built.</p><p>That gap is now being treated as a design problem rather than an administrative one, which is why coordination between design, installation and operation has become a standing item on industry agendas. The programme at Big 5 Construct Saudi in Riyadh at the end of August includes sessions on exactly that: how HVACR design, installation and facilities management can be coordinated so that what is specified is what is installed and what is installed is what can be maintained. The event has a co-located facilities management and cleaning show, Saudi FM &amp; Clean, sitting alongside the heavy construction and concrete halls.</p><p>Energy is the other reason the operating phase is getting attention. Cooling dominates electricity consumption in Saudi buildings, and the difference between a well-commissioned chiller plant and a badly commissioned one is a permanent operating cost that no amount of good maintenance later recovers. In a market where new capacity is expensive and grid load is rising sharply on the back of industrial and data centre demand, the efficiency of the installed building stock stops being a sustainability line and becomes a utility planning input.</p><p>None of this argues that Saudi Arabia has finished building. The pipeline is enormous and the award data shows work still being let at scale. It argues that the industry's centre of gravity is moving, and that the companies which spend the next five years learning how to operate what has been built will be selling into a market that grows whether or not the next giga-project reaches financial close.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "facilities-management",
+    "categories": [
+      "facilities-management",
+      "real-estate",
+      "construction"
+    ],
+    "tags": [
+      "Facilities Management",
+      "Asset Operations",
+      "Whole-Life Cost",
+      "Saudi FM & Clean",
+      "Handover"
+    ],
+    "companies": [
+      "Mordor Intelligence",
+      "Astute Analytica"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-07-28",
+    "informationCutoff": "2026-07-30",
+    "primarySourceUrl": "https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market",
+    "primarySourceName": "Mordor Intelligence",
+    "secondarySourceUrls": [
+      "https://www.globenewswire.com/news-release/2026/01/19/3220714/0/en/saudi-arabia-facility-management-market-projected-to-reach-us-134-82-billion-by-2035-supported-by-tourism-and-hospitality-development-says-astute-analytica.html",
+      "https://www.kenresearch.com/industry-reports/ksa-facility-management-market",
+      "https://www.big5constructsaudi.com/",
+      "https://www.arabnews.com/node/2650710/business-economy"
+    ],
+    "seoTitle": "Saudi Arabia's Next Construction Market Is Operations",
+    "seoDescription": "Saudi facilities management is sized at $52bn-$55bn in 2026 and set to grow faster than construction output as new assets reach handover.",
+    "articleType": "report",
+    "wordCount": 833,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

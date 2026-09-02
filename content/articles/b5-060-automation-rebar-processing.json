@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 1060,
+    "headline": "Reinforcement Is Quietly Becoming a Manufacturing Process",
+    "slug": "rebar-processing-automation-cut-bend-cage-welding-bim-2026",
+    "deck": "Cage welders, mesh welding plants and model-driven cut-and-bend lines are moving steel fixing off the slab and into a shop. The economics work best in markets that are short of trades — which describes Saudi Arabia precisely.",
+    "excerpt": "Rebar processing equipment demand is forecast to grow at 4 to 6 percent a year through the mid-2030s as fabrication moves from site to shop. The shift is driven less by labour cost than by schedule certainty, yield and the ability to take bar schedules directly from a building information model.",
+    "content": "<p>Steel reinforcement is the last major structural input on most projects that is still substantially fabricated where it is installed. That is changing, and the direction of travel is toward treating reinforcement as a manufactured product with a production line, a quality regime and a delivery schedule rather than as a site trade.</p><p>The equipment doing the moving falls into three groups. Cut-and-bend lines handle straight bar and coil, cutting to schedule and bending to shape with optimisation software that nests the cutting pattern across a whole order. Mesh welding plants produce reinforcement mesh to project-specific dimensions rather than to standard sheet sizes, which removes the offcuts that standard mesh generates on any non-rectangular pour. Cage welding machines assemble cylindrical, oval or rectangular cages for piles, columns and shafts, feeding longitudinal bars manually or automatically and winding and welding the spiral in a single pass.</p><p>Progress Maschinen &amp; Automation, the reinforcement machinery arm of the Progress Group, builds all three categories, and its VTA cage welders combine inverter welding, automatic wire cutting and automatic cage removal in a continuous cycle. Schnell, which is <a href=\"/manufacturing/schnell-group-rebar-fabrication-equipment-big-5-construct-saudi-2026\">exhibiting at Big 5 Construct Saudi</a> this week, builds a comparable range of cutting, bending and straightening plant. Both suppliers, along with others in the category, now offer complete lines that accept bar schedules from building information models rather than from a printed drawing.</p><p>That last capability is the one that changes the argument from labour substitution to schedule control. When the model is the source of the bar schedule, a design change propagates to the machine rather than to a detailer, a fax and a foreman. It also makes the fabrication step auditable: what was cut, to what schedule, for which pour, on what date. On a project where reinforcement quantities run to tens of thousands of tonnes, that traceability is worth more than the labour hours saved.</p><p>The market is growing steadily rather than dramatically. Demand for machinery used in cutting, bending, straightening and welding reinforcing bar is projected to expand at roughly 4 to 6 percent a year between 2026 and 2035, with procurement behaviour described as more disciplined and supply more regionally diversified than in the previous cycle. Progress introduced a mesh welding line with machine-assisted quality control for precast manufacturers in late 2024, which is the direction the segment is taking: sensing and vision layered onto proven mechanical plant rather than a new machine concept.</p><p>Where automation pays best is where reinforcement volume is high and skilled labour is scarce, and Saudi Arabia is close to a textbook case. National rebar consumption reached around 15.5 million tonnes in 2025, up from about 14.5 million tonnes the previous year. The construction workforce passed 3.4 million at the end of 2025 and is forecast to keep growing to the end of the decade, yet the sector is carrying a shortage of skilled workers in the hundreds of thousands, with specialist roles staying vacant for months. Adding steel fixers at the rate the pipeline requires is not a realistic plan; moving the work into a shop where a smaller crew runs a line is.</p><p>There is a second-order benefit that owners tend to value more than contractors do. Prefabricated cages and pre-bent bar arriving in sequence reduce the amount of material stored, handled and cut on site, which reduces congestion, waste and — because steel fixing is among the higher-risk trades for hand and back injury — exposure. That aligns with where Saudi project owners have been pushing their contractors on health and safety performance, and it is a recurring theme in the conference programme at Riyadh Front this week alongside sessions on concrete quality and the Saudi Building Code.</p><p>The constraint is not technology. It is that a rebar shop is a factory, and factories need volume, land, power, skilled operators and a maintenance contract to work. A contractor buying a line for one project will not see the return; a fabricator serving a regional cluster of projects will. The Saudi market is now large enough and concentrated enough around a handful of major developments to support that model, which is why the machinery is being shown in Riyadh rather than being sold from a catalogue.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "automation",
+    "categories": [
+      "automation",
+      "industrial-technology",
+      "manufacturing",
+      "construction"
+    ],
+    "tags": [
+      "Rebar Processing",
+      "Automation",
+      "Construction Machinery",
+      "BIM",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Progress Maschinen & Automation",
+      "Schnell Group",
+      "Progress Group"
+    ],
+    "primarySourceUrl": "https://pma.progress.group/en/products/cage-welding-machines",
+    "primarySourceName": "Progress Maschinen & Automation",
+    "secondarySourceUrls": [
+      "https://www.indexbox.io/blog/rebar-processing-equipment-market-forecast-points-higher-toward-2035-driven-by-global-infrastructure-modernization/",
+      "https://www.schnellgroup.com/en/Products/rebar-bending-machines-for-reinforcement-processing/",
+      "https://www.persistencemarketresearch.com/market-research/rebar-processing-equipment-market.asp",
+      "https://marksparksolutions.com/press-releases/saudi-arabia-steel-rebar-market-growth"
+    ],
+    "seoTitle": "Reinforcement Is Becoming a Manufacturing Process",
+    "seoDescription": "Cage welders, mesh plants and model-driven cut-and-bend lines are moving steel fixing into the shop, in a Saudi market short of hundreds of thousands of trades.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 702
+  }
+]

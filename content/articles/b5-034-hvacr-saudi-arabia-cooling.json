@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 1034,
+    "headline": "HVACR Saudi Arabia Opens as Cooling Becomes an Infrastructure Question",
+    "slug": "hvacr-saudi-arabia-2026-cooling-infrastructure",
+    "deck": "Real estate, industrial plant and data centres are competing for the same chillers and the same grid. Efficiency and refrigerant strategy now decide specifications.",
+    "excerpt": "HVACR Saudi Arabia opened at Riyadh Front alongside Big 5 Construct Saudi. The Kingdom's HVAC market was worth about $3.3 billion in 2025 and is forecast to reach $6.3 billion by 2034, while data-centre cooling is projected to grow from $153 million to $836 million by 2035 as three construction programmes compete for the same cooling capacity.",
+    "content": "<p>HVACR Saudi Arabia opened on Sunday at the Riyadh Front Exhibition and Conference Center alongside Big 5 Construct Saudi, and the timing is not incidental. Cooling in the Kingdom has been quietly reclassified over the past three years from a building services line item into something closer to infrastructure, because three separate construction programmes are now competing for the same chillers, pumps, controls and grid capacity.</p>\n<p>The first is real estate. The second is industrial capacity, expanding alongside a licensed factory base that reached 13,660 active facilities at the end of April. The third, and the fastest growing in percentage terms, is computing. Saudi Arabia's data-centre build-out imposes a cooling load with a different profile from a residential tower: continuous, high-density, and intolerant of downtime.</p>\n<p>The market numbers reflect a broad rather than a spectacular expansion. The Kingdom's HVAC market was <a href=\"https://www.expertmarketresearch.com/reports/saudi-arabia-hvac-market\">valued at about $3.3 billion in 2025</a> and is forecast to reach roughly $6.3 billion by 2034, a compound rate in the mid-to-high single digits, with cooling accounting for close to 77 per cent of installations. Data-centre cooling is the outlier: a much smaller base, <a href=\"https://www.researchandmarkets.com/report/saudi-arabia-data-center-cooling-market\">$153 million in 2025</a>, forecast to reach about $836 million by 2035 at an 18.5 per cent compound rate.</p>\n<p>Two engineering pressures dominate the floor. The first is efficiency, because cooling is one of the largest components of Saudi electricity demand and every incremental kilowatt of chiller load competes with the same generation and transmission capacity being built for industry and data centres. District cooling remains three to five times more efficient than distributed conventional air conditioning on a comparable load, though adoption has been slowed by capital cost and by the coordination required between developer, utility and operator.</p>\n<p>The second is refrigerant transition. Low global warming potential refrigerants have moved from a compliance conversation to a specification one, and the equipment on the floor increasingly carries a stated refrigerant strategy rather than leaving it to the mechanical contractor. For an asset owner, the relevant question is not only what a system uses today but whether the plant can be serviced and recharged over a twenty-year life as regional regulation tightens.</p>\n<p>Underneath both is a commissioning and operations problem that the conference programme addresses directly, with a session on improving coordination between HVACR design, installation and facilities management. A large proportion of the performance gap in Gulf cooling systems is not designed in, it is installed or operated in: unbalanced systems, controls left in override, chilled water set points that nobody has revisited since handover, and maintenance regimes that respond to failure rather than anticipate it.</p>\n<p>That is also why HVACR Saudi Arabia and Saudi FM &amp; Clean sitting under the same roof is a sensible piece of show design. The equipment supplier and the operator are, increasingly, negotiating the same performance guarantee. Facilities management contracts in the Kingdom now routinely carry energy performance obligations, and an operator who inherits poorly commissioned plant inherits the penalty with it.</p>\n<p>For the manufacturers on the floor, the competitive ground has shifted accordingly. The argument is being made in terms of part-load efficiency, water consumption, serviceability, availability of spares inside the Kingdom, and the ability to integrate with a building management system that the FM provider will actually use. Several Saudi manufacturers are competing directly in that space with locally produced air-handling, chiller and air-control equipment, supported by domestic service networks.</p>\n<p>HVACR Saudi Arabia runs at Riyadh Front until 2 September alongside Heavy Saudi Arabia, <a href=\"/construction/totally-concrete-saudi-arabia-2026-mix-performance\">Totally Concrete Saudi Arabia</a> and Saudi FM &amp; Clean, within a Big 5 Construct Saudi edition carrying more than 1,000 exhibitors from over 50 countries.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "utilities",
+    "categories": [
+      "utilities"
+    ],
+    "tags": [
+      "HVACR Saudi Arabia",
+      "Cooling",
+      "Data Centres",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [],
+    "events": [
+      "HVACR Saudi Arabia",
+      "Big 5 Construct Saudi"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-30",
+    "informationCutoff": "2026-08-30",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/b5cs-opens-under-patronage-of-the-ministry-of-industry-and-mineral-resources/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.expertmarketresearch.com/reports/saudi-arabia-hvac-market",
+      "https://www.researchandmarkets.com/report/saudi-arabia-data-center-cooling-market",
+      "https://jawlah.co/en/59118",
+      "https://www.big5constructsaudi.com/event-info/"
+    ],
+    "seoTitle": "HVACR Saudi Arabia Opens as Cooling Demand Climbs",
+    "seoDescription": "HVACR Saudi Arabia opened in Riyadh with the Kingdom's HVAC market heading from $3.3bn to $6.3bn and data-centre cooling growing at 18.5 per cent a year.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "people": [],
+    "replacementOf": null,
+    "replacementReason": null,
+    "imageReviewRequired": true,
+    "wordCount": 604,
+    "internalLinks": [
+      "totally-concrete-saudi-arabia-2026-mix-performance"
+    ]
+  }
+]

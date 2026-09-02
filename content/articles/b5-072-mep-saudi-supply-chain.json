@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1072,
+    "headline": "MEP Has Become the Part of Saudi Construction That Decides the Date",
+    "slug": "saudi-mep-supply-chain-market-data-centres-giga-projects",
+    "deck": "Industrial MEP services in the Kingdom are forecast around $8.5 billion, one contractor is guiding to 22 percent growth this year, and on AI data centre bids mechanical and electrical scope is three-quarters of the price.",
+    "excerpt": "Mechanical, electrical and plumbing work has moved from a trade package to the critical path of Saudi delivery. Equipment lead times, commissioning capacity and a shortage of specialist engineers now determine handover dates across giga-projects, industrial plants and data centres alike.",
+    "content": "<p>For most of the history of large construction, the structure set the programme and the services followed. That relationship has inverted, and Saudi Arabia is where the inversion is most visible, because the Kingdom is building the categories of asset where mechanical and electrical scope dominates.</p><p>The clearest evidence comes from the newest asset class. On artificial intelligence data centre bids in 2026, mechanical, electrical and controls scope accounts for roughly three-quarters of the guaranteed maximum price, with electrical distribution alone at 32 to 38 percent. Hyperscale builds run 18 to 24 months, and the programme extensions come predominantly from electrical equipment lead times rather than from civil or structural work. A data centre is, in cost and schedule terms, an MEP project with a building wrapped around it.</p><p>The same logic applies with less extremity across the rest of the Saudi pipeline. A hospital, a stadium, a hotel, a semiconductor-adjacent manufacturing plant and a district cooling scheme are all defined by their services. The Saudi industrial MEP services market has been forecast at around $8.5 billion across the second half of the decade, segmented across electrical, mechanical, plumbing, HVAC, fire protection and building automation, with electrical and HVAC the dominant categories. One major Saudi MEP contractor has guided to 22 percent year-on-year growth for 2026, citing partnerships with the Public Investment Fund, retrofit demand and private social infrastructure development.</p><p>Three constraints determine whether that growth is deliverable.</p><p>The first is equipment. Chillers, switchgear, transformers, uninterruptible power systems, generator sets, pumps, valves and control panels are made to order against factory slots that are allocated globally. Saudi Arabia is competing for those slots against a worldwide data centre buildout and a worldwide grid investment cycle. Electrical equipment arriving in the Kingdom carries lead times around 18 weeks, and the specialist categories run longer. A project that has not placed its long-lead equipment orders at design stage has already lost time it cannot recover on site.</p><p>The second is commissioning. Installing a chilled water system is a trade activity; balancing, testing and proving it is an engineering one, and it is the step where Saudi buildings most often fail to reach their design performance. A system that is installed but not commissioned correctly will consume more energy every year it operates, and the defect is invisible until an energy audit finds it. Mission-critical assets raise the bar further, requiring integrated systems testing, load bank testing and failover demonstration before anyone accepts handover.</p><p>The third is people. Saudi Arabia's construction workforce exceeded 3.4 million at the end of 2025 with a shortage of skilled roles running into the hundreds of thousands and specialist positions taking three to six months to fill. MEP is disproportionately exposed to that shortage because its work is licensed, certified and hard to substitute — a shortage of general labour can be managed, a shortage of qualified commissioning engineers cannot.</p><p>The supply chain response has two directions. One is consolidation of the supplier base: contractors are narrowing to suppliers who can serve multiple categories from a single relationship, hold stock inside the Kingdom and support installations after handover, which favours regional manufacturers of components such as <a href=\"/engineering/hira-walraven-pipe-support-systems-seismic-bracing-saudi-mep\">pipe supports and insulation</a> over distant importers. The other is localisation of the equipment itself, where the demand curve is now visible enough to justify domestic production — the argument behind local chiller manufacturing and certified performance testing in the Kingdom, and behind <a href=\"/manufacturing/schneider-alfanar-saudi-industrial-equipment-localisation\">Saudi electrical equipment manufacturing</a>.</p><p>The co-location of HVACR Saudi Arabia with Big 5 Construct Saudi at Riyadh Front reflects a market that has worked this out. The conference programme this week includes sessions on improving coordination between HVACR design, installation and facilities management, which is a precise description of where MEP value is currently lost: designed by one party, installed by a second, commissioned by a third and operated by a fourth, with the performance record rarely surviving any of the handovers.</p>",
+    "author": "BrentDesk Research",
+    "primaryCategory": "engineering",
+    "categories": [
+      "engineering",
+      "construction",
+      "supply-chain",
+      "logistics"
+    ],
+    "tags": [
+      "MEP",
+      "Supply Chain",
+      "Data Centres",
+      "Commissioning",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Public Investment Fund"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.globenewswire.com/news-release/2026/04/21/3277655/28124/en/saudi-arabia-industrial-mep-services-forecast-report-2025-2030-8-5-bn-market-set-for-significant-growth-as-government-initiatives-and-smart-technologies-reshape-urban-infrastructur.html",
+    "primarySourceName": "Research and Markets",
+    "secondarySourceUrls": [
+      "https://archdesk.com/blog/global-ai-data-center-construction-2026",
+      "https://www.mepmiddleeast.com/power-lists/mep-top-25-contractors/top-saudi-mep-contractors-2025",
+      "https://www.psmarketresearch.com/market-analysis/saudi-arabia-mep-services-market",
+      "https://www.mahadmanpowers.co.in/research/saudi-arabia-construction-workforce-report-2026/"
+    ],
+    "seoTitle": "MEP Now Decides the Date in Saudi Construction",
+    "seoDescription": "Saudi industrial MEP is forecast near $8.5bn and is three-quarters of an AI data centre bid. Equipment, commissioning and engineers set the handover date.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 654
+  }
+]

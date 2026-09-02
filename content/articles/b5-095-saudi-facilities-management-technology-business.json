@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1095,
+    "headline": "Saudi Facilities Management Is Turning Into a Technology Business",
+    "slug": "saudi-facilities-management-technology-business-2026",
+    "deck": "The Kingdom is about to operate more new assets than it has ever operated at once, and the contract that wins is no longer the one with the most staff.",
+    "excerpt": "Facilities management in Saudi Arabia is moving from manpower and cleaning towards asset management, building management systems, condition monitoring and energy performance. The shift is being forced by the volume of assets reaching handover and by what owners now measure.",
+    "content": "<p>The facilities management halls at Riyadh Front were busier this week than a construction show would normally justify, and the products in them were not what facilities management used to mean. Building management systems, sensors, work-order platforms, energy management, condition monitoring, fire and life safety maintenance and asset registers took up more space than cleaning equipment and manpower services. That is the clearest signal available of where the Saudi market has gone.</p><p>The cause is arithmetic rather than fashion. Saudi Arabia has spent a decade awarding construction at a rate it had never previously sustained, and those assets are now arriving in service. Every handover converts a finite contract into a multi-decade obligation: maintain it, power it, cool it, keep it compliant, replace its plant on a cycle and eventually refurbish it. The operating cost of a building over its life comfortably exceeds its construction cost, and the Kingdom is about to have a great deal more of the former than it has ever managed at once. Market researchers put the Saudi facilities management market above $50 billion in 2026 with growth in the high single digits; the estimates differ by house, but every one of them describes the same curve.</p><p>What has changed is what the buyer measures. A traditional facilities management contract was priced on headcount and specified by activity: this many technicians, this many cleaning hours, this frequency of planned maintenance. That model rewards presence rather than performance, and it produces the familiar failure where a plant room is visited monthly and still fails annually. The contracts being discussed on this floor were specified on outcomes — availability, energy consumption per square metre, response and rectification times, compliance status, asset condition — and outcomes require instrumentation.</p><p>Energy is doing most of the pushing. Cooling dominates the operating cost of almost every Saudi building, and a chiller plant that drifts out of optimal operation loses money continuously and invisibly. Metering, sub-metering, building management system tuning and simple sequence-of-operation discipline recover a meaningful share of that without capital spending, which makes energy management the easiest part of the technology case to prove. It is also the part that converts a facilities management provider from a cost line into a source of savings, which changes how the contract is negotiated.</p><p>Maintenance strategy is the second lever, and the more contested one. Preventive maintenance on a calendar is expensive and imprecise; predictive maintenance based on condition data is cheaper and better when it works and an expensive distraction when it does not. The pattern that has held in industrial settings is that <a href=\"/article/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">the value appears only when the data changes a work order</a>, not when it produces a dashboard. Saudi asset owners buying this capability should be asking providers how many interventions were re-scheduled on the evidence, not how many sensors were installed.</p><p>Fire and life safety has become a distinct and defensible part of the same package. Since the 2024 edition of the Saudi Building Code became mandatory on 30 June 2025, and with Civil Defence approval applying to occupied buildings, keeping life safety systems certified and documented is an obligation with an inspection attached. Providers are consolidating design, installation and maintenance for exactly that reason — <a href=\"/facilities-management/al-futtaim-engineering-operational-sustainability-award-integrated-fm\">Al-Futtaim Contracting</a> <a href=\"/article/al-futtaim-contracting-fm-fire-life-safety-saudi-launch\">launched combined facilities management and fire and life safety operations in the Kingdom at this show</a> — because the handover between installer and maintainer is where compliance records historically disappeared.</p><p>There is a workforce consequence that the technology narrative tends to skip. Instrumented facilities management needs technicians who can interpret a trend, controls specialists who can retune a system, and analysts who can distinguish a sensor fault from an equipment fault. Those people are scarcer than the ones the model replaces, and they are the same people the construction programme is competing for. Any Saudi asset owner planning a technology-led facilities management strategy is implicitly planning a training strategy as well.</p><p>Buyers should be alert to the obvious failure mode, which is procurement theatre. A tender that awards points for a platform, a dashboard and a set of acronyms will reliably attract all three without changing how the building is run. The questions that separate a real capability from a presentation are specific: who owns and maintains the asset register, whether the building management system data is actually accessible or locked inside a controls contractor's proprietary interface, how many maintenance interventions were re-scheduled last year on the evidence of condition data, and what the provider's fee does when an energy target is missed.</p><p>The strategic point is larger than the sector. Saudi Arabia's industrial policy has concentrated, correctly, on building things — factories, plants, ports, housing, transport. The follow-on opportunity is operating them, and it is a longer-duration, higher-margin and more localisable business than construction, because it cannot be delivered from abroad. The Kingdom will import a chiller. It cannot import the person who keeps it running for the next twenty years.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "facilities-management",
+    "categories": [
+      "facilities-management",
+      "real-estate"
+    ],
+    "tags": [
+      "Facilities Management",
+      "Asset Management",
+      "Energy Management",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Al-Futtaim Contracting"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/specialised-events/saudi-fm-clean-ksa/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market",
+      "https://www.imarcgroup.com/saudi-arabia-facility-management-market",
+      "https://meconstructionnews.com/68912/al-futtaim-contracting-launches-fm-fls-operations-in-ksa",
+      "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf"
+    ],
+    "seoTitle": "Saudi Facilities Management Becomes a Tech Business",
+    "seoDescription": "Saudi FM is shifting from manpower to asset management, BMS, condition monitoring and energy performance as the Kingdom's new assets reach handover.",
+    "articleType": "opinion",
+    "wordCount": 822,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "internalLinks": [
+      "al-futtaim-engineering-operational-sustainability-award-integrated-fm"
+    ]
+  }
+]
