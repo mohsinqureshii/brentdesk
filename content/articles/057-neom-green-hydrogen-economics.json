@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 57,
+    "headline": "NEOM's Green Hydrogen Plant Nears Completion With Its Entire Output Already Sold for 30 Years",
+    "slug": "neom-green-hydrogen-completion-air-products-offtake-economics",
+    "deck": "The 2.2 GW electrolysis plant is close to finished and every tonne of ammonia has a contracted buyer. Whether green ammonia works as a Saudi export industry is a question for the buyer, not the plant.",
+    "excerpt": "NEOM Green Hydrogen Company's plant at Oxagon is approaching completion, with commissioning targeted for the end of 2026 and first ammonia exports in early 2027. Air Products holds an exclusive 30-year offtake for the full 1.2 million tonnes a year, which moves the commercial test downstream of the project itself.",
+    "content": "<p>The NEOM Green Hydrogen Company's plant on the Red Sea coast is approaching completion, several years after it was financed and roughly a year before it is expected to ship its first cargo.</p><p>The project is an equal joint venture between Air Products, ACWA Power and NEOM. It pairs about 2.2 gigawatts of electrolysis with roughly 4 GW of dedicated solar and wind generation, and converts the hydrogen into ammonia for export at a rate the partners put at 1.2 million tonnes a year. Ammonia is the shipping format: hydrogen is difficult and expensive to move by sea, ammonia is a commodity with existing terminals and vessels, and the conversion penalty is the price of getting the molecule to a customer.</p><p>Construction has been reported in stages. Air Products <a href=\"https://www.hydrogeninsight.com/production/construction-of-giant-2-2gw-neom-green-hydrogen-and-ammonia-plant-is-now-80-complete-air-products/2-1-1828013\">put the plant at 80 percent complete across all sites</a> in mid-2025, with the solar and wind elements above 95 percent, and completion has since been reported at around 90 percent. The renewable generation and the transmission system built to carry it — some 257 wind turbines and a solar field measured in tens of square kilometres — are the parts furthest along; the electrolysis and ammonia trains are the parts that determine the commissioning date.</p><p>On the timetable the partners have given, full renewable generating capacity is reached during 2026, the plant comes online around December, and the <a href=\"https://www.agbi.com/giga-projects/2026/02/neom-green-hydrogen-project-nears-completion/\">first export shipments of green ammonia follow in early 2027</a>.</p><p>The commercial structure is the more interesting part, and it is unusual. Air Products holds an exclusive offtake agreement covering all of the plant's ammonia for 30 years at an agreed price. That is not a marketing arrangement; it is a transfer of the entire merchant risk of the project from the plant to one buyer. NEOM Green Hydrogen Company knows what it will be paid for every tonne it makes until the late 2050s. Air Products does not know what it will receive for those tonnes.</p><p>This is why the project should not be read as a verdict on green hydrogen economics. What it demonstrates is that a plant of this scale can be financed, built and connected to 4 GW of dedicated renewables in a desert location — a real engineering and financing achievement, and one nobody had completed before. What it does not demonstrate is that the product clears at a price that would support a second plant on merchant terms.</p><p>The plant's renewable supply is dedicated rather than drawn from the national grid, which is both its advantage and its complication. Four gigawatts of solar and wind built for one customer avoids competing with the Kingdom's domestic programme for connection capacity, and the transmission system on site was built to carry that output. But dedicated variable supply means the electrolysers have to follow the weather rather than run flat, and utilisation of the most capital-intensive part of the plant is set by how well storage, over-sizing and load-following can smooth an input that stops at sunset.</p><p>The cost stack for green ammonia is well understood and unforgiving. Electricity is the dominant input, and Saudi Arabia has among the cheapest renewable electricity contracted anywhere, with recent solar and wind tariffs in the range of 1.1 to 1.3 US cents per kilowatt-hour. Against that sit electrolyser capital cost, the round-trip efficiency loss of splitting water and then synthesising ammonia, desalination, storage, and shipping to Europe or East Asia. Conventional ammonia made from natural gas has none of those penalties. The gap between the two has to be closed by regulation, by a customer willing to pay a premium, or by both.</p><p>That is the exposure Air Products has taken on, and it is a long one. The company has to place 1.2 million tonnes a year into markets — fertiliser, marine fuel, power generation, or as a hydrogen carrier — where the premium for a low-carbon molecule is set by policy rather than by physics. Volumes are contracted from the plant's side; they are not contracted all the way to the end user.</p><p>For ACWA Power, NEOM is one line in a much larger portfolio. The company is the dominant developer in the domestic renewable programme, holding equity in the seven-project, 15,000 MW package that reached financial close in December and in a string of thermal and storage contracts alongside it. Its exposure to green hydrogen is real but bounded, and the same is true of the Public Investment Fund behind it. That matters: the project does not have to work for its Saudi sponsors to be sound.</p><p>For Saudi Arabia the strategic logic is straightforward enough. The Kingdom has land, sun, wind and coastline, an established position in exporting energy in molecular form, and a policy interest in having something to sell if hydrocarbon demand flattens. A working export chain from Oxagon establishes that the country can produce and ship the product. Whether it becomes an industry rather than a demonstration depends on the price Air Products realises, and that number will not be visible until cargoes start moving in 2027.</p><p>Until then, the honest description of the project is a large, nearly finished, fully contracted plant — not a market.</p>",
+    "author": "Mo",
+    "primaryCategory": "energy",
+    "tags": [
+      "Green Hydrogen",
+      "Ammonia",
+      "NEOM",
+      "Air Products",
+      "Energy Exports"
+    ],
+    "companies": [
+      "NEOM Green Hydrogen Company",
+      "Air Products",
+      "ACWA Power",
+      "NEOM"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-02-18",
+    "informationCutoff": "2026-02-24",
+    "primarySourceUrl": "https://nghc.com/",
+    "primarySourceName": "NEOM Green Hydrogen Company",
+    "secondarySourceUrls": [
+      "https://www.agbi.com/giga-projects/2026/02/neom-green-hydrogen-project-nears-completion/",
+      "https://www.hydrogeninsight.com/production/construction-of-giant-2-2gw-neom-green-hydrogen-and-ammonia-plant-is-now-80-complete-air-products/2-1-1828013",
+      "https://www.blackridgeresearch.com/project-profiles/neom-green-hydrogen-h2-ammonia-nh3-project-saudi-arabia-ksa"
+    ],
+    "seoTitle": "NEOM Green Hydrogen Plant Nears Completion at 2.2 GW",
+    "seoDescription": "NEOM Green Hydrogen's 2.2 GW plant nears completion, with commissioning targeted for end-2026 and first ammonia exports in 2027 under a 30-year offtake.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 863,
+    "people": [],
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "energy",
+      "renewables",
+      "manufacturing"
+    ]
+  }
+]

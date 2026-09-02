@@ -1,0 +1,59 @@
+[
+  {
+    "commission": 58,
+    "headline": "Saudi Data Centre Build-Out Puts a New Kind of Load on a Grid Designed for Something Else",
+    "slug": "saudi-data-centre-power-demand-humain-datavolt-oxagon",
+    "deck": "HUMAIN and DataVolt have expanded their partnership at Oxagon. Getting from roughly 467 MW of operating capacity to a 1.5 GW national target means adding a gigawatt of load that never switches off.",
+    "excerpt": "HUMAIN and DataVolt have agreed to jointly develop 100 MW of a 360 MW AI-ready data centre at Oxagon in NEOM. Saudi Arabia had about 467 MW of operational data centre capacity in the first quarter of 2026 against a national target of roughly 1.5 GW by 2030 — a gigawatt of new, continuous load for a system built around a very different demand shape.",
+    "content": "<p>HUMAIN and DataVolt have expanded their partnership to jointly develop 100 megawatts of a 360 MW artificial intelligence data centre at Oxagon, the industrial zone on <a href=\"/energy/neom-green-hydrogen-completion-air-products-offtake-economics\">NEOM</a>'s Red Sea coast, deepening an arrangement the two Saudi companies first announced in November 2025 to build multi-gigawatt capacity together.</p><p>HUMAIN is a Public Investment Fund company set up to build a full-stack Saudi artificial intelligence business. DataVolt develops large-scale data centre infrastructure and is behind the Oxagon campus, which the company has described as a 1.5 GW site with a first phase costing around $5 billion and an opening tranche of about 300 MW targeted for 2028, designed to run at net zero on renewable supply.</p><p>The compute behind that capacity is arriving. HUMAIN agreed a joint venture with AMD and Cisco in November 2025 and has been reported as bringing its first data centres using US chips into service during 2026.</p><p>The number that matters for the Saudi power system is the load. Operational data centre capacity in the Kingdom stood at roughly 467 MW in the first quarter of 2026, against a national target of about 1.5 GW by 2030 set out in the data centre strategy launched by the Ministry of Communications and Information Technology with the Saudi Data and Artificial Intelligence Authority. Closing that gap means adding roughly a gigawatt of demand within four years, and the announced pipeline is larger than the target.</p><p>A gigawatt is not a large number against total Saudi generation. What makes it awkward is its shape. Data centre load is close to flat: it runs at high utilisation through the night, through the shoulder seasons and through the hours when solar output is zero. Saudi Arabia's generation build over the past year has been dominated by solar — 12 GW financed in December alone — which produces on precisely the opposite profile. A gigawatt of round-the-clock load does not get served by a solar plant; it gets served by firm capacity, by storage, or by a combination sized to cover the overnight hours.</p><p>The procurement pattern of the past year reflects that. The <a href=\"/power/saudi-arabia-8-gwh-battery-storage-service-agreements\">Saudi Power Procurement Company</a> contracted 2,313.5 MW of gas-fired combined-cycle capacity at Rabigh in April, on top of 7,200 MW of flexible combined-cycle capacity at Rumah and Nairyah contracted in late 2024, and has since signed storage service agreements for about 2 GW and 8 GWh of grid-scale batteries. None of that was procured for data centres specifically, but it is the kind of capacity a system needs when it adds inflexible load to a variable supply mix.</p><p>The comparison that makes the point is a crude one but it holds. A gigawatt of continuous data centre load consumes more energy over a year than a gigawatt of solar capacity produces, because the load runs every hour and the plant does not. Adding data centres to a system whose new generation is overwhelmingly solar therefore increases the amount of firm capacity or storage the system needs faster than it increases total capacity, which is the opposite of how the build has generally been described.</p><p>Connection is the other constraint, and it is a local one. A 360 MW facility is a single point of demand equivalent to a small city, and it has to be served at transmission voltage. <a href=\"/power/saudi-energy-380-kv-substations-renewable-connection-tenders\">Saudi Energy</a> has been tendering 380 kV substations and overhead lines across the Western, Southern and Central regions, principally to connect new generation; large industrial and digital loads compete for the same engineering capacity and the same contractors.</p><p>Siting is where the Kingdom's answer differs from most markets. Rather than concentrating capacity near existing fibre and load in Riyadh and the Eastern Province, a substantial share of the announced pipeline is at Oxagon, next to NEOM's dedicated renewable generation and away from the congested parts of the network. That supports the net zero claims attached to these campuses, which depend on renewable supply plus storage rather than on grid average emissions. It also means the power infrastructure and the data centres are being built at the same time, in the same place, on schedules that have to hold together.</p><p>There is also a gap between announced pipeline and deliverable capacity that is worth holding onto. Projects under construction or announced in the Kingdom would take data centre power demand well past the 1.5 GW target, and announcements of this kind have historically run ahead of energised megawatts everywhere they have been made. The binding constraints are the same ones facing the generation programme: transformers, switchgear, high-voltage contractors and the time it takes to build a substation.</p><p>Both announcements to date are development agreements rather than operating capacity. DataVolt's first Oxagon tranche is targeted for 2028 and the HUMAIN partnership covers joint development of 100 MW within a 360 MW facility. The 467 MW currently running is the number to measure against, and it will be the gap between announced pipeline and energised megawatts that shows whether the grid or the capital was the binding constraint.</p>",
+    "author": "Mo",
+    "primaryCategory": "data-centers",
+    "tags": [
+      "Data Centres",
+      "Power Demand",
+      "NEOM",
+      "Artificial Intelligence",
+      "Grid Infrastructure"
+    ],
+    "companies": [
+      "HUMAIN",
+      "DataVolt",
+      "NEOM",
+      "Public Investment Fund",
+      "Saudi Energy",
+      "AMD",
+      "Cisco"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-31",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://data-volt.com/media/breaking-news/humain-partners-datavolt-develop-100mw-of-a-360mw-ai-datacenter-in-neom/",
+    "primarySourceName": "DataVolt",
+    "secondarySourceUrls": [
+      "https://www.datacenterdynamics.com/en/news/saudi-arabias-humain-and-datavolt-collaborate-on-data-center-development/",
+      "https://data-volt.com/media/breaking-news/humain-and-datavolt-join-forces-to-attract-large-scale-ai-workloads-to-saudi-arabia/",
+      "https://www.gtlaw.com/en/insights/2026/1/saudi-arabias-data-centre-expansion-regulatory-framework-and-strategic-considerations",
+      "https://www.amd.com/en/newsroom/press-releases/2025-11-19-amd-cisco-and-humain-to-form-joint-venture.html"
+    ],
+    "seoTitle": "Saudi Data Centre Build-Out Adds New Load to the Grid",
+    "seoDescription": "HUMAIN and DataVolt will jointly develop 100 MW of a 360 MW AI data centre at Oxagon, as Saudi capacity moves from 467 MW toward a 1.5 GW 2030 target.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 835,
+    "people": [],
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "data-centers",
+      "industrial-technology",
+      "power",
+      "energy"
+    ],
+    "internalLinks": [
+      "saudi-arabia-8-gwh-battery-storage-service-agreements",
+      "saudi-energy-380-kv-substations-renewable-connection-tenders",
+      "neom-green-hydrogen-completion-air-products-offtake-economics"
+    ]
+  }
+]

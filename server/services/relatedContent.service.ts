@@ -105,6 +105,7 @@ export class RelatedContentService {
         excerpt: articles.excerpt,
         featuredImageId: articles.featuredImageId,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       })
         .from(articles)
         .where(and(
@@ -219,6 +220,7 @@ export class RelatedContentService {
       excerpt: articles.excerpt,
       featuredImageId: articles.featuredImageId,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
     })
       .from(articles)
       .where(and(
@@ -582,6 +584,7 @@ export class RelatedContentService {
       excerpt: articles.excerpt,
       featuredImageId: articles.featuredImageId,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
     })
       .from(articles)
       .where(and(
@@ -660,6 +663,7 @@ export class RelatedContentService {
       excerpt: articles.excerpt,
       featuredImageId: articles.featuredImageId,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
     })
       .from(articles)
       .where(and(

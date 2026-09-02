@@ -166,6 +166,7 @@ export const authorsRouter = router({
           excerpt: articles.excerpt,
           featuredImageId: articles.featuredImageId,
           publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         })
         .from(articles)
         .where(

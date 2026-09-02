@@ -30,6 +30,7 @@
  */
 
 import bcrypt from "bcryptjs";
+import { seedCompanies } from "./seed-companies";
 import { publication } from "../shared/publication";
 import mysql from "mysql2/promise";
 import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
@@ -450,6 +451,55 @@ async function seedHomepageSections(db: SeedDb) {
 }
 
 // ------------------------------------------------------------------
+// Editorial bylines
+// ------------------------------------------------------------------
+/**
+ * The approved BrentDesk byline list. Bylines are `users` rows with
+ * role='author'; articles.authorId points at them. Deliberately minimal —
+ * no invented biographies, employers, credentials or social accounts,
+ * because none of that can be legitimately supported.
+ */
+const AUTHORS: Array<{ publicName: string; name: string; jobTitle: string | null; authorBio: string }> = [
+  {
+    publicName: "Mo",
+    name: "Mo",
+    jobTitle: "Editor",
+    authorBio: "Mo covers Saudi Arabia and the wider GCC for BrentDesk, with a focus on construction, infrastructure, energy and industrial strategy.",
+  },
+  {
+    publicName: "Jakson Gudawela",
+    name: "Jakson Gudawela",
+    jobTitle: "Industry Correspondent",
+    authorBio: "Jakson Gudawela reports on manufacturing, oil and gas, mining, logistics and industrial technology for BrentDesk.",
+  },
+  {
+    publicName: "BrentDesk Staff",
+    name: "BrentDesk Staff",
+    jobTitle: null,
+    authorBio: "Reporting from the BrentDesk newsroom.",
+  },
+];
+
+async function seedAuthors(db: SeedDb) {
+  let added = 0;
+  for (const a of AUTHORS) {
+    const existing = await db.select({ id: users.id }).from(users).where(eq(users.publicName, a.publicName)).limit(1);
+    if (existing.length) continue;
+    await db.insert(users).values({
+      openId: `author_${a.publicName.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`,
+      name: a.name,
+      publicName: a.publicName,
+      jobTitle: a.jobTitle,
+      authorBio: a.authorBio,
+      loginMethod: "system",
+      role: "author",
+    });
+    added++;
+  }
+  console.log(`[seed] authors: ${added} added`);
+}
+
+// ------------------------------------------------------------------
 // Optional admin user
 // ------------------------------------------------------------------
 async function seedAdminUser(db: SeedDb) {
@@ -496,6 +546,19 @@ export async function runSeed(): Promise<void> {
     await seedAdSlots(db);
     await seedHouseAds(db);
     await seedHomepageSections(db);
+    await seedAuthors(db);
+    // Company profiles need the published editorial status, which the server
+    // creates at boot. Resolve it here so the seed works standalone too.
+    {
+      const { workflowService } = await import("../server/services/workflow.service");
+      let status = await workflowService.getStatusBySlug("editorial", "published");
+      if (!status) {
+        await workflowService.initializeWorkflows();
+        status = await workflowService.getStatusBySlug("editorial", "published");
+      }
+      if (status) await seedCompanies(db, status.id);
+      else console.warn("[seed] companies: skipped (no published editorial status)");
+    }
     await seedAdminUser(db);
     console.log("[seed] BrentDesk bootstrap complete");
   } finally {

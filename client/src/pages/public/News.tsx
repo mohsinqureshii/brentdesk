@@ -26,6 +26,9 @@ interface Article {
   excerpt?: string | null;
   featuredImageUrl?: string | null;
   publishedAt?: Date | string | null;
+  /** Date the underlying development happened. Preferred for display —
+   *  see newsDate(). */
+  eventDate?: string | null;
   viewCount?: number | null;
   categoryId?: number | null;
   categoryName?: string | null;
@@ -47,6 +50,19 @@ interface HomepageSection {
   sortOrder?: number | null;
   isActive?: number | boolean | null;
   position?: string | null;
+}
+
+/**
+ * The date a reader should see.
+ *
+ * publishedAt records when BrentDesk published the piece and stays truthful;
+ * eventDate is when the development actually happened. An archive published
+ * in one sitting would otherwise show "2m ago" against every story,
+ * including one reporting a December 2025 announcement — accurate about the
+ * publication record, and misleading about the news.
+ */
+function newsDate(a: { eventDate?: string | null; publishedAt?: Date | string | null }): Date | string | null | undefined {
+  return a.eventDate ?? a.publishedAt;
 }
 
 function formatTimeAgo(date: Date | string | null | undefined): string {
@@ -115,7 +131,7 @@ function Thumb({ article, className }: { article: Article; className?: string })
 function MetaLine({ article, showRead = true }: { article: Article; showRead?: boolean }) {
   return (
     <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
-      <span>{formatTimeAgo(article.publishedAt)}</span>
+      <span>{formatTimeAgo(newsDate(article))}</span>
       {showRead && (
         <>
           <span aria-hidden>·</span>
@@ -200,7 +216,7 @@ function TopStorySection({ section }: { section: HomepageSection }) {
             </p>
           )}
           <div className="mt-4 flex items-center gap-2 text-xs text-white/60">
-            <span>{formatTimeAgo(lead.publishedAt)}</span>
+            <span>{formatTimeAgo(newsDate(lead))}</span>
             <span aria-hidden>·</span>
             <span className="inline-flex items-center gap-1">
               <Clock className="h-3 w-3" /> {readTime(lead)}
@@ -304,7 +320,7 @@ function InBriefSection({ section }: { section: HomepageSection }) {
         {(articles as Article[]).map((a) => (
           <li key={a.id} className="flex gap-3 py-2.5 border-b border-border last:border-0">
             <span className="text-[11px] font-semibold text-muted-foreground w-14 shrink-0 pt-0.5">
-              {formatTimeAgo(a.publishedAt)}
+              {formatTimeAgo(newsDate(a))}
             </span>
             <Link href={getArticleUrl(a)} className="group min-w-0">
               <span className="bd-headline text-sm text-foreground line-clamp-2">{a.title}</span>
@@ -476,7 +492,7 @@ function MostReadWidget({ section }: { section: HomepageSection }) {
               <Link href={getArticleUrl(a)} className="group">
                 <span className="bd-headline text-sm text-foreground line-clamp-2">{a.title}</span>
               </Link>
-              <div className="mt-1 text-[11px] text-muted-foreground">{formatTimeAgo(a.publishedAt)}</div>
+              <div className="mt-1 text-[11px] text-muted-foreground">{formatTimeAgo(newsDate(a))}</div>
             </div>
           </li>
         ))}

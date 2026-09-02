@@ -1,0 +1,53 @@
+[
+  {
+    "commission": 91,
+    "headline": "Copper Hits Record Prices as Smelter Failures Overwhelm a Forecast Surplus",
+    "slug": "copper-record-price-smelter-failures-electrification-2026",
+    "deck": "The ICSG's April balance says 2026 ends in surplus. Grasberg, Gresik and the grid say otherwise - and the market is trading the second view.",
+    "excerpt": "Three-month copper reached $14,370 a tonne on the LME on 28 August, near January's record, after the Gresik smelter shutdown compounded a year of disruption at Grasberg. The International Copper Study Group forecasts a 96,000-tonne surplus for 2026 while J.P. Morgan sees a 330,000-tonne deficit, a gap that reflects how differently the paper balance and the physical market are behaving.",
+    "content": "<p>Copper reached a fresh high on the London Metal Exchange on 28 August, the three-month contract touching $14,370 a tonne and closing to within about $160 of the intraday record of $14,527.50 set on 29 January. The metal has now held above $14,000 a tonne through a summer in which its supply chain has failed at three separate points, and it has done so against an official forecast that says this year should end in surplus.</p><p>The immediate cause is a smelter. The Gresik plant in East Java, which treats concentrate from the Grasberg mine, was <a href=\"https://www.mining.com/copper-price-back-at-records-edge-as-grasberg-smelter-halt-bites-aluminum-surges/\">shut down on 8 August</a> after a furnace failure released molten material. Freeport's second Indonesian smelter, at Manyar, had been ramping up to absorb much of Gresik's load and is not expected back until September. With both units down, Indonesian concentrate is being directed to Chinese smelters instead. The copper still gets made; it simply stops arriving as exchange-deliverable metal on the timescale the market was counting on, and LME stocks were thin before the furnace failed. Aluminium rallied alongside it.</p><p>Behind the smelters sits the mine, and Grasberg has not run normally since 8 September last year, when roughly 800,000 tonnes of wet material broke into the Grasberg Block Cave underground operation, killing seven workers. Freeport-McMoRan declared force majeure on deliveries from PT Freeport Indonesia and has revised the recovery schedule downward more than once since. Against a pre-incident plan of about 1.7 billion pounds of copper and 1.6 million ounces of gold from PTFI in 2026, the company first guided to output roughly 35 percent lower, and has <a href=\"https://investors.fcx.com/investors/news-releases/news-release-details/2025/Freeport-Provides-Update-on-Restart-Plans-for-Grasberg-Minerals-District/default.aspx\">cut again since</a>. PTFI is now expected to run at around 65 percent of capacity in the second half of 2026 and 80 percent by the middle of 2027, reaching full rates in early 2028 rather than by the end of 2027 as previously indicated.</p><p>One mine and two smelters do not normally set a global price. They are setting this one because the market has almost no slack in it - and because the official view of how much slack there is keeps changing.</p><p>The <a href=\"https://icsg.org/\">International Copper Study Group</a>, whose balance most of the industry treats as the reference, has moved its 2026 position twice in six months. Last October it abandoned a forecast surplus of 209,000 tonnes and put the year in deficit by 150,000 tonnes, on the reasoning that refined production would grow only 0.9 percent even as mine output rose 2.3 percent. In April it reversed, forecasting a surplus of roughly 96,000 tonnes for 2026 and a much larger surplus of about 377,000 tonnes for 2027, citing weaker-than-expected usage and more refined metal coming from scrap. Banks have not followed the revision. J.P. Morgan carries a refined deficit of about 330,000 tonnes for 2026 - a spread of more than 400,000 tonnes against the study group's number, on a market of under 29 million tonnes.</p><p>That gap is not an arithmetic dispute. It is a disagreement about which constraint binds. The ICSG balance nets global refined supply against global refined usage over a calendar year. The physical market trades a much narrower thing: metal available in the right form, in the right warehouse, in the next few weeks. Secondary refined production from scrap - the swing factor behind April's revision - is real tonnage, but it is not evenly distributed, and it does not substitute cleanly for cathode queued against a smelter that has stopped.</p><p>The demand side is being read the same way. The ICSG's October work had refined usage rising 2.1 percent to 28.7 million tonnes in 2026, down from 3 percent growth the year before, with the slowdown concentrated in China. China takes about 58 percent of the world's refined copper and its consumption growth was expected to fall to roughly 1 percent. For two decades that combination would have been decisively bearish. It has not been, and the reason is what has moved in to replace Chinese construction as the marginal buyer.</p><p>Copper's growth market is now electrical infrastructure, and the numbers behind it are larger than the ones the mining industry planned against. The International Energy Agency puts annual grid investment at around $400 billion today and estimates it needs to rise by roughly half again by 2030 <a href=\"https://www.iea.org/reports/electricity-2026/grids\">to keep pace with connection demand</a>. On the agency's own scenario work, world copper demand could be as much as 48 percent higher by 2040, with grids and electrified transport the two dominant drivers. Data centres have been added to that load in the space of about three years: S&amp;P Global has estimated that a single large AI data centre can require as much copper as 30,000 homes, and the sector is now reckoned at around 8 percent of US metallic-cable demand and rising.</p><p>The industrial consequence of that is felt in cable rather than cathode. Wire and cable plants take three to four years to build, and much of the capacity announced during the first wave of grid and data centre orders is only beginning to come online this year. In the meantime the queue lengthens: transformer, conductor and cable lead times are being set by order books placed before the current round of demand existed, and a buyer who needs copper conductor for a substation is not competing on price alone but on position in a schedule.</p><p>None of this means the ICSG is wrong. A modest annual surplus and a squeezed spot market are entirely compatible; the balance forecasts an average, and the market prices the margin. But the pattern of the past year - a mine failure in Papua, a furnace failure in East Java, refined output growing at under 1 percent while mine output grows at over 2 - describes an industry with very little tolerance for anything going wrong at exactly the point where demand growth has stopped depending on Chinese property and started depending on the electricity system.</p><p>Copper spent most of the last cycle as a proxy for Chinese construction. It is being repriced as a proxy for something with a longer and more inflexible order book.</p>",
+    "author": "Mo",
+    "primaryCategory": "metals",
+    "tags": [
+      "Copper",
+      "Electrification",
+      "Mining",
+      "Commodity Markets",
+      "Grid Investment"
+    ],
+    "companies": [
+      "Freeport-McMoRan",
+      "PT Freeport Indonesia",
+      "International Copper Study Group",
+      "London Metal Exchange"
+    ],
+    "people": [],
+    "eventDate": "2026-08-28",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://icsg.org/",
+    "primarySourceName": "International Copper Study Group",
+    "secondarySourceUrls": [
+      "https://www.mining.com/copper-price-back-at-records-edge-as-grasberg-smelter-halt-bites-aluminum-surges/",
+      "https://investors.fcx.com/investors/news-releases/news-release-details/2025/Freeport-Provides-Update-on-Restart-Plans-for-Grasberg-Minerals-District/default.aspx",
+      "https://www.mining.com/freeport-plans-to-restart-large-scale-production-at-grasberg-in-q2-2026/",
+      "https://www.iea.org/reports/electricity-2026/grids",
+      "https://me.smenet.org/slower-production-growth-will-push-copper-market-to-deficit-in-2026-says-icsg/",
+      "https://www.recyclingtoday.com/news/copper-icsg-recycling-output-refining-supply-demand-2026-2027/",
+      "https://www.northernminer.com/news/freeport-delays-grasberg-full-restart-to-early-2028/1003890910/"
+    ],
+    "seoTitle": "Copper Hits Record as Smelter Failures Squeeze Supply",
+    "seoDescription": "Copper reached $14,370 a tonne on 28 August as the Gresik smelter halt compounded Grasberg's outage, against an ICSG forecast of a 2026 surplus.",
+    "articleType": "report",
+    "wordCount": 1021,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "metals",
+      "mining",
+      "power",
+      "energy"
+    ]
+  }
+]

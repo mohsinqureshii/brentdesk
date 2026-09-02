@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 21,
+    "headline": "Saudi Arabia's Factory Count Passes 13,600 as Industrial Policy Turns to Exports",
+    "slug": "saudi-arabia-industrial-licences-factory-count-exports-2026",
+    "deck": "The Kingdom is licensing new plants at a rate of roughly 250 a month. Converting that capacity into export volume is the slower half of the strategy.",
+    "excerpt": "Saudi Arabia ended April with 13,660 licensed industrial establishments, up from 12,289 a year earlier, after the Ministry of Industry and Mineral Resources issued 322 new industrial licences in the month alone. The build-out is running ahead of schedule against the National Industrial Strategy's factory targets. The export half of that strategy is a harder number to move.",
+    "content": "<p>Saudi Arabia's licensed industrial base reached 13,660 establishments at the end of April, up from 12,289 a year earlier — an addition of close to 1,400 plants in twelve months. In April alone the Ministry of Industry and Mineral Resources issued 322 new industrial licences and <a href=\"https://saudigazette.com.sa/article/662415/saudi-arabia/saudi-industrial-establishments-rise-to-13660-as-322-new-licenses-issued\">recorded 188 factories entering production</a>.</p><p>That was the strongest month of the year so far, but not an outlier in direction. The ministry issued 161 licences in January and 221 in February, with 112 factories starting production during the latter, and <a href=\"https://www.arabnews.com/node/2643260/amp\">188 licences in March alongside 78 production starts</a>. The monthly series is lumpy, as licensing series usually are, but the trend line has not wavered.</p><p>The numbers matter because they are the most immediate measure of whether the National Industrial Strategy is working. The strategy, launched in October 2022, sets out to raise the number of factories in the Kingdom to 36,000 by 2035, attract SAR 1.3 trillion of additional industrial investment, roughly triple industrial GDP and double the value of industrial exports to <a href=\"https://www.vision2030.gov.sa/media/t0uiiudv/nsd_en.pdf\">SAR 557 billion</a>. On the factory count, the current run rate is broadly consistent with the 2035 goal.</p><p>The export target is the harder one, and it is the one that ultimately decides whether the policy has done what it was designed to do.</p><p>The distinction is worth being precise about. An industrial licence is a commitment to build. A factory entering production is installed capacity. An export is a sale won against international competition, usually on price, delivery reliability and specification — none of which follow automatically from a plant being commissioned. A country can add capacity quickly and still find that most of it is absorbed by domestic demand.</p><p>On the trade data, the direction is favourable. The General Authority for Statistics reported that non-oil exports including re-exports rose 15.1 percent year on year in February to <a href=\"https://www.stats.gov.sa/en/w/news/185\">SAR 31.03 billion, or about $8.27 billion</a>. Oil's share of total exports fell over the same period from 71.5 percent to 68.7 percent — a slow shift, but the one Vision 2030 is measured against. The United Arab Emirates remained the largest single destination for Saudi non-oil products at SAR 9.81 billion in the month.</p><p>The February figure sits at the upper end of a volatile series. Non-oil exports grew 7.4 percent in December 2025, with the fourth-quarter trade surplus up 26.3 percent on the year. Manufacturing activity excluding oil refining grew 4.0 percent in the first quarter of 2026.</p><p>That gap — 4 percent growth in manufacturing output against 15 percent growth in non-oil exports in a single month — is the sort of divergence that should be read carefully rather than celebrated. The headline non-oil export figure includes re-exports, which reflect the Kingdom's role as a trading and logistics hub rather than its factory output. It is also heavily weighted toward chemicals and plastics, the segment where Saudi Arabia has held a structural cost advantage for decades and where new capacity has been coming onstream continuously. Neither of those is the diversification the industrial strategy is aiming at.</p><p>What the strategy is aiming at is the harder category: machinery, equipment, vehicles, components and advanced manufactures, where the Kingdom currently imports far more than it makes. That is where the licensing pipeline is being steered, and it is why the automotive sector — three licensed vehicle manufacturers, none of them yet at scale — has absorbed so much policy attention relative to its current contribution.</p><p>The infrastructure is largely in place. Saudi Arabia operates around 40 industrial cities, most of them under the Saudi Authority for Industrial Cities and Technology Zones, offering serviced land, utilities and customs treatment on terms designed to remove the site-selection question from an investor's calculation. The Saudi Industrial Development Fund provides project finance. Customs exemptions apply to imported production machinery and, in defined cases, raw materials.</p><p>What none of that supplies is demand. A new plant in Jubail or Sudair competes for export orders against incumbents in Asia and Europe with longer operating histories, deeper supplier networks and established customer relationships. Saudi producers have cheap energy and improving logistics on their side; they do not yet have scale in most of the categories the strategy prioritises, and scale is what makes an export price competitive.</p><p>This is the reason the export line lags the factory line, and why it should be expected to. Capacity is a decision. Export share is an outcome, and it accumulates slowly.</p><p>With four years to 2030, the licence count is the leading indicator and the export figure is the lagging one. The first is currently doing what the strategy asked of it. The second is moving, but it has considerably further to travel.</p>",
+    "author": "Mo",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Industrial Policy",
+      "Vision 2030",
+      "Non-Oil Exports",
+      "Industrial Licensing"
+    ],
+    "companies": [
+      "Ministry of Industry and Mineral Resources",
+      "General Authority for Statistics",
+      "Saudi Industrial Development Fund"
+    ],
+    "people": [
+      "Bandar Alkhorayef"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-04-30",
+    "informationCutoff": "2026-05-22",
+    "primarySourceUrl": "https://www.stats.gov.sa/en/w/news/185",
+    "primarySourceName": "General Authority for Statistics",
+    "secondarySourceUrls": [
+      "https://saudigazette.com.sa/article/662415/saudi-arabia/saudi-industrial-establishments-rise-to-13660-as-322-new-licenses-issued",
+      "https://www.arabnews.com/node/2643260/amp",
+      "https://www.argaam.com/en/article/articledetail/id/1895697",
+      "https://www.vision2030.gov.sa/media/t0uiiudv/nsd_en.pdf",
+      "https://www.stats.gov.sa/en/w/news/168",
+      "https://www.arabnews.com/node/2640958/business-economy"
+    ],
+    "seoTitle": "Saudi Factory Count Passes 13,600 as Policy Turns to Exports",
+    "seoDescription": "Saudi Arabia's licensed industrial base hit 13,660 establishments by end-April 2026, but the National Industrial Strategy's export target is the harder number.",
+    "articleType": "report",
+    "wordCount": 788,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "manufacturing"
+    ]
+  }
+]

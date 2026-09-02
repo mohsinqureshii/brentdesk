@@ -1,0 +1,58 @@
+[
+  {
+    "commission": 99,
+    "headline": "ADNOC Puts a Heavy-Duty Inspection Robot Into a Gas Plant as Industrial Robotics Moves Off the Trial Site",
+    "slug": "robotics-industrial-inspection-adnoc-taweelah-anybotics-spot",
+    "deck": "Taurob's robot is now walking rounds at Taweelah, Aramco says robots and drones handle close to a third of routine operations at Abqaiq, and the machine that can turn a valve rather than just look at it is due this year.",
+    "excerpt": "ADNOC has deployed a heavy-duty Taurob inspection robot at its Taweelah gas compression plant, with an operator robot able to turn valves due from the ARGOS joint industry project by the end of 2026. Aramco operates more than a hundred drones and its own magnetic crawlers. ANYbotics has shipped over 200 ANYmal units and Boston Dynamics more than 3,000 Spots, with explosion-proof certification and gauge-reading models the changes that made routine deployment possible.",
+    "content": "<p>ADNOC has put a heavy-duty inspection robot to work at its Taweelah gas compression plant, in what the company describes as an industry first and what is more usefully read as the point at which robotic inspection at Gulf energy sites stopped being a trial.</p><p>The machine, supplied by the Austrian robotics firm Taurob, carries out routine inspection rounds in hazardous areas without an operator present, navigating with 3D LiDAR and reading equipment with thermal cameras on a mounting with 360-degree range of motion. <a href=\"https://www.adnoc.ae/en/news-and-media/press-releases/2026/adnoc-deploys-industry-first-heavy-duty-robot-to-strengthen-safety-reliability-and-performance\">ADNOC says</a> the deployment sits within a wider effort to move monitoring, robotics and autonomous systems into health and safety and operational workflows across its onshore and offshore assets, alongside drones used for emissions monitoring and confined-space work.</p><p>The follow-on matters more than the robot now walking the plant. Under the ARGOS joint industry project, run with Equinor, Petrobras, TotalEnergies, the Net Zero Technology Centre, Saft and Taurob, the partners are developing a heavy-duty operator robot rated to work between minus 20 and 60 degrees Celsius, strong enough to lift equipment and precise enough to turn valves and operate gauges. It is due to be operational by the end of this year. The distinction is the whole argument: an inspection robot looks, and a human still has to go in to act. An operator robot removes the second trip.</p><p>Aramco has been building the same capability for longer and along a different route, developing much of the hardware itself. The company <a href=\"https://www.aramco.com/en/news-media/elements-magazine/2024/flying-high-how-drones-are-optimizing-aramcos-operations\">has said</a> it operates more than a hundred drones across most of its major facilities, including vertical take-off and landing aircraft for well and pipeline surveillance and ultrasonic testing drones that use high-frequency sound to find corrosion and wall thinning without scaffolding. At the Abqaiq processing plant, it has put the share of routine operations such as safety inspections handled by robots and drones at close to a third. Its ground and subsea fleet includes the SAIR magnetic crawler, developed at KAUST and licensed to Arabian Robotics Company, which performs ultrasonic thickness gauging, visual inspection and gas sensing on tanks, pipework and offshore structures, and the Swim-R robot for shallow-water pipeline inspection.</p><p>The economics are more mundane than the machines. Inspection is scheduled, repetitive and documentation-heavy, and much of it happens in places that require a permit, a gas test, a standby crew and sometimes a shutdown before a person can enter. The cost of an inspection round is rarely the inspector's time; it is everything arranged around the inspector. A robot that can complete the round unaccompanied removes that scaffolding, and it can repeat the round nightly rather than quarterly, which turns a periodic snapshot into a continuous record.</p><p>The independent fleet has grown to a size where this is no longer a small market. The Swiss firm ANYbotics has shipped more than 200 of its ANYmal legged robots, which it says perform thousands of inspections a week across oil and gas, mining, power, utilities and metals, with Equinor, ENI and Petrobras among named users alongside SLB, Siemens Energy, GE Vernova, Novelis and Outokumpu. Total funding passed $150 million after <a href=\"https://www.therobotreport.com/anybotics-earns-strategic-investment-from-climate-investment/\">Climate Investment joined its most recent round</a>. The product the money is aimed at is ANYmal X, an explosion-proof certified legged robot for hazardous atmospheres, now entering customer deliveries. Certification is the gate. Without an Ex rating a robot cannot enter the classified zones where the inspection burden is heaviest, which is why most inspection robotics to date has been confined to the safer parts of a plant. The company has also added a payload combining gas detectors with acoustic imaging, so a robot on a routine round can locate a leak and measure the concentration around it.</p><p>Boston Dynamics has taken the wider industrial route, with more than 3,000 Spot units deployed and users including BP, National Grid, Cargill and AB InBev. In April the company moved the inspection model behind its Orbit software onto Google DeepMind's Gemini Robotics-ER 1.6, <a href=\"https://bostondynamics.com/blog/aivi-learning-now-powered-google-gemini-robotics/\">switching enrolled customers over from 8 April</a>. The tasks it lists as newly reliable are revealing: reading analogue gauges, judging how full a sight glass is, counting pallets and identifying standing liquid on a floor. None of that is dramatic. All of it is what a plant inspection round actually consists of, and until recently a robot could carry a camera past a gauge but not tell you what the needle said.</p><p>Some proportion should be kept. Fleets in the low hundreds and low thousands are small against the asset bases they serve, and these machines are supplementing inspection rounds rather than replacing inspection departments. The International Federation of Robotics counted roughly <a href=\"https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom\">200,000 professional service robots sold in 2024</a>, up 9 percent, with logistics taking more than 100,000 of them; inspection and maintenance remains one of the smaller categories in that total.</p><p>What has changed is not the hardware, which has been demonstrable for years. It is the combination of hazardous-area certification, autonomy good enough to run a route unattended, and models capable of interpreting what the sensors return. The by-product is the more durable asset. A plant that inspects itself nightly accumulates a time series on every gauge, bearing and flange on the route, which is the input that condition monitoring and maintenance planning have always been short of.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "robotics",
+    "tags": [
+      "Industrial Robotics",
+      "Asset Inspection",
+      "Oil And Gas",
+      "Automation",
+      "Maintenance"
+    ],
+    "companies": [
+      "ADNOC",
+      "Taurob",
+      "Saudi Aramco",
+      "ANYbotics",
+      "Boston Dynamics",
+      "Equinor",
+      "TotalEnergies",
+      "Petrobras"
+    ],
+    "people": [],
+    "country": "United Arab Emirates",
+    "eventDate": "2026-05-21",
+    "informationCutoff": "2026-05-31",
+    "primarySourceUrl": "https://www.adnoc.ae/en/news-and-media/press-releases/2026/adnoc-deploys-industry-first-heavy-duty-robot-to-strengthen-safety-reliability-and-performance",
+    "primarySourceName": "ADNOC",
+    "secondarySourceUrls": [
+      "https://worldoil.com/news/2026/5/21/adnoc-deploys-heavy-duty-inspection-robot-at-uae-gas-plant/",
+      "https://jpt.spe.org/adnoc-touts-robotic-deployment-with-more-to-come",
+      "https://www.aramco.com/en/news-media/elements-magazine/2024/flying-high-how-drones-are-optimizing-aramcos-operations",
+      "https://www.therobotreport.com/anybotics-earns-strategic-investment-from-climate-investment/",
+      "https://www.anybotics.com/robotics/anymal-x/",
+      "https://bostondynamics.com/blog/aivi-learning-now-powered-google-gemini-robotics/",
+      "https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom"
+    ],
+    "seoTitle": "ADNOC Deploys Heavy-Duty Inspection Robot at Taweelah",
+    "seoDescription": "ADNOC has deployed a Taurob inspection robot at Taweelah as Aramco, ANYbotics and Boston Dynamics scale robotic inspection across industrial sites.",
+    "articleType": "news",
+    "wordCount": 880,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "robotics",
+      "industrial-technology",
+      "oil-gas",
+      "energy"
+    ]
+  }
+]

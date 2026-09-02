@@ -489,8 +489,19 @@ export default function Article() {
                   <span className="font-medium text-white">{authorName}</span>
                 )}
                 <span className="text-white/50">·</span>
-                <time dateTime={article.publishedAt ? new Date(article.publishedAt).toISOString() : undefined}>
-                  {formatDate(article.publishedAt)}
+                {/*
+                  The byline shows when the news happened, not when BrentDesk
+                  published the piece. For an archive assembled after the fact
+                  those differ, and the news date is what a reader is looking
+                  for. The publication record stays truthful: JSON-LD
+                  datePublished and og:publishedTime above both use
+                  article.publishedAt.
+                */}
+                <time dateTime={(() => {
+                  const d = (article as any).eventDate ?? article.publishedAt;
+                  return d ? new Date(d).toISOString() : undefined;
+                })()}>
+                  {formatDate((article as any).eventDate ?? article.publishedAt)}
                 </time>
                 {article.updatedAt &&
                   article.publishedAt &&

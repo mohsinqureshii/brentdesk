@@ -1,0 +1,55 @@
+[
+  {
+    "commission": 29,
+    "headline": "Saudi Arabia's Mandatory Local Content List Widens to More Than 1,500 Products",
+    "slug": "saudi-mandatory-local-content-list-anchor-buyers",
+    "deck": "The rule now reaches state-owned industrial buyers. Aramco, Ma'aden and SABIC procurement, not incentives, is what decides which factories get built.",
+    "excerpt": "Saudi Arabia's mandatory local content list expands to more than 1,500 products across 16 sectors, with the Local Content and Government Procurement Authority targeting around 2,000 during 2026. The rules now cover majority state-owned companies including Aramco, SABIC and Ma'aden, whose procurement is the real instrument of supplier localization.",
+    "content": "<p>Saudi Arabia's mandatory local content list <a href=\"https://amec.es/en/saudi-arabia-expands-mandatory-list-of-local-content/\">expands today to more than 1,500 products across 16 sectors</a>, the largest single widening of the rule since it was introduced. Where a listed product is made in the Kingdom, public buyers must buy the Saudi-made version. The <a href=\"/supply-chain/aramco-iktva-70-percent-local-content-2030-target\">Local Content</a> and Government Procurement Authority has said it is working toward roughly 2,000 products on the list during 2026, and last month it also <a href=\"https://globaltradealert.org/state-act/96585-saudi-arabia-lcgpa-introduces-and-increases-minimum-local-content-requirements-for-government-procurement\">raised the minimum local content percentages</a> required on products already covered.</p><p>Read on its own, that is procurement administration. What makes it an industrial policy instrument is who now sits inside the regime. Regulations approved in 2024 extended the authority's rules to companies majority-owned by the state, <a href=\"https://dgagroup.com/insight/asg-analysis-saudi-arabia-extends-local-content-requirements-state-owned-entities/\">obliging them to give preference to local content and to smaller suppliers, and to track and report what they buy</a>. Aramco, SABIC, <a href=\"/mining/maaden-110-billion-capital-programme-eight-megaprojects\">Ma'aden</a> and stc are all in that population. Between them they spend more on goods and services in a year than most ministries will in a decade.</p><p>That is the mechanism worth understanding, because it is the one that actually builds factories. A grant lowers the cost of a plant. A purchase order tells an investor there is somebody to sell to. Saudi Arabia has spent a decade discovering that the second is the binding constraint, and its largest industrial buyers have become the instruments for supplying it.</p><p>Aramco's iktva programme is the template the others have copied. It scores suppliers on how much of their value is added inside the Kingdom and feeds the score into who wins work, which converts a procurement preference into a condition of market access. Just as important, and less discussed, is the demand information it publishes: the company has set out more than 200 identified localization opportunities spanning a dozen sectors, with an estimated annual market of around $28 billion attached to them. A manufacturer deciding whether to build in Dammam is not being asked to guess at the size of the prize.</p><p>Ma'aden has been assembling a version of the same thing as its capital programme scales up, running a supplier development effort that offers prospective investors demand forecasts, technical support and routes to financing alongside access to its own procurement. Its requirement set is different from Aramco's — grinding media, mill liners, reagents, conveyor systems, mobile plant and the maintenance capability to keep them running — and much of it is currently imported. SABIC's localization work runs through its supplier programmes and, at the harder end, through its own manufacturing: the company has taken catalysts, historically imported almost entirely, into its industrial plan rather than leaving them to the supplier market.</p><p>Anchor-buyer localization asks something specific of a supplier, and it is not price. It is qualification. A valve, a pump or an alloy component destined for a refinery or a smelter has to pass a testing and approval process that is measured in quarters, sometimes years, before a single unit can be invoiced. The company that clears it acquires a position that is difficult for a newcomer to attack. The company that does not has built a plant it cannot sell from. That asymmetry is why localization programmes attract joint ventures with established international manufacturers rather than start-ups.</p><p>The failure modes are equally specific. A local content score can be lifted by services, employment and assembly without much manufacturing happening at all, because those components localize easily and hardware does not. A mandatory list can hand a domestic producer a captive market and remove the pressure that would otherwise make it competitive. And a supplier base built around one buyer is only as durable as that buyer's capital programme; when spending slows, plants sized to it run at half capacity.</p><p>Which is why the interesting number is not the length of the mandatory list. It is what the resulting manufacturers do outside the walls of the companies that created them — whether the valve shop supplying Aramco can also sell into Kuwait, whether the mining consumables plant built for <a href=\"/mining/maaden-adds-7-8-million-ounces-saudi-gold-mineral-resources\">Ma'aden</a> can serve mines in Africa. Localization that ends at the anchor buyer is import substitution with extra steps. Localization that produces exporters is the thing the policy was written to get.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "supply-chain",
+    "tags": [
+      "Local Content",
+      "Procurement",
+      "Industrial Policy",
+      "Supplier Development",
+      "Vision 2030"
+    ],
+    "companies": [
+      "Local Content and Government Procurement Authority",
+      "Saudi Aramco",
+      "Ma'aden",
+      "SABIC"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-03-01",
+    "informationCutoff": "2026-03-04",
+    "primarySourceUrl": "https://globaltradealert.org/state-act/96585-saudi-arabia-lcgpa-introduces-and-increases-minimum-local-content-requirements-for-government-procurement",
+    "primarySourceName": "Global Trade Alert",
+    "secondarySourceUrls": [
+      "https://amec.es/en/saudi-arabia-expands-mandatory-list-of-local-content/",
+      "https://www.arabnews.com/node/2620742/amp",
+      "https://dgagroup.com/insight/asg-analysis-saudi-arabia-extends-local-content-requirements-state-owned-entities/",
+      "https://globaltradealert.org/intervention/108439",
+      "https://www.aramco.com/en/what-we-do/commercial-ecosystems/iktva"
+    ],
+    "seoTitle": "Saudi Local Content List Widens to 1,500-Plus Products",
+    "seoDescription": "Saudi Arabia's mandatory local content list expands to more than 1,500 products, with Aramco, SABIC and Ma'aden procurement now inside the same regime.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 701,
+    "categories": [
+      "supply-chain",
+      "logistics"
+    ],
+    "internalLinks": [
+      "aramco-iktva-70-percent-local-content-2030-target",
+      "maaden-110-billion-capital-programme-eight-megaprojects",
+      "maaden-adds-7-8-million-ounces-saudi-gold-mineral-resources"
+    ]
+  }
+]

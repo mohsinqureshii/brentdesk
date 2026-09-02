@@ -159,6 +159,7 @@ export const emailDigestRouter = router({
         slug: articles.slug,
         excerpt: articles.excerpt,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         categoryName: categories.name,
         categorySlug: categories.slug,
       })

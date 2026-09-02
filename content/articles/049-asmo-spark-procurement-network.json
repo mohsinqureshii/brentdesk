@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 49,
+    "headline": "ASMO Starts Building Its First Purpose-Built Hub as Aramco's Procurement Venture Scales Up",
+    "slug": "asmo-spark-groundbreaking-procurement-distribution-network",
+    "deck": "The Aramco-DHL venture has taken over three existing Aramco sites. Spark is the first it is building itself, and the first designed around how industrial buyers actually order.",
+    "excerpt": "ASMO, the procurement and logistics venture owned by DHL Supply Chain and Saudi Aramco, has broken ground on a logistics facility at Spark, the first of three purpose-built hubs it intends to add to the three Aramco sites it already runs. The venture expects annual procurement volumes above $8 billion, which makes how it qualifies and contracts suppliers a commercial question for a large part of Saudi industry.",
+    "content": "<p>ASMO, the procurement and logistics venture owned by DHL Supply Chain and <a href=\"/supply-chain/saudi-mandatory-local-content-list-anchor-buyers\">Saudi Aramco</a>, has broken ground on a logistics facility at Spark. It is the first site the company is building from scratch, as opposed to taking over an existing Aramco asset, and it is the first physical evidence of the second half of a plan the venture set out when it began operating.</p><p>That plan is to run six facilities in the Kingdom by 2030: three Aramco-owned sites the venture already manages, and three new hubs of its own design. The distinction between the two halves is not cosmetic. Inheriting a working yard means inheriting its layout, its systems and the assumptions of whoever built it. Building from a clean site means the facility can be laid out around the flow it is meant to carry.</p><p>The commercial substance of <a href=\"/logistics/asmo-aramco-dhl-central-pipe-yard-abqaiq\">ASMO</a> is procurement rather than property. The venture's remit covers sourcing, purchasing, inventory management, transport, warehousing and a business-to-business marketplace serving the energy, chemicals and industrial sectors, and it expects annual procurement volumes to exceed $8 billion. At that scale it is not a service provider to Saudi industry so much as a channel through which a large share of the sector's materials spend passes.</p><p>For suppliers, that changes the shape of the sales problem. Selling a valve, a pump, a length of pipe or a drum of chemical to a major operator has traditionally meant qualifying with that operator: meeting its technical specifications, passing its vendor audit, registering on its system and then competing for its purchase orders. Each buyer runs its own version of that process, and the cost of clearing it is one of the practical reasons small manufacturers stay out of the industrial supply market. A platform that aggregates demand across multiple buyers changes the arithmetic, because the fixed cost of qualification is spread across a larger order book.</p><p>It also changes what a supplier has to be capable of. Aggregated buying rewards vendors who can hold specification, deliver consistently and accept longer contracts over those competing purely on price for individual orders. That is a higher bar than the market has typically set, and it favours the better-capitalised end of the domestic supply base.</p><p>The warehousing side follows the same logic. Industrial operators traditionally hold their own safety stock of critical spares and consumables, because a plant outage costs far more than the inventory carrying charge. Every operator therefore holds its own copy of much the same material. Pooling that stock in a shared facility with a specialist running it reduces the total inventory the system needs without reducing anyone's availability &mdash; provided the operator trusts the delivery time. Trust in the delivery time is what the physical network is for, and it is the reason the hubs are being placed where they are.</p><p>ASMO was launched in February 2024, with DHL Supply Chain holding 51 percent and <a href=\"/chemicals/saudi-arabia-amiral-satorp-agreement-refining-into-petrochemicals\">Saudi Aramco</a> Development Company 49 percent. It has spent the intervening period assembling the operating base rather than announcing volumes, taking on Aramco storage facilities in Riyadh and Jazan and, at the end of 2025, the Central Pipe Yard near Abqaiq.</p><p>What has not been disclosed is the investment behind the Spark facility or its completion date, and a groundbreaking is the start of construction rather than an addition to capacity. The venture's stated target of six operating facilities by 2030 leaves two more new builds to be committed. Whether the model works will be visible in a duller measure than any of them: how many Saudi suppliers are transacting through the platform, and on what terms.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "supply-chain",
+    "tags": [
+      "Procurement",
+      "Supply Chain",
+      "Industrial Distribution",
+      "Local Suppliers"
+    ],
+    "companies": [
+      "ASMO",
+      "Saudi Aramco",
+      "DHL Group"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-05-12",
+    "informationCutoff": "2026-05-18",
+    "primarySourceUrl": "https://www.agbi.com/construction/2026/05/aramco-dhl-venture-breaks-ground-on-spark-logistics-facility/",
+    "primarySourceName": "AGBI",
+    "secondarySourceUrls": [
+      "https://www.zawya.com/en/projects/industry/aramcodhl-joint-venture-asmo-plans-six-logistics-hubs-by-2030-cm0zclg6",
+      "https://www.transportandlogisticsme.com/smart-logistics/asmo-targets-six-saudi-logistics-hubs-as-aramcodhl-venture-scales-up",
+      "https://group.dhl.com/en/media-relations/press-releases/2024/dhl-supply-chain-and-aramco-launch-asmo.html",
+      "https://www.dhl.com/sa-en/home/press/press-archive/2024/asmo-strengthens-its-presence-in-saudi-arabia.html"
+    ],
+    "seoTitle": "ASMO Breaks Ground on First Purpose-Built Hub at Spark",
+    "seoDescription": "Aramco-DHL venture ASMO has started construction on a logistics facility at Spark, its first purpose-built site, as annual procurement volumes head above $8 billion.",
+    "articleType": "news",
+    "wordCount": 601,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": "Supply Chain Localization Creates New Opportunities for Saudi Manufacturers",
+    "replacementReason": "No Saudi supplier-qualification programme, procurement contract award or distribution-localization transaction from December 2025 to September 2026 could be corroborated across independent sources within the research available for this batch; the only well-documented material pointed toward industrial policy, which commissions 026, 029 and 030 already cover. Replaced with ASMO's Spark groundbreaking and the build-out of its shared procurement and distribution network, which is documented across multiple independent sources and covers the same procurement, supplier-access and distribution mechanics from the logistics side.",
+    "categories": [
+      "supply-chain",
+      "logistics"
+    ],
+    "internalLinks": [
+      "asmo-aramco-dhl-central-pipe-yard-abqaiq",
+      "saudi-mandatory-local-content-list-anchor-buyers",
+      "saudi-arabia-amiral-satorp-agreement-refining-into-petrochemicals"
+    ]
+  }
+]

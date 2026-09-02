@@ -1,0 +1,53 @@
+[
+  {
+    "commission": 69,
+    "headline": "Jubail's $500m Industrial Wastewater Plant Shows What Saudi Industrial Growth Now Costs in Utilities",
+    "slug": "saudi-industrial-cities-new-generation-utilities",
+    "deck": "A project-financed effluent plant for a single petrochemical complex is the model Saudi industrial cities are now using for water, power and connectivity alike.",
+    "excerpt": "A Marafiq-led consortium with Veolia and Lamar Arabia has reached financial close on a $500m industrial wastewater treatment and reuse plant at Jubail Industrial City 2, due in service in 2028. The structure - a project-financed vehicle with a specialist operator and international lenders - is becoming the standard route for the water, power and digital infrastructure Saudi industrial expansion requires.",
+    "content": "<p>A consortium led by the Power and Water Utility Company for Jubail and Yanbu has reached financial close on a $500m industrial wastewater treatment and reuse plant in Jubail Industrial City 2, a facility built for a single petrochemical complex and for a waste stream that no municipal works could take. It is a small project by the standards of Saudi industrial investment and an instructive one, because it shows what the Kingdom's manufacturing expansion now costs in utilities rather than in factories.</p><p>The plant will be owned by Aqua Renew Company, a project vehicle in which <a href=\"https://www.argaam.com/en/article/articledetail/id/1882398\">Marafiq holds 40 percent</a>, Veolia Middle East 35 percent and Lamar Arabia Energy 25 percent. Debt has come from First Abu Dhabi Bank, Abu Dhabi Commercial Bank, Korea Development Bank and Qatar National Bank. It is scheduled to enter service in 2028, treating complex effluent from the Amiral complex including spent caustic, and recovering treated water back into industrial use rather than discharging it.</p><p>Spent caustic is the detail that explains the structure. It is a high-alkalinity, high-sulphide by-product of cracking and treating hydrocarbon streams, and it cannot be sent to a conventional sewage works without destroying the biology those plants depend on. Treating it requires oxidation or wet air processes, corrosion-resistant materials and continuous monitoring, and the resulting asset is closer to a chemical plant than to a utility. Building it as a project company with a specialist operator and a long-term offtake is the only way a facility of that kind gets financed at all.</p><p>That template is being applied more widely because Saudi industrial expansion has changed what industrial cities need from their utilities. A generation of Saudi industrial estates was provisioned on a simple model: a plot, a road, a power connection, potable and process water in, sanitary sewage out. The plants now being built at Jubail, Yanbu, Ras Al Khair and Jazan are larger, more chemically complex, more water-intensive and far more sensitive to interruption. They need cooling at scale, process water at defined quality, effluent handling matched to their own chemistry, firm power with defined reliability, and network connectivity capable of carrying plant control and monitoring traffic.</p><p>Marafiq sits at the centre of most of that. The company is the sole provider of power and water services in Jubail and Yanbu and has been designated the sole provider in <a href=\"https://www.marafiq.com.sa/en/about-us/services/water-services/ras-al-khair-water-distribution/\">Ras Al Khair</a> and Jazan. Its remit runs across seawater cooling systems, district cooling, desalinated and treated water, sanitary and industrial wastewater, and electricity transmission and distribution inside the industrial cities. Where a normal utility sells one commodity, an industrial-city utility sells an integrated package and carries the interface risk between all of it.</p><p>Water is where the pressure is most obvious. Industrial demand competes directly with municipal demand for the same desalinated supply, and every additional cubic metre a new plant consumes has to be produced on the coast, pumped and treated. Reuse is the only lever that changes that arithmetic, which is why a plant whose entire output is recovered treated water is worth $500m to build. The same logic runs through the Kingdom's wider water programme, where treated-effluent capacity is being expanded faster than population growth alone would justify.</p><p>Power is the second constraint and a slower one. New industrial load needs firm capacity, a connection at the right voltage and the substation and transformer bays that go with it, and the queue for those is the same queue the renewable generation programme is standing in. Inside the industrial cities the answer has often been cogeneration &mdash; plants that produce steam and power together for a specific cluster of customers &mdash; because a site that needs process steam anyway can extract electricity from the same fuel at a better overall efficiency than importing both separately.</p><p>Digital infrastructure has become the third layer, and it is arriving faster than the physical ones. Saudi fibre coverage reached about 5.8 million homes at the end of 2025, against 1.59 million in 2017, while the number of 5G sites rose from around 5,400 to about 21,000 over the same period. For industry the more relevant deployments are private networks: stc has built dedicated 5G networks for industrial customers including Aramco, SABIC and Ma'aden, the kind of infrastructure that supports plant-wide sensing, remote operation and autonomous equipment inside a fenced site. That is a utility in everything but name, and it is now specified at the same stage of a project as the power connection.</p><p>What ties the three together is how they are being paid for. None of this is being funded from a utility's balance sheet in the way the first industrial cities were. It is being procured as project-financed special purpose vehicles with international operators, international lenders and long contracts against a named offtaker &mdash; the structure Saudi Arabia has used for independent power and water plants for two decades, applied now to industrial effluent, cooling and connectivity.</p><p>The risk in that model is timing. The Jubail plant is due in service in 2028, which is the year it is needed rather than a year of slack, and an industrial utility that arrives late does not delay a schedule by itself; it delays the complex it was built to serve. As Saudi Arabia adds petrochemical, metals and minerals processing capacity across four industrial cities simultaneously, the sequencing of the utilities behind them becomes the constraint that decides when any of it produces.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "utilities",
+    "tags": [
+      "Industrial Cities",
+      "Jubail",
+      "Industrial Water",
+      "Project Finance",
+      "Wastewater Reuse"
+    ],
+    "companies": [
+      "Marafiq",
+      "Veolia",
+      "Lamar Arabia Energy",
+      "Aqua Renew Company",
+      "stc"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-02-19",
+    "informationCutoff": "2026-02-26",
+    "primarySourceUrl": "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/issuer-announcements/issuer-announcements-details/?anId=93251&anCat=1&cs=2083&locale=en",
+    "primarySourceName": "Saudi Exchange",
+    "secondarySourceUrls": [
+      "https://www.argaam.com/en/article/articledetail/id/1882398",
+      "https://smartwatermagazine.com/news/smart-water-magazine/marafiq-led-consortium-secures-500-million-financing-jubail-industrial",
+      "https://www.zawya.com/en/projects/utilities/marafiq-led-group-gets-financing-for-500mln-industrial-wastewater-treatment-plant-in-jubail-viuwvqsm",
+      "https://gulfindustryonline.com/ArticleTA/389612",
+      "https://www.marafiq.com.sa/en/about-us/services/water-services/ras-al-khair-water-distribution/"
+    ],
+    "seoTitle": "Saudi Industrial Cities Need a New Generation of Utilities",
+    "seoDescription": "A $500m Marafiq-led industrial wastewater plant at Jubail shows how Saudi industrial cities are procuring water, power and digital infrastructure.",
+    "articleType": "report",
+    "wordCount": 906,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "utilities",
+      "water",
+      "infrastructure",
+      "manufacturing"
+    ]
+  }
+]

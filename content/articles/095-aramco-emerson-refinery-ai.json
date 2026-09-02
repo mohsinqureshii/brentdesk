@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 95,
+    "headline": "Aramco Puts AI Into Refinery Planning Across Its Global Network in Deployment With Emerson",
+    "slug": "aramco-emerson-refinery-planning-ai-hybrid-models",
+    "deck": "Hybrid AI models are now running inside the planning system that decides what Aramco's refineries process — a move out of the pilot phase and into the operating chain.",
+    "excerpt": "Emerson has deployed AI-driven Aspen Hybrid Models into Aramco's refinery planning environment, creating what the two companies describe as one of the largest multi-site, multi-period refinery optimisation models in operation. Emerson says yield and quality prediction accuracy has reached up to 98.5 percent in key units. The work marks a shift in industrial AI from demonstration projects to systems embedded in daily plant decisions.",
+    "content": "<p>Aramco has embedded artificial intelligence into the planning models that govern its refineries, in one of the clearest signs yet that industrial AI is moving out of pilot projects and into the systems that decide what plants actually run.</p><p>The deployment, announced by <a href=\"https://www.emerson.com/en/corporate/news/2026/emerson-aramco-deploy-ai-solution-higher-refinery-yield-volume\">Emerson</a> on 28 April, integrates the American automation company's AI-driven Aspen Hybrid Models into Aramco's existing refinery planning environment. The two companies describe the result as one of the largest multi-site, multi-period refinery optimisation models anywhere, spanning Aramco's global refining network rather than a single plant.</p><p>The models are running in continuous catalyst regeneration and platformer units, where they are being used to blend feedstock more precisely, narrow the gap between what a plan assumes a unit will do and what it does, and sharpen margin forecasting. Emerson says the system has reached yield and quality prediction accuracy of up to 98.5 percent in those units, and that the immediate expansion work is aimed at hydrocracker units across Aramco's assets.</p><p>The significance is easier to see once the underlying problem is described plainly. Refinery planning is done ahead of time, using models that approximate how each unit behaves under a given crude slate and set of operating conditions. Those approximations are never exact, and the error is expensive: every barrel that comes out of a unit as a lower-value product than the plan assumed is margin that was available and was not captured. A hybrid model combines the first-principles chemical engineering that has underpinned those approximations for decades with machine learning trained on the plant's own operating history, so the model is corrected by what the equipment has actually done rather than by what theory says it should do.</p><p>That places this deployment in a different category from most of what has been announced under the industrial AI label over the past two years. It is not a chatbot for engineers or a document search tool for the back office. It sits in the decision chain that determines which crude goes into which unit, at what rate, and against which product targets — decisions that carry direct financial consequence at a company that refines at a scale few operators match.</p><p>It also fits a longer programme. Aramco has been building out <a href=\"https://www.aramco.com/en/what-we-do/energy-innovation/digitalization/ai-and-big-data\">AI and big data capability</a> across upstream and downstream operations for several years, on the reasoning that its competitive position depends less on finding new barrels than on extracting more value from the ones it already processes.</p><p>The regional pattern is similar. ADNOC has said it intends to become the world's most AI-enabled energy company, and built the ENERGYai platform to support work including seismic interpretation, geological and reservoir modelling, emissions forecasting and real-time process monitoring. Under an agreement signed in 2025 with <a href=\"https://www.adnoc.ae/en/news-and-media/press-releases/2025/adnoc-masdar-xrg-and-microsoft-to-advance-ai-for-energy-and-energy-for-ai\">Microsoft, Masdar and XRG</a>, ADNOC and Microsoft agreed to co-develop and deploy AI agents across ADNOC's operations, alongside workforce training — with the same agreement covering the reverse trade, in which Masdar would evaluate supplying renewable power to Microsoft's data centres.</p><p>A note of caution is warranted on the numbers. Accuracy figures of the kind Emerson has published are vendor-reported and describe prediction quality, not verified margin capture; operators very rarely disclose the financial outcome of these deployments, and the industry has an established record of pilots that performed well in a single unit and were never scaled. What distinguishes this case is precisely that it has been scaled — across multiple sites and multiple planning periods, inside the production planning environment rather than beside it.</p><p>That is the harder half of industrial AI, and the half that has held most projects back. Getting a model to work on one unit is an engineering exercise. Getting it trusted enough to sit inside the planning system of a global refining network is an operational and organisational one, and it is where the difference between a demonstration and an infrastructure investment is decided.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "industrial-ai",
+    "tags": [
+      "Industrial AI",
+      "Refining",
+      "Digital Operations",
+      "Automation"
+    ],
+    "companies": [
+      "Saudi Aramco",
+      "Emerson",
+      "ADNOC",
+      "Microsoft",
+      "Masdar"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-04-28",
+    "informationCutoff": "2026-05-05",
+    "primarySourceUrl": "https://www.emerson.com/en/corporate/news/2026/emerson-aramco-deploy-ai-solution-higher-refinery-yield-volume",
+    "primarySourceName": "Emerson",
+    "secondarySourceUrls": [
+      "https://www.computerweekly.com/news/366642980/Saudi-Aramco-deploys-AI-refinery-system-with-Emerson",
+      "https://www.hydrocarbonengineering.com/refining/29042026/emerson-and-aramco-deploy-ai-solution-for-higher-refinery-yield-volume/",
+      "https://gulfbusiness.com/en/2026/energy/saudi-aramco-deploys-ai-refinery-optimisation-system-with-emerson-to-lift-yield-efficiency/",
+      "https://www.processingmagazine.com/news-notes/news/55373920/emerson-emerson-aramco-deploy-ai-solution-aimed-at-higher-refinery-yield-volume-and-efficiencies",
+      "https://www.adnoc.ae/en/news-and-media/press-releases/2025/adnoc-masdar-xrg-and-microsoft-to-advance-ai-for-energy-and-energy-for-ai"
+    ],
+    "seoTitle": "Aramco Deploys Refinery Planning AI With Emerson",
+    "seoDescription": "Emerson has deployed AI hybrid models into Aramco's refinery planning across its global network, reporting up to 98.5% yield prediction accuracy.",
+    "articleType": "news",
+    "wordCount": 649,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "industrial-ai",
+      "industrial-technology",
+      "oil-gas",
+      "energy"
+    ]
+  }
+]

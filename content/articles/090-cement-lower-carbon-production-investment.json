@@ -1,0 +1,53 @@
+[
+  {
+    "commission": 90,
+    "headline": "Cement's Carbon Capture Projects Move Into Construction as Demand Outside China Recovers",
+    "slug": "cement-lower-carbon-production-padeswood-edmonton-2026",
+    "deck": "Padeswood has more than 600 piles in the ground, Edmonton is due to start capturing late this year, and Holcim and CRH are funding clinker substitution and electrochemical routes alongside.",
+    "excerpt": "Heidelberg Materials reported fresh construction milestones at its Padeswood carbon capture project in north Wales, designed for 800,000 tonnes of CO2 a year from 2029. It is one of several lower-carbon cement investments moving forward as demand outside China rises and the majors post firmer half-year results.",
+    "content": "<p>Heidelberg Materials has reported another set of construction milestones at Padeswood in north Wales, where it is building what will be the first carbon capture facility attached to a cement works in the United Kingdom. More than 600 piles are in the ground, more than 60,000 tonnes of aggregate have been laid to establish working areas and 25,000 tonnes of topsoil have been removed, with about 80 people on site each day as Worley and Mitsubishi Heavy Industries take the project forward.</p><p>The plant is designed to capture roughly 800,000 tonnes of carbon dioxide a year, about 95 per cent of the emissions of the existing works, and is scheduled to be operational in 2029. Heidelberg took the <a href=\"https://www.heidelbergmaterials.com/en/pr-2025-09-25\">final investment decision</a> in September last year. Output will be sold as evoZero, the company's near-zero cement brand; the concrete being poured into the capture facility itself is made with it.</p><p>Padeswood is one of three Heidelberg projects at different stages of the same transition. At Brevik in Norway the company already operates the first full-scale capture installation at a cement plant anywhere, rated at up to 400,000 tonnes of CO2 a year. At Edmonton in Alberta it is building a roughly C$1.4bn facility intended to capture more than a million tonnes a year from the cement plant and the combined heat and power unit integrated with it, with capture due to begin late this year. Technip Energies holds the process contract; Mitsubishi Heavy Industries supplies the capture technology at both Edmonton and Padeswood.</p><p>The spending is happening against a demand picture that has turned in the producers' favour almost everywhere except China. S&amp;P Global Commodity Insights expects global cement demand excluding China to rise in 2026, with the strongest growth in Africa, the Middle East and India, even as total world demand edges slightly lower because Chinese consumption keeps falling. That split explains a good deal of where the multinationals are putting capital, and where they are not.</p><p>The half-year results carry the same signal. Holcim reported net sales of &euro;8.5bn for the first six months, up 5 per cent, with operating profit of &euro;1.37bn, and raised its full-year guidance to about 5 per cent organic net sales growth. CRH reported second-quarter revenue of $10.8bn, up 6 per cent, helped by pricing in aggregates and by its acquisition of Eco Material Technologies. Cemex had a strong first half on cement volumes, led by Mexico.</p><p>Capture is not the only route being funded. Holcim has been working with Salt X Technology on an electrified process that produces Portland-quality clinker without a fossil-fired kiln, and confirmed by April that the process had made clinker to specification. A calcined clay production line at the company's site at C&iacute;&zcaron;kovice in the Czech Republic is due to be completed this year; calcined clay substitutes for clinker in the finished cement and therefore removes emissions rather than capturing them. Holcim and CRH each hold stakes in Sublime Systems following a combined $75m investment and a binding offtake reservation, covering an electrochemical plant at Holyoke, Massachusetts, sized at 30,000 tonnes a year.</p><p>Those three approaches attack different parts of the same problem. Around 60 per cent of the emissions from making cement come from the chemistry of calcining limestone rather than from the fuel, which is why efficiency measures alone cannot get the number down far. Capture takes the CO2 after the fact and needs transport and storage infrastructure to exist. Clinker substitution avoids some of the calcination but is limited by standards and by the availability of suitable clays and ashes. Electrochemical routes avoid the kiln entirely but are at 30,000-tonne scale against plants that make a million tonnes or more.</p><p>Scale is the honest measure of where this stands. Even with the projects now in construction, industry analysis published this year expects less than 2 per cent of global cement emissions to be captured by 2035. Padeswood, Brevik and Edmonton together will handle something over two million tonnes a year against a sector that emits well over two billion. What the current round of investment establishes is not decarbonisation of cement, but whether the engineering, the supply chains and the premium product markets work at full scale. Padeswood's piling rigs are the first serious answer to that in the United Kingdom.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Cement",
+      "Carbon Capture",
+      "Construction Materials",
+      "Decarbonisation"
+    ],
+    "companies": [
+      "Heidelberg Materials",
+      "Holcim",
+      "CRH",
+      "Cemex",
+      "Mitsubishi Heavy Industries",
+      "Sublime Systems"
+    ],
+    "people": [],
+    "eventDate": "2026-07-31",
+    "informationCutoff": "2026-08-05",
+    "primarySourceUrl": "https://www.heidelbergmaterials.co.uk/en/news-and-events/next-milestone-reached-in-ccs-plans-at-padeswood",
+    "primarySourceName": "Heidelberg Materials UK",
+    "secondarySourceUrls": [
+      "https://www.worldcement.com/europe-cis/31072026/more-milestones-reached-in-the-development-of-heidelberg-materials-padeswood-ccs-project/",
+      "https://www.geplus.co.uk/news/project-news/heidelberg-hails-piling-progress-on-carbon-capture-project-in-wales-31-07-2026/",
+      "https://www.heidelbergmaterials.com/en/pr-2025-09-25",
+      "https://www.heidelbergmaterials.us/home/sustainability/ccus",
+      "https://www.globalcement.com/news/analysis/21084-half-year-update-on-large-cement-producers-in-2026",
+      "https://www.globalcement.com/news/analysis/20811-update-on-carbon-capture-in-cement-may-2026",
+      "https://sublime-systems.com/sublime-systems-secures-combined-75m-in-investments-from-global-building-materials-majors-crh-and-holcim-to-accelerate-scale-up-of-true-zero-cement-manufacturing-technology/",
+      "https://www.spglobal.com/energy/en/news-research/latest-news/metals/020426-global-cement-demand-excluding-china-expected-to-rise-in-2026-analyst"
+    ],
+    "seoTitle": "Cement Carbon Capture Projects Move Into Construction",
+    "seoDescription": "Heidelberg Materials reported construction milestones at Padeswood, designed to capture 800,000 tonnes of CO2 a year, as demand outside China rises.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 715,
+    "categories": [
+      "manufacturing",
+      "construction"
+    ]
+  }
+]

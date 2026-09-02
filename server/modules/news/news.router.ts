@@ -174,6 +174,7 @@ export const newsRouter = router({
       const sortColumn = {
         createdAt: articles.createdAt,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         updatedAt: articles.createdAt, // fallback - updatedAt not in schema
         title: articles.title,
         viewCount: articles.viewCount,
@@ -193,6 +194,7 @@ export const newsRouter = router({
         isTrending: articles.isTrending,
         viewCount: articles.viewCount,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         createdAt: articles.createdAt,
         // Primary coverage country surfaced for the article card flag.
         // Multi-country detail comes from getBySlug.coverageCountries.
@@ -595,6 +597,7 @@ export const newsRouter = router({
           isFlash: articles.isFlash,
           viewCount: articles.viewCount,
           publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
           primaryCategoryId: articles.primaryCategoryId,
           createdAt: articles.createdAt,
           updatedAt: articles.updatedAt,
@@ -1383,6 +1386,7 @@ export const newsRouter = router({
         excerpt: articles.excerpt,
         featuredImageId: articles.featuredImageId,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       })
         .from(articles)
         .where(and(
@@ -1413,6 +1417,7 @@ export const newsRouter = router({
         featuredImageId: articles.featuredImageId,
         viewCount: articles.viewCount,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       })
         .from(articles)
         .where(and(
@@ -1448,6 +1453,7 @@ export const newsRouter = router({
         primaryCategoryId: articles.primaryCategoryId,
         viewCount: articles.viewCount,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       })
         .from(articles)
         .where(and(
@@ -1501,6 +1507,7 @@ export const newsRouter = router({
         primaryCategoryId: articles.primaryCategoryId,
         viewCount: articles.viewCount,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       })
         .from(articles)
         .where(and(
@@ -1522,6 +1529,7 @@ export const newsRouter = router({
           primaryCategoryId: articles.primaryCategoryId,
           viewCount: articles.viewCount,
           publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         })
           .from(articles)
           .where(and(
@@ -1642,6 +1650,7 @@ export const newsRouter = router({
         excerpt: articles.excerpt,
         flashExpiresAt: articles.flashExpiresAt,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       })
         .from(articles)
         .where(and(
@@ -1858,6 +1867,7 @@ export const newsRouter = router({
           isFlash: articles.isFlash,
           viewCount: articles.viewCount,
           publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
           createdAt: articles.createdAt,
           updatedAt: articles.updatedAt,
         })
@@ -1992,6 +2002,7 @@ export const newsRouter = router({
         isTrending: articles.isTrending,
         viewCount: articles.viewCount,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         createdAt: articles.createdAt,
       })
         .from(articles)
@@ -2328,6 +2339,7 @@ export const newsRouter = router({
         isTrending: articles.isTrending,
         viewCount: articles.viewCount,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         createdAt: articles.createdAt,
       })
         .from(articles)

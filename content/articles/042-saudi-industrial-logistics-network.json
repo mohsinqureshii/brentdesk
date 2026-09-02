@@ -1,0 +1,54 @@
+[
+  {
+    "commission": 42,
+    "headline": "Saudi Arabia's Industrial Logistics Network Begins to Join Up",
+    "slug": "saudi-arabia-industrial-logistics-network-rail-ports-zones",
+    "deck": "Five new rail freight routes, a dry port at Riyadh and a programme of 59 logistics zones are turning a strategy document into connected infrastructure.",
+    "excerpt": "Saudi Arabia Railways has launched five logistics routes linking Gulf ports to the centre and north of the Kingdom and on to the Red Sea, routed through the Riyadh Dry Port and cargo yards at Dammam, Jubail, Ras Al Khair, Al Kharj, Hail and Al Qurayyat. It is the clearest sign yet that the multimodal network promised under the National Transport and Logistics Strategy is being assembled rather than announced.",
+    "content": "<p>Saudi Arabia Railways has launched five new logistics routes designed to move freight between the Arabian Gulf coast, the centre and north of the Kingdom, the Red Sea and neighbouring countries to the north. The routes are run as an integrated service rather than as separate line-haul products, and they are anchored on the Riyadh Dry Port and on cargo yards at Dammam, Jubail, Ras Al Khair, Al Kharj, Hail and Al Qurayyat.</p><p>Taken on its own, that is a rail announcement. Taken together with what has been built and contracted around it, it is something more useful: evidence that the network Saudi Arabia has been describing for five years is beginning to behave like a network.</p><p>The framework is the National Transport and Logistics Strategy, launched in 2021, which set out to make the Kingdom a logistics hub linking Asia, Europe and Africa and to put it inside the global top ten on logistics performance. Its physical programme includes <a href=\"https://mot.gov.sa/en/ntls\">59 logistics zones</a>, upgraded ports and airports, and digital systems intended to run across all of them. Much of that remains a target. What has changed is the number of pieces that now physically exist.</p><p>On the maritime side, the <a href=\"https://www.arabnews.com/node/2629175/business-economy\">Saudi Ports Authority</a> handled 8,317,235 twenty-foot equivalent units in 2025, a rise of 10.58 percent on the previous year, alongside 242.07 million tonnes of total cargo. Transshipment, the business that determines whether a port is a regional hub or a national gateway, grew 11.78 percent to 1,927,348 TEUs. Mawani's stated ambition is to lift national capacity beyond 40 million TEUs by 2030 and take 45 percent of regional transshipment traffic &mdash; a gap between current volume and target capacity wide enough to be worth watching rather than assuming.</p><p>The landside programme is being contracted in parallel. Mawani has been signing operators into logistics parks attached to its ports, on the reasoning that a container terminal without bonded storage, consolidation space and re-export capability behind it is a transit point rather than a hub. The distinction is what separates Jebel Ali from a well-run berth.</p><p>The private industrial layer is moving too. <a href=\"/logistics/asmo-aramco-dhl-central-pipe-yard-abqaiq\">ASMO</a>, the procurement and logistics venture owned by DHL Supply Chain and Saudi Aramco, has taken over three Aramco storage sites &mdash; in Riyadh, Jazan and the Central Pipe Yard near Abqaiq &mdash; and intends to run six facilities in the Kingdom by 2030, adding three purpose-built hubs. Its annual procurement volumes are expected to exceed $8 billion. That is a single company, but it is a useful indicator of scale: the materials flow supporting Saudi industry is now large enough to support dedicated third-party infrastructure.</p><p>The composition of that container traffic shapes what the network has to be. Imports came to 3,243,884 TEUs in 2025 and exports to 3,146,003 &mdash; an almost even split, which is unusual for the region and reflects how much of the Kingdom's freight is petrochemical and manufactured output leaving rather than consumer goods arriving. A network built for imports is a distribution problem: get containers from a port to warehouses near consumers. A network carrying comparable export volume is a collection problem, and collection is harder, because the cargo originates at industrial sites scattered across the interior and the coasts rather than at a single gateway. It is the reason inland yards and a dry port matter more here than they would in a purely import-led market.</p><p>Where the network is genuinely weak is in the connections between modes, and this is what the new rail routes are aimed at. A container landed at Dammam and destined for a factory in Riyadh or an exporter on the Red Sea coast has historically moved by road, because the rail option required its own handling, its own paperwork and its own timetable. Routing services through a dry port at Riyadh and dedicated yards at the industrial centres is an attempt to make the rail leg the default rather than the exception, and to give shippers one booking instead of three.</p><p>The industrial geography argues for it. Jubail and Ras Al Khair on the Gulf, Yanbu on the Red Sea, and the manufacturing belt around Riyadh are separated by distances long enough that road haulage is expensive and short enough that rail should win. The northern yards at Hail and Al Qurayyat sit on the corridor that carries minerals south from the mining regions.</p><p>Two cautions are worth holding on to. First, most of the announced programme is capacity that does not yet exist: 59 logistics zones is a plan, not an inventory, and 40 million TEUs of port capacity is roughly five times what the system moved last year. Second, integrated freight routes succeed or fail on execution &mdash; on whether the dry port clears customs quickly, whether the yards have equipment, and whether the rail schedule is reliable enough that a manufacturer will run to it. Those are operating questions, and they will not be answered by another announcement.</p><p>Still, the direction is unambiguous. For most of the past decade Saudi logistics investment has been a set of separate assets: a port here, a line there, an industrial city somewhere else. The current phase is about the connections between them, which is both less visible and more consequential.</p>",
+    "author": "Mo",
+    "primaryCategory": "logistics",
+    "tags": [
+      "Vision 2030",
+      "Rail Freight",
+      "Ports",
+      "Logistics Zones",
+      "Supply Chain"
+    ],
+    "companies": [
+      "Saudi Arabia Railways",
+      "Saudi Ports Authority",
+      "ASMO"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-04-15",
+    "informationCutoff": "2026-04-22",
+    "primarySourceUrl": "https://www.spa.gov.sa/en/N2557074",
+    "primarySourceName": "Saudi Press Agency",
+    "secondarySourceUrls": [
+      "https://www.arabnews.com/node/2639459/business-economy",
+      "https://www.maritimegateway.com/saudi-arabia-unveils-five-rail-routes-to-slash-cargo-costs/",
+      "https://mot.gov.sa/en/ntls",
+      "https://www.arabnews.com/node/2629175/business-economy",
+      "https://container-news.com/mawani-reports-10-58-growth-in-container-throughput-in-2025/"
+    ],
+    "seoTitle": "Saudi Arabia's Industrial Logistics Network Begins to Join Up",
+    "seoDescription": "New SAR freight routes, the Riyadh Dry Port and a 59-zone logistics programme are turning Saudi Arabia's transport strategy into connected infrastructure.",
+    "articleType": "report",
+    "wordCount": 869,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "logistics",
+      "rail",
+      "transportation",
+      "supply-chain"
+    ],
+    "internalLinks": [
+      "asmo-aramco-dhl-central-pipe-yard-abqaiq"
+    ]
+  }
+]

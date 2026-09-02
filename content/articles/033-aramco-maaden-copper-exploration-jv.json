@@ -1,0 +1,53 @@
+[
+  {
+    "commission": 33,
+    "headline": "Aramco and Ma'aden Sign Shareholders' Agreement for Copper-Focused Exploration Venture",
+    "slug": "aramco-maaden-shareholders-agreement-copper-exploration-joint-venture",
+    "deck": "The joint venture will explore about 182,000 sq km of covered ground east of the Arabian Shield — roughly a tenth of Saudi Arabia's land area — for copper, zinc, lead and rare earths.",
+    "excerpt": "Aramco and Ma'aden have signed a shareholders' agreement to form a joint venture for mineral exploration and hard-rock mining in Saudi Arabia. The venture, expected to be owned 51 percent by Ma'aden and 49 percent by Aramco, will target copper across roughly 182,000 sq km of the Transition Zone.",
+    "content": "<p>Aramco and <a href=\"/mining/maaden-110-billion-capital-programme-eight-megaprojects\">Ma'aden</a> have signed a shareholders' agreement to form a joint venture for mineral exploration and hard-rock mining in Saudi Arabia, moving a plan first disclosed in January 2025 onto a firmer footing and putting the national oil company into the copper business.</p><p>The venture is <a href=\"https://www.aramco.com/en/news-media/news/2026/aramco-and-maaden-sign-shareholders-agreement\">expected to be owned</a> 51 percent by <a href=\"/mining/maaden-adds-7-8-million-ounces-saudi-gold-mineral-resources\">Ma'aden</a> and 49 percent by Aramco. It will work an area of roughly 182,000 square kilometres — close to a tenth of Saudi Arabia's land area — known as Zone 4, or the Transition Zone, within the Arabian Platform. The ground forms a corridor about 100 kilometres wide running parallel to the exposed Arabian Shield.</p><p>Copper is the primary target. The partners have also named zinc, lead and rare earth elements, all of which they describe as critical to the energy transition.</p><p>The choice of ground is the substance of the deal. The Arabian Shield, the belt of exposed Precambrian basement running down the western side of the country, has been prospected in one form or another for a very long time, and it is where Saudi Arabia's existing gold and base metal mines sit. The Transition Zone is where that same basement passes beneath younger sedimentary cover. Cover makes exploration harder and more expensive, because targets cannot be mapped at surface and have to be generated from geophysics and then tested by drilling. It also means the ground is comparatively untested, which is the reason it is interesting.</p><p>The Shield's known endowment is mostly gold, and copper and zinc together in volcanogenic massive sulphide systems. The ministry put three belts containing that style of mineralisation out to competitive bidding in June, qualifying 24 companies to compete for licences over about 13,000 square kilometres. The Aramco venture is aimed at a different problem. Not the belts that have already been mapped, but the far larger area in which the same rocks are buried.</p><p>That is where an oil company becomes useful. Aramco's core capability is imaging and drilling the subsurface at industrial scale: seismic acquisition and processing, subsurface data management, and the logistics of running large drilling campaigns in remote desert. Those skills do not transfer perfectly to minerals exploration — the targets are smaller, shallower and of a different geometry — but they transfer better to covered terrain than to almost anything else. <a href=\"/metals/maaden-record-aluminium-production-2025-planned-doubling-downstream\">Ma'aden</a> brings the licences, the mine development and metallurgical side, and an existing operating base in the Kingdom.</p><p>The commodity logic is straightforward. Copper is the metal most directly exposed to electrification, through grids, transformers, motors and data centre infrastructure, and the industry's structural problem is that large new deposits have become progressively harder to find. A sedimentary-covered frontier of this size, in a stable jurisdiction, adjacent to a mineralised shield and with a state oil company willing to fund the geophysics, is an unusual proposition.</p><p>The qualifications matter as much as the ambition. A shareholders' agreement is a real step beyond a memorandum of understanding, but it establishes an exploration vehicle, not a mine. No budget, drilling programme or timetable has been published, and the ownership split is described as expected rather than completed, which indicates the venture still has formalities to clear. Frontier exploration under cover has a low success rate, and even a discovery of consequence would be a decade or more from production.</p><p>Ma'aden's side of the arrangement is more conventional. It operates Saudi Arabia's existing mines and holds the technical and permitting apparatus that turns a drill result into a licence application, and it has separately committed to $110 billion of capital spending across eight megaprojects over the next decade. An exploration venture that costs relatively little and might feed that pipeline is a straightforward use of its balance sheet.</p><p>The venture also says something about how Saudi Arabia is organising its minerals push. The government values the Kingdom's unexploited mineral resources at about <a href=\"https://www.thenationalnews.com/business/energy/2026/08/18/aramco-and-maaden-form-venture-to-tap-saudi-arabias-25-trillion-mineral-wealth/\">$2.5 trillion</a> and is building a processing industry on the assumption that a meaningful share of it can be found and mined. Directing Aramco's subsurface capability at that problem is a cheaper way of testing the assumption than waiting for junior explorers to do it.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "mining",
+    "tags": [
+      "Copper",
+      "Mineral Exploration",
+      "Aramco",
+      "Ma'aden",
+      "Critical Minerals"
+    ],
+    "companies": [
+      "Saudi Aramco",
+      "Ma'aden"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-18",
+    "informationCutoff": "2026-08-21",
+    "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramco-and-maaden-sign-shareholders-agreement",
+    "primarySourceName": "Aramco",
+    "secondarySourceUrls": [
+      "https://spa.gov.sa/en/N2657000",
+      "https://www.thenationalnews.com/business/energy/2026/08/18/aramco-and-maaden-form-venture-to-tap-saudi-arabias-25-trillion-mineral-wealth/",
+      "https://im-mining.com/2026/08/19/maaden-and-aramco-form-jv-to-unlock-new-frontier-for-mineral-exploration-hard-rock-mining-in-saudi-arabia/",
+      "https://english.aawsat.com/node/5308416",
+      "https://www.mining.com/web/aramco-and-maaden-to-form-mineral-exploration-venture-in-saudi-arabia"
+    ],
+    "seoTitle": "Aramco and Ma'aden Sign Copper Exploration Venture Agreement",
+    "seoDescription": "Aramco and Ma'aden have signed a shareholders' agreement for a joint venture targeting copper across about 182,000 sq km of Saudi Arabia's Transition Zone.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 688,
+    "categories": [
+      "mining",
+      "metals"
+    ],
+    "internalLinks": [
+      "maaden-110-billion-capital-programme-eight-megaprojects",
+      "maaden-adds-7-8-million-ounces-saudi-gold-mineral-resources",
+      "maaden-record-aluminium-production-2025-planned-doubling-downstream"
+    ]
+  }
+]

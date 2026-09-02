@@ -330,6 +330,7 @@ export const companiesRouter = router({
         slug: articles.slug,
         excerpt: articles.excerpt,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         mentionType: articleCompanies.mentionType,
       })
         .from(articleCompanies)

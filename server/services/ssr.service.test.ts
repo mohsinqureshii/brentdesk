@@ -130,10 +130,36 @@ describe("SSR Service", () => {
       expect(content).toContain(`By <a href="${mockArticle.author.url}">John Doe</a>`);
     });
 
-    it("should strip HTML tags from content", () => {
+    it("keeps the prose readable and preserves inline emphasis", () => {
+      // This assertion used to require <strong> be stripped, along with
+      // every other tag. That also stripped every <a>, which made the
+      // crawler block link-free — no internal cross-references and no
+      // primary-source citations visible to anything without JavaScript.
+      // The block is now sanitized to a safe subset rather than flattened.
       const content = generatePrerenderedContent(mockArticle);
-      expect(content).not.toContain("<strong>");
-      expect(content).toContain("This is the article content with HTML tags.");
+      // The emphasis is kept, so the sentence is no longer one contiguous
+      // run of text — assert the parts either side of it.
+      expect(content).toContain("This is the article content with");
+      expect(content).toContain("<strong>HTML</strong>");
+      expect(content).toContain("tags.");
+    });
+
+    it("keeps contextual links visible to crawlers", () => {
+      const content = generatePrerenderedContent({
+        ...mockArticle,
+        content: '<p>See <a href="/energy/tanajib">Tanajib</a>.</p>',
+      });
+      expect(content).toContain('<a href="/energy/tanajib">Tanajib</a>');
+    });
+
+    it("drops script markup from the crawler block", () => {
+      const content = generatePrerenderedContent({
+        ...mockArticle,
+        content: '<p>ok</p><script>alert(1)</script>',
+      });
+      const body = /<div>([\s\S]*?)<\/div>/.exec(content)?.[1] ?? "";
+      expect(body).not.toContain("script");
+      expect(body).toContain("ok");
     });
   });
 

@@ -1,0 +1,56 @@
+[
+  {
+    "commission": 96,
+    "headline": "Predictive Maintenance Moves From Alert to Work Order as Augury Links Machine Health to Maintenance Execution",
+    "slug": "predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption",
+    "deck": "The analytics were never the hard part. A March integration between Augury and MaintainX targets the gap that has cost predictive maintenance most of its return: the distance between an accurate alert and a technician who acts on it.",
+    "excerpt": "Augury and MaintainX have integrated predictive machine health monitoring with maintenance work orders, closing the loop between detection and repair. Published deployments at Canfor's Axis mill, Fiberon and Colgate-Palmolive put figures on what the technology has delivered. The economics driving adoption are an ageing maintenance workforce and an installed base that has to be maintained through the cycle.",
+    "content": "<p>Augury and MaintainX have wired predictive maintenance directly into maintenance work, in an integration announced on 24 March that is a better indicator of where machine health monitoring has actually reached than any single market forecast.</p><p>Under the <a href=\"https://www.augury.com/media-center/press/augury-maintainx-partner/\">product integration</a>, when Augury's sensors detect an anomaly on a machine, a work order is created automatically in MaintainX's maintenance management system, carrying the recommended action, the diagnostic context and the supporting data. When the job is closed out, the outcome is returned to Augury and used to check whether the diagnosis was right.</p><p>That loop is modest as software engineering and significant as industrial process design. Predictive maintenance has spent a decade getting good at detection. The recurring failure has not been the analytics; it has been the distance between an accurate alert and a technician with the right part, the right permit and a slot in the shutdown schedule. An alert that lands in a dashboard nobody owns produces no maintenance at all.</p><p>The named results now attached to the technology are more useful than the sector projections. At Canfor's Axis mill, a greenfield sawmill that opened in October 2023, the first year of vibration-based monitoring produced $676,000 in costs avoided, 117 hours of downtime removed, a 96 percent alert response rate and no catastrophic failures, on the account Augury published when it <a href=\"https://www.businesswire.com/news/home/20251210824271/en/Augury-Recognizes-Winners-of-the-2025-Spotlight-Awards-for-Maintenance-Reliability-Excellence\">named the site among its 2025 reliability award winners</a> in December. The figure worth dwelling on is the third. A 96 percent response rate measures whether the maintenance organisation acted on what it was told, which is the variable that decides whether any of the other numbers exist. Augury's own description of the deployment notes that mill staff were sceptical at first and came round over roughly six months as the diagnoses held up.</p><p>Other published cases follow the same shape. The composite decking manufacturer <a href=\"https://www.augury.com/blog/customers-partners/fiberon-saves-274k-with-ai-predictive-maintenance/\">Fiberon</a> has reported $274,000 saved and 178 hours of downtime avoided. Colgate-Palmolive, one of the longest-running users of the platform, has described avoiding a single machine failure that would have cost it 2.8 million tubes of toothpaste, and benchmarks its own equipment data against more than 80,000 machines connected to the system worldwide. DuPont has been running the same monitoring across plants for several years and reports a return several times the cost within the first year.</p><p>These are vendor-published figures and should be read as such. Costs avoided is a counterfactual: it prices a failure that did not happen. Downtime hours are firmer, and response rates are firmer still, because they record what people did rather than what a model predicted.</p><p>The equipment coverage is widening at the same time. In December Augury released <a href=\"https://www.augury.com/media-center/press/machine-health-category-leader-augury-releases-first-ai-powered-predictive-maintenance-solution-for-ultra-low-rpm-machinery/\">Machine Health Ultra Low</a>, aimed at ultra-low-RPM machinery: the slow-turning assets such as large agitators, kiln drives and cooling tower gearboxes that conventional vibration analysis handles poorly because there are so few rotations to sample. Those assets are common in cement, mining, water treatment and pulp and paper, and they are frequently the ones whose failure stops an entire line rather than a single machine.</p><p>Augury is not alone in the market. <a href=\"/manufacturing/pepsico-siemens-nvidia-digital-twins-plants-warehouses\">Siemens</a> sells <a href=\"https://www.siemens.com/global/en/products/services/digital-enterprise-services/analytics-artificial-intelligence-services/senseye-predictive-maintenance.html\">Senseye Predictive Maintenance</a>, the business it acquired in 2022, as a cloud service for monitoring thousands of assets across a manufacturer's sites at once. ABB sells condition monitoring for motors, drives and conveyor belts under its Ability portfolio, with published deployments including the <a href=\"https://new.abb.com/motors-generators/case-studies/abb-ability-condition-monitoring-brings-predictive-maintenance-to-an-italian-factory-that-never-sleeps\">Tenaris steel tube plant</a> in Italy. The competitive question between them is increasingly not who detects a bearing fault first but whose output the maintenance team will act on.</p><p>What is pushing adoption is less interesting than the technology, and more durable. The installed base of industrial machinery has to be maintained regardless of where the capital cycle sits, and the maintenance workforce that used to know each machine by its sound is retiring faster than it is being replaced. Calendar-based servicing spends parts and labour on equipment that does not need attention while missing equipment that does. Continuous monitoring is the cheaper of those two errors to correct, and it is now cheap enough to fit sensors to assets that would never have justified a manual route.</p><p>The March integration is a sign that the industry has worked out which half of the problem remains. Detection was the engineering challenge, and it has largely been met. Getting the result into a work order, in front of the person holding the tools, with enough context that they act on it, is an operational one, and it is where predictive maintenance has been losing its return for years.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "industrial-technology",
+    "tags": [
+      "Predictive Maintenance",
+      "Industrial AI",
+      "Asset Reliability",
+      "Manufacturing"
+    ],
+    "companies": [
+      "Augury",
+      "MaintainX",
+      "Canfor",
+      "Colgate-Palmolive",
+      "DuPont",
+      "Siemens",
+      "ABB"
+    ],
+    "people": [],
+    "eventDate": "2026-03-24",
+    "informationCutoff": "2026-04-02",
+    "primarySourceUrl": "https://www.augury.com/media-center/press/augury-maintainx-partner/",
+    "primarySourceName": "Augury",
+    "secondarySourceUrls": [
+      "https://www.prnewswire.com/news-releases/augury-and-maintainx-partner-to-deliver-closed-loop-maintenance-execution-for-frontline-teams-302722467.html",
+      "https://www.plantservices.com/industry-news/news/55366105/augury-maintainx-partner-to-integrate-ai-driven-predictive-maintenance-workflows",
+      "https://www.businesswire.com/news/home/20251210824271/en/Augury-Recognizes-Winners-of-the-2025-Spotlight-Awards-for-Maintenance-Reliability-Excellence",
+      "https://www.augury.com/blog/customers-partners/fiberon-saves-274k-with-ai-predictive-maintenance/",
+      "https://www.automationworld.com/process/plant-maintenance/article/21549899/colgate-palmolive-focuses-on-machine-health-to-improve-supply-chain-operations",
+      "https://www.augury.com/media-center/press/machine-health-category-leader-augury-releases-first-ai-powered-predictive-maintenance-solution-for-ultra-low-rpm-machinery/"
+    ],
+    "seoTitle": "Predictive Maintenance Moves From Alert to Work Order",
+    "seoDescription": "Augury and MaintainX have linked machine health monitoring to maintenance work orders, with named deployment results at Canfor, Fiberon and Colgate-Palmolive.",
+    "articleType": "news",
+    "wordCount": 760,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "industrial-technology",
+      "manufacturing",
+      "industrial-ai"
+    ],
+    "internalLinks": [
+      "pepsico-siemens-nvidia-digital-twins-plants-warehouses"
+    ]
+  }
+]

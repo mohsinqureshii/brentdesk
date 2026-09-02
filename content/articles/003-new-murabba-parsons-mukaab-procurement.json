@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 3,
+    "headline": "New Murabba Appoints Parsons as Mukaab Superstructure Award Waits for 2027",
+    "slug": "new-murabba-parsons-mukaab-superstructure-procurement",
+    "deck": "Excavation and foundations for Riyadh's cube are complete. The contract to build what sits on top of them is still at least a year away, and the developer is testing modular methods before it lets one.",
+    "excerpt": "New Murabba Development Company has appointed Parsons as infrastructure lead design consultant on a 60-month contract covering infrastructure, public buildings, landscape and public realm. Separately it has gone to the market for advice on modular fit-out systems for the Mukaab's corner towers, with main contractor selection expected in 2027.",
+    "content": "<p>New Murabba Development Company has appointed Parsons to a 60-month engagement on its $50bn development in northwest Riyadh, hiring the US engineering firm as infrastructure lead design consultant and for design and construction technical support across the project.</p><p>The scope Parsons picks up covers infrastructure, public buildings, landscape and the public realm — in other words the ground on which the development sits rather than its centrepiece. <a href=\"https://www.parsons.com/2026/01/new-murabba-development-company-awards-parsons-design-and-construction-management-contract-in-saudi-arabia/\">The appointment</a> is a reasonable marker of where the project actually stands, and the answer is that it is finishing the substructure and organising itself for the main build rather than starting it.</p><p>Below ground, the work is done. China Harbour Engineering Company completed the excavation for the Mukaab, the cube-shaped structure at the centre of the masterplan, and UAE-based HSSG Foundation Contracting executed the foundations. Aecom and Jacobs hold lead design consultant roles on the Mukaab district. Above ground, nothing has been awarded. The developer is expected to select contractors for the towers, podiums, basement areas, rooftop and public realm in 2027, according to <a href=\"https://www.meed.com/new-murabba-approaches-contractors-for-mukaab-towers\">MEED</a>.</p><p>What the company has been doing instead is testing how the thing should be built. On 26 January it issued a request for information to the market on modular and offsite fit-out solutions for the four corner towers that frame the Mukaab, with submissions due by 11 February. It asked experienced suppliers and contractors to advise on feasibility, constraints and execution strategy for non-load-bearing modular systems.</p><p>That is a buildability exercise, and a revealing one. A request for information at this stage means the construction methodology for a significant part of the structure is not yet fixed. Modular and offsite construction moves fit-out work from a congested, high-rise site into a controlled factory environment, where labour is more productive, quality is easier to police and weather is irrelevant. On a project of this height and density it can compress the programme materially, because tower fit-out normally sits on the critical path behind structure and facade.</p><p>It also transfers risk. Volumetric or panelised modules bought from a supply chain carry a price at the point of order; in-situ fit-out at height carries a price that moves with labour availability and rework. On a job where the client is under pressure to demonstrate cost control, that distinction matters more than it did when the project was launched. The constraint is that the Kingdom's offsite manufacturing base is still thin relative to the volume such an approach would need, which is exactly the sort of thing an early market test is designed to establish.</p><p>The sequencing tells its own story about how the industry now builds in Riyadh. Excavation and piling were let early, as standalone packages, to firms that specialise in them. The superstructure will be procured separately, later, once the design and the method are settled. That is a more conservative route than the design-and-build single-contractor model used on some earlier Saudi giga-project packages, and it keeps the client's options open for longer at the cost of a slower start.</p><p>New Murabba is owned by the Public Investment Fund and targets completion by 2040. It is one of three very large programmes competing for contractor and consultant capacity in the capital at the same time, alongside Diriyah, which has awarded more than $29bn of construction contracts, and Expo 2030 Riyadh, which has an immovable opening date and has been pulling its infrastructure procurement forward to protect it.</p><p>That competition is the practical reason the Mukaab timetable matters beyond this project. A superstructure award in 2027 puts New Murabba into the market for concrete, steel, facade capacity and skilled labour at the point when Expo works are peaking and the 2034 World Cup stadium programme is expected to begin mobilising. The useful question about the Mukaab was never whether it gets built. It is on what programme, at what price, and against whom.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "engineering",
+    "tags": [
+      "New Murabba",
+      "Mukaab",
+      "Riyadh",
+      "Modular Construction",
+      "Procurement"
+    ],
+    "companies": [
+      "New Murabba Development Company",
+      "Parsons Corporation",
+      "China Harbour Engineering Company",
+      "Aecom",
+      "Jacobs"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-01-26",
+    "informationCutoff": "2026-02-02",
+    "primarySourceUrl": "https://www.parsons.com/2026/01/new-murabba-development-company-awards-parsons-design-and-construction-management-contract-in-saudi-arabia/",
+    "primarySourceName": "Parsons Corporation",
+    "secondarySourceUrls": [
+      "https://www.meed.com/new-murabba-approaches-contractors-for-mukaab-towers",
+      "https://newmurabba.com/en/media/new-murabba-reaches-new-heights/",
+      "https://www.constructionweeksaudi.com/gigaprojects/mukaab-construction-new-murabba-2027",
+      "https://www.meed.com/new-murabba-begins-mukaab-prequalification"
+    ],
+    "seoTitle": "New Murabba Hires Parsons; Mukaab Award Slips to 2027",
+    "seoDescription": "New Murabba has appointed Parsons on a 60-month contract and is testing modular fit-out for the Mukaab towers, with contractor selection due in 2027.",
+    "articleType": "news",
+    "wordCount": 645,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "engineering",
+      "construction",
+      "supply-chain",
+      "logistics"
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "commission": 92,
+    "headline": "Data Centre Construction Runs Into the Limits of the Industrial Supply Chain",
+    "slug": "data-centre-construction-power-cooling-supply-chain-2026",
+    "deck": "Hyperscale capital spending is heading toward three-quarters of a trillion dollars this year. The constraint has moved to grid connections, transformers, cable and cooling equipment.",
+    "excerpt": "Amazon, Microsoft, Alphabet and Meta have guided to 2026 capital spending that analyst tallies put at around $725 billion, roughly double 2025. With the IEA calling for global grid investment to rise about 50 percent by 2030 and rack densities pushing past 300 kW, the limiting factor on data centre delivery is now the manufacture of transformers, cable and liquid cooling equipment.",
+    "content": "<p>The four largest buyers of data centre capacity have set out capital spending plans for 2026 that between them approach three-quarters of a trillion dollars. Amazon has guided to about $200 billion of capital expenditure for the year, Microsoft is tracking toward roughly $190 billion, Alphabet has pointed to $175 billion to $185 billion and Meta to $115 billion to $135 billion. Analyst tallies put the combined figure at around $725 billion, against roughly $410 billion for the same four companies in 2025.</p><p>Counts of the wider sector differ, which is itself informative about how quickly the numbers are moving. One measure of the top five operators including Oracle puts 2026 infrastructure spending above $600 billion, up about 36 percent on 2025. A broader count covering the fourteen largest listed data centre operators approaches $750 billion for the year. Goldman Sachs has estimated cumulative hyperscaler capital expenditure of $1.15 trillion across 2025 to 2027, more than double the $477 billion spent between 2022 and 2024.</p><p>Whichever count is used, data centres have become one of the largest single categories of construction and equipment demand in the world, and the binding constraint on delivery has moved off the semiconductor and onto the industrial supply chain that has to energise and cool it.</p><p>Power is the first of those constraints and the least tractable. The International Energy Agency puts annual global grid investment at around $400 billion and estimates that it needs to rise by roughly 50 percent by 2030, with highly concentrated loads - data centres foremost among them - identified alongside electric vehicles and heat pumps as the sources of demand growing fastest. Grid spending on that scale is not a procurement decision that a developer can make; it depends on transmission planning, permitting and utility capital programmes with their own timetables. The practical result is that campus siting is increasingly decided by where a connection can be obtained rather than by where land and fibre are cheapest.</p><p>The second constraint is thermal, and it is the one changing fastest inside the buildings. Rack power densities have climbed past the point where air cooling is workable, and the industry is retooling around liquid. <a href=\"/manufacturing/schneider-alfanar-saudi-industrial-equipment-localisation\">Schneider Electric</a> and Modine have both been expanding capacity for high-density cooling aimed at racks above 300 kW. Vertiv has invested in additional liquid cooling and thermal management capacity to meet what it describes as current and anticipated customer demand. Schneider, working through its Motivair business, is supplying integrated power and liquid cooling infrastructure for a phased campus expected to reach up to 750 MW - a single site drawing more power than a mid-sized industrial city.</p><p>The scale of that shift shows in the market sizing. MarketsandMarkets values the data centre liquid cooling market at $4.07 billion in 2026 and projects $27.65 billion by 2033, a compound growth rate of about 31.5 percent. Estimates of that kind should be read as directional rather than precise, but the direction is not in dispute: a cooling technology that was a specialist product five years ago is becoming standard equipment for new build.</p><p>Behind both constraints sits metal. Copper is the material that connects the grid investment to the rack, and the demand is not marginal. S&amp;P Global has estimated that a single large AI data centre can require as much copper as 30,000 homes. On current reckoning the sector accounts for around 8 percent of US metallic-cable demand and is climbing. Cable manufacturing does not scale on that timetable: a new plant typically takes three to four years to build, and a significant share of the capacity announced in the first wave of orders is only reaching operation this year. Transformers, switchgear, busway and conductor all sit on similarly long lead times, which is why <a href=\"https://www.iea.org/reports/electricity-2026/grids\">the IEA frames grid delivery as a supply chain question</a> rather than purely a financing one.</p><p>For the industrial firms on the supply side this is an unusually favourable position and an unusually exposed one. Order books are being filled years out by a small number of counterparties whose capital spending has roughly doubled in two years and is concentrated in one application. Committing factory capacity against that demand means underwriting an assumption about how long the spending holds. The equipment makers that expanded into the last comparable surge in electrical demand - the first utility-scale renewables build - learned that the queue can shorten quickly when the buyers reassess.</p><p>Nothing in the current order flow suggests that reassessment has begun. What it does suggest is that the limiting factor on how fast data centre capacity can be added has shifted decisively away from capital. The money is committed. The transformers, the cable, the chillers and the grid connections are what has to be manufactured, and those are ordinary industrial products made in a finite number of plants.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "data-centers",
+    "tags": [
+      "Data Centres",
+      "Capital Expenditure",
+      "Power Infrastructure",
+      "Liquid Cooling",
+      "Supply Chain"
+    ],
+    "companies": [
+      "Amazon",
+      "Microsoft",
+      "Alphabet",
+      "Meta Platforms",
+      "Schneider Electric",
+      "Vertiv",
+      "Modine Manufacturing"
+    ],
+    "people": [],
+    "eventDate": "2026-08-31",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://www.iea.org/reports/electricity-2026/grids",
+    "primarySourceName": "International Energy Agency",
+    "secondarySourceUrls": [
+      "https://www.tomshardware.com/tech-industry/big-tech/big-techs-ai-spending-plans-reach-725-billion",
+      "https://datacenterrichness.substack.com/p/hyperscalers-plan-630-billion-in",
+      "https://www.marketsandmarkets.com/ResearchInsight/data-center-liquid-cooling-market.asp",
+      "https://blog.se.com/datacenter/2026/07/28/data-center-power-density-planning-liquid-cooled-ai-data-centers-around-grid-and-power-constraints/",
+      "https://uecable.com/articles/cable-industry-outlook-2026/",
+      "https://www.iea.org/reports/electricity-2026/demand"
+    ],
+    "seoTitle": "Data Centre Buildout Strains the Industrial Supply Chain",
+    "seoDescription": "Hyperscale 2026 capex nears $725bn, but grid connections, transformers, cable and liquid cooling equipment now set the pace of data centre delivery.",
+    "articleType": "report",
+    "wordCount": 805,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "data-centers",
+      "industrial-technology",
+      "supply-chain",
+      "logistics"
+    ],
+    "internalLinks": [
+      "schneider-alfanar-saudi-industrial-equipment-localisation"
+    ]
+  }
+]

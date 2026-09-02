@@ -1,0 +1,47 @@
+[
+  {
+    "commission": 26,
+    "headline": "Schneider Electric to Nearly Triple Its Saudi Production Lines by 2030",
+    "slug": "schneider-alfanar-saudi-industrial-equipment-localisation",
+    "deck": "A commitment to 32 production lines, and a new HVDC factory in Riyadh, show where Saudi equipment localization has got to — and which categories it has not reached.",
+    "excerpt": "Schneider Electric has committed to nearly tripling its Saudi manufacturing to 32 production lines by 2030, including a new 20,000 square metre plant at King Salman Energy Park. It follows the January inauguration of Alfanar's SAR 375 million HVDC systems factory in Riyadh, a category the Kingdom had imported entirely.",
+    "content": "<p>Schneider Electric has committed to nearly tripling the number of production lines it runs in Saudi Arabia, taking the total to 32 by 2030 from the 12 lines it has added over the past five years. The French electrical equipment group set out the plan as the Kingdom marked ten years of Vision 2030, and it is one of the more specific manufacturing commitments any international supplier has made against the localization agenda.</p><p>The nearest piece of it is a new 20,000 square metre factory at King Salman Energy Park, the industrial city between Dammam and Al-Ahsa, which will sit alongside the company's existing plants in Riyadh and Dammam. What comes off the Saudi lines is already substantial: Galaxy uninterruptible power systems, Prisma low-voltage switchboards, Acti9 distribution boards, McSet medium-voltage switchgear, gas-insulated medium-voltage switchgear and medium-voltage vacuum circuit breakers. Twenty further lines are planned before the end of the decade.</p><p>Counting production lines is a better guide to what localization has achieved than counting investment. A line is a product family that has been engineered for local manufacture, tooled, staffed and — the part that takes longest — qualified by the customers who will buy from it. Each one removes a specific catalogue item from the import bill. A headline capital figure does not tell you whether anything is being made.</p><p>The heavier end of the same shift showed up in January, when the Ministry of Energy <a href=\"https://www.saudigulfprojects.com/2026/01/alfanar-inaugurates-hvdc-electrical-systems-factory-in-riyadh/\">inaugurated a factory built by Alfanar in Riyadh</a> to make high-voltage direct current systems, an investment of around SAR 375 million. The plant produces converter valves, cooling systems and other components used in HVDC transmission. That is a category the Kingdom has bought entirely from abroad until now, and one where the supplier list worldwide is short — the engineering is proprietary, the testing regime is severe and the order book is lumpy.</p><p>Both investments are responses to the same thing: the volume of electrical equipment Saudi Arabia is about to install. The renewable procurement rounds now moving through financial close, the 380 kV substation packages the transmission system is tendering to connect them, and the load growth coming from data centres and new industrial cities all convert into transformers, switchgear, protection systems, cable and converter equipment. Global lead times for that hardware have lengthened since 2023 as grids everywhere expanded at once. A domestic line is worth paying for when the alternative is queueing.</p><p>Order flow is also the constraint that decides whether these plants work. Electrical equipment manufacturing is a volume business with high fixed costs, and a line that runs for one project and then idles does not pay for its tooling. What makes the Saudi case unusual is that the buyer side is concentrated enough to give a manufacturer visibility: the utility, the transmission company, Aramco, the giga-projects and the industrial cities are a small number of customers ordering repeatedly for a decade. That is the real subsidy, and it is more valuable than the land and the fee exemptions.</p><p>The qualification problem is the one least visible from outside. Building a factory is the short part. Getting a product onto an approved vendor list — type testing, sample approval, factory audits, service and spares coverage — routinely takes longer than the construction, and until it is done the plant cannot sell into the projects that justified it. That is why localization tends to move through categories in order of how forgiving the specification is: cable and enclosures first, switchboards and switchgear next, and rotating equipment, large power transformers and control systems last.</p><p>Saudi Arabia is now visibly working the middle of that list, with the Alfanar plant reaching into the top of it. What has not changed is the test. A production line that exists only because a domestic buyer is obliged to prefer it is a cost the economy carries; one that ships equipment to Gulf, African or Asian customers is an industry. Over the next four years, as 20 more lines are commissioned, the share of their output that leaves the Kingdom is the number worth watching.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Local Content",
+      "Electrical Equipment",
+      "Vision 2030",
+      "King Salman Energy Park",
+      "Manufacturing Investment"
+    ],
+    "companies": [
+      "Schneider Electric",
+      "Alfanar",
+      "King Salman Energy Park"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-05-11",
+    "informationCutoff": "2026-05-14",
+    "primarySourceUrl": "https://natlawreview.com/press-releases/schneider-electric-commits-nearly-tripling-saudi-manufacturing-capacity",
+    "primarySourceName": "Schneider Electric",
+    "secondarySourceUrls": [
+      "https://www.tradingview.com/news/reuters.com,2026-05-11:newsml_Zaw28D7Z1:0-zawya-schneider-electric-commits-to-nearly-tripling-saudi-manufacturing-capacity-as-kingdom-marks-ten-years-of-vision-2030/",
+      "https://intlbm.com/2026/05/11/schneider-electric-to-triple-saudi-production-for-vision-2030/",
+      "https://www.saudigulfprojects.com/2026/01/alfanar-inaugurates-hvdc-electrical-systems-factory-in-riyadh/",
+      "https://www.se.com/sa/en/about-us/newsroom/news/press-releases/schneider-electric-launches-second-innovation-summit-in-riyadh-with-strong-government-participation-and-new-%E2%80%98saudi-made%E2%80%99-products-68da7607e1b3b3952b0797b2/"
+    ],
+    "seoTitle": "Schneider Electric to Nearly Triple Saudi Production Lines",
+    "seoDescription": "Schneider Electric will take its Saudi manufacturing to 32 production lines by 2030, adding a SPARK factory, as Alfanar opens an HVDC plant in Riyadh.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 681,
+    "categories": [
+      "manufacturing"
+    ]
+  }
+]
