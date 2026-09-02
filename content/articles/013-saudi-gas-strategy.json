@@ -1,0 +1,43 @@
+[
+  {
+    "commission": 13,
+    "headline": "Saudi Arabia's Gas Expansion Enters Its Commissioning Phase",
+    "slug": "saudi-arabia-gas-expansion-commissioning-phase-industrial-demand",
+    "deck": "With Jafurah producing and Tanajib running, the Kingdom's gas programme has stopped being a contracting story. The harder question is whether grid, plants and industrial demand arrive in the right order.",
+    "excerpt": "Aramco is targeting an 80 percent increase in sales gas capacity by 2030 over 2021 levels, backed by more than $25 billion of contracts covering Jafurah, the Master Gas System and drilling. The strategy is less about gas margins than about displacing liquids in power generation and supplying ethane to the chemical industry.",
+    "content": "<p>Saudi Arabia's gas programme has changed character. For most of the past three years it was a procurement exercise, measured in contracts awarded, rigs hired and pipeline kilometres ordered. With the <a href=\"https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target\">start of production at Jafurah</a> and the start-up of the Tanajib Gas Plant, it has become a commissioning exercise, and the question facing the Kingdom is no longer whether the gas exists but whether the plants, pipelines and customers arrive in the right order.</p><p>The headline objective is an increase in sales gas production capacity of around 80 percent by 2030 against 2021 levels, which Aramco expects to take total gas and associated liquids production to roughly 6 million barrels of oil equivalent a day. That target has been revised upward: as recently as 2024 the company was describing growth of more than 60 percent. Raising a 2030 target in the middle of executing it is unusual, and it says something about how the demand side has moved.</p><p>The capital behind it was largely committed in a single tranche. In mid-2024 Aramco <a href=\"https://www.aramco.com/en/news-media/news/2024/aramcos-strategic-gas-expansion-progresses-with-25bn-contract-awards\">awarded more than $25 billion of contracts</a> across the gas system: 16 contracts worth about $12.4 billion for the second phase of Jafurah, covering gas compression facilities, pipelines and expansion of the Jafurah gas plant; 15 lump-sum turnkey contracts worth about $8.8 billion for the third phase expansion of the Master Gas System; 23 gas rig contracts worth $2.4 billion; and two directional drilling contracts worth $612 million. Very little of that spending buys production. Almost all of it buys the ability to move and process what is produced.</p><p>That emphasis is the most revealing thing about the strategy. The Master Gas System is the national gas grid, and the third phase expansion is intended to lift its capacity by 3.15 billion cubic feet a day to 12.5 billion cubic feet a day by 2028, through roughly 4,000 kilometres of new pipeline and 17 additional compression trains. It will connect cities to the network that have never had piped gas. A gas field with no grid attached to it is a stranded asset; a grid is what converts molecules into an industrial input.</p><p>What that input is for is the part of the strategy that gets least attention. Saudi Arabia burns crude oil and fuel oil to generate electricity and to run desalination, a practice that made sense when domestic demand was small and the opportunity cost of a barrel was low, and makes progressively less sense as both change. Every unit of gas that displaces liquids in the power sector frees a barrel that can be exported or converted into petrochemicals. The arithmetic of the gas programme is therefore not really about gas margins at all. It is about what the displaced crude is worth.</p><p>The second use is feedstock. Ethane and natural gas liquids extracted during processing are the raw material of the Saudi chemical industry, and feedstock allocation, rather than engineering or capital, has been the practical ceiling on chemical expansion for well over a decade. Jafurah alone is expected to deliver up to 2 billion cubic feet a day of sales gas, 420 million cubic feet a day of ethane and around 630,000 barrels a day of high-value liquids by 2030. Those liquids are the reason a shale project in the Eastern Province is relevant to a cracker in Jubail.</p><p>Structurally, the Kingdom is now drawing gas from three distinct streams, and that diversification is a genuine change rather than a presentational one. Associated gas comes up with offshore crude and is processed at plants such as Tanajib, which means its volume is tied to oil production decisions. Conventional non-associated gas comes from dedicated reservoirs. Unconventional gas from Jafurah, where Aramco has said lifecycle investment could exceed $100 billion, is independent of both. For the first time, Saudi gas supply growth does not require Saudi oil production growth to deliver it.</p><p>The risks are of the ordinary industrial kind, which is not the same as saying they are small. Announced capacity is not throughput: large processing plants ramp over quarters, not weeks, and Aramco's own language around Tanajib carefully describes an expected 2026 capacity rather than a current one. Jafurah is a shale development, and shale is a manufacturing business in which well productivity, drilling efficiency and cost per foot determine whether a stated plateau is economic. The Master Gas System expansion has to be completed across thousands of kilometres of terrain and tied into an operating network without interrupting supply to customers who already depend on it.</p><p>There is also a sequencing problem that rarely appears in project announcements. Industrial gas demand does not materialise because a pipeline arrives; it materialises because factories are financed on the expectation of reliable supply at a known price. The Kingdom's industrial strategy, its localization programmes and its downstream chemical build-out all assume gas availability that is still being constructed. Get the order wrong in either direction and the cost is real: idle compression on one side, or industrial projects waiting on feedstock on the other.</p><p>Judged on where it was two years ago, the programme is ahead of the position it was in when it was a set of contract awards. Jafurah is producing, Tanajib is running, and the grid that connects them to industry is under construction on a schedule that ends in 2028. The measure that matters between now and 2030 is not the next capacity announcement. It is how much of that announced capacity is actually flowing, and which customers are on the other end of it.</p>",
+    "author": "Mo",
+    "primaryCategory": "oil-gas",
+    "tags": [
+      "Natural Gas",
+      "Master Gas System",
+      "Jafurah",
+      "Industrial Strategy",
+      "Vision 2030"
+    ],
+    "companies": [
+      "Saudi Aramco"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-02-26",
+    "informationCutoff": "2026-03-06",
+    "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target",
+    "primarySourceName": "Aramco",
+    "secondarySourceUrls": [
+      "https://www.aramco.com/en/news-media/news/2024/aramcos-strategic-gas-expansion-progresses-with-25bn-contract-awards",
+      "https://www.spa.gov.sa/en/N2131194",
+      "https://jpt.spe.org/aramco-awards-25-billion-in-contracts-as-jafurah-shale-and-master-gas-system-expansion-enters-next-phase",
+      "https://www.agbi.com/oil-and-gas/2024/02/saudi-aramco-gas-network-expansion/",
+      "https://www.rigzone.com/news/aramco_starts_gas_production_at_jafurah-27-feb-2026-183085-article/"
+    ],
+    "seoTitle": "Saudi Gas Expansion Enters Its Commissioning Phase",
+    "seoDescription": "Saudi Arabia's gas build-out has moved from contracting to commissioning. What the 80 percent capacity target, the Master Gas System and Jafurah mean for industry.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 925
+  }
+]

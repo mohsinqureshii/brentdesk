@@ -29,9 +29,20 @@ const BANNED_PHRASES = [
   "key takeaways", "in conclusion", "conclusion:", "why it matters",
   "what comes next", "what happened:", "introduction:",
   "revolutioniz", "revolutionis", "game-changing", "game changing",
-  "groundbreaking", "unlocks the future", "redefines", "transformative journey",
+  "unlocks the future", "redefines", "transformative journey",
   "pioneering landscape", "new era of innovation", "in today's fast-paced",
   "it is important to note", "stands as a testament", "paving the way for a",
+];
+
+/**
+ * "groundbreaking" is banned as a puff adjective but is the correct industrial
+ * noun for turning the first soil on a plant — "after four years of
+ * groundbreakings" is exactly the usage the brief's "unless genuinely required
+ * by the facts" clause protects. Flag only the adjectival sense.
+ */
+const PUFF_PATTERNS: Array<[RegExp, string]> = [
+  [/\bgroundbreaking\s+(?:technology|innovation|project|deal|partnership|agreement|initiative|work|research|approach)\b/i,
+   "groundbreaking used as a puff adjective"],
 ];
 
 /** Claims of BrentDesk reporting that never happened. */
@@ -143,8 +154,12 @@ for (const file of files) {
     if (/^#{1,6}\s|\*\*[^*]+\*\*/m.test(html)) err(file, `markdown in content — HTML only`);
     if (!/^\s*<p[\s>]/i.test(html)) err(file, `content does not start with a <p>`);
 
-    const lower = (html + " " + a.headline + " " + a.excerpt + " " + (a.deck ?? "")).toLowerCase();
+    // Scan the prose, not the markup — an href full of slugs is not copy.
+    const scanned = (html.replace(/<[^>]+>/g, " ") + " " + a.headline + " " +
+      a.excerpt + " " + (a.deck ?? ""));
+    const lower = scanned.toLowerCase();
     for (const p of BANNED_PHRASES) if (lower.includes(p)) err(file, `banned phrasing: "${p}"`);
+    for (const [re, label] of PUFF_PATTERNS) if (re.test(scanned)) err(file, label);
     for (const p of FALSE_PROVENANCE) if (lower.includes(p)) err(file, `false BrentDesk provenance: "${p}"`);
     for (const p of LEAKED_METHODOLOGY) if (lower.includes(p)) err(file, `research methodology leaked into copy: "${p}"`);
 
