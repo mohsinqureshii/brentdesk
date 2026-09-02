@@ -81,6 +81,21 @@ the MySQL container, not the app), the equivalent one-off is:
 node dist/seed.js
 ```
 
+## Reusing an existing database
+
+Pointing BrentDesk at a database that already holds another
+publication's content will render that content under BrentDesk branding —
+the platform does not filter by publication. The startup migrations are
+safe here (a non-empty database only ever gets the additive tail, never a
+replay), but the editorial data is a separate decision:
+
+- **Fresh start** — provision a new MySQL service. The server applies the
+  baseline and `SEED_ON_BOOT=1` fills in the system data. Nothing to
+  clean up.
+- **Keep the history** — reuse the database, then retire the old articles,
+  companies, people and events through the admin UI before going public.
+  Run the seed either way; it only adds rows that are missing.
+
 ## 4. Verify
 
 - `https://<your-app>.up.railway.app/api/health` → `200`
@@ -94,6 +109,10 @@ Railway's `PORT`. Check the deploy logs for the first few lines:
 
 - `Missing required environment variable: JWT_SECRET` — `server/_core/env.ts`
   throws at import, so the process dies before binding. Set it.
+- `Cannot find module '/app/dist/vite'` — `NODE_ENV` is `development` in
+  the container. The dev branch loads Vite, which a bundled build has no
+  copy of. The server now warns and serves the built client instead of
+  dying, but set `NODE_ENV=production` so you get the production paths.
 - No `Server running` line at all — the build failed, or the start command
   is wrong. `pnpm start` must run `node dist/index.js`.
 - A `Server running` line but still no response — the port was overridden.
