@@ -8,9 +8,27 @@
     "content": "<p>The easiest way to misread Saudi Arabia is to count the cranes. The Kingdom's construction programme is the most visible thing about its economy, and the most frequently described, but it is not the thing that will still be there in 2040. What will be there is the industrial base that was assembled to feed it.</p><p>That process is now measurable. The General Authority for Statistics and the Ministry of Industry and Mineral Resources put the number of <a href=\"https://saudigazette.com.sa/article/662415/saudi-arabia/saudi-industrial-establishments-rise-to-13660-as-322-new-licenses-issued\">industrial establishments at 13,660</a>, with hundreds of new licences issued in a single quarter. Contracting itself accounts for roughly 8 percent of gross domestic product, and the Saudi Contractors Authority expects the value of projects in the market to exceed SR3 trillion over the next three years. Those two numbers belong together. The second is what created the first.</p><p>Demand of that size, sustained for long enough and attached to procurement rules, does something that industrial subsidies on their own rarely achieve: it makes a factory in the Kingdom the cheapest way to serve the Kingdom. The mandatory local content list maintained for government and state-linked buyers now covers more than 1,500 products, which converts a preference into a purchase order. Aramco's iktva programme has taken local content across its supply chain to about 70 percent and is targeting 75 percent by 2030. Public Investment Fund portfolio companies attach local-content commitments to their own procurement, which pushes the requirement down to the second and third tier of the supply chain, where most of the register actually sits.</p><p>The response has been physical rather than rhetorical. Schneider Electric has committed to <a href=\"https://natlawreview.com/press-releases/schneider-electric-commits-nearly-tripling-saudi-manufacturing-capacity\">nearly tripling its Saudi manufacturing lines</a> by 2030. Al Yamamah Steel ordered a SR270m billet plant from Italy's Danieli to feed rebar demand from inside the country rather than through the import berth. Energy Recovery is building its first manufacturing facility outside the United States near Dammam to make the pressure-exchange devices that determine how much electricity a desalination plant consumes. China's ZTT is putting a SR375m subsea and terrestrial cable plant into Ras Al-Khair. MODON has committed SR3bn to Sudair alone to give those factories somewhere serviced to go.</p><p>None of those investments would exist without a construction pipeline to justify them, and none of them is a construction business. A billet caster, a cable plant and an energy-recovery device factory are industrial assets with export potential and forty-year lives, financed against a domestic order book that happens to have been created by a building programme.</p><p>This is the part of Vision 2030 that has worked more quietly than the giga-projects, and it explains why the Ministry of Industry and Mineral Resources rather than a municipal or housing body now takes the patron's role at the Kingdom's largest construction exhibition. Big 5 Construct Saudi opens in Riyadh at the end of August under the ministry's patronage, and the framing is deliberate: the event is being positioned as a meeting point for the industrial supply chain rather than a property showcase.</p><p>The limits are equally clear. Localisation has moved fastest through the products where the engineering is well understood and the freight cost is high relative to value: cement, rebar, pipe, cable, ready-mix, precast, insulation, ductwork, low-voltage switchgear. It has moved slowest through the components where the intellectual property is concentrated and the global market is thin. Turbine blades, large compressors, high-specification instrumentation, tunnel boring machines and the control systems inside a modern building still arrive by ship. That is the honest boundary of the achievement so far, and it is where the next decade of industrial policy has to work.</p><p>The other constraint is the demand signal itself. The construction market is not growing in the way it was in 2023. The Saudi Contractors Authority recorded 472 projects worth about SR233.2bn in 2025 and has been running a far lower project count in 2026 for a comparable value, which means fewer, larger packages. Kamco Invest put first-quarter awards at $11bn against $22.5bn a year earlier. A supplier that built capacity against a straight-line forecast of Saudi construction spending will find the line is not straight.</p><p>The factories, though, are less exposed to that than the contractors are. Award value has rotated toward utilities, water, hydrocarbons and heavy civil work rather than disappearing, and the industrial inputs those projects consume are broadly the same ones a residential district consumes, in different proportions. A cable plant does not much care whether the cable ends up in a housing scheme or a substation.</p><p>What the Kingdom has bought with a decade of construction spending, in other words, is not only the buildings. It is a set of industrial capabilities that were uneconomic at Saudi scale in 2015 and are economic now, plus a procurement architecture that keeps them loaded. Whether that base can survive a genuine downturn in project awards is the test still ahead of it. Nothing in the record so far suggests it has been tried.</p>",
     "author": "Mo Qureshi",
     "primaryCategory": "manufacturing",
-    "categories": ["manufacturing", "construction", "supply-chain"],
-    "tags": ["Vision 2030", "Localisation", "Industrial Policy", "Local Content", "Saudi Manufacturing"],
-    "companies": ["Ministry of Industry and Mineral Resources", "Schneider Electric", "Al Yamamah Steel", "Energy Recovery", "ZTT", "MODON", "Saudi Aramco"],
+    "categories": [
+      "manufacturing",
+      "construction",
+      "supply-chain"
+    ],
+    "tags": [
+      "Vision 2030",
+      "Localisation",
+      "Industrial Policy",
+      "Local Content",
+      "Saudi Manufacturing"
+    ],
+    "companies": [
+      "Ministry of Industry and Mineral Resources",
+      "Schneider Electric",
+      "Al Yamamah Steel",
+      "Energy Recovery",
+      "ZTT",
+      "MODON",
+      "Saudi Aramco"
+    ],
     "people": [],
     "country": "Saudi Arabia",
     "eventDate": "2026-07-10",
@@ -29,7 +47,7 @@
     "seoTitle": "Saudi Construction Is Building an Industrial Economy",
     "seoDescription": "Saudi Arabia's construction pipeline has become its main industrial policy instrument, pulling factories and supply chains into the Kingdom.",
     "articleType": "report",
-    "wordCount": 905,
+    "wordCount": 825,
     "researchConfidence": "B",
     "imageReviewRequired": true,
     "replacementOf": null,

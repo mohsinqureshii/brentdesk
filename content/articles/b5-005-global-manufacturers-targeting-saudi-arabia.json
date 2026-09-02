@@ -8,9 +8,26 @@
     "content": "<p>For most of the past twenty years, selling construction products into Saudi Arabia meant appointing a distributor in Jeddah or Al Khobar, shipping containers and letting the agent handle the rest. That model still works for a long tail of products. For anything sold to a government buyer, a Public Investment Fund portfolio company or a giga-project main contractor, it increasingly does not.</p><p>The reason is procurement rather than tariffs. The mandatory local content list applied to government and state-linked buyers now covers more than 1,500 products, and local-content scoring has been pushed down through the contracting chain, so a main contractor that has committed to a percentage in its own bid has to buy from suppliers who can evidence one. Aramco's iktva programme has taken local content across its supply chain to about 70 percent with a 75 percent target for 2030. A product made in Germany and warehoused in Dammam does not score.</p><p>The response from international manufacturers has been to move production, not just inventory. Schneider Electric has committed to <a href=\"https://www.se.com/sa/en/about-us/newsroom/news/press-releases/schneider-electric-launches-second-innovation-summit-in-riyadh-with-strong-government-participation-and-new-%E2%80%98saudi-made%E2%80%99-products-68da7607e1b3b3952b0797b2/\">nearly tripling its Saudi manufacturing lines</a> by 2030, with switchgear and electrical distribution equipment carrying a Saudi-made designation. Energy Recovery is building its first plant outside the United States near Dammam, making the pressure-exchange devices that set the energy consumption of a reverse-osmosis desalination train. China's ZTT is putting a SR375m subsea and terrestrial cable factory into Ras Al-Khair port. Italy's Danieli sold Al Yamamah Steel a SR270m billet plant, which is the other half of the same trade: a European equipment maker supplying the machinery that lets a Saudi producer stop importing.</p><p>Freight economics reinforce the policy. Cement, aggregates, rebar, ready-mix, precast, insulation, ductwork and cable are all heavy or bulky relative to their value, and the cost of moving them across an ocean is a large fraction of the sale price. Once the domestic order book is big enough to load a plant, the import route stops being competitive on price as well as on scoring.</p><p>Scale is what changed. The Saudi Contractors Authority recorded 472 projects worth about SR233.2bn in 2025 and expects the value of projects in the market to exceed SR3 trillion over the next three years. Even allowing for the gap between announced pipeline and awarded contracts, that is a domestic demand base capable of supporting plants that would have been uneconomic at Saudi scale a decade ago.</p><p>The awards themselves have also become fewer and much larger, which favours suppliers who can deliver volume against a schedule. A package worth more than a billion riyals is not served by a distributor holding four weeks of stock. It needs production planning, a local technical team and the ability to hold a specification through a two-year programme, which in practice means a plant, a joint venture or a licensed local manufacturer.</p><p>That is why the exhibition floor in Riyadh at the end of August matters commercially rather than promotionally. Big 5 Construct Saudi expects more than 1,000 exhibitors from over 50 countries across general construction, concrete, heavy equipment, HVACR and facilities management, and a large share of the international contingent is there to find the local partner, agent or joint-venture route that a foreign manufacturer now needs in order to be biddable.</p><p>The boundary of the trend is worth stating plainly. Localisation has moved fastest through commodity and mid-technology products, and slowest through the components where the intellectual property is concentrated and global volumes are thin: large compressors, turbine components, high-specification instrumentation, tunnelling equipment and the control systems inside a modern building. Those are still imported, and will be for some time. A manufacturer whose product falls into that category can still sell into the Kingdom from abroad, though it will increasingly be asked what its localisation plan is.</p><p>The risk for anyone committing capital is that the demand signal is not as smooth as the pipeline suggests. Kamco Invest put Saudi project awards at $11bn in the first quarter of 2026 against $22.5bn a year earlier, and award value has been rotating toward utilities, water, hydrocarbons and heavy civil work rather than vertical construction. A plant sized against the residential boom of 2023 is exposed. A plant sized against process, power and water demand is considerably less so.</p>",
     "author": "BrentDesk Staff",
     "primaryCategory": "manufacturing",
-    "categories": ["manufacturing", "construction", "supply-chain"],
-    "tags": ["Local Content", "Localisation", "Big 5 Construct Saudi", "Construction Products", "Foreign Investment"],
-    "companies": ["Schneider Electric", "Energy Recovery", "ZTT", "Danieli", "Al Yamamah Steel", "Saudi Aramco"],
+    "categories": [
+      "manufacturing",
+      "construction",
+      "supply-chain"
+    ],
+    "tags": [
+      "Local Content",
+      "Localisation",
+      "Big 5 Construct Saudi",
+      "Construction Products",
+      "Foreign Investment"
+    ],
+    "companies": [
+      "Schneider Electric",
+      "Energy Recovery",
+      "ZTT",
+      "Danieli",
+      "Al Yamamah Steel",
+      "Saudi Aramco"
+    ],
     "people": [],
     "country": "Saudi Arabia",
     "eventDate": "2026-07-18",
@@ -27,7 +44,7 @@
     "seoTitle": "Why Manufacturers Now Build Inside Saudi Arabia",
     "seoDescription": "Local content scoring, freight costs and larger packages are pushing global construction manufacturers to produce inside Saudi Arabia.",
     "articleType": "news",
-    "wordCount": 700,
+    "wordCount": 707,
     "researchConfidence": "B",
     "imageReviewRequired": true,
     "replacementOf": "Why Global Construction Manufacturers Are Targeting Saudi Arabia",

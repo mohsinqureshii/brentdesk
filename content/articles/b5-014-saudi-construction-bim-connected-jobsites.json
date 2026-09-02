@@ -8,10 +8,28 @@
     "content": "<p>Building information modelling arrived in Saudi Arabia the way it arrived everywhere else: as a design deliverable. Consultants produced a federated model, contractors received it, and the model then sat still while the building was constructed from drawings extracted out of it. The current shift is about closing that loop, and it is being driven by project scale rather than by technology enthusiasm.</p><p>The pressure is arithmetic. Saudi packages have grown to an average well above a billion riyals, delivery horizons now stretch to 2029 and 2030, and a single giga-project package can carry dozens of interfaces between contractors working to the same tolerances. On a programme of that size, the cost of discovering a clash on site rather than in a model is measured in weeks, and the cost of not knowing what happened on site last Tuesday is measured in claims.</p><p>Adoption is real but uneven. Analysis of the Saudi market <a href=\"https://www.arabnews.com/node/2646039/business-economy\">reported this year</a> put artificial intelligence adoption across the sector at around a quarter as of 2024, with developers and contractors using it mainly to improve planning, optimise schedules and anticipate delays on complex projects, and with JLL estimating that a large majority of commercial real estate activities could be supported by AI by 2030. Most active sites in the Kingdom still run with very little of it.</p><p>What separates the sites that have moved from the ones that have not is not the software. It is whether anything flows back. A connected jobsite is defined by return data: reality capture from drones and laser scanners compared against the model, progress claimed against installed quantities rather than a foreman's estimate, plant telematics reporting utilisation and idle time, materials tracked from the gate to the pour, and permits and inspections raised on a device rather than on a form that reaches the site office two days later.</p><p>Each of those is individually mundane. Together they change what a project control function can do. A monthly report assembled from subcontractor submissions describes what people believed happened. A model reconciled weekly against scan data describes what did.</p><p>The regulatory environment is pushing in the same direction from outside the site fence. Design review, permitting and inspection in Saudi Arabia run through the Balady platform, and the Ministry of Municipalities and Housing issued more than 34,000 building permits in the first half of 2026 through that system. A developer already submitting digitally has an incentive to keep the same information structured through construction rather than reverting to paper the moment the permit is granted.</p><p>The obstacles are the familiar ones and they are mostly commercial. Model ownership and liability are rarely resolved cleanly in Saudi contracts, so consultants issue models with disclaimers and contractors rebuild them. Subcontractors down the chain work at a level of digital maturity far below the main contractor's, and a model is only as current as its least engaged trade. And the data a client wants at handover is usually specified after the systems that would have produced it were already chosen.</p><p>Those are the questions the industry has scheduled for itself. The conference programme at Big 5 Construct Saudi in Riyadh, opening 30 August, includes sessions on applying artificial intelligence in project delivery and on strengthening project governance, and a session led by Christopher Seymour, managing director for the Middle East and Africa at Mace Consult, examines collaboration between stakeholders and digital transparency. Shonagh Kinnaird, project director at Misk City, is speaking on procurement challenges and lessons from the Kingdom's major developments.</p><p>Digital transparency is a fair description of the underlying argument. Most of the technology in question does not make a building faster to construct. It makes what is happening visible to more parties at the same time, which changes the balance of a negotiation as much as it changes the programme. That is why adoption is slower than the tooling would suggest, and why the projects that have gone furthest are the ones where a single client had enough leverage to require it of everybody at once.</p>",
     "author": "BrentDesk Staff",
     "primaryCategory": "industrial-technology",
-    "categories": ["industrial-technology", "construction", "engineering"],
-    "tags": ["BIM", "Construction Technology", "Digital Delivery", "Project Controls", "Big 5 Construct Saudi"],
-    "companies": ["Mace Consult", "Misk City", "JLL", "Big 5 Construct Saudi"],
-    "people": ["Christopher Seymour", "Shonagh Kinnaird"],
+    "categories": [
+      "industrial-technology",
+      "construction",
+      "engineering"
+    ],
+    "tags": [
+      "BIM",
+      "Construction Technology",
+      "Digital Delivery",
+      "Project Controls",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [
+      "Mace Consult",
+      "Misk City",
+      "JLL",
+      "Big 5 Construct Saudi"
+    ],
+    "people": [
+      "Christopher Seymour",
+      "Shonagh Kinnaird"
+    ],
     "country": "Saudi Arabia",
     "eventDate": "2026-08-14",
     "informationCutoff": "2026-08-16",
@@ -26,7 +44,7 @@
     "seoTitle": "Saudi Construction Moves From BIM to Connected Sites",
     "seoDescription": "Saudi contractors are extending BIM into site execution with reality capture, telematics and AI scheduling. The constraint is return data.",
     "articleType": "news",
-    "wordCount": 690,
+    "wordCount": 673,
     "researchConfidence": "B",
     "imageReviewRequired": true,
     "replacementOf": null,

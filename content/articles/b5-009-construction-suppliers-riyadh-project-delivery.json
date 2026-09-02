@@ -8,9 +8,27 @@
     "content": "<p>More than 1,000 local and international companies will exhibit at Big 5 Construct Saudi in Riyadh at the end of this month, with the organiser framing the edition around project delivery: helping contractors, consultants, engineers and procurement teams compare solutions and identify products that match the requirements of live and upcoming work in the Kingdom.</p><p>That framing is a departure from the way construction exhibitions in the region usually present themselves. The <a href=\"https://www.big5constructsaudi.com/leading-local-and-international-brands-to-showcase-solutions-at-big-5-construct-saudi-supporting-project-delivery-across-the-kingdom/\">organiser's line-up announcement</a> is built around specification and procurement rather than launches, which reflects where the Saudi market is: fewer and much larger packages, longer programmes and clients who now audit what a supplier can evidence rather than what it can demonstrate on a stand.</p><p>Among the first-time exhibitors are Arkaz, TotalEnergies, Hamte Group and Mectco. Arkaz is the most locally significant of the four. Formally Arkaz Alsharq Building Materials, based in Al Khobar and established in 2013 as a wholly owned subsidiary of the Alturki group, it makes concrete admixture systems and specialty construction chemicals, which is one of the higher-value segments of the Saudi materials industry and one where local production has been displacing imports. Hamte Group is showing construction technologies and engineering solutions, and Mectco waste management and environmental products for site operations.</p><p>The international contingent covers more than 50 countries. Australia's Lanmix is presenting steel fibre reinforcement, used to replace or supplement conventional mesh in slabs and sprayed concrete. Egypt's K-Flex Insulation is showing thermal, acoustic and fire-stopping insulation systems. Both sit in categories where the Saudi Building Code and the Kingdom's fire and energy requirements have tightened specification considerably in recent years, which is generally what draws a foreign supplier to a market.</p><p>The exhibition covers the early and heavy end of a project rather than the finished product: heavy equipment and concrete through to building systems, HVACR, facilities management and cleaning. Four co-located shows separate those out as Heavy Saudi Arabia, Totally Concrete Saudi Arabia, HVACR Saudi Arabia and Saudi FM &amp; Clean.</p><p>The commercial logic of the timing is straightforward. The Saudi Contractors Authority recorded 25 project awards worth more than SR29.5bn in June, the busiest month of 2026 by count, with building and construction taking 56 percent of the value and the Eastern Province leading on both volume and value. The average Saudi package has roughly doubled in size over the past year. Suppliers chasing that work need to be on prequalification lists before the tender, not after it.</p><p>The exhibitor mix also shows how the localisation rules have reshaped who turns up. A supplier selling into a government buyer, a Public Investment Fund portfolio company or a giga-project main contractor is scored on local content, which pushes foreign manufacturers toward joint ventures, licensed local production or at minimum a Saudi partner with a registered entity. An exhibition floor is a cheap way to find one.</p><p>The show runs from 30 August to 2 September at the Riyadh Front Exhibition &amp; Conference Center at ROSHN Front, near King Khalid International Airport, under the patronage of the Ministry of Industry and Mineral Resources. The organiser expects more than 35,000 trade visitors across the four days, a planning figure rather than a recorded one. The full exhibitor directory is <a href=\"https://exhibitors.big5constructsaudi.com/\">published online</a>.</p>",
     "author": "BrentDesk Staff",
     "primaryCategory": "construction",
-    "categories": ["construction", "manufacturing", "heavy-equipment"],
-    "tags": ["Big 5 Construct Saudi", "Arkaz", "TotalEnergies", "Construction Products", "Riyadh"],
-    "companies": ["Big 5 Construct Saudi", "Arkaz Alsharq Building Materials", "TotalEnergies", "Hamte Group", "Mectco", "Lanmix", "K-Flex Insulation"],
+    "categories": [
+      "construction",
+      "manufacturing",
+      "heavy-equipment"
+    ],
+    "tags": [
+      "Big 5 Construct Saudi",
+      "Arkaz",
+      "TotalEnergies",
+      "Construction Products",
+      "Riyadh"
+    ],
+    "companies": [
+      "Big 5 Construct Saudi",
+      "Arkaz Alsharq Building Materials",
+      "TotalEnergies",
+      "Hamte Group",
+      "Mectco",
+      "Lanmix",
+      "K-Flex Insulation"
+    ],
     "people": [],
     "country": "Saudi Arabia",
     "eventDate": "2026-08-04",
@@ -26,7 +44,7 @@
     "seoTitle": "1,000+ Suppliers Head to Big 5 Construct Saudi",
     "seoDescription": "More than 1,000 exhibitors confirmed for Big 5 Construct Saudi, with Arkaz, TotalEnergies, Hamte Group and Mectco exhibiting for the first time.",
     "articleType": "news",
-    "wordCount": 590,
+    "wordCount": 540,
     "researchConfidence": "A",
     "imageReviewRequired": true,
     "replacementOf": null,
