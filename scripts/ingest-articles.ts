@@ -275,7 +275,15 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
     }
     const edges = await linkRelatedArticles(db, seen);
     console.log(`[ingest] ${created} created, ${updated} updated, ${edges} related-article links`);
-    if (missing.size) console.log(`[ingest] no profile yet (link skipped): ${[...missing].join(", ")}`);
+    if (missing.size) {
+      // Hundreds of one-off mentions would bury the useful output; the full
+      // list is derivable from the article files if anyone needs it.
+      const sample = [...missing].slice(0, 12).join(", ");
+      console.log(
+        `[ingest] ${missing.size} mentioned entities have no profile yet, so no link was made ` +
+          `(e.g. ${sample}${missing.size > 12 ? ", …" : ""})`,
+      );
+    }
     return { created, updated, missing: [...missing] };
   } finally {
     await pool.end();
