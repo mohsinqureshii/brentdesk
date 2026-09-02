@@ -81,20 +81,32 @@ the MySQL container, not the app), the equivalent one-off is:
 node dist/seed.js
 ```
 
-## Reusing an existing database
+## Clearing another publication's data
 
-Pointing BrentDesk at a database that already holds another
-publication's content will render that content under BrentDesk branding —
-the platform does not filter by publication. The startup migrations are
-safe here (a non-empty database only ever gets the additive tail, never a
-replay), but the editorial data is a separate decision:
+Pointing BrentDesk at a database that already holds another publication's
+content renders that content under BrentDesk branding — the platform does
+not filter by publication. Two ways to get to zero:
 
-- **Fresh start** — provision a new MySQL service. The server applies the
-  baseline and `SEED_ON_BOOT=1` fills in the system data. Nothing to
-  clean up.
-- **Keep the history** — reuse the database, then retire the old articles,
-  companies, people and events through the admin UI before going public.
-  Run the seed either way; it only adds rows that are missing.
+**Provision a new MySQL service** (recommended). Add a second MySQL to the
+project, point `DATABASE_URL` at it, and delete the old service once
+you're satisfied. Nothing destructive runs, and the old data stays
+recoverable until you choose otherwise.
+
+**Or wipe the existing one.** Back it up first — there is no undo. Then,
+from a shell on the *app* service:
+
+```sh
+CONFIRM_RESET=<database name> node dist/reset.js
+```
+
+It refuses unless `CONFIRM_RESET` matches the database named in
+`DATABASE_URL`, so a stale connection string cannot take out the wrong
+database. It prints the row counts it is about to destroy, drops every
+table, and verifies none survived. The next boot re-provisions the schema
+and, with `SEED_ON_BOOT=1`, seeds system data.
+
+Either way the startup migrations stay safe: a non-empty database only
+ever gets the additive tail, never a replay.
 
 ## 4. Verify
 
