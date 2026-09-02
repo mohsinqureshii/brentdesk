@@ -389,6 +389,24 @@ async function ingestTranslations(db: Db): Promise<{ written: number; missing: s
   const now = toDbDate(new Date());
 
   for (const t of batch) {
+    // The site's own chrome — navigation, buttons, labels — rather than an
+    // article. Stored under entityType "ui" with the string key as the
+    // field, which is why entityId is 0: there is no row it belongs to.
+    if ((t as any).entityType === "ui") {
+      for (const [key, value] of Object.entries(t.fields)) {
+        if (!value || !String(value).trim()) continue;
+        await db.insert(contentTranslations).values({
+          entityType: "ui", entityId: 0, locale: t.locale, field: key, value,
+          source: "ai", status: "published", model: t.translator ?? null,
+          sourceHash: null, translatedAt: now,
+        } as any).onDuplicateKeyUpdate({
+          set: { value, status: "published", model: t.translator ?? null, translatedAt: now } as any,
+        });
+        written++;
+      }
+      continue;
+    }
+
     const [row] = await db
       .select({ id: articles.id, title: articles.title, excerpt: articles.excerpt,
                 content: articles.content, seoTitle: articles.seoTitle,

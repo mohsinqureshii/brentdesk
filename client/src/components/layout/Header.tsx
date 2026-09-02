@@ -17,6 +17,7 @@ import {
 import { useAuth } from "@/_core/hooks/useAuth";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useT } from "@/lib/i18n";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
 
@@ -77,6 +78,7 @@ export function Wordmark({ className = "" }: { className?: string }) {
 export function Header() {
   const [location] = useLocation();
   const [searchOpen, setSearchOpen] = useState(false);
+  const t = useT();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
 
@@ -118,7 +120,7 @@ export function Header() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setSearchOpen(true)}
-                aria-label="Search"
+                aria-label={t("nav.search")}
                 className="text-white h-10 w-10 hover:bg-white/10"
               >
                 <Search className="h-5 w-5" />
@@ -167,7 +169,7 @@ export function Header() {
               ) : (
                 <Link href="/signin">
                   <Button className="hidden md:flex h-9 px-5 text-sm font-semibold bg-white text-black hover:bg-white/90 rounded-full">
-                    Sign in
+                    {t("nav.signIn")}
                   </Button>
                 </Link>
               )}
@@ -175,7 +177,7 @@ export function Header() {
               {/* Mobile Menu Trigger */}
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" aria-label="Menu" className="lg:hidden h-10 w-10 text-white hover:bg-white/10">
+                  <Button variant="ghost" size="icon" aria-label={t("nav.menu")} className="lg:hidden h-10 w-10 text-white hover:bg-white/10">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
@@ -197,7 +199,7 @@ export function Header() {
                       <Link
                         href={isAuthenticated ? "/profile" : "/signin"}
                         onClick={() => setMobileMenuOpen(false)}
-                        aria-label={isAuthenticated ? "Profile" : "Sign in"}
+                        aria-label={isAuthenticated ? t("nav.profile") : t("nav.signIn")}
                       >
                         <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
                           <User className="h-4 w-4 text-white" />
@@ -210,7 +212,7 @@ export function Header() {
                       <div className="relative">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/50" />
                         <Input
-                          placeholder={`Search ${publication.name}`}
+                          placeholder={t("nav.searchPlaceholder", { site: publication.name })}
                           className="w-full h-10 pl-10 bg-white/10 border-none text-white placeholder:text-white/50 rounded-lg focus-visible:ring-1 focus-visible:ring-white/30"
                           onClick={() => {
                             setMobileMenuOpen(false);

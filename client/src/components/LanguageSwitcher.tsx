@@ -27,6 +27,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Languages, Check, ChevronDown } from "lucide-react";
 import { LOCALE_COOKIE, stripLocale, withLocale } from "@/lib/locale";
+import { useT } from "@/lib/i18n";
 
 export interface LanguageSwitcherProps {
   /** Compact mode for tight headers — the code only, no native name. */
@@ -38,6 +39,7 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
   const localesQuery = trpc.locales.list.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const currentQuery = trpc.locales.current.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const [open, setOpen] = useState(false);
+  const t = useT();
 
   const list = localesQuery.data || [];
   const active = currentQuery.data;
@@ -69,7 +71,7 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
       <div
         className={`flex items-center rounded-full border border-white/30 overflow-hidden ${className}`}
         role="group"
-        aria-label="Language"
+        aria-label={t("nav.language")}
       >
         {list.map((l) => {
           const isActive = active.code === l.code;
@@ -116,7 +118,7 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel className="text-xs">Read this page in</DropdownMenuLabel>
+        <DropdownMenuLabel className="text-xs">{t("nav.readThisPageIn")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {list.map((l) => (
           <DropdownMenuItem

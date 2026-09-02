@@ -12,6 +12,7 @@ import { Clock, Share2, Bookmark, MessageCircle, ThumbsUp, Twitter, Linkedin, Fa
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { useT } from "@/lib/i18n";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
@@ -368,6 +369,7 @@ export default function Article() {
   }
 
   const category = article.categories?.[0]?.name || "News";
+  const t = useT();
   const authorName = article.author?.name || publication.name;
   const authorAvatar = article.author?.avatar || "";
   const articleTagsList = article.tags || [];
@@ -553,7 +555,7 @@ export default function Article() {
             {/* Tags */}
             {articleTagsList.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-border">
-                <span className="text-xs sm:text-sm font-medium text-foreground mr-2">Topics:</span>
+                <span className="text-xs sm:text-sm font-medium text-foreground mr-2">{t("article.topics")}</span>
                 {articleTagsList.map((tag) => (
                   <Link key={tag.id || tag.name} href={`/tag/${tag.slug || tag.name.toLowerCase().replace(/\s+/g, '-')}`}>
                     <Badge variant="outline" className="rounded-full hover:bg-muted transition-colors text-xs">
@@ -567,7 +569,7 @@ export default function Article() {
             {/* Share & Save Section */}
             <div className="flex items-center justify-between mb-6 sm:mb-8">
               <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-xs sm:text-sm text-muted-foreground">Share:</span>
+                <span className="text-xs sm:text-sm text-muted-foreground">{t("article.share")}</span>
                 <Button variant="outline" size="sm" className="rounded-full h-8 w-8 sm:h-9 sm:w-9 p-0">
                   <Twitter className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </Button>
@@ -621,7 +623,7 @@ export default function Article() {
                     href={`/author/${article.author?.username || article.author?.id || 'unknown'}`}
                     className="text-xs sm:text-sm text-primary hover:underline font-medium inline-flex items-center gap-1"
                   >
-                    View Bio →
+                    {t("article.viewBio")} →
                   </Link>
                 </div>
               </div>

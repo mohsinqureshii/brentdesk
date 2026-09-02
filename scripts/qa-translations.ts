@@ -20,6 +20,7 @@
 import { readdirSync, readFileSync, existsSync } from "fs";
 import path from "path";
 import { validateTranslation } from "../server/services/translationChecks";
+import { UI_STRINGS } from "../shared/uiStrings";
 
 const ROOT = path.resolve(import.meta.dirname, "..", "content");
 const locale = process.argv[2] || "ar";
@@ -58,6 +59,7 @@ if (!existsSync(TDIR)) {
 const files = readdirSync(TDIR).filter(f => f.endsWith(".json")).sort();
 const script = SCRIPT_RANGES[locale.split("-")[0]];
 let fieldCount = 0;
+let uiTranslated = 0;
 
 for (const file of files) {
   let t: any;
@@ -71,6 +73,29 @@ for (const file of files) {
   if (!t.slug) { err(file, `missing "slug"`); continue; }
   if (!t.fields || typeof t.fields !== "object") { err(file, `missing "fields"`); continue; }
   if (file !== `${t.slug}.json`) warn(file, `filename does not match slug "${t.slug}"`);
+
+  // The site's own words rather than an article: keys come from
+  // shared/uiStrings.ts, so the check is coverage, not link and figure
+  // fidelity.
+  if (t.entityType === "ui") {
+    for (const key of Object.keys(t.fields)) {
+      if (!(key in UI_STRINGS)) warn(file, `"${key}" is not a UI string key`);
+    }
+    for (const key of Object.keys(UI_STRINGS)) {
+      if (!(key in t.fields)) warn(file, `"${key}" is not translated`);
+    }
+    uiTranslated = Object.keys(t.fields).length;
+    if (script) {
+      for (const [key, value] of Object.entries(t.fields as Record<string, string>)) {
+        // A key whose English is already a proper noun or an acronym is
+        // legitimately identical in Arabic.
+        if (!script.test(value) && value !== (UI_STRINGS as any)[key]) {
+          warn(file, `${key}: no ${locale} script`);
+        }
+      }
+    }
+    continue;
+  }
 
   const source = english.get(t.slug);
   if (!source) { err(file, `no English article with slug "${t.slug}"`); continue; }
@@ -106,9 +131,11 @@ for (const i of [...errors, ...warns]) {
   console.log(`${i.level === "error" ? "ERROR" : " warn"}  ${i.file}: ${i.message}`);
 }
 
-const pct = ((files.length / english.size) * 100).toFixed(1);
+const articleFiles = files.filter(f => f !== "_ui.json").length;
+const pct = ((articleFiles / english.size) * 100).toFixed(1);
 console.log(
-  `\n${files.length}/${english.size} articles translated into ${locale} (${pct}%) · ` +
-  `${fieldCount} fields · ${errors.length} errors · ${warns.length} warnings`,
+  `\n${articleFiles}/${english.size} articles translated into ${locale} (${pct}%) · ` +
+  `${fieldCount} fields · ${uiTranslated}/${Object.keys(UI_STRINGS).length} UI strings · ` +
+  `${errors.length} errors · ${warns.length} warnings`,
 );
 process.exit(errors.length ? 1 : 0);
