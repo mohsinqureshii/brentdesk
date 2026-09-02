@@ -1,0 +1,47 @@
+[
+  {
+    "commission": 1089,
+    "headline": "Construction Workforce Development Is Becoming Industrial Policy in Saudi Arabia",
+    "slug": "saudi-construction-workforce-development-industrial-policy",
+    "deck": "Every technology conversation at Riyadh Front ended in the same place: who installs it, who commissions it and who maintains it in year nine.",
+    "excerpt": "The constraint underneath Saudi Arabia's construction programme is not capital or equipment but qualified people, and it is now shaping industrial policy. Code compliance, automation and the shift towards asset operation all raise the skill level the Kingdom needs rather than lowering it.",
+    "content": "<p>The most consistent conversation at Big 5 Construct Saudi this week was not about a product. It was about people, and it arrived through the back door of almost every technical discussion. A supplier explains how a system reduces manpower on site; a contractor asks who will commission it. A manufacturer describes a certified assembly; the question is who will apply it correctly. A facilities management provider sets out a predictive maintenance platform; the response is who reads the output and acts on it. Technology in this market is not removing the workforce question. It is raising the qualification level attached to it.</p><p>The scale of the delivery programme is the reason this has become a policy matter rather than a hiring one. Saudi Arabia is running the largest concurrent construction effort in its history against fixed external deadlines, with the Saudi Contractors Authority recording 25 project awards worth more than SAR 29.5 billion in June alone and a forward pipeline several orders larger. That programme is being delivered while the Kingdom simultaneously takes on the operation of everything it has already completed, which is a second labour demand curve layered on the first.</p><p>The formal machinery exists. The Human Capability Development Programme is the Vision 2030 vehicle for education, vocational training and workforce skills, and the Ministry of Human Resources and Social Development runs the <a href=\"https://www.hrsd.gov.sa/en/care-about-you/skillsandtrain\">skills and training</a> apparatus beneath it, with the Technical and Vocational Training Corporation and the Colleges of Excellence delivering programmes aligned to employer demand. What is harder is matching that machinery to trades that change faster than curricula do.</p><p>Three shifts are moving the target. The first is code. Since the 2024 edition of the Saudi Building Code became mandatory on 30 June 2025, an increasing share of construction work has to be evidenced rather than merely executed — inspection records, tested assemblies, conformity documentation and commissioning data. That is a competency, and it is not taught by installing more sites.</p><p>The second is the equipment itself. The drift from mechanical to connected plant means a technician who once needed hydraulics and diesel now needs diagnostics, network basics and enough data literacy to distinguish a sensor fault from a machine fault. The same is true in the mechanical trades: a variable-speed chiller plant with a building management system is a controls problem as much as a refrigeration one.</p><p>The third is the operating phase, which is where the largest and least-discussed demand sits. Facilities management in the Kingdom is moving beyond manpower and cleaning into asset management, preventive and predictive maintenance, energy management, fire and life safety and condition monitoring. Those roles are technician-grade and above, they are permanent rather than project-length, and they are the ones that determine whether an asset built to a specification actually performs to it. A construction workforce strategy that stops at handover misses the larger half of the requirement.</p><p>There is a structural obstacle that policy alone does not solve. Construction employers train reluctantly because their workforce is mobile and project-bound, so the firm that invests in a technician frequently loses the benefit to a competitor two sites away. That is a classic market failure and the standard remedies are known: sector-level training funded collectively, certification that travels with the worker rather than the employer, and procurement rules that reward contractors who train. Saudi Arabia already uses procurement as an industrial instrument through local content requirements. Applying the same logic to skills — treating a trained, certified workforce as a form of local content — would be a small extension of an existing tool.</p><p>The uncomfortable version of the argument, heard often enough on the floor to be worth stating, is that the Kingdom's automation adoption is being driven partly by the difficulty of finding qualified people rather than by a pure efficiency case. Where that is true it is not a failure. Machines that take on repetitive, hazardous or physically punishing work are a reasonable response to a tight labour market. But automation redistributes the skills requirement upwards; it does not remove it. Every robot on a Saudi site implies a person who programmes, maintains and repairs it, and that person is scarcer than the labourer they replaced.</p><p>None of this is a reason for pessimism about delivery. It is a reason to treat training capacity as infrastructure, on the same footing as the factories, ports and utilities the Kingdom finances without hesitation. The projects are funded. The equipment is available and, increasingly, made locally. The binding constraint over the next decade is the number of people qualified to install, certify and operate it.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction",
+      "manufacturing",
+      "facilities-management"
+    ],
+    "tags": [
+      "Workforce",
+      "Skills",
+      "Vision 2030",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Ministry of Human Resources and Social Development",
+      "Saudi Contractors Authority",
+      "Technical and Vocational Training Corporation"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://www.hrsd.gov.sa/en/care-about-you/skillsandtrain",
+    "primarySourceName": "Ministry of Human Resources and Social Development",
+    "secondarySourceUrls": [
+      "https://www.big5constructsaudi.com/saudi-contractors-authority-says-projects-awarded-in-june-2026-exceed-8bn/",
+      "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf",
+      "https://vision2030.ai/vision/programmes/human-capability-development/"
+    ],
+    "seoTitle": "Saudi Construction Skills Are Now an Industrial Policy",
+    "seoDescription": "Code compliance, connected equipment and the operating phase are raising the skill level Saudi construction needs. Training capacity is the constraint.",
+    "articleType": "opinion",
+    "wordCount": 767,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

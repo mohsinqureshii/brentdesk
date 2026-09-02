@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 1061,
+    "headline": "Calpak Is Selling Solar Water Heating Into a Market Built on Electric Elements",
+    "slug": "calpak-solar-thermal-water-heating-saudi-arabia-market",
+    "deck": "The Greek solar thermal manufacturer, founded as a BP subsidiary in 1976, has a Middle East distribution agreement and a Saudi market where water heating is the second-largest household electrical load after air conditioning.",
+    "excerpt": "Calpak, one of Europe's oldest solar thermal manufacturers, is pushing into a Gulf market where hot water is almost universally produced by electric resistance heaters. Water heating accounts for a double-digit share of Saudi residential electricity use, and tariff reform has changed the arithmetic.",
+    "content": "<p>Solar water heating is an unusual product to sell in Saudi Arabia. The Kingdom has among the strongest solar resources in the world and among the lowest historic electricity prices, and the second of those has kept the first from mattering. Calpak, the Greek manufacturer that has been building solar thermal systems since 1976, is one of the companies betting that this is changing.</p><p>The company was founded in Athens as a subsidiary of British Petroleum and became one of Europe's earliest large-scale suppliers of solar domestic hot water systems. Its production facility in Athens runs a fully robotic assembly line — the company says it is one of only three manufacturers worldwide operating one — producing flat plate collectors and thermosiphon systems. It has shown its range at Big 5 Construct Saudi at Riyadh Front, and it has an agreement with Leminar Global to distribute its solar water heaters across Middle East markets including the United Arab Emirates, Qatar and Oman.</p><p>The product itself is not complicated, which is part of the argument. A thermosiphon system pairs a flat plate collector with a storage cylinder mounted above it, and circulates water by density difference without a pump or a control system. There is very little to fail, and the electric element stays in the cylinder as a backup for cloudy days and peak draw. The engineering question in a Gulf installation is less about collection than about stagnation temperatures, water quality, scaling and the effect of very high ambient conditions on the tank and the glycol loop where one is used.</p><p>The economic question is the one that has moved. Water heating is the second-largest electrical load in a typical Saudi home after air conditioning, and studies of the residential sector have put electric water heating at around a tenth of total residential energy consumption. That is a large share to serve with resistance heating in a country with more than 300 clear days a year. What kept the substitution from happening was the price of the electricity it displaced; the reduction of electricity subsidies has been identified as the trigger for renewed solar thermal interest in the Kingdom, because the payback period on a collector is a direct function of the tariff it avoids.</p><p>The commercial and industrial side may matter more than the residential one. Hotels, labour accommodation, hospitals, schools and process facilities draw hot water in large, predictable volumes with a load profile that suits solar thermal well, and they are being built in quantity across the giga-project developments. For those buildings, a solar pre-heat stage ahead of a conventional plant reduces the electrical load without changing how the system is operated, which is a much easier proposition for an operator than a technology switch.</p><p>Where Calpak's proposition will be tested is the same place every imported building product is tested in this market. A collector on a Saudi roof needs a local installer who understands the hydraulics, a service network, spare parts held in the Kingdom and a warranty that someone will honour. That is why the company's route in has been a regional distribution agreement rather than direct export, and why a physical presence at a Riyadh show is worth more to it than a catalogue. The buyers walking those halls are mechanical contractors and developers who will ask about pressure ratings, scaling in hard water, roof loading and who comes out when the cylinder leaks.</p><p>The sector context is favourable but not settled. Solar thermal has been a modest business in the Gulf for decades, overshadowed by photovoltaics, which are simpler to procure and easier to explain to a developer. What is different now is that the electricity a collector displaces is more expensive than it was, and that the buildings being handed over across Saudi Arabia will be operated against energy performance targets rather than only against a construction budget.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "energy",
+    "categories": [
+      "energy",
+      "renewables",
+      "utilities"
+    ],
+    "tags": [
+      "Solar Thermal",
+      "Calpak",
+      "Water Heating",
+      "Energy Efficiency",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Calpak",
+      "Leminar Global",
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://calpak.gr/en/company/about/",
+    "primarySourceName": "Calpak",
+    "secondarySourceUrls": [
+      "https://www.tradearabia.com/News/416772/Leminar-Global-partners-with-Calpak-for-solar-water-heaters-",
+      "https://solarthermalworld.org/news/cuts-to-electricity-subsidies-boost-solar-thermal-saudi-arabia/",
+      "https://calpak.gr/en/products/solar-water-heaters/",
+      "https://www.researchgate.net/publication/312029446_Technical_and_Economic_Performance_of_Thermosiphon_Flat_Plate_Solar_Water_Heaters_in_Saudi_Arabia"
+    ],
+    "seoTitle": "Calpak Pushes Solar Water Heating Into Saudi Arabia",
+    "seoDescription": "Greek solar thermal maker Calpak targets a Saudi market where electric water heating is the second-largest household load after air conditioning.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 648
+  }
+]

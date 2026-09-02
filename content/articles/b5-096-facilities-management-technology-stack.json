@@ -1,0 +1,46 @@
+[
+  {
+    "commission": 1096,
+    "headline": "The Technology Stack Behind Modern Facilities Management",
+    "slug": "facilities-management-technology-stack-cafm-bms-sensors",
+    "deck": "Asset register, work-order system, building controls, metering and sensors. The layers are simple individually and fail almost entirely at the joins.",
+    "excerpt": "Facilities management technology is usually sold as a platform and delivered as a set of loosely connected layers: an asset register, a work-order system, building controls, energy metering and condition sensors. Understanding how they fit together explains why most deployments underperform.",
+    "content": "<p>Facilities management is being sold in Saudi Arabia as a technology proposition, and the vocabulary has run ahead of the understanding. CAFM, CMMS, BMS, IoT, digital twin and predictive maintenance are used interchangeably in tender documents by people who would not confuse a chiller with a pump. The layers are distinct, they are bought separately, and almost every disappointing deployment fails at the boundary between two of them rather than inside either.</p><p>The foundation layer is the asset register, and it is the one most often skipped. A facilities management system cannot maintain what it does not know exists. The register lists every maintainable item — plant, equipment, systems and their components — with location, make, model, serial number, installation date, warranty position, criticality and service history. It sounds administrative and it determines everything downstream: a work order cannot be raised against an asset that is not listed, a cost cannot be attributed, and a replacement cycle cannot be forecast. Building an accurate register for an existing portfolio is a survey exercise measured in months, which is why it is quietly omitted from bids that then fail.</p><p>The second layer is the work-order system, described as a computerised maintenance management system in industrial settings and computer-aided facilities management in property ones. This is the transactional core: it schedules planned maintenance, receives reactive requests, dispatches technicians, records what was done and what parts were used, and tracks response and rectification times against contractual targets. Modern versions are mobile-first, because the value depends on a technician closing a job at the plant on a handset rather than reconstructing the day from memory at a desk.</p><p>The third layer is building controls — the building management system that operates chillers, air handling units, pumps, lighting and, in some buildings, fire and security systems. Controls are an operating technology rather than an information one: they run the building continuously and are engineered as part of the mechanical and electrical installation. Their data is the richest source of information about how a building actually behaves, and it is stranded in most portfolios because the controls contractor delivered a working system with no external interface and no requirement to provide one.</p><p>The fourth layer is metering and energy management. Utility meters, sub-meters and thermal metering on cooling systems turn consumption into an accountable quantity. In a Gulf building where cooling dominates the operating cost, sub-metering by system and by tenant is what converts an energy bill into a diagnosis. This layer pays back fastest and depends least on the others, which is why it is the sensible first purchase for an owner with a portfolio and a limited budget.</p><p>The fifth layer is condition monitoring: vibration, temperature, current, pressure and acoustic sensors retrofitted to rotating and critical equipment to detect degradation before failure. This is the basis of the predictive maintenance claim, and it works — but only where the sensor output is connected back into the work-order system so that a detected anomaly changes a scheduled intervention. Where that loop is absent, condition monitoring produces alerts that are reviewed, noted and ignored, and the industrial evidence on this is <a href=\"/article/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">consistent across sectors</a>.</p><p>Sitting across all five is the integration problem, which is where budgets are actually lost. Each layer is supplied by a different vendor with a different data model, different identifiers for the same physical asset and different assumptions about who owns the record. Making them work together requires a common asset naming convention, an agreed integration approach and a decision about which system is authoritative for each fact. That work is unglamorous, it is rarely in the scope of any single supplier, and skipping it produces the outcome most owners recognise: several expensive systems, none of which agrees with the others about how many air handling units the building has.</p><p>Two layers deserve separate treatment in the Saudi market. Fire and life safety systems carry a compliance record that must be maintained in a certified, inspectable condition under the Saudi Building Code's fire provisions and Civil Defence requirements, which makes their documentation trail a regulatory asset rather than a maintenance convenience. And energy performance is increasingly written into contracts as a measurable obligation, which raises the question of measurement baselines and weather normalisation — technical details that decide whether a saving is real or arithmetic.</p><p>The practical sequence for an owner is the reverse of the sales pitch. Build the asset register, install the work-order system and use it properly, meter the energy, expose the controls data, and add condition monitoring to the assets whose failure actually matters. A portfolio that has done the first three is running a better operation than one that bought an analytics platform and has no reliable list of its own equipment.</p>",
+    "author": "BrentDesk Research",
+    "primaryCategory": "facilities-management",
+    "categories": [
+      "facilities-management",
+      "industrial-technology",
+      "automation"
+    ],
+    "tags": [
+      "Facilities Management",
+      "CAFM",
+      "Building Management Systems",
+      "Condition Monitoring"
+    ],
+    "companies": [
+      "Big 5 Construct Saudi",
+      "Saudi FM & Clean"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://www.big5constructsaudi.com/specialised-events/saudi-fm-clean-ksa/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market",
+      "https://www.imarcgroup.com/saudi-arabia-facility-management-market",
+      "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf"
+    ],
+    "seoTitle": "The Technology Stack Behind Facilities Management",
+    "seoDescription": "Asset register, work orders, building controls, metering and condition sensors: how the FM technology layers fit together and where deployments fail.",
+    "articleType": "report",
+    "wordCount": 795,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

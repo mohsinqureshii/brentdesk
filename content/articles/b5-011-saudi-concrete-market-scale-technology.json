@@ -1,0 +1,35 @@
+[
+  {
+    "commission": 1011,
+    "headline": "Saudi Cement Sales Slip as Clinker Output Climbs and Concrete Specifications Get Harder",
+    "slug": "saudi-concrete-cement-market-2026-clinker-specification",
+    "deck": "July sales fell 2 percent while clinker production rose 12 percent. The Kingdom's concrete industry is competing on specification rather than volume.",
+    "excerpt": "Saudi Arabia's 17 cement producers sold 4.63 million tonnes in July, down 2 percent year on year, while clinker production rose 12 percent to 5.2 million tonnes and inventories reached 45.1 million tonnes. The growth in the concrete business is moving from volume to specification.",
+    "content": "<p>Saudi Arabia's cement companies sold 4.63 million tonnes in July, down about 2 percent from 4.72 million tonnes in the same month last year, while clinker production rose 12 percent to 5.2 million tonnes and clinker inventories across the industry reached 45.1 million tonnes, up slightly on a year earlier.</p><p>Those three numbers, published in the <a href=\"https://www.argaam.com/en/financial-reports/cement-monthly-report/2026/64?published=true\">monthly cement data</a> covering the Kingdom's 17 producers, describe an industry with more capacity than the market is currently absorbing. Sales in the first quarter were down about 5 percent year on year at 12.8 million tonnes. Clinker stocks of 45.1 million tonnes represent the better part of a year of sales sitting in silos and stockpiles.</p><p>None of that reads as a construction market in retreat. It reads as one that has changed composition. Saudi project awards have rotated toward infrastructure, water and energy and hydrocarbons, categories that consume concrete differently from residential and commercial building. A residential district uses large volumes of ordinary structural concrete delivered continuously over two years. A desalination plant, a bridge deck or a marine structure uses smaller volumes of far more demanding mixes, delivered against a tighter tolerance.</p><p>That shift is why the interesting competition in Saudi concrete is no longer about tonnage. It is about mix design, durability and placement. Mass pours for foundations and raft slabs need low heat of hydration to control thermal cracking. Anything in contact with Gulf groundwater or seawater needs sulfate resistance and chloride control, and the Kingdom's ground conditions are among the most aggressive in the world for reinforced concrete. Ambient temperatures above 45°C compress the working window on a pour to the point where retarders, ice, chilled water and night placement become standard practice rather than contingency.</p><p>Getting that wrong is expensive and slow to discover. A durability failure in a coastal structure does not appear during commissioning; it appears eight to fifteen years later as spalling and reinforcement corrosion, by which point the contractor's liability has usually expired and the owner is carrying a repair programme. This is the reason concrete quality has become a standing agenda item for the Saudi industry rather than a laboratory matter, and why the conference programme at Big 5 Construct Saudi in Riyadh at the end of August includes dedicated sessions on improving it, alongside a co-located concrete exhibition, Totally Concrete Saudi Arabia.</p><p>The supply chain around the mix has been localising faster than the cement itself. Concrete admixture systems and specialty construction chemicals, the products that make high-performance mixes possible in Saudi conditions, are now produced in the Kingdom by companies including Arkaz Alsharq Building Materials, a subsidiary of the Alturki group based in Al Khobar, which is exhibiting in Riyadh for the first time. Admixtures are a small share of the cost of a cubic metre of concrete and a large share of what determines whether it performs.</p><p>Reinforcement is following the same path. Al Yamamah Steel ordered a SR270m billet plant from Italy's Danieli to feed rebar production from domestic billet rather than imported semi-finished steel, which shortens a supply chain that has historically been one of the more exposed links in Saudi construction procurement.</p><p>Carbon is the constraint arriving next. Cement production is one of the largest industrial sources of carbon dioxide worldwide, most of it released by the chemistry of turning limestone into clinker rather than by the fuel used to heat the kiln. Producers elsewhere have begun moving carbon capture projects into construction, and the technology set that reduces clinker intensity, supplementary cementitious materials, calcined clays and optimised mix design, is the same one that improves durability in aggressive environments. In a market with 45 million tonnes of clinker inventory, the commercial case for using less clinker per cubic metre is not only environmental.</p><p>For the producers, the immediate picture is a market where volume growth has stalled and the differentiation is technical. For contractors, it is a buyer's market in ordinary structural concrete and a tightening one in anything with a demanding specification, where the constraint is not the cement but the batching plant, the testing regime and the people who know how to place it in August.</p>",
+    "author": "BrentDesk Research",
+    "primaryCategory": "construction",
+    "categories": ["construction", "manufacturing", "engineering"],
+    "tags": ["Cement", "Concrete", "Totally Concrete Saudi Arabia", "Building Materials", "Durability"],
+    "companies": ["Arkaz Alsharq Building Materials", "Al Yamamah Steel", "Danieli", "Big 5 Construct Saudi"],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-08",
+    "informationCutoff": "2026-08-10",
+    "primarySourceUrl": "https://www.argaam.com/en/financial-reports/cement-monthly-report/2026/64?published=true",
+    "primarySourceName": "Argaam",
+    "secondarySourceUrls": [
+      "https://www.globalcement.com/news/20633-cement-sales-in-saudi-arabia-fall-in-first-quarter-of-2026",
+      "https://www.steelorbis.com/steel-news/latest-news/s-arabias-al-yamamah-inks-71-million-deal-with-danieli-for-new-billet-plant-1465831.htm",
+      "https://arkaz.com/en/category/specialty-building-materials",
+      "https://www.big5constructsaudi.com/"
+    ],
+    "seoTitle": "Saudi Cement Sales Slip as Clinker Output Climbs",
+    "seoDescription": "Saudi cement sales fell 2% in July to 4.63Mt while clinker output rose 12%, as concrete competition shifts from volume to specification.",
+    "articleType": "report",
+    "wordCount": 730,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": "Saudi Arabia's Concrete Market Is Being Reshaped by Scale and Technology",
+    "replacementReason": "headline rewritten around the verified July production and sales data rather than the general framing in the commission"
+  }
+]

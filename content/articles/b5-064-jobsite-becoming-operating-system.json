@@ -1,0 +1,44 @@
+[
+  {
+    "commission": 1064,
+    "headline": "Nobody Is Buying a Jobsite Operating System, and That Is the Problem",
+    "slug": "construction-site-integration-data-ownership-handover-operating-system",
+    "deck": "The devices work. The integration does not. On a Saudi project handing over to a thirty-year operating contract, the question of who owns the data is worth more than any individual sensor.",
+    "excerpt": "Construction sites now generate continuous data from plant, materials, structures and people. Almost none of it survives handover in usable form. The unsolved problem in connected construction is not sensing but ownership, integration and continuity into operations.",
+    "content": "<p>Walk the technology stands at a construction show in 2026 and the individual products are convincing. Telematics on plant works. Concrete maturity sensors work. Asset tags work. Site cameras with computer vision work. The reason connected construction has under-delivered relative to a decade of promises is not that any of those things fail. It is that they were each bought by a different person, for a different reason, on a different contract, and nothing was ever designed to hold them together.</p><p>The construction industry describes the destination as a jobsite operating system: a single layer that knows what equipment is where, what the structure is doing, what materials have arrived, what work is in progress and what it costs. No such thing is actually being purchased. What is being purchased is a telematics subscription from an equipment dealer, a concrete monitoring package from a specialist, a safety platform from an insurer's preferred vendor and a project management tool from head office. Each generates its own data set in its own schema, retained for its own period, accessible to its own user list.</p><p>This is a solvable problem, and the industry has solved comparable ones before. It is also a problem that gets much more expensive to solve later, which is why it is worth raising in Saudi Arabia now rather than in 2030.</p><p>The reason is handover. The Kingdom is delivering an extraordinary quantity of new physical assets — giga-project developments, stadiums, an Expo site, industrial facilities, data centres, hospitals, housing — and each of them transitions at handover into a facilities management contract that may run for decades. Saudi facilities management is already a market of the order of $52 billion to $55 billion a year, and the awards are shifting toward contracts scored on asset uptime, energy performance and lifecycle planning rather than on headcount. Those contracts are bid on assumptions about the asset. If the construction phase generated a rich record of what was actually installed, how it performed under test and where it deviated from design, the operator starts from knowledge. If it did not, the operator starts from a set of drawings and a walk round.</p><p>The gap is real and it is measurable in money. An <a href=\"/industrial-technology/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">enterprise asset management deployment</a> covering tens of thousands of assets has to be populated with those assets, their locations, their serial numbers, their commissioning data and their maintenance regimes. When that information does not transfer from the construction phase, it gets recreated by hand, which is slow, expensive and immediately out of date. Doing it properly is not a technology decision; it is a contractual one taken at procurement, about data formats, ownership and delivery obligations.</p><p>The second unresolved question is who the platform belongs to during construction. A contractor's incentive is to own the operational data and control what the client sees. A client's incentive is the reverse. A vendor's incentive is to own the platform so that switching is expensive. On most projects this is settled by whoever moves first, which is why so many sites end with several partial systems and no complete one. Saudi owners, who are unusually concentrated and unusually powerful in this market, are among the few clients in the world with the leverage to specify the answer up front.</p><p>There is a third question that gets less attention: what the data is for. Continuous monitoring only pays when someone acts on it. That requires a person with authority, a defined threshold and a defined response — the pour is not ready, the chiller is drifting, the crane is being used outside its envelope. Where connected construction has produced returns, it has been because the alert had an owner. Where it has produced dashboards, it has produced very little.</p><p>None of this argues against the technology. The sensing layer has become cheap, rugged and reliable enough that instrumenting a site is no longer the hard part. The hard part is now organisational: specifying the data as a deliverable, deciding who holds it, and making sure it walks across the handover line into the hands of the people who will operate the asset for the next thirty years. That is a procurement problem, and it is being solved much more slowly than the hardware problem it replaced.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology",
+      "construction",
+      "facilities-management"
+    ],
+    "tags": [
+      "Construction Technology",
+      "Data Ownership",
+      "Digital Handover",
+      "Facilities Management",
+      "Saudi Construction"
+    ],
+    "companies": [],
+    "primarySourceUrl": "https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market",
+    "primarySourceName": "Mordor Intelligence",
+    "secondarySourceUrls": [
+      "https://www.constructionexec.com/article/how-iot-telematics-and-mobile-connectivity-are-changing-the-nature-of-the-construction-jobsite",
+      "https://www.kenresearch.com/industry-reports/ksa-facility-management-market",
+      "https://constructionmagazine.news/CON/article/586AFD3A-beyond-telematics-iot-and-equipment-connectivity"
+    ],
+    "seoTitle": "The Jobsite Operating System Nobody Is Buying",
+    "seoDescription": "Construction sensing works; integration does not. On Saudi projects heading into decades-long FM contracts, data ownership matters more than any device.",
+    "articleType": "opinion",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 714
+  }
+]

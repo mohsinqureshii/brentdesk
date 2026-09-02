@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 1067,
+    "headline": "Brickeye Puts Sensors Inside the Pour and Ties Them to Concrete Strength",
+    "slug": "brickeye-lumicon-concrete-monitoring-sensors-saudi-projects",
+    "deck": "The Canadian construction IoT company raised $10 million in January and sells a concrete monitoring system that replaces a fixed temperature differential rule with one derived from the strength the concrete has actually reached.",
+    "excerpt": "Brickeye, formerly AOMS Technologies, builds ruggedised sensors and cloud analytics for construction sites, including the LumiCon concrete monitoring system. Its performance-based temperature differential limit ties mass concrete control to measured strength rather than to a fixed rule of thumb.",
+    "content": "<p>Concrete is the most-used construction material in the world and one of the least instrumented. It is specified by strength, tested by crushing cylinders in a laboratory days after the pour, and managed on site by rules of thumb about curing time and temperature. Brickeye is one of a small group of companies trying to change that by putting sensors into the concrete itself.</p><p>The company, previously known as AOMS Technologies, builds ruggedised internet-connected sensors, site connectivity and cloud analytics for construction. Its stated reach covers more than 20 countries and over 1,000 projects, with developers, contractors and construction insurers among its customers. In January 2026 it announced a $10 million Series B round led by GreenSky Ventures Fund VI, with Brightspark Ventures, Graphite Ventures, Export Development Canada and Beauchamp Construction participating alongside a strategic investment from a North American building materials supplier.</p><p>The concrete product is LumiCon, an end-to-end monitoring system that reports temperature and maturity from inside the pour in real time. Its more consequential feature is the performance-based temperature differential limit, which addresses a specific and expensive problem in mass concrete.</p><p>The problem is thermal cracking. A large pour generates heat as the cement hydrates, and the centre of the element gets hotter than the surface. If the difference between the two becomes too great, the surface cracks. The industry has managed this for decades with a fixed rule — commonly a maximum differential of around 20 degrees Celsius — applied uniformly regardless of the mix, the element or the strength the concrete has actually developed. That rule is conservative by design, and conservatism in mass concrete is expensive: it means longer insulation periods, cooling pipes, slower formwork cycles and, on a large raft, days of programme.</p><p>A performance-based limit sets the allowable differential from the strength the concrete has reached at that moment, measured in situ, rather than from a table. Concrete that has developed more tensile capacity can tolerate a larger gradient safely. The practical result is that a contractor can strike insulation or move to the next lift earlier when the data supports it, and knows to hold when it does not — which is the more valuable half of the proposition, because the failures this prevents are discovered weeks later and cost far more than the sensors.</p><p>The same instrumentation supports the more routine question of when concrete is strong enough to strike formwork or apply post-tensioning. Maturity monitoring correlates measured temperature history with strength gain for a specific mix, replacing a fixed waiting period with a measurement. On a project where the formwork cycle sets the floor-to-floor rate of a tower, a day saved per floor compounds across the programme.</p><p>The Saudi relevance is a matter of volume and consequence. The Kingdom's ready-mix concrete market was worth roughly $5.2 billion in 2025 and is forecast to grow at above 6 percent a year into the early 2030s, driven by the giga-project pipeline, the housing programme and infrastructure. Large rafts, transfer slabs, pile caps, tunnel linings and heavy equipment foundations are being poured continuously and often in high ambient temperatures, which compresses the working window and raises the thermal risk on exactly the pours where a defect is least repairable. Data centre foundations, which have to carry unusual floor loads to tight flatness tolerances, add another class of pour where getting it right the first time is the only economical option.</p><p>Improving concrete quality is one of the topic areas in the conference programme at Big 5 Construct Saudi this week, alongside codes and standards, project governance and modular construction. Instrumented concrete is the version of that discussion that produces a number rather than a judgement — and it turns the most traditional material on the site into something that can be measured while it is still setting.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology",
+      "construction",
+      "engineering"
+    ],
+    "tags": [
+      "Brickeye",
+      "Concrete Monitoring",
+      "Construction IoT",
+      "Sensors",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Brickeye",
+      "GreenSky Ventures",
+      "Export Development Canada"
+    ],
+    "country": "Saudi Arabia",
+    "primarySourceUrl": "https://www.brickeye.com/platform",
+    "primarySourceName": "Brickeye",
+    "secondarySourceUrls": [
+      "https://www.iotevolutionworld.com/iot/articles/458281-construction-safety-iot-brickeye-announces-performance-based-temperature.htm",
+      "https://www.globenewswire.com/news-release/2024/05/13/2880597/0/en/Brickeye-s-LumiCon-Concrete-Monitoring-Solution-Honored-as-a-2024-Concrete-Contractor-Top-Products-Award-Winner.html",
+      "https://www.forconstructionpros.com/construction-technology/article/22604579/brickeye-formerly-known-as-aoms-technologies-what-to-know-about-sensors-for-longterm-monitoring-of-buildings-and-infrastructure",
+      "https://www.psmarketresearch.com/market-analysis/saudi-arabia-ready-mix-concrete-market-report"
+    ],
+    "seoTitle": "Brickeye Puts Sensors Inside the Concrete Pour",
+    "seoDescription": "Brickeye's LumiCon ties mass concrete temperature control to measured strength rather than a fixed rule, in a Saudi ready-mix market worth $5.2bn.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "people": [],
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 635
+  }
+]

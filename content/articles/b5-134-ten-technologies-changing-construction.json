@@ -1,0 +1,60 @@
+[
+  {
+    "commission": 1134,
+    "headline": "From Robots to Concrete Sensors: 10 Technologies Changing Construction",
+    "slug": "ten-technologies-changing-construction-big-5-saudi-2026",
+    "deck": "The categories that drew sustained technical questioning at Riyadh Front, and the measurement each one replaces a judgement with.",
+    "excerpt": "Ten technology categories drew sustained technical questioning at Big 5 Construct Saudi, from wall-finishing robots and wireless concrete sensors to rebar automation, low-GWP refrigerants and third-party performance certification. What they share is that each produces a number an owner can audit.",
+    "content": "<p>Construction technology has an evidence problem, and Big 5 Construct Saudi was a reasonable place to see which parts of it have solved one. Ten categories drew sustained technical questioning across the four days at Riyadh Front, and what they had in common was that each replaces a judgement with a measurement.</p>\n<p>Surface-finishing robots were the most visible. DaFang AI, a Shenzhen manufacturer, builds machines that combine putty plastering, fine sanding and latex paint spraying in one unit; its DF033 works to 3.3 metres in rooms too tight for scaffolded crews and its DF062 to six metres with dynamic obstacle avoidance. The company's DF061 has run on public housing work at Tuen Mun in Hong Kong, where the finishing scope was reported to take about a tenth less time. Finishing is repetitive, labour-intensive and quality-critical, which is precisely the shape of work robots do well.</p>\n<p>Concrete sensing was the second and, for a traditional material, the more surprising. Brickeye's LumiCon system puts wireless sensors into a pour and reports internal temperature, temperature differential and maturity in real time, letting a contractor strike formwork against measured strength rather than a calendar rule and catching thermal cracking risk in mass concrete before it produces a failed element. Brickeye, which was formerly AOMS Technologies, says the technology has been used on more than 3,000 projects across over 20 countries.</p>\n<p>Rebar processing automation is the least glamorous item on this list and probably the one with the largest immediate Saudi payback. Cutting, bending, coupling and cage assembly are high-volume, injury-prone operations, and mechanising them shifts labour off the critical path in exactly the vertical-construction packages where Saudi programmes are tightest.</p>\n<p>Automated block and paving production sits alongside it. Topwerk's HESS Group equipment has been supplied into Saudi producers for more than two decades through Topwerk Middle East, including lines for Arabian Tile Company and Saudi Pan Kingdom and an expansion at Riyadh Kingdom Concrete Products; the company describes completing the first fully automatic block-making plant with an in-line value-adding machine in the Kingdom. Block plants are where a construction material becomes a manufacturing process, with the yield and quality control that implies.</p>\n<p>Low-global-warming-potential refrigerants are a technology change that arrives through procurement rather than through a machine. Prime Middle East Trading Company took the Big 5 Impact Trail sustainability innovation award for its work with Honeywell's Solstice range, of which R-1234yf is the best known. Refrigerant selection determines the compliance life of a chiller as much as its efficiency does.</p>\n<p>Third-party performance certification belongs on a technology list because it changes what a specification can require. Eurovent Certita Certification's Desert Certification option tests at 35C and 46C and requires demonstrated operability at 52C, and adds a Desert Seasonal Energy Efficiency Ratio describing part-load behaviour over a year rather than performance at one design point.</p>\n<p>Environmental product transparency is the same idea applied to materials. Galaxy Technology exhibited Albion Valves with published carbon data across its cast-iron range, and Masdar took the Impact Trail circular economy award for Kronospan carbon-negative wood-based panels. In both cases the technology is measurement and disclosure, and it converts a sustainability claim into a procurement input.</p>\n<p>Ground improvement instrumentation runs underneath everything else. Keller's ground improvement and foundation work depends on verifying treated ground before a structure is placed on it, and the Saudi coastal and reclaimed sites now being developed make that verification a schedule item rather than a formality.</p>\n<p>Building management and work-order systems were the technology facilities managers actually pressed on, and the pressing was specific: what happens after an alert, whether it writes a work order into the system a team already runs, and how many alerts turn out to be nothing. That closed-loop question is the same one industry has been working through, as BrentDesk described in its reporting on <a href=\"/industrial-technology/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">predictive maintenance moving from alert to work order</a>.</p>\n<p>The tenth category is spray-applied envelope systems, represented at the show by Star Factory's polyurethane foam roofing and waterproofing. It is a reminder that not every improvement is digital: in a climate where roofs drive cooling load, a better envelope is an energy technology.</p>\n<p>None of these will change a Saudi contractor's business on its own. What the ten have in common is that each produces a number an owner can audit, which is the threshold this market has started to enforce.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology",
+      "construction",
+      "robotics"
+    ],
+    "tags": [
+      "Construction Technology",
+      "Robotics",
+      "Concrete Sensors",
+      "Big 5 Construct Saudi",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "DaFang AI",
+      "Brickeye",
+      "Topwerk",
+      "Prime Middle East Trading Company",
+      "Eurovent Certita Certification",
+      "Galaxy Technology",
+      "Masdar",
+      "Keller",
+      "Star Factory"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.brickeye.com/concrete-monitoring",
+    "primarySourceName": "Brickeye",
+    "secondarySourceUrls": [
+      "https://www.topwerk.com/en/news-events/news/detail/riyadh-kingdom-concrete-products-expands-its-production-with-hess-group-equipment",
+      "https://www.linkedin.com/pulse/dafang-ai-releases-worlds-first-wall-plastering-robot-dafang-ai",
+      "https://www.eurovent-certification.com/en/cms/news/energy-efficient-indoor-air-quality-at-the-big-5-saudi",
+      "https://www.big5constructsaudi.com/"
+    ],
+    "internalLinks": [
+      "predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption",
+      "technology-vendors-selling-to-saudi-contractors-big-5-2026",
+      "saudi-arabia-physical-ai-robotics-construction-industry-2026"
+    ],
+    "seoTitle": "10 Technologies Changing Construction, Seen at Big 5",
+    "seoDescription": "Wall-finishing robots, wireless concrete sensors, rebar automation and desert HVAC certification: ten technology categories tested at Big 5 Construct Saudi.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 726,
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

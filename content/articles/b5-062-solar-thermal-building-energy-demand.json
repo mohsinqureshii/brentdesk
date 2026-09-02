@@ -1,0 +1,46 @@
+[
+  {
+    "commission": 1062,
+    "headline": "The Cheapest Megawatt in a Saudi Building May Be the Hot Water Tank",
+    "slug": "solar-thermal-saudi-building-energy-demand-water-heating-analysis",
+    "deck": "Photovoltaics have absorbed almost all of the Gulf's solar attention. The load that solar thermal displaces is larger, more predictable and less contested than most people assume.",
+    "excerpt": "Water heating is the second-largest electrical load in a typical Saudi home, and studies put electric water heating at roughly a tenth of residential energy use. Solar thermal remains a marginal technology in the Gulf, and the reason is tariff history rather than physics.",
+    "content": "<p>Saudi Arabia has spent the past two years financing solar generation at a pace few countries have matched, with multi-gigawatt <a href=\"/renewables/saudi-solar-15-gw-portfolio-financial-close-acwa-badeel-sapco\">photovoltaic portfolios</a> reaching financial close and further capacity awarded in successive procurement rounds. Almost none of that attention has gone to the other way of using the same resource, which is to heat water directly rather than to generate electricity that then heats water.</p><p>The load in question is not trivial. Water heating is the second-largest consumer of electricity in a typical Saudi household after air conditioning, and academic work on the residential sector has attributed around a tenth of total residential energy consumption to electric water heating. It is also an unusually well-behaved load: demand is predictable, it repeats daily, storage is inherent to the system because hot water sits in a cylinder, and the appliance being displaced is a resistance element that converts electricity to heat at a fixed and unimprovable ratio.</p><p>Solar thermal is the direct answer to that load, and it is old, simple technology. A flat plate collector and a cylinder mounted above it will circulate by thermosiphon with no pump and no controller. There is no inverter, no grid connection and no export arrangement. In a country with more than 300 clear days a year the collection resource is close to ideal, and manufacturers such as Calpak have been building the equipment on industrial lines since the 1970s.</p><p>So why has it stayed marginal in the Gulf? The honest answer is price history. For decades the electricity a collector displaced was among the cheapest in the world, which meant the payback period was long enough that no developer building to a construction budget would carry the capital cost. That has been the binding constraint, not performance, and it has been documented as such: cuts to electricity subsidies have been the trigger for renewed solar thermal interest in Saudi Arabia, because a collector's return is a direct function of the tariff it avoids.</p><p>A second constraint is structural and less discussed. The party that pays for a solar water heater is usually the developer, and the party that benefits is the occupier. In a market delivering housing, hotels and commercial buildings at speed against fixed budgets, an item that raises capital cost and lowers someone else's operating cost tends to be value-engineered out. Building codes and energy performance requirements exist precisely to correct that split incentive, and where solar water heating has scaled internationally it has usually been a code requirement rather than a market choice.</p><p>The strongest near-term case is not residential at all. It is the buildings with large, steady hot water draws — hotels, hospitals, labour accommodation, schools, laundries, kitchens and process facilities — which are being built across the giga-project developments in quantity. In those buildings solar thermal does not replace the plant; it pre-heats the feed, reducing the duty on a conventional system that stays in place and stays in control. That is an easier engineering and operational proposition than a technology substitution, and it is the configuration most likely to survive a value engineering exercise because it does not create a single point of failure.</p><p>There is a systems argument as well. Saudi Arabia is adding very large quantities of solar generation to a grid whose peak is set by cooling, and it is simultaneously adding <a href=\"/data-centers/saudi-data-centre-power-demand-humain-datavolt-oxagon\">continuous data centre load</a> and new industrial demand. Every unit of building energy served without touching the grid at all is a unit that does not have to be generated, transmitted, distributed or firmed. Thermal storage in a hot water cylinder is also the cheapest energy storage in any building, by a wide margin, and it is already installed in every one of them.</p><p>None of this makes solar thermal a large industry in the Kingdom overnight. The supply chain is thin, the installer base is small, and hard water and very high ambient temperatures create real durability questions that a European product specification does not automatically answer. But the physics has always worked here, and the economics has moved in its favour. In a building programme of this size, a technology that removes a tenth of residential electricity demand deserves more engineering attention than it currently gets.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "energy",
+    "categories": [
+      "energy",
+      "renewables",
+      "construction"
+    ],
+    "tags": [
+      "Solar Thermal",
+      "Energy Efficiency",
+      "Building Energy",
+      "Saudi Arabia",
+      "Water Heating"
+    ],
+    "companies": [
+      "Calpak"
+    ],
+    "primarySourceUrl": "https://solarthermalworld.org/news/cuts-to-electricity-subsidies-boost-solar-thermal-saudi-arabia/",
+    "primarySourceName": "Solarthermalworld",
+    "secondarySourceUrls": [
+      "https://www.researchgate.net/publication/312029446_Technical_and_Economic_Performance_of_Thermosiphon_Flat_Plate_Solar_Water_Heaters_in_Saudi_Arabia",
+      "https://calpak.gr/en/products/solar-water-heaters/",
+      "https://www.indexbox.io/store/saudi-arabia-industrial-solar-water-heaters-market-analysis-forecast-size-trends-and-insights/"
+    ],
+    "seoTitle": "Saudi Arabia's Cheapest Megawatt May Be the Water Tank",
+    "seoDescription": "Water heating is the second-largest load in a Saudi home. Solar thermal stayed marginal because of tariff history, not physics, and that has changed.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 705
+  }
+]

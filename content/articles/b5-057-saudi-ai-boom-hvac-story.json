@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 1057,
+    "headline": "Saudi Arabia Is Now Cooling Three Booms With One Supply Chain",
+    "slug": "saudi-arabia-hvac-cooling-demand-real-estate-industry-data-centres",
+    "deck": "Real estate, industrial capacity and AI infrastructure are all being built at once, and all three end at the same chiller manufacturers, the same commissioning engineers and the same spare parts counter.",
+    "excerpt": "Saudi HVAC equipment sales were worth around $3.3 billion in 2025 and are forecast to roughly double by 2034, while district cooling grows toward $2.6 billion by 2030. The cooling industry is being asked to serve a property boom, an industrial buildout and a data centre programme simultaneously.",
+    "content": "<p>Cooling has always been the largest single load on the Saudi electricity system. What has changed in 2026 is that three distinct construction programmes are placing demand on the same cooling supply chain at the same time, and none of them is prepared to wait for the others.</p><p>The first is property. Riyadh, Jeddah and the giga-project developments are delivering offices, hotels, housing and retail on a scale that has not been attempted here before. The second is industry: new manufacturing plants, logistics facilities and process installations across the industrial cities, each with process cooling requirements that behave nothing like a building's. The third is <a href=\"/data-centers/saudi-data-centre-power-demand-humain-datavolt-oxagon\">artificial intelligence capacity</a>, where HUMAIN alone is targeting around 1.9 GW by 2030 and more than 6 GW over the coming decade, and where the cooling design is the largest mechanical scope on the project.</p><p>The market that has to absorb all three is not large relative to that ambition. Saudi HVAC equipment sales were valued at around $3.3 billion in 2025 and are forecast to reach about $6.3 billion by 2034, a compound rate near 7.6 percent. District cooling was worth about $1.5 billion in 2024 and is projected to reach roughly $2.6 billion by 2030. Cooling equipment accounts for the large majority of the air conditioning market by value. Those are healthy growth rates, but they describe a market roughly doubling over a decade, being asked to serve programmes that expect to more than double in a third of that time.</p><p>The pressure shows up first in three places, and none of them is equipment price.</p><p>It shows up in lead times. Chillers, air handling plant, pumps, valves and controls are made to order against factory slots, and a data centre campus, a stadium and a hospital competing for the same slot resolve the conflict by date of order, not by importance. It shows up in commissioning capacity, because a chilled-water system that is installed but not correctly balanced consumes more energy for the rest of its life and is the single most common cause of a building failing to hit its design performance. And it shows up in service, because an asset that cannot be maintained locally becomes an operating liability the day the warranty expires.</p><p>That is why localisation in this sector has moved faster than in most others. Johnson Controls Arabia opened a 600-tonne chiller production line in the Kingdom and the country's first certified air-cooled chiller performance testing laboratory in May 2025 — the second being at least as significant as the first, because it means a chiller sold in Saudi Arabia can have its rated performance verified in Saudi Arabia against the ambient conditions it will actually work in. Rated capacity at 35 degrees means very little in a market that spends much of the year well above it.</p><p>The data centre load is the newest and most demanding of the three. Direct-to-chip liquid cooling changes the mechanical scope from air distribution to a hydronic system with tight flow, pressure and temperature tolerances, continuous metering and no acceptable downtime. Saudi Arabia's data centre liquid cooling market is forecast to grow from roughly $48.6 million in 2026 to about $252.8 million by 2031. Almost all of that revenue will be earned by companies that today describe themselves as HVAC contractors and manufacturers, working to a standard of commissioning discipline that the general building market does not require.</p><p>Water is the constraint sitting behind all of it. Data centre water consumption in the Kingdom is projected to rise from around 20.18 billion litres in 2025 to roughly 87.52 billion litres by 2030. In a country where a large share of supply is <a href=\"/water/saudi-desalination-eastern-province-capacity-expansion\">desalinated</a>, evaporative heat rejection is not a free option, and the design conversation moves toward closed-loop systems that trade water for electricity and for a harder hydraulic problem.</p><p>This is the argument for reading HVACR Saudi Arabia, co-located with Big 5 Construct Saudi at Riyadh Front this week, as an infrastructure event rather than a trade one. The equipment on those stands is what determines whether Saudi Arabia's new building stock, its new factories and its new compute capacity operate at their design efficiency or at something considerably worse. Cooling has stopped being a package inside a project. In a country building this much, this fast, in this climate, it is one of the load-bearing systems of the economy.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "utilities",
+    "categories": [
+      "utilities",
+      "data-centers",
+      "engineering",
+      "construction"
+    ],
+    "tags": [
+      "HVAC",
+      "District Cooling",
+      "Data Centres",
+      "Saudi Arabia",
+      "Chillers"
+    ],
+    "companies": [
+      "Johnson Controls Arabia",
+      "HUMAIN",
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.imarcgroup.com/saudi-arabia-hvac-market",
+    "primarySourceName": "IMARC Group",
+    "secondarySourceUrls": [
+      "https://www.psmarketresearch.com/market-analysis/saudi-arabia-district-cooling-market",
+      "https://www.marketsandmarkets.com/Market-Reports/geography/data-center-liquid-cooling-market/Saudi-Arabia",
+      "https://www.mordorintelligence.com/industry-reports/study-of-data-center-water-consumption-in-saudi-arabia",
+      "https://www.imarcgroup.com/saudi-arabia-air-conditioning-market"
+    ],
+    "seoTitle": "Saudi Arabia Is Cooling Three Booms With One Supply Chain",
+    "seoDescription": "Saudi HVAC sales were $3.3bn in 2025 and district cooling nears $2.6bn by 2030, while property, industry and AI capacity all demand cooling at once.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 733
+  }
+]

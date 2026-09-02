@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 1092,
+    "headline": "Vortex Fire Leads Big 5 Workshop on Saudi Building Code Compliance Pathways",
+    "slug": "vortex-fire-saudi-building-code-compliance-pathways-workshop",
+    "deck": "Fire and life safety is where the Saudi Building Code most often meets an architectural intent it does not accommodate. The route chosen to demonstrate compliance decides the cost.",
+    "excerpt": "Tom Wood and Kareem Morsi of Vortex Fire led the practical compliance workshop in the Saudi Building Code programme at Big 5 Construct Saudi, covering the structure of the code, the requirements of SBC 201 and the pathways available to demonstrate compliance on a live project.",
+    "content": "<p>The practical session in the Saudi Building Code programme at Big 5 Construct Saudi was run by fire engineers, which tells you where the difficulty concentrates. The workshop, billed as <em>Navigating the Saudi Building Code: Key Requirements and Compliance Pathways</em>, was led by Tom Wood, regional director at Vortex Fire, and Kareem Morsi, a senior fire engineer at the firm, and covered the structure of the code, the key requirements of SBC 201 and the routes a project can take to demonstrate that it complies.</p><p>That last point is the substance. Building codes of the type Saudi Arabia has adopted generally offer two ways of satisfying a requirement. The prescriptive route sets out dimensions, ratings and arrangements — travel distances, compartment sizes, fire resistance periods, staircase provision — and a design that follows them is compliant by construction. The performance-based route allows a designer to demonstrate by engineering analysis that an alternative arrangement achieves the same level of safety, which is how atria, long-span spaces, unusual geometries and mixed-use towers get built at all. Both are legitimate. They carry very different amounts of evidence, review time and risk.</p><p>Projects lose money at the boundary between them. A design developed on the assumption that a performance-based justification will be accepted, and then reviewed against prescriptive expectations, has to be either re-engineered or re-argued, and by then the structure is usually procured. The reverse error is equally expensive: applying prescriptive requirements to a building whose geometry cannot accommodate them produces value engineering that erodes the architecture without improving safety. Deciding which pathway a project is on, and confirming it with the approving authority early, is worth more than most of the technical detail that follows.</p><p>The Saudi context adds a second approval layer. The Saudi Building Code operates as modules — the general building code, SBC 201, alongside structural, mechanical, plumbing, fire protection and energy modules — and its 2024 edition has been mandatory since 30 June 2025. Saudi Civil Defence approval applies to occupied buildings on top of the code framework, and the inspection that matters commercially arrives when the building is otherwise finished. A fire strategy that has not been agreed with both the code framework and the authority is a completion risk rather than a design preference.</p><p>Vortex Fire is an independent consultancy specialising in building codes and fire safety engineering, with offices in Australia, Canada and the United Arab Emirates, and it has entered a strategic cooperation framework agreement with AMConsult to bring code consultancy and fire engineering services into Saudi Arabia. That structure — an international fire engineering practice paired with a local firm — has become the standard route into the Kingdom for specialist consultancies, for the same reasons that manufacturers now hold stock locally: approvals, language and presence during the parts of a project where an absent adviser is an expensive one.</p><p>The demand behind that is the Kingdom's building programme. Tall towers, stadiums, transport interchanges, hospitals, industrial facilities and <a href=\"/article/saudi-data-centre-power-demand-humain-datavolt-oxagon\">data centres</a> all carry fire strategies more complex than a conventional commercial building, and Saudi Arabia is delivering all of them concurrently against fixed dates. Fire engineering is also one of the few disciplines where an error is not merely a cost. It is the reason the code exists.</p><p>For contractors, the workshop's practical value was in the sequence rather than the content: establish the compliance pathway before the design is fixed, secure the authority's position in writing, procure fire-rated products with documentation that matches the tested assembly rather than the marketing description, and keep the inspection record as the design is built rather than reconstructing it afterwards. None of that is novel engineering. All of it is where projects in the Kingdom are currently losing time.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction",
+      "engineering",
+      "facilities-management"
+    ],
+    "tags": [
+      "Fire Safety",
+      "Saudi Building Code",
+      "Vortex Fire",
+      "Compliance"
+    ],
+    "companies": [
+      "Vortex Fire",
+      "International Code Council",
+      "AMConsult",
+      "Saudi Civil Defence"
+    ],
+    "people": [
+      "Tom Wood",
+      "Kareem Morsi"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://www.gdnonline.com/Details/1404485",
+    "primarySourceName": "Gulf Daily News",
+    "secondarySourceUrls": [
+      "https://vortexfire.com/",
+      "https://www.vortexfec.com/insight/local-fire-consultancy-services-in-saudi-arabia",
+      "https://saudi.tpg.media/icc-highlights-saudi-building-code-applications/",
+      "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf"
+    ],
+    "seoTitle": "Vortex Fire Leads Saudi Building Code Workshop",
+    "seoDescription": "Vortex Fire's Tom Wood and Kareem Morsi led the Big 5 workshop on SBC 201 requirements and the prescriptive and performance-based compliance routes.",
+    "articleType": "news",
+    "wordCount": 623,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

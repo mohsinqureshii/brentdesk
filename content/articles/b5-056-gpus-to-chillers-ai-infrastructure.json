@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 1056,
+    "headline": "From GPUs to Chillers: The Physical Bill Behind an AI Data Centre",
+    "slug": "ai-data-centre-physical-requirements-cooling-water-saudi-arabia",
+    "deck": "Rack densities have outrun air cooling, Saudi data centre water use is forecast to more than quadruple by 2030, and the Kingdom's ambient conditions remove several cooling options before design starts.",
+    "excerpt": "Saudi Arabia's data centre liquid cooling market is forecast to grow from about $48.6 million in 2026 to $252.8 million by 2031. Behind that number sits a chain of physical requirements — heat rejection, water, ambient temperature and equipment lead times — that determines what can actually be built and where.",
+    "content": "<p>An artificial intelligence data centre is easy to describe as a computing asset and hard to build as one. Between the accelerator and the grid connection sits a chain of physical equipment, each element of which has its own supply constraint, and in Saudi Arabia several of those constraints bind harder than they do elsewhere.</p><p>The chain starts at the rack. Power density per rack has climbed past the point where moving air can remove the heat, which is why the industry has been retooling around liquid. Coolant is delivered to a cold plate mounted directly on the processor, carried away through a technology cooling system, handed over to a facility water loop through a coolant distribution unit, and finally rejected to atmosphere by a chiller or a dry cooler. Each of those handovers is a piece of mechanical plant with its own selection, installation and commissioning requirement, and none of them is bought from a technology vendor.</p><p>The Saudi market for that equipment is small today and growing very quickly. Data centre liquid cooling in the Kingdom is forecast to grow from around $48.6 million in 2026 to about $252.8 million by 2031, a compound rate near 27 percent. That is a market being created rather than expanded, and the practical implication is that the installed base of engineers who have commissioned a direct-to-chip loop in Saudi Arabia is currently very small.</p><p>The second constraint is ambient temperature, and it is the one that makes Saudi Arabia different from the markets where these designs were developed. Very high dry-bulb temperatures compress the approach available to any air-side heat rejection system, which pushes designers toward high-efficiency chiller plant, indirect evaporative cooling, close-coupled cooling and more complex controls than a temperate-climate campus would need. Equipment makers have been responding with product aimed at exactly these duties — Mitsubishi Electric's MECH-iF air-cooled chiller range built around a single-screw compressor, and Daikin Applied's Navigator WW water-cooled screw chiller using lower global warming potential R-513A refrigerant among them.</p><p>The third constraint is water, and it is the one most likely to shape Saudi policy. Data centre water consumption in the Kingdom is projected to rise from roughly 20.18 billion litres in 2025 to about 87.52 billion litres by 2030, a compound rate above 34 percent. In a country whose municipal and industrial supply leans heavily on <a href=\"/water/saudi-desalination-eastern-province-capacity-expansion\">desalination capacity</a>, every litre evaporated in a cooling tower carries an energy cost upstream. That arithmetic is the strongest argument for closed-loop liquid systems, which trade water consumption for a higher electrical parasitic load and a more demanding hydraulic design.</p><p>The fourth constraint is the one that actually sets programme dates: equipment lead times. Hyperscale builds are running 18 to 24 months globally, and the extensions are coming from electrical plant rather than from structure. Transformers, switchgear, uninterruptible power systems, generator sets, chillers and coolant distribution units are all made in factories with allocated slots, and a campus that has not secured those slots at design stage does not have a schedule, it has an aspiration. This is the same <a href=\"/data-centers/data-centre-construction-power-cooling-supply-chain-2026\">industrial bottleneck</a> that has been reshaping delivery timetables worldwide.</p><p>What ties all four constraints together is that every one of them is bought and installed by the mechanical and electrical trades, not the technology sector. That is why the equipment relevant to Saudi Arabia's artificial intelligence programme is on display this week at Big 5 Construct Saudi and its co-located HVACR Saudi Arabia event rather than across town at LEAP: chillers, pumps, valves, insulation, pipe supports, controls, metering and fire protection are the physical form the programme takes.</p><p>The design decisions that follow are consequential and largely irreversible. Whether a campus uses air or liquid, open or closed loop, water-cooled or air-cooled chillers, and centralised or distributed heat rejection determines its water draw, its electrical load profile and its maintainability for the next twenty years. Those choices are made in the first months of a project by mechanical engineers, and they will do more to determine the operating cost of Saudi artificial intelligence capacity than any decision made about the hardware inside the racks.</p>",
+    "author": "BrentDesk Research",
+    "primaryCategory": "data-centers",
+    "categories": [
+      "data-centers",
+      "utilities",
+      "industrial-technology"
+    ],
+    "tags": [
+      "Data Centre Cooling",
+      "Liquid Cooling",
+      "Chillers",
+      "Water Use",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Mitsubishi Electric",
+      "Daikin Applied",
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.marketsandmarkets.com/Market-Reports/geography/data-center-liquid-cooling-market/Saudi-Arabia",
+    "primarySourceName": "MarketsandMarkets",
+    "secondarySourceUrls": [
+      "https://www.mordorintelligence.com/industry-reports/study-of-data-center-water-consumption-in-saudi-arabia",
+      "https://www.researchandmarkets.com/report/saudi-arabia-data-center-cooling-market",
+      "https://archdesk.com/blog/global-ai-data-center-construction-2026",
+      "https://www.danfoss.com/en/industries/buildings-commercial/dps/data-center-liquid-cooling/"
+    ],
+    "seoTitle": "From GPUs to Chillers: The Physical Bill for AI Capacity",
+    "seoDescription": "Saudi data centre liquid cooling is forecast to grow from $48.6m to $252.8m by 2031, while water use quadruples. The constraints are mechanical, not digital.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 687
+  }
+]

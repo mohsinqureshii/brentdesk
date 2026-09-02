@@ -1,0 +1,47 @@
+[
+  {
+    "commission": 1114,
+    "headline": "Why Procurement May Be Saudi Construction's Next Technology Problem",
+    "slug": "saudi-construction-procurement-technology-problem",
+    "deck": "The Kingdom has built the platforms. What it has not built is the operational data that would make them useful below the award line.",
+    "excerpt": "Saudi Arabia has digitised public tendering and most government procurement runs through digital channels. On live construction projects the decisive facts — real lead times, stock inside the Kingdom, certification scope, second sources — still sit outside any system, and no platform purchase creates them.",
+    "content": "<p>Digital transparency was one of the stated themes of the leadership sessions at Big 5 Construct Saudi this week, and it is the right theme. It is also, in my view, being aimed at the wrong layer of the problem.</p><p>Saudi Arabia has already done the difficult institutional part. Public tendering has been consolidated onto a single national platform in Etimad, and <a href=\"https://www.ivalua.com/blog/what-is-saudi-vision-2030-and-how-will-it-impact-procurement/\">the large majority of government procurement now runs through digital channels</a>. That is a genuine achievement, and it solved the problem it was designed for: making the award of public work visible, contestable and auditable. Where the transparency stops is immediately below the award.</p><p>Consider what a project procurement manager on a live Riyadh site actually needs to know this week. The real lead time for a specific valve, in a specific size and material, from the specific plant that will make it — not the catalogue lead time. Whether there is genuine stock inside the Kingdom, as opposed to stock in a regional warehouse that has already been committed to somebody else. Whether the certification presented covers the exact configuration being supplied or a related one. What the second source is, and what it costs, if the first slips by six weeks. None of that lives in a tendering platform, and none of it is created by buying software.</p><p>It is not that the technology is missing. Site visibility has moved a long way, and drones, laser scanning, sensor-based monitoring and automated plant are all now routine enough to be sold from a stand. Analytics that flag supply risk exist. Provenance tracking exists. What is missing is the input. Every one of those tools consumes supplier data that suppliers are not currently obliged to produce, in a format nobody has agreed, at a frequency nobody has specified.</p><p>That is a contract problem wearing a technology costume, and it is why I suspect procurement is where the next round of construction technology spending will be disappointed. A contractor can buy a supply-chain platform in an afternoon. Getting forty suppliers to populate it honestly, weekly, for the duration of a programme, is a commercial negotiation conducted forty times, and most of those suppliers have no incentive to expose the truth about their throughput.</p><p>The buyers walking this floor have arrived at the same conclusion by a different route. The questions being put across the halls have been about certification scope, tested performance, lifecycle cost, warranty terms, after-sales coverage, spare-parts availability and project references in the Kingdom. Those are all requests for verified supplier data, asked verbally because there is no system to ask them of. A trade show is currently the highest-bandwidth supplier data channel the Saudi construction industry has, which is a strange thing to be true in 2026.</p><p>The scale makes it urgent rather than academic. The Kingdom awarded more than SAR30 billion of construction work in its strongest month this year and more than SAR29.5 billion in the month after. When that many packages are running at once, the same fabricators, the same specialist subcontractors and the same shipping capacity are being promised to several clients simultaneously, and the first party to discover the conflict is usually the one whose delivery date has already passed.</p><p>The fix is unglamorous and mostly contractual: make disclosure of lead time, stock position and certification scope a condition of qualification rather than a courtesy, standardise the fields, and hold the data centrally at project or client level rather than in each contractor's own system. Only after that does the analytics layer have anything to analyse. Procurement resilience is being discussed at this show as a leadership question. It is really a data question, and the data does not exist yet because nobody has been required to write it down.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "supply-chain",
+    "categories": [
+      "supply-chain",
+      "construction",
+      "industrial-technology"
+    ],
+    "tags": [
+      "Procurement",
+      "Construction Technology",
+      "Supply Chain",
+      "Etimad",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Etimad"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.ivalua.com/blog/what-is-saudi-vision-2030-and-how-will-it-impact-procurement/",
+    "primarySourceName": "Ivalua",
+    "secondarySourceUrls": [
+      "https://www.zawya.com/en/projects/saudi-construction-industry-eyes-stronger-project-delivery-472960",
+      "https://www.spa.gov.sa/en/N2628653",
+      "https://www.arabnews.com/node/2647366/business-economy",
+      "https://www.meed.com/market-talk-saudi-construction-moves-into-delivery-mode"
+    ],
+    "seoTitle": "Procurement Is Saudi Construction's Next Tech Problem",
+    "seoDescription": "Saudi Arabia digitised tendering through Etimad, but lead times, local stock and certification scope still sit outside any system. That is a contract problem, not a software one.",
+    "articleType": "opinion",
+    "researchConfidence": "B",
+    "wordCount": 630,
+    "replacementOf": null,
+    "replacementReason": null,
+    "imageReviewRequired": true
+  }
+]

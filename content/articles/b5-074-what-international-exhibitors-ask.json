@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1074,
+    "headline": "International Exhibitors Have Stopped Asking How to Sell in Saudi Arabia",
+    "slug": "international-exhibitors-saudi-market-entry-questions-localization",
+    "deck": "The questions on the floor at Riyadh Front are about partners, procurement mechanics, local content and who actually decides. That is a more advanced set of questions than this market was fielding a few years ago.",
+    "excerpt": "Across conversations at Big 5 Construct Saudi, the recurring question from international manufacturers is no longer how to reach Saudi buyers. It is who to partner with, how procurement really works, what localization will be expected and how to build a presence that lasts beyond one project cycle.",
+    "content": "<p>There is a reliable way to judge how mature a market has become to outsiders, which is to listen to what visiting companies ask about. At Big 5 Construct Saudi this week, almost nobody from overseas is asking how to sell into Saudi Arabia. A recurring set of questions has replaced it, and every one of them is a question about structure rather than about demand.</p><p>Who do we partner with. How does procurement actually work on a giga-project package. What localization will be expected of us, and by when. Who are the real decision makers. And how do we build something here that is still standing in ten years rather than something that services one contract.</p><p>Those are harder questions than the ones this show was fielding a few years ago, and the reason is that the Kingdom has answered the easy one. Demand is not in doubt. What is in doubt, for a company sitting in Milan or Osaka or Stuttgart, is what form of presence the Saudi system will actually reward.</p><p>The rules give a reasonably clear answer. Saudi Arabia's regional headquarters programme, in force since the start of 2024, ties eligibility for government contracts to holding a licensed head office in the country, with a minimum of 15 full-time employees including three C-suite executives within a year of licensing, and requires the group to have subsidiaries in the region and one in the Kingdom. More than 700 multinationals had established regional headquarters in Riyadh by early 2026, against an original target of roughly 480 by 2030. Alongside that sit the <a href=\"/supply-chain/saudi-mandatory-local-content-list-anchor-buyers\">mandatory local content requirements</a> applied by government anchor buyers, and Aramco's <a href=\"/supply-chain/aramco-iktva-70-percent-local-content-2030-target\">iktva programme</a>, which has done more than any single policy to teach international suppliers what the Saudi state means by localization.</p><p>Where companies get it wrong is in reading those rules as a compliance hurdle rather than as a description of the competitive landscape. The reason local presence wins work here is not primarily that the rules say so. It is that the buyer's problem is delivery risk. Saudi Arabia imports a large share of its specialty materials and mechanical equipment, and the schedule exposure is real: loose furniture, fixtures and equipment running to around 25 weeks, fire-rated glazed partitions to about 20 weeks, electrical equipment to roughly 18. A supplier with production, stock or assembly in the Kingdom is not being rewarded for patriotism. It is being rewarded for removing four months of programme risk.</p><p>The second recurring question, about who decides, has a less comfortable answer. Saudi procurement on major developments involves a project owner, a development manager, a design consultant who writes the specification, a main contractor who buys the package, and a subcontractor who installs it — and the person who can specify a product is frequently not the person who can buy it. Companies that have succeeded here have generally worked both ends: getting specified at design stage while building the contractor and distributor relationships that turn a specification into an order. Companies that have worked only one end tend to discover the other one at tender.</p><p>On partnership structure, three models are visible on this floor. The distribution agreement is the lightest — a regional distributor carrying the product, holding stock and providing first-line support, which is the route Calpak has taken into Gulf markets through Leminar Global. The joint venture puts manufacturing capability alongside a regional partner, as Hira Industries and the Netherlands' Walraven Group did in fixings and pipe supports. And the direct manufacturing route puts a factory in the Kingdom, as Johnson Controls Arabia did with a local chiller production line and a certified chiller performance testing laboratory, and as <a href=\"/manufacturing/schneider-alfanar-saudi-industrial-equipment-localisation\">Schneider Electric has done</a> in electrical equipment.</p><p>Which model fits depends on a variable that visiting companies consistently underestimate: how heavy the product is relative to its value, and how often it needs a service engineer. Products that are light, high-value and rarely serviced can be imported almost indefinitely. Products that are bulky, low-value per unit or require after-sales attention — insulation, supports, panels, pumps, valves, switchgear — face a structural pull toward local production that no distribution agreement fully resolves.</p><p>The last question, about durability, is the one that separates the serious entrants. The Saudi construction pipeline is enormous but it is not evenly distributed in time; different giga-projects will move through their peak construction phases at different points, and the composition of demand will rotate from structure to fit-out to operations. The companies most likely to still be here in ten years are the ones building for the operating phase rather than only for the construction phase — because after every one of these assets is handed over, somebody has to maintain it, and that is a longer contract than the one to build it.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "manufacturing",
+    "categories": [
+      "manufacturing",
+      "construction",
+      "supply-chain"
+    ],
+    "tags": [
+      "Market Entry",
+      "Localization",
+      "Regional Headquarters",
+      "Saudi Arabia",
+      "Big 5 Construct Saudi"
+    ],
+    "companies": [
+      "Calpak",
+      "Leminar Global",
+      "Hira Industries",
+      "Walraven Group",
+      "Johnson Controls Arabia"
+    ],
+    "primarySourceUrl": "https://zatca.gov.sa/en/HelpCenter/guidelines/Documents/Guideline-for-Regional-Headquarters-in-KSA.pdf",
+    "primarySourceName": "Zakat, Tax and Customs Authority",
+    "secondarySourceUrls": [
+      "https://www.vistra.com/insights/what-you-need-know-about-saudi-arabias-local-headquarters-rule",
+      "https://gulfnews.com/business/markets/foreign-firms-race-to-open-saudi-offices-before-deadline-1.99484357",
+      "https://lynxcontracting.com/global-vs-local-procurement-for-construction-in-saudi-arabia/",
+      "https://www.tradearabia.com/News/416772/Leminar-Global-partners-with-Calpak-for-solar-water-heaters-"
+    ],
+    "seoTitle": "What International Exhibitors Now Ask About Saudi Arabia",
+    "seoDescription": "At Big 5 Construct Saudi, overseas manufacturers ask about partners, procurement mechanics, local content and who decides, not about demand.",
+    "articleType": "opinion",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 802
+  }
+]

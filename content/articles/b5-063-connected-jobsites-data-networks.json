@@ -1,0 +1,47 @@
+[
+  {
+    "commission": 1063,
+    "headline": "The Connected Jobsite Arrives in Riyadh, One Sensor at a Time",
+    "slug": "connected-jobsite-construction-iot-telematics-sensors-saudi-2026",
+    "deck": "Telematics on plant, sensors in concrete, tags on materials and cameras on gates. Construction IoT is a market approaching $19 billion, and the interesting change in 2026 is where the processing happens.",
+    "excerpt": "Connected jobsite technology is one of the fastest-growing categories at Big 5 Construct Saudi, covering equipment telematics, environmental and material sensors, and site connectivity. Global construction IoT is projected to reach around $18.7 billion by 2026, with edge processing moving analysis onto the machine.",
+    "content": "<p>The phrase connected jobsite covers a set of technologies that arrived separately and are only now being sold as one thing. Machine telematics came from the equipment manufacturers. Sensors in concrete and in the ground came from materials testing. Asset tags came from logistics. Site cameras came from security. What has changed is that a single platform is now expected to hold all of it, and that expectation is showing up in Saudi procurement.</p><p>The technology base is straightforward. Telematics units on plant report location, hours, fuel burn, fault codes and operator behaviour, which is the raw material for both utilisation analysis and predictive maintenance. Environmental and material sensors report temperature, humidity, moisture and — increasingly — concrete maturity in situ. Tags track materials and tools through a supply chain that on a giga-project can run to thousands of deliveries a month. Connectivity is provided by a hybrid of cellular, low-power wide-area networks and site wireless, because no single bearer covers a large, changing site reliably.</p><p>The global market for this equipment is substantial and growing quickly, with construction IoT projected to reach around $18.7 billion by 2026. The more informative development in 2026 is architectural rather than commercial: processing is moving onto the machine. Edge devices now perform anomaly detection, fault classification and fuel event analysis locally rather than shipping raw telemetry to a cloud platform, which cuts bandwidth cost, works through connectivity gaps and shortens the time between a fault appearing and an alert being raised. Vibration and pressure sensors on pumps and motors are being used to diagnose developing failures rather than to log that a failure occurred.</p><p>The results claimed for these systems are operational rather than transformational, which is the right register for a construction buyer. Fleet operators report material recovery of fuel losses after deploying telematics across a mixed fleet, and companies using connected safety systems have reported injury reductions in the range of 10 to 20 percent. Those are the kinds of numbers a Saudi contractor will engage with, because they map onto a line in a cost report.</p><p>That framing matters here more than it does in most markets. The conference programme at Big 5 Construct Saudi this week covers artificial intelligence, technology and project management alongside codes and standards, health and safety and concrete quality, and the technology sessions are pitched at project delivery rather than at capability. Contractors in this market have learned to discount claims and ask instead about breakdowns avoided, rework reduced, manpower dependency lowered and lifecycle cost.</p><p>Saudi Arabia has a specific reason to be an early adopter, and it is not enthusiasm for technology. It is scale and concurrency. The Kingdom's construction workforce passed 3.4 million at the end of 2025, spread across giga-projects, a stadium programme, an Expo build, housing and industrial development, with a shortage of skilled and supervisory roles running into the hundreds of thousands. Supervision does not scale linearly with headcount. Instrumentation is one of the few ways to extend the reach of a limited number of experienced engineers across a very large number of work fronts.</p><p>The practical obstacles are consistent across markets and unglamorous. Sensors get damaged, batteries die, connectivity fails in basements and cores, and data arrives in formats that do not reconcile between vendors. The systems that survive on a site are the ones that are ruggedised, that fail visibly rather than silently, and that push a small number of actionable alerts rather than a dashboard nobody opens. Every serious supplier in this category now leads with hardware durability and connectivity reliability rather than with analytics, which is a reasonable indication of where projects actually fail.</p><p>The commercial question underneath is who owns the resulting data — the contractor, the owner or the vendor — and who still has access to it once the project is handed over to a facilities management team. That question is unresolved almost everywhere, and in a market handing over as many new assets as Saudi Arabia is about to, it is worth settling before the sensors go in rather than after.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "industrial-technology",
+    "categories": [
+      "industrial-technology",
+      "construction",
+      "automation"
+    ],
+    "tags": [
+      "Connected Jobsite",
+      "Construction IoT",
+      "Telematics",
+      "Sensors",
+      "Saudi Construction"
+    ],
+    "companies": [
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.constructionexec.com/article/how-iot-telematics-and-mobile-connectivity-are-changing-the-nature-of-the-construction-jobsite",
+    "primarySourceName": "Construction Executive",
+    "secondarySourceUrls": [
+      "https://www.constructionequipment.com/technology/construction-telematics/article/55394590/construction-equipment-telematics-guide-compare-fleet-management-platforms-2026",
+      "https://fleetrabbit.com/industry/construction-management-system/connected-construction-iot-trends",
+      "https://www.big5constructsaudi.com/",
+      "https://www.mahadmanpowers.co.in/research/saudi-arabia-construction-workforce-report-2026/"
+    ],
+    "seoTitle": "The Connected Jobsite Arrives in Riyadh",
+    "seoDescription": "Telematics, concrete sensors and site connectivity are converging into one platform, with construction IoT near $18.7bn and processing moving to the edge.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 679
+  }
+]

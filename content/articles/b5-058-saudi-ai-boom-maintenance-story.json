@@ -1,0 +1,47 @@
+[
+  {
+    "commission": 1058,
+    "headline": "The Hardest Part of Saudi Arabia's AI Build Starts After Handover",
+    "slug": "saudi-facilities-management-data-centre-operations-maintenance-2026",
+    "deck": "Saudi facilities management is a market measured in tens of billions of dollars and is shifting from headcount to condition monitoring. Data centres are the most maintenance-intensive asset class the Kingdom has ever commissioned.",
+    "excerpt": "Saudi facilities management contracts are moving from manpower toward computer-aided FM, predictive maintenance, energy management and lifecycle planning. The country's new data centre capacity will test that shift harder than any other asset type, because its tolerance for unplanned downtime is close to zero.",
+    "content": "<p>Saudi Arabia is about to acquire a very large quantity of technically complex assets over a short period, and the operating question is arriving faster than the construction industry usually likes to discuss it. A data centre is handed over once and then operated continuously for twenty years, and almost every economic claim made about it depends on what happens in those twenty years rather than in the eighteen months before.</p><p>The market that has to do the operating is substantial. Estimates of Saudi facilities management put it in the region of $52 billion to $55 billion in 2026, growing at close to 8 percent a year through the following decade. More important than the size is the change in composition. Revenue growth in the sector is increasingly coming from contract depth rather than headcount, with computer-aided facilities management, predictive maintenance, energy management and lifecycle planning written into multi-service scopes. Mega-project owners have replaced ad-hoc reactive maintenance with lifecycle-oriented contracts that measure asset uptime, energy performance and sustainability reporting together. Enterprise asset management platforms are now part of the award criteria, illustrated by a deployment in Riyadh covering roughly 100,000 assets.</p><p>Data centres sit at the extreme end of that spectrum. The maintenance regime for a mission-critical facility is not a schedule of inspections; it is a continuous programme of concurrent maintenance carried out on live plant, with every intervention planned so that no single failure removes cooling or power from a running load. Chilled-water systems have to be maintained without being taken offline. Uninterruptible power systems and generators have to be tested under load without interrupting service. Filters, coolant chemistry, leak detection, valve actuation and metering all become monitored parameters rather than annual tasks.</p><p>Liquid cooling raises the stakes again. Once coolant is being delivered directly to a cold plate on a processor, the mechanical system is inside the computing envelope, and the consequences of a leak, a fouled loop or a mis-set flow rate are immediate and expensive. Saudi Arabia's data centre liquid cooling market is forecast to grow from around $48.6 million in 2026 to about $252.8 million by 2031, which means the maintenance skill base for it has to be built roughly in parallel with the installed base — not after it.</p><p>This is where the wider Saudi FM shift and the artificial intelligence programme meet. The <a href=\"/industrial-technology/predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption\">predictive maintenance</a> tooling that industrial operators have been adopting — vibration and thermal monitoring, anomaly detection on rotating plant, work orders raised automatically from sensor thresholds — is the same tooling a data centre operator needs for pumps, chillers, fans and switchgear. The difference is that in a factory a missed fault costs production, while in a data centre it costs a service level agreement measured in minutes per year.</p><p>The commercial implication for Saudi FM providers is that the sector's traditional strength is the wrong strength. Manpower scale, competitive labour rates and cleaning and soft services do not win mission-critical contracts. What wins them is a documented maintenance methodology, technicians certified on specific equipment, spare parts held locally, a 24-hour engineering response and a track record of maintaining live plant without incident. Those capabilities take years to build and are expensive to hold idle, which is why they tend to concentrate in a small number of specialists in every market that has developed them.</p><p>The workforce arithmetic makes this harder. The Kingdom is already carrying a shortage of skilled and specialist technical roles running into the hundreds of thousands across construction and related trades, with specialist positions taking months to fill. Data centre operations competes for the same electrical and mechanical technicians as every other new Saudi asset, and it pays more for them, which pulls experienced people out of the general building stock at exactly the moment that stock is expanding.</p><p>None of this is a reason to slow the build. It is a reason to treat operations as part of the procurement rather than a downstream contract. The presence of Saudi FM &amp; Clean alongside Big 5 Construct Saudi at Riyadh Front this week reflects that logic: the facilities management industry is being asked to bid on assets that do not exist yet, and to have the people ready when they do. The larger prize in Saudi Arabia's building programme was always going to be operating, maintaining and optimising the assets for decades. In the data centre segment, that prize arrives with the highest performance bar the Kingdom has set.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "facilities-management",
+    "categories": [
+      "facilities-management",
+      "data-centers",
+      "industrial-technology"
+    ],
+    "tags": [
+      "Facilities Management",
+      "Predictive Maintenance",
+      "Data Centres",
+      "Asset Management",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Big 5 Construct Saudi"
+    ],
+    "primarySourceUrl": "https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market",
+    "primarySourceName": "Mordor Intelligence",
+    "secondarySourceUrls": [
+      "https://www.imarcgroup.com/saudi-arabia-facility-management-market",
+      "https://www.kenresearch.com/industry-reports/ksa-facility-management-market",
+      "https://www.marketsandmarkets.com/Market-Reports/geography/data-center-liquid-cooling-market/Saudi-Arabia",
+      "https://www.big5constructsaudi.com/"
+    ],
+    "seoTitle": "Saudi Arabia's AI Build Gets Hard After Handover",
+    "seoDescription": "Saudi facilities management is worth over $52bn and shifting to predictive maintenance. Data centres will test that shift harder than any other asset class.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 744
+  }
+]

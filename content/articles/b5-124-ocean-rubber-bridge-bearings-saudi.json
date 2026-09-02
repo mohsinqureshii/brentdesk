@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 1124,
+    "headline": "Ocean Rubber Factory Pushes Bridge Bearings Into Saudi Rail and Road Work",
+    "slug": "ocean-rubber-factory-bridge-bearings-saudi",
+    "deck": "A bridge deck moves several centimetres a day in a Gulf summer. The components that let it do so without damaging itself are a small line item with an outsized consequence.",
+    "excerpt": "Ocean Rubber Factory, the Emirati manufacturer established in 1987, produces elastomeric, pot and spherical bridge bearings and expansion joints to CE, AASHTO, EN 1337 and BS 5400 standards. Its references include the Jubail to Dammam link for Saudi Railway Company, positioning it against a Saudi infrastructure programme awarding at scale.",
+    "content": "<p>Bridge bearings and expansion joints are among the least discussed components in civil engineering and among the most consequential. A concrete or steel bridge deck expands and contracts by a measurable amount every day, rotates under live load, and settles differentially over its life. Bearings allow that movement while transferring load to the substructure; expansion joints allow it at the ends without tearing the running surface apart. When either fails, the repair is disruptive, expensive and carried out under traffic.</p><p><a href=\"https://www.orf.ae/\">Ocean Rubber Factory</a>, established in the United Arab Emirates in 1987, has built a regional position in exactly these products. The company operates a rubber division making technical rubber products for industrial, marine, power, desalination, water treatment and oil and gas customers, and an engineering division producing steel products and conveying systems, across eight factories on two production sites.</p><p>Its bearing range covers the three types a bridge designer will specify. <a href=\"http://bridge.orf.ae/\">Elastomeric, pot and spherical bearings</a> are CE marked and manufactured against AASHTO, BS 5400, EN 1337 and DIN 4141, from neoprene or natural rubber at hardness values between 50 and 70 Shore A. Elastomeric bearings, the simplest and most common, accommodate movement through shear deformation of the rubber itself. Pot bearings confine an elastomeric disc within a steel pot so it behaves hydraulically, carrying much higher vertical loads while still permitting rotation. Spherical bearings use a curved sliding surface, and are specified where rotation is large or where the movement direction has to be controlled precisely. The company's expansion joints are made from a virgin polychloroprene-based elastomer bonded to steel, a composite that accommodates displacement and rotation between adjacent deck sections in all directions.</p><p>The certification list is the commercially important part. On public infrastructure, bearings are specified by standard, and a supplier that cannot demonstrate compliance against the referenced code is not in the conversation regardless of price. The company holds ISO 9001, ISO 14001 and ISO 45001 certification for quality, environmental and occupational safety management, which is the second gate on most large public tenders.</p><p>Its reference list already reaches into the Kingdom. The company cites work on the Jubail to Dammam link for Saudi Railway Company, alongside Etihad Rail in the UAE and the Mumbai to Ahmedabad high-speed rail project in India. Rail is a demanding application for these components: the load cycles are more frequent than on a highway, the alignment tolerances are tighter, and the consequence of a bearing seizing is a track geometry problem rather than a ride-quality complaint.</p><p>The Saudi market for such work is being fed by a programme awarding at pace. The Kingdom awarded 18 projects worth more than SAR30.03 billion in May, its strongest month of 2026, and the Saudi Contractors Authority recorded <a href=\"https://www.spa.gov.sa/en/N2628653\">25 projects worth over SAR29.5 billion in June</a>, with infrastructure prominent in both months. Grade separations, interchanges, rail viaducts and coastal crossings all carry bearing and joint packages, and each is small relative to the structure and unforgiving in service.</p><p>The competitive question for a regional manufacturer is the one facing every Gulf supplier selling into Saudi Arabia this year. Buyers on the Kingdom's projects are asking about certification scope, tested performance, lifecycle cost, warranty terms, local support and spare-parts availability, and the localisation argument favours suppliers with a presence inside the Kingdom. A manufacturer in the neighbouring Emirates has a shorter logistics chain than a European competitor and a longer one than a Saudi plant, which is a reasonable description of where much of the Gulf's industrial supply base currently sits.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "infrastructure",
+    "categories": [
+      "infrastructure",
+      "manufacturing",
+      "rail"
+    ],
+    "tags": [
+      "Bridge Bearings",
+      "Expansion Joints",
+      "Infrastructure",
+      "Ocean Rubber Factory",
+      "Saudi Rail"
+    ],
+    "companies": [
+      "Ocean Rubber Factory",
+      "Saudi Railway Company",
+      "Etihad Rail"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-02",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "http://bridge.orf.ae/",
+    "primarySourceName": "Ocean Rubber Factory",
+    "secondarySourceUrls": [
+      "https://www.orf.ae/",
+      "https://www.orf.ae/about/facilities/",
+      "https://www.spa.gov.sa/en/N2628653",
+      "https://www.arabnews.com/node/2647366/business-economy"
+    ],
+    "seoTitle": "Ocean Rubber Targets Saudi Bridge Bearing Demand",
+    "seoDescription": "Ocean Rubber Factory makes CE-marked elastomeric, pot and spherical bearings and expansion joints, with references including the Jubail to Dammam link for Saudi Railway Company.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "wordCount": 588,
+    "replacementOf": null,
+    "replacementReason": null,
+    "imageReviewRequired": true
+  }
+]

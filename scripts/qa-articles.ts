@@ -49,12 +49,23 @@ const PUFF_PATTERNS: Array<[RegExp, string]> = [
    "groundbreaking used as a puff adjective"],
 ];
 
-/** Claims of BrentDesk reporting that never happened. */
+/**
+ * Claims of non-public sourcing. These assert a private source, a briefing
+ * or an exclusive, and none of this archive has one — banned outright.
+ */
 const FALSE_PROVENANCE = [
-  "brentdesk reported", "brentdesk learned", "sources told brentdesk",
-  "brentdesk previously revealed", "brentdesk understands",
-  "brentdesk has learned", "told brentdesk", "brentdesk revealed",
+  "brentdesk learned", "sources told brentdesk", "brentdesk previously revealed",
+  "brentdesk understands", "brentdesk has learned", "told brentdesk",
+  "brentdesk revealed", "brentdesk can reveal", "brentdesk exclusively",
 ];
+
+/**
+ * Self-citation. "As BrentDesk reported" is honest when it points at an
+ * article BrentDesk actually published, and a fabrication when it does not.
+ * A blanket ban blocked genuine cross-references into the archive, so the
+ * test is whether the sentence carries a link to a real internal article.
+ */
+const SELF_CITATION = /brentdesk reported/i;
 
 /** Reader-facing admissions of the research limitation, which must not ship. */
 const LEAKED_METHODOLOGY = [
@@ -164,7 +175,10 @@ for (const file of files) {
     const lower = scanned.toLowerCase();
     for (const p of BANNED_PHRASES) if (lower.includes(p)) err(file, `banned phrasing: "${p}"`);
     for (const [re, label] of PUFF_PATTERNS) if (re.test(scanned)) err(file, label);
-    for (const p of FALSE_PROVENANCE) if (lower.includes(p)) err(file, `false BrentDesk provenance: "${p}"`);
+    for (const p of FALSE_PROVENANCE) if (lower.includes(p)) err(file, `claims non-public sourcing: "${p}"`);
+    if (SELF_CITATION.test(html) && !/href="\/(article\/)?[a-z0-9-]+(\/[a-z0-9-]+)?"/.test(html)) {
+      err(file, `"BrentDesk reported" with no link to the article being cited`);
+    }
     for (const p of LEAKED_METHODOLOGY) if (lower.includes(p)) err(file, `research methodology leaked into copy: "${p}"`);
 
     const words = html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;

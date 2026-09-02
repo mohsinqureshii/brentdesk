@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 1053,
+    "headline": "Riyadh Is Running Two Trade Shows This Week and They Describe One Build",
+    "slug": "leap-big-5-construct-saudi-2026-concrete-compute-same-week",
+    "deck": "LEAP opened in Malham on 31 August with more than $15 billion of announcements. Big 5 Construct Saudi opened at Riyadh Front the day before. One event sells the compute; the other sells everything that has to be poured, welded and cooled to house it.",
+    "excerpt": "LEAP 2026 and Big 5 Construct Saudi are running in Riyadh in the same week, eleven kilometres apart. LEAP has produced more than $15 billion in AI and technology announcements; Big 5 has more than 1,000 exhibitors selling steel, concrete, chillers, pumps and controls. The second show is where the first one's announcements get built.",
+    "content": "<p>Two trade shows are running in Riyadh this week. LEAP 2026 opened on 31 August at the Riyadh Exhibition and Convention Centre in Malham with more than $15 billion of announced launches, investments and partnerships across energy, connectivity, semiconductors, data centres, accelerated computing, models and cloud services. Big 5 Construct Saudi opened the day before at Riyadh Front with more than 1,000 exhibitors from over 50 countries selling reinforcement, concrete, heavy equipment, insulation, valves, pumps, chillers, fire protection and facilities management.</p><p>They are two halves of the same programme, and the second half is the one with the physical constraints.</p><p>The Saudi artificial intelligence build has a well-rehearsed set of headline numbers. HUMAIN is targeting more than 6 gigawatts of data centre capacity over the coming decade and around 1.9 GW by 2030. DataVolt's Oxagon campus in NEOM is planned at 1.5 GW, with a 360 MW first phase in which HUMAIN is <a href=\"/data-centers/saudi-data-centre-power-demand-humain-datavolt-oxagon\">jointly developing about 100 MW</a>. Those are electrical numbers. What almost never gets stated alongside them is the bill of physical goods that a gigawatt of compute requires before a single accelerator is racked, and that bill is quoted in the halls at Riyadh Front rather than in Malham.</p><p>Start with what the buildings are made of. Saudi Arabia consumed roughly 15.5 million tonnes of steel rebar in 2025, up from 14.5 million tonnes in 2024. Its ready-mix concrete market was worth about $5.2 billion in 2025 and is forecast to grow at above 6 percent a year to the early 2030s. A data centre is a concrete-and-steel structure with an unusually heavy floor, an unusually large electrical room and an unusually demanding thermal design; it draws on exactly the same rebar shops, batching plants and structural steel fabricators as a stadium or a hospital, and it competes with them for slots.</p><p>Then the systems. Saudi HVAC equipment sales were worth around $3.3 billion in 2025 and are forecast to roughly double by the mid-2030s. The Kingdom's district cooling market was around $1.5 billion in 2024. The industrial mechanical, electrical and plumbing services market is a multi-billion-dollar business in its own right. On artificial intelligence data centre bids in 2026, mechanical, electrical and controls scope accounts for roughly three-quarters of the guaranteed maximum price, with electrical distribution alone at 32 to 38 percent. In other words, most of the cost of an AI facility is bought from the kind of company exhibiting at Big 5, not from the kind exhibiting at LEAP.</p><p>This is why the co-location of the four Big 5 events matters more than it looks. HVACR Saudi Arabia, Totally Concrete Saudi Arabia, Heavy Saudi Arabia and Saudi FM &amp; Clean sit under one roof because a modern Saudi asset is delivered by all four trades in sequence and then operated by the fourth for thirty years. A hyperscale build runs 18 to 24 months, and the programme extensions in 2026 have come overwhelmingly from electrical equipment lead times rather than from civil or structural work. Switchgear, transformers, chillers, pumps, valves and cable are the schedule. Concrete rarely is.</p><p>The Kingdom is also unusual in doing all of this at once. Most countries adding data centre capacity are doing so into a mature building stock with spare contracting capacity. Saudi Arabia is adding it on top of a giga-project pipeline, a stadium programme for 2034, an Expo 2030 build in Riyadh and a housing programme, with a construction workforce that passed 3.4 million at the end of 2025 and a shortage of skilled and specialist roles running into the hundreds of thousands. Every megawatt of AI capacity competes for the same electrical contractors, the same commissioning engineers and the same chilled-water specialists as everything else on the <a href=\"/construction/saudi-project-awards-2026-infrastructure-rotation\">award pipeline</a>.</p><p>That competition is the real reason to read the two exhibitor lists together. The LEAP announcements are commitments of capital and intent. The Big 5 floor is where the delivery capacity to honour them is bought — and where a buyer can find out, in an afternoon, whether a supplier can actually produce the equipment in the Kingdom, hold spare parts locally and support it after handover. Saudi Arabia's artificial intelligence ambition will not be limited by chips. It will be limited by how many people in the country can commission a chilled-water system correctly.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "data-centers",
+    "categories": [
+      "data-centers",
+      "construction",
+      "industrial-technology"
+    ],
+    "tags": [
+      "LEAP 2026",
+      "Big 5 Construct Saudi",
+      "Data Centres",
+      "Saudi Construction",
+      "AI Infrastructure"
+    ],
+    "companies": [
+      "HUMAIN",
+      "DataVolt",
+      "LEAP",
+      "Big 5 Construct Saudi",
+      "NEOM"
+    ],
+    "primarySourceUrl": "https://english.aawsat.com/business/5313165-leap-2026-saudi-arabia-leads-ai-era-over-15-bn-technology-launches-investments",
+    "primarySourceName": "Asharq Al-Awsat",
+    "secondarySourceUrls": [
+      "https://www.big5constructsaudi.com/b5cs-opens-under-patronage-of-the-ministry-of-industry-and-mineral-resources/",
+      "https://economymiddleeast.com/news/saudi-arabia-reveals-over-15-billion-in-ai-investments-and-technology-launches-at-leap-2026/",
+      "https://archdesk.com/blog/global-ai-data-center-construction-2026",
+      "https://www.agbi.com/ai/2026/08/humain-quadruples-data-centre-capacity-with-mis-deal/"
+    ],
+    "seoTitle": "Riyadh's Two Trade Shows Describe One Saudi Build",
+    "seoDescription": "LEAP 2026 produced $15bn of AI announcements. Big 5 Construct Saudi is where the steel, concrete, chillers and controls behind them get bought.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "people": [],
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "informationCutoff": "2026-09-01",
+    "eventDate": "2026-08-31",
+    "wordCount": 721
+  }
+]
