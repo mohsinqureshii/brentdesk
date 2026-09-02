@@ -1,0 +1,44 @@
+[
+  {
+    "commission": 55,
+    "headline": "ACWA Power and Saudi Energy Sign SAR 11.5bn PPA for 2.3 GW Rabigh 2 Gas Expansion",
+    "slug": "acwa-power-saudi-energy-rabigh-2-expansion-ppa",
+    "deck": "A 31-year power purchase agreement adds 2,313.5 MW of combined-cycle capacity in Makkah Province, with space left for a carbon capture unit that has not been ordered.",
+    "excerpt": "ACWA Power and Saudi Energy have signed a power purchase agreement with the Saudi Power Procurement Company for the expansion of the Rabigh 2 plant, adding 2,313.5 MW of gas-fired combined-cycle capacity. The contract is worth about SAR 11.5 billion and runs for 31 years from commercial operation.",
+    "content": "<p>ACWA Power and Saudi Energy have signed a power purchase agreement with the Saudi Power Procurement Company for the expansion of the Rabigh 2 independent power plant in Makkah Province, adding 2,313.5 megawatts of gas-fired combined-cycle capacity to the Saudi system.</p><p>The contract is valued at about SAR 11.5 billion, roughly $3 billion, and runs for 31 years from the plant's expected commercial operation date. ACWA Power and Saudi Energy each hold a 40 percent equity interest in the project company.</p><p>The scope covers developing, financing, building, owning and operating the combined-cycle plant, and separately developing, financing and building an extension to a 380 kV electrical substation that connects it to the transmission network. The plant is designed with provision for a carbon capture unit to be installed later; no capture unit has been ordered or contracted.</p><p>Rabigh sits on the Red Sea coast north of Jeddah and is already an established generation and industrial site. Expanding an existing plant rather than developing a greenfield one shortens the connection work and reuses fuel supply, cooling and site infrastructure that would otherwise have to be built from nothing — which is generally why utilities expand where they can.</p><p>The substation element is not incidental. Saudi Energy, which was until recently named the Saudi Electricity Company, has been putting 380 kV substation and overhead line packages out to bid to connect new generation, and connection capacity has become as much of a constraint on the build programme as the plants themselves. Contracting the substation extension inside the same project structure removes one interface between the generator and the network.</p><p>The agreement continues a run of large thermal procurement running alongside the Kingdom's renewable programme. In November 2024, SPPC signed power purchase agreements for <a href=\"https://spb.com.sa/in-the-presence-of-minister-of-energy-saudi-power-procurement-company-principal-buyer-signs-power-purchase-agreements-for-five-projects-totaling-9200-mw/\">five projects totalling 9,200 MW</a>, of which 7,200 MW was flexible combined-cycle capacity at Rumah and Nairyah, also specified with the capacity to install carbon capture units. The Rumah 1 and Nairyah 1 plants, at 1,800 MW each, went to a consortium of ACWA Power, the Saudi Electricity Company and Korea Electric Power Corporation.</p><p>The word doing the work in these contracts is flexible. A combined-cycle plant contracted today in Saudi Arabia is not being bought to run flat out; it is being bought to be available, and to cycle around a solar fleet that is about to get very large. Twelve gigawatts of solar photovoltaic capacity reached financial close in December and is scheduled to begin operating from the second half of 2027, and the principal buyer has since contracted about 8 GWh of battery storage. Firm capacity is what allows that renewable share to be dispatched rather than merely installed.</p><p>Carbon capture readiness is now a recurring specification in Saudi thermal contracts, and it should be read for what it is: the plant is laid out so that a capture train could be retrofitted without rebuilding it. That preserves an option at modest additional cost. It is not an emissions reduction, and it becomes one only if a capture unit is separately sanctioned, financed and built.</p><p>Rabigh 2's expansion is at the agreement stage. Financial close, construction and commissioning are still to come, and the 31-year term begins only when the plant is operating.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "power",
+    "tags": [
+      "Gas Power",
+      "ACWA Power",
+      "Independent Power Projects",
+      "Makkah"
+    ],
+    "companies": [
+      "ACWA Power",
+      "Saudi Energy",
+      "Saudi Power Procurement Company",
+      "Korea Electric Power Corporation"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-04-16",
+    "informationCutoff": "2026-04-21",
+    "primarySourceUrl": "https://acwapower.com/en/media-center/latest-news/acwa-signs-power-purchase-agreement-for-the-expansion-of-rabigh-2-power-plant-project/",
+    "primarySourceName": "ACWA Power",
+    "secondarySourceUrls": [
+      "https://www.power-technology.com/news/acwa-sppc-agreement-rabigh-2-expansion/",
+      "https://tradearabia.com/News/414240/Acwa-signs-$3bn-PPA-for-Rabigh-2-power-plant-expansion",
+      "https://www.saudigulfprojects.com/2026/04/saudi-energy-co-and-acwa-announces-the-signing-of-3-billion-ppa-for-rabigh-2-ipp-expansion-project/",
+      "https://www.arabnews.com/node/2640452"
+    ],
+    "seoTitle": "ACWA Power Signs $3bn PPA for Rabigh 2 Gas Expansion",
+    "seoDescription": "ACWA Power and Saudi Energy have signed a 31-year, SAR 11.5bn PPA with SPPC for a 2,313.5 MW combined-cycle expansion at Rabigh 2 in Makkah Province.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "replacementOf": "Saudi Arabia's Electricity Grid Faces a New Era of Industrial Demand",
+    "replacementReason": "No verifiable primary or independently corroborated data could be obtained on Saudi industrial load growth, peak demand or factory electrification for the period, and the available material would have duplicated the data centre commission. Replaced with the Rabigh 2 expansion power purchase agreement, a same-period, same-sector development documented by the developer, the Saudi Exchange filing coverage and multiple independent trade reports.",
+    "wordCount": 538,
+    "people": [],
+    "imageReviewRequired": true
+  }
+]
