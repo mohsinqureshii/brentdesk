@@ -630,6 +630,26 @@ async function startServer() {
     // SEED_ON_BOOT=1 set is harmless — but it exists so a first deploy on a
     // platform with no usable container shell can still bootstrap itself.
     // It seeds no editorial content.
+    // A DATABASE_URL pointing at localhost cannot be right in a deployed
+    // container: nothing listens on the app's own loopback. It is what you
+    // get by pasting .env.example into a platform's variable editor, and the
+    // only symptom is ECONNREFUSED from every query — which reads as an
+    // outage rather than as a typo. Say so plainly once, at boot.
+    {
+      const url = process.env.DATABASE_URL ?? "";
+      const isLocal = /@(localhost|127\.0\.0\.1|\[?::1\]?)[:/]/.test(url);
+      const isPlaceholder = /REPLACE_ME|:\/\/user:password@/.test(url);
+      if (process.env.NODE_ENV === "production" && (isLocal || isPlaceholder)) {
+        console.error(
+          "[Config] DATABASE_URL points at " +
+            (isPlaceholder ? "the example placeholder" : "localhost") +
+            " — inside a deployed container that is the app itself, so every " +
+            "query will fail with ECONNREFUSED. Point it at the database " +
+            "service (on Railway: the reference ${{MySQL.MYSQL_URL}}).",
+        );
+      }
+    }
+
     // Bootstrap decisions. Both default to running only when the table they
     // populate is empty, so a freshly provisioned database comes up complete
     // without anyone setting a variable, and an existing one is never touched
