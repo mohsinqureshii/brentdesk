@@ -11,10 +11,11 @@
 
 import "dotenv/config";
 import { runSeed } from "./seed-brentdesk";
+import { describeError } from "./cliError";
 
 runSeed()
   .then(() => process.exit(0))
   .catch((err) => {
-    console.error("[seed] failed:", err);
+    console.error(`[seed] ${describeError(err)}`);
     process.exit(1);
   });

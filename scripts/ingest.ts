@@ -11,10 +11,11 @@
 
 import "dotenv/config";
 import { runIngest } from "./ingest-articles";
+import { describeError } from "./cliError";
 
 runIngest(process.argv.slice(2))
   .then(() => process.exit(0))
-  .catch((err: Error) => {
-    console.error(`[ingest] ${err.message}`);
+  .catch((err: unknown) => {
+    console.error(`[ingest] ${describeError(err)}`);
     process.exit(1);
   });
