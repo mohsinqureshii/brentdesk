@@ -44,7 +44,10 @@
     "replacementReason": null,
     "categories": [
       "energy",
-      "renewables"
+      "renewables",
+      "power",
+      "manufacturing",
+      "construction"
     ],
     "internalLinks": [
       "neom-green-hydrogen-completion-air-products-offtake-economics",

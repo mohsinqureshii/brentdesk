@@ -10,8 +10,12 @@
     "primaryCategory": "utilities",
     "categories": [
       "utilities",
+      "engineering",
+      "construction",
       "supply-chain",
-      "logistics"
+      "real-estate",
+      "manufacturing",
+      "water"
     ],
     "tags": [
       "HVAC",

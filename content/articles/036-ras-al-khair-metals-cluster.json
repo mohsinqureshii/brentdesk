@@ -45,7 +45,12 @@
     "wordCount": 827,
     "categories": [
       "metals",
-      "mining"
+      "mining",
+      "energy",
+      "ports",
+      "logistics",
+      "oil-gas",
+      "manufacturing"
     ]
   }
 ]

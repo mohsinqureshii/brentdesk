@@ -9,7 +9,11 @@
     "author": "BrentDesk Research",
     "primaryCategory": "construction",
     "categories": [
-      "construction"
+      "construction",
+      "supply-chain",
+      "manufacturing",
+      "logistics",
+      "water"
     ],
     "tags": [
       "Construction Pipeline",

@@ -45,7 +45,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "logistics",
+      "ports",
+      "metals",
+      "supply-chain"
     ]
   }
 ]

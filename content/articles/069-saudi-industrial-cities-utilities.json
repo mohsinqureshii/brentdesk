@@ -47,7 +47,10 @@
       "utilities",
       "water",
       "infrastructure",
-      "manufacturing"
+      "manufacturing",
+      "energy",
+      "power",
+      "telecom-infrastructure"
     ]
   }
 ]

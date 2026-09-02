@@ -10,7 +10,9 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
+      "construction",
       "supply-chain",
+      "engineering",
       "logistics"
     ],
     "tags": [

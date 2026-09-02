@@ -48,7 +48,12 @@
     "replacementReason": null,
     "categories": [
       "data-centers",
-      "industrial-technology"
+      "industrial-technology",
+      "construction",
+      "engineering",
+      "transportation",
+      "energy",
+      "renewables"
     ],
     "internalLinks": [
       "ewec-khazna-solar-engie-masdar"

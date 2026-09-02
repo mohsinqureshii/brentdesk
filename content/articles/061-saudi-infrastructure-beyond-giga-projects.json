@@ -46,7 +46,12 @@
     "replacementReason": null,
     "categories": [
       "infrastructure",
-      "water"
+      "roads",
+      "water",
+      "transportation",
+      "aviation",
+      "construction",
+      "power"
     ],
     "internalLinks": [
       "saudi-desalination-eastern-province-capacity-expansion"

@@ -48,26 +48,46 @@ const PARENT: Record<string, string> = {
   aviation: "transportation", rail: "transportation",
 };
 
-/** Tag or phrase -> an additional category it clearly indicates. */
+/**
+ * Phrase -> a category it indicates.
+ *
+ * Deliberately broad. An article about a Jeddah port logistics centre
+ * genuinely belongs in ports, logistics, supply-chain, construction and
+ * infrastructure — filing it under one of those and calling the job done
+ * hides it from four category pages a reader would have found it on.
+ */
 const TAG_CATEGORY: Array<[RegExp, string]> = [
-  [/\b(refinery|refining|petrochemical|downstream|lng|gas)\b/i, "oil-gas"],
-  [/\b(solar|wind|renewable|hydrogen)\b/i, "renewables"],
-  [/\b(grid|transmission|substation|power plant|generation|battery storage)\b/i, "power"],
-  [/\b(desalination|water)\b/i, "water"],
-  [/\b(port|terminal|container|teu)\b/i, "ports"],
-  [/\b(rail|railway|freight corridor)\b/i, "rail"],
-  [/\b(airport|aviation|terminal concession)\b/i, "aviation"],
-  [/\b(warehouse|warehousing|logistics centre|logistics center)\b/i, "warehousing"],
-  [/\b(steel|aluminium|aluminum|copper|gold|smelter)\b/i, "metals"],
-  [/\b(factory|factories|manufacturing|plant|assembly)\b/i, "manufacturing"],
-  [/\b(robot|robotics)\b/i, "robotics"],
-  [/\b(data centre|data center)\b/i, "data-centers"],
-  [/\b(artificial intelligence|machine learning|\bai\b)\b/i, "industrial-ai"],
-  [/\b(automation|automated)\b/i, "automation"],
-  [/\b(procurement|supply chain|localisation|localization)\b/i, "supply-chain"],
-  [/\b(contractor|contract award|construction)\b/i, "construction"],
-  [/\b(mining|mineral|exploration licence)\b/i, "mining"],
-  [/\b(chemical|petrochemicals)\b/i, "chemicals"],
+  [/\b(refinery|refining|petrochemical|downstream|upstream|lng|crude|barrels|oilfield|gas plant)\b/i, "oil-gas"],
+  [/\b(solar|wind|renewable|hydrogen|photovoltaic|pv plant)\b/i, "renewables"],
+  [/\b(grid|transmission|substation|power plant|generation|megawatt|gigawatt|battery storage|ppa|electricity)\b/i, "power"],
+  [/\b(desalination|water|wastewater|sewage|reverse osmosis)\b/i, "water"],
+  [/\b(port|terminal|container|teu|berth|quay|shipping)\b/i, "ports"],
+  [/\b(rail|railway|freight corridor|metro|locomotive)\b/i, "rail"],
+  [/\b(airport|aviation|runway|terminal concession|air cargo)\b/i, "aviation"],
+  [/\b(warehouse|warehousing|logistics centre|logistics center|distribution centre|fulfilment)\b/i, "warehousing"],
+  [/\b(steel|aluminium|aluminum|copper|gold|smelter|rebar|foundry|casting)\b/i, "metals"],
+  [/\b(factory|factories|manufacturing|plant|assembly|production line|localis|localiz)\b/i, "manufacturing"],
+  [/\b(robot|robotics|autonomous)\b/i, "robotics"],
+  [/\b(data centre|data center|hyperscale|colocation|rack|gpu)\b/i, "data-centers"],
+  [/\b(artificial intelligence|machine learning|\bai\b|model training|inference)\b/i, "industrial-ai"],
+  [/\b(automation|automated|control system|scada|plc)\b/i, "automation"],
+  [/\b(procurement|supply chain|tender|sourcing|local content|supplier)\b/i, "supply-chain"],
+  [/\b(contractor|contract award|construction|building|site work|concrete|cement)\b/i, "construction"],
+  [/\b(mining|mineral|exploration licence|ore|phosphate|bauxite)\b/i, "mining"],
+  [/\b(chemical|petrochemicals|admixture|polymer|coating|adhesive)\b/i, "chemicals"],
+  [/\b(excavator|crane|loader|bulldozer|heavy equipment|machinery|attachment)\b/i, "heavy-equipment"],
+  [/\b(facilities management|\bfm\b|maintenance|handover|operations and maintenance|cleaning)\b/i, "facilities-management"],
+  [/\b(developer|masterplan|residential|real estate|district|mixed-use|giga.?project)\b/i, "real-estate"],
+  [/\b(highway|road|bridge|tunnel|interchange)\b/i, "roads"],
+  [/\b(fibre|fiber|5g|telecom|network operator|connectivity)\b/i, "telecom-infrastructure"],
+  [/\b(hvac|chiller|cooling|air conditioning|insulation|refrigerant)\b/i, "engineering"],
+  [/\b(epc|engineering, procurement|design.build|turnkey)\b/i, "epc"],
+  [/\b(utility|utilities|district cooling|metering)\b/i, "utilities"],
+  [/\b(freight|haulage|trucking|last mile|customs)\b/i, "logistics"],
+  [/\b(fleet|truck|vehicle|transport)\b/i, "transportation"],
+  [/\b(sensor|iot|digital twin|bim|software|platform|dashboard)\b/i, "industrial-technology"],
+  [/\b(infrastructure|utilities corridor|public works)\b/i, "infrastructure"],
+  [/\b(energy|fuel|power purchase|decarbon)\b/i, "energy"],
 ];
 
 const VALID = new Set([
@@ -97,26 +117,74 @@ for (const f of files) {
 }
 
 // ---------------------------------------------------------------- categories
+/** The floor an article should reach. Five category pages is the point of
+ *  having a taxonomy: a reader browsing "ports" and a reader browsing
+ *  "supply-chain" should both find the Jeddah logistics story. */
+const MIN_CATEGORIES = 5;
+/** And the ceiling. Past this the tags stop being a filing system and start
+ *  being noise on every category page in the site. */
+const MAX_CATEGORIES = 7;
+
+/**
+ * Categories for one article, ranked by how much the article actually says
+ * about each.
+ *
+ * Evidence is weighted by where it appears: a phrase in the headline is what
+ * the piece is about, a tag is what the desk filed it as, and a phrase in the
+ * body is a subject it touches. Ancestors come along automatically — an
+ * oil-gas story is an energy story.
+ *
+ * The floor is a target, not a licence to invent: a category with no evidence
+ * in the article is never added, so a genuinely narrow piece stays under five
+ * rather than being filed somewhere a reader would not expect to find it.
+ */
 function assignCategories(a: Article): string[] {
-  const out = new Set<string>([a.primaryCategory]);
+  const score = new Map<string, number>();
+  const bump = (cat: string, n: number) => {
+    if (!VALID.has(cat)) return;
+    score.set(cat, (score.get(cat) ?? 0) + n);
+    let p = cat;
+    while (PARENT[p]) { p = PARENT[p]; score.set(p, (score.get(p) ?? 0) + n / 2); }
+  };
 
-  // Every ancestor: an oil-gas story belongs in energy too.
+  // The primary and its ancestors are not up for debate.
+  score.set(a.primaryCategory, 1000);
   let cur = a.primaryCategory;
-  while (PARENT[cur]) { cur = PARENT[cur]; out.add(cur); }
+  while (PARENT[cur]) { cur = PARENT[cur]; score.set(cur, (score.get(cur) ?? 0) + 500); }
 
-  // Whatever the tags and headline clearly indicate.
-  const hay = [a.headline, ...(a.tags ?? [])].join(" ");
+  const headline = a.headline ?? "";
+  const tagText = (a.tags ?? []).join(" ");
+  // Tags stripped of markup: an href full of slugs would match half the
+  // patterns and file the article under categories it never mentions.
+  const body = (a.content ?? "").replace(/<[^>]*>/g, " ");
+
   for (const [re, cat] of TAG_CATEGORY) {
-    if (re.test(hay) && VALID.has(cat)) {
-      out.add(cat);
-      let p = cat;
-      while (PARENT[p]) { p = PARENT[p]; out.add(p); }
-    }
+    // A phrase in the headline is what the piece is about; a tag is what the
+    // desk filed it as. Either alone qualifies.
+    if (re.test(headline)) bump(cat, 6);
+    if (re.test(tagText)) bump(cat, 5);
+    // The body is weaker evidence and needs repetition. A story genuinely
+    // about ports says "port" throughout; one that mentions it once in
+    // passing is not a ports story, and filing it as one puts a stranger on
+    // every reader's category page.
+    const hits = (body.match(new RegExp(re.source, "gi")) ?? []).length;
+    if (hits) bump(cat, Math.min(hits, 5));
   }
 
-  // Keep it meaningful: primary first, at most four.
-  const ordered = [a.primaryCategory, ...[...out].filter(c => c !== a.primaryCategory)];
-  return ordered.slice(0, 4);
+  // Two tiers. Strong evidence — a headline phrase, a desk tag, or four
+  // mentions in the body — files the article outright. Weaker evidence is
+  // only used to reach the floor, so a story with plenty to say lands in the
+  // categories it earns and a narrow one is padded no further than five.
+  const STRONG = 4;
+  const WEAK = 1;
+  const byScore = [...score.entries()].sort((x, y) => y[1] - x[1]);
+  const strong = byScore.filter(([, n]) => n >= STRONG).map(([c]) => c);
+  const filler = byScore.filter(([, n]) => n >= WEAK && n < STRONG).map(([c]) => c);
+  const ranked = [...strong, ...filler].slice(0, Math.max(MIN_CATEGORIES, strong.length));
+
+  // Primary first — it is the canonical URL the article lives at.
+  const ordered = [a.primaryCategory, ...ranked.filter(c => c !== a.primaryCategory)];
+  return ordered.slice(0, Math.max(MIN_CATEGORIES, Math.min(MAX_CATEGORIES, ordered.length)));
 }
 
 // -------------------------------------------------------------------- links
@@ -252,6 +320,9 @@ if (WRITE) {
 const linked = all.filter(a => (a.internalLinks?.length ?? 0) > 0).length;
 const avgCats = (all.reduce((n, a) => n + (a.categories?.length ?? 0), 0) / all.length).toFixed(1);
 console.log(linkLog.join("\n"));
+const short = all.filter(a => (a.categories?.length ?? 0) < MIN_CATEGORIES).length;
 console.log(`\n${all.length} articles · ${catChanges} category sets written · avg ${avgCats} categories`);
+console.log(`${all.length - short}/${all.length} reach the ${MIN_CATEGORIES}-category floor` +
+  (short ? ` · ${short} carry less because the article does not support more` : ""));
 console.log(`${linkChanges} internal links added · ${linked}/${all.length} articles now link out`);
 console.log(WRITE ? "written" : "dry run — pass --write to save");

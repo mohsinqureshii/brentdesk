@@ -44,8 +44,10 @@
     "replacementReason": null,
     "categories": [
       "manufacturing",
-      "supply-chain",
-      "logistics"
+      "metals",
+      "mining",
+      "construction",
+      "oil-gas"
     ],
     "wordCount": 592
   }

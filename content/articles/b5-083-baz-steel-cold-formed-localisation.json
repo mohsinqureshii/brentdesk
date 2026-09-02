@@ -10,9 +10,11 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
+      "supply-chain",
       "metals",
-      "mining",
-      "supply-chain"
+      "logistics",
+      "construction",
+      "mining"
     ],
     "tags": [
       "BAZ",

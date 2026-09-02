@@ -9,7 +9,11 @@
     "author": "BrentDesk Research",
     "primaryCategory": "construction",
     "categories": [
-      "construction"
+      "construction",
+      "manufacturing",
+      "water",
+      "infrastructure",
+      "metals"
     ],
     "tags": [
       "Cement",

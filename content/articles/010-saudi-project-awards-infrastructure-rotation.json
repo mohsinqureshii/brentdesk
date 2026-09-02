@@ -43,7 +43,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "construction"
+      "construction",
+      "infrastructure",
+      "water",
+      "energy",
+      "real-estate"
     ],
     "internalLinks": [
       "saudi-2034-world-cup-stadium-programme-cost-revision"

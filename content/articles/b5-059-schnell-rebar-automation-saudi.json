@@ -10,9 +10,12 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
+      "metals",
       "automation",
       "industrial-technology",
-      "construction"
+      "mining",
+      "construction",
+      "heavy-equipment"
     ],
     "tags": [
       "Schnell Group",

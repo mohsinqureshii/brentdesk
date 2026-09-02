@@ -45,7 +45,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "construction"
+      "construction",
+      "infrastructure",
+      "real-estate",
+      "supply-chain",
+      "logistics"
     ]
   }
 ]

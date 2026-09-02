@@ -45,7 +45,10 @@
     "replacementReason": null,
     "categories": [
       "water",
-      "infrastructure"
+      "infrastructure",
+      "manufacturing",
+      "power",
+      "energy"
     ]
   }
 ]

@@ -51,7 +51,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "construction",
+      "metals",
+      "supply-chain",
+      "utilities"
     ]
   }
 ]

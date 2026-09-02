@@ -10,8 +10,11 @@
     "primaryCategory": "construction",
     "categories": [
       "construction",
+      "metals",
+      "manufacturing",
       "supply-chain",
-      "logistics"
+      "facilities-management",
+      "engineering"
     ],
     "tags": [
       "Partnerships",

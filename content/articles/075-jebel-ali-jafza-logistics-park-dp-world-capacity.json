@@ -44,7 +44,9 @@
     "categories": [
       "ports",
       "logistics",
-      "warehousing"
+      "warehousing",
+      "manufacturing",
+      "transportation"
     ]
   }
 ]

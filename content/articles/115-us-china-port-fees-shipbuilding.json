@@ -47,7 +47,10 @@
     "replacementReason": null,
     "categories": [
       "ports",
-      "logistics"
+      "logistics",
+      "oil-gas",
+      "transportation",
+      "energy"
     ],
     "wordCount": 859
   }

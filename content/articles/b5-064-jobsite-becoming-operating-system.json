@@ -10,7 +10,10 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
-      "construction"
+      "construction",
+      "facilities-management",
+      "real-estate",
+      "supply-chain"
     ],
     "tags": [
       "Construction Technology",

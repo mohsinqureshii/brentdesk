@@ -10,8 +10,10 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
+      "construction",
       "robotics",
-      "construction"
+      "manufacturing",
+      "engineering"
     ],
     "tags": [
       "Construction Technology",

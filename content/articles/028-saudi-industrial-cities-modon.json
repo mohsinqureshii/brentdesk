@@ -41,7 +41,11 @@
     "replacementReason": null,
     "wordCount": 663,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "infrastructure",
+      "energy",
+      "water",
+      "construction"
     ]
   }
 ]

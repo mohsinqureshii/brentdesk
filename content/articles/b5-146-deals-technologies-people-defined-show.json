@@ -10,8 +10,12 @@
     "primaryCategory": "construction",
     "categories": [
       "construction",
+      "facilities-management",
+      "real-estate",
       "supply-chain",
-      "logistics"
+      "energy",
+      "metals",
+      "mining"
     ],
     "tags": [
       "Big 5 Construct Saudi",

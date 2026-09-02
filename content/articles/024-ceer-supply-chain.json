@@ -51,7 +51,10 @@
     "replacementReason": null,
     "categories": [
       "supply-chain",
-      "logistics"
+      "logistics",
+      "manufacturing",
+      "transportation",
+      "metals"
     ],
     "internalLinks": [
       "saudi-mandatory-local-content-list-anchor-buyers"

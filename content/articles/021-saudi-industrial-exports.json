@@ -44,7 +44,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "logistics",
+      "heavy-equipment",
+      "energy",
+      "oil-gas"
     ]
   }
 ]

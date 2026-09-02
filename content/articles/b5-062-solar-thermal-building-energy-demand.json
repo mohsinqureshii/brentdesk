@@ -10,9 +10,12 @@
     "primaryCategory": "energy",
     "categories": [
       "energy",
-      "renewables",
+      "construction",
       "water",
-      "infrastructure"
+      "power",
+      "renewables",
+      "infrastructure",
+      "real-estate"
     ],
     "tags": [
       "Solar Thermal",

@@ -44,7 +44,11 @@
     "replacementReason": null,
     "categories": [
       "power",
-      "energy"
+      "energy",
+      "construction",
+      "infrastructure",
+      "supply-chain",
+      "utilities"
     ],
     "internalLinks": [
       "saudi-arabia-gas-renewables-generation-mix-balance",

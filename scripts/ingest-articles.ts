@@ -23,6 +23,7 @@ import {
   articles, articleTags, articleCompanies, articlePeople, articleCategories,
   articleRelatedEntities,
   tags, categories, companies, people, users, countries, events,
+  contentTranslations,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
@@ -354,6 +355,76 @@ export function publishableArticleCount(): number {
   }
 }
 
+
+/**
+ * Publish the translated archive bundled at dist/translations.json.
+ *
+ * Runs after the articles, because a translation is keyed to an article that
+ * has to exist first. Idempotent on (entity, locale, field): re-running
+ * updates in place, so a corrected translation ships on the next deploy
+ * without anything to clean up.
+ *
+ * Rows land as `published` — these were reviewed in the repository before
+ * they were merged, which is the review step a runtime translation gets in
+ * the admin panel instead.
+ */
+async function ingestTranslations(db: Db): Promise<{ written: number; missing: string[] }> {
+  const candidates = [
+    path.resolve(import.meta.dirname, "translations.json"),
+    path.resolve(process.cwd(), "dist", "translations.json"),
+  ];
+  const file = [...new Set(candidates.map(f => path.resolve(f)))].find(f => existsSync(f));
+  if (!file) return { written: 0, missing: [] };
+
+  const parsed = JSON.parse(readFileSync(file, "utf8"));
+  const batch: Array<{ slug: string; locale: string; fields: Record<string, string>; translator?: string }> =
+    Array.isArray(parsed) ? parsed : [parsed];
+  if (!batch.length) return { written: 0, missing: [] };
+
+  const { createHash } = await import("crypto");
+  const hash = (t: string) => createHash("sha256").update(t).digest("hex");
+
+  let written = 0;
+  const missing: string[] = [];
+  const now = toDbDate(new Date());
+
+  for (const t of batch) {
+    const [row] = await db
+      .select({ id: articles.id, title: articles.title, excerpt: articles.excerpt,
+                content: articles.content, seoTitle: articles.seoTitle,
+                seoDescription: articles.seoDescription })
+      .from(articles).where(eq(articles.slug, t.slug)).limit(1);
+    if (!row) { missing.push(t.slug); continue; }
+
+    for (const [field, value] of Object.entries(t.fields)) {
+      if (!value || !String(value).trim()) continue;
+      const source = (row as any)[field] as string | undefined;
+      await db.insert(contentTranslations).values({
+        entityType: "article",
+        entityId: row.id,
+        locale: t.locale,
+        field,
+        value,
+        source: "ai",
+        status: "published",
+        model: t.translator ?? null,
+        // Hashed against the English it was made from, so editing the article
+        // later marks the translation stale instead of silently serving a
+        // translation of a paragraph that is no longer there.
+        sourceHash: source ? hash(source) : null,
+        translatedAt: now,
+      } as any).onDuplicateKeyUpdate({
+        set: {
+          value, source: "ai", status: "published", model: t.translator ?? null,
+          sourceHash: source ? hash(source) : null, translatedAt: now,
+        } as any,
+      });
+      written++;
+    }
+  }
+  return { written, missing };
+}
+
 export async function runIngest(files?: string[]): Promise<{ created: number; updated: number; missing: string[] }> {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is required");
@@ -397,6 +468,13 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
       }
     }
     const edges = await linkRelatedArticles(db, seen);
+    const translations = await ingestTranslations(db);
+    if (translations.written) {
+      console.log(`[ingest] ${translations.written} translated fields published` +
+        (translations.missing.length
+          ? ` · ${translations.missing.length} referenced an article that is not in the archive`
+          : ""));
+    }
     console.log(`[ingest] ${created} created, ${updated} updated, ${edges} related-article links`);
     if (held) console.log(`[ingest] ${held} scheduled for a later date and held back`);
     if (missing.size) {

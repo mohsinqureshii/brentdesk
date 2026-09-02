@@ -46,8 +46,10 @@
     "replacementReason": null,
     "categories": [
       "construction",
+      "infrastructure",
       "rail",
-      "transportation"
+      "transportation",
+      "roads"
     ],
     "internalLinks": [
       "robotics-industrial-inspection-adnoc-taweelah-anybotics-spot",

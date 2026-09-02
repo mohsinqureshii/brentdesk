@@ -47,7 +47,10 @@
     "replacementReason": null,
     "categories": [
       "renewables",
-      "energy"
+      "energy",
+      "manufacturing",
+      "construction",
+      "utilities"
     ]
   }
 ]

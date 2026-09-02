@@ -44,7 +44,10 @@
     "replacementReason": null,
     "categories": [
       "chemicals",
-      "manufacturing"
+      "manufacturing",
+      "epc",
+      "construction",
+      "oil-gas"
     ]
   }
 ]
