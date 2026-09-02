@@ -649,6 +649,39 @@ async function tryEventLiveSSR(url: string, template: string): Promise<{ html: s
 }
 
 export async function runSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
+  // A language is a path prefix, so /ar/construction/big-5-opens has to
+  // resolve to the same article as /construction/big-5-opens. Strip it
+  // before routing, or every route below reads "ar" as a category and the
+  // whole non-default language 404s.
+  const path = url.split("?")[0];
+  const query = url.slice(path.length);
+  let routed = url;
+  try {
+    const { listLocales } = await import("../services/translation.service");
+    const { splitLocalePath } = await import("../services/locale.service");
+    const active = await listLocales({ activeOnly: true });
+    const { code, basePath } = splitLocalePath(path, active.map(l => l.code));
+    if (code) routed = basePath + query;
+  } catch {
+    // No locale table yet — serve the URL as written.
+  }
+
+  const result = await routeSSR(routed, template);
+  if (!result) return null;
+  // Language head, applied once for every route rather than in each of the
+  // eleven meta-tag generators: <html lang dir>, the canonical for THIS
+  // language, and the reciprocal hreflang set.
+  try {
+    const { applyLocaleHead } = await import("../services/hreflang.service");
+    return { ...result, html: await applyLocaleHead(result.html, path) };
+  } catch (err) {
+    // A language lookup must never cost us a rendered page.
+    console.error("[SSR] locale head failed:", (err as Error).message);
+    return result;
+  }
+}
+
+async function routeSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
   // 0a. Live coverage pages (/events/:slug/live[/:postId])
   const liveResult = await tryEventLiveSSR(url, template);
   if (liveResult) return liveResult;

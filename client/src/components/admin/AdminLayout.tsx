@@ -280,6 +280,9 @@ const settingsNavigation: NavItem[] = [
       // It belongs under Settings because it's site-wide configuration,
       // not content the editor touches per article.
       { title: "Editions", href: "/admin/editions" },
+      // Languages is the same kind of thing one level over: which languages
+      // the site is published in, and how each one's copy gets written.
+      { title: "Languages", href: "/admin/languages" },
     ],
   },
   {

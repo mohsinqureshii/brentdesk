@@ -6,6 +6,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { ScrollToTop } from "./components/ScrollToTop";
+import LocaleProvider from "./components/LocaleProvider";
 
 // Public pages
 import News from "./pages/public/News";
@@ -63,6 +64,7 @@ const ModerationQueue = lazy(() => import("./pages/admin/ModerationQueue"));
 const WordPressImport = lazy(() => import("./pages/admin/WordPressImport"));
 const SEOManager = lazy(() => import("./pages/admin/SEOManager"));
 const EditionsPage = lazy(() => import("./pages/admin/Editions"));
+const LanguagesPage = lazy(() => import("./pages/admin/Languages"));
 const SearchAnalyticsPage = lazy(() => import("./pages/admin/SearchAnalytics"));
 const HomepageConfig = lazy(() => import("./pages/admin/HomepageConfig"));
 const HomepageSections = lazy(() => import("./pages/admin/HomepageSections"));
@@ -324,6 +326,7 @@ function Router() {
         {/* SEO & Configuration */}
         <Route path="/admin/seo">{() => <ProtectedRoute requireAdmin><SEOManager /></ProtectedRoute>}</Route>
         <Route path="/admin/editions">{() => <ProtectedRoute requireAdmin><EditionsPage /></ProtectedRoute>}</Route>
+        <Route path="/admin/languages">{() => <ProtectedRoute requireAdmin><LanguagesPage /></ProtectedRoute>}</Route>
         {/* /admin/seo/health route deleted — SeoHealth.tsx was a duplicate of
             SEO Manager → Health → Issues & AI Fixes. Old bookmarks 404 → SPA
             fallback redirects them to /admin/seo. */}
@@ -406,10 +409,14 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
-          <Toaster />
-          <Router />
-          <MobileBottomNav />
-          <CookieConsentBanner />
+          {/* Wraps the router so a /ar prefix resolves to the same routes,
+              and so <html lang dir> matches the language being served. */}
+          <LocaleProvider>
+            <Toaster />
+            <Router />
+            <MobileBottomNav />
+            <CookieConsentBanner />
+          </LocaleProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

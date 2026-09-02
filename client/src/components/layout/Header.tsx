@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/sheet";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
 
@@ -109,6 +110,10 @@ export function Header() {
 
             {/* Right Section */}
             <div className="flex items-center gap-2">
+              {/* Renders nothing until a second language is configured, so
+                  a single-language site carries no dead control. */}
+              <LanguageSwitcher className="text-white hover:bg-white/10" />
+
               <Button
                 variant="ghost"
                 size="icon"
