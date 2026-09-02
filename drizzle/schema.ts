@@ -4383,3 +4383,104 @@ export const newsletterSubscriptions = mysqlTable("newsletter_subscriptions", {
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
+
+// ============================================================
+// LOCALISATION — languages the site is published in, and the
+// translated copy behind them.
+// ------------------------------------------------------------
+// Migration: 0002_locales_translations.sql
+//
+// A locale is added from the admin, not from a deploy: adding
+// Arabic is a row here, not a code change. `translationMode`
+// decides how its copy gets written:
+//
+//   auto         — translated by the model as soon as an article
+//                  publishes or its English changes
+//   manual_ai    — an editor presses Translate, the model writes it
+//   manual_write — no model involved; a person types it
+//
+// content_translations is generic on (entityType, entityId, field)
+// so the same table carries article bodies, category names,
+// company descriptions and UI chrome without a table per thing.
+// `sourceHash` is the hash of the English the translation was made
+// from: when the English is edited it stops matching, and the row
+// is marked stale rather than silently serving old copy.
+// ============================================================
+
+export const locales = mysqlTable("locales", {
+	id: int().autoincrement().primaryKey(),
+	/** BCP-47-ish: "ar", "fr", "ur", "zh-Hans". */
+	code: varchar({ length: 12 }).notNull(),
+	/** English name, for the admin list. */
+	name: varchar({ length: 64 }).notNull(),
+	/** What speakers call it — this is what the switcher shows. */
+	nativeName: varchar("native_name", { length: 64 }).notNull(),
+	direction: mysqlEnum(['ltr','rtl']).default('ltr').notNull(),
+	flagEmoji: varchar("flag_emoji", { length: 8 }),
+	/** Exactly one row. The language articles are written in; never translated. */
+	isDefault: tinyint("is_default").default(0).notNull(),
+	isActive: tinyint("is_active").default(1).notNull(),
+	translationMode: mysqlEnum("translation_mode", ['auto','manual_ai','manual_write']).default('manual_ai').notNull(),
+	/** Override the site-wide LLM choice for this language. NULL = use it. */
+	provider: varchar({ length: 32 }),
+	model: varchar({ length: 64 }),
+	/** Terms to carry through untranslated or render a fixed way:
+	 *  [{ source: "Big 5 Construct Saudi", target: "Big 5 Construct Saudi" }] */
+	glossary: json(),
+	sortOrder: int("sort_order").default(0).notNull(),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
+},
+(table) => [
+	uniqueIndex("locales_code_unique").on(table.code),
+	index("idx_locales_active_sort").on(table.isActive, table.sortOrder),
+]);
+
+export const contentTranslations = mysqlTable("content_translations", {
+	id: int().autoincrement().primaryKey(),
+	/** "article", "category", "company", "person", "event", "ui". */
+	entityType: varchar("entity_type", { length: 64 }).notNull(),
+	/** 0 for "ui", where `field` is the string key. */
+	entityId: int("entity_id").notNull(),
+	locale: varchar({ length: 12 }).notNull(),
+	field: varchar({ length: 64 }).notNull(),
+	value: text().notNull(),
+	source: mysqlEnum(['ai','human','imported']).default('ai').notNull(),
+	/** Only "published" rows are ever served to a reader. */
+	status: mysqlEnum(['draft','published','stale']).default('draft').notNull(),
+	model: varchar({ length: 64 }),
+	/** SHA-256 of the source text this was translated from. */
+	sourceHash: varchar("source_hash", { length: 64 }),
+	translatedAt: timestamp("translated_at", { mode: 'string' }),
+	reviewedById: int("reviewed_by_id"),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
+},
+(table) => [
+	uniqueIndex("content_translations_entity_locale_field_unique")
+		.on(table.entityType, table.entityId, table.locale, table.field),
+	index("idx_content_translations_lookup").on(table.entityType, table.entityId, table.locale),
+	index("idx_content_translations_locale_status").on(table.locale, table.status),
+]);
+
+export const translationJobs = mysqlTable("translation_jobs", {
+	id: int().autoincrement().primaryKey(),
+	entityType: varchar("entity_type", { length: 64 }).notNull(),
+	entityId: int("entity_id").notNull(),
+	locale: varchar({ length: 12 }).notNull(),
+	status: mysqlEnum(['queued','running','done','failed']).default('queued').notNull(),
+	attempts: int().default(0).notNull(),
+	error: text(),
+	requestedById: int("requested_by_id"),
+	startedAt: timestamp("started_at", { mode: 'string' }),
+	finishedAt: timestamp("finished_at", { mode: 'string' }),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow().notNull(),
+},
+(table) => [
+	uniqueIndex("translation_jobs_entity_locale_unique").on(table.entityType, table.entityId, table.locale),
+	index("idx_translation_jobs_status").on(table.status, table.createdAt),
+]);
+
+export type Locale = typeof locales.$inferSelect;
+export type ContentTranslation = typeof contentTranslations.$inferSelect;

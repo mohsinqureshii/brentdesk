@@ -6,6 +6,7 @@
 import { z } from "zod";
 import { eq, and, or, desc, asc, like, inArray, isNotNull, sql, gte } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
+import { localizeArticle, localizeArticles } from "../../services/translation.service";
 import { getDb } from "../../db";
 import { 
   articles, 
@@ -142,7 +143,7 @@ export const newsRouter = router({
    */
   list: publicProcedure
     .input(listArticlesSchema)
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -257,7 +258,7 @@ export const newsRouter = router({
       }));
 
       return {
-        items: enrichedResults,
+        items: await localizeArticles(ctx.locale, enrichedResults),
         total,
         page,
         totalPages: Math.ceil(total / limit),
@@ -272,7 +273,7 @@ export const newsRouter = router({
       slug: z.string(),
       categorySlug: z.string().optional() // Category from URL to validate
     }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -422,8 +423,14 @@ export const newsRouter = router({
         }
       }
 
+      // Serve the reader's language. Field by field: a translated headline
+      // over an untranslated body reads better than a blank page, and any
+      // field without a published translation falls back to the English the
+      // article was reported in.
+      const localized = await localizeArticle(ctx.locale, article);
+
       return {
-        ...article,
+        ...localized,
         author: author[0] || null,
         categories: cats,
         primaryCategory,
@@ -436,6 +443,8 @@ export const newsRouter = router({
         sectors: articleSectors_,
         seo,
         featuredImageUrl,
+        locale: ctx.locale.code,
+        dir: ctx.locale.direction,
       };
     }),
 
@@ -1375,14 +1384,14 @@ export const newsRouter = router({
    */
   getFeatured: publicProcedure
     .input(z.object({ limit: z.number().default(5) }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (!publishedStatus) return [];
 
-      return db.select({
+      return localizeArticles(ctx.locale, await db.select({
         id: articles.id,
         title: articles.title,
         slug: articles.slug,
@@ -1397,7 +1406,7 @@ export const newsRouter = router({
           eq(articles.isFeatured, 1)
         ))
         .orderBy(newsRecencyDesc)
-        .limit(input.limit);
+        .limit(input.limit));
     }),
 
   /**
@@ -1405,14 +1414,14 @@ export const newsRouter = router({
    */
   getTrending: publicProcedure
     .input(z.object({ limit: z.number().default(5) }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (!publishedStatus) return [];
 
-      return db.select({
+      return localizeArticles(ctx.locale, await db.select({
         id: articles.id,
         title: articles.title,
         slug: articles.slug,
@@ -1428,7 +1437,7 @@ export const newsRouter = router({
           eq(articles.isTrending, 1)
         ))
         .orderBy(desc(articles.viewCount))
-        .limit(input.limit);
+        .limit(input.limit));
     }),
 
   /**
@@ -1436,7 +1445,7 @@ export const newsRouter = router({
    */
   getMostRead: publicProcedure
     .input(z.object({ limit: z.number().default(5), days: z.number().default(30) }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -1467,7 +1476,7 @@ export const newsRouter = router({
         .limit(input.limit);
 
       // Enrich with category slug and featured image URL
-      return Promise.all(results.map(async (article) => {
+      return localizeArticles(ctx.locale, await Promise.all(results.map(async (article) => {
         let categorySlug: string | null = null;
         if (article.primaryCategoryId) {
           const cat = await db.select({ slug: categories.slug })
@@ -1485,7 +1494,7 @@ export const newsRouter = router({
           featuredImageUrl = m[0]?.url || null;
         }
         return { ...article, categorySlug, featuredImageUrl };
-      }));
+      })));
     }),
 
   /**
@@ -1493,7 +1502,7 @@ export const newsRouter = router({
    */
   getEditorPicks: publicProcedure
     .input(z.object({ limit: z.number().default(5) }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -1546,7 +1555,7 @@ export const newsRouter = router({
       }
 
       // Enrich with category slug and featured image URL
-      return Promise.all(results.map(async (article) => {
+      return localizeArticles(ctx.locale, await Promise.all(results.map(async (article) => {
         let categorySlug: string | null = null;
         if (article.primaryCategoryId) {
           const cat = await db.select({ slug: categories.slug })
@@ -1564,7 +1573,7 @@ export const newsRouter = router({
           featuredImageUrl = m[0]?.url || null;
         }
         return { ...article, categorySlug, featuredImageUrl };
-      }));
+      })));
     }),
 
   /**

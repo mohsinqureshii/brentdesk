@@ -1,10 +1,10 @@
 import { describe, it, expect } from "vitest";
 import { shouldSeed, shouldIngest } from "./bootstrapDecisions";
 
-const TARGET = { companies: 125, events: 7 };
-const complete = { countries: 23, companies: 125, events: 7 };
-const behind = { countries: 23, companies: 40, events: 0 };
-const fresh = { countries: 0, companies: 0, events: 0 };
+const TARGET = { companies: 125, events: 7, locales: 2 };
+const complete = { countries: 23, companies: 125, events: 7, locales: 2 };
+const behind = { countries: 23, companies: 40, events: 0, locales: 0 };
+const fresh = { countries: 0, companies: 0, events: 0, locales: 0 };
 
 describe("shouldSeed", () => {
   it("seeds a fresh database", () => {
@@ -34,9 +34,16 @@ describe("shouldSeed", () => {
     expect(shouldSeed("0", fresh, TARGET)).toBe(false);
   });
 
+  it("seeds when a new language is added to the seed list", () => {
+    expect(shouldSeed(undefined, { ...complete, locales: 1 }, TARGET)).toBe(true);
+  });
+
   it("decides nothing on counts it could not read", () => {
-    expect(shouldSeed(undefined, { countries: null, companies: null, events: null }, TARGET))
-      .toBe(false);
+    expect(shouldSeed(
+      undefined,
+      { countries: null, companies: null, events: null, locales: null },
+      TARGET,
+    )).toBe(false);
   });
 });
 

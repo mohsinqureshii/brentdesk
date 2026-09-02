@@ -32,6 +32,7 @@
 import bcrypt from "bcryptjs";
 import { seedCompanies } from "./seed-companies";
 import { seedEvents } from "./seed-events";
+import { seedLocales } from "./seed-locales";
 import { publication } from "../shared/publication";
 import mysql from "mysql2/promise";
 import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
@@ -568,6 +569,7 @@ export async function runSeed(): Promise<void> {
     await seedHouseAds(db);
     await seedHomepageSections(db);
     await seedAuthors(db);
+    await seedLocales(db);
     // Company profiles need the published editorial status, which the server
     // creates at boot. Resolve it here so the seed works standalone too.
     {
