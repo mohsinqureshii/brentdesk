@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 105,
+    "headline": "Ma'aden, MP Materials and the Pentagon Agree to Build a Rare Earth Refinery in Saudi Arabia",
+    "slug": "maaden-mp-materials-rare-earth-refinery-joint-venture",
+    "deck": "Ma'aden will hold at least 51 percent and the US Department of War will finance the American side. No capacity, cost, site or schedule has been given.",
+    "excerpt": "MP Materials, the US Department of War and Ma'aden have signed a binding agreement to form a joint venture to build a rare earth refinery in Saudi Arabia, with Ma'aden holding no less than 51 percent. The plant is intended to produce separated light and heavy rare earth oxides from Saudi and imported feedstock, but no capacity, cost or site has been published.",
+    "content": "<p>Ma'aden, MP Materials and the US Department of War have signed a binding agreement to form a joint venture that would build a rare earth refinery in Saudi Arabia, taking a step that puts American public money behind separation capacity outside both China and the United States.</p><p>Under the <a href=\"https://mpmaterials.com/news/mp-materials-and-the-u-s-department-of-war-partner-with-the-saudi-arabian-mining-company-maaden-to-develop-rare-earth-refinery-joint-venture\">agreement</a>, Ma'aden will hold no less than 51 percent of the venture. MP Materials and the department, through a vehicle of their own, are targeting 49 percent. The department will provide full financing for the American contribution on a non-recourse basis; MP will contribute its separation and refining expertise together with sourcing and marketing. The plant is intended to process rare earth feedstock from Saudi Arabia and other regions and to produce separated light and heavy rare earth oxides.</p><p>The word doing the work in that description is separated. Rare earth elements are not rare in the ground, and mining them is not the difficult part. The difficulty is chemical: the fifteen lanthanides behave so similarly that pulling them apart requires hundreds of solvent extraction stages, large reagent volumes and a waste stream that has to be managed permanently. That is the step China performs for the overwhelming majority of world supply, and it is the step that determines who can build a magnet, a motor or a guidance system without asking Beijing first.</p><p>Heavy rare earths are the sharper end of it. Dysprosium and terbium are what keep a neodymium-iron-boron magnet working at the temperatures inside a traction motor or a defence system, they are used in small quantities, and almost all separation capacity for them sits in China. A plant designed to produce separated heavy oxides is therefore a materially different proposition from one that produces mixed concentrate or a light-element split.</p><p>The financing structure is as notable as the chemistry. Washington has moved over the past year from buying critical minerals output to taking direct financial positions in the companies that produce it, MP Materials among them. Non-recourse funding of a refinery in a third country is a further extension of that: the United States is underwriting industrial capacity it will not own outright and cannot site on its own territory, on the reasoning that supply outside Chinese control is worth more than supply inside American borders alone. The agreement follows a strategic framework on critical minerals supply chains that the two governments concluded in Washington this week during Crown Prince Mohammed bin Salman's visit.</p><p>For Ma'aden it is a fourth commodity line. The company already runs Saudi Arabia's phosphate, aluminium and gold businesses and is the instrument through which the state intends to make mining the third pillar of the industrial economy alongside oil and petrochemicals. Chief executive Bob Wilt told investors during LME Week in London in October that Ma'aden was moving into rare earths and copper, and Aramco and Ma'aden agreed in January to work together on <a href=\"https://www.aramco.com/en/news-media/news/2025/aramco-plans-transition-minerals-jv-with-maaden\">transition minerals</a>. The logic that has carried Saudi aluminium — cheap, abundant energy applied to an energy-intensive process — applies to solvent extraction and to the roasting and cracking steps ahead of it.</p><p>What has not been settled is almost everything an engineer would want to know. No capacity, capital cost, site or schedule has been given. The parties signed a memorandum of understanding in May and have now converted it into a binding agreement to form a joint venture, which is a real step but not a sanctioned project: separation plants are among the more troublesome things in process chemistry to permit, build and commission, and the gap between agreement and first oxide is normally measured in years.</p><p>The feedstock question is open too. Saudi Arabia has rare earth occurrences and Ma'aden has been drilling, but a refinery sized for anything meaningful will need imported concentrate as well, which is why the agreement refers to feedstock from other global regions. That makes the plant a processing asset first and a resource play second — which is, in fact, the point. The scarce thing in this supply chain has never been the ore.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "mining",
+    "tags": [
+      "Rare Earths",
+      "Ma'aden",
+      "MP Materials",
+      "Critical Minerals",
+      "Refining"
+    ],
+    "companies": [
+      "Ma'aden",
+      "MP Materials",
+      "US Department of War"
+    ],
+    "people": [
+      "Bob Wilt"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2025-11-18",
+    "informationCutoff": "2025-11-21",
+    "primarySourceUrl": "https://mpmaterials.com/news/mp-materials-and-the-u-s-department-of-war-partner-with-the-saudi-arabian-mining-company-maaden-to-develop-rare-earth-refinery-joint-venture",
+    "primarySourceName": "MP Materials",
+    "secondarySourceUrls": [
+      "https://www.businesswire.com/news/home/20251118096805/en/MP-Materials-and-the-U.S.-Department-of-War-Partner-with-the-Saudi-Arabian-Mining-Company-Maaden-to-Develop-Rare-Earth-Refinery-Joint-Venture",
+      "https://www.cnbc.com/2025/11/19/mp-materials-rare-earth-saudi-arabia-maaden-pentagon.html",
+      "https://www.mining.com/mp-materials-soars-on-saudi-arabia-rare-earth-joint-venture/",
+      "https://english.alarabiya.net/News/saudi-arabia/2025/11/19/us-saudi-arabia-strike-deal-to-build-rare-earths-refinery-in-the-kingdom",
+      "https://www.fastmarkets.com/insights/saudi-arabian-miner-maaden-seeks-to-double-output-global-reach-under-ceo-wilt-lme-week-2025/"
+    ],
+    "seoTitle": "Ma'aden and MP Materials to Build Saudi Rare Earth Plant",
+    "seoDescription": "Ma'aden, MP Materials and the US Department of War have agreed a joint venture to build a rare earth refinery in Saudi Arabia, with Ma'aden holding at least 51%.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "mining",
+      "oil-gas",
+      "energy"
+    ],
+    "wordCount": 677
+  }
+]

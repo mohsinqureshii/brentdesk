@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 107,
+    "headline": "TA'ZIZ Awards a $1.99bn EPC Contract for the UAE's First Large-Scale PVC Complex",
+    "slug": "taziz-pvc-complex-epc-award-cc7",
+    "deck": "China National Chemical Engineering and Construction Corporation Seven will build a 1.9 million tonne a year chlor-alkali and PVC plant at Ruwais, the largest single package yet let for TA'ZIZ Phase 1.",
+    "excerpt": "TA'ZIZ has awarded a $1.99bn engineering, procurement and construction contract to China's CC7 for a polyvinyl chloride complex at Ruwais producing 1.9 million tonnes a year of PVC, EDC, VCM and caustic soda. Completion is scheduled for the fourth quarter of 2028. It is the largest single contract yet placed for the first phase of the ADNOC and ADQ chemicals venture.",
+    "content": "<p>TA'ZIZ has awarded a $1.99bn engineering, procurement and construction contract for a polyvinyl chloride complex at Ruwais to China National Chemical Engineering and Construction Corporation Seven, the largest single package yet let for the first phase of the Abu Dhabi chemicals venture.</p><p>The contract, <a href=\"https://www.adnoc.ae/en/news-and-media/press-releases/2025/taziz-awards-199-billion-epc-contract-to-build-one-of-the-worlds-largest-pvc-complexes\">announced at ADIPEC in Abu Dhabi</a>, covers a plant designed to produce 1.9 million tonnes a year of marketable PVC, ethylene dichloride, vinyl chloride monomer and caustic soda. TA'ZIZ, a joint venture between ADNOC and the Abu Dhabi holding company ADQ, says it will be the UAE's first large-scale PVC facility and among the three largest integrated single-site PVC production complexes in the world. Completion is scheduled for the fourth quarter of 2028.</p><p>In local currency the award is <a href=\"https://www.mediaoffice.abudhabi/en/energy/taziz-awards-aed-7-bn-contract-to-build-one-of-worlds-largest-pvc-complexes/\">worth AED7.34bn</a>. The contractor, generally shortened to CC7, is a subsidiary of China National Chemical Engineering Group, and the award ranks among the largest chemicals EPC contracts ever placed in the UAE.</p><p>What makes the complex integrated is the chemistry rather than the address. Chlor-alkali electrolysis splits salt brine using electricity, producing chlorine and caustic soda. The chlorine is then combined with ethylene to make ethylene dichloride, which is cracked into vinyl chloride monomer and finally polymerised into PVC. Each stage consumes what the stage before it makes, so the units have to be designed, built and commissioned as one system. That is the practical reason the whole chain went out as a single EPC package rather than as a series of smaller ones, and it is also why the schedule is unforgiving: a delay in the electrolysis units delays everything downstream of them.</p><p>The end markets sit some distance apart. PVC is a construction material before it is anything else, going into pressure and drainage pipe, cable insulation, window profiles and flooring, and the Gulf is one of the few regions where demand for all of those is still rising with the building programme. Caustic soda, the co-product that comes out of the same cell, sells into alumina refining, water treatment, pulp, textiles and soaps. A chlor-alkali plant is therefore exposed to two demand cycles that do not move together, which is part of the attraction and part of the operating difficulty: the plant cannot make one without making the other, and the two do not always find buyers at the same time.</p><p>The PVC award follows EPC contracts already let for the ammonia and methanol plants on the same site, and takes the 4.7 million tonne a year TA'ZIZ Phase 1 platform at Al Ruwais Industrial City closer to being fully contracted. TA'ZIZ has been assembled deliberately as a cluster rather than as a set of standalone plants, with shared utilities, shared marine infrastructure and a single industrial zone, on the argument that the second and third plants cost less to build than the first.</p><p>For the contracting market the timing matters as much as the value. A fourth-quarter 2028 completion puts the heaviest civil, mechanical and electrical work at Ruwais across the same two to three years as ADNOC's Ruwais LNG trains, which are targeted for the same period. That concentrates demand for welders, heavy lift, laydown areas, camp accommodation and marine logistics along a single stretch of Abu Dhabi coastline, and it is the sort of overlap that shows up first in labour rates and equipment availability rather than in headline contract values.</p><p>PVC economics ultimately turn on power and feedstock, since electrolysis is one of the more electricity-hungry processes in the chemicals industry. Ruwais offers grid power, an existing petrochemical base and an export berth, which is the case for building a world-scale chlor-alkali complex in the Emirates rather than importing the resin. What the award does not yet do is put steel in the ground. That starts now, and 2028 is three years away.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "chemicals",
+    "tags": [
+      "TA'ZIZ",
+      "PVC",
+      "Ruwais",
+      "EPC Contracts",
+      "Petrochemicals"
+    ],
+    "companies": [
+      "TA'ZIZ",
+      "ADNOC",
+      "ADQ",
+      "China National Chemical Engineering and Construction Corporation Seven",
+      "China National Chemical Engineering Group"
+    ],
+    "people": [],
+    "country": "United Arab Emirates",
+    "eventDate": "2025-11-05",
+    "informationCutoff": "2025-11-10",
+    "primarySourceUrl": "https://www.adnoc.ae/en/news-and-media/press-releases/2025/taziz-awards-199-billion-epc-contract-to-build-one-of-the-worlds-largest-pvc-complexes",
+    "primarySourceName": "ADNOC",
+    "secondarySourceUrls": [
+      "https://www.mediaoffice.abudhabi/en/energy/taziz-awards-aed-7-bn-contract-to-build-one-of-worlds-largest-pvc-complexes/",
+      "https://www.hydrocarbonengineering.com/petrochemicals/05112025/taziz-awards-epc-contract-for-large-scale-pvc-complex/",
+      "https://www.arabianbusiness.com/industries/taziz-awards-aed7-34bn-contract-for-giant-pvc-complex",
+      "https://www.worldconstructionnetwork.com/news/cc7-wins-contract-taziz-pvc-complex/"
+    ],
+    "seoTitle": "TA'ZIZ Awards $1.99bn EPC for UAE PVC Complex at Ruwais",
+    "seoDescription": "TA'ZIZ has awarded China's CC7 a $1.99bn EPC contract for a 1.9 mtpa PVC, EDC, VCM and caustic soda complex at Ruwais, due for completion in Q4 2028.",
+    "articleType": "news",
+    "wordCount": 635,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "chemicals",
+      "manufacturing"
+    ]
+  }
+]

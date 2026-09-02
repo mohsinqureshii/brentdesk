@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 109,
+    "headline": "EWEC Awards the 1.5 GW Khazna Solar Plant to ENGIE and Masdar",
+    "slug": "ewec-khazna-solar-engie-masdar",
+    "deck": "Abu Dhabi's third consecutive gigawatt-and-a-half solar tender has been signed, giving the emirate a rhythm of one very large photovoltaic plant a year and a growing question about what runs after sunset.",
+    "excerpt": "Emirates Water and Electricity Company has signed a power purchase agreement with ENGIE and Masdar for the 1.5 GW Khazna solar photovoltaic plant near Al Khazna in Abu Dhabi. The project will carry close to three million tracking panels and is due to be fully operational in 2028. It is EWEC's fourth utility-scale solar plant and the third of the same size in succession.",
+    "content": "<p>Emirates Water and Electricity Company has awarded the 1.5 GW Khazna solar photovoltaic project to ENGIE, with Masdar as local shareholder, and signed the power purchase agreement that puts the plant into construction. It is the fourth utility-scale solar project EWEC has procured for Abu Dhabi and the third in a row at the same 1,500 MW alternating-current scale.</p><p>Under the agreement the two developers will <a href=\"https://masdar.ae/en/news/newsroom/ewec-announces-partners\">design, finance, build and operate</a> the plant near the Al Khazna area, inland from Abu Dhabi city, while EWEC contracts to buy the electricity it produces. The plant will carry close to three million panels mounted on sun-tracking structures and is expected to be fully operational in 2028, generating enough electricity to power around 160,000 homes and avoiding more than 2.4 million tonnes of carbon dioxide emissions a year. EWEC received three proposals in the tender. Financial close is expected by the end of the fourth quarter.</p><p>The procurement structure is the part worth understanding, because it is the reason Abu Dhabi has been able to run these projects back to back. EWEC is a single buyer: it tenders a plant, signs a long-term purchase agreement, and takes the price and volume risk that a private developer would otherwise have to hedge. The developer takes the construction and operating risk and raises project finance against the contracted revenue. Competitive tension between a small number of qualified international bidders sets the tariff. Nothing about that is unusual in the Gulf, but few utilities have run the same template at the same size three times in succession, and repetition is what has kept the schedule tight and the cost of capital low.</p><p>The pipeline behind Khazna is already moving. EWEC has reached financial close on the 1.5 GW Al Ajban solar plant and has invited expressions of interest for a further 1.5 GW at Zarraf. Taken with Noor Abu Dhabi at Sweihan and Al Dhafra, that gives the emirate a sequence of very large single-site photovoltaic plants built on flat desert within reach of the existing transmission network — the two site conditions that matter most, since land cost is negligible and grid connection is not.</p><p>Physically, a plant of this size is a manufacturing exercise more than a construction one. Close to three million modules have to be delivered, unpacked, mounted and wired in sequence, along with the tracker motors, torque tubes, string inverters and medium-voltage collection system. Single-axis trackers, which rotate the panels through the day to follow the sun, lift annual yield by a meaningful margin over fixed-tilt mounting, but they add moving parts across thousands of rows in an environment where blown dust is the main operating problem. Cleaning regimes and tracker maintenance, not module degradation, tend to determine whether a Gulf solar plant hits its production forecast in year five.</p><p>The harder question is a system one, and it grows with every award. Photovoltaic output in Abu Dhabi peaks in the middle of the day and stops entirely at night, while the emirate's demand peak is a summer late-afternoon and evening air-conditioning load that runs well past sunset. Each additional gigawatt of solar therefore displaces slightly less gas-fired generation than the gigawatt before it, unless storage or firm low-carbon capacity arrives alongside it. That is not an argument against building Khazna; it is the reason EWEC's forward planning increasingly pairs solar procurement with battery capacity and why the marginal value of the next tender depends on what is bought to run after dark.</p><p>For now the immediate milestones are procedural rather than dramatic: financial close before the end of the year, then the main equipment and construction contracts, then three years of building. Abu Dhabi's solar fleet does not grow until the panels are in the ground.</p>",
+    "author": "Mo",
+    "primaryCategory": "renewables",
+    "tags": [
+      "EWEC",
+      "Solar Power",
+      "Abu Dhabi",
+      "Masdar",
+      "Power Purchase Agreements"
+    ],
+    "companies": [
+      "Emirates Water and Electricity Company",
+      "ENGIE",
+      "Masdar"
+    ],
+    "people": [],
+    "country": "United Arab Emirates",
+    "eventDate": "2025-10-10",
+    "informationCutoff": "2025-10-15",
+    "primarySourceUrl": "https://masdar.ae/en/news/newsroom/ewec-announces-partners",
+    "primarySourceName": "Masdar",
+    "secondarySourceUrls": [
+      "https://www.zawya.com/en/press-release/companies-news/ewec-announces-partners-to-develop-15gw-khazna-solar-photovoltaic-project-in-abu-dhabi-d7vvcqma",
+      "https://www.pv-tech.org/engie-masdar-1-5gw-khazna-ewec-uae/",
+      "https://www.power-technology.com/news/ewec-awards-1-5gw-khazna-solar-pv-project-engie-masdar/",
+      "https://www.enerdata.net/publications/daily-energy-news/ewec-signs-ppa-engie-and-masdar-15-gw-khazna-solar-project-uae.html"
+    ],
+    "seoTitle": "EWEC Awards 1.5 GW Khazna Solar Plant to ENGIE and Masdar",
+    "seoDescription": "EWEC has signed a PPA with ENGIE and Masdar for the 1.5 GW Khazna solar plant in Abu Dhabi, its fourth utility-scale solar project, due fully operational in 2028.",
+    "articleType": "news",
+    "wordCount": 626,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "renewables",
+      "energy",
+      "manufacturing"
+    ]
+  }
+]

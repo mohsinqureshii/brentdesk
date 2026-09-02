@@ -1,0 +1,60 @@
+[
+  {
+    "commission": 114,
+    "headline": "The Netherlands Suspends Its Nexperia Order After a Chip Halt Stopped Car Lines in Three Countries",
+    "slug": "nexperia-dutch-order-suspension-automotive-chip-halt",
+    "deck": "Wafers fabricated in Hamburg, packaged in Dongguan. A governance dispute over one mid-sized chipmaker took six weeks to reach assembly lines - and is still unresolved inside the company.",
+    "excerpt": "The Dutch economic affairs ministry suspended its Goods Availability Act order over Nexperia on 19 November after China resumed exports from Guangdong. The seven-week standoff halted Volkswagen production at Wolfsburg and Zwickau and forced Honda to stop its Mexico plant, exposing how little redundancy exists in automotive discrete semiconductors.",
+    "content": "<p>The Dutch government suspended its order over the chipmaker Nexperia on 19 November, seven weeks after invoking emergency powers against the company and roughly three weeks after the resulting standoff with Beijing began stopping car assembly lines in Germany, Mexico and Japan.</p><p>The economic affairs ministry said it had suspended the order made on 30 September under the Goods Availability Act following talks with Chinese authorities, and that it had been <a href=\"https://www.cnbc.com/2025/11/19/nexperia-dutch-government-suspends-intervention-at-chinese-chipmaker.html\">reassured by evidence that exports from Guangdong had resumed</a>. China's commerce ministry had barred shipments of Nexperia's China-made components on 4 October in response to the Dutch intervention.</p><p>The physical structure of Nexperia's business is what turned a corporate governance dispute into a shortage on the line. The company, owned by China's Wingtech Technology, makes the cheapest and least glamorous parts of a vehicle's electronics - diodes, transistors, logic devices and MOSFETs - at a volume few rivals match, and is reckoned to account for around 40 percent of the world market for automotive-grade discrete semiconductors. Its wafers are fabricated in Europe, at Hamburg and Manchester, but roughly 80 percent of its assembly, packaging and test capacity sits in mainland China, with the Dongguan plant alone accounting for about 70 percent of finished output. Neither half of that chain is worth much without the other, and no carmaker had a qualified second source for parts that cost a few cents each.</p><p>The consequences arrived on the schedule that inventory allows. Volkswagen halted Golf and Tiguan production at Wolfsburg from 29 October, followed by the Touran and Tayron built on the same site, and paused ID.3, ID.4 and ID.5 output at Zwickau. Honda stopped its plant in Mexico on 28 October and adjusted operations at its US and Canadian sites the day before. Nissan said its supply covered it only into the first week of November. Bosch, which uses Nexperia devices across its control units, warned of shortages across its parts range. Hildegard Mueller, president of the German automotive association VDA, had cautioned in late October that the interruption could bring <a href=\"https://www.electrive.com/2025/10/22/automotive-industry-warns-of-production-disruptions-amid-semiconductor-crisis/\">\"considerable production restrictions\"</a> and, if it ran on, stoppages.</p><p>Alongside the state dispute ran a corporate one that has not been settled. On 7 October the Enterprise Chamber of the Amsterdam Court of Appeal <a href=\"https://www.automotivelogistics.media/supply-chain/dutch-enterprise-chamber-orders-investigation-into-nexperia-and-wingtech-dispute/2608016\">ordered an investigation</a> into the conduct of Nexperia and its holding company, suspended chief executive Zhang Xuezheng, appointed a temporary director and transferred all but one of Wingtech's shares to an administrator. On 26 October Nexperia's Dutch headquarters suspended wafer shipments to Dongguan; a letter signed on 29 October by interim chief executive Stefan Tilger attributed the halt to the Chinese unit's failure to meet agreed contractual payment terms. Nexperia China said it would keep supplying customers and began qualifying alternative wafer suppliers, a process it put at roughly six months.</p><p>That split survived the diplomatic thaw. In a company update on 14 November, five days before the Dutch suspension, Nexperia's headquarters said the dispute with its China entities was <a href=\"https://www.automotivelogistics.media/supply-chain/nexperia-confirms-ongoing-supply-chain-disruption-despite-chinas-relaxed-export-controls/2129064\">still disrupting supply</a> even after Beijing relaxed the export controls. Some customers have gone around the problem by buying wafers directly from Hamburg and contracting the Dongguan plant to package them.</p><p>It is also a reminder of where industrial policy has not been looking. The support programmes built in Europe and the United States over the past four years are aimed largely at leading-edge logic and memory capacity. The devices that stopped Wolfsburg are mature-node parts made in older fabs and finished in high-volume packaging plants, a segment whose economics have pushed back-end capacity toward Asia for two decades and which no subsidy round has meaningfully reversed. Nexperia's split footprint - European front end, Chinese back end - is the industry norm rather than an anomaly, which is why a dispute confined to one company was able to reach several carmakers at once.</p><p>Output is now recovering. Honda said it was working to restore production at its North American assembly plants in the week of 21 November as Chinese shipments resumed, and German manufacturers report that supply has begun to move again. The VDA has warned that risk remains elevated into the first quarter of 2026, which is the realistic horizon: chips released this week become finished modules weeks later, and the buffer stocks drawn down during October have to be rebuilt before any plant is genuinely covered.</p><p>For industrial buyers the episode is a lesson in where fragility actually sits. The parts that stopped Wolfsburg were not scarce, advanced or expensive; they were commodity devices whose packaging is concentrated in one plant in one country, in a chain that crosses a political fault line twice before it reaches a car. Requalifying an automotive semiconductor takes months and cannot be improvised mid-crisis, which means the choice that determined who kept building cars this autumn was a sourcing decision made years ago.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "industrial-technology",
+    "tags": [
+      "Semiconductors",
+      "Automotive Manufacturing",
+      "Supply Chain",
+      "Export Controls",
+      "Nexperia"
+    ],
+    "companies": [
+      "Nexperia",
+      "Wingtech Technology",
+      "Volkswagen",
+      "Honda",
+      "Nissan",
+      "Robert Bosch"
+    ],
+    "people": [
+      "Zhang Xuezheng",
+      "Stefan Tilger",
+      "Hildegard Mueller"
+    ],
+    "eventDate": "2025-11-19",
+    "informationCutoff": "2025-11-24",
+    "primarySourceUrl": "https://www.nexperia.com/about/news-events/press-releases/update-on-company-developments-3",
+    "primarySourceName": "Nexperia",
+    "secondarySourceUrls": [
+      "https://www.cnbc.com/2025/11/19/nexperia-dutch-government-suspends-intervention-at-chinese-chipmaker.html",
+      "https://www.aljazeera.com/economy/2025/11/20/the-netherlands-suspends-takeover-of-nexperia-easing-tensions-with-china",
+      "https://www.cnbc.com/2025/11/01/where-the-nexperia-auto-chip-crisis-stands-now.html",
+      "https://www.cnbc.com/2025/10/30/nexperia-auto-chip-shortage-china-honda-vw.html",
+      "https://www.automotivelogistics.media/supply-chain/dutch-enterprise-chamber-orders-investigation-into-nexperia-and-wingtech-dispute/2608016",
+      "https://www.automotivelogistics.media/supply-chain/nexperia-confirms-ongoing-supply-chain-disruption-despite-chinas-relaxed-export-controls/2129064",
+      "https://www.tomshardware.com/tech-industry/nexperia-china-seeks-new-wafer-suppliers-amid-legal-standoff-with-dutch-parent",
+      "https://www.electrive.com/2025/10/22/automotive-industry-warns-of-production-disruptions-amid-semiconductor-crisis/"
+    ],
+    "seoTitle": "Dutch Suspend Nexperia Order After Auto Chip Shutdowns",
+    "seoDescription": "The Netherlands suspended its Nexperia order on 19 November as China resumed exports, after a chip halt stopped VW lines at Wolfsburg and Honda's Mexico plant.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "industrial-technology",
+      "manufacturing",
+      "supply-chain",
+      "logistics"
+    ],
+    "wordCount": 807
+  }
+]

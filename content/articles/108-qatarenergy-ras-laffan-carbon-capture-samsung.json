@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 108,
+    "headline": "QatarEnergy Awards Samsung C&T a 4.1 Million-Tonne Carbon Capture Project at Ras Laffan",
+    "slug": "qatarenergy-ras-laffan-carbon-capture-samsung",
+    "deck": "The scheme will strip, compress and pipe carbon dioxide from Qatar's existing LNG trains into a depleted gas reservoir, roughly tripling the capacity of the country's first sequestration facility.",
+    "excerpt": "QatarEnergy has awarded Samsung C&T the EPC contract for a carbon capture and sequestration project serving its existing LNG plants at Ras Laffan, designed to store up to 4.1 million tonnes of carbon dioxide a year from 2030. Samsung C&T put the value at about KRW1.9 trillion. Qatar says it aims to capture more than 11 million tonnes a year by 2035.",
+    "content": "<p>QatarEnergy has awarded Samsung C&T the engineering, procurement and construction contract for a carbon capture and sequestration project at Ras Laffan designed to capture and permanently store up to 4.1 million tonnes of carbon dioxide a year, among the largest schemes of its kind anywhere.</p><p>The facility will serve QatarEnergy's <a href=\"https://qna.org.qa/en/news/news-details?id=qatarenergy-awards-epc-contract-to-samsung-campt-for-major-carbon-capture-and-sequestration-project&date=2/11/2025\">existing liquefaction trains</a> at Ras Laffan Industrial City rather than the new North Field capacity under construction. Carbon dioxide taken off those plants will be compressed and dehydrated, then carried through about 20 kilometres of new underground pipeline to a depleted gas reservoir for permanent geological storage. Completion is targeted for 2030.</p><p>Samsung C&T <a href=\"https://news.samsungcnt.com/en/features/engineering-construction/2025-11-samsung-ct-wins-krw-1-9-trillion-carbon-compression-and-transport-project-in-qatar/\">valued the award at about KRW1.9 trillion</a>, roughly $1.3bn, and described its scope as carbon compression and transport. It is one of the largest energy-transition contracts the Korean contractor has taken.</p><p>\"This milestone project builds upon our growing carbon capture and sequestration capabilities, which reinforces our position as a reliable provider of affordable, lower-carbon energy,\" said Saad Sherida Al-Kaabi, Qatar's Minister of State for Energy Affairs and president and chief executive of QatarEnergy. He said all of the company's LNG expansion projects would deploy CCS technology and that Qatar aims to capture more than 11 million tonnes a year of carbon dioxide by 2035.</p><p>That 11 million tonne figure is the number the award should be read against. QatarEnergy commissioned its first sequestration facility at Ras Laffan in 2019 with an initial capacity of 2.2 million tonnes a year. Adding 4.1 million tonnes on the older trains roughly triples what the site can handle, and the new North Field trains carry their own capture capacity, so Ras Laffan's carbon handling is growing on two tracks at once.</p><p>The engineering logic is less exotic than the label suggests. Raw gas arriving at a liquefaction plant contains carbon dioxide that has to be removed anyway, because it freezes solid at the temperatures used to chill gas into a liquid. Every LNG plant therefore already runs an acid gas removal unit and already produces a concentrated stream of carbon dioxide, which is normally vented. The expensive part is not separating it — that is a sunk cost of making LNG — but compressing it to a dense phase, moving it and injecting it into rock that will hold it. That is precisely the scope QatarEnergy has put out to tender, and it is why the cheapest large-scale carbon capture in the world tends to be found at gas processing plants rather than at power stations or cement works.</p><p>Behind the project sits the largest LNG expansion under way anywhere. Qatar is taking capacity from 77 million tonnes a year to 142 million tonnes by 2030 through the North Field East, South and West phases, an undertaking that has absorbed a large share of global liquefaction engineering capacity and much of the world's LNG carrier order book. Retrofitting capture onto the legacy trains matters because those trains will still be running well into the period when the new ones come online, and because carbon intensity is increasingly something long-term LNG buyers in Europe and north Asia measure and write into contracts.</p><p>There are limits worth stating plainly. Capture at a gas plant addresses the carbon dioxide that comes out of the reservoir with the gas and the emissions of the liquefaction process itself; it does nothing about the far larger volume released when the cargo is burned at the other end. And a sequestration project is only as good as its storage: performance depends on the integrity of the depleted reservoir chosen, on injection rates holding up over decades and on monitoring that outlives the contractors who built the plant.</p><p>For now the practical position is unchanged. Qatar's captured volumes stay at the 2.2 million tonnes a year the 2019 facility handles until the new plant is built, and Samsung C&T has five years to build it.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "oil-gas",
+    "tags": [
+      "QatarEnergy",
+      "Carbon Capture",
+      "LNG",
+      "Ras Laffan",
+      "EPC Contracts"
+    ],
+    "companies": [
+      "QatarEnergy",
+      "Samsung C&T"
+    ],
+    "people": [
+      "Saad Sherida Al-Kaabi"
+    ],
+    "country": "Qatar",
+    "eventDate": "2025-11-02",
+    "informationCutoff": "2025-11-07",
+    "primarySourceUrl": "https://qna.org.qa/en/news/news-details?id=qatarenergy-awards-epc-contract-to-samsung-campt-for-major-carbon-capture-and-sequestration-project&date=2/11/2025",
+    "primarySourceName": "Qatar News Agency",
+    "secondarySourceUrls": [
+      "https://news.samsungcnt.com/en/features/engineering-construction/2025-11-samsung-ct-wins-krw-1-9-trillion-carbon-compression-and-transport-project-in-qatar/",
+      "https://www.agbi.com/oil-and-gas/2025/11/qatarenergy-awards-contract-for-new-carbon-capture-project/",
+      "https://www.arabianbusiness.com/industries/energy/qatarenergy-awards-samsung-ct-epc-contract-for-massive-carbon-capture-project",
+      "https://www.rigzone.com/news/samsung_to_build_new_qatar_carbon_capture_project-03-nov-2025-182217-article/",
+      "https://www.enerdata.net/publications/daily-energy-news/samsung-secures-epc-contract-41-mtco2year-ccs-project-qatar.html"
+    ],
+    "seoTitle": "QatarEnergy Awards Samsung C&T 4.1mtpa Ras Laffan CCS EPC",
+    "seoDescription": "QatarEnergy has awarded Samsung C&T the EPC contract for a 4.1 million tonne a year carbon capture and storage project serving its existing Ras Laffan LNG trains.",
+    "articleType": "news",
+    "wordCount": 648,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "oil-gas",
+      "energy"
+    ]
+  }
+]
