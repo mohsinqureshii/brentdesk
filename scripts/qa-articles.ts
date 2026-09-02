@@ -48,6 +48,9 @@ const LEAKED_METHODOLOGY = [
   "unable to access",
 ];
 
+/** articles.articleType is a MySQL enum — anything else fails the insert. */
+const ARTICLE_TYPES = new Set(["news", "opinion", "press_release", "report", "interview"]);
+
 const ARCHIVE_START = "2025-12-01";
 const TODAY = "2026-09-02";
 
@@ -100,6 +103,9 @@ for (const file of files) {
     // Bylines and taxonomy.
     if (!AUTHORS.has(a.author)) err(file, `unapproved byline "${a.author}"`);
     if (!CATEGORIES.has(a.primaryCategory)) err(file, `unknown category "${a.primaryCategory}"`);
+    if (a.articleType && !ARTICLE_TYPES.has(a.articleType)) {
+      err(file, `articleType "${a.articleType}" is not in the schema enum (${[...ARTICLE_TYPES].join(", ")})`);
+    }
 
     // Confidence — C must have been replaced, not published.
     if (!["A", "B"].includes(a.researchConfidence)) {

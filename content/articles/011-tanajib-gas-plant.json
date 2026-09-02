@@ -1,0 +1,41 @@
+[
+  {
+    "commission": 11,
+    "headline": "Aramco's Tanajib Gas Plant Begins Operations, Processing Offshore Marjan and Zuluf Gas",
+    "slug": "aramco-tanajib-gas-plant-begins-operations-marjan-zuluf",
+    "deck": "The plant is designed for 2.6 billion cubic feet a day of raw associated gas, and it is what makes Aramco's offshore crude expansion a gas project as well as an oil one.",
+    "excerpt": "Aramco has started up the Tanajib Gas Plant, which processes associated raw gas from the offshore Marjan and Zuluf fields. Operations began in December 2025 and the plant is expected to reach 2.6 billion standard cubic feet a day of raw gas processing capacity during 2026.",
+    "content": "<p>Aramco has begun operations at the Tanajib Gas Plant, the facility built to process raw gas produced alongside crude at two of Saudi Arabia's largest offshore fields, and the biggest single addition to the Kingdom's gas processing capacity in years.</p><p>The plant started up in December 2025 and is expected to reach a raw gas processing capacity of 2.6 billion standard cubic feet a day during 2026, <a href=\"https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target\">Aramco said</a> in an announcement on 26 February that also confirmed first production from the Jafurah unconventional gas field. Tanajib takes associated raw gas from crude oil production at the offshore Marjan and Zuluf fields in the Arabian Gulf, and Aramco describes it as one of the largest gas processing facilities of its type anywhere.</p><p>Associated gas is the gas that comes up dissolved in, or trapped with, crude oil. A producer does not choose how much of it arrives; that is set by the reservoir and by how hard the field is being produced. What a producer does choose is whether there is a plant able to separate the liquids, treat the gas and deliver the remainder into a pipeline network. Without that capacity, associated gas is a constraint on how much oil can be lifted, not an asset.</p><p>That is the problem Tanajib solves. Its start-up coincided with the beginning of production from the <a href=\"https://www.offshore-technology.com/projects/marjan-oil-field-development/\">Marjan crude oil increment</a>, the expansion that raises output from the Marjan field by 300,000 barrels a day of Arabian Medium crude. Bringing that much additional offshore crude online without somewhere to send the associated gas would have meant either holding back the oil or wasting the gas. Zuluf, the second field routed to the plant, is still being expanded, and its output will feed Tanajib as it comes on.</p><p>The plant sits inside a target Aramco has raised more than once. The company is working to increase sales gas production capacity by around 80 percent by 2030 against 2021 levels, taking total gas and associated liquids production to roughly 6 million barrels of oil equivalent a day. Two years ago the stated goal was more than 60 percent. Tanajib and Jafurah are the first two large pieces of that programme to actually produce something rather than consume capital.</p><p>What the Kingdom does with the gas is the strategic point. Saudi Arabia still burns crude and fuel oil in domestic power generation, an unusually expensive way to make electricity for a country that exports oil for a living. Every unit of sales gas that displaces those liquids frees a barrel to be sold or processed into something worth more. The liquids stripped out at plants such as Tanajib matter for the same reason: ethane and natural gas liquids are the feedstock the petrochemical industry runs on, and feedstock availability, not engineering, has generally been the binding constraint on Saudi chemical expansion.</p><p>A point of precision is worth making about the capacity figure. The 2.6 billion cubic feet a day is what the plant is expected to reach during 2026, not what it is processing today. Facilities of this size ramp over months as trains are brought up in sequence, wells are tied in and the offshore fields feeding them stabilise. Aramco has been careful in its own wording to describe an expected 2026 capacity rather than a present throughput, and the distinction is the difference between a plant that exists and a plant that is full.</p><p>Still, the direction is clear enough. For most of the past decade Saudi gas growth was a procurement story: contracts awarded, rigs contracted, pipelines ordered. With Tanajib running and Jafurah producing, it has become a commissioning story instead, which is a harder thing to schedule but a much easier thing to verify.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "oil-gas",
+    "tags": [
+      "Gas Processing",
+      "Tanajib",
+      "Offshore",
+      "Aramco Gas Strategy"
+    ],
+    "companies": [
+      "Saudi Aramco"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-02-26",
+    "informationCutoff": "2026-03-02",
+    "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target",
+    "primarySourceName": "Aramco",
+    "secondarySourceUrls": [
+      "https://www.ogj.com/refining-processing/gas-processing/new-plants/news/55360335/tanajib-gas-plant-startup-advances-aramcos-growth-strategy",
+      "https://www.offshore-technology.com/news/aramco-begins-operations-jafurah-tanajib/",
+      "https://www.worldoil.com/news/2026/2/26/aramco-starts-up-jafurah-eyes-80-gas-capacity-growth-by-2030/",
+      "https://www.argaam.com/en/article/articledetail/id/1883438"
+    ],
+    "seoTitle": "Aramco's Tanajib Gas Plant Begins Operations in Saudi Arabia",
+    "seoDescription": "Aramco has started up the Tanajib Gas Plant, which processes associated gas from the offshore Marjan and Zuluf fields and is set to reach 2.6 bscfd during 2026.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 622
+  }
+]

@@ -91,6 +91,16 @@ async function resolveTag(db: Db, name: string): Promise<number> {
   return created;
 }
 
+/** articles.articleType is a MySQL enum; anything outside it fails the insert.
+ *  Long-form pieces get written as "analysis" or "feature", which the schema
+ *  calls "report" — map rather than reject a finished article. */
+const ARTICLE_TYPES = new Set(["news", "opinion", "press_release", "report", "interview"]);
+function normalizeType(t: string | undefined): "news" | "opinion" | "press_release" | "report" | "interview" {
+  if (!t) return "news";
+  if (ARTICLE_TYPES.has(t)) return t as any;
+  return "report";
+}
+
 export async function ingest(db: Db, input: ArticleInput, publishedStatusId: number) {
   const authorId = await resolveAuthor(db, input.author);
 
@@ -121,7 +131,7 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
     seoDescription: input.seoDescription,
     ogTitle: input.seoTitle,
     ogDescription: input.seoDescription,
-    articleType: input.articleType ?? "news",
+    articleType: normalizeType(input.articleType),
     robotsIndexing: "index" as const,
   };
 

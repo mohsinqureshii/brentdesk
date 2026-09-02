@@ -1,0 +1,41 @@
+[
+  {
+    "commission": 93,
+    "headline": "Industrial Robot Installations Hold Above 500,000 a Year as China Takes Half the Market",
+    "slug": "industrial-robot-installations-ifr-2026-china-share",
+    "deck": "The International Federation of Robotics puts installation value at a record $16.7 billion, with an operational stock of 4.66 million machines and 54 percent of new deployments going to a single country.",
+    "excerpt": "The International Federation of Robotics reports the market value of industrial robot installations at an all-time high of $16.7 billion. Its latest complete data show 542,000 robots installed worldwide in 2024, an operational stock of 4,664,000 units, and China alone taking 295,000 units, or 54 percent of global deployments.",
+    "content": "<p>The market value of industrial robot installations has reached an all-time high of $16.7 billion, according to the <a href=\"https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2026\">International Federation of Robotics</a>, which has set out its view of the sector for 2026. The figure caps a decade in which factory robot demand has roughly doubled and then settled at a level that would have looked implausible when the last cycle began.</p><p>On the federation's most recent complete count, 542,000 industrial robots were installed worldwide in 2024 - more than double the annual total of ten years earlier, and the fourth consecutive year above 500,000 units. The operational stock, the number of robots actually working in factories rather than the number sold, stood at 4,664,000 units, up 9 percent on the previous year. The federation expects installations to have grown around 6 percent to 575,000 units in 2025 and to pass 700,000 by 2028.</p><p>What has changed is not the growth rate so much as the geography. Asia accounted for 74 percent of new deployments in 2024. Europe took 16 percent and the Americas 9 percent. Within Asia the concentration is sharper still: China installed 295,000 industrial robots, its highest annual figure on record and 54 percent of the global total on its own.</p><p>That single number is the most consequential in the dataset. A market where more than half of all new industrial robots are installed in one country is not a market where automation is being driven by the cost of labour in the traditional sense. High-wage economies have had the strongest theoretical case for substituting capital for labour for decades and have not produced anything like these volumes. Robot demand is tracking where manufacturing capacity is being built, not where workers are most expensive.</p><p>The distinction matters commercially. Robots are not sold as standalone machines; they are sold into lines, alongside integration work, tooling, vision systems, safety engineering and controls. That business follows new plant. When a country adds capacity across electronics, batteries, vehicles and metal fabrication simultaneously, robot installations follow as a consequence of the capital programme rather than as an independent decision about headcount. It also means the addressable market for European, Japanese and North American robot makers is increasingly located outside their home regions, at a point in the cycle when domestic Chinese suppliers have taken a growing share of their own market.</p><p>The installed base tells a second story. An operational stock of 4.66 million machines growing at 9 percent a year is now large enough that service, spares, retrofit and controls upgrades constitute a substantial and much steadier revenue stream than new-unit sales. New installations are cyclical and follow capital expenditure; the stock is not, and it has to be maintained regardless of whether factories are ordering new lines. For manufacturers whose unit shipments have plateaued in absolute terms in Europe and the Americas, that base is doing a good deal of the work.</p><p>The forecast trajectory - 575,000 units in 2025, more than 700,000 by 2028 - implies compound growth of roughly 7 percent a year from here, which is solid rather than dramatic. Read against the record $16.7 billion installation value, it points to a sector that has stopped being an emerging technology and become a capital goods business with the characteristics that implies: exposure to industrial investment cycles, a large aftermarket, and demand that concentrates wherever the next generation of factories is actually being built.</p><p>For now, that is overwhelmingly Asia, and within Asia it is China. The federation's numbers do not suggest that is about to change.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "robotics",
+    "tags": [
+      "Robotics",
+      "Automation",
+      "Manufacturing",
+      "Industrial Investment",
+      "China"
+    ],
+    "companies": [
+      "International Federation of Robotics"
+    ],
+    "people": [],
+    "eventDate": "2026-01-20",
+    "informationCutoff": "2026-01-27",
+    "primarySourceUrl": "https://ifr.org/ifr-press-releases/news/top-5-global-robotics-trends-2026",
+    "primarySourceName": "International Federation of Robotics",
+    "secondarySourceUrls": [
+      "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years",
+      "https://www.therobotreport.com/ifr-industrial-robot-deployments-have-doubled-in-10-years/",
+      "https://www.automation.com/article/international-federation-robotics-top-five-global-robotics-trends-2026",
+      "https://ourworldindata.org/grapher/annual-industrial-robots-installed"
+    ],
+    "seoTitle": "Robot Installations Stay Above 500,000 as China Leads",
+    "seoDescription": "IFR data show 542,000 industrial robots installed in 2024, a 4.66 million operational stock and China taking 54 percent of global deployments.",
+    "articleType": "news",
+    "wordCount": 590,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

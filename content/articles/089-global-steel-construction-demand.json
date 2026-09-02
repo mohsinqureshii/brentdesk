@@ -1,0 +1,41 @@
+[
+  {
+    "commission": 89,
+    "headline": "Global Steel Output Slips Through 2026 as Construction Demand Shifts Toward India",
+    "slug": "global-steel-output-2026-construction-demand-india",
+    "deck": "worldsteel's monthly data show crude steel production down in six of the first seven months of the year, while its April outlook trimmed 2026 demand growth to 0.3 percent.",
+    "excerpt": "Global crude steel production reached 149.2 million tonnes in July, down 0.3 percent year on year and the sixth monthly decline of 2026. worldsteel's April Short Range Outlook cut expected 2026 demand to 1,724 Mt while keeping India as the fastest-growing major market, at 7.4 percent growth this year and 9.2 percent next.",
+    "content": "<p>Global crude steel production has fallen in six of the first seven months of 2026, according to monthly data from the <a href=\"https://worldsteel.org/media/press-releases/2026/july-2026-crude-steel-production/\">World Steel Association</a>, in a year the industry had expected to mark the start of a recovery.</p><p>Output reached 149.2 million tonnes in July, 0.3 percent below the same month a year earlier. June was the single exception to the run, at 155.7 Mt and up 1.7 percent. Either side of it the numbers are negative: 157.9 Mt in May, down 0.3 percent; 153.4 Mt in April, down 1.9 percent; 159.9 Mt in March, down 4.2 percent; 141.8 Mt in February, down 2.2 percent; and 147.3 Mt in January, 6.5 percent below January 2025 and the weakest start to a year the series has recorded in some time. The figures cover the roughly 70 countries that report to worldsteel and account for about 98 percent of world production.</p><p>The interesting part is not the decline itself but what it sits alongside. Steel demand is not falling. It is moving.</p><p>worldsteel's <a href=\"https://worldsteel.org/media/press-releases/2026/worldsteel-short-range-outlook-april-2026/\">April Short Range Outlook</a> put global finished steel demand at 1,724 Mt for 2026, growth of 0.3 percent, with a firmer 2.2 percent to 1,762 Mt pencilled in for 2027. Six months earlier the same exercise had 2026 demand at 1,773 Mt on 1.3 percent growth. Between the two outlooks, roughly 49 Mt of expected consumption came out of the forecast for a single year - more than the annual steel use of most individual European economies.</p><p>What the April outlook did not do is call an end to the cycle. It identifies the growth as infrastructure-led construction plus an automotive sector supported by freight demand, and it locates that growth geographically. India is the clearest case: worldsteel expects Indian steel demand to grow 7.4 percent in 2026 and 9.2 percent in 2027, keeping it the fastest-growing major market in the world by a wide margin. Developing Asia and Africa are expected to add to that, with a recovery anticipated in the Middle East.</p><p>For steelmakers this is a composition problem rather than a volume problem. The tonnes India needs and the tonnes a mature construction market needs are not the same tonnes. Infrastructure-led demand is weighted toward long products - rebar, structural sections, plate for bridges and industrial buildings - and toward domestic mills that can supply them at freight-competitive distances. Producers whose asset base was built around flat products for property completions and consumer durables cannot redirect into that mix simply by running the same lines harder.</p><p>It also explains why falling output and flat demand can coexist. Much of the production decline through the first half of the year reflects mills running down inventory and trimming utilisation rather than a collapse in end-use consumption. On worldsteel's own numbers, consumption in 2026 is marginally higher than in 2025; production is lower. The gap is destocking, and destocking eventually stops.</p><p>The risk sits in the second half of the forecast. A 2.2 percent demand recovery in 2027 assumes that infrastructure programmes in developing Asia stay funded, that the Middle Eastern rebound arrives, and that construction in the mature markets stops deteriorating. None of those are settled. What is settled is the direction of the shift: the marginal tonne of construction steel demand is being decided further from the markets that set the industry's capacity plans a decade ago, and the mills positioned for it are not necessarily the mills that have the capacity.</p><p>The monthly series will show whether the turn has begun before the forecasts do. On July's figures, it has not.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "metals",
+    "tags": [
+      "Steel",
+      "Construction Demand",
+      "Crude Steel Production",
+      "India"
+    ],
+    "companies": [
+      "World Steel Association"
+    ],
+    "people": [],
+    "eventDate": "2026-08-25",
+    "informationCutoff": "2026-09-01",
+    "primarySourceUrl": "https://worldsteel.org/media/press-releases/2026/july-2026-crude-steel-production/",
+    "primarySourceName": "World Steel Association",
+    "secondarySourceUrls": [
+      "https://worldsteel.org/media/press-releases/2026/worldsteel-short-range-outlook-april-2026/",
+      "https://worldsteel.org/media/press-releases/2026/june-2026-crude-steel-production/",
+      "https://worldsteel.org/media/press-releases/2026/",
+      "https://eurometal.net/global-steel-demand-set-to-rebound-in-2026-worldsteel-says/",
+      "https://www.steelmarketupdate.com/2025/10/14/worldsteel-global-steel-demand-flat-but-modest-rebound-forecast-for-2026/"
+    ],
+    "seoTitle": "Global Steel Output Slips as Demand Shifts Toward India",
+    "seoDescription": "Crude steel output fell in six of the first seven months of 2026 while worldsteel cut 2026 demand growth to 0.3 percent and kept India at 7.4 percent.",
+    "articleType": "news",
+    "wordCount": 596,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]
