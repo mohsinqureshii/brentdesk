@@ -1,0 +1,49 @@
+[
+  {
+    "commission": 104,
+    "headline": "Mawani Leases Ras Al-Khair Port Land to China's ZTT for a SAR 375m Subsea Cable Plant",
+    "slug": "ztt-mawani-ras-al-khair-submarine-cable-factory",
+    "deck": "The 80,000 square metre plant is planned for submarine and terrestrial power cable and optical fibre, and has to sit on the quay because of how subsea cable is made.",
+    "excerpt": "Mawani has signed a land lease agreement with China's ZTT Group for a SAR 375 million ($100 million) cable plant at Ras Al-Khair Port, covering 80,000 square metres. It is planned to produce 500km of submarine cable, 500km of terrestrial cable and 12,500km of optical fibre a year, and was agreed during the Future Investment Initiative in Riyadh.",
+    "content": "<p>Mawani, the Saudi Ports Authority, has signed a land lease agreement with China's ZTT Group for a cable manufacturing plant at Ras Al-Khair Port on the Gulf coast, an investment the authority puts at SAR 375 million ($100 million).</p><p>The plant will occupy 80,000 square metres inside the port and is planned to produce 500 kilometres of submarine cable, 500 kilometres of terrestrial cable and 12,500 kilometres of optical fibre cable a year. The agreement was <a href=\"https://www.spa.gov.sa/en/N2433087\">signed</a> during the Future Investment Initiative conference in Riyadh.</p><p>Putting a cable works inside a port is not a logistics convenience. Submarine cable is one of the few manufactured products that has to be made beside deep water, because it is produced in continuous lengths, wound into turntables and loaded straight onto a cable-lay vessel. Every joint added later is a cost, a delay and a point of failure, so the economics of the plant depend on the quay being the factory gate. That constraint is why the world's subsea cable capacity sits in a small number of waterside plants, and why a port authority rather than an industrial city is the counterparty here.</p><p>Ras Al-Khair is the industrial city and port the Royal Commission for Jubail and Yanbu built about 60 kilometres north of Jubail, organised around Ma'aden's integrated minerals and aluminium plants and the King Salman Global Maritime Industries Complex. Its port was built to move bauxite, alumina, aluminium and phosphate rather than containers, and leasing land inside it to a manufacturer is a different use of the asset from handling somebody else's cargo. Mawani has been pushing that model across the network, treating port land as industrial estate with a berth attached.</p><p>The demand case has two halves that have little to do with each other. One is power. Saudi Arabia is building generation and transmission at a pace that has made cable a recurring procurement bottleneck across the region, and offshore oil and gas — the platforms and tie-backs in the Gulf that Aramco has been expanding for a decade — needs subsea power and control cable that is almost entirely imported today. The other half is data. The Red Sea is one of the busiest international routes for subsea telecommunications cable, and fibre demand is being pulled up by data centre construction across the Gulf.</p><p>Local manufacture does not automatically follow from local demand, and cable is a business with real barriers: long qualification cycles, utility approval processes measured in years, and buyers who are reluctant to put an unproven supplier into an asset that is expensive to repair once it is on the seabed. A 500-kilometre annual capacity is a mid-sized plant by international standards, sized for regional projects rather than transoceanic systems.</p><p>It is also worth being precise about what has been agreed. This is a lease of land and a stated investment figure, not a plant under construction. Mawani has not published a construction start, a commissioning date or the terms of the lease, and ZTT has not said which of the three product lines will be commissioned first. The value of the announcement is in what it says about how Saudi ports are being used — as sites for manufacturing that has to be on the water — rather than in the size of the cheque.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Mawani",
+      "Ras Al-Khair",
+      "Submarine Cables",
+      "Localisation",
+      "Foreign Investment"
+    ],
+    "companies": [
+      "Mawani",
+      "ZTT Group"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2025-10-28",
+    "informationCutoff": "2025-10-31",
+    "primarySourceUrl": "https://www.spa.gov.sa/en/N2433087",
+    "primarySourceName": "Saudi Press Agency",
+    "secondarySourceUrls": [
+      "https://economymiddleeast.com/news/fii9-saudi-arabia-china-partner-for-100-million-submarine-cable-manufacturing-facility-spanning-80000-sqm-at-ras-al-khair-port/",
+      "https://www.submarinenetworks.com/en/nv/news/china-s-ztt-proceeds-with-submarine-cable-manufacturing-factory-in-saudi-arabia",
+      "https://tradearabia.com/News/329915/China's-ZTT-Group-to-set-up-submarine,-terrestrial-cables-plant-in-Ras-Al-Khair",
+      "https://www.investmentmonitor.ai/news/ztt-group-cable-saudi-arabia/"
+    ],
+    "seoTitle": "ZTT to Build $100m Subsea Cable Plant at Ras Al-Khair",
+    "seoDescription": "Mawani has leased land at Ras Al-Khair Port to China's ZTT Group for a SAR 375m submarine and fibre optic cable plant covering 80,000 square metres.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "manufacturing",
+      "ports",
+      "logistics",
+      "supply-chain"
+    ],
+    "wordCount": 551
+  }
+]

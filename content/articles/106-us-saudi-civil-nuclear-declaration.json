@@ -1,0 +1,48 @@
+[
+  {
+    "commission": 106,
+    "headline": "US and Saudi Arabia Declare Civil Nuclear Negotiations Complete, Opening the Field to American Vendors",
+    "slug": "us-saudi-arabia-civil-nuclear-cooperation-joint-declaration",
+    "deck": "A joint declaration signed in Washington sets up a 123 Agreement that would let US companies bid for Saudi Arabia's first large power reactors. Nothing has been ordered.",
+    "excerpt": "US Energy Secretary Chris Wright and Saudi Energy Minister Prince Abdulaziz bin Salman have signed a joint declaration stating that negotiations on civil nuclear cooperation are complete. The step points toward a 123 Agreement, which must still be signed and reviewed by Congress before American firms can export reactors or fuel to the Kingdom.",
+    "content": "<p>The United States and Saudi Arabia have signed a joint declaration stating that their negotiations on civil nuclear energy cooperation are complete, a step that removes the main legal obstacle to American companies competing for the Kingdom's first large power reactors.</p><p>US Energy Secretary Chris Wright and Saudi Energy Minister Prince Abdulaziz bin Salman <a href=\"https://www.energy.gov/articles/us-energy-secretary-and-saudi-arabias-energy-minister-announce-deal-civil-nuclear\">signed</a> the declaration in Washington during Crown Prince Mohammed bin Salman's visit. The White House described it as building the legal foundation for a decades-long nuclear energy partnership and establishing the United States and American companies as the Kingdom's civil nuclear partners of choice, with cooperation conducted consistently with non-proliferation standards.</p><p>It is worth being exact about what has and has not happened. This is a declaration that negotiations are finished, not an agreement in force. Under Section 123 of the US Atomic Energy Act, a peaceful nuclear cooperation agreement has to be concluded, signed and then submitted to Congress, which gets a review period before the agreement can take effect. Only once a so-called 123 Agreement is in force may American firms export reactors, major components, fuel or nuclear technology to the country concerned. Nothing has been ordered, sited or financed.</p><p>The reason this has taken years to reach even this point is enrichment. Washington has historically pressed partners to forgo uranium enrichment and spent-fuel reprocessing, and Saudi Arabia has declined to rule out enriching its own uranium, pointing to domestic resources it wants to exploit. That question is the one the negotiations have turned on, and a declaration announcing their completion is not the same thing as publication of how it was resolved.</p><p>For the industrial programme behind it, the effect is on who can bid. Saudi Arabia has been running a procurement process for its first large power reactors for several years, and the absence of a 123 Agreement kept US vendors out of it, leaving Korean, French, Chinese and Russian suppliers as the realistic options. Reactor procurement is not a conventional equipment purchase: the vendor's home government supplies the export financing, the fuel arrangements and often the operational support, so the choice of supplier is a choice of decades-long relationship rather than a choice of machine. That is what the declaration is really about.</p><p>The demand case on the Saudi side is straightforward. Electricity consumption is growing with population, industrialisation, desalination and, more recently, data centre construction. The Kingdom still burns crude oil and liquids in power generation at peak, barrels it would rather export or refine, and it is simultaneously trying to free gas for industrial feedstock rather than combustion. Nuclear generation is one of the few sources that supplies large blocks of firm, non-emitting baseload without consuming a hydrocarbon the state can sell. It is also, by some distance, the slowest and most capital-intensive way to get it.</p><p>Timescales are the thing most easily lost in an announcement of this kind. Saudi Arabia has established a regulator, the Nuclear and Radiological Regulatory Commission, which is a prerequisite rather than an achievement. Beyond that sit site licensing, a fuel supply arrangement, financing, an EPC contract, and a construction programme that in recent Western and Gulf experience has run close to a decade from first concrete to grid connection. The UAE's Barakah plant, the region's only operating example, took close to fifteen years from contract award to full commercial operation of all four units.</p><p>The declaration arrived in a week of announcements built around the Crown Prince's visit, including a strategic framework on critical minerals supply chains. Nuclear cooperation is the one with the longest tail. What changed this week is the set of companies that can legally compete for a Saudi reactor once the 123 Agreement itself is signed and cleared by Congress. What has not changed is that the Kingdom does not yet have a reactor under contract.</p>",
+    "author": "Mo",
+    "primaryCategory": "power",
+    "tags": [
+      "Nuclear Power",
+      "Saudi Energy Policy",
+      "United States",
+      "Electricity Supply"
+    ],
+    "companies": [
+      "US Department of Energy",
+      "Saudi Ministry of Energy"
+    ],
+    "people": [
+      "Chris Wright",
+      "Abdulaziz bin Salman"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2025-11-18",
+    "informationCutoff": "2025-11-22",
+    "primarySourceUrl": "https://www.energy.gov/articles/us-energy-secretary-and-saudi-arabias-energy-minister-announce-deal-civil-nuclear",
+    "primarySourceName": "US Department of Energy",
+    "secondarySourceUrls": [
+      "https://english.alarabiya.net/News/saudi-arabia/2025/11/19/saudi-arabia-us-sign-historic-multibilliondollar-deal-on-civil-nuclear-cooperation",
+      "https://www.ans.org/news/2025-11-21/article-7574/us-and-saudi-arabia-reach-deal-on-nuclear-energy-cooperation/",
+      "https://www.congress.gov/crs-product/IF10799"
+    ],
+    "seoTitle": "US and Saudi Arabia Complete Civil Nuclear Negotiations",
+    "seoDescription": "Washington and Riyadh have signed a joint declaration completing civil nuclear negotiations, a step toward a 123 Agreement that would let US vendors bid.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "power",
+      "energy"
+    ],
+    "wordCount": 638
+  }
+]

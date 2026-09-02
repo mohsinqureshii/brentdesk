@@ -63,6 +63,35 @@ export interface ArticleInput {
   wordCount?: number;
 }
 
+/**
+ * Common names for companies whose profile is filed under a different one.
+ * Articles use whatever form reads naturally in the sentence, so "Lucid
+ * Group" and "Saudi Ports Authority" were failing to link to the Lucid and
+ * Mawani profiles that already existed.
+ */
+const COMPANY_ALIASES: Record<string, string> = {
+  "Lucid Group": "Lucid",
+  "Saudi Ports Authority": "Mawani",
+  "New Murabba Development Company": "New Murabba",
+  "DHL Group": "DHL",
+  "DHL Supply Chain": "DHL",
+  "Aramco": "Saudi Aramco",
+  "Saudi Arabian Oil Company": "Saudi Aramco",
+  "Saudi Arabian Mining Company": "Ma'aden",
+  "Maaden": "Ma'aden",
+  "PIF": "Public Investment Fund",
+  "Abu Dhabi National Oil Company": "ADNOC",
+  "Exxon Mobil": "ExxonMobil",
+  "Exxon Mobil Corporation": "ExxonMobil",
+  "Saudi Railway Company": "Saudi Arabia Railways",
+  "SAR": "Saudi Arabia Railways",
+  "Aluminium Bahrain": "Alba",
+  "Ceer Motors": "Ceer",
+  "Qatar Energy": "QatarEnergy",
+  "Volvo Construction Equipment": "Volvo CE",
+  "Emirates Global Aluminium": "EGA",
+};
+
 async function idFor(
   db: Db, table: any, column: any, value: string,
 ): Promise<number | null> {
@@ -177,10 +206,11 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
   // Creating a stub from a passing mention would put unverified entities in
   // the entity graph, which the brief forbids.
   const missing: string[] = [];
-  for (const name of input.companies ?? []) {
+  for (const raw of input.companies ?? []) {
+    const name = COMPANY_ALIASES[raw] ?? raw;
     const id = await idFor(db, companies, companies.name, name);
     if (id) await db.insert(articleCompanies).values({ articleId, companyId: id, mentionType: "mentioned" });
-    else missing.push(`company:${name}`);
+    else missing.push(`company:${raw}`);
   }
   for (const name of input.people ?? []) {
     const id = await idFor(db, people, people.name, name);
