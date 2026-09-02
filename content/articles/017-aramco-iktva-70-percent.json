@@ -38,6 +38,11 @@
     "imageReviewRequired": true,
     "replacementOf": null,
     "replacementReason": null,
-    "wordCount": 551
+    "wordCount": 551,
+    "categories": [
+      "supply-chain",
+      "logistics",
+      "manufacturing"
+    ]
   }
 ]

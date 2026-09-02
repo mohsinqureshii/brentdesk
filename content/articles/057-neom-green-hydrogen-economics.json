@@ -39,6 +39,11 @@
     "people": [],
     "imageReviewRequired": true,
     "replacementOf": null,
-    "replacementReason": null
+    "replacementReason": null,
+    "categories": [
+      "energy",
+      "renewables",
+      "manufacturing"
+    ]
   }
 ]

@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 68,
+    "headline": "Saudi Arabia Lifts Eastern Province Desalination Capacity to 3 Million Cubic Metres a Day",
+    "slug": "saudi-desalination-eastern-province-capacity-expansion",
+    "deck": "Three commissioned production systems at Jubail and Al-Khobar take one region past three million cubic metres a day, while the private plants behind the headline targets are still in procurement.",
+    "excerpt": "The Saudi Water Authority has raised commissioned desalination capacity in the Eastern Province to 3 million cubic metres a day, with regional transmission capacity above 3.1 million. The additions come from Al-Khobar phases one and two, the fourth phase at Jubail and a further Jubail system, as the Kingdom converts older thermal plants to reverse osmosis.",
+    "content": "<p>Saudi Arabia has raised desalinated water production capacity in the Eastern Province to 3 million cubic metres a day after commissioning three production systems, the Saudi Water Authority has said. Transmission capacity in the same region has been expanded in parallel, to more than 3.1 million cubic metres a day of operational throughput.</p><p>The <a href=\"https://www.spa.gov.sa/en/N2506177\">authority</a> attributed the increase to the Al-Khobar production system, phases one and two, at 840,000 cubic metres a day; the fourth phase of the Jubail production system at 400,000; and a further Jubail system rated at 1 million cubic metres a day. These are commissioned assets rather than contracted ones, which is the distinction that separates this announcement from most of the capacity figures quoted about Saudi water.</p><p>The Eastern Province concentration is not accidental. It carries the Kingdom's heaviest industrial water demand at Jubail and Ras Al Khair, alongside the population of Dammam, Al-Khobar and Dhahran, and it is the origin point for the transmission systems that carry desalinated water inland toward Riyadh and Qassim. Capacity added there does more than serve a coastline.</p><p>The authority is the largest producer of desalinated water in the world, with total output above 11.1 million cubic metres a day across its plants, and it is in the middle of a technology change as much as an expansion. Much of the older fleet was built as multi-stage flash distillation, a thermal process that boils seawater using steam and is generally paired with a power station. Newer capacity is almost entirely seawater reverse osmosis, which forces water through membranes under pressure and consumes substantially less energy per cubic metre.</p><p>That conversion is now being applied to existing plants rather than only to new ones. The authority is rebuilding Jubail Phase 1 and Khobar Phase 2 from thermal to reverse osmosis under a programme <a href=\"https://www.swa.gov.sa/en/news/89\">supported by a $650m financing package</a> with the Asian Infrastructure Investment Bank and the National Infrastructure Fund, work intended to raise output, cut energy consumption and extend the operating life of both systems by roughly 20 years. Khobar Phase 2 is already the largest seawater reverse osmosis plant in the world, with a recorded daily production of about 670,852 cubic metres.</p><p>Alongside the authority's own assets runs a private procurement track that accounts for a growing share of new capacity. The Saudi Water Partnership Company, which tenders water plants to private consortia on long-term offtake terms, is carrying a portfolio of around 50 projects at various stages of development, among them a group of five further independent water plants with combined capacity of roughly 1.7 million cubic metres a day working through the market.</p><p>Two of those illustrate where the programme stands. Rabigh 4, a 600,000 cubic metre a day reverse osmosis plant on the Red Sea coast about 180 kilometres north-west of Makkah, was awarded to a consortium of <a href=\"https://www.acwapower.com/news/acwa-power-to-develop-sar-254-billion-desalination-project-in-saudi-arabia/\">ACWA Power</a>, Haji Abdullah Alireza and Company and Al Moayyed Contracting Group at a project value of about SR2.54bn, and is intended to supply the Makkah and Madinah regions. Jubail 4 and 6, also rated at 600,000 cubic metres a day, has an <a href=\"https://smartwatermagazine.com/news/saudi-water-partnership-company/swpc-announces-preferred-bidder-jubail-4-and-jubail-6-iwp\">ACWA Power-led consortium</a> as preferred bidder and a 25-year operating term running from a commercial operation date expected in the first quarter of 2028.</p><p>The gap between those two projects is the whole point of reading Saudi water announcements carefully. A plant with a preferred bidder is a plant that has been priced, not built. A plant that has reached financial close has its money committed but no output. Only a commissioned production system contributes a cubic metre to supply, and the Eastern Province announcement is significant precisely because it describes the last category.</p><p>The Kingdom has said it intends to increase desalination capacity by more than 40 percent by 2030. Reaching that requires the private plants now in procurement to convert into construction on schedule, and the older thermal fleet to keep producing while it is rebuilt around live operations. Neither is trivial. Converting a working desalination plant from thermal to membrane technology means taking trains offline in a system with no spare capacity in the region it serves, which is why the transmission and storage build running in parallel matters as much as the plants themselves.</p><p>What the Eastern Province figure establishes is a floor. Three million cubic metres a day of commissioned production in one region, backed by slightly more transmission capacity than that, is the position from which the rest of the programme has to be delivered.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "water",
+    "tags": [
+      "Desalination",
+      "Reverse Osmosis",
+      "Jubail",
+      "Eastern Province",
+      "Water Capacity"
+    ],
+    "companies": [
+      "Saudi Water Authority",
+      "Saudi Water Partnership Company",
+      "ACWA Power",
+      "Asian Infrastructure Investment Bank",
+      "National Infrastructure Fund"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-02-09",
+    "informationCutoff": "2026-02-16",
+    "primarySourceUrl": "https://www.spa.gov.sa/en/N2506177",
+    "primarySourceName": "Saudi Water Authority",
+    "secondarySourceUrls": [
+      "https://www.swa.gov.sa/en/news/beneficiaries",
+      "https://www.swa.gov.sa/en/news/89",
+      "https://www.acwapower.com/news/acwa-power-to-develop-sar-254-billion-desalination-project-in-saudi-arabia/",
+      "https://smartwatermagazine.com/news/saudi-water-partnership-company/swpc-announces-preferred-bidder-jubail-4-and-jubail-6-iwp",
+      "https://www.agbi.com/analysis/infrastructure/2026/01/desalination-attracts-private-sector-in-saudi-arabia/"
+    ],
+    "seoTitle": "Saudi Eastern Province Desalination Reaches 3 Million Cubic Metres",
+    "seoDescription": "The Saudi Water Authority has taken commissioned Eastern Province desalination capacity to 3 million cubic metres a day across Jubail and Al-Khobar systems.",
+    "articleType": "news",
+    "wordCount": 748,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "water",
+      "infrastructure"
+    ]
+  }
+]

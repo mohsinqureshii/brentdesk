@@ -42,6 +42,12 @@
     "researchConfidence": "B",
     "imageReviewRequired": true,
     "replacementOf": null,
-    "replacementReason": null
+    "replacementReason": null,
+    "categories": [
+      "metals",
+      "mining",
+      "power",
+      "energy"
+    ]
   }
 ]

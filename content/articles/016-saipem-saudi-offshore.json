@@ -39,6 +39,12 @@
     "imageReviewRequired": true,
     "replacementOf": null,
     "replacementReason": null,
-    "wordCount": 573
+    "wordCount": 573,
+    "categories": [
+      "oil-gas",
+      "energy",
+      "water",
+      "infrastructure"
+    ]
   }
 ]

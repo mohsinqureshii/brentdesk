@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 98,
+    "headline": "Industrial Ransomware Is Stopping Production Without Ever Reaching the Control System",
+    "slug": "industrial-cybersecurity-ot-ransomware-2026-connected-factories",
+    "deck": "Dragos counted 1,140 ransomware incidents at industrial organisations in the second quarter, two-thirds of them in manufacturing. West Pharmaceutical and Mackay Sugar both halted plants without their control systems being touched.",
+    "excerpt": "Industrial ransomware incidents reached 1,140 in the second quarter of 2026, with manufacturing accounting for 747 of them. The disruption is arriving through enterprise IT systems rather than industrial controls, as the shutdowns at West Pharmaceutical Services and Mackay Sugar both showed. Regulation is tightening in parallel through NIS2 in Europe and the Saudi National Cybersecurity Authority's operational technology controls.",
+    "content": "<p>Ransomware stopped work at industrial companies more than a thousand times in the second quarter, and in almost every case the attackers never touched a control system. That is the central finding of <a href=\"https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026\">Dragos's analysis of industrial ransomware for the quarter</a>, which counted 1,140 incidents involving industrial organisations between April and June, 747 of them in manufacturing alone.</p><p>The pattern behind the count is what matters to plant operators. The disruption is arriving through the enterprise systems that operational technology depends on rather than through the control layer itself: enterprise resource planning, virtualisation infrastructure, identity services and remote access gateways. Compromise any of those and production stops without a single line of industrial control system malware being written.</p><p>Two cases from this year show how that works. On 4 May, West Pharmaceutical Services, which makes packaging and delivery components for injectable drugs, was hit by ransomware preceded by data theft. The company shut down and isolated affected on-premise infrastructure as a precaution, a step it <a href=\"https://www.westpharma.com/support/cyberattack-updates\">described as disrupting its business operations globally</a>, and told investors in an 8-K filing three days later that systems used to ship, receive and manufacture products had been affected. It retained Palo Alto Networks' Unit 42 for containment and restoration, and reported itself fully operational across manufacturing, supply chain and commercial sites on 27 May. A critical medical supplier took its own plants offline for more than three weeks to contain an intrusion that had not reached the plant floor.</p><p>On 10 June, Mackay Sugar, Australia's second-largest raw sugar producer, disclosed a cyberattack that halted milling and cane haulage at two of its three Queensland mills in the middle of the crushing season. The Gentlemen ransomware group later listed the company on its leak site. Dragos found no evidence that the attackers reached industrial control systems or manipulated the process directly.</p><p>The distinction is worth stating precisely, because it changes what a defence budget should buy. A factory that cannot receive raw material, generate a batch record, label output or release a shipment is stopped as completely as one whose controllers have been rewritten. Segmentation that protects the control network while leaving the business systems that feed it flat and trusted does not protect production.</p><p>A smaller number of adversaries are working on the control layer itself, and their trajectory is the more serious development. In its <a href=\"https://www.businesswire.com/news/home/20260217364132/en/Dragos-OT-Cybersecurity-Report-Adversaries-Increase-Real-World-Impact-Map-Control-Loops-Across-Industrial-Infrastructure\">annual review of operational technology threats published in February</a>, Dragos identified three new threat groups targeting critical infrastructure and described adversaries moving from pre-positioning toward understanding how to manipulate physical processes. It reported that the group it tracks as KAMACITE systematically mapped control loops across United States infrastructure through 2025, and that ELECTRUM targeted distributed energy systems in Poland with deliberate attempts to affect operational assets. Mapping a control loop is not reconnaissance of a network. It is reconnaissance of a process, and it is only useful to someone who intends to change how that process runs.</p><p>Defenders are working with poor information. Dragos assessed that a quarter of the industrial vulnerabilities published through ICS-CERT and the National Vulnerability Database in 2025 carried incorrect severity scores, and that 26 percent of advisories arrived with no patch or mitigation from the vendor at all. On its own triage, only 2 percent of industrial vulnerabilities required immediate action. Both halves of that are a problem: operators are being asked to prioritise from scores that are often wrong, and a quarter of the time there is nothing to install even after they decide it matters.</p><p>New equipment is arriving with the same weaknesses. Dragos research into battery energy storage found authentication bypass and command injection flaws, and identified more than a hundred internet-exposed devices including megawatt-class inverters connected to utility grids. Storage is being built out at speed across every market that is adding renewables, including the Gulf, and it is being connected before the security practice around it has settled.</p><p>Regulators have moved faster than most operators. Under the European Union's NIS2 directive, manufacturers are classified as important entities and face penalties of up to 7 million euros or 1.4 percent of global annual turnover, while essential entities in energy, water and other critical sectors face up to 10 million euros or 2 percent. The directive requires an early warning within 24 hours of a significant incident and a fuller notification within 72, and makes management bodies accountable for cybersecurity risk management rather than delegating it to a security function.</p><p>Saudi Arabia's requirement is narrower in scope and broader in reach. The National Cybersecurity Authority's <a href=\"https://nca.gov.sa/en/regulatory-documents/controls-list/otcc/\">Operational Technology Cybersecurity Controls</a> extend the Kingdom's Essential Cybersecurity Controls into industrial environments, drawing on the ISA/IEC 62443 standards and organised around governance, defence, resilience and third-party cybersecurity. They apply to organisations that own, operate or host critical national infrastructure both inside and outside the Kingdom, which pulls foreign integrators, vendors and hosting providers into the compliance perimeter alongside the asset owners themselves. For a country building petrochemical, mining, power and desalination capacity with international contractors, that third-party clause is the operative one.</p><p>The uncomfortable link is that connectivity is the enabling condition of every industrial technology programme now being funded. Remote condition monitoring, digital twins, refinery planning models, autonomous inspection and predictive maintenance all require plant data to leave the plant and instructions to come back. None of them work air-gapped. The security cost is therefore not a separate line item to be argued over after the fact; it is part of the price of the operating technology, and the quarterly incident counts are the bill arriving.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "automation",
+    "tags": [
+      "Industrial Cybersecurity",
+      "Operational Technology",
+      "Ransomware",
+      "Manufacturing",
+      "Regulation"
+    ],
+    "companies": [
+      "Dragos",
+      "West Pharmaceutical Services",
+      "Mackay Sugar",
+      "Palo Alto Networks"
+    ],
+    "people": [],
+    "eventDate": "2026-08-11",
+    "informationCutoff": "2026-08-20",
+    "primarySourceUrl": "https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026",
+    "primarySourceName": "Dragos",
+    "secondarySourceUrls": [
+      "https://www.helpnetsecurity.com/2026/08/11/industrial-ransomware-attacks-q2-2026/",
+      "https://www.businesswire.com/news/home/20260217364132/en/Dragos-OT-Cybersecurity-Report-Adversaries-Increase-Real-World-Impact-Map-Control-Loops-Across-Industrial-Infrastructure",
+      "https://www.dragos.com/blog/dragos-2026-ot-cybersecurity-year-in-review",
+      "https://www.westpharma.com/support/cyberattack-updates",
+      "https://www.securityweek.com/west-pharmaceutical-services-hit-by-disruptive-ransomware-attack/",
+      "https://www.cybersecuritydive.com/news/west-pharmaceutical-restoring-operations-ransomware-attack/820250/",
+      "https://nca.gov.sa/en/regulatory-documents/controls-list/otcc/"
+    ],
+    "seoTitle": "Industrial Ransomware Halts Plants Without Touching Controls",
+    "seoDescription": "Dragos counted 1,140 industrial ransomware incidents in Q2 2026. West Pharmaceutical and Mackay Sugar halted production without any control system compromise.",
+    "articleType": "report",
+    "wordCount": 926,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "automation",
+      "industrial-technology",
+      "manufacturing"
+    ]
+  }
+]

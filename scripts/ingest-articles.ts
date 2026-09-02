@@ -20,7 +20,8 @@ import { eq, and } from "drizzle-orm";
 import { readFileSync, existsSync } from "fs";
 import path from "path";
 import {
-  articles, articleTags, articleCompanies, articlePeople,
+  articles, articleTags, articleCompanies, articlePeople, articleCategories,
+  articleRelatedEntities,
   tags, categories, companies, people, users, countries,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
@@ -40,6 +41,11 @@ export interface ArticleInput {
   content: string;
   author: "Mo" | "Jakson Gudawela" | "BrentDesk Staff";
   primaryCategory: string;
+  /** Primary plus secondary categories. Written to article_categories, which
+   *  is what relatedContent.service scores relatedness on. */
+  categories?: string[];
+  /** Slugs of other archive articles this one links to in its prose. */
+  internalLinks?: string[];
   tags?: string[];
   companies?: string[];
   people?: string[];
@@ -144,6 +150,8 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
     await db.delete(articleTags).where(eq(articleTags.articleId, articleId));
     await db.delete(articleCompanies).where(eq(articleCompanies.articleId, articleId));
     await db.delete(articlePeople).where(eq(articlePeople.articleId, articleId));
+    await db.delete(articleCategories).where(eq(articleCategories.articleId, articleId));
+    await db.delete(articleRelatedEntities).where(eq(articleRelatedEntities.articleId, articleId));
   } else {
     await db.insert(articles).values(values as any);
     const created = await idFor(db, articles, articles.slug, input.slug);
@@ -153,6 +161,16 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
 
   for (const t of input.tags ?? []) {
     await db.insert(articleTags).values({ articleId, tagId: await resolveTag(db, t) });
+  }
+
+  // Multi-category. relatedContent.service scores relatedness on shared
+  // categories, tags and topics; with only articles.primaryCategoryId set it
+  // found no shared taxonomy and fell back to "most recent", which is not
+  // relatedness. Always includes the primary.
+  const catSlugs = [...new Set([input.primaryCategory, ...(input.categories ?? [])])];
+  for (const slug of catSlugs) {
+    const id = await idFor(db, categories, categories.slug, slug);
+    if (id) await db.insert(articleCategories).values({ articleId, categoryId: id });
   }
 
   // Companies and people are linked only when a profile already exists.
@@ -171,6 +189,36 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
   }
 
   return { articleId, created: !existingId, missing };
+}
+
+/**
+ * Record article-to-article relationships from the in-prose links.
+ *
+ * Runs after every article exists, because an edge can point at a slug that
+ * had not been inserted yet when its source was written.
+ */
+async function linkRelatedArticles(db: Db, inputs: ArticleInput[]): Promise<number> {
+  const ids = new Map<string, number>();
+  for (const i of inputs) {
+    const id = await idFor(db, articles, articles.slug, i.slug);
+    if (id) ids.set(i.slug, id);
+  }
+
+  let edges = 0;
+  for (const i of inputs) {
+    const from = ids.get(i.slug);
+    if (!from) continue;
+    let order = 0;
+    for (const targetSlug of i.internalLinks ?? []) {
+      const to = ids.get(targetSlug);
+      if (!to || to === from) continue;
+      await db.insert(articleRelatedEntities).values({
+        articleId: from, entityType: "article", entityId: to, sortOrder: order++,
+      });
+      edges++;
+    }
+  }
+  return edges;
 }
 
 /**
@@ -214,16 +262,19 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
 
     let created = 0, updated = 0;
     const missing = new Set<string>();
+    const seen: ArticleInput[] = [];
     for (const file of sources) {
       const parsed = JSON.parse(readFileSync(file, "utf8"));
       const batch: ArticleInput[] = Array.isArray(parsed) ? parsed : [parsed];
       for (const item of batch) {
+        seen.push(item);
         const r = await ingest(db, item, published.id);
         r.created ? created++ : updated++;
         r.missing.forEach(m => missing.add(m));
       }
     }
-    console.log(`[ingest] ${created} created, ${updated} updated`);
+    const edges = await linkRelatedArticles(db, seen);
+    console.log(`[ingest] ${created} created, ${updated} updated, ${edges} related-article links`);
     if (missing.size) console.log(`[ingest] no profile yet (link skipped): ${[...missing].join(", ")}`);
     return { created, updated, missing: [...missing] };
   } finally {

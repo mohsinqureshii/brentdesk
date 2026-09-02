@@ -42,6 +42,11 @@
     "researchConfidence": "B",
     "imageReviewRequired": true,
     "replacementOf": null,
-    "replacementReason": null
+    "replacementReason": null,
+    "categories": [
+      "aviation",
+      "transportation",
+      "construction"
+    ]
   }
 ]

@@ -1,0 +1,51 @@
+[
+  {
+    "commission": 94,
+    "headline": "Volvo CE Starts Serial Production of Electric Haulers as Machinery Makers Split on What Electrification Means",
+    "slug": "heavy-equipment-electrification-volvo-haulers-conexpo-2026",
+    "deck": "The A30 and A40 Electric are the first articulated haulers of their size built on a production line, while Caterpillar's CONEXPO launch was an electric drivetrain with a diesel engine behind it.",
+    "excerpt": "Volvo CE has begun serial production of the A30 Electric and A40 Electric articulated haulers at Braas in Sweden, the first machines of that payload class off a production line. At CONEXPO last month the industry showed two different technologies under the same word, with Caterpillar's D8 XE using an electric drivetrain and no battery at all.",
+    "content": "<p>Volvo Construction Equipment has started serial production of the A30 Electric and A40 Electric articulated haulers at Br&aring;s in Sweden, making them the first machines of that payload class to come off a production line rather than out of a prototype shop.</p><p>The A30 Electric carries 29 tonnes and the A40 Electric 39 tonnes, with operating times of up to six hours a charge depending on the duty cycle. The A30 runs a 265 kW electric motor on a 245 kWh lithium-ion battery, which in most applications gives around four to four and a half hours of work between charges, and accepts fast charging at up to 350 kW. The first machines are going to customers in the United Kingdom and Norway, with further deliveries across Europe in the second half of the year. Br&aring;s is where Volvo built Gravel Charlie, the first articulated hauler, in 1966; sixty years later <a href=\"https://www.volvoce.com/global/en/news-and-events/news-and-stories/2026/volvo-ce-starts-worlds-first-serial-production-of-electric-articulated-haulers/\">the same plant</a> is assembling the electric version.</p><p>It is a useful moment to look at what the industry actually means when it says electrification, because at CONEXPO-CON/AGG in Las Vegas last month the same word covered two entirely different pieces of engineering.</p><p>Caterpillar's headline earthmoving launch was the D8 XE, an electric-drive dozer. There is no battery in it. A Cat C15 diesel turns a sealed, liquid-cooled generator; the energy goes to an inverter that conditions it and feeds an electric motor in the propulsion module. The gain is in the drivetrain rather than the fuel: Caterpillar claims up to 10 per cent better fuel efficiency and 6 per cent higher productivity than the standard D8. It extends a lineup that began with the D6 XE and will be available in the second half of this year in North America, Europe, Japan, Australia and New Zealand.</p><p>Komatsu brought the PC210LCE, a 20-tonne battery-electric excavator carrying a 451 kWh pack, and has been building out a range of smaller battery machines including the PC20E, PC26E and PC33E. LiuGong showed the 922FE, a 24-tonne excavator on a lithium iron phosphate battery. Volvo CE used the show for the largest product launch in its history, close to 20 machines including 14 debuts, among them the 56-tonne EC560 crawler excavator on diesel and the EC230 and EC320 Electric excavators, alongside updates to the L120 Electric wheel loader and a new-generation L25 Electric with a larger battery and an air-conditioned cab option.</p><p>The split between those two approaches is not marketing. It follows from energy density. A 40-tonne dozer pushing material for a full shift consumes more energy than any battery pack that will fit inside it can currently hold, so the electrification available to that machine is in the transmission, where an electric drive removes the losses of a torque converter and gives finer control. A wheel loader working a fixed yard, a compact excavator in a city centre, or a hauler running a repeating route in a quarry has a duty cycle short enough and a charging point close enough for a battery to work.</p><p>The articulated haulers are the interesting case because they sit at the boundary. Thirty-nine tonnes is not a compact machine, and the reason a battery is viable is that a hauler on a site route returns to the same loading point every few minutes, which makes opportunity charging at 350 kW a scheduling problem rather than an engineering one. Serial production also matters more than the specification does. Prototype and pilot electric machines have been demonstrated for the better part of a decade; a production line at Br&aring;s implies a supplier base, a parts catalogue, a service network and a residual value assumption, which is what fleet buyers actually price.</p><p>What has not changed is the constraint outside the machine. Battery equipment needs charging infrastructure on sites that are temporary by definition and frequently have no grid connection worth the name. That is why the earliest adoption has come in urban work, quarrying and infrastructure contracts where a client specifies low-emission plant, and why the manufacturers are keeping diesel and electric versions of the same models in production side by side rather than switching over.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "heavy-equipment",
+    "tags": [
+      "Construction Equipment",
+      "Electrification",
+      "Batteries",
+      "CONEXPO",
+      "Off-Highway Machinery"
+    ],
+    "companies": [
+      "Volvo Construction Equipment",
+      "Caterpillar",
+      "Komatsu",
+      "LiuGong"
+    ],
+    "people": [],
+    "eventDate": "2026-04-09",
+    "informationCutoff": "2026-04-15",
+    "primarySourceUrl": "https://www.volvoce.com/global/en/news-and-events/news-and-stories/2026/volvo-ce-starts-worlds-first-serial-production-of-electric-articulated-haulers/",
+    "primarySourceName": "Volvo Construction Equipment",
+    "secondarySourceUrls": [
+      "https://im-mining.com/2026/04/09/volvo-construction-equipment-starts-worlds-first-serial-production-of-electric-articulated-haulers/",
+      "https://www.electrive.com/2026/04/13/volvo-ce-starts-series-production-of-electric-articulated-dump-trucks/",
+      "https://www.equipmentworld.com/construction-equipment/heavy-equipment/dozers/article/15819280/cat-d8-xe-electricdrive-dozer-debuts-at-conexpo-2026",
+      "https://www.forconstructionpros.com/equipment/earthmoving/excavators/product/22779904/komatsu-america-corp-komatsu-displays-pc210lce-electric-excavator-at-conexpo",
+      "https://www.ivtinternational.com/news/construction/conexpo-volvos-new-56-tonne-ec560-excavator-leads-14-vehicle-debuts.html",
+      "https://www.volvoce.com/global/en/news-and-events/news-and-stories/2026/ambitious-solutions-for-the-toughest-challenges-volvo-at-conexpo-2026/"
+    ],
+    "seoTitle": "Volvo CE Starts Serial Production of Electric Haulers",
+    "seoDescription": "Volvo CE has begun serial production of the A30 and A40 Electric articulated haulers, as CONEXPO showed battery machines and electric drivetrains side by side.",
+    "articleType": "news",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 688,
+    "categories": [
+      "heavy-equipment",
+      "manufacturing",
+      "construction"
+    ]
+  }
+]

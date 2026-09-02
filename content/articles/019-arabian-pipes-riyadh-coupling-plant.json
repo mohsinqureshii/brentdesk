@@ -36,6 +36,12 @@
     "imageReviewRequired": true,
     "replacementOf": null,
     "replacementReason": null,
-    "wordCount": 546
+    "wordCount": 546,
+    "categories": [
+      "manufacturing",
+      "metals",
+      "mining",
+      "supply-chain"
+    ]
   }
 ]

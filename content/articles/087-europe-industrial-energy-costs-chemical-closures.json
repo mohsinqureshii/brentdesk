@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 87,
+    "headline": "Brussels Clears Germany's EUR 3.8bn Industrial Power Scheme as European Chemical Closures Reach 37 Million Tonnes",
+    "slug": "europe-industrial-energy-costs-chemical-plant-closures-2026",
+    "deck": "The Commission approved a five-cent-per-kilowatt-hour target price for 91 sectors under its Clean Industrial Deal state aid framework, against a Cefic audit showing closures running at six times the 2022 rate.",
+    "excerpt": "The European Commission approved Germany's EUR 3.8bn industrial electricity price scheme on 16 April, covering 91 sectors with a five-cent target price retroactive to 1 January. Cefic's closures audit puts announced European chemical capacity shutdowns at 37 million tonnes since 2022, with energy cost competitiveness cited in 49 per cent of cases.",
+    "content": "<p>The European Commission has approved Germany's industrial electricity price scheme, clearing &euro;3.8bn of support that will cut power costs for 91 manufacturing sectors and applying it retroactively from 1 January this year.</p><p>The decision, taken on 16 April, was made under the <a href=\"https://commission.europa.eu/topics/competitiveness/clean-industrial-deal_en\">Clean Industrial Deal State Aid Framework</a>, the rulebook the Commission adopted to let member states support energy-intensive industry without breaching single market rules. The scheme sets a target price of five cents per kilowatt hour for eligible users, delivered by subsidising half of a company's electricity consumption at half the wholesale reference price, and runs for the billing years 2026 to 2028. Recipients must invest at least half the money they receive in new or modernised installations that reduce electricity system costs in line with market and system needs, and without increasing their use of fossil fuels.</p><p>It is a response to a problem the industry has now measured with some precision. Cefic, the European chemical industry council, published a closures and investments audit covering 2022 to 2025 that found <a href=\"https://cefic.org/news/chemical-plant-closures-surge-six-fold-in-europe-since-2022-reaching-37mt-new-report-finds/\">37 million tonnes of announced capacity closures</a>, about 9 per cent of Europe's total chemical production capacity. The rate of closure announcements has risen sixfold since 2022. Around 20,000 direct jobs have gone and the council puts a further 89,000 indirect jobs at risk across the value chains those plants sat in.</p><p>The reasons companies gave are the useful part. Lack of energy cost competitiveness was cited in 49 per cent of closure announcements, weak demand in 19 per cent, overcapacity in 9 per cent and regulation in 8 per cent. European natural gas prices averaged roughly two and a half times US levels through 2025. Germany accounted for a quarter of the closures, the Netherlands for a fifth, the United Kingdom for 12 per cent, France for 10 per cent, Italy for 7 per cent, Belgium for 6 per cent and Spain for 4 per cent.</p><p>Investment has moved the same way. Announced new capacity across the region fell from 2.7 million tonnes in 2022 to 0.3 million tonnes in 2025, for a four-year total of about 7 million tonnes against the 37 million tonnes withdrawn.</p><p>The individual decisions behind those totals are large assets, not marginal lines. Dow's board approved the shutdown of the ethylene cracker at B&ouml;hlen and the chlor-alkali and vinyl assets at Schkopau, both in Germany, together with the siloxanes plant at Barry in Wales. The German units are scheduled to come down in the fourth quarter of 2027 and Barry around the middle of this year. SABIC has announced the permanent shutdown of an ethylene cracking unit at Geleen in the Netherlands and the Olefins 6 cracker at Wilton on Teesside. Lanxess, Shell, Mitsubishi Chemical, Huntsman, Covestro, LyondellBasell, INEOS and Teijin have all announced closures or disposals of European capacity since the start of last year.</p><p>A steam cracker is the anchor asset of a chemical cluster. Its output feeds polymer lines, solvent plants and downstream converters, often across a fence line, and the economics of those neighbours change when it stops. That is why 37 million tonnes of closures translates into a far larger figure for jobs at risk than the 20,000 directly lost, and why the sequence tends to continue once it starts.</p><p>The second policy variable arriving this year sits on the import side. The definitive phase of the Carbon Border Adjustment Mechanism began on 1 January 2026 and runs on a graduated basis to 2034, requiring importers of covered goods, including cement, iron and steel, aluminium, fertilisers, electricity and hydrogen, to buy certificates against the embedded emissions of what they bring in. The intention is to price imported carbon on terms comparable to production inside the emissions trading system. For European producers the mechanism addresses competition in their home market; it does nothing for the cost of the electricity and gas they burn to make the product.</p><p>Which is what makes the conditionality attached to the German scheme worth watching. Requiring half the aid to be reinvested in installations that lower system costs is an attempt to make a subsidy do two jobs at once: bridge a cost gap now, and reduce the gap structurally by shifting load, adding flexibility or improving efficiency. Whether five cents per kilowatt hour is enough to change an investment decision at a European cracker or an electric arc furnace is not something the approval settles. The scheme runs to the end of 2028, which is roughly the window in which the closure decisions already announced will be executed.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Europe",
+      "Energy Costs",
+      "Chemicals",
+      "State Aid",
+      "CBAM"
+    ],
+    "companies": [
+      "European Commission",
+      "Cefic",
+      "Dow",
+      "SABIC",
+      "LyondellBasell"
+    ],
+    "people": [],
+    "eventDate": "2026-04-16",
+    "informationCutoff": "2026-04-22",
+    "primarySourceUrl": "https://commission.europa.eu/topics/competitiveness/clean-industrial-deal_en",
+    "primarySourceName": "European Commission",
+    "secondarySourceUrls": [
+      "https://cefic.org/news/chemical-plant-closures-surge-six-fold-in-europe-since-2022-reaching-37mt-new-report-finds/",
+      "https://cefic.org/resources/european-chemical-closures-investments-radar-2022-2025/",
+      "https://www.energate-messenger.com/news/261308/eu-commission-approves-industrial-electricity-price",
+      "https://www.gleisslutz.com/en/know-how/european-commission-clears-germanys-industrial-electricity-price",
+      "https://corporate.dow.com/en-us/news/press-releases/dow-will-shut-down-three-upstream-european-assets-in-response-to.html",
+      "https://www.chemicalprocessing.com/industrynews/news/55353850/european-chemical-plant-closures-outpace-investment-cefic-report-finds",
+      "https://www.fieldfisher.com/en-be/locations/belgium/insights/upcoming-cbam-amendments-under-the-second-implemen"
+    ],
+    "seoTitle": "EU Clears Germany's EUR 3.8bn Industrial Power Scheme",
+    "seoDescription": "The Commission approved Germany's five-cent industrial electricity price for 91 sectors as Cefic counted 37 million tonnes of announced European chemical plant closures.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 758,
+    "categories": [
+      "manufacturing",
+      "chemicals"
+    ]
+  }
+]

@@ -36,6 +36,11 @@
     "imageReviewRequired": true,
     "replacementOf": null,
     "replacementReason": null,
-    "wordCount": 622
+    "wordCount": 622,
+    "categories": [
+      "oil-gas",
+      "energy",
+      "manufacturing"
+    ]
   }
 ]

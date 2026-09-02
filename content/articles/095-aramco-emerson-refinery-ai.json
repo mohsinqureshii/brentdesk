@@ -41,6 +41,12 @@
     "researchConfidence": "A",
     "imageReviewRequired": true,
     "replacementOf": null,
-    "replacementReason": null
+    "replacementReason": null,
+    "categories": [
+      "industrial-ai",
+      "industrial-technology",
+      "oil-gas",
+      "energy"
+    ]
   }
 ]

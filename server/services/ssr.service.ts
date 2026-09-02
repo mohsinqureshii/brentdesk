@@ -381,13 +381,56 @@ export function generateJsonLd(article: ArticleSSRData): string {
  * Generate pre-rendered content for article (visible to crawlers)
  * This content is hidden from users but visible to search engines
  */
+/**
+ * Reduce article HTML to a small safe subset for the crawler block.
+ *
+ * This used to strip every tag and escape the result, which meant the
+ * crawler-visible body was plain text: every contextual link in the prose —
+ * internal cross-references and primary-source citations alike — was
+ * invisible to anything that does not execute JavaScript. Those links are
+ * the point of the internal linking, so they have to survive.
+ *
+ * Everything outside the whitelist is escaped rather than trusted, and an
+ * href must be a site-relative path or an http(s) URL, which rules out
+ * javascript: and data: payloads reaching the served page.
+ */
+function sanitizeForCrawler(html: string): string {
+  const ALLOWED = new Set(["p", "a", "strong", "em", "br"]);
+  let out = "";
+  let i = 0;
+  while (i < html.length) {
+    const lt = html.indexOf("<", i);
+    if (lt === -1) { out += escapeHtml(html.slice(i)); break; }
+    out += escapeHtml(html.slice(i, lt));
+    const gt = html.indexOf(">", lt);
+    if (gt === -1) { out += escapeHtml(html.slice(lt)); break; }
+
+    const raw = html.slice(lt + 1, gt).trim();
+    const closing = raw.startsWith("/");
+    const name = (closing ? raw.slice(1) : raw).split(/[\s/]/)[0].toLowerCase();
+
+    if (ALLOWED.has(name)) {
+      if (closing) {
+        out += `</${name}>`;
+      } else if (name === "a") {
+        const href = /href\s*=\s*"([^"]*)"/i.exec(raw)?.[1] ?? "";
+        const safe = /^\/[^/\\]/.test(href) || /^https?:\/\//i.test(href);
+        out += safe ? `<a href="${escapeHtml(href)}">` : "<a>";
+      } else {
+        out += name === "br" ? "<br/>" : `<${name}>`;
+      }
+    }
+    // Anything else is dropped, not emitted as escaped markup — a stray
+    // <script> should leave no trace in the crawler block.
+    i = gt + 1;
+  }
+  return out.replace(/[ \t]+/g, " ").replace(/(\s*\n\s*)+/g, "\n").trim();
+}
+
 export function generatePrerenderedContent(article: ArticleSSRData): string {
-  // Strip HTML tags from content for plain text
-  const plainContent = article.content
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .substring(0, 5000); // Limit to first 5000 chars
+  // Keep the prose's links: they are the internal-linking and citation
+  // signal, and stripping them made the crawler block link-free.
+  const plainContent = sanitizeForCrawler(article.content).substring(0, 8000);
 
   const relatedHtml = (article.related && article.related.length > 0)
     ? `<aside><h2>Related</h2><ul>${
@@ -403,7 +446,7 @@ export function generatePrerenderedContent(article: ArticleSSRData): string {
         ${article.author ? `<p>By <a href="${escapeHtml(article.author.url)}">${escapeHtml(article.author.name)}</a></p>` : ''}
         ${article.publishedAt ? `<p>Published: ${safeISOString(article.publishedAt)}</p>` : ''}
         <p>${escapeHtml(article.description)}</p>
-        <div>${escapeHtml(plainContent)}</div>
+        <div>${plainContent}</div>
         ${relatedHtml}
       </article>
     </noscript>

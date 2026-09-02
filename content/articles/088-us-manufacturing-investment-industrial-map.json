@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 88,
+    "headline": "US Factory Construction Falls to $175bn a Year as Chip Investment Concentrates Into a Handful of Sites",
+    "slug": "us-manufacturing-investment-factory-construction-2026",
+    "deck": "Manufacturing construction spending is down 22 per cent year on year and 44 per cent in the electronics category, while Micron, TSMC, Samsung and Texas Instruments build out the largest plants the sector has attempted.",
+    "excerpt": "US factory construction ran at a $174.8bn annual rate in May, about 22 per cent below a year earlier, with electronics plant construction down 44 per cent from its 2024 peak. The projects still running, including Micron's $100bn New York megafab, are concentrating manufacturing investment into a handful of very large sites.",
+    "content": "<p>Spending on factory construction in the United States ran at a seasonally adjusted annual rate of $174.8bn in May, roughly 22 per cent below the $224bn of a year earlier and well down on the $249.8bn peak reached in August 2024.</p><p>Total construction spending across the economy was $2,210.2bn at an annual rate in May, 0.1 per cent above the revised April figure and 1.5 per cent below May 2025, <a href=\"https://www.census.gov/construction/c30/pdf/pr202605.pdf\">on the Census Bureau's estimate</a>. The manufacturing category is contracting several times faster than the total, and almost all of that decline sits in one place: construction of computer, electronic and electrical plants is down about 44 per cent from its July 2024 peak.</p><p>The mechanics of that are less dramatic than the percentage suggests. Semiconductor fabs are civil engineering projects for two to three years and then equipment projects for one to two more. Once the shell, the substructure and the utility plant are finished, spending recorded as construction falls away even though the site is nowhere near finished and the capital commitment behind it has not changed. The wave of projects launched under the CHIPS and Science Act is reaching that transition together, which is why the aggregate is falling while the projects continue.</p><p>What the aggregate does not capture is the size of what remains. Micron <a href=\"https://investors.micron.com/news/press-release/2026/Micron-Celebrates-Official-Groundbreaking-at-New-York-Megafab-Site-01-16-2026/default.aspx\">broke ground on 16 January</a> at Clay, in Onondaga County, New York, on a complex of up to four memory fabs. It is the largest private investment in the state's history and, once built out, would be the largest semiconductor site in the country. Micron puts the New York commitment at about $100bn inside a US programme of roughly $200bn spanning Idaho, New York and Virginia; production in central New York is not expected before 2030, with the fabs ramping across the decade after that.</p><p>The other anchor projects are on similar scales and similarly concentrated. Taiwan Semiconductor Manufacturing Company has committed $100bn in Arizona for three further fabs, two advanced packaging plants and a research and development centre. Samsung's fab at Taylor, Texas, an initial investment of at least $17bn and the largest foreign investment in the state, is due to begin operating this year. Texas Instruments is spending $11bn on a second 300-millimetre wafer plant at Lehi, Utah, on a site it already runs.</p><p>Against those commitments runs a different set of numbers. Companies cancelled more than $32bn of clean energy manufacturing projects during 2025, as incentive and funding conditions changed and tariff costs moved. Battery, solar and component plants were a substantial share of the 2023 and 2024 announcement pipeline, and their removal takes out a category of project that was geographically much more dispersed than semiconductor fabs.</p><p>That is the actual reshaping. The manufacturing investment of the past four years is not spreading evenly across the industrial map; it is concentrating into a small number of very large sites, each with a decade-long construction and fit-out horizon, each with power and water requirements that behave more like a utility load than a factory, and each surrounded by a supplier cluster that has to be built alongside it. Central New York, greater Phoenix, central Texas, the Wasatch Front and Boise are absorbing capital at a scale that has no recent precedent, while the broad-based factory building of the incentive era thins out.</p><p>For contractors, equipment suppliers and process engineering firms, the practical consequence is a change in the shape of the workload rather than its disappearance. Fewer, larger clients. Longer programmes. More of the value in cleanroom fit-out, utilities, abatement and tool hook-up than in structures. And a demand profile that will not show up in the monthly construction spending series, because by the time these plants are consuming the most capital, the Census Bureau will have stopped counting most of it as construction.</p>",
+    "author": "Mo",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "United States",
+      "Manufacturing Investment",
+      "Semiconductors",
+      "Construction Spending",
+      "Industrial Policy"
+    ],
+    "companies": [
+      "Micron Technology",
+      "Taiwan Semiconductor Manufacturing Company",
+      "Samsung Electronics",
+      "Texas Instruments",
+      "US Census Bureau"
+    ],
+    "people": [],
+    "country": "United States",
+    "eventDate": "2026-07-01",
+    "informationCutoff": "2026-07-06",
+    "primarySourceUrl": "https://www.census.gov/construction/c30/pdf/pr202605.pdf",
+    "primarySourceName": "US Census Bureau",
+    "secondarySourceUrls": [
+      "https://investors.micron.com/news/press-release/2026/Micron-Celebrates-Official-Groundbreaking-at-New-York-Megafab-Site-01-16-2026/default.aspx",
+      "https://iot-analytics.com/us-manufacturing-reshoring-boom-what-the-data-says/",
+      "https://wolfstreet.com/2026/05/07/construction-spending-on-data-centers-factories-chip-plants-powerplants-office-buildings-boom-at-one-end-bust-at-the-other/",
+      "https://www.manufacturingdive.com/news/major-factory-construction-projects-to-watch-in-2026/809448/",
+      "https://www.enr.com/articles/63307-foundation-work-begins-on-microns-100b-new-york-semiconductor-megafab",
+      "https://investor.ti.com/news-releases/news-release-details/texas-instruments-breaks-ground-new-300-mm-semiconductor-wafer-0"
+    ],
+    "seoTitle": "US Factory Construction Falls as Chip Investment Concentrates",
+    "seoDescription": "Manufacturing construction ran at $174.8bn a year in May, down 22 per cent, while Micron, TSMC, Samsung and TI build the largest plants the US sector has attempted.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 637,
+    "categories": [
+      "manufacturing",
+      "construction"
+    ]
+  }
+]

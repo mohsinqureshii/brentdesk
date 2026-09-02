@@ -37,6 +37,12 @@
     "researchConfidence": "A",
     "imageReviewRequired": true,
     "replacementOf": null,
-    "replacementReason": null
+    "replacementReason": null,
+    "categories": [
+      "rail",
+      "transportation",
+      "mining",
+      "chemicals"
+    ]
   }
 ]

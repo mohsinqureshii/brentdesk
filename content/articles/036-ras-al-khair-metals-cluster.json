@@ -42,6 +42,10 @@
     "imageReviewRequired": true,
     "replacementOf": null,
     "replacementReason": null,
-    "wordCount": 827
+    "wordCount": 827,
+    "categories": [
+      "metals",
+      "mining"
+    ]
   }
 ]

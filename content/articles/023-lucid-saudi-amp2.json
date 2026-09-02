@@ -42,6 +42,9 @@
     "researchConfidence": "A",
     "imageReviewRequired": true,
     "replacementOf": null,
-    "replacementReason": null
+    "replacementReason": null,
+    "categories": [
+      "manufacturing"
+    ]
   }
 ]

@@ -192,6 +192,27 @@ for (const file of files) {
   }
 }
 
+// Internal links must resolve. Articles now cross-reference each other, and
+// a link to a slug that does not exist is a 404 for the reader and a broken
+// signal for a crawler — worse than no link at all.
+{
+  const slugs = new Set(rows.map(r => r.slug));
+  for (const r of rows) {
+    for (const m of String(r.content ?? "").matchAll(/href="\/([^"]+)"/g)) {
+      const target = m[1];
+      let slug: string | null = null;
+      if (target.startsWith("article/")) slug = target.slice("article/".length);
+      else {
+        const parts = target.split("/");
+        if (parts.length === 2 && CATEGORIES.has(parts[0])) slug = parts[1];
+      }
+      if (slug && !slugs.has(slug.replace(/[#?].*$/, ""))) {
+        issues.push({ file: r.file, level: "error", message: `internal link to unknown article "/${target}"` });
+      }
+    }
+  }
+}
+
 // Coverage.
 for (let n = 1; n <= 100; n++) {
   if (!seenCommissions.has(n)) issues.push({ file: "-", level: "error", message: `commission ${String(n).padStart(3, "0")} missing` });
