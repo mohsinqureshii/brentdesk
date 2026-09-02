@@ -13,7 +13,11 @@ import path from "path";
 
 const DIR = path.resolve(import.meta.dirname, "..", "content", "articles");
 
-const AUTHORS = new Set(["Mo", "Jakson Gudawela", "BrentDesk Staff"]);
+const AUTHORS = new Set([
+  "Mo Qureshi", "Jakson Gudawela", "BrentDesk Staff", "BrentDesk Research",
+  // Collaborative byline used on the Big 5 flagship pieces.
+  "Mo Qureshi + BrentDesk Staff",
+]);
 
 const CATEGORIES = new Set([
   "construction", "energy", "industrial-technology", "infrastructure", "logistics",

@@ -461,8 +461,8 @@ async function seedHomepageSections(db: SeedDb) {
  */
 const AUTHORS: Array<{ publicName: string; name: string; jobTitle: string | null; authorBio: string }> = [
   {
-    publicName: "Mo",
-    name: "Mo",
+    publicName: "Mo Qureshi",
+    name: "Mo Qureshi",
     jobTitle: "Editor",
     authorBio: "Mo covers Saudi Arabia and the wider GCC for BrentDesk, with a focus on construction, infrastructure, energy and industrial strategy.",
   },
@@ -473,6 +473,18 @@ const AUTHORS: Array<{ publicName: string; name: string; jobTitle: string | null
     authorBio: "Jakson Gudawela reports on manufacturing, oil and gas, mining, logistics and industrial technology for BrentDesk.",
   },
   {
+    publicName: "BrentDesk Research",
+    name: "BrentDesk Research",
+    jobTitle: "Research Desk",
+    authorBio: "Data-led research and market analysis from the BrentDesk research desk.",
+  },
+  {
+    publicName: "Mo Qureshi + BrentDesk Staff",
+    name: "Mo Qureshi + BrentDesk Staff",
+    jobTitle: null,
+    authorBio: "Reported by Mo Qureshi with the BrentDesk newsroom.",
+  },
+  {
     publicName: "BrentDesk Staff",
     name: "BrentDesk Staff",
     jobTitle: null,
@@ -481,6 +493,14 @@ const AUTHORS: Array<{ publicName: string; name: string; jobTitle: string | null
 ];
 
 async function seedAuthors(db: SeedDb) {
+  // Same person, revised byline. Renaming keeps the existing archive's
+  // articles attached instead of stranding them on a retired name.
+  const [legacy] = await db.select({ id: users.id }).from(users).where(eq(users.publicName, "Mo")).limit(1);
+  if (legacy) {
+    await db.update(users).set({ publicName: "Mo Qureshi", name: "Mo Qureshi" }).where(eq(users.id, legacy.id));
+    console.log("[seed] authors: renamed byline \"Mo\" to \"Mo Qureshi\"");
+  }
+
   let added = 0;
   for (const a of AUTHORS) {
     const existing = await db.select({ id: users.id }).from(users).where(eq(users.publicName, a.publicName)).limit(1);

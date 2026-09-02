@@ -39,7 +39,7 @@ export interface ArticleInput {
   excerpt: string;
   /** Body as HTML paragraphs, with contextual links already inline. */
   content: string;
-  author: "Mo" | "Jakson Gudawela" | "BrentDesk Staff";
+  author: "Mo Qureshi" | "Jakson Gudawela" | "BrentDesk Staff" | "BrentDesk Research" | "Mo Qureshi + BrentDesk Staff";
   primaryCategory: string;
   /** Primary plus secondary categories. Written to article_categories, which
    *  is what relatedContent.service scores relatedness on. */
