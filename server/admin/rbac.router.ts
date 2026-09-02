@@ -9,6 +9,7 @@ import { getDb } from "../db";
 import { roles, permissions, rolePermissions, userRoles, users, auditLogs } from "../../drizzle/schema";
 import { eq, and, desc, inArray, sql } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
+import { toDbDate } from "../_core/dbValues";
 
 // Helper to check if user has permission
 async function checkPermission(userId: number, resource: string, action: string): Promise<boolean> {
@@ -324,7 +325,7 @@ export const rbacRouter = router({
         if (input.expiresAt) {
           await database
             .update(userRoles)
-            .set({ expiresAt: new Date(input.expiresAt).toISOString() } as any)
+            .set({ expiresAt: toDbDate(new Date(input.expiresAt)) } as any)
             .where(and(
               eq(userRoles.userId, input.userId),
               eq(userRoles.roleId, input.roleId)
@@ -337,7 +338,7 @@ export const rbacRouter = router({
         userId: input.userId,
         roleId: input.roleId,
         assignedById: ctx.user?.id ?? null,
-        expiresAt: input.expiresAt ? (typeof input.expiresAt === 'string' ? new Date(input.expiresAt).toISOString() : (input.expiresAt as any)?.toISOString?.()) : null,
+        expiresAt: input.expiresAt ? (typeof input.expiresAt === 'string' ? toDbDate(new Date(input.expiresAt)) : toDbDate((input.expiresAt as any) as Date)) : null,
       } as any);
 
       await logAudit(ctx.user?.id, ctx.user?.email ?? undefined, "assign_role", "user_roles", input.userId, input);

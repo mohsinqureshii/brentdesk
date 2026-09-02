@@ -28,6 +28,7 @@ import crypto from "node:crypto";
 import { eq } from "drizzle-orm";
 import { getDb } from "../db";
 import { integrationConfigs } from "../../drizzle/schema";
+import { toDbDate } from "../_core/dbValues";
 
 const ALGO = "aes-256-gcm";
 
@@ -398,7 +399,7 @@ export async function recordTestResult(integrationId: string, ok: boolean, messa
   if (!db) return;
   await db.update(integrationConfigs)
     .set({
-      lastTestedAt: new Date().toISOString().slice(0, 19).replace("T", " "),
+      lastTestedAt: toDbDate(new Date()),
       lastTestResult: message.slice(0, 500),
       status: ok ? "configured" : "error",
     } as any)

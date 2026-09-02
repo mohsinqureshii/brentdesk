@@ -1206,7 +1206,7 @@ export const newsRouter = router({
         // Only set publishedAt if it's not already set
         if (!existingArticle[0]?.publishedAt) {
           await db.update(articles)
-            .set({ publishedAt: new Date().toISOString() })
+            .set({ publishedAt: toDbDate(new Date()) })
             .where(eq(articles.id, input.articleId));
         }
       }
@@ -1358,7 +1358,7 @@ export const newsRouter = router({
 
       // Move articles to trash
       await db.update(articles)
-        .set({ statusId: trashStatus.id, updatedAt: new Date().toISOString() })
+        .set({ statusId: trashStatus.id, updatedAt: toDbDate(new Date()) })
         .where(inArray(articles.id, input.ids));
 
       return { count: input.ids.length };
@@ -1595,7 +1595,7 @@ export const newsRouter = router({
         // Set publishedAt only for articles that don't have it
         if (idsWithoutPublishedAt.length > 0) {
           await db.update(articles)
-            .set({ publishedAt: new Date().toISOString() })
+            .set({ publishedAt: toDbDate(new Date()) })
             .where(inArray(articles.id, idsWithoutPublishedAt));
         }
       } else {

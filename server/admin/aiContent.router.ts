@@ -16,6 +16,7 @@ import {
   settings, articles,
 } from "../../drizzle/schema";
 import { eq, desc, and, sql, like, gte, lte, count, sum, avg } from "drizzle-orm";
+import { toDbDate } from "../_core/dbValues";
 
 // ============================================================
 // ADMIN-ONLY MIDDLEWARE
@@ -783,8 +784,8 @@ export const aiContentRouter = router({
       if (input.status) conditions.push(eq(aiAgentDiscoveredArticles.status, input.status));
       if (input.minScore != null) conditions.push(gte(aiAgentDiscoveredArticles.relevanceScore, input.minScore));
       if (input.maxScore != null) conditions.push(lte(aiAgentDiscoveredArticles.relevanceScore, input.maxScore));
-      if (input.dateFrom) conditions.push(gte(aiAgentDiscoveredArticles.createdAt, new Date(input.dateFrom).toISOString()));
-      if (input.dateTo) conditions.push(lte(aiAgentDiscoveredArticles.createdAt, new Date(input.dateTo).toISOString()));
+      if (input.dateFrom) conditions.push(gte(aiAgentDiscoveredArticles.createdAt, toDbDate(new Date(input.dateFrom))));
+      if (input.dateTo) conditions.push(lte(aiAgentDiscoveredArticles.createdAt, toDbDate(new Date(input.dateTo))));
       if (input.pubDateFrom) conditions.push(gte(aiAgentDiscoveredArticles.externalPublishedAt, new Date(input.pubDateFrom) as any));
       if (input.pubDateTo) conditions.push(lte(aiAgentDiscoveredArticles.externalPublishedAt, new Date(input.pubDateTo) as any));
       const where = conditions.length > 0 ? and(...conditions) : undefined;

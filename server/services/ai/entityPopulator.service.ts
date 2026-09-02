@@ -11,6 +11,7 @@ import {
   aiEntityExtractions, aiEntityAliases,
 } from "../../../drizzle/schema";
 import { eq, like, and, or, sql } from "drizzle-orm";
+import { toDbDate } from "../../_core/dbValues";
 
 // ============================================================
 // TYPES
@@ -257,7 +258,7 @@ async function createNewEntity(
         shortDescription: data.shortDescription || null,
         type: data.type || "conference",
         format: data.format || "in_person",
-        startDate: data.startDate || new Date().toISOString(),
+        startDate: toDbDate(data.startDate || new Date()),
         venue: data.venue || null,
         city: data.city || null,
         statusId: 1,
@@ -392,7 +393,7 @@ async function handleFundingRound(
     amountRaised: data.amount ? parseFloat(data.amount) : null,
     currency: data.currency || "USD",
     isUndisclosed: data.amount ? 0 : 1,
-    fundingDate: data.date || new Date().toISOString(),
+    fundingDate: toDbDate(data.date || new Date()),
     status: "pending",
   } as any);
   const roundId = roundResult.insertId;

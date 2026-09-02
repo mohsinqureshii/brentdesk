@@ -24,6 +24,7 @@ import * as offerSentTemplate from "../../../services/emailTemplates/offerSent";
 import { DEFAULT_TENANT_NAME } from "../../../services/emailTemplates/_layout";
 import { notifyOfferAccepted } from "../../../services/slackIntegration.service";
 import { assertTenantScope, assertTenantSupported } from "../tenant.guard";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   CreateOfferInput,
   ForbiddenError,
@@ -101,7 +102,7 @@ export class OffersService {
       equity: input.equity ?? null,
       currency: input.currency ?? "USD",
       startDate: input.startDate ? input.startDate.toISOString().slice(0, 10) : null,
-      expiresAt: input.expiresAt ? input.expiresAt.toISOString() : null,
+      expiresAt: input.expiresAt ? toDbDate(input.expiresAt) : null,
       status: "drafted",
       letterBody: input.letterBody ?? null,
     });

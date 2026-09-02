@@ -945,7 +945,7 @@ export const eventsRouter = router({
         .where(and(
           inArray(eventLivePosts.eventId, liveIds),
           eq(eventLivePosts.isDeleted, 0),
-          gte(eventLivePosts.publishedAt, oneHourAgo.toISOString().slice(0, 19).replace('T', ' ')),
+          gte(eventLivePosts.publishedAt, toDbDate(oneHourAgo)),
         ))
         .groupBy(eventLivePosts.eventId);
       const postCounts: Record<number, number> = Object.fromEntries(
@@ -993,7 +993,7 @@ export const eventsRouter = router({
       }).from(events)
         .where(and(
           eq(events.statusId, publishedStatus.id),
-          gte(events.startDate, new Date().toISOString())
+          gte(events.startDate, toDbDate(new Date()))
         ))
         .orderBy(asc(events.startDate))
         .limit(input.limit);
@@ -1052,7 +1052,7 @@ export const eventsRouter = router({
         conditions.push(eq(events.format, format));
       }
       if (upcoming) {
-        conditions.push(gte(events.startDate, new Date().toISOString()));
+        conditions.push(gte(events.startDate, toDbDate(new Date())));
       }
       // upcoming/past are measured against the *end* of the event so a
       // multi-day conference that's mid-run still counts as upcoming.
@@ -1092,10 +1092,10 @@ export const eventsRouter = router({
         );
       }
       if (input.startDateFrom) {
-        conditions.push(gte(events.startDate, new Date(input.startDateFrom).toISOString()));
+        conditions.push(gte(events.startDate, toDbDate(new Date(input.startDateFrom))));
       }
       if (input.startDateTo) {
-        conditions.push(lte(events.startDate, new Date(input.startDateTo).toISOString()));
+        conditions.push(lte(events.startDate, toDbDate(new Date(input.startDateTo))));
       }
 
       const whereClause = conditions.length > 0 ? and(...conditions) : undefined;
@@ -1420,7 +1420,7 @@ export const eventsRouter = router({
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (result.newStatusId === publishedStatus?.id) {
         await db.update(events)
-          .set({ publishedAt: new Date().toISOString() })
+          .set({ publishedAt: toDbDate(new Date()) })
           .where(eq(events.id, input.eventId));
       }
 
@@ -1467,7 +1467,7 @@ export const eventsRouter = router({
       await db.update(events)
         .set({ 
           statusId: status.id,
-          ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {})
+          ...(input.statusSlug === "published" ? { publishedAt: toDbDate(new Date()) } : {})
         })
         .where(inArray(events.id, input.ids));
 
@@ -1530,7 +1530,7 @@ export const eventsRouter = router({
         conditions.push(eq(events.format, format));
       }
       if (upcoming) {
-        conditions.push(gte(events.startDate, new Date().toISOString()));
+        conditions.push(gte(events.startDate, toDbDate(new Date())));
       }
       // The admin list filters by sector/city/timeframe/tickets; the export
       // accepted those inputs but ignored them, so a CSV taken under a
@@ -4006,7 +4006,7 @@ export const eventsRouter = router({
           approvalStatus: 'approved',
           // Approval republishes: timestamp the moment it went live,
           // not the moment the crawler drafted it.
-          publishedAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+          publishedAt: toDbDate(new Date()),
           ...(input.headline !== undefined ? { headline: input.headline } : {}),
           ...(input.body !== undefined ? { body: input.body } : {}),
         })
@@ -4394,7 +4394,7 @@ export const eventsRouter = router({
         .set({
           moderationStatus: "approved",
           reviewedById: ctx.user.id,
-          reviewedAt: new Date().toISOString(),
+          reviewedAt: toDbDate(new Date()),
         })
         .where(eq(eventSubmissions.id, input.submissionId));
       return { success: true as const };
@@ -4419,7 +4419,7 @@ export const eventsRouter = router({
           moderationStatus: "rejected",
           moderationReasoning: input.reason ?? "No reason given",
           reviewedById: ctx.user.id,
-          reviewedAt: new Date().toISOString(),
+          reviewedAt: toDbDate(new Date()),
         })
         .where(eq(eventSubmissions.id, input.submissionId));
       return { success: true as const };
@@ -4446,7 +4446,7 @@ export const eventsRouter = router({
             .set({
               moderationStatus: "approved",
               reviewedById: ctx.user.id,
-              reviewedAt: new Date().toISOString(),
+              reviewedAt: toDbDate(new Date()),
             })
             .where(eq(eventSubmissions.id, id));
           created += 1;

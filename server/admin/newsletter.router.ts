@@ -18,6 +18,7 @@ import { eq, and, desc, like, sql, inArray, isNull } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import { logAudit } from "./rbac.router";
 import crypto from "crypto";
+import { toDbDate } from "../_core/dbValues";
 
 // Generate verification token
 function generateVerificationToken(): string {
@@ -297,7 +298,7 @@ export const newsletterRouter = router({
           // Resubscribe
           await database
             .update(subscriberLists)
-            .set({ unsubscribedAt: null, subscribedAt: new Date().toISOString() } as any)
+            .set({ unsubscribedAt: null, subscribedAt: toDbDate(new Date()) } as any)
             .where(eq(subscriberLists.id, existingSubscription.id));
         }
       }
@@ -341,7 +342,7 @@ export const newsletterRouter = router({
         if (list) {
           await database
             .update(subscriberLists)
-            .set({ unsubscribedAt: new Date().toISOString() } as any)
+            .set({ unsubscribedAt: toDbDate(new Date()) } as any)
             .where(and(
               eq(subscriberLists.subscriberId, subscriber.id),
               eq(subscriberLists.listId, list.id)
@@ -359,14 +360,14 @@ export const newsletterRouter = router({
           .update(subscribers)
           .set({
             status: "unsubscribed",
-            unsubscribedAt: new Date().toISOString(),
+            unsubscribedAt: toDbDate(new Date()),
             unsubscribeReason: input.reason ?? null,
           } as any)
           .where(eq(subscribers.id, subscriber.id));
 
         await database
           .update(subscriberLists)
-          .set({ unsubscribedAt: new Date().toISOString() } as any)
+          .set({ unsubscribedAt: toDbDate(new Date()) } as any)
           .where(eq(subscriberLists.subscriberId, subscriber.id));
       }
 

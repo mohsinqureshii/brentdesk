@@ -11,6 +11,7 @@ import {
   companies, investors, sectors, countries
 } from "../../drizzle/schema";
 import { eq, and, like, desc, sql, inArray } from "drizzle-orm";
+import { toDbDate } from "../_core/dbValues";
 
 const roundTypeSchema = z.enum([
   "pre_seed", "seed", "series_a", "series_b", "series_c", "series_d_plus",
@@ -407,7 +408,7 @@ export const fundingRouter = router({
           ...updateData,
           fundingDate: fundingDate ? new Date(fundingDate) : undefined,
           sourceUrls: sourceUrls ? JSON.stringify(sourceUrls) : undefined,
-          updatedAt: new Date().toISOString(),
+          updatedAt: toDbDate(new Date()),
         } as any)
         .where(eq(fundingRounds.id, id));
       

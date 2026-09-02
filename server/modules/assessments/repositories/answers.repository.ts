@@ -10,6 +10,7 @@
 import { and, asc, eq } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { assessmentAttemptAnswers } from "../../../../drizzle/schema";
+import { toDbDate } from "../../../_core/dbValues";
 
 async function db() {
   const d = await getDb();
@@ -90,7 +91,7 @@ export async function setScore(
   const fields: any = {
     score,
     autoGraded: 1,
-    gradedAt: new Date().toISOString().slice(0, 19).replace("T", " "),
+    gradedAt: toDbDate(new Date()),
   };
   if (llmFeedback !== undefined) fields.llmFeedback = llmFeedback;
   if (gradedById !== undefined) fields.gradedById = gradedById;

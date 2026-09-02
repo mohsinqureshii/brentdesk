@@ -13,6 +13,7 @@
 import { and, desc, eq, isNull, sql } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { candidateScores } from "../../../../drizzle/schema";
+import { toDbDate } from "../../../_core/dbValues";
 
 async function db() {
   const d = await getDb();
@@ -80,7 +81,7 @@ export async function upsert(values: {
       values.assessmentScore !== null ? String(values.assessmentScore) : null,
     matchScore: values.matchScore !== null ? String(values.matchScore) : null,
     weights: values.weights as any,
-    computedAt: new Date().toISOString(),
+    computedAt: toDbDate(new Date()),
   };
   if (values.explanation !== undefined) payload.explanation = values.explanation;
 

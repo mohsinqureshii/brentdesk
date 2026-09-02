@@ -25,6 +25,7 @@ import {
 } from "../../drizzle/schema";
 import { and, eq, gte, lte, inArray, or, isNull, sql } from "drizzle-orm";
 import { sendEmail } from "./email.service";
+import { toDbDate } from "../_core/dbValues";
 
 type ReminderWindow = {
   /** Human label that ends up in the subject line. */
@@ -142,8 +143,8 @@ export async function processEventReminders(): Promise<ReminderResult> {
     })
       .from(events)
       .where(and(
-        gte(events.startDate, windowStart.toISOString().slice(0, 19).replace('T', ' ')),
-        lte(events.startDate, windowEnd.toISOString().slice(0, 19).replace('T', ' ')),
+        gte(events.startDate, toDbDate(windowStart)),
+        lte(events.startDate, toDbDate(windowEnd)),
       ));
 
     if (candidateEvents.length === 0) continue;

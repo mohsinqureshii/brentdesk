@@ -11,6 +11,7 @@
 import * as feedbackRepo from "../repositories/interviewFeedback.repository";
 import * as interviewsRepo from "../repositories/interviews.repository";
 import { assertTenantScope, assertTenantSupported } from "../tenant.guard";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   ForbiddenError,
   InterviewFeedbackDTO,
@@ -90,7 +91,7 @@ export class FeedbackService {
       strengths: input.strengths ?? null,
       concerns: input.concerns ?? null,
       notes: input.notes ?? null,
-      submittedAt: new Date().toISOString(),
+      submittedAt: toDbDate(new Date()),
     };
 
     let id: number;

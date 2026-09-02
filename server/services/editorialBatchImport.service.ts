@@ -33,6 +33,7 @@ import {
 } from "../../drizzle/schema";
 import { getDb } from "../db";
 import { MediaService } from "./media.service";
+import { toDbDate } from "../_core/dbValues";
 
 export type EventBucket = "LEAP 2026" | "DeepFest 2026" | "Both";
 export type RightsStatus = "owned" | "licensed" | "editorial_use" | "generated" | "pending_review";
@@ -191,7 +192,7 @@ function toMysqlDatetime(isoUtc: string): string {
   if (Number.isNaN(parsed.getTime())) {
     throw new Error(`Invalid display_datetime_utc: '${isoUtc}'`);
   }
-  return parsed.toISOString().slice(0, 19).replace("T", " ");
+  return toDbDate(parsed);
 }
 
 function publisherFromUrl(sourceUrl: string): string | null {
@@ -608,7 +609,7 @@ export async function importEditorialBatch(manifest: EditorialBatchManifest, opt
       await db.update(editorialBatches).set({ importedArticleCount: report.importedArticles } as any).where(eq(editorialBatches.id, batchId));
     }
 
-    await db.update(editorialBatches).set({ status: "imported", importedArticleCount: report.importedArticles, importedAt: toMysqlDatetime(new Date().toISOString()) } as any).where(eq(editorialBatches.id, batchId));
+    await db.update(editorialBatches).set({ status: "imported", importedArticleCount: report.importedArticles, importedAt: toDbDate(new Date()) } as any).where(eq(editorialBatches.id, batchId));
     return report;
   } catch (error) {
     await db.update(editorialBatches).set({ status: "failed", metadata: { ...manifest.batch, error: error instanceof Error ? error.message : String(error) } as any } as any).where(eq(editorialBatches.id, batchId));

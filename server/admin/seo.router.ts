@@ -29,6 +29,7 @@ import { slugService } from "../services/slug.service";
 import { regenerateAllSitemaps } from "../services/publishHooks.service";
 import { invokeLLM } from "../_core/llm";
 import { categories as categoriesTbl, companies as companiesTbl, people as peopleTbl, jobs as jobsTbl, events as eventsTbl } from "../../drizzle/schema";
+import { toDbDate } from "../_core/dbValues";
 
 // ============================================================
 // SEO ADMIN ROUTER
@@ -546,7 +547,7 @@ export const seoAdminRouter = router({
           await db.update(seo404Monitor)
             .set({
               hitCount: existing.hitCount + 1,
-              lastHitAt: new Date().toISOString(),
+              lastHitAt: toDbDate(new Date()),
             } as any)
             .where(eq(seo404Monitor.id, existing.id));
         } else {

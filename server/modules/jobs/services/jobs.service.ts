@@ -16,6 +16,7 @@ import { slugService } from "../../../services/slug.service";
 import { seoService } from "../../../services/seo.service";
 import { workflowService } from "../../../services/workflow.service";
 import { assertTenantSupported } from "../tenant.guard";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   CreateJobInput,
   UpdateJobInput,
@@ -303,7 +304,7 @@ export class JobsService {
 
     const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
     if (result.newStatusId === publishedStatus?.id) {
-      await jobsRepo.update(jobId, { publishedAt: new Date().toISOString() });
+      await jobsRepo.update(jobId, { publishedAt: toDbDate(new Date()) });
       const info = await jobsRepo.getSlugAndTitle(jobId);
       if (info) {
         await firePublishHooks({

@@ -10,6 +10,7 @@ import { desc, eq } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { offers } from "../../../../drizzle/schema";
 import type { OfferStatus } from "../types";
+import { toDbDate } from "../../../_core/dbValues";
 
 async function db() {
   const d = await getDb();
@@ -54,7 +55,7 @@ export async function transitionStatus(
   const d = await db();
   const values: Record<string, unknown> = { status: newStatus };
   if (newStatus === "accepted" || newStatus === "declined") {
-    values.respondedAt = new Date().toISOString();
+    values.respondedAt = toDbDate(new Date());
   }
   if (newStatus === "declined" && reason) {
     values.declineReason = reason;

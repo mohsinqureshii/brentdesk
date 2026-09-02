@@ -12,6 +12,7 @@ import {
 } from "../../../drizzle/schema";
 import { invokeLLM } from "../../_core/llm";
 import { notifyOwner } from "../../_core/notification";
+import { toDbDate } from "../../_core/dbValues";
 
 export const emailDigestRouter = router({
   // Get current user's digest preferences
@@ -206,7 +207,7 @@ export const emailDigestRouter = router({
       .where(
         and(
           eq(events.statusId, 4),
-          gte(events.startDate, new Date().toISOString())
+          gte(events.startDate, toDbDate(new Date()))
         )
       )
       .orderBy(events.startDate)
@@ -259,7 +260,7 @@ export const emailDigestRouter = router({
         const ids = subscribers.map((s: { id: number; userId: number }) => s.id);
         await db
           .update(emailDigestPreferences)
-          .set({ lastSentAt: new Date().toISOString() } as any)
+          .set({ lastSentAt: toDbDate(new Date()) } as any)
           .where(inArray(emailDigestPreferences.id, ids));
       }
 

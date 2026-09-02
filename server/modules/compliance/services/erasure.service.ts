@@ -44,6 +44,7 @@ import {
 } from "../../../../drizzle/schema";
 import { and, eq, inArray, lte } from "drizzle-orm";
 import { logPii } from "./piiAccessLog.service";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   ErasureRequestNotFoundError,
   GracePeriodNotElapsedError,
@@ -242,7 +243,7 @@ export async function executeErasure(requestId: number): Promise<void> {
 
   await db
     .update(candidateErasureRequests)
-    .set({ status: "executed", executedAt: new Date().toISOString() } as any)
+    .set({ status: "executed", executedAt: toDbDate(new Date()) } as any)
     .where(eq(candidateErasureRequests.id, requestId));
 
   await logPii({
@@ -270,7 +271,7 @@ export async function processDueErasures(): Promise<number> {
     .where(
       and(
         eq(candidateErasureRequests.status, "approved"),
-        lte(candidateErasureRequests.gracePeriodEndsAt, new Date().toISOString()),
+        lte(candidateErasureRequests.gracePeriodEndsAt, toDbDate(new Date())),
       ),
     )
     .limit(100);

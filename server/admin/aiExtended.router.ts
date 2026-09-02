@@ -21,6 +21,7 @@ import {
   aiRevenueAttribution, aiApiKeys,
 } from "../../drizzle/schema";
 import { eq, desc, and, sql, between, count } from "drizzle-orm";
+import { toDbDate } from "../_core/dbValues";
 import {
   analyzeTone, checkPlagiarism, generateSEO, generateSocialPosts,
   generateNewsletter, generateScript, linkEntitiesToArticle,
@@ -654,7 +655,7 @@ export const aiExtendedRouter = router({
         permissions: input.permissions || ["read", "generate"],
         rateLimit: input.rateLimit || 100,
         isActive: 1,
-        expiresAt: (input.expiresAt as any) instanceof Date ? new Date(input.expiresAt!).toISOString() : input.expiresAt || null,
+        expiresAt: (input.expiresAt as any) instanceof Date ? toDbDate(new Date(input.expiresAt!)) : input.expiresAt || null,
         createdById: ctx.user.id,
       } as any).$returningId()) as unknown as ({id: number})[];
 

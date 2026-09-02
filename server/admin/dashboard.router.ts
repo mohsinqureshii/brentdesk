@@ -7,6 +7,7 @@ import { z } from "zod";
 import { eq, desc, count, sql, gte, and } from "drizzle-orm";
 import { router, protectedProcedure } from "../_core/trpc";
 import { getDb } from "../db";
+import { toDbDate } from "../_core/dbValues";
 import { 
   articles,
   jobs,
@@ -204,12 +205,12 @@ export const dashboardRouter = router({
       // Get users who signed in recently
       const activeUsers = await db.select()
         .from(users)
-        .where(gte(users.lastSignedIn, since.toISOString()));
+        .where(gte(users.lastSignedIn, toDbDate(since)));
 
       // Get new users
       const newUsers = await db.select()
         .from(users)
-        .where(gte(users.createdAt, since.toISOString()));
+        .where(gte(users.createdAt, toDbDate(since)));
 
       // Get users by role
       const allUsers = await db.select().from(users);

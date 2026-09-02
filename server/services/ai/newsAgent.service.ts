@@ -24,6 +24,7 @@ import {
 import { eq, and, gte, desc, sql, or, like } from "drizzle-orm";
 import { invokeLLMProvider, type LLMProvider } from "./llmProvider.service";
 import { batchScoreArticles, invalidateScoringCache } from "./scoringEngine.service";
+import { toDbDate } from "../../_core/dbValues";
 
 // ============================================================
 // TYPES
@@ -819,8 +820,8 @@ export async function crawlSource(sourceId: number): Promise<CrawlResult> {
     if (newItems.length === 0) {
       await finaliseLog(db, crawlLogId, "completed", Date.now() - startTime, articlesFound, 0, articlesDuplicate, 0, null);
       await db.update(aiAgentSources).set({
-        lastCrawledAt: toMysqlDatetime(new Date()),
-        lastSuccessAt: toMysqlDatetime(new Date()),
+        lastCrawledAt: toDbDate(new Date()),
+        lastSuccessAt: toDbDate(new Date()),
       } as any).where(eq(aiAgentSources.id, source.id));
       return { sourceId: source.id, sourceName: source.name, articlesFound, articlesNew: 0, articlesDuplicate, articlesAboveThreshold: 0, errors, durationMs: Date.now() - startTime };
     }
@@ -916,7 +917,7 @@ export async function crawlSource(sourceId: number): Promise<CrawlResult> {
           status: (scoring.finalScore / 100) >= agentSettings.autoGenerateAboveThreshold ? "approved" : "discovered",
         };
         if (item.publishedAt && !isNaN(item.publishedAt.getTime())) {
-          insertValues.externalPublishedAt = item.publishedAt.toISOString().slice(0, 19).replace("T", " ");
+          insertValues.externalPublishedAt = toDbDate(item.publishedAt);
         }
         if (item.author) insertValues.externalAuthor = item.author.slice(0, 255);
         if (item.imageUrl) insertValues.externalImageUrl = item.imageUrl.slice(0, 2000);
@@ -930,8 +931,8 @@ export async function crawlSource(sourceId: number): Promise<CrawlResult> {
 
     // ── Step 8: Update source stats ─────────────────────────
     await db.update(aiAgentSources).set({
-      lastCrawledAt: toMysqlDatetime(new Date()),
-      lastSuccessAt: toMysqlDatetime(new Date()),
+      lastCrawledAt: toDbDate(new Date()),
+      lastSuccessAt: toDbDate(new Date()),
       consecutiveFailures: 0,
       totalArticlesFound: sql`${aiAgentSources.totalArticlesFound} + ${articlesNew}`,
     } as any).where(eq(aiAgentSources.id, source.id));
@@ -1006,7 +1007,7 @@ export async function crawlSource(sourceId: number): Promise<CrawlResult> {
 
     await finaliseLog(db, crawlLogId, "failed", durationMs, articlesFound, 0, articlesDuplicate, 0, errors.join("; "));
     await db.update(aiAgentSources).set({
-      lastCrawledAt: toMysqlDatetime(new Date()),
+      lastCrawledAt: toDbDate(new Date()),
       consecutiveFailures: sql`${aiAgentSources.consecutiveFailures} + 1`,
     } as any).where(eq(aiAgentSources.id, source.id));
 
@@ -1130,10 +1131,6 @@ export function stopAgentScheduler(): void {
 // ============================================================
 // DATE HELPERS
 // ============================================================
-
-function toMysqlDatetime(d: Date): string {
-  return d.toISOString().slice(0, 19).replace("T", " ");
-}
 
 // ============================================================
 // XML/HTML HELPERS
