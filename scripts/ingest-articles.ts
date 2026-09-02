@@ -14,11 +14,11 @@
  * Run: DATABASE_URL=... pnpm tsx scripts/ingest-articles.ts <file.json ...>
  */
 
-import "dotenv/config";
 import mysql from "mysql2/promise";
 import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
 import { eq, and } from "drizzle-orm";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync } from "fs";
+import path from "path";
 import {
   articles, articleTags, articleCompanies, articlePeople,
   tags, categories, companies, people, users, countries,
@@ -173,15 +173,33 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
   return { articleId, created: !existingId, missing };
 }
 
-async function main() {
-  const files = process.argv.slice(2);
-  if (!files.length) throw new Error("usage: ingest-articles.ts <file.json ...>");
-
+/**
+ * Ingest a set of article files, or the archive bundled into dist/.
+ *
+ * The runtime image ships only dist/, drizzle/ and scripts/data, so the
+ * source content/articles/ directory is not present in a deployed
+ * container. The build writes the whole archive to dist/articles.json and
+ * that is the default here, which lets a deploy publish the archive with
+ * no filesystem assumptions and no shell.
+ */
+export async function runIngest(files?: string[]): Promise<{ created: number; updated: number; missing: string[] }> {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is required");
+
+  const candidates = files?.length
+    ? files
+    : [path.resolve(import.meta.dirname, "articles.json"),
+       path.resolve(process.cwd(), "dist", "articles.json")];
+  // Both default candidates resolve to the same file in most layouts, and
+  // ingesting a file twice does the work twice — the second pass is an
+  // update of what the first just created. Dedupe on the resolved path.
+  const sources = [...new Set(candidates.map(f => path.resolve(f)))].filter(f => existsSync(f));
+  if (!sources.length) {
+    throw new Error(`no article files found (looked in: ${candidates.join(", ")})`);
+  }
+
   const pool = mysql.createPool(url);
   const db = drizzle(pool) as Db;
-
   try {
     const { workflowService } = await import("../server/services/workflow.service");
     // Editorial statuses are normally created by the server at boot. Ingest
@@ -195,27 +213,20 @@ async function main() {
     if (!published) throw new Error("could not resolve the published editorial status");
 
     let created = 0, updated = 0;
-    const allMissing = new Set<string>();
-    for (const file of files) {
+    const missing = new Set<string>();
+    for (const file of sources) {
       const parsed = JSON.parse(readFileSync(file, "utf8"));
       const batch: ArticleInput[] = Array.isArray(parsed) ? parsed : [parsed];
       for (const item of batch) {
         const r = await ingest(db, item, published.id);
         r.created ? created++ : updated++;
-        r.missing.forEach(m => allMissing.add(m));
-        console.log(`[ingest] ${r.created ? "created" : "updated"} #${item.commission} ${item.slug}`);
+        r.missing.forEach(m => missing.add(m));
       }
     }
     console.log(`[ingest] ${created} created, ${updated} updated`);
-    if (allMissing.size) {
-      console.log(`[ingest] no profile yet (link skipped): ${[...allMissing].join(", ")}`);
-    }
+    if (missing.size) console.log(`[ingest] no profile yet (link skipped): ${[...missing].join(", ")}`);
+    return { created, updated, missing: [...missing] };
   } finally {
     await pool.end();
   }
 }
-
-main().then(() => process.exit(0)).catch(err => {
-  console.error(`[ingest] ${err.message}`);
-  process.exit(1);
-});

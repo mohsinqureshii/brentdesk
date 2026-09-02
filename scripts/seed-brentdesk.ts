@@ -30,6 +30,7 @@
  */
 
 import bcrypt from "bcryptjs";
+import { seedCompanies } from "./seed-companies";
 import { publication } from "../shared/publication";
 import mysql from "mysql2/promise";
 import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
@@ -546,6 +547,18 @@ export async function runSeed(): Promise<void> {
     await seedHouseAds(db);
     await seedHomepageSections(db);
     await seedAuthors(db);
+    // Company profiles need the published editorial status, which the server
+    // creates at boot. Resolve it here so the seed works standalone too.
+    {
+      const { workflowService } = await import("../server/services/workflow.service");
+      let status = await workflowService.getStatusBySlug("editorial", "published");
+      if (!status) {
+        await workflowService.initializeWorkflows();
+        status = await workflowService.getStatusBySlug("editorial", "published");
+      }
+      if (status) await seedCompanies(db, status.id);
+      else console.warn("[seed] companies: skipped (no published editorial status)");
+    }
     await seedAdminUser(db);
     console.log("[seed] BrentDesk bootstrap complete");
   } finally {

@@ -639,6 +639,20 @@ async function startServer() {
       }
     }
 
+    // Publish the editorial archive bundled at dist/articles.json. Same
+    // reasoning as SEED_ON_BOOT: a first deploy should not require a
+    // container shell. Runs AFTER the seed, which creates the bylines and
+    // categories each article resolves against. Idempotent on slug, so
+    // leaving the flag set just re-syncs the archive on each deploy.
+    if (process.env.INGEST_ON_BOOT === "1") {
+      try {
+        const { runIngest } = await import("../../scripts/ingest-articles");
+        await runIngest();
+      } catch (err) {
+        console.error("[ingest] boot ingest failed (server still serving):", (err as Error).message);
+      }
+    }
+
     // Sitemap smoke test — runs every generator once at startup so column
     // typos / SQL errors surface in deploy logs instead of silently failing
     // when Googlebot crawls a sitemap. Non-fatal: server keeps running even

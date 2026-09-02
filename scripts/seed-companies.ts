@@ -9,14 +9,12 @@
  * Idempotent on slug. Run: DATABASE_URL=... pnpm tsx scripts/seed-companies.ts
  */
 
-import "dotenv/config";
-import mysql from "mysql2/promise";
-import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
+import { type MySql2Database } from "drizzle-orm/mysql2";
 import { eq } from "drizzle-orm";
 import { companies, countries } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
-type Db = MySql2Database<Record<string, never>>;
+export type CompanyDb = MySql2Database<Record<string, never>>;
 
 interface Profile {
   name: string; slug: string; country: string | null; location: string | null;
@@ -98,41 +96,23 @@ const PROFILES: Profile[] = [
     description: "Aluminium Bahrain, one of the largest single-site aluminium smelters in the world and a central part of Bahrain's industrial base." },
 ];
 
-async function main() {
-  const url = process.env.DATABASE_URL;
-  if (!url) throw new Error("DATABASE_URL is required");
-  const pool = mysql.createPool(url);
-  const db = drizzle(pool) as Db;
+/** Insert or refresh the company profiles. Idempotent on slug. */
+export async function seedCompanies(db: CompanyDb, statusId: number): Promise<void> {
+  let added = 0, updated = 0;
+  for (const p of PROFILES) {
+    const [countryRow] = p.country
+      ? await db.select({ id: countries.id }).from(countries).where(eq(countries.name, p.country)).limit(1)
+      : [undefined];
 
-  try {
-    const { workflowService } = await import("../server/services/workflow.service");
-    let status = await workflowService.getStatusBySlug("editorial", "published");
-    if (!status) {
-      await workflowService.initializeWorkflows();
-      status = await workflowService.getStatusBySlug("editorial", "published");
-    }
-    if (!status) throw new Error("could not resolve the published editorial status");
+    const values = {
+      name: p.name, slug: p.slug, description: p.description, website: p.website,
+      location: p.location, industry: p.industry, countryId: countryRow?.id ?? null,
+      statusId, isVerified: 1, publishedAt: toDbDate(new Date()),
+    };
 
-    let added = 0, updated = 0;
-    for (const p of PROFILES) {
-      const [countryRow] = p.country
-        ? await db.select({ id: countries.id }).from(countries).where(eq(countries.name, p.country)).limit(1)
-        : [undefined];
-
-      const values = {
-        name: p.name, slug: p.slug, description: p.description, website: p.website,
-        location: p.location, industry: p.industry, countryId: countryRow?.id ?? null,
-        statusId: status.id, isVerified: 1, publishedAt: toDbDate(new Date()),
-      };
-
-      const [existing] = await db.select({ id: companies.id }).from(companies).where(eq(companies.slug, p.slug)).limit(1);
-      if (existing) { await db.update(companies).set(values as any).where(eq(companies.id, existing.id)); updated++; }
-      else { await db.insert(companies).values(values as any); added++; }
-    }
-    console.log(`[companies] ${added} added, ${updated} updated (${PROFILES.length} profiles)`);
-  } finally {
-    await pool.end();
+    const [existing] = await db.select({ id: companies.id }).from(companies).where(eq(companies.slug, p.slug)).limit(1);
+    if (existing) { await db.update(companies).set(values as any).where(eq(companies.id, existing.id)); updated++; }
+    else { await db.insert(companies).values(values as any); added++; }
   }
+  console.log(`[seed] companies: ${added} added, ${updated} updated`);
 }
-
-main().then(() => process.exit(0)).catch(err => { console.error(`[companies] ${err.message}`); process.exit(1); });
