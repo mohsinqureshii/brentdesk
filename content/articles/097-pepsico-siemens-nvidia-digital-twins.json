@@ -1,0 +1,44 @@
+[
+  {
+    "commission": 97,
+    "headline": "PepsiCo Moves Siemens and NVIDIA Digital Twins Into Its US Plants and Warehouses",
+    "slug": "pepsico-siemens-nvidia-digital-twins-plants-warehouses",
+    "deck": "The twin is no longer a demonstration. PepsiCo is using it to size capital spending before anything is built — and Siemens is packaging the same capability as a product.",
+    "excerpt": "PepsiCo has begun converting selected US manufacturing and warehouse sites into high-fidelity digital twins under a multi-year collaboration with Siemens and NVIDIA announced at CES 2026. The company reports a 20 percent throughput increase on initial deployment and capital expenditure reductions of 10 to 15 percent. Siemens is simultaneously turning the underlying tooling into a marketplace product.",
+    "content": "<p>PepsiCo has started converting selected United States manufacturing and warehouse facilities into high-fidelity three-dimensional digital replicas, under a multi-year collaboration with Siemens and NVIDIA that shifts digital twin technology from something manufacturers demonstrate to something they use to commit capital.</p><p>The collaboration, <a href=\"https://www.pepsico.com/newsroom/press-releases/2025/pepsico-announces-industry-first-ai-and-digital-twin-collaboration-with-siemens-and-nvidia\">announced by PepsiCo at CES 2026</a>, combines Siemens' digital twin and simulation software with simulation libraries from NVIDIA Omniverse and real-time engineering data drawn from the plants themselves. The twins model both individual plant operations and the end-to-end supply chain running between them, and are first used to establish a performance baseline against which proposed changes can be tested.</p><p>The numbers PepsiCo has attached to the early work are the reason the announcement matters more than the technology description suggests. The company reports a 20 percent increase in throughput on initial deployment, reductions of 10 to 15 percent in capital expenditure, faster design cycles, and near-complete validation of designs in simulation before physical work begins — with the large majority of potential problems identified before anything is installed on a factory floor.</p><p>That last point is the substantive change. Digital twins have existed as a concept in industrial software for well over a decade, and most manufacturers have built one at some point: a visually convincing model of a line or a cell, produced for a specific project, admired, and then left to go stale as the real plant drifted away from it. The reason those efforts rarely compounded is that the twin was never load-bearing. Nothing depended on it. Engineering decisions were made the way they had always been made, and the model was a parallel artefact.</p><p>What PepsiCo describes is different in kind: a twin that sits ahead of the capital approval, absorbing the risk that used to be discovered during commissioning. If a line reconfiguration can be validated in simulation to the point where the capital request shrinks by a tenth or more, the twin has stopped being a visualisation and become part of the investment process. Warehousing is included alongside manufacturing, which extends the same logic to material flow rather than only to machine layout.</p><p>Siemens is not treating this as a bespoke engagement. At CES 2026 the company also unveiled <a href=\"https://news.siemens.com/en-us/digital-twin-composer-ces-2026/\">Digital Twin Composer</a>, the tooling used to assemble these models, and said it would be available on the Siemens Xcelerator Marketplace in mid-2026. The distinction is commercially significant: what was previously delivered as a consulting-heavy integration project is being turned into a licensable product, which is how a capability moves from the few companies that can afford a custom programme to the many that cannot.</p><p>Behind it sits an expanded Siemens–NVIDIA partnership to build what the two companies call an <a href=\"https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-expand-partnership-build-industrial-ai-operating-system\">industrial AI operating system</a>, with NVIDIA supplying AI infrastructure, simulation libraries, models and frameworks, and Siemens contributing industrial software, hardware and domain knowledge. Siemens intends to demonstrate the result on itself: its own electronics factory in Erlangen, Germany, is the first site the two companies have named in an effort to build fully AI-driven, adaptive manufacturing plants, with work starting in 2026.</p><p>Some caution is due on the figures. They are the participating companies' own, drawn from early deployments at a selected group of facilities, and a 20 percent throughput gain measured at one site during a first implementation is not a rate that holds across a network of plants built at different times to different standards. PepsiCo has not published which facilities are involved or how many.</p><p>The direction, though, is not in dispute. A food and beverage manufacturer — not an aerospace or semiconductor firm with unusual tolerance for engineering overhead — is buying simulation as operating infrastructure, and the largest industrial automation vendor in Europe is selling the tooling off a marketplace shelf alongside a chipmaker's simulation stack. That combination says more about where digital twins have arrived than any single deployment figure does.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Digital Twins",
+      "Manufacturing",
+      "Simulation",
+      "Industrial Software"
+    ],
+    "companies": [
+      "PepsiCo",
+      "Siemens",
+      "NVIDIA"
+    ],
+    "people": [],
+    "country": "United States",
+    "eventDate": "2026-01-06",
+    "informationCutoff": "2026-01-15",
+    "primarySourceUrl": "https://www.pepsico.com/newsroom/press-releases/2025/pepsico-announces-industry-first-ai-and-digital-twin-collaboration-with-siemens-and-nvidia",
+    "primarySourceName": "PepsiCo",
+    "secondarySourceUrls": [
+      "https://press.siemens.com/global/en/pressrelease/siemens-unveils-technologies-accelerate-industrial-ai-revolution-ces-2026",
+      "https://news.siemens.com/en-us/digital-twin-composer-ces-2026/",
+      "https://blogs.sw.siemens.com/digital-logistics/2026/01/14/pepsico-reimagines-supply-chain-performance-through-digital-twins-and-ai-with-siemens/",
+      "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-expand-partnership-build-industrial-ai-operating-system",
+      "https://interestingengineering.com/ai-robotics/siemens-nvidia-industrial-ai-operating-system"
+    ],
+    "seoTitle": "PepsiCo Deploys Siemens and NVIDIA Digital Twins in Plants",
+    "seoDescription": "PepsiCo is turning selected US plants and warehouses into digital twins with Siemens and NVIDIA, citing 20% higher throughput and lower capital spend.",
+    "articleType": "news",
+    "wordCount": 647,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]
