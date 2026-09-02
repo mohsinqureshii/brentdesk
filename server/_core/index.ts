@@ -567,9 +567,24 @@ async function startServer() {
   // resolve it — vite (a devDependency) must never end up in the
   // production bundle, where importing it crashes on startup.
   if (process.env.NODE_ENV === "development") {
-    const devViteModule = "./vite" + "";
-    const { setupVite } = await import(devViteModule);
-    await setupVite(app, server);
+    try {
+      const devViteModule = "./vite" + "";
+      const { setupVite } = await import(devViteModule);
+      await setupVite(app, server);
+    } catch (err) {
+      // A bundled build has no sibling ./vite module — dist/ holds only
+      // index.js and seed.js — so reaching here means NODE_ENV said
+      // "development" inside a deployed container (a stray platform
+      // variable, or a start command that did not set it). That used to
+      // be an unhandled ERR_MODULE_NOT_FOUND at boot: the process died
+      // before binding and the platform reported "Application failed to
+      // respond". Serving the built client is always better than that.
+      console.warn(
+        `[Startup] NODE_ENV=development but the dev Vite middleware could not be loaded ` +
+          `(${(err as Error).message}). Serving the built client from dist/public instead.`,
+      );
+      serveStatic(app);
+    }
   } else {
     serveStatic(app);
   }
@@ -590,7 +605,10 @@ async function startServer() {
   }
 
   server.listen(port, async () => {
-    console.log(`[${publication.name}] Server running on http://localhost:${port}/`);
+    console.log(
+      `[${publication.name}] Server running on http://localhost:${port}/ ` +
+        `(NODE_ENV=${process.env.NODE_ENV ?? "unset"})`,
+    );
 
     // Database work happens AFTER the port is open, never before. A managed
     // platform (Railway, Render, Fly) routes traffic as soon as the service
