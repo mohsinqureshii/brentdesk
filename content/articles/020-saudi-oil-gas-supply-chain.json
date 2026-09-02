@@ -1,0 +1,55 @@
+[
+  {
+    "commission": 20,
+    "headline": "How Saudi Arabia Is Building an Oil and Gas Supply Chain of Its Own",
+    "slug": "saudi-arabia-domestic-oil-gas-supply-chain-localization-feature",
+    "deck": "Valves in Dammam, couplings in Riyadh, service hubs at SPARK, fabrication on the Gulf coast and half of Amiral's output reserved for local industry. Localization has become an industrial fact. The harder question is whether it can sell to anyone else.",
+    "excerpt": "Aramco's iktva programme has reached 70 percent local content and is targeting 75 percent by 2030, and the manufacturing base behind that number is now visible in Dammam, Riyadh, Jubail and King Salman Energy Park. Where it stops is as instructive as where it has got to.",
+    "content": "<p>The most consequential thing happening in Saudi oil and gas this year is not a production figure. It is the industrial base assembling behind the production figures: the valve shops in Dammam, the fabrication yards on the Gulf coast, the coupling lines in Riyadh, the service company hubs at King Salman Energy Park, and the procurement rules that made all of them worth building.</p><p>The Kingdom now has a decade of evidence about whether this works. Aramco said in February that its iktva supply chain programme had <a href=\"https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program\">reached 70 percent local content</a> in the goods and services it buys, and set a new target of 75 percent by 2030. The company attributes $280 billion of added gross domestic product to the programme, $9 billion of inward investment, more than 200,000 direct and indirect jobs, more than 350 investments from 35 countries in new manufacturing facilities, and 47 strategic products manufactured in the Kingdom for the first time.</p><p>Those are large numbers, and the mechanism producing them is simple enough to explain in a sentence: Aramco scores suppliers on how much of their value is added inside Saudi Arabia, and uses the score in awarding work. For a company that spends at Aramco's scale, that turns a procurement policy into an industrial policy. What is more interesting than the aggregate is what the individual pieces of the supply chain now look like, and where they stop.</p><p>Start with manufacturing. Valve production has clustered around Dammam, where PetrolValves runs a plant of more than 11,450 square metres approved by Aramco for API 6D and 6A ball and gate valves, and where Ampo Arabia this summer took the largest single order in its plant's history: up to 1,200 engineered valves for the Zuluf offshore development, contracted through the EPC firm C.A.T. Group. Further inland, Arabian Pipes has approved a plant in Riyadh's Second Industrial City to make up to 50,000 couplings a year for oil country tubular goods, removing an imported precision component from the middle of its own product.</p><p>Service company manufacturing has concentrated instead at King Salman Energy Park, the industrial city between Dammam and Al-Ahsa whose construction began in 2017 and whose full build-out runs to 2035. SLB operates a manufacturing centre there with a first phase of 105,000 square metres producing liner hangers, packers and isolation valves. Baker Hughes committed to an oilfield services facility on the same site. National Energy Services Reunited began construction this year of a 180,000 square metre facility in four phases, the first of which relocates its hydraulic fracturing operations to the park.</p><p>Fabrication is the third leg, and the most revealing. Saipem carries out fabrication for its Aramco offshore contracts at its Saudi yard, Saipem Taqa Al-Rushaid Fabricators, and the <a href=\"https://www.saipem.com/en/media/press-releases/2025-12-30/saipem-awarded-two-offshore-contracts-saudi-arabia-worth\">rolling call-offs</a> it receives under its long-term agreement with Aramco are what make that yard viable between projects. But the limits are visible in the same programme. The largest offshore platform Aramco commissioned for the Marjan expansion was <a href=\"https://china.aramco.com/en/news-media/china-news/2024/aramco-completes-the-fabrication-of-one-of-its-largest-offshore-platforms-in-china\">fabricated in China</a> and shipped to the Gulf. Heavy topsides of that scale are built in a handful of yards worldwide, and Saudi Arabia is not yet one of them.</p><p>Upstream of all of it sits steel. Aramco, Baosteel and the Public Investment Fund <a href=\"https://www.pif.gov.sa/en/news-and-insights/press-releases/2023/aramco-baosteel-and-pif/\">agreed to establish the Kingdom's first integrated steel plate manufacturing complex</a>, the input that fabrication yards, pipe mills and pressure vessel makers all draw on. A supply chain that machines and welds locally but imports every plate has localized the labour and not the material, and closing that gap is a much heavier capital undertaking than opening a machine shop.</p><p>The same logic has now been extended to molecules. In April the Ministry of Investment <a href=\"https://www.spa.gov.sa/en/N2570278\">signed an agreement with SATORP</a> committing roughly half the output of the $11 billion Amiral petrochemical complex in Jubail as feedstock for domestic industrial value chains, with the project expected to unlock about $4 billion of further downstream investment in plants making carbon fibre, lubricants, drilling fluids, detergents, automotive components and tyres. It is the same idea applied one layer further down: capture the value where the material is produced rather than exporting it and buying back the finished article.</p><p>Aramco has an institutional vehicle for this beyond procurement scoring. Its <a href=\"https://www.aramco.com/en/what-we-do/commercial-ecosystems/namaat\">Namaat programme</a> takes equity and joint venture positions to establish industrial companies in the Kingdom, and it has signed dozens of agreements and memoranda across materials, manufacturing and technology. The distinction between Namaat and iktva is worth holding onto: one buys from local suppliers, the other creates them, and the second is considerably harder.</p><p>What holds the whole structure up is order flow, and that is where the current moment is favourable. The offshore programme at Marjan, Zuluf and Safaniya, the gas processing build-out, and the downstream expansion in Jubail and Yanbu generate exactly the consumables that a domestic supply chain can make: line pipe, valves, wellheads, cable, structural steel, coatings, fabrication man-hours. Long-term agreements with contractors convert lumpy tenders into a rolling workload, and a rolling workload is the precondition for anyone financing a factory.</p><p>It is also the vulnerability. A supply chain built around one buyer's capital cycle is exposed to that cycle. The plants that will still be running in a decade are the ones that either sell outside the Kingdom or sell into more than one Saudi industry, and there is nothing automatic about either. Cost is the other constraint: localization carries a price premium wherever domestic volumes are below the scale at which international suppliers operate, and the premium is paid by the projects.</p><p>So the honest reading of the 70 percent figure is that it measures how much of Aramco's spending stays in the country, which is a real and useful thing to know, and not how competitive the resulting industry is. The second question is the one that decides whether this becomes a manufacturing economy or an elaborate procurement arrangement. The evidence that would settle it is specific and observable: Saudi-made valves, couplings and fabricated modules winning work outside Saudi Arabia, and doing it on price rather than on policy.</p>",
+    "author": "Mo",
+    "primaryCategory": "supply-chain",
+    "tags": [
+      "Localization",
+      "Manufacturing",
+      "iktva",
+      "Fabrication",
+      "Vision 2030"
+    ],
+    "companies": [
+      "Saudi Aramco",
+      "Public Investment Fund",
+      "Baoshan Iron & Steel",
+      "Saipem",
+      "Ampo Arabia",
+      "Arabian Pipes Company",
+      "National Energy Services Reunited",
+      "SLB",
+      "King Salman Energy Park",
+      "SATORP"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-01",
+    "informationCutoff": "2026-09-02",
+    "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program",
+    "primarySourceName": "Aramco",
+    "secondarySourceUrls": [
+      "https://www.spa.gov.sa/en/N2510083",
+      "https://www.spa.gov.sa/en/N2570278",
+      "https://www.pif.gov.sa/en/news-and-insights/press-releases/2023/aramco-baosteel-and-pif/",
+      "https://www.aramco.com/en/what-we-do/commercial-ecosystems/namaat",
+      "https://www.saipem.com/en/media/press-releases/2025-12-30/saipem-awarded-two-offshore-contracts-saudi-arabia-worth",
+      "https://www.tradearabia.com/News/465633/Ampo-Arabia-to-manufacture-1-200-valves-for-Aramco%E2%80%99s-Zuluf-development",
+      "https://www.argaam.com/en/article/articledetail/id/1868330",
+      "https://www.offshore-technology.com/news/schlumberger-manufacturing-centre/"
+    ],
+    "seoTitle": "How Saudi Arabia Is Building Its Own Oil and Gas Supply Chain",
+    "seoDescription": "Inside Saudi Arabia's oil and gas localization drive: iktva at 70 percent, valve and pipe manufacturing, SPARK, fabrication yards and the limits still to be crossed.",
+    "articleType": "feature",
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "wordCount": 1013
+  }
+]
