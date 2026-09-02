@@ -17,7 +17,7 @@ import {
   adBlocklist,
   adFrequencyLog
 } from "../../drizzle/schema";
-import { eq, and, desc, sql, gte, lte, isNull, or } from "drizzle-orm";
+import { eq, and, asc, desc, sql, gte, lte, isNull, or } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import { logAudit } from "./rbac.router";
 import { toDbDate } from "../_core/dbValues";
@@ -872,14 +872,23 @@ export const advertisingRouter = router({
         if (campaign.campaignType !== 'house') continue;
         const targetSlots = campaign.targetSlots ? JSON.parse(campaign.targetSlots as string) : null;
         if (!targetSlots || targetSlots.includes(slot.id)) {
-          const [creative] = await database
+          const houseCreatives = await database
             .select()
             .from(adCreatives)
             .where(and(
               eq(adCreatives.campaignId, campaign.id),
               eq(adCreatives.status, 'approved')
             ))
-            .limit(1);
+            .orderBy(asc(adCreatives.id));
+
+          // Spread the house creatives across slots instead of taking the
+          // first one every time — a page with six slots was rendering six
+          // copies of the same ad. Keyed on the slot id rather than random
+          // so a given slot is stable between renders and between SSR and
+          // hydration.
+          const creative = houseCreatives.length
+            ? houseCreatives[slot.id % houseCreatives.length]
+            : undefined;
 
           if (creative) {
             return {
