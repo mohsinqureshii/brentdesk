@@ -5,10 +5,11 @@
 
 import "dotenv/config";
 import { runReset } from "./reset-database";
+import { describeError } from "./cliError";
 
 runReset()
   .then(() => process.exit(0))
-  .catch((err: Error) => {
-    console.error(`[reset] ${err.message}`);
+  .catch((err: unknown) => {
+    console.error(`[reset] ${describeError(err)}`);
     process.exit(1);
   });
