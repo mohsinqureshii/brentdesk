@@ -670,39 +670,65 @@ async function startServer() {
       }
     }
 
-    const { shouldSeed, shouldIngest } = await import("./bootstrapDecisions");
-    const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
-    const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
-    const { publishableArticleCount } = await import("../../scripts/ingest-articles");
+    // Everything here is guarded. This runs inside a listener callback, where
+    // an unhandled rejection takes the process down — a bootstrap that cannot
+    // read a count must degrade to serving what is already published, not
+    // crash-loop the deploy.
+    try {
+      const { shouldSeed, shouldIngest } = await import("./bootstrapDecisions");
+      const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
+      const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
+      const { publishableArticleCount } = await import("../../scripts/ingest-articles");
 
-    const [countries, companyCount, eventCount, articleCount] = await Promise.all([
-      countRows("countries"), countRows("companies"),
-      countRows("events"), countRows("articles"),
-    ]);
+      const [countries, companyCount, eventCount, articleCount] = await Promise.all([
+        countRows("countries"), countRows("companies"),
+        countRows("events"), countRows("articles"),
+      ]);
+      const archiveCount = publishableArticleCount();
 
-    if (shouldSeed(
-      process.env.SEED_ON_BOOT,
-      { countries, companies: companyCount, events: eventCount },
-      { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT },
-    )) {
-      try {
-        const { runSeed } = await import("../../scripts/seed-brentdesk");
-        await runSeed();
-      } catch (err) {
-        console.error("[seed] boot seed failed (server still serving):", (err as Error).message);
+      const seed = shouldSeed(
+        process.env.SEED_ON_BOOT,
+        { countries, companies: companyCount, events: eventCount },
+        { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT },
+      );
+      const ingest = shouldIngest(process.env.INGEST_ON_BOOT, articleCount, archiveCount);
+
+      // Say what was decided and on what numbers. A deploy that publishes
+      // nothing and a deploy that had nothing to publish look identical in
+      // the logs otherwise, which is exactly the confusion this whole check
+      // exists to end.
+      const show = (have: number | null, want: number) => `${have ?? "?"}/${want}`;
+      console.log(
+        `[bootstrap] articles ${show(articleCount, archiveCount)} · ` +
+          `companies ${show(companyCount, COMPANY_PROFILE_COUNT)} · ` +
+          `events ${show(eventCount, EVENT_PROFILE_COUNT)} — ` +
+          ([seed && "seeding", ingest && "ingesting"].filter(Boolean).join(" and ") ||
+            "nothing to do"),
+      );
+
+      if (seed) {
+        try {
+          const { runSeed } = await import("../../scripts/seed-brentdesk");
+          await runSeed();
+        } catch (err) {
+          console.error("[seed] boot seed failed (server still serving):", (err as Error).message);
+        }
       }
-    }
 
-    // Publish the editorial archive bundled at dist/articles.json. Runs AFTER
-    // the seed, which creates the bylines, categories and company profiles
-    // each article resolves against.
-    if (shouldIngest(process.env.INGEST_ON_BOOT, articleCount, publishableArticleCount())) {
-      try {
-        const { runIngest } = await import("../../scripts/ingest-articles");
-        await runIngest();
-      } catch (err) {
-        console.error("[ingest] boot ingest failed (server still serving):", (err as Error).message);
+      // Publish the editorial archive bundled at dist/articles.json. Runs
+      // AFTER the seed, which creates the bylines, categories and company
+      // profiles each article resolves against.
+      if (ingest) {
+        try {
+          const { runIngest } = await import("../../scripts/ingest-articles");
+          await runIngest();
+        } catch (err) {
+          console.error("[ingest] boot ingest failed (server still serving):", (err as Error).message);
+        }
       }
+    } catch (err) {
+      console.error("[bootstrap] could not decide what to publish (server still serving):",
+        (err as Error).message);
     }
 
     // Sitemap smoke test — runs every generator once at startup so column
