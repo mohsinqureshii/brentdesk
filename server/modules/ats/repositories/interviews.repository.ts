@@ -9,6 +9,7 @@ import { and, asc, desc, eq, gte, isNull, lte } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { interviews } from "../../../../drizzle/schema";
 import type { TenantScope } from "../types";
+import { toDbDate } from "../../../_core/dbValues";
 
 async function db() {
   const d = await getDb();
@@ -47,8 +48,8 @@ export async function listScheduledForTenant(
     .where(
       and(
         scopeFilter(scope),
-        gte(interviews.scheduledAt, fromDate.toISOString()),
-        lte(interviews.scheduledAt, toDate.toISOString()),
+        gte(interviews.scheduledAt, toDbDate(fromDate)),
+        lte(interviews.scheduledAt, toDbDate(toDate)),
       ),
     )
     .orderBy(asc(interviews.scheduledAt));

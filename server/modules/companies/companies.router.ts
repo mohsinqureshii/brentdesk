@@ -1011,7 +1011,7 @@ export const companiesRouter = router({
       const status = await workflowService.getStatusBySlug("editorial", input.statusSlug);
       if (!status) throw new Error("Status not found");
       await db.update(companies)
-        .set({ statusId: status.id, ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {}) })
+        .set({ statusId: status.id, ...(input.statusSlug === "published" ? { publishedAt: toDbDate(new Date()) } : {}) })
         .where(inArray(companies.id, input.ids));
       return { success: true, count: input.ids.length };
     }),

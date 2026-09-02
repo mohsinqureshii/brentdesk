@@ -35,6 +35,7 @@ import {
 import { eq, like, and, desc, sql, inArray } from "drizzle-orm";
 import { storagePut } from "../../storage";
 import type { Message } from "../../_core/llm";
+import { toDbDate } from "../../_core/dbValues";
 
 // ============================================================
 // TYPES
@@ -1055,7 +1056,7 @@ export async function publishGeneratedContent(
       articleId,
       approvalStatus: "published",
       approvedBy: userId,
-      approvedAt: new Date().toISOString(),
+      approvedAt: toDbDate(new Date()),
     } as any).where(eq(aiGenerationSessions.id, sessionId));
 
     return { articleId };

@@ -22,6 +22,7 @@ import {
   workflowAuditLog,
 } from "../../../drizzle/schema";
 import { workflowService } from "../../services/workflow.service";
+import { toDbDate } from "../../_core/dbValues";
 
 // ============================================================
 // TYPES & HELPERS
@@ -598,42 +599,42 @@ export const userSubmissionsRouter = router({
           const [row] = await db.select({ statusId: companies.statusId }).from(companies).where(eq(companies.id, entityId)).limit(1);
           if (!row) throw new TRPCError({ code: "NOT_FOUND" });
           currentStatusId = row.statusId;
-          await db.update(companies).set({ statusId: targetStatus.id, updatedAt: new Date().toISOString() } as any).where(eq(companies.id, entityId));
+          await db.update(companies).set({ statusId: targetStatus.id, updatedAt: toDbDate(new Date()) } as any).where(eq(companies.id, entityId));
           break;
         }
         case "job": {
           const [row] = await db.select({ statusId: jobs.statusId }).from(jobs).where(eq(jobs.id, entityId)).limit(1);
           if (!row) throw new TRPCError({ code: "NOT_FOUND" });
           currentStatusId = row.statusId;
-          await db.update(jobs).set({ statusId: targetStatus.id, updatedAt: new Date().toISOString() } as any).where(eq(jobs.id, entityId));
+          await db.update(jobs).set({ statusId: targetStatus.id, updatedAt: toDbDate(new Date()) } as any).where(eq(jobs.id, entityId));
           break;
         }
         case "person": {
           const [row] = await db.select({ statusId: people.statusId }).from(people).where(eq(people.id, entityId)).limit(1);
           if (!row) throw new TRPCError({ code: "NOT_FOUND" });
           currentStatusId = row.statusId;
-          await db.update(people).set({ statusId: targetStatus.id, updatedAt: new Date().toISOString() } as any).where(eq(people.id, entityId));
+          await db.update(people).set({ statusId: targetStatus.id, updatedAt: toDbDate(new Date()) } as any).where(eq(people.id, entityId));
           break;
         }
         case "investor": {
           const [row] = await db.select({ statusId: investors.statusId }).from(investors).where(eq(investors.id, entityId)).limit(1);
           if (!row) throw new TRPCError({ code: "NOT_FOUND" });
           currentStatusId = row.statusId;
-          await db.update(investors).set({ statusId: targetStatus.id, updatedAt: new Date().toISOString() } as any).where(eq(investors.id, entityId));
+          await db.update(investors).set({ statusId: targetStatus.id, updatedAt: toDbDate(new Date()) } as any).where(eq(investors.id, entityId));
           break;
         }
         case "event": {
           const [row] = await db.select({ statusId: events.statusId }).from(events).where(eq(events.id, entityId)).limit(1);
           if (!row) throw new TRPCError({ code: "NOT_FOUND" });
           currentStatusId = row.statusId;
-          await db.update(events).set({ statusId: targetStatus.id, updatedAt: new Date().toISOString() } as any).where(eq(events.id, entityId));
+          await db.update(events).set({ statusId: targetStatus.id, updatedAt: toDbDate(new Date()) } as any).where(eq(events.id, entityId));
           break;
         }
         case "accelerator": {
           const [row] = await db.select({ statusId: accelerators.statusId }).from(accelerators).where(eq(accelerators.id, entityId)).limit(1);
           if (!row) throw new TRPCError({ code: "NOT_FOUND" });
           currentStatusId = row.statusId ?? 1;
-          await db.update(accelerators).set({ statusId: targetStatus.id, updatedAt: new Date().toISOString() } as any).where(eq(accelerators.id, entityId));
+          await db.update(accelerators).set({ statusId: targetStatus.id, updatedAt: toDbDate(new Date()) } as any).where(eq(accelerators.id, entityId));
           break;
         }
       }

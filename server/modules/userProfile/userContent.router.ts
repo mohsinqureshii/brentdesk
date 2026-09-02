@@ -22,6 +22,7 @@ import {
 } from "../../../drizzle/schema";
 import { slugService } from "../../services/slug.service";
 import { workflowService } from "../../services/workflow.service";
+import { toDbDate } from "../../_core/dbValues";
 
 // ============================================================
 // SHARED HELPERS
@@ -292,7 +293,7 @@ export const userContentRouter = router({
       if (!isCreator && !isClaimed) throw new Error("You don't have permission to edit this company");
 
       const { id, ...updateData } = input;
-      await db.update(companies).set({ ...updateData, updatedAt: new Date().toISOString() } as any).where(eq(companies.id, id));
+      await db.update(companies).set({ ...updateData, updatedAt: toDbDate(new Date()) } as any).where(eq(companies.id, id));
 
       return { success: true };
     }),
@@ -497,7 +498,7 @@ export const userContentRouter = router({
         ...updateData,
         salaryMin: salaryMin !== undefined ? String(salaryMin) : undefined,
         salaryMax: salaryMax !== undefined ? String(salaryMax) : undefined,
-        updatedAt: new Date().toISOString(),
+        updatedAt: toDbDate(new Date()),
       } as any).where(eq(jobs.id, id));
 
       return { success: true };

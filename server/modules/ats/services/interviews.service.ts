@@ -18,6 +18,7 @@ import { sendEmail } from "../../../services/email.service";
 import * as interviewScheduledTemplate from "../../../services/emailTemplates/interviewScheduled";
 import { DEFAULT_TENANT_NAME } from "../../../services/emailTemplates/_layout";
 import { assertTenantScope, assertTenantSupported } from "../tenant.guard";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   CreateInterviewInput,
   ForbiddenError,
@@ -101,7 +102,7 @@ export class InterviewsService {
       applicationId: input.applicationId,
       stageId: input.stageId ?? null,
       type: input.type,
-      scheduledAt: input.scheduledAt.toISOString(),
+      scheduledAt: toDbDate(input.scheduledAt),
       durationMinutes: input.durationMinutes ?? null,
       location: input.location ?? null,
       meetingUrl: input.meetingUrl ?? null,
@@ -155,7 +156,7 @@ export class InterviewsService {
     await requireInterview(id, scope);
 
     await interviewsRepo.update(id, {
-      scheduledAt: newScheduledAt.toISOString(),
+      scheduledAt: toDbDate(newScheduledAt),
       status: "rescheduled",
     });
     const row = await interviewsRepo.findById(id);

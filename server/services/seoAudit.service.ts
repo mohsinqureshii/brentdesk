@@ -2,6 +2,7 @@ import { getDb } from "../db";
 import { articles, media, people, companies, investors, events, jobs, accelerators } from "../../drizzle/schema";
 import { eq, isNull, or, and, sql, like } from "drizzle-orm";
 import { invokeLLM } from "../_core/llm";
+import { toDbDate } from "../_core/dbValues";
 
 // SEO Issue Types
 export type SeoIssueType = 
@@ -771,37 +772,37 @@ export async function applyFix(issue: SeoIssue, newValue: string): Promise<boole
     switch (issue.entityType) {
       case 'article':
         await (await getDb())!.update(articles)
-          .set({ [issue.field]: newValue, updatedAt: new Date().toISOString() } as any)
+          .set({ [issue.field]: newValue, updatedAt: toDbDate(new Date()) } as any)
           .where(eq(articles.id, issue.entityId));
         return true;
 
       case 'media':
         await (await getDb())!.update(media)
-          .set({ [issue.field]: newValue, updatedAt: new Date().toISOString() } as any)
+          .set({ [issue.field]: newValue, updatedAt: toDbDate(new Date()) } as any)
           .where(eq(media.id, issue.entityId));
         return true;
 
       case 'person':
         await (await getDb())!.update(people)
-          .set({ [issue.field]: newValue, updatedAt: new Date().toISOString() } as any)
+          .set({ [issue.field]: newValue, updatedAt: toDbDate(new Date()) } as any)
           .where(eq(people.id, issue.entityId));
         return true;
 
       case 'company':
         await (await getDb())!.update(companies)
-          .set({ [issue.field]: newValue, updatedAt: new Date().toISOString() } as any)
+          .set({ [issue.field]: newValue, updatedAt: toDbDate(new Date()) } as any)
           .where(eq(companies.id, issue.entityId));
         return true;
 
       case 'event':
         await (await getDb())!.update(events)
-          .set({ [issue.field]: newValue, updatedAt: new Date().toISOString() } as any)
+          .set({ [issue.field]: newValue, updatedAt: toDbDate(new Date()) } as any)
           .where(eq(events.id, issue.entityId));
         return true;
 
       case 'job':
         await (await getDb())!.update(jobs)
-          .set({ [issue.field]: newValue, updatedAt: new Date().toISOString() } as any)
+          .set({ [issue.field]: newValue, updatedAt: toDbDate(new Date()) } as any)
           .where(eq(jobs.id, issue.entityId));
         return true;
 

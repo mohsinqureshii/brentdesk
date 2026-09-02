@@ -545,7 +545,7 @@ export const peopleRouter = router({
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (result.newStatusId === publishedStatus?.id) {
         await db.update(people)
-          .set({ publishedAt: new Date().toISOString() })
+          .set({ publishedAt: toDbDate(new Date()) })
           .where(eq(people.id, input.personId));
       }
 
@@ -611,7 +611,7 @@ export const peopleRouter = router({
       await db.update(people)
         .set({ 
           statusId: status.id,
-          ...(input.statusSlug === "published" ? { publishedAt: new Date().toISOString() } : {})
+          ...(input.statusSlug === "published" ? { publishedAt: toDbDate(new Date()) } : {})
         })
         .where(inArray(people.id, input.ids));
 

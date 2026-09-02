@@ -5,6 +5,7 @@
 
 import { eq, and, like } from "drizzle-orm";
 import { getDb } from "../db";
+import { toDbDate } from "../_core/dbValues";
 import { 
   articles, 
   jobs, 
@@ -210,7 +211,7 @@ export class SlugService {
     await db.update(redirects)
       .set({
         hitCount: (result[0].hitCount || 0) + 1,
-        lastHitAt: new Date().toISOString()
+        lastHitAt: toDbDate(new Date())
       } as any)
       .where(eq(redirects.id, result[0].id));
 

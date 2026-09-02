@@ -20,6 +20,7 @@ import { editionOrderBias } from "../../services/editionOrder";
 import { seoService } from "../../services/seo.service";
 import { workflowService } from "../../services/workflow.service";
 import { moderationService } from "../../services/moderation.service";
+import { toDbDate } from "../../_core/dbValues";
 
 // ============================================================
 // INPUT SCHEMAS
@@ -536,7 +537,7 @@ export const investorsRouter = router({
       const publishedStatus = await workflowService.getStatusBySlug("editorial", "published");
       if (result.newStatusId === publishedStatus?.id) {
         await db.update(investors)
-          .set({ publishedAt: new Date().toISOString() } as any)
+          .set({ publishedAt: toDbDate(new Date()) } as any)
           .where(eq(investors.id, input.investorId));
       }
 

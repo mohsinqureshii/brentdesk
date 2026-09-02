@@ -7,6 +7,7 @@
 import { and, eq } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { candidateEmbeddingsMeta, jobEmbeddingsMeta } from "../../../../drizzle/schema";
+import { toDbDate } from "../../../_core/dbValues";
 
 async function db() {
   const d = await getDb();
@@ -54,7 +55,7 @@ export async function upsertCandidateMeta(values: {
         dim: values.dim,
         qdrantPointId: values.qdrantPointId,
         payloadHash: values.payloadHash,
-        indexedAt: new Date().toISOString(),
+        indexedAt: toDbDate(new Date()),
       } as any)
       .where(eq(candidateEmbeddingsMeta.id, existing.id));
   } else {
@@ -66,7 +67,7 @@ export async function upsertCandidateMeta(values: {
       dim: values.dim,
       qdrantPointId: values.qdrantPointId,
       payloadHash: values.payloadHash,
-      indexedAt: new Date().toISOString(),
+      indexedAt: toDbDate(new Date()),
     } as any);
   }
 }
@@ -91,7 +92,7 @@ export async function upsertJobMeta(values: {
         dim: values.dim,
         qdrantPointId: values.qdrantPointId,
         payloadHash: values.payloadHash,
-        indexedAt: new Date().toISOString(),
+        indexedAt: toDbDate(new Date()),
       } as any)
       .where(eq(jobEmbeddingsMeta.id, existing.id));
   } else {
@@ -103,7 +104,7 @@ export async function upsertJobMeta(values: {
       dim: values.dim,
       qdrantPointId: values.qdrantPointId,
       payloadHash: values.payloadHash,
-      indexedAt: new Date().toISOString(),
+      indexedAt: toDbDate(new Date()),
     } as any);
   }
 }

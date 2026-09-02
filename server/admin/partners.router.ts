@@ -19,6 +19,7 @@ import { eq, and, desc, like, sql, gte, lte } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import { logAudit } from "./rbac.router";
 import crypto from "crypto";
+import { toDbDate } from "../_core/dbValues";
 
 // Generate secure API key
 function generateApiKey(): string {
@@ -275,7 +276,7 @@ export const partnersRouter = router({
         keyName: input.keyName,
         apiKey,
         apiSecret, // In production, hash this
-        expiresAt: input.expiresAt ? new Date(input.expiresAt).toISOString() : null,
+        expiresAt: input.expiresAt ? toDbDate(new Date(input.expiresAt)) : null,
         createdById: ctx.user?.id ?? null,
       } as any);
 
@@ -362,10 +363,10 @@ export const partnersRouter = router({
 
       const conditions = [eq(affiliateClicks.partnerId, input.partnerId)];
       if (input.startDate) {
-        conditions.push(gte(affiliateClicks.clickedAt, new Date(input.startDate).toISOString()));
+        conditions.push(gte(affiliateClicks.clickedAt, toDbDate(new Date(input.startDate))));
       }
       if (input.endDate) {
-        conditions.push(lte(affiliateClicks.clickedAt, new Date(input.endDate).toISOString()));
+        conditions.push(lte(affiliateClicks.clickedAt, toDbDate(new Date(input.endDate))));
       }
 
       // Get click count
@@ -377,10 +378,10 @@ export const partnersRouter = router({
       // Get conversion stats
       const conversionConditions = [eq(affiliateConversions.partnerId, input.partnerId)];
       if (input.startDate) {
-        conversionConditions.push(gte(affiliateConversions.convertedAt, new Date(input.startDate).toISOString()));
+        conversionConditions.push(gte(affiliateConversions.convertedAt, toDbDate(new Date(input.startDate))));
       }
       if (input.endDate) {
-        conversionConditions.push(lte(affiliateConversions.convertedAt, new Date(input.endDate).toISOString()));
+        conversionConditions.push(lte(affiliateConversions.convertedAt, toDbDate(new Date(input.endDate))));
       }
 
       const [conversionStats] = await database

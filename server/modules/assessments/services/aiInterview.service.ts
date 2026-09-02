@@ -24,6 +24,7 @@ import { invokeLLMProvider, getLLMProviderConfigs } from "../../../services/ai/l
 import * as repo from "../repositories/interview.repository";
 import * as attemptsRepo from "../repositories/attempts.repository";
 import * as templatesRepo from "../repositories/templates.repository";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   AttemptNotFoundError,
   InterviewSessionDTO,
@@ -119,7 +120,7 @@ export class AIInterviewService {
       currentTurn: 0,
       totalTurns: 0,
       status: "active",
-      startedAt: new Date().toISOString().slice(0, 19).replace("T", " "),
+      startedAt: toDbDate(new Date()),
     });
 
     // Initial interviewer turn — ask LLM for an opener.
@@ -242,7 +243,7 @@ export class AIInterviewService {
     await repo.updateSession(sessionId, {
       summary: summaryText,
       status: "completed",
-      completedAt: new Date().toISOString().slice(0, 19).replace("T", " "),
+      completedAt: toDbDate(new Date()),
     });
 
     // Mark the attempt as graded with the AI interview score.

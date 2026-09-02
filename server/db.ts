@@ -3,6 +3,7 @@ import { drizzle } from "drizzle-orm/mysql2";
 import { users } from "../drizzle/schema";
 import type { InsertUser } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import { toDbDate } from "./_core/dbValues";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -62,11 +63,11 @@ export async function upsertUser(user: InsertUser): Promise<void> {
     }
 
     if (!values.lastSignedIn) {
-      values.lastSignedIn = new Date().toISOString();
+      values.lastSignedIn = toDbDate(new Date());
     }
 
     if (Object.keys(updateSet).length === 0) {
-      updateSet.lastSignedIn = new Date().toISOString();
+      updateSet.lastSignedIn = toDbDate(new Date());
     }
 
     await db.insert(users).values(values as any).onDuplicateKeyUpdate({
@@ -89,7 +90,7 @@ export async function touchLastSignedIn(openId: string): Promise<void> {
   if (!db) return;
   await db
     .update(users)
-    .set({ lastSignedIn: new Date().toISOString() } as any)
+    .set({ lastSignedIn: toDbDate(new Date()) } as any)
     .where(eq(users.openId, openId));
 }
 

@@ -20,6 +20,7 @@ import {
 import { eq, and, desc, sql, gte, lte, isNull, or } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import { logAudit } from "./rbac.router";
+import { toDbDate } from "../_core/dbValues";
 
 // Last successful adsense response per slot — served when a transient
 // DB failure would otherwise blank every ad on the page. Revenue slots
@@ -324,7 +325,7 @@ export const advertisingRouter = router({
       await database.update(adCampaigns).set({
         status: input.approved ? "approved" : "rejected",
         approvedById: ctx.user?.id ?? null,
-        approvedAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        approvedAt: toDbDate(new Date()),
       } as any).where(eq(adCampaigns.id, input.id));
 
       await logAudit(ctx.user?.id, ctx.user?.email ?? undefined, input.approved ? "approve" : "reject", "ad_campaigns", input.id, {});

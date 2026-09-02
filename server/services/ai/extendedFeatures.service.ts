@@ -19,6 +19,7 @@ import {
 } from "../../../drizzle/schema";
 import { eq, desc, and, sql, inArray } from "drizzle-orm";
 import { generateContent, type ContentGenerationInput } from "./contentGenerator.service";
+import { toDbDate } from "../../_core/dbValues";
 // LLM provider imported from core
 
 // ============================================================
@@ -216,7 +217,7 @@ export async function runBatchJob(jobId: number): Promise<void> {
   if (!job) throw new Error("Batch job not found");
 
   await db.update(aiBatchJobs)
-    .set({ status: "running", startedAt: new Date().toISOString() } as any)
+    .set({ status: "running", startedAt: toDbDate(new Date()) } as any)
     .where(eq(aiBatchJobs.id, jobId));
 
   const items = (job.items as any[]) || [];
@@ -256,7 +257,7 @@ export async function runBatchJob(jobId: number): Promise<void> {
       completedItems: completed,
       failedItems: failed,
       items,
-      completedAt: new Date().toISOString(),
+      completedAt: toDbDate(new Date()),
     } as any)
     .where(eq(aiBatchJobs.id, jobId));
 }
@@ -507,7 +508,7 @@ Return ONLY valid JSON.`
         flaggedSentences: result.flaggedSentences,
         matches: result.matches,
         status: result.flaggedSentences > 0 ? "flagged" : "clean",
-        checkedAt: new Date().toISOString(),
+        checkedAt: toDbDate(new Date()),
       } as any)
       .where(eq(aiPlagiarismChecks.id, check.id));
 
@@ -936,7 +937,7 @@ export async function triggerWebhooks(event: string, payload: any): Promise<void
 
       if (response.ok) {
         await db.update(aiWebhookConfigs)
-          .set({ lastTriggeredAt: new Date().toISOString(), failureCount: 0 } as any)
+          .set({ lastTriggeredAt: toDbDate(new Date()), failureCount: 0 } as any)
           .where(eq(aiWebhookConfigs.id, config.id));
       } else {
         await db.update(aiWebhookConfigs)

@@ -35,6 +35,7 @@ import {
 } from "../../../../drizzle/schema";
 import { editionOrderBias } from "../../../services/editionOrder";
 import type { TenantScope } from "../types";
+import { toDbDate } from "../../../_core/dbValues";
 
 async function db() {
   const d = await getDb();
@@ -350,7 +351,7 @@ export async function listPublic(filters: PublicListFilters, scope: TenantScope 
     scopeFilter(scope),
     // isNull, NOT eq(col, null): `expires_at = NULL` is never true in
     // SQL, which silently hid every job without an expiry date.
-    or(isNull(jobs.expiresAt), gte(jobs.expiresAt, new Date().toISOString())),
+    or(isNull(jobs.expiresAt), gte(jobs.expiresAt, toDbDate(new Date()))),
   ];
 
   if (filters.status) conditions.push(eq(jobs.statusId, filters.status as any));
@@ -392,7 +393,7 @@ export async function listPublic(filters: PublicListFilters, scope: TenantScope 
       default:
         since = new Date(0);
     }
-    conditions.push(gte(jobs.publishedAt, since.toISOString()));
+    conditions.push(gte(jobs.publishedAt, toDbDate(since)));
   }
 
   // Use COALESCE(publishedAt, createdAt) for date-based sorts so jobs

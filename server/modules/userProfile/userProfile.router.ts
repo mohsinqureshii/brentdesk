@@ -13,6 +13,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "../../_core/cookies";
 import { sdk } from "../../_core/sdk";
 import crypto from "crypto";
+import { toDbDate } from "../../_core/dbValues";
 
 // Generate a unique openId for new users
 function generateOpenId(): string {
@@ -245,7 +246,7 @@ export const userProfileRouter = router({
           lastName: ctx.user.name?.split(" ").slice(1).join(" ") ?? null,
           source: "profile",
           isVerified: 1,
-          verifiedAt: new Date().toISOString(),
+          verifiedAt: toDbDate(new Date()),
         } as any);
         
         [subscriber] = await database
@@ -278,7 +279,7 @@ export const userProfileRouter = router({
           // Resubscribe
           await database
             .update(subscriberLists)
-            .set({ unsubscribedAt: null, subscribedAt: new Date().toISOString() } as any)
+            .set({ unsubscribedAt: null, subscribedAt: toDbDate(new Date()) } as any)
             .where(eq(subscriberLists.id, existingSub.id));
           await database
             .update(subscriptionLists)
@@ -290,7 +291,7 @@ export const userProfileRouter = router({
           // Unsubscribe
           await database
             .update(subscriberLists)
-            .set({ unsubscribedAt: new Date().toISOString() } as any)
+            .set({ unsubscribedAt: toDbDate(new Date()) } as any)
             .where(eq(subscriberLists.id, existingSub.id));
           await database
             .update(subscriptionLists)
@@ -329,7 +330,7 @@ export const userProfileRouter = router({
           lastName: ctx.user.name?.split(" ").slice(1).join(" ") ?? null,
           source: "profile",
           isVerified: 1,
-          verifiedAt: new Date().toISOString(),
+          verifiedAt: toDbDate(new Date()),
         } as any);
         
         [subscriber] = await database
@@ -376,13 +377,13 @@ export const userProfileRouter = router({
           // Resubscribe
           await database
             .update(subscriberLists)
-            .set({ unsubscribedAt: null, subscribedAt: new Date().toISOString() } as any)
+            .set({ unsubscribedAt: null, subscribedAt: toDbDate(new Date()) } as any)
             .where(eq(subscriberLists.id, currentSub.id));
         } else if (!isTargeted && currentSub && !currentSub.unsubscribedAt) {
           // Unsubscribe
           await database
             .update(subscriberLists)
-            .set({ unsubscribedAt: new Date().toISOString() } as any)
+            .set({ unsubscribedAt: toDbDate(new Date()) } as any)
             .where(eq(subscriberLists.id, currentSub.id));
           await database
             .update(subscriptionLists)
@@ -486,7 +487,7 @@ export const userProfileRouter = router({
         if (subscriber) {
           await database
             .update(subscribers)
-            .set({ status: "unsubscribed", unsubscribedAt: new Date().toISOString() } as any)
+            .set({ status: "unsubscribed", unsubscribedAt: toDbDate(new Date()) } as any)
             .where(eq(subscribers.id, subscriber.id));
         }
       }

@@ -24,6 +24,7 @@ import * as plagRepo from "../repositories/plagiarism.repository";
 import * as answersRepo from "../repositories/answers.repository";
 import * as attemptsRepo from "../repositories/attempts.repository";
 import { PlagiarismReportDTO } from "../types";
+import { toDbDate } from "../../../_core/dbValues";
 
 const SHINGLE_K = 5;
 const HIGH_CONFIDENCE = 0.85;
@@ -148,7 +149,7 @@ export class PlagiarismService {
         otherAttemptId: best.otherAttemptId,
         otherAnswerId: best.otherAnswerId,
       },
-      createdAt: new Date().toISOString(),
+      createdAt: toDbDate(new Date()),
     };
   }
 

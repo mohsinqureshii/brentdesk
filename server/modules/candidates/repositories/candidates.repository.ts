@@ -17,6 +17,7 @@
 
 import { and, asc, desc, eq, gte, inArray, isNull, lte, sql } from "drizzle-orm";
 import { getDb } from "../../../db";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   candidates,
   candidateTenantVisibility,
@@ -117,7 +118,7 @@ export async function setResumeMedia(
     .set({
       resumeMediaId: mediaId,
       parsedResumeJson: parsedJson as any,
-      parsedResumeAt: new Date().toISOString(),
+      parsedResumeAt: toDbDate(new Date()),
     } as any)
     .where(eq(candidates.id, id));
 }

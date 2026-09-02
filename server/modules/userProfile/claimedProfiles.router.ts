@@ -23,6 +23,7 @@ import {
 } from "../../../drizzle/schema";
 import { eq, and, desc, sql, like, inArray } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
+import { toDbDate } from "../../_core/dbValues";
 
 const entityTypeEnum = z.enum(["person", "company", "accelerator", "event", "investor"]);
 
@@ -811,7 +812,7 @@ export const claimedProfilesRouter = router({
       }
 
       const { companyId, ...updateData } = input;
-      await database.update(companies).set({ ...updateData, updatedAt: new Date().toISOString() } as any).where(eq(companies.id, companyId));
+      await database.update(companies).set({ ...updateData, updatedAt: toDbDate(new Date()) } as any).where(eq(companies.id, companyId));
 
       return { success: true };
     }),
@@ -873,7 +874,7 @@ export const claimedProfilesRouter = router({
       }
 
       const { personId, ...updateData } = input;
-      await database.update(people).set({ ...updateData, updatedAt: new Date().toISOString() } as any).where(eq(people.id, personId));
+      await database.update(people).set({ ...updateData, updatedAt: toDbDate(new Date()) } as any).where(eq(people.id, personId));
 
       return { success: true };
     }),
@@ -934,7 +935,7 @@ export const claimedProfilesRouter = router({
       }
 
       const { investorId, ...updateData } = input;
-      await database.update(investors).set({ ...updateData, updatedAt: new Date().toISOString() } as any).where(eq(investors.id, investorId));
+      await database.update(investors).set({ ...updateData, updatedAt: toDbDate(new Date()) } as any).where(eq(investors.id, investorId));
 
       return { success: true };
     }),
@@ -986,7 +987,7 @@ export const claimedProfilesRouter = router({
       }
 
       const { eventId, ...updateData } = input;
-      await database.update(events).set({ ...updateData, updatedAt: new Date().toISOString() } as any).where(eq(events.id, eventId));
+      await database.update(events).set({ ...updateData, updatedAt: toDbDate(new Date()) } as any).where(eq(events.id, eventId));
 
       return { success: true };
     }),
@@ -1060,7 +1061,7 @@ export const claimedProfilesRouter = router({
       }
 
       const { acceleratorId, ...updateData } = input;
-      await database.update(accelerators).set({ ...updateData, updatedAt: new Date().toISOString() } as any).where(eq(accelerators.id, acceleratorId));
+      await database.update(accelerators).set({ ...updateData, updatedAt: toDbDate(new Date()) } as any).where(eq(accelerators.id, acceleratorId));
 
       return { success: true };
     }),
@@ -1263,7 +1264,7 @@ export const claimedProfilesRouter = router({
           status: input.action,
           verificationNote: input.comment || claim.verificationNote,
           reviewedById: ctx.user.id,
-          reviewedAt: new Date().toISOString(),
+          reviewedAt: toDbDate(new Date()),
         } as any)
         .where(eq(claimedProfiles.id, input.claimId));
 

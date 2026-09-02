@@ -8,6 +8,7 @@ import { TRPCError } from "@trpc/server";
 import { getDb } from "../db";
 import { roles, permissions, rolePermissions, userRoles, auditLogs, tenantMemberships } from "../../drizzle/schema";
 import { eq, and, inArray, isNull, or, gte } from "drizzle-orm";
+import { toDbDate } from "../_core/dbValues";
 
 // Permission scope types
 export type PermissionScope = 'all' | 'own' | 'team';
@@ -97,7 +98,7 @@ export async function getUserRoles(userId: number): Promise<string[]> {
       eq(userRoles.userId, userId),
       or(
         isNull(userRoles.expiresAt),
-        gte(userRoles.expiresAt, new Date().toISOString())
+        gte(userRoles.expiresAt, toDbDate(new Date()))
       )
     ));
 

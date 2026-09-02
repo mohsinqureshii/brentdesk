@@ -8,6 +8,7 @@
 
 import { invalidateTenantCache } from "../../../middleware/tenant.middleware";
 import * as repo from "../repositories/tenants.repository";
+import { toDbDate } from "../../../_core/dbValues";
 import {
   CreateTenantInput,
   InviteMemberInput,
@@ -99,7 +100,7 @@ export class TenantsService {
       role: "owner",
       status: "active",
       invitedById: null,
-      joinedAt: new Date().toISOString(),
+      joinedAt: toDbDate(new Date()),
     });
 
     await repo.logAudit({
@@ -215,7 +216,7 @@ export class TenantsService {
     const m = await repo.findMembership(tenantId, userId);
     if (!m) throw new TenantMembershipNotFoundError(tenantId, userId);
     if (m.status !== "invited") return;
-    await repo.updateMembership(m.id, { status: "active", joinedAt: new Date().toISOString() });
+    await repo.updateMembership(m.id, { status: "active", joinedAt: toDbDate(new Date()) });
     await repo.logAudit({
       tenantId,
       userId,

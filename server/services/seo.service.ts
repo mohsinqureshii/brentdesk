@@ -12,6 +12,7 @@ import { publication, getBaseUrl } from "../../shared/publication";
 import { eq, and, isNotNull, desc, sql, count, or } from "drizzle-orm";
 import { getDb } from "../db";
 import { seoMeta, articles, jobs, people, investors, events, resources, research, redirects, categories, companies, accelerators, tags, articleTags, workflowStatuses, users, media } from "../../drizzle/schema";
+import { toDbDate } from "../_core/dbValues";
 
 // ============================================================
 // TYPES
@@ -507,7 +508,7 @@ export class SeoService {
       await db.update(seoMeta)
         .set({
           ...input,
-          updatedAt: new Date().toISOString()
+          updatedAt: toDbDate(new Date())
         } as any)
         .where(eq(seoMeta.id, existing[0].id));
     } else {
