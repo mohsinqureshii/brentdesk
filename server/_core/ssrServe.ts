@@ -688,16 +688,39 @@ export async function runSSR(url: string, template: string): Promise<{ html: str
   return null;
 }
 
+/**
+ * Locate the built client.
+ *
+ * The server runs from two very different layouts — the esbuild bundle at
+ * dist/index.js, and the TypeScript source under server/_core/ via tsx —
+ * so probe for the build rather than branching on NODE_ENV. Branching was
+ * how a stray NODE_ENV=development produced
+ * "ENOENT: stat '/dist/public/index.html'" in production: resolving
+ * "../../../dist/public" from /app/dist walks past the filesystem root and
+ * lands on /dist/public. An environment variable should not be able to
+ * decide where files are on disk.
+ */
+function findClientBuild(): string {
+  const candidates = [
+    // Bundle: dist/index.js -> dist/public
+    path.resolve(import.meta.dirname, "public"),
+    // Source via tsx: server/_core -> dist/public
+    path.resolve(import.meta.dirname, "..", "..", "dist", "public"),
+    // Started from the repo root by some other runner.
+    path.resolve(process.cwd(), "dist", "public"),
+  ];
+  const found = candidates.find(c => fs.existsSync(path.join(c, "index.html")));
+  if (found) return found;
+
+  console.error(
+    `Could not find the built client. Looked in:\n  ${candidates.join("\n  ")}\n` +
+      `Run "pnpm build" before starting the server.`,
+  );
+  return candidates[0];
+}
+
 export function serveStatic(app: Express) {
-  const distPath =
-    process.env.NODE_ENV === "development"
-      ? path.resolve(import.meta.dirname, "../../../", "dist", "public")
-      : path.resolve(import.meta.dirname, "public");
-  if (!fs.existsSync(distPath)) {
-    console.error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`
-    );
-  }
+  const distPath = findClientBuild();
 
   console.log(`[SSR] serveStatic initialized with distPath: ${distPath}`);
 
