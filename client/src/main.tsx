@@ -46,6 +46,15 @@ const trpcClient = trpc.createClient({
     httpBatchLink({
       url: "/api/trpc",
       transformer: superjson,
+      // The language of a page is in its path (/ar/construction/...), but an
+      // API call is posted to /api/trpc and carries no path of its own. Tell
+      // the server which page is asking, so a query fired from an Arabic
+      // article resolves to Arabic rather than falling back to the cookie.
+      headers() {
+        return typeof window === "undefined"
+          ? {}
+          : { "x-locale-path": window.location.pathname };
+      },
       fetch(input, init) {
         return globalThis.fetch(input, {
           ...(init ?? {}),

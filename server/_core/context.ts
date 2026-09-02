@@ -2,6 +2,7 @@ import type { CreateExpressContextOptions } from "@trpc/server/adapters/express"
 import type { User } from "../../drizzle/schema";
 import { sdk } from "./sdk";
 import { resolveEdition, type ResolvedEdition } from "../services/edition.service";
+import { resolveLocale, type ResolvedLocale } from "../services/locale.service";
 import type { TenantContext, TenantRow } from "../middleware/tenant.middleware";
 
 export type TrpcContext = {
@@ -10,6 +11,9 @@ export type TrpcContext = {
   user: User | null;
   /** Active Edition for this request. */
   edition: ResolvedEdition;
+  /** Language this request is being served in. Read paths overlay
+   *  translations onto the English record when it is not the default. */
+  locale: ResolvedLocale;
   /** Active tenant — populated by `tenantMiddleware` from the Host
    *  header. NULL means the request hit the apex / a reserved
    *  subdomain (the legacy public surface). */
@@ -40,6 +44,18 @@ export async function createContext(
       userAgent: opts.req.headers["user-agent"],
     }));
 
+  // Same for the locale. An API call carries no path of its own to read a
+  // prefix from, so the referring page's path is passed through on a header
+  // by the client; the cookie covers the rest.
+  const locale =
+    (opts.req as any).locale ||
+    (await resolveLocale({
+      path: (opts.req.headers["x-locale-path"] as string) || "/",
+      cookieHeader: opts.req.headers.cookie,
+      acceptLanguage: opts.req.headers["accept-language"],
+      userAgent: opts.req.headers["user-agent"],
+    }));
+
   // Tenant — already resolved by the Express tenantMiddleware and
   // pinned on `req.tenantContext`. If the middleware didn't run (e.g.
   // a tRPC adapter consumer that bypasses Express), fall through to a
@@ -52,6 +68,7 @@ export async function createContext(
     res: opts.res,
     user,
     edition,
+    locale,
     tenantId: tenantCtx?.tenantId ?? null,
     tenant: tenantCtx?.tenant ?? null,
     tenantResolvedVia: tenantCtx?.resolvedVia ?? "unknown",

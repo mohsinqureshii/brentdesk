@@ -18,12 +18,14 @@
 
 import { Request, Response, NextFunction } from "express";
 import { resolveEdition, type ResolvedEdition } from "../services/edition.service";
+import { resolveLocale, type ResolvedLocale } from "../services/locale.service";
 
 // Attach edition to req via module augmentation
 declare global {
   namespace Express {
     interface Request {
       edition?: ResolvedEdition;
+      locale?: ResolvedLocale;
     }
   }
 }
@@ -55,11 +57,23 @@ export async function editionMiddleware(req: Request, res: Response, next: NextF
       userAgent: req.headers["user-agent"],
     });
 
+    // The language for this request. Resolved here so the SSR layer reads
+    // req.locale rather than parsing the path a second time, and so
+    // req.locale.basePath is the path with any /ar prefix already removed.
+    req.locale = await resolveLocale({
+      path: req.path,
+      cookieHeader: req.headers.cookie,
+      acceptLanguage: req.headers["accept-language"],
+      userAgent: req.headers["user-agent"],
+    });
+
     // Tell any downstream cache that personalized responses depend
     // on the cookie. Append to any existing Vary header rather than
     // overwriting (e.g., Vary: Accept-Encoding set by compression).
+    // Accept-Language joins it because an un-prefixed URL can be served in
+    // the visitor's browser language.
     const existingVary = res.getHeader("Vary");
-    const additions = ["Cookie"];
+    const additions = ["Cookie", "Accept-Language"];
     const merged = existingVary
       ? `${existingVary}, ${additions.join(", ")}`
       : additions.join(", ");

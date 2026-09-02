@@ -16,6 +16,7 @@ import { checkRateLimit, recordRequest } from "./middleware/rateLimit.middleware
 // Module routers
 import { newsRouter } from "./modules/news/news.router";
 import { publicEditionsRouter } from "./modules/editions.router";
+import { publicLocalesRouter } from "./modules/locales.router";
 import { submissionsRouter } from "./modules/submissions/submissions.router";
 import { newslettersRouter } from "./modules/newsletters/newsletters.router";
 import { jobsRouter } from "./modules/jobs";
@@ -66,6 +67,7 @@ import { usersAdminRouter } from "./admin/users.router";
 import { entityLinkingRouter } from "./admin/entityLinking.router";
 import { entityEnrichmentRouter } from "./admin/entityEnrichment.router";
 import { editionsRouter } from "./admin/editions.router";
+import { translationsRouter } from "./admin/translations.router";
 import { fundingRouter } from "./admin/funding.router";
 import { userSubmissionsRouter } from "./modules/admin/userSubmissions.router";
 import { aiRouter } from "./admin/ai.router";
@@ -328,6 +330,7 @@ export const appRouter = router({
   newsletters: newslettersRouter,
   stocks: stocksRouter,
   editions: publicEditionsRouter,
+  locales: publicLocalesRouter,
   jobs: jobsRouter,
   assessments: assessmentsRouter,
   ats: atsRouter,
@@ -366,6 +369,7 @@ export const appRouter = router({
     entityLinking: entityLinkingRouter,
     entityEnrichment: entityEnrichmentRouter,
     editions: editionsRouter,
+    translations: translationsRouter,
     funding: fundingRouter,
     ai: aiRouter,
     aiContent: aiContentRouter,

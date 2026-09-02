@@ -678,18 +678,19 @@ async function startServer() {
       const { shouldSeed, shouldIngest } = await import("./bootstrapDecisions");
       const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
       const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
+      const { LOCALE_SEED_COUNT } = await import("../../scripts/seed-locales");
       const { publishableArticleCount } = await import("../../scripts/ingest-articles");
 
-      const [countries, companyCount, eventCount, articleCount] = await Promise.all([
+      const [countries, companyCount, eventCount, localeCount, articleCount] = await Promise.all([
         countRows("countries"), countRows("companies"),
-        countRows("events"), countRows("articles"),
+        countRows("events"), countRows("locales"), countRows("articles"),
       ]);
       const archiveCount = publishableArticleCount();
 
       const seed = shouldSeed(
         process.env.SEED_ON_BOOT,
-        { countries, companies: companyCount, events: eventCount },
-        { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT },
+        { countries, companies: companyCount, events: eventCount, locales: localeCount },
+        { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT, locales: LOCALE_SEED_COUNT },
       );
       const ingest = shouldIngest(process.env.INGEST_ON_BOOT, articleCount, archiveCount);
 
@@ -701,7 +702,8 @@ async function startServer() {
       console.log(
         `[bootstrap] articles ${show(articleCount, archiveCount)} · ` +
           `companies ${show(companyCount, COMPANY_PROFILE_COUNT)} · ` +
-          `events ${show(eventCount, EVENT_PROFILE_COUNT)} — ` +
+          `events ${show(eventCount, EVENT_PROFILE_COUNT)} · ` +
+          `locales ${show(localeCount, LOCALE_SEED_COUNT)} — ` +
           ([seed && "seeding", ingest && "ingesting"].filter(Boolean).join(" and ") ||
             "nothing to do"),
       );

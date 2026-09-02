@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ArticleTranslations } from "@/components/admin/ArticleTranslations";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useDebounce } from "@/hooks/useDebounce";
 import {
@@ -57,6 +58,7 @@ import {
   Upload,
   Check,
   RefreshCw,
+  Languages as LanguagesIcon,
 } from "lucide-react";
 import { MediaPicker, MediaMetadata } from "@/components/MediaPicker";
 import {
@@ -1300,6 +1302,7 @@ export default function ArticleEditor() {
                       { value: "entities", label: "Entities", icon: Network },
                       { value: "location", label: "Location", icon: MapPin },
                       { value: "funding", label: "Funding", icon: DollarSign },
+                      { value: "languages", label: "Languages", icon: LanguagesIcon },
                     ].map((tab) => {
                       const Icon = tab.icon;
                       const isActive = activeTab === tab.value;
@@ -2022,6 +2025,14 @@ export default function ArticleEditor() {
                         <p>Save the article first to add funding data</p>
                       </div>
                     )}
+                  </TabsContent>
+
+                  <TabsContent value="languages" className="mt-0">
+                    {/* Every language this article can appear in, what state
+                        each one is in, and the three ways to change it:
+                        translate and publish, translate as a draft, or write
+                        it yourself. */}
+                    <ArticleTranslations entityId={parseInt(params.id || "0")} />
                   </TabsContent>
                 </CardContent>
               </Tabs>

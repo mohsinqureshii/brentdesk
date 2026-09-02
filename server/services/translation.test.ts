@@ -1,0 +1,93 @@
+import { describe, it, expect } from "vitest";
+import { validateTranslation, applyTranslation, sourceHash } from "./translation.service";
+
+describe("validateTranslation", () => {
+  it("accepts a faithful translation", () => {
+    const src = { title: "Big 5 Construct Saudi Opens in Riyadh" };
+    const out = { title: "بيج 5 كونستركت السعودية ينطلق في الرياض" };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("rejects a translated href", () => {
+    // The failure this check exists for: a model that helpfully "localises"
+    // a link breaks the archive's internal link graph with no error anywhere.
+    const src = { content: '<p>See <a href="/construction/big-5-opens">the report</a>.</p>' };
+    const out = { content: '<p>راجع <a href="/ar/الإنشاءات/تقرير">التقرير</a>.</p>' };
+    const problems = validateTranslation(src, out);
+    expect(problems).toHaveLength(1);
+    expect(problems[0].problem).toContain("links changed");
+  });
+
+  it("accepts a translation that keeps its hrefs", () => {
+    const src = { content: '<p>See <a href="/construction/big-5-opens">the report</a>.</p>' };
+    const out = { content: '<p>راجع <a href="/construction/big-5-opens">التقرير</a>.</p>' };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("catches a dropped figure", () => {
+    const src = { excerpt: "An investment of SR57m covering 91,000 square metres." };
+    const out = { excerpt: "استثمار يغطي 91,000 متر مربع." };
+    const problems = validateTranslation(src, out);
+    expect(problems).toHaveLength(1);
+    expect(problems[0].problem).toContain("figures missing");
+  });
+
+  it("does not mind a different thousands separator", () => {
+    const src = { excerpt: "1,000 exhibitors from 50 countries." };
+    const out = { excerpt: "1.000 عارض من 50 دولة." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("catches dropped markup", () => {
+    const src = { content: "<p>One.</p><p>Two.</p><p>Three.</p>" };
+    const out = { content: "<p>واحد. اثنان. ثلاثة.</p>" };
+    const problems = validateTranslation(src, out);
+    expect(problems.some(p => p.problem.includes("tag count"))).toBe(true);
+  });
+
+  it("catches an empty field", () => {
+    const problems = validateTranslation({ title: "A headline" }, { title: "   " });
+    expect(problems).toEqual([{ field: "title", problem: "came back empty" }]);
+  });
+
+  it("reports every problem in one pass so a retry can fix them together", () => {
+    const src = {
+      title: "SR57m Logistics Centre",
+      content: '<p><a href="/x/y">link</a></p>',
+    };
+    const out = { title: "مركز لوجستي", content: "<p>رابط</p>" };
+    const problems = validateTranslation(src, out);
+    expect(problems.map(p => p.field).sort()).toEqual(["content", "content", "title"]);
+  });
+});
+
+describe("applyTranslation", () => {
+  const article = {
+    id: 1, title: "Big 5 Opens", excerpt: "The show opened.", content: "<p>Body.</p>",
+  };
+
+  it("overlays only the fields that were translated", () => {
+    const out = applyTranslation(article, { title: "بيج 5 ينطلق" });
+    expect(out.title).toBe("بيج 5 ينطلق");
+    // Untranslated fields fall back to English rather than blanking the page.
+    expect(out.excerpt).toBe("The show opened.");
+    expect(out.id).toBe(1);
+  });
+
+  it("leaves the row alone when there is no translation", () => {
+    expect(applyTranslation(article, undefined)).toEqual(article);
+  });
+
+  it("ignores an empty translated value", () => {
+    expect(applyTranslation(article, { title: "" }).title).toBe("Big 5 Opens");
+  });
+});
+
+describe("sourceHash", () => {
+  it("changes when the English changes, which is what marks a translation stale", () => {
+    const before = sourceHash("<p>The show opened on 30 August.</p>");
+    const after = sourceHash("<p>The show opened on 31 August.</p>");
+    expect(before).not.toBe(after);
+    expect(sourceHash("<p>The show opened on 30 August.</p>")).toBe(before);
+  });
+});

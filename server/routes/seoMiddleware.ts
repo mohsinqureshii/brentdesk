@@ -30,6 +30,37 @@ const SITE = publication.name;
 const router = Router();
 
 // ============================================================
+// 0. LANGUAGE-PREFIXED URLs PASS THROUGH UNTOUCHED
+// ------------------------------------------------------------
+// A language is a path prefix: /ar/automation/big-5-opens. Every
+// canonicalising rule below reads a path positionally, so without this
+// guard rule 5 sees /ar/automation/slug as /parentCat/childCat/articleSlug
+// and 301s it to /automation/slug — silently deleting the language from
+// every URL a reader or a crawler follows.
+//
+// The check is against the configured locales, not any two-letter segment:
+// a category could legitimately be called "ai" or "esg", and stripping
+// those would break real URLs.
+// ============================================================
+router.use(async (req: Request, _res: Response, next: NextFunction) => {
+  const first = req.path.split("/").filter(Boolean)[0];
+  if (!first || first.length > 12) return next();
+  try {
+    const { listLocales } = await import("../services/translation.service");
+    const active = await listLocales({ activeOnly: true });
+    const hit = active.find(l => !l.isDefault && l.code.toLowerCase() === first.toLowerCase());
+    if (hit) {
+      // Hand it to the SSR layer, which strips the prefix, renders the
+      // page, and writes the canonical for THIS language.
+      return next("router");
+    }
+  } catch {
+    // No locale table yet — nothing is language-prefixed.
+  }
+  next();
+});
+
+// ============================================================
 // 1. OLD WORDPRESS URLs → 410 Gone
 // ============================================================
 router.all(["/wp-admin", "/wp-admin/*", "/wp-content/*", "/wp-includes/*", "/wp-login.php", "/xmlrpc.php", "/wp-cron.php"], (req, res) => {
