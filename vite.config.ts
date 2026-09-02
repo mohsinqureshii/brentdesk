@@ -4,10 +4,18 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin()];
-
-export default defineConfig({
-  plugins,
+export default defineConfig(({ command }) => ({
+  // jsxLocPlugin stamps every element with a data-loc="file:line"
+  // attribute for the dev click-to-source overlay. It was running for
+  // production builds too, which shipped ~26k source paths in the client
+  // bundle: the whole source tree is disclosed to anyone reading the
+  // page, and a stray attribute was being resolved as a relative href
+  // (deploy logs show requests for
+  // /climate-energy/client/src/components/layout/Footer.tsx:41).
+  plugins:
+    command === "serve"
+      ? [react(), tailwindcss(), jsxLocPlugin()]
+      : [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -46,4 +54,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
