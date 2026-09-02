@@ -236,6 +236,7 @@ async function resolveEventArticles(db: any, eventId: number, includeUnpublished
       featuredImageId: articles.featuredImageId,
       featuredImageUrl: media.url,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       mentionType: articleEvents.mentionType,
       categorySlug: categories.slug,
       categoryName: categories.name,
@@ -3014,6 +3015,7 @@ export const eventsRouter = router({
         title: articles.title,
         slug: articles.slug,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       }).from(articles)
         .where(q ? like(articles.title, q) : sql`1=1`)
         .orderBy(desc(articles.publishedAt))
@@ -3057,6 +3059,7 @@ export const eventsRouter = router({
         title: articles.title,
         slug: articles.slug,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       }).from(articles)
         .where(like(articles.title, `%${q}%`))
         .orderBy(desc(articles.publishedAt))

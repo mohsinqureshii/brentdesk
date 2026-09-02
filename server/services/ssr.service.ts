@@ -77,6 +77,7 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
       excerpt: articles.excerpt,
       content: articles.content,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       updatedAt: articles.updatedAt,
       primaryCategoryId: articles.primaryCategoryId,
       canonicalUrl: articles.canonicalUrl,

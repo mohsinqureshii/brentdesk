@@ -62,7 +62,7 @@ const LEAKED_METHODOLOGY = [
 /** articles.articleType is a MySQL enum — anything else fails the insert. */
 const ARTICLE_TYPES = new Set(["news", "opinion", "press_release", "report", "interview"]);
 
-const ARCHIVE_START = "2025-12-01";
+const ARCHIVE_START = "2025-09-14";
 const TODAY = "2026-09-02";
 
 interface Issue { file: string; level: "error" | "warn"; message: string }

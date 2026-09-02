@@ -373,6 +373,7 @@ export const homepageRouter = router({
         excerpt: articles.excerpt,
         featuredImageId: articles.featuredImageId,
         publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         viewCount: articles.viewCount,
         categoryId: articles.primaryCategoryId,
         categoryName: categories.name,

@@ -77,6 +77,7 @@ export const schedulerService = {
           title: articles.title,
           scheduledAt: articles.scheduledAt,
           publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
         })
         .from(articles)
         .where(

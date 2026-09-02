@@ -228,6 +228,7 @@ export const browsingHistoryRouter = router({
             excerpt: articles.excerpt,
             featuredImageId: articles.featuredImageId,
             publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
             categoryName: categories.name,
             categorySlug: categories.slug,
             })
@@ -260,6 +261,7 @@ export const browsingHistoryRouter = router({
             excerpt: articles.excerpt,
             featuredImageId: articles.featuredImageId,
             publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
             categoryName: sql<string>`(SELECT c.name FROM article_categories ac JOIN categories c ON c.id = ac.categoryId WHERE ac.articleId = ${articles.id} LIMIT 1)`,
             categorySlug: sql<string>`(SELECT c.slug FROM article_categories ac JOIN categories c ON c.id = ac.categoryId WHERE ac.articleId = ${articles.id} LIMIT 1)`,
           })

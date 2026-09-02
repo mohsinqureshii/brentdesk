@@ -536,6 +536,7 @@ export class SeoService {
       slug: articles.slug,
       title: articles.title,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       primaryCategoryId: articles.primaryCategoryId
     }).from(articles)
       .where(isNotNull(articles.publishedAt))
@@ -1107,6 +1108,7 @@ export class SeoService {
       slug: articles.slug,
       excerpt: articles.excerpt,
       publishedAt: articles.publishedAt,
+        eventDate: articles.eventDate,
       primaryCategoryId: articles.primaryCategoryId,
     })
       .from(articles)
