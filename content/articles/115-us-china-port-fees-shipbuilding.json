@@ -1,0 +1,54 @@
+[
+  {
+    "commission": 115,
+    "headline": "US and China Suspend Port Fees for a Year, but the Shipbuilding Order Book Has Already Moved",
+    "slug": "us-china-port-fee-suspension-shipbuilding-order-book",
+    "deck": "The Section 301 maritime measures lasted 27 days in force. Newbuilding orders for the first ten months of 2025 are down 44.5 percent, and the yards being built to replace Chinese capacity deliver after the truce expires.",
+    "excerpt": "Washington and Beijing suspended their reciprocal port fees for one year on 10 November, covering the Section 301 charges on Chinese-owned and Chinese-built vessels and the proposed 100 percent tariff on China-linked ship-to-shore cranes. Global newbuilding orders for January to October were already down 44.5 percent, and the capacity being built in the United States and Korea in response delivers well after the suspension ends.",
+    "content": "<p>The United States and China suspended their port fees on each other's shipping for a year on 10 November, closing an episode that had been live for 27 days and that had hung over the newbuilding market for most of 2025.</p><p>The US suspension took effect at 00:01 Eastern on 10 November and runs to 9 November 2026. It covers the whole package of measures the Office of the US Trade Representative adopted after its Section 301 investigation into China's maritime, logistics and shipbuilding sectors: the port-entry fee on Chinese-owned and Chinese-operated vessels, the separate fee on Chinese-built vessels whoever operates them, the fee on non-US-built vehicle carriers, the proposed 100 percent tariffs on China-linked ship-to-shore cranes and cargo-handling equipment including intermodal chassis, and the requirements attached to US LNG export shipping. China's transport ministry suspended its mirror measure from 13:01 Beijing time the same day. Both followed the meeting between the US and Chinese presidents in South Korea on 30 October, and USTR published the <a href=\"https://www.federalregister.gov/documents/2025/11/13/2025-19873/notice-of-modification-of-section-301-action-chinas-targeting-of-the-maritime-logistics-and\">notice of modification</a> in the Federal Register on 13 November.</p><p>The suspended charges were substantial and, unusually, levied on the ship rather than the cargo. Vessels owned or operated by Chinese entities faced $50 per net ton from 14 October, rising to $80 in April 2026, $110 in 2027 and $140 in 2028, capped at five charges per vessel per year. Chinese-built vessels faced the higher of $18 per net ton or $120 per container discharged, on a schedule reaching $33 per net ton by April 2028. China's countermeasure was set at 400 yuan per net ton, about $56, rising in steps to 1,120 yuan by 2028, charged at the first Chinese port of call and likewise capped at five voyages a year. Because both were assessed per net ton, they behaved as a fixed cost of calling at a port rather than a cost that scaled with what the ship was carrying, which is why the immediate commercial work went into charterparties: owners and charterers spent October negotiating <a href=\"https://www.clydeco.com/en/insights/2025/10/impact-of-tariffs-to-charterparties-1\">who would bear the fee</a> on fixtures already agreed.</p><p>What the suspension does not reverse is the year the order book has already had. Shipowners placed 1,632 newbuilding orders between January and October, totalling 94.87 million deadweight tonnes, <a href=\"https://en.portnews.ru/news/385436/\">down 44.5 percent</a> on the same period of 2024, according to the economic research centre of China State Shipbuilding Corporation. Part of that is the ordinary correction after an exceptionally strong 2024, alongside high newbuild prices and weak freight rates. But the threat of a fee attached to the place a hull was welded, rather than to its owner or its trade, was an unusual thing for an owner to price into a 25-year asset, and it arrived while yard capacity was already tight enough that orders for large ocean-going ships imply delivery in 2029 or later.</p><p>That is the mismatch at the centre of this. The truce runs one year; the asset decisions it was meant to influence run four or more. An owner ordering today for 2029 delivery is buying a ship that will trade long after 9 November 2026, when the Section 301 action - suspended, not withdrawn - can be reinstated without a fresh investigation.</p><p>The capacity response the fees were designed to provoke is meanwhile proceeding on its own timetable. Hanwha's <a href=\"https://www.hanwha.com/newsroom/news/press-releases/hanwha-announces-5-billion-philly-shipyard-investment-as-part-of-south-koreas-commitment-to-us-shipbuilding-growth.do\">$5 billion programme</a> at Philly Shipyard, announced in August as part of a $150 billion South Korean commitment to US shipbuilding, funds two additional docks and three quays with the aim of lifting the yard from fewer than two vessels a year to as many as 20. None of that is contingent on the fee schedule, and none of it delivers a ship inside the suspension window. Korean yards, which build the high-value tonnage most exposed to any US-China realignment, gained share through 2025 while Chinese order intake fell.</p><p>For port operators the reprieve is narrower but more immediate. Ship-to-shore cranes are ordered years ahead against berth reconstruction programmes, and a 100 percent duty on China-linked cranes and cargo-handling equipment would have landed on terminals already committed to capital works. The suspension gives them twelve months of clarity on equipment pricing, and no more than that.</p><p>The LNG provisions are the quietest part of the package and possibly the most consequential to have been paused. They would have obliged a rising share of US liquefied natural gas exports onto US-built and US-flagged tonnage - a class of ship American yards do not currently build in volume - on a schedule running well into the 2030s. Suspending them removes, for a year, a constraint that project developers on the Gulf Coast would otherwise have had to write into shipping contracts signed before their trains are commissioned.</p><p>The fees produced very little revenue in their 27 days of operation, and that was never really their purpose. Their effect was on the ordering decisions taken in the eight months between the April determination and the November pause, and those decisions have been made. A one-year suspension does not unwind them; it sets a date by which owners, yards and terminals have to decide whether to believe the pause or the policy behind it.</p>",
+    "author": "Mo",
+    "primaryCategory": "ports",
+    "tags": [
+      "Shipbuilding",
+      "Section 301",
+      "Ports",
+      "Shipping",
+      "Trade Policy"
+    ],
+    "companies": [
+      "Office of the United States Trade Representative",
+      "China State Shipbuilding Corporation",
+      "Hanwha",
+      "Philly Shipyard"
+    ],
+    "people": [],
+    "eventDate": "2025-11-10",
+    "informationCutoff": "2025-11-16",
+    "primarySourceUrl": "https://ustr.gov/about/policy-offices/press-office/press-releases/2025/november/ustr-suspension-action-section-301-investigation-chinas-targeting-maritime-logistics-and",
+    "primarySourceName": "Office of the United States Trade Representative",
+    "secondarySourceUrls": [
+      "https://www.federalregister.gov/documents/2025/11/13/2025-19873/notice-of-modification-of-section-301-action-chinas-targeting-of-the-maritime-logistics-and",
+      "https://www.hklaw.com/en/insights/publications/2025/11/ustr-port-fee-suspension-what-you-need-to-know",
+      "https://gcaptain.com/white-house-confirms-one-year-suspension-of-ustr-port-fees-in-u-s-china-trade-deal/",
+      "https://www.whitecase.com/insight-alert/ustr-issues-final-section-301-actions-china-shipbuilding-investigation",
+      "https://www.hfw.com/insights/china-reacts-ustr-section-301-fees-with-special-port-fees-us-ships/",
+      "https://www.cnbc.com/2025/10/10/china-retaliates-against-us-port-fees-with-charges-on-american-ships.html",
+      "https://www.clydeco.com/en/insights/2025/10/impact-of-tariffs-to-charterparties-1",
+      "https://en.portnews.ru/news/385436/",
+      "https://www.supplychaindive.com/news/us-tariffs-ship-to-shore-cranes-port-equipment-china-linked-ship-fees/802741/",
+      "https://www.hanwha.com/newsroom/news/press-releases/hanwha-announces-5-billion-philly-shipyard-investment-as-part-of-south-koreas-commitment-to-us-shipbuilding-growth.do"
+    ],
+    "seoTitle": "US and China Suspend Port Fees for One Year",
+    "seoDescription": "The US and China suspended reciprocal port fees on 10 November after 27 days in force, but newbuilding orders for January-October 2025 were already down 44.5 percent.",
+    "articleType": "report",
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "ports",
+      "logistics"
+    ],
+    "wordCount": 859
+  }
+]

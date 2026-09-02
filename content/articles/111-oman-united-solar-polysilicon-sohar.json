@@ -1,0 +1,52 @@
+[
+  {
+    "commission": 111,
+    "headline": "Oman Arab Bank Puts $200m Into the Sohar Polysilicon Plant as Oman Enters the Solar Supply Chain",
+    "slug": "oman-united-solar-polysilicon-sohar",
+    "deck": "The $1.6bn United Solar plant in Sohar Freezone is designed to make 100,000 tonnes a year of solar-grade polysilicon, enough for around 40 GW of modules, in an industry almost entirely located in China.",
+    "excerpt": "Oman Arab Bank has signed a financing agreement of about $200m with United Solar Polysilicon for the $1.6bn plant under construction in Sohar Freezone. The facility is designed to produce 100,000 tonnes a year of high-purity solar-grade polysilicon and would be the largest of its kind in the Middle East. It follows an IFC loan approval and an equity investment from Oman's Future Fund.",
+    "content": "<p>Oman Arab Bank has signed a financing agreement worth about $200m with United Solar Polysilicon, adding a further tranche of debt to the $1.6bn polysilicon plant under construction in the Sohar Freezone on Oman's Batinah coast.</p><p>The agreement was <a href=\"https://www.muscatdaily.com/2025/12/01/oab-inks-200mln-financing-deal-for-polysilicon-project-in-sohar-freezone/\">signed at the bank's chief executive summit in Muscat</a> in mid-November, under the patronage of the Ministry of Energy and Minerals. The plant, on which construction started in March 2024, is designed to produce 100,000 tonnes a year of high-purity solar-grade polysilicon. At prevailing consumption rates that is enough raw material for roughly 40 GW of solar modules a year, and it would make the facility the largest of its kind in the Middle East.</p><p>The financing is being assembled in layers. The International Finance Corporation, the private-sector arm of the World Bank, <a href=\"https://www.agbi.com/renewable-energy/2025/12/polysilicon-project-in-oman-gets-200m-financing-loan/\">approved a loan of up to $250m</a> for the project in August, and Future Fund Oman, the investment vehicle controlled by the Oman Investment Authority, has put in $156m of equity. For a first-of-its-kind industrial plant in a country with no existing solar manufacturing base, the presence of a development finance institution alongside a domestic commercial bank and the sovereign fund is the more informative detail: it is the structure used when a project is bankable but the lending market for it does not yet exist locally.</p><p>Polysilicon is the first manufactured step in the crystalline silicon chain that supplies almost all of the world's solar panels. Quartz is smelted into metallurgical-grade silicon, which is then purified to a level measured in parts per billion before it can be pulled into ingots, sliced into wafers, processed into cells and laminated into modules. That purification is the expensive part, and it is expensive mainly because it is electricity-intensive. A polysilicon plant is in effect a business that converts cheap, reliable power into a high-value commodity, which is why the industry clusters where electricity is cheap and firm rather than where the sun happens to shine.</p><p>That is also why the industry is where it is. The overwhelming majority of global polysilicon capacity sits in China, much of it in the north-west, and the concentration has become a commercial and regulatory issue for buyers elsewhere. Manufacturers in Europe, India and the United States facing trade measures, tariffs and supply-chain traceability requirements have been looking for material produced outside that system, and there is very little of it. On that basis a single 100,000 tonne plant is not a rounding error; it is a meaningful share of the world's non-Chinese supply.</p><p>The risk sits in the same place as the opportunity. Chinese capacity additions have pushed polysilicon prices down hard, and a new entrant with high capital costs is exposed to a market where the incumbent producers are large, integrated and prepared to run at thin margins. Oman's answer is cost: industrial power, a deepwater port at Sohar with existing bulk handling, freezone terms and a location within reach of both Asian and European module makers.</p><p>For Oman the project is a different kind of energy bet from the one that has drawn most attention. The country's green hydrogen programme has assembled land blocks and headline investment commitments but has yet to produce a plant selling a product. Polysilicon sells into an established global market at an established price, and the customer base already exists. It is a narrower ambition, and a nearer one.</p><p>The plant still has to start up and prove it can hold specification at scale, which is where polysilicon projects most often stumble. What the November signing establishes is that the money to finish it is now largely in place.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Polysilicon",
+      "Sohar Freezone",
+      "Solar Manufacturing",
+      "Oman Vision 2040",
+      "Project Finance"
+    ],
+    "companies": [
+      "United Solar Polysilicon",
+      "Oman Arab Bank",
+      "International Finance Corporation",
+      "Future Fund Oman",
+      "Oman Investment Authority"
+    ],
+    "people": [],
+    "country": "Oman",
+    "eventDate": "2025-11-17",
+    "informationCutoff": "2025-12-03",
+    "primarySourceUrl": "https://www.muscatdaily.com/2025/12/01/oab-inks-200mln-financing-deal-for-polysilicon-project-in-sohar-freezone/",
+    "primarySourceName": "Muscat Daily",
+    "secondarySourceUrls": [
+      "https://www.agbi.com/renewable-energy/2025/12/polysilicon-project-in-oman-gets-200m-financing-loan/",
+      "https://www.pv-magazine.com/2025/12/02/omani-bank-inks-220-million-for-oman-polysilicon-project/",
+      "https://www.zawya.com/en/economy/gcc/oman-oab-inks-200mln-financing-deal-for-polysilicon-project-in-sohar-freezone-dydi7rqx",
+      "https://solarquarter.com/2025/12/03/oman-arab-bank-invests-220-million-in-major-polysilicon-factory-to-boost-solar-manufacturing-capacity/"
+    ],
+    "seoTitle": "Oman Arab Bank Backs $1.6bn Sohar Polysilicon Plant",
+    "seoDescription": "Oman Arab Bank has signed about $200m of financing for United Solar's $1.6bn Sohar polysilicon plant, designed to make 100,000 tonnes a year of solar-grade silicon.",
+    "articleType": "news",
+    "wordCount": 640,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "manufacturing",
+      "renewables",
+      "industrial-technology",
+      "energy"
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "commission": 113,
+    "headline": "Data Centre Engines Lift Caterpillar's Backlog to $39.8bn as Tariffs Cost Up to $1.8bn",
+    "slug": "caterpillar-q3-2025-backlog-large-engines-lafayette",
+    "deck": "Third-quarter sales of $17.6 billion, a 39 percent higher backlog and $1.6 billion of committed and contemplated spending on one Indiana engine plant. Construction machinery is now the slower half of Caterpillar.",
+    "excerpt": "Caterpillar posted record third-quarter sales of $17.6 billion on 29 October and a firm backlog of about $39.8 billion, with growth concentrated in large reciprocating engines for data centre power generation. Construction Industries profit fell 7 percent, and the company raised its 2025 tariff cost estimate to as much as $1.8 billion.",
+    "content": "<p>Caterpillar reported record third-quarter sales of $17.6 billion on 29 October, up 10 percent on a year earlier, and a firm backlog of about $39.8 billion at the end of September - $2.4 billion higher than three months before and 39 percent higher than a year ago. Almost none of that growth came from the yellow machines the company is best known for.</p><p>Energy &amp; Transportation, which builds Caterpillar's reciprocating engines, turbines and locomotives, had sales of $8.397 billion in the quarter, up 17 percent, with the increase led by large reciprocating engines sold into power generation - overwhelmingly for data centres - and by higher oil and gas activity. Construction Industries sold $6.760 billion, up 7 percent, but its segment profit fell 7 percent to $1.377 billion, hit by $262 million of unfavourable price realisation and $174 million of unfavourable manufacturing costs. The group operating margin was 17.3 percent, against 19.5 percent a year earlier, and profit per share was $4.88.</p><p>Tariffs account for much of the margin gap. Caterpillar said the third-quarter cost landed near the top of the $500 million to $600 million range it had guided to in July, and it has raised its estimate of the <a href=\"https://www.caterpillar.com/en/news/corporate-press-releases/h/3q25-results-caterpillar-inc.html\">full-year impact to between $1.5 billion and $1.8 billion</a>. That is a manufacturing cost, not a pricing decision: the company is absorbing duties on components and materials moving into US plants while price realisation in construction machinery is going the other way.</p><p>The more consequential number is buried in the backlog. Of the $39.8 billion on the books at 30 September, roughly $12.5 billion is <a href=\"https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm\">not expected to be filled within twelve months</a>. Excavators and wheel loaders do not normally sit in a backlog that long. Large engines do, because customers are not buying a machine so much as a delivery slot in a plant whose output is fixed for years ahead.</p><p>Caterpillar is trying to move that constraint. In October the company said it had broken ground on a $725 million expansion of its Large Engine Center in Lafayette, Indiana, and is <a href=\"https://www.caterpillar.com/en/news/corporate-press-releases/h/cat-invest-future-workforce.html\">evaluating a further investment of about $890 million</a> at the same site, which would take committed and contemplated spending there to roughly $1.6 billion. The first phase funds new machining equipment, on-site rail infrastructure and a 300,000 square foot addition to a plant that already covers 1.6 million square feet and employs about 1,900 people. Construction is due to finish by the end of 2026, with the new equipment installed during 2027, and the site is expected to add around 100 jobs over four years. Caterpillar also committed $5 million to skills training in Indiana.</p><p>The timeline is the point. A large engine plant is a machining, assembly and test problem measured in years, not quarters: the capacity being poured in Lafayette this autumn does not produce a saleable engine until 2027, by which time the data centre orders now filling the backlog will have been under construction for two years. Buyers of prime and backup power for computing sites are contracting that far ahead because there is no faster route to megawatts on a schedule.</p><p>That reshapes how Caterpillar reads as an industrial indicator. For most of its history the company has been a proxy for construction activity, and construction is currently the weaker half of its business - volumes up, but pricing under pressure and profit down. The growth, the backlog and the capital are all going to engines bought by electricity users rather than contractors. The equipment maker's exposure to the building cycle has not gone away, but it is no longer what sets the direction of the order book.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "machinery",
+    "tags": [
+      "Caterpillar",
+      "Heavy Equipment",
+      "Data Centres",
+      "Manufacturing Investment",
+      "Tariffs"
+    ],
+    "companies": [
+      "Caterpillar"
+    ],
+    "people": [],
+    "country": "United States",
+    "eventDate": "2025-10-29",
+    "informationCutoff": "2025-11-03",
+    "primarySourceUrl": "https://www.caterpillar.com/en/news/corporate-press-releases/h/3q25-results-caterpillar-inc.html",
+    "primarySourceName": "Caterpillar",
+    "secondarySourceUrls": [
+      "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+      "https://www.sec.gov/Archives/edgar/data/18230/000001823025000043/ex991toformcat3q2025earnin.htm",
+      "https://www.caterpillar.com/en/news/corporate-press-releases/h/cat-invest-future-workforce.html",
+      "https://www.equipmentworld.com/business/article/15665232/caterpillar-plans-725m-expansion-to-large-engine-center-in-lafayette-ind",
+      "https://manufacturing-today.com/news/caterpillar-targets-890-million-boost-to-manufacturing-capacity/",
+      "https://www.manufacturingdive.com/news/caterpillar-q3-2025-sales-record-tariffs-data-center/804250/"
+    ],
+    "seoTitle": "Caterpillar Backlog Hits $39.8bn on Data Centre Engines",
+    "seoDescription": "Caterpillar reported $17.6bn of third-quarter sales and a $39.8bn backlog on 29 October, led by large engines for data centres, with tariffs costing up to $1.8bn.",
+    "articleType": "news",
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null,
+    "categories": [
+      "machinery",
+      "manufacturing",
+      "data-centers",
+      "industrial-technology"
+    ],
+    "wordCount": 609
+  }
+]
