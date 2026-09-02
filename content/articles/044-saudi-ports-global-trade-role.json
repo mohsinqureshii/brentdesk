@@ -1,33 +1,47 @@
-[{
-  "commission": 44,
-  "headline": "Mawani Adds Five Shipping Services as Gulf Disruption Redraws Saudi Trade Routes",
-  "slug": "mawani-five-shipping-services-saudi-ports-global-trade",
-  "deck": "Saudi ports moved 8.3 million containers in 2025. The question in 2026 is how much of the region's rerouted trade the system can absorb.",
-  "excerpt": "The Saudi Ports Authority has added five shipping services with MSC, CMA CGM, Maersk and Hapag-Lloyd, together offering about 63,594 TEUs of capacity, after disruption to traffic through the Strait of Hormuz. It follows a year in which national container throughput rose 10.58 percent to 8.32 million TEUs, still a long way short of the 40 million TEU capacity Mawani is targeting by 2030.",
-  "content": "<p>The Saudi Ports Authority has added five new shipping services in cooperation with global carriers, a direct response to the disruption of traffic through the Strait of Hormuz that has forced shippers across the Gulf to rethink how cargo reaches the region.</p><p>The services &mdash; Gulf Shuttle, Redex, Jade, AE19 and SE4 &mdash; are run with MSC, CMA CGM, Maersk and Hapag-Lloyd and together provide roughly 63,594 twenty-foot equivalent units of capacity. <a href=\"https://www.spa.gov.sa/en/N2544115\">Mawani said</a> the additions are intended to mitigate the effect of the disruption on key maritime corridors, strengthen connectivity through the Red Sea and keep goods moving through the Kingdom's ports. Separately, a service linking Saudi Arabia and Bahrain has been launched as Gulf routings come under pressure.</p><p>The commercial mechanics are worth being precise about. Mawani does not own these services; it has persuaded carriers to call. A shipping line adds a rotation when it expects the volume to justify the slot cost, and it withdraws one on the same arithmetic. Five new services is a signal that the carriers see cargo moving toward Saudi ports, particularly the Red Sea ones, and not a permanent addition to the country's trading capacity.</p><p>What the system was carrying before the disruption gives the measure. Saudi ports handled <a href=\"https://www.arabnews.com/node/2629175/business-economy\">8,317,235 TEUs in 2025</a>, up 10.58 percent on the previous year. Imports rose 8.82 percent to 3,243,884 TEUs and exports 11.72 percent to 3,146,003 TEUs &mdash; an unusually balanced trade profile by regional standards, reflecting how much of the Kingdom's freight is petrochemical and industrial export rather than consumer import. Transshipment, the discretionary business that carriers can relocate at will, grew 11.78 percent to 1,927,348 TEUs. Total cargo across all categories reached 242.07 million tonnes, a rise of 1.06 percent, with liquid bulk accounting for 176.3 million tonnes of that.</p><p>One number in the 2025 set runs the other way and is easy to misread. Vessel calls fell 17.98 percent to 9,508. Fewer ships carrying more boxes is what happens when carriers consolidate services and deploy larger tonnage, and it is generally a sign of a maturing port system rather than a weakening one &mdash; but it also concentrates risk, because the withdrawal of a single string now removes more capacity than it used to.</p><p>The early months of 2026 have been uneven. January throughput was 738,111 TEUs, up 2.01 percent year on year. February came in at 667,882 TEUs, a 20.89 percent increase on a weak February 2025. Month-to-month comparisons in a disrupted quarter are close to meaningless; the useful reading will come from the second half of the year, once rerouting decisions taken in the spring have worked through carrier schedules.</p><p>Against that, Mawani's stated ambition is to lift national port capacity beyond 40 million TEUs by 2030 and to take 45 percent of regional transshipment traffic. Both targets sit a long way from where the system is. Forty million TEUs is close to five times the 2025 throughput, and while capacity and throughput are not the same measure, a target of that size implies terminal construction on a scale that has not yet been contracted. The transshipment target is the harder of the two, because transshipment share is decided by carriers comparing Saudi ports with Jebel Ali, Salalah and Khor Fakkan on cost, reliability and network fit &mdash; not by national strategy.</p><p>What 2026 has given the Kingdom is an argument it could not previously make on its own. Saudi Arabia is the only Gulf producer with deepwater ports on both coasts and pipeline and rail capacity between them. For as long as the Hormuz route is unreliable, that redundancy has a price attached to it, and the carriers adding services are the ones putting a number on it. The strategic case for Saudi ports has always rested on geography. This year it is being tested in practice.</p>",
-  "author": "Jakson Gudawela",
-  "primaryCategory": "ports",
-  "tags": ["Mawani", "Container Shipping", "Red Sea", "Transshipment", "Strait Of Hormuz"],
-  "companies": ["Saudi Ports Authority", "MSC", "CMA CGM", "Maersk", "Hapag-Lloyd"],
-  "people": [],
-  "country": "Saudi Arabia",
-  "eventDate": "2026-03-24",
-  "informationCutoff": "2026-03-28",
-  "primarySourceUrl": "https://www.spa.gov.sa/en/N2544115",
-  "primarySourceName": "Saudi Press Agency",
-  "secondarySourceUrls": [
-    "https://www.arabnews.com/node/2637335/business-economy",
-    "https://www.arabnews.com/node/2637593/amp",
-    "https://www.arabnews.com/node/2629175/business-economy",
-    "https://container-news.com/mawani-reports-10-58-growth-in-container-throughput-in-2025/",
-    "https://www.spa.gov.sa/en/N2510877"
-  ],
-  "seoTitle": "Mawani Adds Five Shipping Services as Gulf Routes Are Disrupted",
-  "seoDescription": "Saudi Arabia's Mawani has added five shipping services with MSC, CMA CGM, Maersk and Hapag-Lloyd after Hormuz disruption, following 8.32m TEUs handled in 2025.",
-  "articleType": "news",
-  "wordCount": 0,
-  "researchConfidence": "A",
-  "imageReviewRequired": true,
-  "replacementOf": null,
-  "replacementReason": null
-}]
+[
+  {
+    "commission": 44,
+    "headline": "Mawani Adds Five Shipping Services as Gulf Disruption Redraws Saudi Trade Routes",
+    "slug": "mawani-five-shipping-services-saudi-ports-global-trade",
+    "deck": "Saudi ports moved 8.3 million containers in 2025. The question in 2026 is how much of the region's rerouted trade the system can absorb.",
+    "excerpt": "The Saudi Ports Authority has added five shipping services with MSC, CMA CGM, Maersk and Hapag-Lloyd, together offering about 63,594 TEUs of capacity, after disruption to traffic through the Strait of Hormuz. It follows a year in which national container throughput rose 10.58 percent to 8.32 million TEUs, still a long way short of the 40 million TEU capacity Mawani is targeting by 2030.",
+    "content": "<p>The Saudi Ports Authority has added five new shipping services in cooperation with global carriers, a direct response to the disruption of traffic through the Strait of Hormuz that has forced shippers across the Gulf to rethink how cargo reaches the region.</p><p>The services &mdash; Gulf Shuttle, Redex, Jade, AE19 and SE4 &mdash; are run with MSC, CMA CGM, Maersk and Hapag-Lloyd and together provide roughly 63,594 twenty-foot equivalent units of capacity. <a href=\"https://www.spa.gov.sa/en/N2544115\">Mawani said</a> the additions are intended to mitigate the effect of the disruption on key maritime corridors, strengthen connectivity through the Red Sea and keep goods moving through the Kingdom's ports. Separately, a service linking Saudi Arabia and Bahrain has been launched as Gulf routings come under pressure.</p><p>The commercial mechanics are worth being precise about. Mawani does not own these services; it has persuaded carriers to call. A shipping line adds a rotation when it expects the volume to justify the slot cost, and it withdraws one on the same arithmetic. Five new services is a signal that the carriers see cargo moving toward Saudi ports, particularly the Red Sea ones, and not a permanent addition to the country's trading capacity.</p><p>What the system was carrying before the disruption gives the measure. Saudi ports handled <a href=\"https://www.arabnews.com/node/2629175/business-economy\">8,317,235 TEUs in 2025</a>, up 10.58 percent on the previous year. Imports rose 8.82 percent to 3,243,884 TEUs and exports 11.72 percent to 3,146,003 TEUs &mdash; an unusually balanced trade profile by regional standards, reflecting how much of the Kingdom's freight is petrochemical and industrial export rather than consumer import. Transshipment, the discretionary business that carriers can relocate at will, grew 11.78 percent to 1,927,348 TEUs. Total cargo across all categories reached 242.07 million tonnes, a rise of 1.06 percent, with liquid bulk accounting for 176.3 million tonnes of that.</p><p>One number in the 2025 set runs the other way and is easy to misread. Vessel calls fell 17.98 percent to 9,508. Fewer ships carrying more boxes is what happens when carriers consolidate services and deploy larger tonnage, and it is generally a sign of a maturing port system rather than a weakening one &mdash; but it also concentrates risk, because the withdrawal of a single string now removes more capacity than it used to.</p><p>The early months of 2026 have been uneven. January throughput was 738,111 TEUs, up 2.01 percent year on year. February came in at 667,882 TEUs, a 20.89 percent increase on a weak February 2025. Month-to-month comparisons in a disrupted quarter are close to meaningless; the useful reading will come from the second half of the year, once rerouting decisions taken in the spring have worked through carrier schedules.</p><p>Against that, Mawani's stated ambition is to lift national port capacity beyond 40 million TEUs by 2030 and to take 45 percent of regional transshipment traffic. Both targets sit a long way from where the system is. Forty million TEUs is close to five times the 2025 throughput, and while capacity and throughput are not the same measure, a target of that size implies terminal construction on a scale that has not yet been contracted. The transshipment target is the harder of the two, because transshipment share is decided by carriers comparing Saudi ports with Jebel Ali, Salalah and Khor Fakkan on cost, reliability and network fit &mdash; not by national strategy.</p><p>What 2026 has given the Kingdom is an argument it could not previously make on its own. Saudi Arabia is the only Gulf producer with deepwater ports on both coasts and pipeline and rail capacity between them. For as long as the Hormuz route is unreliable, that redundancy has a price attached to it, and the carriers adding services are the ones putting a number on it. The strategic case for Saudi ports has always rested on geography. This year it is being tested in practice.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "ports",
+    "tags": [
+      "Mawani",
+      "Container Shipping",
+      "Red Sea",
+      "Transshipment",
+      "Strait Of Hormuz"
+    ],
+    "companies": [
+      "Saudi Ports Authority",
+      "MSC",
+      "CMA CGM",
+      "Maersk",
+      "Hapag-Lloyd"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-03-24",
+    "informationCutoff": "2026-03-28",
+    "primarySourceUrl": "https://www.spa.gov.sa/en/N2544115",
+    "primarySourceName": "Saudi Press Agency",
+    "secondarySourceUrls": [
+      "https://www.arabnews.com/node/2637335/business-economy",
+      "https://www.arabnews.com/node/2637593/amp",
+      "https://www.arabnews.com/node/2629175/business-economy",
+      "https://container-news.com/mawani-reports-10-58-growth-in-container-throughput-in-2025/",
+      "https://www.spa.gov.sa/en/N2510877"
+    ],
+    "seoTitle": "Mawani Adds Five Shipping Services as Gulf Routes Are Disrupted",
+    "seoDescription": "Saudi Arabia's Mawani has added five shipping services with MSC, CMA CGM, Maersk and Hapag-Lloyd after Hormuz disruption, following 8.32m TEUs handled in 2025.",
+    "articleType": "news",
+    "wordCount": 634,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

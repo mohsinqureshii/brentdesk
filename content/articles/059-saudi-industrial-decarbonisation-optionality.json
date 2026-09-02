@@ -1,0 +1,47 @@
+[
+  {
+    "commission": 59,
+    "headline": "Saudi Industry Is Buying Decarbonisation Options Rather Than Abatement Projects",
+    "slug": "saudi-industrial-decarbonisation-capture-ready-renewable-equity",
+    "deck": "Capture-ready gas plants, oil-company equity in solar farms and a fully contracted hydrogen export plant show how emissions reduction is actually being funded in the Kingdom — and where the commitments stop.",
+    "excerpt": "Every large thermal plant Saudi Arabia has contracted since late 2024 is specified as carbon capture ready, Aramco has taken equity in 15 GW of renewables, and NEOM's green ammonia plant is nearly finished. What connects them is that they buy future flexibility rather than committing capital to abatement itself.",
+    "content": "<p>When ACWA Power and Saudi Energy signed a SAR 11.5 billion power purchase agreement in April for a 2,313.5 megawatt combined-cycle expansion at Rabigh, the announcement noted that the plant is designed with readiness for the future installation of a carbon capture system. It was not the first Saudi power contract to carry that clause, and it will not be the last.</p><p>The 7,200 MW of flexible combined-cycle capacity contracted at Rumah and Nairyah in late 2024 was specified the same way: natural gas as the main fuel, <a href=\"https://spb.com.sa/in-the-presence-of-minister-of-energy-saudi-power-procurement-company-principal-buyer-signs-power-purchase-agreements-for-five-projects-totaling-9200-mw/\">with the capacity to install carbon capture units</a>. Between the two programmes, the Kingdom has now contracted close to 9,500 MW of thermal capacity laid out so that a capture train could be added later.</p><p>It is worth being precise about what that means, because the phrase is doing a lot of work in press releases across the industry. Capture readiness is a design and space allocation decision. It means the plot has room for the absorber and compression equipment, that the steam cycle can be tapped for the heat a solvent-based capture unit needs, and that flue gas ducting can be rerouted without rebuilding the plant. It preserves an option at modest incremental cost during construction. It is not an emissions reduction, and it produces none until a capture unit is separately specified, sanctioned, financed, built and — the part usually left out — given somewhere to put the carbon dioxide.</p><p>That is a fair description of how industrial decarbonisation is being funded in Saudi Arabia at the moment: as optionality bought cheaply now, rather than as abatement projects underwritten on their own returns.</p><p>The pattern repeats in a different form on the supply side. When ACWA Power, the PIF-owned Badeel and Saudi Aramco Power Company <a href=\"https://www.acwapower.com/en/media-center/latest-news/acwa-power-badeel-and-aramco-subsidiary-sapco-achieve-us-82-billion-financial-close-to-develop-15-gw-of-renewables-in-saudi-arabia/\">reached financial close on 15,000 MW of solar and wind</a> on 1 December, the presence of Aramco's power subsidiary in the consortium was the notable part. A national oil company taking equity in 12 GW of solar and 3 GW of wind is not a public relations gesture — it is a position in the generation that will displace hydrocarbons in domestic power, taken on terms where the returns are contracted for decades. It decarbonises the electricity that industry consumes without requiring any individual industrial site to spend capital on its own emissions.</p><p>Storage does the same work from another direction. The roughly 2 GW and 8 GWh of grid-scale batteries contracted by the Saudi Power Procurement Company, on top of more than 16 GWh procured by the network utility from BYD and Hithium, exist to raise the share of contracted solar that actually reaches customers rather than being curtailed or displaced at the wrong hour. Every megawatt-hour a battery time-shifts is a megawatt-hour of gas not burned, and it is bought as a system service rather than as an emissions project.</p><p>The one genuinely committed abatement-driven investment at scale is the NEOM Green Hydrogen Company's plant at Oxagon, an equal joint venture of Air Products, ACWA Power and NEOM pairing about 2.2 GW of electrolysis with roughly 4 GW of dedicated renewables to make 1.2 million tonnes a year of green ammonia. It is nearly complete and is targeting first exports in 2027. But its economics rest on a 30-year exclusive offtake at an agreed price, which means the risk of whether decarbonised molecules command a premium sits with the buyer, not with the Saudi project.</p><p>The missing piece behind every capture-ready clause is the same one missing in most markets: somewhere to send the carbon dioxide. A capture unit produces a compressed gas stream that has to be transported and either used or permanently stored, which requires pipelines, injection wells and a monitored reservoir. None of that is built by specifying a plant layout, and the cost of it usually exceeds the cost of the capture equipment. A capture-ready plant without a destination for its output is an option that cannot yet be exercised.</p><p>Read together, these are the decisions of a system that expects decarbonisation to become economic and wants to be positioned when it does, without paying much for the expectation in the meantime. The capture-ready clause costs a fraction of a capture plant. Renewable equity earns a contracted return. A fully offtaken hydrogen plant carries no price risk.</p><p>That is a defensible way to allocate capital, and it is more honest than announcing abatement targets without contracts behind them. It also means the visible test of Saudi industrial decarbonisation is still ahead. It arrives when a capture unit is ordered for one of the capture-ready plants, when a second green ammonia project has to find a buyer on merchant terms, and when an industrial site — a refinery, a steel plant, a cement works — commits its own capital to reducing emissions from a process rather than from the electricity it buys. None of those has happened yet.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "energy",
+    "tags": [
+      "Decarbonisation",
+      "Carbon Capture",
+      "Industrial Investment",
+      "Green Hydrogen"
+    ],
+    "companies": [
+      "ACWA Power",
+      "Saudi Aramco",
+      "SAPCO",
+      "Saudi Energy",
+      "Saudi Power Procurement Company",
+      "NEOM Green Hydrogen Company",
+      "Air Products"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-04-16",
+    "informationCutoff": "2026-04-24",
+    "primarySourceUrl": "https://acwapower.com/en/media-center/latest-news/acwa-signs-power-purchase-agreement-for-the-expansion-of-rabigh-2-power-plant-project/",
+    "primarySourceName": "ACWA Power",
+    "secondarySourceUrls": [
+      "https://spb.com.sa/in-the-presence-of-minister-of-energy-saudi-power-procurement-company-principal-buyer-signs-power-purchase-agreements-for-five-projects-totaling-9200-mw/",
+      "https://www.acwapower.com/en/media-center/latest-news/acwa-power-badeel-and-aramco-subsidiary-sapco-achieve-us-82-billion-financial-close-to-develop-15-gw-of-renewables-in-saudi-arabia/",
+      "https://www.power-technology.com/news/acwa-sppc-agreement-rabigh-2-expansion/",
+      "https://www.hydrogeninsight.com/production/construction-of-giant-2-2gw-neom-green-hydrogen-and-ammonia-plant-is-now-80-complete-air-products/2-1-1828013"
+    ],
+    "seoTitle": "Carbon Capture Readiness Enters Saudi Power Contracts",
+    "seoDescription": "Capture-ready gas plants, Aramco equity in 15 GW of renewables and a fully offtaken hydrogen plant show how Saudi decarbonisation is actually funded.",
+    "articleType": "report",
+    "researchConfidence": "B",
+    "wordCount": 819,
+    "people": [],
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

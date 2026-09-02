@@ -175,7 +175,10 @@ for (const file of files) {
     // typographic marks by escape so the check survives re-encoding.
     const prose = html.replace(/<[^>]+>/g, " ");
     const quoted = (prose.match(/[\u201C\u2018"][^\u201D\u2019"]{25,}[\u201D\u2019"]/g) ?? []).length;
-    if (quoted > 0 && !/\bsaid\b|\btold\b|\baccording to\b|\bwrote\b/i.test(prose)) {
+    // Cover the inflections a reporter actually writes — "saying the company
+    // was..." attributes just as well as "said" and was failing this check.
+    const ATTRIBUTION = /\b(?:said|says|saying|told|telling|according to|wrote|writes|stated|states|added|adds|described|per)\b/i;
+    if (quoted > 0 && !ATTRIBUTION.test(prose)) {
       err(file, `${quoted} long quotation(s) with no attribution verb`);
     }
 

@@ -1,33 +1,45 @@
-[{
-  "commission": 45,
-  "headline": "RSGT and CMA CGM Commit $434 Million to a Fourth Container Terminal at Jeddah",
-  "slug": "rsgt-cma-cgm-jeddah-islamic-port-terminal-4",
-  "deck": "The new terminal would add up to 2.6 million TEUs to a port that has just set back-to-back monthly throughput records.",
-  "excerpt": "Red Sea Gateway Terminal and CMA CGM have signed definitive agreements with Mawani to develop and operate Terminal 4 at Jeddah Islamic Port, with an initial investment of $434 million. The terminal would add up to about 2.6 million TEUs of annual capacity to a port that handled a record 491,197 containers in July.",
-  "content": "<p>Red Sea Gateway Terminal and CMA CGM have signed definitive agreements to jointly develop and operate a fourth container terminal at Jeddah Islamic Port, in partnership with the Saudi Ports Authority. The initial investment is $434 million, and the terminal would add up to approximately 2.6 million twenty-foot equivalent units of annual handling capacity to a port whose current capacity is about 6.2 million TEUs.</p><p>The money buys new deep-water berths capable of taking the largest container vessels in service, ten new ship-to-shore cranes and supporting terminal technology. Terminal 4 will be developed within RSGT's existing concession at the port rather than as a separate award, which removes a procurement stage and shortens the path to construction.</p><p>The agreements were <a href=\"https://www.cmacgm-group.com/en/news-media/rsgt-and-cma-cgm-announce-usd-434-million-initial-investment-develop-terminal-4-saudi-arabia\">signed in Paris</a> during the French-Saudi Investment Roundtable, attended by Crown Prince Mohammed bin Salman and President Emmanuel Macron. The setting matters less than the counterparty: CMA CGM is one of the three largest container lines in the world, and a carrier taking an equity position in a terminal is committing to route cargo through it. Terminal capacity built without a carrier attached is a bet on volume; terminal capacity built with one is closer to a supply contract.</p><p>Jeddah is the natural place for that bet at the moment. The port handled 491,197 TEUs in July, the largest volume it has ever moved in a single month, beating the 473,676 TEUs recorded in June. Those records come on top of a 2025 in which the port moved 4,960,120 TEUs, up 1.57 percent on 4,883,627 the year before &mdash; growth that looks modest until set against the Red Sea disruption that has dogged the route since 2023.</p><p>Inside the port, DP World's South Container Terminal handled more than 221,200 TEUs in July, its highest monthly throughput since it began operating the facility in 1999, and set a record for exports in the same month at 79,720 TEUs. That the export number is setting records alongside the import and transshipment totals says something about what is driving the volume: this is not only rerouted transit cargo but Saudi manufactured and petrochemical output leaving through the Red Sea.</p><p>The strategic logic behind adding capacity on the west coast has strengthened sharply this year. Disruption to Gulf shipping has pushed carriers and shippers to look for routings that do not depend on the Strait of Hormuz, and Jeddah sits on the main east-west trade lane between Asia and Europe rather than at the end of a spur. A container moving from Asia to a Saudi customer via Jeddah is not making a detour; a container moving via the Gulf currently is.</p><p>What the announcement does not yet include is a construction timetable or a date for first operations. The figure disclosed is described as an initial investment, which implies phasing, and terminals of this size typically take several years from signature to a working berth. Nothing has been added to the port's capacity yet.</p><p>The wider context is <a href=\"https://www.arabnews.com/node/2654355/business-economy\">Mawani's target</a> of lifting national port capacity beyond 40 million TEUs by 2030 and raising the Kingdom's share of regional transshipment to 45 percent. Terminal 4, at up to 2.6 million TEUs, is one of the larger single contributions announced toward that goal. It is also a reminder of the arithmetic involved: reaching the national target requires several more commitments of this size, and each of them requires a carrier willing to underwrite the volume.</p>",
-  "author": "BrentDesk Staff",
-  "primaryCategory": "ports",
-  "tags": ["Jeddah Islamic Port", "Container Terminals", "Red Sea", "Port Investment"],
-  "companies": ["Red Sea Gateway Terminal", "CMA CGM", "Saudi Ports Authority", "DP World"],
-  "people": [],
-  "country": "Saudi Arabia",
-  "eventDate": "2026-08-25",
-  "informationCutoff": "2026-08-29",
-  "primarySourceUrl": "https://www.cmacgm-group.com/en/news-media/rsgt-and-cma-cgm-announce-usd-434-million-initial-investment-develop-terminal-4-saudi-arabia",
-  "primarySourceName": "CMA CGM Group",
-  "secondarySourceUrls": [
-    "https://maritime-executive.com/article/cma-cgm-and-saudi-arabia-to-invest-434m-to-expand-jeddah-islamic-port",
-    "https://container-news.com/rsgt-and-cma-cgm-invest-us434-million-in-jeddah-terminal-4/",
-    "https://www.worldcargonews.com/business/2026/08/cma-cgm-rsgt-seal-us434m-jeddah-terminal-deal/",
-    "https://www.arabnews.com/node/2654355/business-economy",
-    "https://container-news.com/jeddah-islamic-port-achieves-record-monthly-box-throughput/"
-  ],
-  "seoTitle": "RSGT and CMA CGM Commit $434m to Jeddah Terminal 4",
-  "seoDescription": "RSGT and CMA CGM will invest an initial $434 million in Terminal 4 at Jeddah Islamic Port, adding up to 2.6 million TEUs of capacity with 10 new ship-to-shore cranes.",
-  "articleType": "news",
-  "wordCount": 0,
-  "researchConfidence": "A",
-  "imageReviewRequired": true,
-  "replacementOf": null,
-  "replacementReason": null
-}]
+[
+  {
+    "commission": 45,
+    "headline": "RSGT and CMA CGM Commit $434 Million to a Fourth Container Terminal at Jeddah",
+    "slug": "rsgt-cma-cgm-jeddah-islamic-port-terminal-4",
+    "deck": "The new terminal would add up to 2.6 million TEUs to a port that has just set back-to-back monthly throughput records.",
+    "excerpt": "Red Sea Gateway Terminal and CMA CGM have signed definitive agreements with Mawani to develop and operate Terminal 4 at Jeddah Islamic Port, with an initial investment of $434 million. The terminal would add up to about 2.6 million TEUs of annual capacity to a port that handled a record 491,197 containers in July.",
+    "content": "<p>Red Sea Gateway Terminal and CMA CGM have signed definitive agreements to jointly develop and operate a fourth container terminal at Jeddah Islamic Port, in partnership with the Saudi Ports Authority. The initial investment is $434 million, and the terminal would add up to approximately 2.6 million twenty-foot equivalent units of annual handling capacity to a port whose current capacity is about 6.2 million TEUs.</p><p>The money buys new deep-water berths capable of taking the largest container vessels in service, ten new ship-to-shore cranes and supporting terminal technology. Terminal 4 will be developed within RSGT's existing concession at the port rather than as a separate award, which removes a procurement stage and shortens the path to construction.</p><p>The agreements were <a href=\"https://www.cmacgm-group.com/en/news-media/rsgt-and-cma-cgm-announce-usd-434-million-initial-investment-develop-terminal-4-saudi-arabia\">signed in Paris</a> during the French-Saudi Investment Roundtable, attended by Crown Prince Mohammed bin Salman and President Emmanuel Macron. The setting matters less than the counterparty: CMA CGM is one of the three largest container lines in the world, and a carrier taking an equity position in a terminal is committing to route cargo through it. Terminal capacity built without a carrier attached is a bet on volume; terminal capacity built with one is closer to a supply contract.</p><p>Jeddah is the natural place for that bet at the moment. The port handled 491,197 TEUs in July, the largest volume it has ever moved in a single month, beating the 473,676 TEUs recorded in June. Those records come on top of a 2025 in which the port moved 4,960,120 TEUs, up 1.57 percent on 4,883,627 the year before &mdash; growth that looks modest until set against the Red Sea disruption that has dogged the route since 2023.</p><p>Inside the port, DP World's South Container Terminal handled more than 221,200 TEUs in July, its highest monthly throughput since it began operating the facility in 1999, and set a record for exports in the same month at 79,720 TEUs. That the export number is setting records alongside the import and transshipment totals says something about what is driving the volume: this is not only rerouted transit cargo but Saudi manufactured and petrochemical output leaving through the Red Sea.</p><p>The strategic logic behind adding capacity on the west coast has strengthened sharply this year. Disruption to Gulf shipping has pushed carriers and shippers to look for routings that do not depend on the Strait of Hormuz, and Jeddah sits on the main east-west trade lane between Asia and Europe rather than at the end of a spur. A container moving from Asia to a Saudi customer via Jeddah is not making a detour; a container moving via the Gulf currently is.</p><p>What the announcement does not yet include is a construction timetable or a date for first operations. The figure disclosed is described as an initial investment, which implies phasing, and terminals of this size typically take several years from signature to a working berth. Nothing has been added to the port's capacity yet.</p><p>The wider context is <a href=\"https://www.arabnews.com/node/2654355/business-economy\">Mawani's target</a> of lifting national port capacity beyond 40 million TEUs by 2030 and raising the Kingdom's share of regional transshipment to 45 percent. Terminal 4, at up to 2.6 million TEUs, is one of the larger single contributions announced toward that goal. It is also a reminder of the arithmetic involved: reaching the national target requires several more commitments of this size, and each of them requires a carrier willing to underwrite the volume.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "ports",
+    "tags": [
+      "Jeddah Islamic Port",
+      "Container Terminals",
+      "Red Sea",
+      "Port Investment"
+    ],
+    "companies": [
+      "Red Sea Gateway Terminal",
+      "CMA CGM",
+      "Saudi Ports Authority",
+      "DP World"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-08-25",
+    "informationCutoff": "2026-08-29",
+    "primarySourceUrl": "https://www.cmacgm-group.com/en/news-media/rsgt-and-cma-cgm-announce-usd-434-million-initial-investment-develop-terminal-4-saudi-arabia",
+    "primarySourceName": "CMA CGM Group",
+    "secondarySourceUrls": [
+      "https://maritime-executive.com/article/cma-cgm-and-saudi-arabia-to-invest-434m-to-expand-jeddah-islamic-port",
+      "https://container-news.com/rsgt-and-cma-cgm-invest-us434-million-in-jeddah-terminal-4/",
+      "https://www.worldcargonews.com/business/2026/08/cma-cgm-rsgt-seal-us434m-jeddah-terminal-deal/",
+      "https://www.arabnews.com/node/2654355/business-economy",
+      "https://container-news.com/jeddah-islamic-port-achieves-record-monthly-box-throughput/"
+    ],
+    "seoTitle": "RSGT and CMA CGM Commit $434m to Jeddah Terminal 4",
+    "seoDescription": "RSGT and CMA CGM will invest an initial $434 million in Terminal 4 at Jeddah Islamic Port, adding up to 2.6 million TEUs of capacity with 10 new ship-to-shore cranes.",
+    "articleType": "news",
+    "wordCount": 569,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

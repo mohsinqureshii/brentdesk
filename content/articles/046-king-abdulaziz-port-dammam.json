@@ -1,33 +1,45 @@
-[{
-  "commission": 46,
-  "headline": "Dammam's Container Terminals Get $1.8 Billion as Rail Extends the Port's Reach Inland",
-  "slug": "king-abdulaziz-port-dammam-industrial-logistics",
-  "deck": "New freight corridors give King Abdulaziz Port a landside network at the same time as Saudi Global Ports rebuilds its terminals.",
-  "excerpt": "Saudi Arabia Railways has put King Abdulaziz Port's cargo yard at the centre of five new freight corridors linking the Gulf coast to Riyadh, the north and the Red Sea. It arrives while Saudi Global Ports is midway through a terminal programme valued at more than $1.8 billion, the largest single-operator seaport investment under a Saudi public-private partnership.",
-  "content": "<p>King Abdulaziz Port at Dammam has been given something it has always lacked: a proper landside network. Saudi Arabia Railways has launched five freight corridors that use the port's cargo yard alongside yards at Jubail, Ras Al Khair, Al Kharj, Hail and Al Qurayyat, routed through the Riyadh Dry Port and reaching as far as the Red Sea coast and the northern border. The services are sold as an integrated offer rather than as separate rail movements.</p><p>For a Gulf-coast port that has spent decades handing its containers to trucks at the gate, that is a structural change. Dammam's natural hinterland is the industrial Eastern Province and the consumer and manufacturing market around Riyadh, roughly 400 kilometres inland. Road haulage over that distance is expensive, exposed to driver availability and difficult to schedule reliably. Rail only becomes the default when the yards, the dry port and the customs process at the inland end all work, and that is what the new corridors are attempting to assemble.</p><p>The quayside is being rebuilt in parallel. Saudi Global Ports is upgrading and developing two container terminals at the port under a build-operate-transfer concession with the <a href=\"https://www.maritimegateway.com/dammam-port-kicks-off-container-terminal-project-to-raise-capacity-to-7-5-million-teus/\">Saudi Ports Authority</a>, with total estimated investment of more than SAR 7 billion, or about $1.8 billion. The operator describes it as the largest seaport investment by a single operator under a public-private partnership in the Kingdom. Once the expansion and modernisation works are complete, annual container handling capacity at the port is expected to reach around 7.5 million TEUs, roughly a 120 percent increase on today.</p><p>That is a long-dated commitment against a base that is already substantial. <a href=\"https://www.globalpsa.com/wp-content/uploads/2025/10/nr251027.pdf\">Saudi Global Ports</a> has handled more than 15 million TEUs cumulatively at Dammam since taking over the container terminals in 2015. The port as a whole has 43 serviced berths and capacity for up to 105 million tonnes of cargo across all categories, which reflects how much of its business is bulk and breakbulk rather than boxes &mdash; project cargo, industrial equipment, chemicals and raw materials feeding the Eastern Province.</p><p>That composition is the reason Dammam's investment case does not move with container freight rates. The port serves a fixed industrial base: petrochemical plants, minerals processing and the fabrication and services businesses that supply the oil and gas sector. Those customers do not relocate when routings change, and their materials requirement is set by production schedules rather than by consumer demand. A refinery turnaround generates the same tonnage of valves, pipe and catalyst whether or not global trade is growing.</p><p>The Gulf-side complication in 2026 has been access. Disruption to traffic through the Strait of Hormuz has made calls at Arabian Gulf ports slower, more expensive to insure and less predictable, and Mawani's response has included new services aimed at keeping Gulf-coast trade moving alongside the build-out of Red Sea alternatives. For an industrial port with an immovable customer base, the practical consequence is that the landside connection matters more than it did. If a container cannot reliably reach Dammam by sea, the ability to bring it in through Jeddah and move it east by rail stops being a theoretical redundancy and becomes an operating option.</p><p>The rail corridors also run the other way. Minerals moving south from the northern mining regions &mdash; phosphate and bauxite are the largest categories on the network &mdash; travel to processing plants and export terminals, and the Eastern Province yards sit on that flow. A port that can receive imported industrial inputs by sea, dispatch processed exports by sea, and exchange either with the interior by rail is a different kind of asset from a container gateway.</p><p>The caution is timing. The terminal capacity being described is a target at the end of a long concession, not capacity available now, and the rail corridors are new enough that no shipper has yet had a full year to test them. What has changed is the shape of the plan: Dammam is being developed as the maritime end of a land network rather than as a standalone port.</p>",
-  "author": "Jakson Gudawela",
-  "primaryCategory": "ports",
-  "tags": ["Dammam", "Eastern Province", "Container Terminals", "Rail Freight", "Industrial Logistics"],
-  "companies": ["Saudi Global Ports", "Saudi Ports Authority", "Saudi Arabia Railways"],
-  "people": [],
-  "country": "Saudi Arabia",
-  "eventDate": "2026-04-16",
-  "informationCutoff": "2026-04-23",
-  "primarySourceUrl": "https://www.spa.gov.sa/en/N2557074",
-  "primarySourceName": "Saudi Press Agency",
-  "secondarySourceUrls": [
-    "https://www.maritimegateway.com/dammam-port-kicks-off-container-terminal-project-to-raise-capacity-to-7-5-million-teus/",
-    "https://www.globalpsa.com/wp-content/uploads/2025/10/nr251027.pdf",
-    "https://www.cbnme.com/logistics-news/sgp-container-terminals-surpasses-15-million-teus-at-king-abdulaziz-port-dammam/",
-    "https://www.arabnews.com/node/2639459/business-economy",
-    "https://lca.logcluster.org/212-saudi-arabia-port-king-abdulaziz-port-dammam-port"
-  ],
-  "seoTitle": "Dammam Terminals Get $1.8bn as Rail Extends the Port Inland",
-  "seoDescription": "Saudi Global Ports is investing more than $1.8bn in King Abdulaziz Port's container terminals as new SAR freight corridors connect Dammam to Riyadh and the Red Sea.",
-  "articleType": "news",
-  "wordCount": 0,
-  "researchConfidence": "B",
-  "imageReviewRequired": true,
-  "replacementOf": null,
-  "replacementReason": null
-}]
+[
+  {
+    "commission": 46,
+    "headline": "Dammam's Container Terminals Get $1.8 Billion as Rail Extends the Port's Reach Inland",
+    "slug": "king-abdulaziz-port-dammam-industrial-logistics",
+    "deck": "New freight corridors give King Abdulaziz Port a landside network at the same time as Saudi Global Ports rebuilds its terminals.",
+    "excerpt": "Saudi Arabia Railways has put King Abdulaziz Port's cargo yard at the centre of five new freight corridors linking the Gulf coast to Riyadh, the north and the Red Sea. It arrives while Saudi Global Ports is midway through a terminal programme valued at more than $1.8 billion, the largest single-operator seaport investment under a Saudi public-private partnership.",
+    "content": "<p>King Abdulaziz Port at Dammam has been given something it has always lacked: a proper landside network. Saudi Arabia Railways has launched five freight corridors that use the port's cargo yard alongside yards at Jubail, Ras Al Khair, Al Kharj, Hail and Al Qurayyat, routed through the Riyadh Dry Port and reaching as far as the Red Sea coast and the northern border. The services are sold as an integrated offer rather than as separate rail movements.</p><p>For a Gulf-coast port that has spent decades handing its containers to trucks at the gate, that is a structural change. Dammam's natural hinterland is the industrial Eastern Province and the consumer and manufacturing market around Riyadh, roughly 400 kilometres inland. Road haulage over that distance is expensive, exposed to driver availability and difficult to schedule reliably. Rail only becomes the default when the yards, the dry port and the customs process at the inland end all work, and that is what the new corridors are attempting to assemble.</p><p>The quayside is being rebuilt in parallel. Saudi Global Ports is upgrading and developing two container terminals at the port under a build-operate-transfer concession with the <a href=\"https://www.maritimegateway.com/dammam-port-kicks-off-container-terminal-project-to-raise-capacity-to-7-5-million-teus/\">Saudi Ports Authority</a>, with total estimated investment of more than SAR 7 billion, or about $1.8 billion. The operator describes it as the largest seaport investment by a single operator under a public-private partnership in the Kingdom. Once the expansion and modernisation works are complete, annual container handling capacity at the port is expected to reach around 7.5 million TEUs, roughly a 120 percent increase on today.</p><p>That is a long-dated commitment against a base that is already substantial. <a href=\"https://www.globalpsa.com/wp-content/uploads/2025/10/nr251027.pdf\">Saudi Global Ports</a> has handled more than 15 million TEUs cumulatively at Dammam since taking over the container terminals in 2015. The port as a whole has 43 serviced berths and capacity for up to 105 million tonnes of cargo across all categories, which reflects how much of its business is bulk and breakbulk rather than boxes &mdash; project cargo, industrial equipment, chemicals and raw materials feeding the Eastern Province.</p><p>That composition is the reason Dammam's investment case does not move with container freight rates. The port serves a fixed industrial base: petrochemical plants, minerals processing and the fabrication and services businesses that supply the oil and gas sector. Those customers do not relocate when routings change, and their materials requirement is set by production schedules rather than by consumer demand. A refinery turnaround generates the same tonnage of valves, pipe and catalyst whether or not global trade is growing.</p><p>The Gulf-side complication in 2026 has been access. Disruption to traffic through the Strait of Hormuz has made calls at Arabian Gulf ports slower, more expensive to insure and less predictable, and Mawani's response has included new services aimed at keeping Gulf-coast trade moving alongside the build-out of Red Sea alternatives. For an industrial port with an immovable customer base, the practical consequence is that the landside connection matters more than it did. If a container cannot reliably reach Dammam by sea, the ability to bring it in through Jeddah and move it east by rail stops being a theoretical redundancy and becomes an operating option.</p><p>The rail corridors also run the other way. Minerals moving south from the northern mining regions &mdash; phosphate and bauxite are the largest categories on the network &mdash; travel to processing plants and export terminals, and the Eastern Province yards sit on that flow. A port that can receive imported industrial inputs by sea, dispatch processed exports by sea, and exchange either with the interior by rail is a different kind of asset from a container gateway.</p><p>The caution is timing. The terminal capacity being described is a target at the end of a long concession, not capacity available now, and the rail corridors are new enough that no shipper has yet had a full year to test them. What has changed is the shape of the plan: Dammam is being developed as the maritime end of a land network rather than as a standalone port.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "ports",
+    "tags": [
+      "Dammam",
+      "Eastern Province",
+      "Container Terminals",
+      "Rail Freight",
+      "Industrial Logistics"
+    ],
+    "companies": [
+      "Saudi Global Ports",
+      "Saudi Ports Authority",
+      "Saudi Arabia Railways"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-04-21",
+    "informationCutoff": "2026-04-26",
+    "primarySourceUrl": "https://www.spa.gov.sa/en/N2557074",
+    "primarySourceName": "Saudi Press Agency",
+    "secondarySourceUrls": [
+      "https://www.maritimegateway.com/dammam-port-kicks-off-container-terminal-project-to-raise-capacity-to-7-5-million-teus/",
+      "https://www.globalpsa.com/wp-content/uploads/2025/10/nr251027.pdf",
+      "https://www.cbnme.com/logistics-news/sgp-container-terminals-surpasses-15-million-teus-at-king-abdulaziz-port-dammam/",
+      "https://www.arabnews.com/node/2639459/business-economy",
+      "https://lca.logcluster.org/212-saudi-arabia-port-king-abdulaziz-port-dammam-port"
+    ],
+    "seoTitle": "Dammam Terminals Get $1.8bn as Rail Extends the Port Inland",
+    "seoDescription": "Saudi Global Ports is investing more than $1.8bn in King Abdulaziz Port's container terminals as new SAR freight corridors connect Dammam to Riyadh and the Red Sea.",
+    "articleType": "news",
+    "wordCount": 670,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]
