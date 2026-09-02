@@ -630,7 +630,30 @@ async function startServer() {
     // SEED_ON_BOOT=1 set is harmless — but it exists so a first deploy on a
     // platform with no usable container shell can still bootstrap itself.
     // It seeds no editorial content.
-    if (process.env.SEED_ON_BOOT === "1") {
+    // Bootstrap decisions. Both default to running only when the table they
+    // populate is empty, so a freshly provisioned database comes up complete
+    // without anyone setting a variable, and an existing one is never touched
+    // on a routine redeploy. "1" forces a re-run (both are idempotent), "0"
+    // disables it outright.
+    async function shouldRun(flag: string | undefined, table: string): Promise<boolean> {
+      if (flag === "1") return true;
+      if (flag === "0") return false;
+      try {
+        const { getDb } = await import("../db");
+        const db = await getDb();
+        if (!db) return false;
+        const { sql } = await import("drizzle-orm");
+        const res: any = await db.execute(sql.raw(`SELECT COUNT(*) AS n FROM \`${table}\``));
+        const row = Array.isArray(res) ? (Array.isArray(res[0]) ? res[0][0] : res[0]) : res;
+        return Number(row?.n ?? row?.N ?? 0) === 0;
+      } catch {
+        // Table missing or database unreachable — the migration step above
+        // will have said so. Don't guess.
+        return false;
+      }
+    }
+
+    if (await shouldRun(process.env.SEED_ON_BOOT, "countries")) {
       try {
         const { runSeed } = await import("../../scripts/seed-brentdesk");
         await runSeed();
@@ -639,12 +662,10 @@ async function startServer() {
       }
     }
 
-    // Publish the editorial archive bundled at dist/articles.json. Same
-    // reasoning as SEED_ON_BOOT: a first deploy should not require a
-    // container shell. Runs AFTER the seed, which creates the bylines and
-    // categories each article resolves against. Idempotent on slug, so
-    // leaving the flag set just re-syncs the archive on each deploy.
-    if (process.env.INGEST_ON_BOOT === "1") {
+    // Publish the editorial archive bundled at dist/articles.json. Runs AFTER
+    // the seed, which creates the bylines, categories and company profiles
+    // each article resolves against.
+    if (await shouldRun(process.env.INGEST_ON_BOOT, "articles")) {
       try {
         const { runIngest } = await import("../../scripts/ingest-articles");
         await runIngest();

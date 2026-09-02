@@ -38,6 +38,28 @@ without them.
 
 ## 3. Bootstrap the database
 
+The server bootstraps itself. On a database whose `countries` table is empty
+it runs the system seed; on one whose `articles` table is empty it publishes
+the editorial archive bundled at `dist/articles.json`. Both run after the port
+is open, and neither touches a database that already has that data, so a
+routine redeploy is a no-op.
+
+You only need the variables below to override that default:
+
+| Variable | Effect |
+| --- | --- |
+| `SEED_ON_BOOT=1` | re-run the seed even though data exists (idempotent) |
+| `SEED_ON_BOOT=0` | never seed |
+| `INGEST_ON_BOOT=1` | re-sync the archive on every deploy (idempotent) |
+| `INGEST_ON_BOOT=0` | never publish the archive |
+| `ADMIN_EMAIL` + `ADMIN_PASSWORD` | create an admin login on the first seed |
+
+Delete `ADMIN_PASSWORD` once you have logged in, and change it from the admin
+UI. A password in a platform variable is readable by anyone with project
+access.
+
+## 3a. What the seed and archive contain
+
 The server provisions its own schema: on first boot it sees an empty
 database and applies the migration baseline in `drizzle/`. On a database
 that already has tables it only reconciles the additive tail, and never
