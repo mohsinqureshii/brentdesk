@@ -1,26 +1,41 @@
-[{
-  "commission": 14,
-  "headline": "Aramco and ExxonMobil to Study Samref Refinery Upgrade and New Yanbu Petrochemical Complex",
-  "slug": "aramco-exxonmobil-samref-yanbu-refinery-upgrade-petrochemical-complex",
-  "deck": "A venture framework agreement puts one of Saudi Arabia's largest export refineries on a path toward chemicals — if the economics hold.",
-  "excerpt": "Aramco, ExxonMobil and their Yanbu joint venture Samref have signed a venture framework agreement to evaluate upgrading the 400,000 barrel-a-day refinery and building an integrated petrochemical complex alongside it. The work begins at preliminary FEED, and no investment has been approved.",
-  "content": "<p>Aramco, ExxonMobil and Samref, the refining joint venture the two companies own between them on Saudi Arabia's Red Sea coast, have signed a venture framework agreement to evaluate a major upgrade of the Yanbu refinery and its expansion into an integrated petrochemical complex.</p><p>The agreement, announced on 8 December, does not commit either parent to the project. It sets up a preliminary front-end engineering and design phase to size the work and test whether it can be built economically. Any decision to proceed depends on market conditions, regulatory approvals and separate final investment decisions by <a href=\"https://www.aramco.com/en/news-media/news/2025/samref-refinery-upgrade\">Aramco</a> and <a href=\"https://corporate.exxonmobil.com/locations/africa-middle-east-region/africa-and-middle-east-newsroom/venture-framework-agreement\">ExxonMobil</a>.</p><p>Samref processes more than 400,000 barrels of crude a day at Yanbu, making it one of the larger export refineries in the Kingdom. It is owned in equal shares by Aramco and Mobil Yanbu Refining Company, a wholly owned ExxonMobil subsidiary. The plant currently produces propane, automotive diesel, marine heavy fuel oil and sulphur — a conventional fuels slate, and the thing the proposed investment would change.</p><p>The study covers capital spending to upgrade and diversify what the refinery makes, shifting output toward higher-quality distillates and performance chemicals, alongside work on the plant's energy efficiency and an integrated strategy for reducing operational emissions. In refining terms this is a move up the value chain: away from selling barrels of fuel into a market where demand growth is flattening, and toward chemical intermediates that feed manufacturing.</p><p>That logic is not specific to Yanbu. Aramco has spent several years pushing its refining system toward chemicals, on the reasoning that petrochemical demand will outlast transport fuel demand and that the company is better off capturing the margin itself than selling feedstock to someone who does. Samref is a natural candidate: it is large, it is already integrated into the Yanbu industrial complex and its infrastructure, and it has an international partner willing to underwrite half the cost.</p><p>For ExxonMobil the appeal is access. The company has been concentrating its chemicals investment in locations where feedstock is cheap and reliable, and a 50 percent position in an existing Saudi refinery with established crude supply is a cheaper route into that than building on a new site.</p><p>What the agreement does not do is set a capacity, a configuration or a number. None of those exist yet — establishing them is what the engineering phase is for. Projects of this type routinely take years to move from framework agreement to a sanctioned build, and a meaningful share never get there at all. The distinction matters for anyone reading the announcement as a signal about Saudi petrochemical capacity: nothing has been added, and nothing has been committed.</p><p>What has changed is that two of the largest companies in the industry have agreed the question is worth the cost of answering properly.</p>",
-  "author": "Jakson Gudawela",
-  "primaryCategory": "energy",
-  "tags": ["Refining", "Petrochemicals", "Yanbu", "Downstream"],
-  "companies": ["Saudi Aramco", "ExxonMobil", "Samref"],
-  "country": "Saudi Arabia",
-  "eventDate": "2025-12-08",
-  "informationCutoff": "2025-12-11",
-  "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2025/samref-refinery-upgrade",
-  "primarySourceName": "Aramco",
-  "secondarySourceUrls": [
-    "https://corporate.exxonmobil.com/locations/africa-middle-east-region/africa-and-middle-east-newsroom/venture-framework-agreement",
-    "https://www.samref.com.sa/news/exxonmobil-aramco-and-samref-sign-venture-framework-agreement-potential-samref-refinery",
-    "https://www.rigzone.com/news/aramco_exxonmobil_mull_petrochemical_complex_at_samref-11-dec-2025-182509-article/"
-  ],
-  "seoTitle": "Aramco and ExxonMobil to Study Samref Refinery Upgrade in Yanbu",
-  "seoDescription": "Aramco, ExxonMobil and Samref have signed a venture framework agreement to evaluate upgrading the 400,000 bpd Yanbu refinery and adding an integrated petrochemical complex.",
-  "articleType": "news",
-  "wordCount": 520
-}]
+[
+  {
+    "commission": 14,
+    "headline": "Aramco and ExxonMobil to Study Samref Refinery Upgrade and New Yanbu Petrochemical Complex",
+    "slug": "aramco-exxonmobil-samref-yanbu-refinery-upgrade-petrochemical-complex",
+    "deck": "A venture framework agreement puts one of Saudi Arabia's largest export refineries on a path toward chemicals — if the economics hold.",
+    "excerpt": "Aramco, ExxonMobil and their Yanbu joint venture Samref have signed a venture framework agreement to evaluate upgrading the 400,000 barrel-a-day refinery and building an integrated petrochemical complex alongside it. The work begins at preliminary FEED, and no investment has been approved.",
+    "content": "<p>Aramco, ExxonMobil and Samref, the refining joint venture the two companies own between them on Saudi Arabia's Red Sea coast, have signed a venture framework agreement to evaluate a major upgrade of the Yanbu refinery and its expansion into an integrated petrochemical complex.</p><p>The agreement, announced on 8 December, does not commit either parent to the project. It sets up a preliminary front-end engineering and design phase to size the work and test whether it can be built economically. Any decision to proceed depends on market conditions, regulatory approvals and separate final investment decisions by <a href=\"https://www.aramco.com/en/news-media/news/2025/samref-refinery-upgrade\">Aramco</a> and <a href=\"https://corporate.exxonmobil.com/locations/africa-middle-east-region/africa-and-middle-east-newsroom/venture-framework-agreement\">ExxonMobil</a>.</p><p>Samref processes more than 400,000 barrels of crude a day at Yanbu, making it one of the larger export refineries in the Kingdom. It is owned in equal shares by Aramco and Mobil Yanbu Refining Company, a wholly owned ExxonMobil subsidiary. The plant currently produces propane, automotive diesel, marine heavy fuel oil and sulphur — a conventional fuels slate, and the thing the proposed investment would change.</p><p>The study covers capital spending to upgrade and diversify what the refinery makes, shifting output toward higher-quality distillates and performance chemicals, alongside work on the plant's energy efficiency and an integrated strategy for reducing operational emissions. In refining terms this is a move up the value chain: away from selling barrels of fuel into a market where demand growth is flattening, and toward chemical intermediates that feed manufacturing.</p><p>That logic is not specific to Yanbu. Aramco has spent several years pushing its refining system toward chemicals, on the reasoning that petrochemical demand will outlast transport fuel demand and that the company is better off capturing the margin itself than selling feedstock to someone who does. Samref is a natural candidate: it is large, it is already integrated into the Yanbu industrial complex and its infrastructure, and it has an international partner willing to underwrite half the cost.</p><p>For ExxonMobil the appeal is access. The company has been concentrating its chemicals investment in locations where feedstock is cheap and reliable, and a 50 percent position in an existing Saudi refinery with established crude supply is a cheaper route into that than building on a new site.</p><p>What the agreement does not do is set a capacity, a configuration or a number. None of those exist yet — establishing them is what the engineering phase is for. Projects of this type routinely take years to move from framework agreement to a sanctioned build, and a meaningful share never get there at all. The distinction matters for anyone reading the announcement as a signal about Saudi petrochemical capacity: nothing has been added, and nothing has been committed.</p><p>What has changed is that two of the largest companies in the industry have agreed the question is worth the cost of answering properly.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "energy",
+    "tags": [
+      "Refining",
+      "Petrochemicals",
+      "Yanbu",
+      "Downstream"
+    ],
+    "companies": [
+      "Saudi Aramco",
+      "ExxonMobil",
+      "Samref"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2025-12-08",
+    "informationCutoff": "2025-12-11",
+    "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2025/samref-refinery-upgrade",
+    "primarySourceName": "Aramco",
+    "secondarySourceUrls": [
+      "https://corporate.exxonmobil.com/locations/africa-middle-east-region/africa-and-middle-east-newsroom/venture-framework-agreement",
+      "https://www.samref.com.sa/news/exxonmobil-aramco-and-samref-sign-venture-framework-agreement-potential-samref-refinery",
+      "https://www.rigzone.com/news/aramco_exxonmobil_mull_petrochemical_complex_at_samref-11-dec-2025-182509-article/"
+    ],
+    "seoTitle": "Aramco and ExxonMobil to Study Samref Refinery Upgrade in Yanbu",
+    "seoDescription": "Aramco, ExxonMobil and Samref have signed a venture framework agreement to study upgrading the 400,000 bpd Yanbu refinery and adding petrochemicals.",
+    "articleType": "news",
+    "wordCount": 520,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]
