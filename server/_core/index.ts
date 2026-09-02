@@ -650,30 +650,41 @@ async function startServer() {
       }
     }
 
-    // Bootstrap decisions. Both default to running only when the table they
-    // populate is empty, so a freshly provisioned database comes up complete
-    // without anyone setting a variable, and an existing one is never touched
-    // on a routine redeploy. "1" forces a re-run (both are idempotent), "0"
-    // disables it outright.
-    async function shouldRun(flag: string | undefined, table: string): Promise<boolean> {
-      if (flag === "1") return true;
-      if (flag === "0") return false;
+    // Bootstrap decisions. Both the seed and the ingest are idempotent, so
+    // the question is whether this build carries more than the database
+    // holds — see bootstrapDecisions.ts for why an emptiness test was not
+    // enough. SEED_ON_BOOT / INGEST_ON_BOOT of "1" force a run, "0" disable.
+    async function countRows(table: string): Promise<number | null> {
       try {
         const { getDb } = await import("../db");
         const db = await getDb();
-        if (!db) return false;
+        if (!db) return null;
         const { sql } = await import("drizzle-orm");
         const res: any = await db.execute(sql.raw(`SELECT COUNT(*) AS n FROM \`${table}\``));
         const row = Array.isArray(res) ? (Array.isArray(res[0]) ? res[0][0] : res[0]) : res;
-        return Number(row?.n ?? row?.N ?? 0) === 0;
+        return Number(row?.n ?? row?.N ?? 0);
       } catch {
         // Table missing or database unreachable — the migration step above
         // will have said so. Don't guess.
-        return false;
+        return null;
       }
     }
 
-    if (await shouldRun(process.env.SEED_ON_BOOT, "countries")) {
+    const { shouldSeed, shouldIngest } = await import("./bootstrapDecisions");
+    const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
+    const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
+    const { publishableArticleCount } = await import("../../scripts/ingest-articles");
+
+    const [countries, companyCount, eventCount, articleCount] = await Promise.all([
+      countRows("countries"), countRows("companies"),
+      countRows("events"), countRows("articles"),
+    ]);
+
+    if (shouldSeed(
+      process.env.SEED_ON_BOOT,
+      { countries, companies: companyCount, events: eventCount },
+      { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT },
+    )) {
       try {
         const { runSeed } = await import("../../scripts/seed-brentdesk");
         await runSeed();
@@ -685,7 +696,7 @@ async function startServer() {
     // Publish the editorial archive bundled at dist/articles.json. Runs AFTER
     // the seed, which creates the bylines, categories and company profiles
     // each article resolves against.
-    if (await shouldRun(process.env.INGEST_ON_BOOT, "articles")) {
+    if (shouldIngest(process.env.INGEST_ON_BOOT, articleCount, publishableArticleCount())) {
       try {
         const { runIngest } = await import("../../scripts/ingest-articles");
         await runIngest();

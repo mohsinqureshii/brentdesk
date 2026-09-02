@@ -416,6 +416,10 @@ const PROFILES: Profile[] = [
     "A market research firm publishing sizing and forecast reports across industrial, construction and technology sectors." },
 ];
 
+/** How many profiles a fully seeded database holds. The boot check reads this
+ *  to decide whether a deploy has brought new ones. */
+export const COMPANY_PROFILE_COUNT = PROFILES.length;
+
 /** Insert or refresh the company profiles. Idempotent on slug. */
 export async function seedCompanies(db: CompanyDb, statusId: number): Promise<void> {
   let added = 0, updated = 0;

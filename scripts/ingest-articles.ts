@@ -315,20 +315,52 @@ async function linkRelatedArticles(db: Db, inputs: ArticleInput[]): Promise<numb
  * that is the default here, which lets a deploy publish the archive with
  * no filesystem assumptions and no shell.
  */
+/** Where the bundled archive lives, in preference order. */
+function archiveCandidates(files?: string[]): string[] {
+  return files?.length
+    ? files
+    : [path.resolve(import.meta.dirname, "articles.json"),
+       path.resolve(process.cwd(), "dist", "articles.json")];
+}
+
+/** Existing archive files, deduped. Both default candidates resolve to the
+ *  same file in most layouts, and ingesting a file twice does the work twice
+ *  — the second pass is an update of what the first just created. */
+function archiveSources(files?: string[]): string[] {
+  return [...new Set(archiveCandidates(files).map(f => path.resolve(f)))].filter(f => existsSync(f));
+}
+
+/**
+ * How many articles the bundled archive would publish right now.
+ *
+ * Scheduled commissions dated in the future are excluded, because they are
+ * deliberately not published yet — counting them would leave the boot check
+ * permanently convinced the database was behind. Returns 0 when the archive
+ * file cannot be read, which makes the caller fall back to its own test
+ * rather than run an ingest that has nothing to ingest.
+ */
+export function publishableArticleCount(): number {
+  try {
+    const file = archiveSources()[0];
+    if (!file) return 0;
+    const parsed = JSON.parse(readFileSync(file, "utf8"));
+    const batch: ArticleInput[] = Array.isArray(parsed) ? parsed : [parsed];
+    const today = new Date().toISOString().slice(0, 10);
+    return batch.filter(
+      a => !((a as any).status === "SCHEDULED" && a.eventDate > today),
+    ).length;
+  } catch {
+    return 0;
+  }
+}
+
 export async function runIngest(files?: string[]): Promise<{ created: number; updated: number; missing: string[] }> {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is required");
 
-  const candidates = files?.length
-    ? files
-    : [path.resolve(import.meta.dirname, "articles.json"),
-       path.resolve(process.cwd(), "dist", "articles.json")];
-  // Both default candidates resolve to the same file in most layouts, and
-  // ingesting a file twice does the work twice — the second pass is an
-  // update of what the first just created. Dedupe on the resolved path.
-  const sources = [...new Set(candidates.map(f => path.resolve(f)))].filter(f => existsSync(f));
+  const sources = archiveSources(files);
   if (!sources.length) {
-    throw new Error(`no article files found (looked in: ${candidates.join(", ")})`);
+    throw new Error(`no article files found (looked in: ${archiveCandidates(files).join(", ")})`);
   }
 
   const pool = mysql.createPool(url);

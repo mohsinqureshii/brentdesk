@@ -1,0 +1,75 @@
+import { describe, it, expect } from "vitest";
+import { shouldSeed, shouldIngest } from "./bootstrapDecisions";
+
+const TARGET = { companies: 125, events: 7 };
+const complete = { countries: 23, companies: 125, events: 7 };
+const behind = { countries: 23, companies: 40, events: 0 };
+const fresh = { countries: 0, companies: 0, events: 0 };
+
+describe("shouldSeed", () => {
+  it("seeds a fresh database", () => {
+    expect(shouldSeed(undefined, fresh, TARGET)).toBe(true);
+  });
+
+  it("seeds when the build adds company profiles the database lacks", () => {
+    // The regression this exists for: a deploy shipping 85 new company
+    // profiles to a database holding the previous 40 used to do nothing.
+    expect(shouldSeed(undefined, behind, TARGET)).toBe(true);
+  });
+
+  it("seeds when only the events are short", () => {
+    expect(shouldSeed(undefined, { ...complete, events: 0 }, TARGET)).toBe(true);
+  });
+
+  it("leaves a complete database alone", () => {
+    expect(shouldSeed(undefined, complete, TARGET)).toBe(false);
+  });
+
+  it("does not re-seed because an editor added companies of their own", () => {
+    expect(shouldSeed(undefined, { ...complete, companies: 400 }, TARGET)).toBe(false);
+  });
+
+  it("honours the flags either way", () => {
+    expect(shouldSeed("1", complete, TARGET)).toBe(true);
+    expect(shouldSeed("0", fresh, TARGET)).toBe(false);
+  });
+
+  it("decides nothing on counts it could not read", () => {
+    expect(shouldSeed(undefined, { countries: null, companies: null, events: null }, TARGET))
+      .toBe(false);
+  });
+});
+
+describe("shouldIngest", () => {
+  it("publishes an archive larger than the database", () => {
+    expect(shouldIngest(undefined, 115, 266)).toBe(true);
+  });
+
+  it("leaves a database that already has the whole archive alone", () => {
+    expect(shouldIngest(undefined, 266, 266)).toBe(false);
+  });
+
+  it("does not run on an archive it could not read", () => {
+    // want === 0 means the bundled file was missing or unparseable. Running
+    // an ingest then would only report zero and confuse the deploy log.
+    expect(shouldIngest(undefined, 0, 0)).toBe(false);
+  });
+
+  it("bootstraps an empty database from a readable archive", () => {
+    expect(shouldIngest(undefined, 0, 266)).toBe(true);
+  });
+
+  it("does not run when the database holds more than the build ships", () => {
+    // Articles written in the CMS rather than shipped in the archive file.
+    expect(shouldIngest(undefined, 300, 266)).toBe(false);
+  });
+
+  it("honours the flags either way", () => {
+    expect(shouldIngest("1", 266, 266)).toBe(true);
+    expect(shouldIngest("0", 0, 266)).toBe(false);
+  });
+
+  it("decides nothing on a count it could not read", () => {
+    expect(shouldIngest(undefined, null, 266)).toBe(false);
+  });
+});
