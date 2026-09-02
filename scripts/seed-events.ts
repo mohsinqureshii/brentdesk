@@ -85,6 +85,9 @@ const SHOWS: Show[] = [
   },
 ];
 
+/** How many shows a fully seeded database holds. Read by the boot check. */
+export const EVENT_PROFILE_COUNT = SHOWS.length;
+
 /** Insert or refresh the trade-show profiles. Idempotent on slug. */
 export async function seedEvents(db: EventDb, statusId: number): Promise<void> {
   let added = 0, updated = 0;
