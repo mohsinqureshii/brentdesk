@@ -31,6 +31,7 @@
 
 import bcrypt from "bcryptjs";
 import { seedCompanies } from "./seed-companies";
+import { seedEvents } from "./seed-events";
 import { publication } from "../shared/publication";
 import mysql from "mysql2/promise";
 import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
@@ -576,8 +577,12 @@ export async function runSeed(): Promise<void> {
         await workflowService.initializeWorkflows();
         status = await workflowService.getStatusBySlug("editorial", "published");
       }
-      if (status) await seedCompanies(db, status.id);
-      else console.warn("[seed] companies: skipped (no published editorial status)");
+      if (status) {
+        await seedCompanies(db, status.id);
+        await seedEvents(db, status.id);
+      } else {
+        console.warn("[seed] companies and events: skipped (no published editorial status)");
+      }
     }
     await seedAdminUser(db);
     console.log("[seed] BrentDesk bootstrap complete");

@@ -10,8 +10,9 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
-      "construction",
-      "supply-chain"
+      "supply-chain",
+      "logistics",
+      "construction"
     ],
     "tags": [
       "Big 5 Construct Saudi",
@@ -21,7 +22,7 @@
       "Saudi Manufacturing"
     ],
     "companies": [
-      "Masdar",
+      "Masdar Building Materials",
       "Al Yamamah Steel Industries",
       "Schüco",
       "Hempel",

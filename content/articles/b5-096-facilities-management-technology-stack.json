@@ -10,8 +10,7 @@
     "primaryCategory": "facilities-management",
     "categories": [
       "facilities-management",
-      "industrial-technology",
-      "automation"
+      "real-estate"
     ],
     "tags": [
       "Facilities Management",
@@ -19,7 +18,8 @@
       "Building Management Systems",
       "Condition Monitoring"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi",
       "Saudi FM & Clean"
     ],

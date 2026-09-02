@@ -11,7 +11,8 @@
     "categories": [
       "energy",
       "renewables",
-      "utilities"
+      "water",
+      "infrastructure"
     ],
     "tags": [
       "Solar Thermal",
@@ -22,7 +23,9 @@
     ],
     "companies": [
       "Calpak",
-      "Leminar Global",
+      "Leminar Global"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://calpak.gr/en/company/about/",

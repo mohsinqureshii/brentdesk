@@ -39,16 +39,22 @@ Not a substitute for verification of anything NOT listed here.
 | Award | Winner | For |
 |---|---|---|
 | Sustainability Innovation | Prime Middle East Trading Company (PRIMECO) | Solstice® low-GWP refrigerant solutions |
-| Best Circular Economy Solution | Masdar | Kronospan products |
+| Best Circular Economy Solution | Masdar Building Materials | Kronospan products |
 | Operational Sustainability | Al-Futtaim Engineering Company | Integrated facilities management solution |
 
-The Impact Trail spotlighted solutions from Masdar, Galaxy Technology,
-Star Factory, Keller and Al-Futtaim Engineering, recognising low-impact
-technologies, circular-economy principles and operational sustainability.
+The Impact Trail spotlighted solutions from Masdar Building Materials,
+Galaxy Technology, Star Factory, Keller and Al-Futtaim Engineering,
+recognising low-impact technologies, circular-economy principles and
+operational sustainability.
 
 ## Named exhibitors confirmed in official/trade material
 
-- **Masdar** — Kronospan carbon-negative wood-based panels and engineered boards
+- **Masdar Building Materials** — Kronospan carbon-negative wood-based panels
+  and engineered boards. This is the Saudi building materials distributor
+  founded in 1971, part of the Al-Muhaidib Group, with a branch network across
+  the Kingdom. It is NOT Masdar (Abu Dhabi Future Energy Company), the UAE
+  renewable energy developer that appears elsewhere in the archive. Always
+  name it in full.
 - **Galaxy Technology** — Albion Valves, with carbon transparency across its cast-iron range
 - **Star Factory** — spray polyurethane foam roofing and waterproofing
 - **Keller** — ground improvement and foundation solutions

@@ -10,9 +10,8 @@
     "primaryCategory": "construction",
     "categories": [
       "construction",
-      "manufacturing",
-      "facilities-management",
-      "industrial-technology"
+      "supply-chain",
+      "logistics"
     ],
     "tags": [
       "Big 5 Construct Saudi",
@@ -22,7 +21,6 @@
       "Saudi Arabia"
     ],
     "companies": [
-      "Big 5 Construct Saudi",
       "Kimmco-Isover",
       "Al Yamamah Steel Industries",
       "Fadras Group",
@@ -33,8 +31,11 @@
       "Eurovent Certita Certification",
       "Al-Futtaim Engineering Company",
       "Prime Middle East Trading Company",
-      "Masdar",
+      "Masdar Building Materials",
       "Kiwi Information Technology"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
     ],
     "people": [
       "Fawaz bin Badr Al Shora",

@@ -10,8 +10,8 @@
     "primaryCategory": "supply-chain",
     "categories": [
       "supply-chain",
-      "construction",
-      "manufacturing"
+      "logistics",
+      "construction"
     ],
     "tags": [
       "Procurement",
@@ -20,7 +20,8 @@
       "Localization",
       "Saudi Construction"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://lynxcontracting.com/global-vs-local-procurement-for-construction-in-saudi-arabia/",

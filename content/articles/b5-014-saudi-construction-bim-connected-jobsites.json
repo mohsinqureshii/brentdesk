@@ -10,8 +10,7 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
-      "construction",
-      "engineering"
+      "construction"
     ],
     "tags": [
       "BIM",
@@ -23,7 +22,9 @@
     "companies": [
       "Mace Consult",
       "Misk City",
-      "JLL",
+      "JLL"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "people": [

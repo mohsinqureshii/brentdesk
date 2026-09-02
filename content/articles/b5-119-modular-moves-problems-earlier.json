@@ -9,9 +9,7 @@
     "author": "Mo Qureshi",
     "primaryCategory": "construction",
     "categories": [
-      "construction",
-      "manufacturing",
-      "supply-chain"
+      "construction"
     ],
     "tags": [
       "Modular Construction",
@@ -20,7 +18,8 @@
       "Big 5 Construct Saudi",
       "Logistics"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "people": [],

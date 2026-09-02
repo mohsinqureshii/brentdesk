@@ -79,6 +79,8 @@ const ARTICLE_TYPES = new Set(["news", "opinion", "press_release", "report", "in
 
 const ARCHIVE_START = "2025-09-14";
 const TODAY = "2026-09-02";
+/** How far ahead a commission may be dated while flagged SCHEDULED. */
+const SCHEDULE_HORIZON = "2026-09-09";
 
 interface Issue { file: string; level: "error" | "warn"; message: string }
 const issues: Issue[] = [];
@@ -138,18 +140,28 @@ for (const file of files) {
       err(file, `confidence "${a.researchConfidence}" — only A and B may publish`);
     }
 
-    // Dates.
+    // Dates. A commission dated after today is legitimate — the brief runs to
+    // 3 September and today is the 2nd — but it may not be published as though
+    // it already ran. Such a file must declare itself scheduled and say why,
+    // and the ingest skips it until its date arrives.
+    const scheduled = a.status === "SCHEDULED";
+    if (scheduled && !a.scheduledReason) err(file, `status SCHEDULED with no scheduledReason`);
+    const latest = scheduled ? SCHEDULE_HORIZON : TODAY;
+
     for (const f of ["eventDate", "informationCutoff"]) {
       if (a[f] && !/^\d{4}-\d{2}-\d{2}$/.test(a[f])) err(file, `${f} not YYYY-MM-DD: "${a[f]}"`);
     }
-    if (a.eventDate < ARCHIVE_START || a.eventDate > TODAY) {
-      err(file, `eventDate ${a.eventDate} outside the archive window ${ARCHIVE_START}..${TODAY}`);
+    if (a.eventDate < ARCHIVE_START || a.eventDate > latest) {
+      err(file, `eventDate ${a.eventDate} outside the ${scheduled ? "scheduling" : "archive"} window ${ARCHIVE_START}..${latest}`);
+    }
+    if (scheduled && a.eventDate <= TODAY) {
+      err(file, `status SCHEDULED but eventDate ${a.eventDate} is not in the future — publish it instead`);
     }
     if (a.informationCutoff) {
       if (a.informationCutoff < a.eventDate) {
         err(file, `informationCutoff ${a.informationCutoff} precedes eventDate ${a.eventDate}`);
       }
-      if (a.informationCutoff > TODAY) err(file, `informationCutoff ${a.informationCutoff} is in the future`);
+      if (a.informationCutoff > latest) err(file, `informationCutoff ${a.informationCutoff} is in the future`);
     }
 
     // Sources.

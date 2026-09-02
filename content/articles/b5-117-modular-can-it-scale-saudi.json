@@ -9,9 +9,7 @@
     "author": "BrentDesk Staff",
     "primaryCategory": "construction",
     "categories": [
-      "construction",
-      "manufacturing",
-      "real-estate"
+      "construction"
     ],
     "tags": [
       "Modular Construction",
@@ -20,7 +18,8 @@
       "Saudi Housing",
       "Prefabrication"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "people": [],

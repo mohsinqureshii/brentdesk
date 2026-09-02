@@ -10,8 +10,8 @@
     "primaryCategory": "facilities-management",
     "categories": [
       "facilities-management",
-      "construction",
-      "real-estate"
+      "real-estate",
+      "construction"
     ],
     "tags": [
       "Facilities Management",
@@ -22,7 +22,9 @@
     ],
     "companies": [
       "Mordor Intelligence",
-      "Astute Analytica",
+      "Astute Analytica"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "people": [],

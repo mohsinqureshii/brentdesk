@@ -10,8 +10,9 @@
     "primaryCategory": "robotics",
     "categories": [
       "robotics",
-      "construction",
-      "automation"
+      "industrial-technology",
+      "automation",
+      "construction"
     ],
     "tags": [
       "Legend Robot",
@@ -21,7 +22,9 @@
       "Big 5 Construct Saudi"
     ],
     "companies": [
-      "Legend Robot",
+      "Legend Robot"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.legendrobot.com/products/putty-latex-paint-spraying-robot-6m2/",

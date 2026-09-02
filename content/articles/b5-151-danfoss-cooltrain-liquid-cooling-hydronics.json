@@ -10,9 +10,8 @@
     "primaryCategory": "data-centers",
     "categories": [
       "data-centers",
-      "utilities",
-      "engineering",
-      "industrial-technology"
+      "industrial-technology",
+      "industrial-ai"
     ],
     "tags": [
       "Liquid Cooling",
@@ -22,7 +21,9 @@
       "HVACR"
     ],
     "companies": [
-      "Danfoss",
+      "Danfoss"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.danfoss.com/en/industries/buildings-commercial/dps/data-center-liquid-cooling/",

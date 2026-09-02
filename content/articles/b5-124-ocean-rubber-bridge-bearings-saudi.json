@@ -10,8 +10,9 @@
     "primaryCategory": "infrastructure",
     "categories": [
       "infrastructure",
-      "manufacturing",
-      "rail"
+      "rail",
+      "transportation",
+      "manufacturing"
     ],
     "tags": [
       "Bridge Bearings",

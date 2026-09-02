@@ -10,8 +10,8 @@
     "primaryCategory": "construction",
     "categories": [
       "construction",
-      "manufacturing",
-      "industrial-technology"
+      "supply-chain",
+      "logistics"
     ],
     "tags": [
       "Big 5 Construct Saudi",
@@ -21,8 +21,10 @@
       "Trade Shows"
     ],
     "companies": [
-      "Big 5 Construct Saudi",
       "Ministry of Industry and Mineral Resources"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
     ],
     "people": [],
     "primarySourceUrl": "https://www.big5constructsaudi.com/b5cs-opens-under-patronage-of-the-ministry-of-industry-and-mineral-resources/",

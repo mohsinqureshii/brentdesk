@@ -10,9 +10,8 @@
     "primaryCategory": "construction",
     "categories": [
       "construction",
-      "industrial-technology",
       "robotics",
-      "facilities-management"
+      "industrial-technology"
     ],
     "tags": [
       "Big 5 Construct Saudi",
@@ -20,7 +19,8 @@
       "Modular Construction",
       "Facilities Management"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi",
       "Saudi FM & Clean"
     ],

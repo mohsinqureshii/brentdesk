@@ -22,7 +22,7 @@ import path from "path";
 import {
   articles, articleTags, articleCompanies, articlePeople, articleCategories,
   articleRelatedEntities,
-  tags, categories, companies, people, users, countries,
+  tags, categories, companies, people, users, countries, events,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
@@ -48,6 +48,9 @@ export interface ArticleInput {
   internalLinks?: string[];
   tags?: string[];
   companies?: string[];
+  /** Exhibitions and conferences the article covers. Linked to the events
+   *  table, not the company table. */
+  events?: string[];
   people?: string[];
   country?: string;
   /** ISO date (YYYY-MM-DD) of the underlying development. */
@@ -90,6 +93,48 @@ const COMPANY_ALIASES: Record<string, string> = {
   "Qatar Energy": "QatarEnergy",
   "Volvo Construction Equipment": "Volvo CE",
   "Emirates Global Aluminium": "EGA",
+  // Big 5 Construct Saudi cohort. Articles name these companies in whatever
+  // form the sentence wanted; the profiles are filed under one of them.
+  "Masdar Building Materials Company": "Masdar Building Materials",
+  "Al-Futtaim Engineering": "Al-Futtaim Engineering Company",
+  "ROSHN Group": "ROSHN",
+  "Mace Consult": "Mace",
+  "Al Yamamah Steel": "Al Yamamah Steel Industries",
+  "Arkaz Alsharq Building Materials": "Arkaz",
+  "CPC Holding": "Construction Products Holding Company",
+  "CPC": "Construction Products Holding Company",
+  "CMCI": "Construction Material Chemical Industries",
+  "SICAST": "Specialized Industrial Casting Company",
+  "Aratile": "Arabian Tile Company",
+  "PRIMECO": "Prime Middle East Trading Company",
+  "GASTAT": "General Authority for Statistics",
+  "SASO": "Saudi Standards, Metrology and Quality Organization",
+  "LCGPA": "Local Content and Government Procurement Authority",
+  "MOMAH": "Ministry of Municipalities and Housing",
+  "Saudi Building Code Centre": "Saudi Building Code Center",
+  "TVTC": "Technical and Vocational Training Corporation",
+  "KEPCO": "Korea Electric Power Corporation",
+  "EWEC": "Emirates Water and Electricity Company",
+  "GACA": "General Authority of Civil Aviation",
+  "Al-Muhaidib": "Al-Muhaidib Group",
+  "Abdulkadir Al-Muhaidib & Sons": "Al-Muhaidib Group",
+};
+
+/**
+ * Exhibitions the archive names constantly. An exhibition is not a company,
+ * so these live in the events table and link through
+ * article_related_entities with entityType "event".
+ */
+const EVENT_ALIASES: Record<string, string> = {
+  "Big 5 Construct Saudi": "Big 5 Construct Saudi 2026",
+  "Big 5 Construct Saudi 2026": "Big 5 Construct Saudi 2026",
+  "HVACR Saudi Arabia": "HVACR Saudi Arabia 2026",
+  "Heavy Saudi Arabia": "Heavy Saudi Arabia 2026",
+  "Totally Concrete Saudi Arabia": "Totally Concrete Saudi Arabia 2026",
+  "Saudi FM & Clean": "Saudi FM & Clean 2026",
+  "Saudi WoodShow": "Saudi WoodShow 2026",
+  "LEAP": "LEAP 2026",
+  "LEAP 2026": "LEAP 2026",
 };
 
 async function idFor(
@@ -218,6 +263,16 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
     else missing.push(`person:${name}`);
   }
 
+  for (const raw of input.events ?? []) {
+    const title = EVENT_ALIASES[raw] ?? raw;
+    const id = await idFor(db, events, events.title, title);
+    if (id) {
+      await db.insert(articleRelatedEntities).values({
+        articleId, entityType: "event", entityId: id,
+      });
+    } else missing.push(`event:${raw}`);
+  }
+
   return { articleId, created: !existingId, missing };
 }
 
@@ -290,13 +345,19 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
     }
     if (!published) throw new Error("could not resolve the published editorial status");
 
-    let created = 0, updated = 0;
+    let created = 0, updated = 0, held = 0;
     const missing = new Set<string>();
     const seen: ArticleInput[] = [];
+    const today = new Date().toISOString().slice(0, 10);
     for (const file of sources) {
       const parsed = JSON.parse(readFileSync(file, "utf8"));
       const batch: ArticleInput[] = Array.isArray(parsed) ? parsed : [parsed];
       for (const item of batch) {
+        // A commission dated ahead of today is written but not yet news. It
+        // ships in the archive file so the next deploy after its date picks
+        // it up, and stays out of the database until then rather than being
+        // published under a date that has not happened.
+        if ((item as any).status === "SCHEDULED" && item.eventDate > today) { held++; continue; }
         seen.push(item);
         const r = await ingest(db, item, published.id);
         r.created ? created++ : updated++;
@@ -305,6 +366,7 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
     }
     const edges = await linkRelatedArticles(db, seen);
     console.log(`[ingest] ${created} created, ${updated} updated, ${edges} related-article links`);
+    if (held) console.log(`[ingest] ${held} scheduled for a later date and held back`);
     if (missing.size) {
       // Hundreds of one-off mentions would bury the useful output; the full
       // list is derivable from the article files if anyone needs it.

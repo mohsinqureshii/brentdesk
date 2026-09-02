@@ -10,8 +10,6 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
-      "construction",
-      "facilities-management",
       "automation"
     ],
     "tags": [
@@ -22,7 +20,9 @@
       "Asset Data"
     ],
     "companies": [
-      "Ministry of Municipalities and Housing",
+      "Ministry of Municipalities and Housing"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "people": [],

@@ -11,7 +11,7 @@
     "categories": [
       "construction",
       "supply-chain",
-      "manufacturing"
+      "logistics"
     ],
     "tags": [
       "Big 5 Construct Saudi",
@@ -21,8 +21,10 @@
       "Saudi Arabia"
     ],
     "companies": [
-      "Big 5 Construct Saudi",
       "General Authority for Statistics"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
     ],
     "people": [],
     "country": "Saudi Arabia",

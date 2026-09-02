@@ -10,8 +10,7 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
-      "construction",
-      "automation"
+      "construction"
     ],
     "tags": [
       "Connected Jobsite",
@@ -20,7 +19,8 @@
       "Sensors",
       "Saudi Construction"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.constructionexec.com/article/how-iot-telematics-and-mobile-connectivity-are-changing-the-nature-of-the-construction-jobsite",

@@ -10,8 +10,9 @@
     "primaryCategory": "data-centers",
     "categories": [
       "data-centers",
-      "utilities",
-      "industrial-technology"
+      "industrial-technology",
+      "water",
+      "infrastructure"
     ],
     "tags": [
       "Data Centre Cooling",
@@ -22,7 +23,9 @@
     ],
     "companies": [
       "Mitsubishi Electric",
-      "Daikin Applied",
+      "Daikin Applied"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.marketsandmarkets.com/Market-Reports/geography/data-center-liquid-cooling-market/Saudi-Arabia",

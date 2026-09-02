@@ -10,8 +10,7 @@
     "primaryCategory": "facilities-management",
     "categories": [
       "facilities-management",
-      "construction",
-      "industrial-technology"
+      "real-estate"
     ],
     "tags": [
       "Saudi FM & Clean",
@@ -20,9 +19,11 @@
       "Big 5 Construct Saudi"
     ],
     "companies": [
-      "Saudi FM & Clean",
-      "Big 5 Construct Saudi",
       "Al-Futtaim Engineering"
+    ],
+    "events": [
+      "Saudi FM & Clean",
+      "Big 5 Construct Saudi"
     ],
     "country": "Saudi Arabia",
     "eventDate": "2026-08-30",

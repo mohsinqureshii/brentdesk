@@ -11,7 +11,8 @@
     "categories": [
       "engineering",
       "construction",
-      "supply-chain"
+      "supply-chain",
+      "logistics"
     ],
     "tags": [
       "MEP",
@@ -21,8 +22,10 @@
       "Saudi Construction"
     ],
     "companies": [
-      "Big 5 Construct Saudi",
       "Public Investment Fund"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.globenewswire.com/news-release/2026/04/21/3277655/28124/en/saudi-arabia-industrial-mep-services-forecast-report-2025-2030-8-5-bn-market-set-for-significant-growth-as-government-initiatives-and-smart-technologies-reshape-urban-infrastructur.html",
     "primarySourceName": "Research and Markets",

@@ -10,9 +10,8 @@
     "primaryCategory": "utilities",
     "categories": [
       "utilities",
-      "data-centers",
-      "engineering",
-      "construction"
+      "supply-chain",
+      "logistics"
     ],
     "tags": [
       "HVAC",
@@ -23,7 +22,9 @@
     ],
     "companies": [
       "Johnson Controls Arabia",
-      "HUMAIN",
+      "HUMAIN"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.imarcgroup.com/saudi-arabia-hvac-market",

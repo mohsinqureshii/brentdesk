@@ -9,9 +9,7 @@
     "author": "BrentDesk Staff",
     "primaryCategory": "construction",
     "categories": [
-      "construction",
-      "manufacturing",
-      "heavy-equipment"
+      "construction"
     ],
     "tags": [
       "Big 5 Construct Saudi",
@@ -21,8 +19,10 @@
       "Vision 2030"
     ],
     "companies": [
-      "Big 5 Construct Saudi",
       "Saudi Contractors Authority"
+    ],
+    "events": [
+      "Big 5 Construct Saudi"
     ],
     "people": [],
     "country": "Saudi Arabia",

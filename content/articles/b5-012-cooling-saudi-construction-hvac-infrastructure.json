@@ -10,9 +10,7 @@
     "primaryCategory": "utilities",
     "categories": [
       "utilities",
-      "construction",
-      "power",
-      "facilities-management"
+      "construction"
     ],
     "tags": [
       "HVAC",
@@ -25,7 +23,9 @@
       "Saudi Tabreed",
       "Public Investment Fund",
       "HUMAIN",
-      "DataVolt",
+      "DataVolt"
+    ],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "people": [],

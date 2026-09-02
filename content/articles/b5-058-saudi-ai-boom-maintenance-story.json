@@ -10,7 +10,8 @@
     "primaryCategory": "facilities-management",
     "categories": [
       "facilities-management",
-      "data-centers",
+      "real-estate",
+      "industrial-ai",
       "industrial-technology"
     ],
     "tags": [
@@ -20,7 +21,8 @@
       "Asset Management",
       "Saudi Arabia"
     ],
-    "companies": [
+    "companies": [],
+    "events": [
       "Big 5 Construct Saudi"
     ],
     "primarySourceUrl": "https://www.mordorintelligence.com/industry-reports/saudi-arabia-facility-management-market",
