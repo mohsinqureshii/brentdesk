@@ -2066,35 +2066,42 @@ export const newsRouter = router({
         return [];
       }
 
-      // Get all categories
+      // Editorial categories only. `categories` is shared across modules,
+      // so without this filter the news homepage lists the jobs and events
+      // taxonomy too ("Corporate", "HSE", "Conference") and links them to
+      // /jobs-corporate, which is not a news route. isActive has to be
+      // selected as well — the callers filter on it, and a column that is
+      // never selected reads as undefined and passes every check.
       const allCategories = await db.select({
         id: categories.id,
         name: categories.name,
         slug: categories.slug,
         parentId: categories.parentId,
-
+        isActive: categories.isActive,
       })
         .from(categories)
+        .where(and(eq(categories.module, "news"), eq(categories.isActive, 1)))
         .orderBy(asc(categories.name));
 
-      // Get article counts for each category
-      const categoriesWithCounts = await Promise.all(allCategories.map(async (cat) => {
-        // Count articles where this category is the primary category
-        const countResult = await db.select({ count: sql<number>`count(*)` })
-          .from(articles)
-          .where(and(
-            eq(articles.primaryCategoryId, cat.id),
-            eq(articles.statusId, publishedStatus.id)
-          ));
+      // One grouped count rather than a query per category: this runs on
+      // every homepage render, and the per-category version was 40+ round
+      // trips.
+      const counts = await db
+        .select({
+          categoryId: articles.primaryCategoryId,
+          count: sql<number>`count(*)`,
+        })
+        .from(articles)
+        .where(eq(articles.statusId, publishedStatus.id))
+        .groupBy(articles.primaryCategoryId);
 
-        return {
-          ...cat,
-          articleCount: Number(countResult[0]?.count || 0),
-        };
-      }));
+      const countByCategory = new Map<number, number>(
+        counts.map(r => [Number(r.categoryId), Number(r.count)]),
+      );
 
-      // Sort by article count descending
-      return categoriesWithCounts.sort((a: any, b: any) => b.articleCount - a.articleCount);
+      return allCategories
+        .map(cat => ({ ...cat, articleCount: countByCategory.get(cat.id) ?? 0 }))
+        .sort((a, b) => b.articleCount - a.articleCount);
     }),
 
   /**
