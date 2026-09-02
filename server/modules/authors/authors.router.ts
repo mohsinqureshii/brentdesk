@@ -7,6 +7,7 @@ import { z } from "zod";
 import { eq, and, desc, sql, or, isNotNull } from "drizzle-orm";
 import { router, publicProcedure } from "../../_core/trpc";
 import { getDb } from "../../db";
+import { newsRecencyDesc } from "../../_core/articleOrder";
 import { 
   users,
   articles,
@@ -175,7 +176,7 @@ export const authorsRouter = router({
             eq(articles.statusId, publishedStatus.id)
           )
         )
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(limit)
         .offset(offset);
 

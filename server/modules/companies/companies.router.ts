@@ -30,6 +30,7 @@ import { slugService } from "../../services/slug.service";
 import { editionOrderBias } from "../../services/editionOrder";
 import { seoService } from "../../services/seo.service";
 import { workflowService } from "../../services/workflow.service";
+import { newsRecencyDesc } from "../../_core/articleOrder";
 
 // ============================================================
 // INPUT SCHEMAS
@@ -339,7 +340,7 @@ export const companiesRouter = router({
           eq(articleCompanies.companyId, company.id),
           eq(articles.statusId, publishedStatus.id)
         ))
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(10) : [];
 
       // Get funding rounds

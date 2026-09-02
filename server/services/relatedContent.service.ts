@@ -5,6 +5,7 @@
 
 import { eq, desc, and, ne, inArray, like, sql } from "drizzle-orm";
 import { getDb } from "../db";
+import { newsRecencyDesc } from "../_core/articleOrder";
 import {
   articles,
   articleCategories,
@@ -112,7 +113,7 @@ export class RelatedContentService {
           ne(articles.id, articleId),
           eq(articles.statusId, publishedStatusId)
         ))
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(limit);
 
       // Get featured images
@@ -227,7 +228,7 @@ export class RelatedContentService {
         inArray(articles.id, sortedIds),
         eq(articles.statusId, publishedStatusId)
       ))
-      .orderBy(desc(articles.publishedAt));
+      .orderBy(newsRecencyDesc);
 
     // Get featured images
     const imageIds = relatedArticlesList.map(a => a.featuredImageId).filter(Boolean) as number[];
@@ -591,7 +592,7 @@ export class RelatedContentService {
         inArray(articles.id, articleIds.map(a => a.articleId)),
         eq(articles.statusId, publishedStatusId)
       ))
-      .orderBy(desc(articles.publishedAt));
+      .orderBy(newsRecencyDesc);
 
     const total = categoryArticles.length;
     const paginatedArticles = categoryArticles.slice(offset, offset + limit);
@@ -670,7 +671,7 @@ export class RelatedContentService {
         inArray(articles.id, articleIds.map(a => a.articleId)),
         eq(articles.statusId, publishedStatusId)
       ))
-      .orderBy(desc(articles.publishedAt));
+      .orderBy(newsRecencyDesc);
 
     const total = topicArticles.length;
     const paginatedArticles = topicArticles.slice(offset, offset + limit);

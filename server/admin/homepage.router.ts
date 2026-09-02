@@ -10,6 +10,7 @@ import { getDb } from "../db";
 import { homepageBlocks, homepageSections, articles, categories, media } from "../../drizzle/schema";
 import { workflowService } from "../services/workflow.service";
 import { desc, sql } from "drizzle-orm";
+import { newsRecencyDesc } from "../_core/articleOrder";
 
 // ============================================================
 // HOMEPAGE ADMIN ROUTER
@@ -387,7 +388,7 @@ export const homepageRouter = router({
           eq(articles.statusId, publishedStatus.id),
           categoryId ? eq(articles.primaryCategoryId, categoryId) : sql`1=1`
         ))
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(limit);
 
       return query;

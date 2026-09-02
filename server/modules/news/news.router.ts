@@ -37,6 +37,7 @@ import { editionOrderBias } from "../../services/editionOrder";
 import { relatedContentService } from "../../services/relatedContent.service";
 import { notifySearchEngines, notifySearchEnginesBatch } from "../../services/indexingNotification.service";
 import { resolveArticleInfo, resolveArticleInfos } from "../../services/indexingNotification.helper";
+import { newsRecencyDesc, newsRecency } from "../../_core/articleOrder";
 import { 
   generateSeoSuggestions, 
   suggestSeoTitle, 
@@ -173,14 +174,16 @@ export const newsRouter = router({
       // Note: authorName and status sorting are handled differently in adminList
       const sortColumn = {
         createdAt: articles.createdAt,
-        publishedAt: articles.publishedAt,
+        // For a reader "newest" means the most recent news, not the most
+        // recent insert — see newsRecency.
+        publishedAt: newsRecency,
         eventDate: articles.eventDate,
         updatedAt: articles.createdAt, // fallback - updatedAt not in schema
         title: articles.title,
         viewCount: articles.viewCount,
         authorName: articles.createdAt, // fallback for public list
         status: articles.statusId,
-      }[sortBy] || articles.publishedAt;
+      }[sortBy] || newsRecency;
 
       const results = await db.select({
         id: articles.id,
@@ -1393,7 +1396,7 @@ export const newsRouter = router({
           eq(articles.statusId, publishedStatus.id),
           eq(articles.isFeatured, 1)
         ))
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(input.limit);
     }),
 
@@ -1514,7 +1517,7 @@ export const newsRouter = router({
           eq(articles.statusId, publishedStatus.id),
           eq(articles.isEditorPick, 1)
         ))
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(input.limit);
 
       // If not enough manual picks, fill with featured articles
@@ -1537,7 +1540,7 @@ export const newsRouter = router({
             eq(articles.isFeatured, 1),
             manualIds.length > 0 ? sql`${articles.id} NOT IN (${sql.join(manualIds.map(id => sql`${id}`), sql`, `)})` : sql`1=1`
           ))
-          .orderBy(desc(articles.publishedAt))
+          .orderBy(newsRecencyDesc)
           .limit(input.limit - results.length);
         results = [...results, ...fallback];
       }
@@ -1658,7 +1661,7 @@ export const newsRouter = router({
           eq(articles.isFlash, 1),
           sql`${articles.flashExpiresAt} > ${now}`
         ))
-        .orderBy(desc(articles.publishedAt))
+        .orderBy(newsRecencyDesc)
         .limit(10);
 
       return flashArticles;
@@ -1976,7 +1979,7 @@ export const newsRouter = router({
       }
 
       // Build sort column
-      const sortColumn = sortBy === "viewCount" ? articles.viewCount : articles.publishedAt;
+      const sortColumn = sortBy === "viewCount" ? articles.viewCount : newsRecency;
 
       // Get total count
       const countResult = await db
@@ -2313,7 +2316,7 @@ export const newsRouter = router({
       }
 
       // Build sort column
-      const sortColumn = sortBy === "viewCount" ? articles.viewCount : articles.publishedAt;
+      const sortColumn = sortBy === "viewCount" ? articles.viewCount : newsRecency;
 
       // Get total count
       const countResult = await db
