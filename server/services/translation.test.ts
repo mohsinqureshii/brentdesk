@@ -18,6 +18,27 @@ describe("validateTranslation", () => {
     expect(problems[0].problem).toContain("links changed");
   });
 
+  it("treats 3.0 and 3 as the same figure", () => {
+    // Stripping the decimal point made "3.0" into "30", which no correct
+    // translation contains — so the only way past the gate was to write
+    // «3.0 مليار» where Arabic wants «3 مليارات».
+    const src = { excerpt: "A $3.0 billion reset." };
+    const out = { excerpt: "إعادة ضبط بقيمة 3 مليارات دولار." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("still compares the decimal part", () => {
+    const src = { excerpt: "Net income of $26.9bn." };
+    const out = { excerpt: "صافي دخل 26.8 مليار دولار." };
+    expect(validateTranslation(src, out)).toHaveLength(1);
+  });
+
+  it("ignores thousands separators", () => {
+    const src = { excerpt: "About 1,000 exhibitors." };
+    const out = { excerpt: "نحو 1000 عارض." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
   it("lets a quarter be spelled out as a word", () => {
     // "Q3" is an ordinal, and written Arabic spells it. Counting the 3 as a
     // figure forced translators to write «الربع الثالث (Q3)» purely to get

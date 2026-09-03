@@ -33,11 +33,33 @@ function hrefs(html: string): string[] {
  */
 const TOKEN_DIGITS = /\b(?:Q[1-4]|H[12]|(?:1[89]|20)\d0s|[CNS]O2)\b/gi;
 
-function digits(html: string): string[] {
+/**
+ * Every reading of every figure in the prose.
+ *
+ * Separators are genuinely ambiguous across scripts: "1.000" is a thousand in
+ * much of the world and one in English, and "3.0" and "3" are the same
+ * quantity written two ways. So each token yields both readings — with the
+ * dot kept as a decimal point, and with it removed as a separator — and a
+ * source figure counts as present if either reading appears. That accepts
+ * «3 مليارات» for "$3.0 billion" and «1.000» for "1,000" while still
+ * catching a figure that is simply gone.
+ */
+function numberForms(token: string): string[] {
+  const noCommas = token.replace(/,/g, "").replace(/[.,]$/, "");
+  const asDecimal = Number(noCommas);
+  const asSeparated = Number(noCommas.replace(/\./g, ""));
+  const out = new Set<string>();
+  out.add(Number.isFinite(asDecimal) ? String(asDecimal) : noCommas);
+  out.add(Number.isFinite(asSeparated) ? String(asSeparated) : noCommas);
+  return [...out];
+}
+
+function figures(html: string): string[][] {
   // Figures in the PROSE are facts. Digits inside markup are not: a slug like
   // /construction/big-5-opens carries a 5 that no translation should be
   // expected to reproduce, and counting it would flag every correctly
   // translated paragraph that contains a link.
+  //
   // Entities go the same way. `&#8377;` is a rupee sign, and its code point is
   // not a figure in the prose — leaving it in made the 8377 a fact the
   // translation had to reproduce, which is only satisfiable by keeping the
@@ -46,9 +68,7 @@ function digits(html: string): string[] {
     .replace(/<[^>]*>/g, " ")
     .replace(/&#?[a-z0-9]{1,8};/gi, " ")
     .replace(TOKEN_DIGITS, " ");
-  // Compare the digit sequences themselves, ignoring the separators, which
-  // legitimately differ between scripts.
-  return (prose.match(NUMBER_RE) ?? []).map(n => n.replace(/[,.]/g, "")).sort();
+  return (prose.match(NUMBER_RE) ?? []).map(numberForms);
 }
 
 export interface FieldProblem { field: string; problem: string }
@@ -80,10 +100,12 @@ export function validateTranslation(
       problems.push({ field, problem: `HTML tag count changed (${srcTags} → ${outTags})` });
     }
 
-    const srcNums = digits(src), outNums = digits(out);
     // A figure that appears in the English and not the translation means a
-    // fact went missing. The reverse means one was invented.
-    const missing = srcNums.filter(n => !outNums.includes(n));
+    // fact went missing.
+    const present = new Set(figures(out).flat());
+    const missing = figures(src)
+      .filter(forms => !forms.some(f => present.has(f)))
+      .map(forms => forms[0]);
     if (missing.length) {
       problems.push({ field, problem: `figures missing from the translation: ${missing.slice(0, 5).join(", ")}` });
     }
