@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link } from "wouter";
 import { useParams } from "wouter";
 import { publication } from "@shared/publication";
@@ -89,7 +90,7 @@ function formatCurrency(amount: string | number | null, currency = "USD") {
   if (num >= 1_000_000_000) return `$${(num / 1_000_000_000).toFixed(1)}B`;
   if (num >= 1_000_000) return `$${(num / 1_000_000).toFixed(1)}M`;
   if (num >= 1_000) return `$${(num / 1_000).toFixed(0)}K`;
-  return `$${num.toLocaleString()}`;
+  return `$${fmtNumber(num)}`;
 }
 
 function timeAgo(dateStr: string | null, t: Translate) {
@@ -485,7 +486,7 @@ export default function CompanyProfile() {
                   )}
                   <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
                     <Eye className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
-                    <div className="text-lg font-bold text-foreground">{(company.viewCount || 0).toLocaleString()}</div>
+                    <div className="text-lg font-bold text-foreground">{fmtNumber((company.viewCount || 0))}</div>
                     <div className="text-[11px] text-muted-foreground">{t("company.profileViews")}</div>
                   </div>
                 </div>
@@ -508,7 +509,7 @@ export default function CompanyProfile() {
                         {c.clientsCount && (
                           <div>
                             <div className="text-xs text-muted-foreground uppercase tracking-wider">{t("company.clients")}</div>
-                            <div className="text-sm font-semibold text-foreground mt-0.5">{c.clientsCount.toLocaleString()}</div>
+                            <div className="text-sm font-semibold text-foreground mt-0.5">{fmtNumber(c.clientsCount)}</div>
                           </div>
                         )}
                       </div>

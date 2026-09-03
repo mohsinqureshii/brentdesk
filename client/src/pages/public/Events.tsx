@@ -32,7 +32,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/lib/i18n";
 import type { UiKey } from "@shared/uiStrings";
-import { fmtDate } from "@/lib/dates";
+import { fmtDate, fmtNumber } from "@/lib/dates";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -689,7 +689,7 @@ function SearchHero({
 
 function SpotlightCard({ event }: { event: SpotlightEvent }) {
   const t = useT();
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   return (
     <Link href={`/events/${event.slug}`} className="group block">
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl lg:aspect-[16/11]">
@@ -710,7 +710,7 @@ function SpotlightCard({ event }: { event: SpotlightEvent }) {
             )}
             <span className="inline-flex items-center gap-1.5">
               <CalendarDays className="h-4 w-4" aria-hidden />
-              {formatLongDateRange(event.startDate, event.endDate)}
+              {formatLongDateRange(t, event.startDate, event.endDate)}
             </span>
           </div>
           <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-neutral-900 transition-transform group-hover:translate-x-0.5">
@@ -931,7 +931,7 @@ function RelatedArticlesPanel() {
                     </p>
                     {a.publishedAt && (
                       <p className="mt-1 text-[11px] text-muted-foreground">
-                        {formatShortDate(a.publishedAt)}
+                        {formatShortDate(t, a.publishedAt)}
                       </p>
                     )}
                   </div>
@@ -1196,7 +1196,7 @@ function Stat({ value, label }: { value: number; label: string }) {
   return (
     <div>
       <div className="text-2xl font-bold tabular-nums">
-        {value > 0 ? value.toLocaleString() : "—"}
+        {value > 0 ? fmtNumber(value) : "—"}
       </div>
       <div className="mt-0.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
         {label}
@@ -1327,7 +1327,7 @@ function Spotlight({
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-white/85 sm:text-base">
               <span className="inline-flex items-center gap-2">
                 <CalendarDays className="h-4 w-4 shrink-0" />
-                {formatLongDateRange(event.startDate, event.endDate)}
+                {formatLongDateRange(t, event.startDate, event.endDate)}
               </span>
               <span className="inline-flex items-center gap-2">
                 {event.format === "virtual" ? (
@@ -1335,7 +1335,7 @@ function Spotlight({
                 ) : (
                   <MapPin className="h-4 w-4 shrink-0" />
                 )}
-                {formatLocation(event.city, event.country, event.format)}
+                {formatLocation(t, event.city, event.country, event.format)}
               </span>
             </div>
 

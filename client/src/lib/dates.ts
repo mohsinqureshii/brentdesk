@@ -43,3 +43,17 @@ export function fmtTime(d: Dateish, opts?: Intl.DateTimeFormatOptions): string {
 export function fmtDateTime(d: Dateish, opts?: Intl.DateTimeFormatOptions): string {
   return asDate(d).toLocaleString(documentLocale(), opts);
 }
+
+/**
+ * A number, in Western numerals, in every language.
+ *
+ * `n.toLocaleString()` with no argument uses the BROWSER's locale, so on an
+ * Arabic-configured phone it renders ٤٥٬٠٠٠ where the rest of the page says
+ * 45,000. The whole archive is written in Western numerals — the translation
+ * gate rejects Arabic-Indic digits outright — so a figure that switches
+ * script because of a browser setting is inconsistent with every figure
+ * around it.
+ */
+export function fmtNumber(n: number, opts?: Intl.NumberFormatOptions): string {
+  return n.toLocaleString("en-US", opts);
+}

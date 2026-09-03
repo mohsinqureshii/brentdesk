@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link, useParams } from "wouter";
 import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
@@ -710,7 +711,7 @@ export default function PersonDetail() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-2">{t("person.dataTransparencyBody")}</p>
                 <p className="text-xs text-muted-foreground">{t("person.lastUpdated")}: {p.updatedAt ? new Date(p.updatedAt).toLocaleDateString() : t("common.notAvailable")}</p>
-                <p className="text-xs text-muted-foreground">{t("person.views")}: {p.viewCount?.toLocaleString() || 0}</p>
+                <p className="text-xs text-muted-foreground">{t("person.views")}: {fmtNumber(p.viewCount || 0)}</p>
               </CardContent>
             </Card>
           </aside>

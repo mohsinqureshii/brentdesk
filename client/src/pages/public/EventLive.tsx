@@ -101,7 +101,7 @@ function useCountdown(target: string | Date | null | undefined): string {
   const mins = Math.floor((ms % 3_600_000) / 60_000);
   if (days > 0) return t("events.inDaysHours", { d: days, h: hours });
   if (hours > 0) return t("events.inHoursMinutes", { h: hours, m: mins });
-  return t("events.inMinutes", { m: mins });
+  return t("events.inMinutes", { n: mins });
 }
 
 function chipLabel(p: LivePost): string {

@@ -104,7 +104,7 @@ export default function EventHeroSection({
   const directionsUrl = buildDirectionsUrl(event);
   const duration = durationLabel(event.startDate, event.endDate);
   const venueName = event.venueName || event.venue || null;
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   const sectors: Array<{ id: number; name: string }> = event.sectors || [];
   const shortDescription = stripHtml(event.shortDescription || "");
 
@@ -167,7 +167,7 @@ export default function EventHeroSection({
               />
               <div className="min-w-0">
                 <div className="font-bold text-foreground">
-                  {formatLongDateRange(event.startDate, event.endDate)}
+                  {formatLongDateRange(t, event.startDate, event.endDate)}
                 </div>
                 {duration && (
                   <div className="mt-0.5 text-sm text-muted-foreground">

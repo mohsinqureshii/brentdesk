@@ -16,6 +16,7 @@
  */
 
 import { useState } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link } from "wouter";
 import { ArrowRight, Users } from "lucide-react";
 import { toast } from "sonner";
@@ -71,7 +72,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
           {goingCount > 0 && !wide && (
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Users className="h-3.5 w-3.5" aria-hidden="true" />
-              {t("events.goingCount", { n: goingCount.toLocaleString() })}
+              {t("events.goingCount", { n: fmtNumber(goingCount) })}
             </span>
           )}
         </div>
@@ -89,7 +90,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
           {goingCount > 0 && wide && (
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Users className="h-3.5 w-3.5" aria-hidden="true" />
-              {t("events.goingCount", { n: goingCount.toLocaleString() })}
+              {t("events.goingCount", { n: fmtNumber(goingCount) })}
             </span>
           )}
         </div>

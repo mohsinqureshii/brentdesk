@@ -272,7 +272,7 @@ export function ClaimProfileButton({
             <div className="space-y-1.5">
               <Label htmlFor="proofText" className="flex items-center gap-1.5 text-sm">
                 <ShieldCheck className="h-3.5 w-3.5 text-muted-foreground" />
-                {t("claim.proofLabel")} <span className="text-muted-foreground">{t("common.optional")}</span>
+                {t("claim.proofLabel")} <span className="text-muted-foreground">{t("common.optionalSuffix")}</span>
               </Label>
               <Textarea
                 id="proofText"
@@ -288,7 +288,7 @@ export function ClaimProfileButton({
             <div className="space-y-1.5">
               <Label htmlFor="companyEmail" className="flex items-center gap-1.5 text-sm">
                 <Building2 className="h-3.5 w-3.5 text-muted-foreground" />
-                {t("claim.companyEmailLabel")} <span className="text-muted-foreground">{t("common.optional")}</span>
+                {t("claim.companyEmailLabel")} <span className="text-muted-foreground">{t("common.optionalSuffix")}</span>
               </Label>
               <Input
                 id="companyEmail"

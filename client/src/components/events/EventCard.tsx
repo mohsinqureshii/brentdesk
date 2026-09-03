@@ -57,12 +57,13 @@ export function asDate(value: Date | string | null | undefined): Date | null {
   return Number.isFinite(d.getTime()) ? d : null;
 }
 
-const MONTHS_SHORT = [
-  "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
-];
-
-/** Date-block content: `{ month: "MAR", day: "4–7" }`. */
+/**
+ * Date-block content: `{ month: "MAR", day: "4–7" }`.
+ *
+ * The month comes from `fmtDate`, not a hardcoded English array — the card
+ * strip is drawn `uppercase`, so English still reads MAR while Arabic reads
+ * the Arabic month instead of "MAR" on a translated page.
+ */
 export function cardDateStrip(
   t: Translate,
   start: Date | string | null | undefined,
@@ -71,7 +72,7 @@ export function cardDateStrip(
   const s = asDate(start);
   if (!s) return { month: t("events.tbd"), day: "—" };
   const e = asDate(end);
-  const month = MONTHS_SHORT[s.getMonth()];
+  const month = fmtDate(s, { month: "short" });
   const sameMonth =
     e && s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth();
   if (e && sameMonth && s.getDate() !== e.getDate()) {
@@ -82,11 +83,12 @@ export function cardDateStrip(
 
 /** "March 4–7, 2026" — the long form used by the hero and card meta. */
 export function formatLongDateRange(
+  t: Translate,
   start: Date | string | null | undefined,
   end: Date | string | null | undefined,
 ): string {
   const s = asDate(start);
-  if (!s) return "Date TBD";
+  if (!s) return t("events.dateTbd");
   const e = asDate(end);
   const fmt = (d: Date) =>
     fmtDate(d, {
@@ -109,10 +111,11 @@ export function formatLongDateRange(
 
 /** "Mar 4, 2026" — the compact form used by the sidebar rows. */
 export function formatShortDate(
+  t: Translate,
   start: Date | string | null | undefined,
 ): string {
   const s = asDate(start);
-  if (!s) return "Date TBD";
+  if (!s) return t("events.dateTbd");
   return fmtDate(s, {
     month: "short",
     day: "numeric",
@@ -121,13 +124,14 @@ export function formatShortDate(
 }
 
 export function formatLocation(
+  t: Translate,
   city: string | null | undefined,
   country: string | null | undefined,
   format: string | null | undefined,
 ): string {
-  if (format === "virtual") return "Online";
+  if (format === "virtual") return t("events.online");
   const parts = [city, country].filter(Boolean);
-  return parts.length ? parts.join(", ") : "Location TBD";
+  return parts.length ? parts.join(", ") : t("events.locationTbd");
 }
 
 export function formatPriceLabel(
@@ -358,7 +362,7 @@ export function EventCard({
 }) {
   const t = useT();
   const { month, day } = cardDateStrip(t, event.startDate, event.endDate);
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   const price = formatPriceLabel(
     t,
     event.isFree,
@@ -460,7 +464,7 @@ export function EventCard({
           <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
             <CalendarDays className="h-3.5 w-3.5 shrink-0" />
             <span className="truncate">
-              {formatLongDateRange(event.startDate, event.endDate)}
+              {formatLongDateRange(t, event.startDate, event.endDate)}
             </span>
           </p>
         </div>
@@ -525,7 +529,7 @@ export interface LiveCardEvent {
 
 export function LiveEventCard({ event }: { event: LiveCardEvent }) {
   const t = useT();
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   // The only real-time number `listLiveNow` returns is the count of live
   // posts filed in the last hour. It is labelled as exactly that — this
   // hub has no viewer/concurrency telemetry to show.
@@ -597,7 +601,8 @@ export function TrendingEventRow({
   event: CardEvent;
   rank: number;
 }) {
-  const location = formatLocation(event.city, event.country, event.format);
+  const t = useT();
+  const location = formatLocation(t, event.city, event.country, event.format);
 
   return (
     <div className="group relative flex items-start gap-3">
@@ -625,7 +630,7 @@ export function TrendingEventRow({
           {location}
         </p>
         <p className="mt-0.5 truncate text-[11px] text-muted-foreground">
-          {formatShortDate(event.startDate)}
+          {formatShortDate(t, event.startDate)}
         </p>
       </div>
     </div>

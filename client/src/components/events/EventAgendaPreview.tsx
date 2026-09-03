@@ -87,7 +87,7 @@ function VenueCard({
 }) {
   const t = useT();
   const name = event.venueName || event.venue || null;
-  const locality = formatLocation(event.city, event.country, event.format);
+  const locality = formatLocation(t, event.city, event.country, event.format);
   const directionsUrl = buildDirectionsUrl(event);
 
   const galleryImage = (gallery || []).find((g) => isUsableImage(g?.imageUrl));

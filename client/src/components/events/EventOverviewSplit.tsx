@@ -28,6 +28,7 @@
  */
 
 import { useState } from "react";
+import { fmtNumber } from "@/lib/dates";
 import {
   Briefcase,
   ChevronDown,
@@ -176,7 +177,7 @@ function StatsGrid({ stats }: { stats: Stat[] }) {
               aria-hidden="true"
             />
             <dd className="mt-3 text-3xl font-black tabular-nums leading-none text-foreground lg:text-[2.5rem]">
-              {exact ? value.toLocaleString() : compactNumber(value)}
+              {exact ? fmtNumber(value) : compactNumber(value)}
             </dd>
             <dt className="mt-2 text-sm text-muted-foreground">
               {t(value === 1 ? singularKey : labelKey)}
@@ -197,7 +198,7 @@ function StatsGrid({ stats }: { stats: Stat[] }) {
 function compactNumber(n: number): string {
   if (n >= 1_000_000) return `${Math.round(n / 100_000) / 10}M+`;
   if (n >= 10_000) return `${Math.round(n / 1_000)}K+`;
-  return n.toLocaleString();
+  return fmtNumber(n);
 }
 
 export default function EventOverviewSplit({

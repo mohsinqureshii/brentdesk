@@ -43,6 +43,7 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link, useParams } from "wouter";
 import {
   Calendar,
@@ -1671,7 +1672,7 @@ function TicketsPanel({
                 {tier.soldOut
                   ? t("event.soldOut")
                   : t("event.nRemaining", {
-                      n: Number(tier.remaining).toLocaleString(),
+                      n: fmtNumber(Number(tier.remaining)),
                     })}
               </div>
             )}
@@ -2185,7 +2186,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
                 className="rounded-2xl border border-[var(--border)] bg-card p-4 text-center"
               >
                 <dd className="text-2xl font-bold tabular-nums text-foreground">
-                  {s.value.toLocaleString()}
+                  {fmtNumber(s.value)}
                 </dd>
                 <dt className="mt-1 text-xs text-muted-foreground">{s.label}</dt>
               </div>

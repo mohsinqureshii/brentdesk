@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
@@ -913,7 +914,7 @@ function TopFilterBar({
       {/* Active filters + results count */}
       <div className="flex items-center gap-2 mt-2 flex-wrap">
         <p className="text-xs text-muted-foreground font-medium">
-          {t(totalItems === 1 ? "job.foundOne" : "job.foundCount", { n: totalItems.toLocaleString() })}
+          {t(totalItems === 1 ? "job.foundOne" : "job.foundCount", { n: fmtNumber(totalItems) })}
         </p>
         {activeFilterCount > 0 && (
           <>

@@ -101,7 +101,7 @@ function KeyFacts({ event }: { event: EventRow }) {
   const t = useT();
   const duration = durationLabel(event.startDate, event.endDate);
   const venueName = event.venueName || event.venue || null;
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   const directionsUrl = buildDirectionsUrl(event);
   const website = event.websiteUrl || null;
 
@@ -110,7 +110,7 @@ function KeyFacts({ event }: { event: EventRow }) {
   if (event.startDate) {
     rows.push(
       <FactRow Icon={CalendarDays} label={t("events.dates")} key="dates">
-        {formatLongDateRange(event.startDate, event.endDate)}
+        {formatLongDateRange(t, event.startDate, event.endDate)}
         {duration && (
           <span className="block font-normal text-muted-foreground">{duration}</span>
         )}

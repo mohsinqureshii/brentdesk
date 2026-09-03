@@ -5,7 +5,7 @@
  */
 
 import { useState, useMemo } from "react";
-import { fmtDate } from "@/lib/dates";
+import { fmtDate, fmtNumber } from "@/lib/dates";
 import { useParams, Link, useLocation } from "wouter";
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
@@ -617,7 +617,7 @@ export default function ApplicantTracker() {
                               {app.expectedSalary && (
                                 <div>
                                   <span className="text-muted-foreground block text-xs">Expected Salary</span>
-                                  <span className="font-medium">{app.expectedSalaryCurrency} {Number(app.expectedSalary).toLocaleString()}</span>
+                                  <span className="font-medium">{app.expectedSalaryCurrency} {fmtNumber(Number(app.expectedSalary))}</span>
                                 </div>
                               )}
                               {app.noticePeriod && (

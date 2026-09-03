@@ -13,6 +13,7 @@
  */
 
 import { useState } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { useT } from "@/lib/i18n";
 import {
   Calendar,
@@ -179,7 +180,7 @@ function SideEventCard({ item }: { item: SideEventRow }) {
             {item.capacity ? (
               <span className="flex items-center gap-1.5">
                 <Users className="h-3.5 w-3.5" />
-                {t("sideEvent.places", { n: item.capacity.toLocaleString() })}
+                {t("sideEvent.places", { n: fmtNumber(item.capacity) })}
               </span>
             ) : null}
           </div>

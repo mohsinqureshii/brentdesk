@@ -4,6 +4,7 @@
  * Accessible at /search?q={query}&type={type}
  */
 import { useState, useEffect, useMemo } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { useT } from "@/lib/i18n";
 import type { UiKey } from "@shared/uiStrings";
 import { useLocation, Link } from "wouter";
@@ -176,7 +177,7 @@ export default function SearchResults() {
               <p className="text-sm text-muted-foreground">
                 {isLoading
                   ? t("search.searching")
-                  : t("search.resultsFor", { count: totalResults.toLocaleString(), query: debouncedQuery })}
+                  : t("search.resultsFor", { count: fmtNumber(totalResults), query: debouncedQuery })}
               </p>
             </div>
           )}

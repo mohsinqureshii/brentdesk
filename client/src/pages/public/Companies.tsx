@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
@@ -103,7 +104,7 @@ export default function Companies() {
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-2 text-background/60 text-sm">
                   <Building2 className="h-4 w-4" />
-                  <span>{totalCompanies.toLocaleString()} companies</span>
+                  <span>{fmtNumber(totalCompanies)} companies</span>
                 </div>
                 <div className="flex items-center gap-2 text-background/60 text-sm">
                   <Globe className="h-4 w-4" />

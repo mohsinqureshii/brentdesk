@@ -28,6 +28,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
 
+import { fmtDate } from "@/lib/dates";
 import { useT } from "@/lib/i18n";
 import {
   Dialog,
@@ -277,7 +278,7 @@ export default function EventGalleryBlock({
     const e = (event as any).endDate ? new Date(String((event as any).endDate).replace(" ", "T")) : null;
     if (!d || isNaN(d.getTime())) return null;
     const f = (x: Date, withYear = true) =>
-      x.toLocaleDateString("en-GB", { day: "numeric", month: "short", ...(withYear ? { year: "numeric" } : {}) });
+      fmtDate(x, { day: "numeric", month: "short", ...(withYear ? { year: "numeric" } : {}) });
     if (e && !isNaN(e.getTime()) && e.toDateString() !== d.toDateString()) {
       return `${f(d, d.getFullYear() !== e.getFullYear())} – ${f(e)}`;
     }
