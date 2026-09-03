@@ -51,3 +51,20 @@ describe("Arabic ordinals", () => {
     expect(problems[0].problem).toContain("10");
   });
 });
+
+describe("dimensional tokens", () => {
+  it("does not demand a numeral for 3D, which Arabic writes as words", () => {
+    expect(validateTranslation(
+      { title: "3D concrete printing on site" },
+      { title: "الطباعة الخرسانية ثلاثية الأبعاد في الموقع" },
+    )).toEqual([]);
+  });
+
+  it("still requires a real quantity in the same sentence", () => {
+    const problems = validateTranslation(
+      { title: "3D concrete printing across 12 sites" },
+      { title: "الطباعة الخرسانية ثلاثية الأبعاد في المواقع" },
+    );
+    expect(problems[0].problem).toContain("12");
+  });
+});

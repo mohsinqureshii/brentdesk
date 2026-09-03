@@ -18,6 +18,11 @@ function hrefs(html: string): string[] {
 /**
  * Digits that are part of a token rather than a quantity.
  *
+ * `3D` is one of these: the 3 labels a dimensionality, it is not a figure
+ * the prose is asserting. Arabic renders it "ثلاثية الأبعاد", with no
+ * numeral at all, which is correct and which the parity check would
+ * otherwise read as a dropped fact.
+ *
  * "Q2 2026" is a quarter, and written Arabic spells it «الربع الثاني» — the
  * 2 is an ordinal word there, not a numeral, so requiring the digit forces a
  * translator to write «الربع الثاني (Q2)» to get past the gate. Same for
@@ -31,7 +36,7 @@ function hrefs(html: string): string[] {
  * construction: a bare year like "2026" does not match, only one written as
  * a decade.
  */
-const TOKEN_DIGITS = /\b(?:Q[1-4]|H[12]|(?:1[89]|20)\d0s|[CNS]O2)\b/gi;
+const TOKEN_DIGITS = /\b(?:Q[1-4]|H[12]|(?:1[89]|20)\d0s|[CNS]O2|[234]D)\b/gi;
 
 /**
  * Every reading of every figure in the prose.
