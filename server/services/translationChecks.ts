@@ -71,6 +71,38 @@ function figures(html: string): string[][] {
   return (prose.match(NUMBER_RE) ?? []).map(numberForms);
 }
 
+/**
+ * Numerals that an Arabic ordinal word states without writing a digit.
+ *
+ * English writes the tenth licensing round as "Round 10". Arabic writes it
+ * "الجولة العاشرة" — an ordinal word, because "الجولة 10" is not how the
+ * language sets an ordinal. The figure is present in the translation; it is
+ * simply not spelled with a digit, and flagging it would push translators to
+ * write unidiomatic Arabic to satisfy a checker.
+ *
+ * Only ordinals are treated this way, and only when the word is actually in
+ * the text. A quantity — a contract value, a capacity, a count — still has to
+ * appear as a numeral, which is how quantities are written in Arabic prose
+ * too. So this narrows the check by exactly one construction rather than
+ * loosening it.
+ *
+ * No `\\b` anchors: JavaScript defines a word boundary over [A-Za-z0-9_],
+ * so every Arabic letter counts as a non-word character and `\\bالعاشرة\\b`
+ * never matches anything. Substring matching is what works here, and these
+ * words are distinctive enough that it does not over-match.
+ */
+const ARABIC_ORDINALS: [RegExp, string][] = [
+  [/الأول[ىة]?/, "1"],  [/الثاني[ةه]?/, "2"],
+  [/الثالث[ةه]?/, "3"], [/الرابع[ةه]?/, "4"],
+  [/الخامس[ةه]?/, "5"], [/السادس[ةه]?/, "6"],
+  [/السابع[ةه]?/, "7"], [/الثامن[ةه]?/, "8"],
+  [/التاسع[ةه]?/, "9"], [/العاشر[ةه]?/, "10"],
+];
+
+function ordinalFigures(text: string): string[] {
+  return ARABIC_ORDINALS.filter(([re]) => re.test(text)).map(([, n]) => n);
+}
+
 export interface FieldProblem { field: string; problem: string }
 
 /** Everything wrong with a candidate translation. Empty means it is safe to
@@ -102,7 +134,7 @@ export function validateTranslation(
 
     // A figure that appears in the English and not the translation means a
     // fact went missing.
-    const present = new Set(figures(out).flat());
+    const present = new Set([...figures(out).flat(), ...ordinalFigures(out)]);
     const missing = figures(src)
       .filter(forms => !forms.some(f => present.has(f)))
       .map(forms => forms[0]);

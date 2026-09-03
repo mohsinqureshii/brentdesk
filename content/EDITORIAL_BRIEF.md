@@ -111,9 +111,9 @@ Length by type — never inflate to hit a number:
 
 ## Bylines — only these three, spelled exactly
 
-`Mo` · `Jakson Gudawela` · `BrentDesk Staff`
+`Mo Qureshi` · `Jakson Gudawela` · `BrentDesk Staff`
 
-Mo: Saudi/GCC, investment, infrastructure, construction, mega projects, energy
+Mo Qureshi: Saudi/GCC, investment, infrastructure, construction, mega projects, energy
 strategy, major analysis. Jakson Gudawela: manufacturing, oil & gas, mining,
 logistics, industrial technology, heavy industry, international industry.
 BrentDesk Staff: straight news, contract awards, project updates, government and
@@ -140,7 +140,7 @@ Write ONE file per article to `content/articles/<NNN>-<short-slug>.json`
   "deck": "optional standfirst",
   "excerpt": "2-3 sentence summary",
   "content": "<p>...</p><p>...</p>",
-  "author": "Mo | Jakson Gudawela | BrentDesk Staff",
+  "author": "Mo Qureshi | Jakson Gudawela | BrentDesk Staff",
   "primaryCategory": "one slug from the list below",
   "tags": ["Title Case", "3-5 of them"],
   "companies": ["Exact Legal Or Common Name"],

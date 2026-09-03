@@ -153,9 +153,15 @@ async function resolveAuthor(db: Db, name: string): Promise<number> {
     .where(eq(users.publicName, name))
     .limit(1);
   if (!row) {
+    // List what the database actually has rather than a hardcoded set. The
+    // hardcoded list said "Mo" while the seeded author was "Mo Qureshi",
+    // so the message that was supposed to help sent the writing the wrong
+    // way. Reading the names back cannot drift from the seed.
+    const known = await db.select({ name: users.publicName }).from(users);
+    const names = known.map(r => r.name).filter(Boolean).sort();
     throw new Error(
-      `Unknown byline "${name}". The approved list is Mo, Jakson Gudawela and ` +
-        `BrentDesk Staff; run the author seed first.`,
+      `Unknown byline "${name}". Bylines present in this database: ` +
+        `${names.join(", ") || "(none — run the author seed first)"}.`,
     );
   }
   return row.id;
