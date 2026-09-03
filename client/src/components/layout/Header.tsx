@@ -18,46 +18,50 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
 
-const mainNavItems = [
-  { label: "News", href: "/" },
-  { label: "Companies", href: "/companies" },
-  { label: "People", href: "/people" },
-  { label: "Events", href: "/events" },
-  { label: "Jobs", href: "/jobs" },
+// Nav entries carry a translation key rather than a label. The href stays
+// English because the route does — wouter's locale base turns /companies into
+// /ar/companies — so switching language changes the word, not the destination.
+const mainNavItems: { key: UiKey; href: string }[] = [
+  { key: "nav.news", href: "/" },
+  { key: "nav.companies", href: "/companies" },
+  { key: "nav.people", href: "/people" },
+  { key: "nav.events", href: "/events" },
+  { key: "nav.jobs", href: "/jobs" },
 ];
 
 // Mobile navigation, grouped. Category slugs match the BrentDesk
 // industrial taxonomy seeded in scripts/seed-brentdesk.ts.
-const mobileNavSections: { label: string; items: { label: string; href: string; hasArrow?: boolean }[] }[] = [
+const mobileNavSections: { key: UiKey; items: { key: UiKey; href: string; hasArrow?: boolean }[] }[] = [
   {
-    label: "News",
+    key: "nav.news",
     items: [
-      { label: "Latest", href: "/" },
-      { label: "Construction", href: "/construction" },
-      { label: "Infrastructure", href: "/infrastructure" },
-      { label: "Energy", href: "/energy" },
-      { label: "Manufacturing", href: "/manufacturing" },
-      { label: "Logistics", href: "/logistics" },
-      { label: "Real Estate", href: "/real-estate" },
-      { label: "Industrial Technology", href: "/industrial-technology" },
+      { key: "nav.latest", href: "/" },
+      { key: "cat.construction", href: "/construction" },
+      { key: "cat.infrastructure", href: "/infrastructure" },
+      { key: "cat.energy", href: "/energy" },
+      { key: "cat.manufacturing", href: "/manufacturing" },
+      { key: "cat.logistics", href: "/logistics" },
+      { key: "cat.real-estate", href: "/real-estate" },
+      { key: "cat.industrial-technology", href: "/industrial-technology" },
     ],
   },
   {
-    label: "Directory",
+    key: "nav.directory",
     items: [
-      { label: "Companies", href: "/companies", hasArrow: true },
-      { label: "People", href: "/people", hasArrow: true },
+      { key: "nav.companies", href: "/companies", hasArrow: true },
+      { key: "nav.people", href: "/people", hasArrow: true },
     ],
   },
   {
-    label: "Industry",
+    key: "nav.industry",
     items: [
-      { label: "Events", href: "/events" },
-      { label: "Jobs", href: "/jobs" },
-      { label: "Newsletter", href: "/newsletter" },
+      { key: "nav.events", href: "/events" },
+      { key: "nav.jobs", href: "/jobs" },
+      { key: "nav.newsletter", href: "/newsletter" },
     ],
   },
 ];
@@ -97,7 +101,7 @@ export function Header() {
             <nav className="hidden lg:flex items-center gap-1">
               {mainNavItems.map((item) => (
                 <Link
-                  key={item.label}
+                  key={item.key}
                   href={item.href}
                   className={`text-[15px] font-semibold px-4 py-2 rounded-md transition-colors ${
                     (item.href === "/" ? location === "/" : location.startsWith(item.href))
@@ -105,7 +109,7 @@ export function Header() {
                       : "text-white/75 hover:text-white"
                   }`}
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               ))}
             </nav>
@@ -134,7 +138,7 @@ export function Header() {
                       className="hidden md:flex h-9 px-4 text-sm font-semibold border-white/40 text-white bg-transparent hover:bg-white hover:text-black rounded-full transition-colors gap-2"
                     >
                       <User className="h-4 w-4" />
-                      {user?.name || "Account"}
+                      {user?.name || t("nav.account")}
                       <ChevronDown className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -142,19 +146,19 @@ export function Header() {
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
                         <LayoutDashboard className="h-4 w-4" />
-                        Dashboard
+                        {t("nav.dashboard")}
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard/my-content" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
                         <LayoutDashboard className="h-4 w-4" />
-                        My Content
+                        {t("nav.myContent")}
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/profile" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
                         <UserCircle className="h-4 w-4" />
-                        Profile
+                        {t("nav.profile")}
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
@@ -162,7 +166,7 @@ export function Header() {
                       onClick={() => logout()}
                       className="cursor-pointer text-sm font-medium text-red-600 focus:text-red-600"
                     >
-                      Sign Out
+                      {t("nav.signOut")}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -190,7 +194,7 @@ export function Header() {
                     <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
                       <button
                         onClick={() => setMobileMenuOpen(false)}
-                        aria-label="Close menu"
+                        aria-label={t("nav.close")}
                         className="text-white hover:text-white/70"
                       >
                         <X className="h-6 w-6" />
@@ -228,7 +232,7 @@ export function Header() {
                       <div>
                         <div className="px-4 py-2 border-t border-white/10">
                           <span className="text-xs font-medium text-white/40 uppercase tracking-wider">
-                            Account
+                            {t("nav.account")}
                           </span>
                         </div>
                         <div className="flex flex-col">
@@ -239,7 +243,7 @@ export function Header() {
                           >
                             <span className="text-base font-medium flex items-center gap-3">
                               <LayoutDashboard className="h-5 w-5" />
-                              Dashboard
+                              {t("nav.dashboard")}
                             </span>
                             <ChevronRight className="h-5 w-5 text-white/40" />
                           </Link>
@@ -250,7 +254,7 @@ export function Header() {
                           >
                             <span className="text-base font-medium flex items-center gap-3">
                               <UserCircle className="h-5 w-5" />
-                              Profile
+                              {t("nav.profile")}
                             </span>
                             <ChevronRight className="h-5 w-5 text-white/40" />
                           </Link>
@@ -261,21 +265,21 @@ export function Header() {
                     {/* Navigation Sections */}
                     <div className="flex-1">
                       {mobileNavSections.map((section) => (
-                        <div key={section.label}>
+                        <div key={section.key}>
                           <div className="px-4 py-2 border-t border-white/10">
                             <span className="text-xs font-medium text-white/40 uppercase tracking-wider">
-                              {section.label}
+                              {t(section.key)}
                             </span>
                           </div>
                           <div className="flex flex-col">
                             {section.items.map((item) => (
                               <Link
-                                key={item.label}
+                                key={item.key}
                                 href={item.href}
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="flex items-center justify-between px-4 py-3.5 text-white hover:bg-white/5 transition-colors border-b border-white/5"
                               >
-                                <span className="text-base font-medium">{item.label}</span>
+                                <span className="text-base font-medium">{t(item.key)}</span>
                                 {!!item.hasArrow && (
                                   <ChevronRight className="h-5 w-5 text-white/40" />
                                 )}
@@ -297,7 +301,7 @@ export function Header() {
                           variant="outline"
                           className="w-full h-12 text-sm font-semibold border-white/30 text-white bg-transparent hover:bg-white hover:text-black rounded-full"
                         >
-                          Sign Out
+                          {t("nav.signOut")}
                         </Button>
                       ) : (
                         <>
@@ -306,12 +310,12 @@ export function Header() {
                               variant="outline"
                               className="w-full h-12 text-sm font-semibold border-white/30 text-white bg-transparent hover:bg-white hover:text-black rounded-full"
                             >
-                              Sign In
+                              {t("nav.signIn")}
                             </Button>
                           </Link>
                           <Link href="/signup" className="block" onClick={() => setMobileMenuOpen(false)}>
                             <Button className="w-full h-12 text-sm font-semibold bg-white text-black hover:bg-white/90 rounded-full">
-                              Create Account
+                              {t("nav.createAccount")}
                             </Button>
                           </Link>
                         </>

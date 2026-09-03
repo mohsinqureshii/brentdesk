@@ -1,7 +1,10 @@
+import type { ComponentType } from "react";
 import { Link } from "wouter";
 import { Linkedin, Instagram, Youtube, Mail } from "lucide-react";
 import { publication } from "@shared/publication";
 import { Wordmark } from "@/components/layout/Header";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
 /** X (Twitter) glyph — lucide has no current X logo. */
 function XIcon({ className = "" }: { className?: string }) {
@@ -12,43 +15,59 @@ function XIcon({ className = "" }: { className?: string }) {
   );
 }
 
-const editorialLinks = [
-  { label: "Construction", href: "/construction" },
-  { label: "Infrastructure", href: "/infrastructure" },
-  { label: "Energy", href: "/energy" },
-  { label: "Manufacturing", href: "/manufacturing" },
-  { label: "Logistics", href: "/logistics" },
-  { label: "Real Estate", href: "/real-estate" },
-  { label: "Transportation", href: "/transportation" },
-  { label: "Industrial Technology", href: "/industrial-technology" },
+/**
+ * Links carry a translation key rather than a label. The href stays in
+ * English because the route does — /ar/construction is the Arabic page for
+ * the same category, and wouter's locale base prefixes it — so only the word
+ * a reader sees changes with the language.
+ */
+type FooterLink = { key: UiKey; href: string };
+
+const editorialLinks: FooterLink[] = [
+  { key: "cat.construction", href: "/construction" },
+  { key: "cat.infrastructure", href: "/infrastructure" },
+  { key: "cat.energy", href: "/energy" },
+  { key: "cat.manufacturing", href: "/manufacturing" },
+  { key: "cat.logistics", href: "/logistics" },
+  { key: "cat.real-estate", href: "/real-estate" },
+  { key: "cat.transportation", href: "/transportation" },
+  { key: "cat.industrial-technology", href: "/industrial-technology" },
 ];
 
-const publicationLinks = [
-  { label: "About", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Advertise", href: "/advertise" },
-  { label: "Newsletter", href: "/newsletter" },
-  { label: "Jobs", href: "/jobs" },
+const publicationLinks: FooterLink[] = [
+  { key: "footer.aboutUs", href: "/about" },
+  { key: "footer.contactUs", href: "/contact" },
+  { key: "footer.advertise", href: "/advertise" },
+  { key: "nav.newsletter", href: "/newsletter" },
+  { key: "nav.jobs", href: "/jobs" },
 ];
 
-const companyLinks = [
-  { label: "Companies", href: "/companies" },
-  { label: "People", href: "/people" },
-  { label: "Events", href: "/events" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Sitemap", href: "/sitemap" },
-];
-
-const socialLinks = [
-  { label: "X (Twitter)", href: publication.social.x, Icon: XIcon },
-  { label: "LinkedIn", href: publication.social.linkedin, Icon: Linkedin },
-  { label: "Instagram", href: publication.social.instagram, Icon: Instagram },
-  { label: "YouTube", href: publication.social.youtube, Icon: Youtube },
-  { label: "Email", href: `mailto:${publication.emails.hello}`, Icon: Mail },
+const companyLinks: FooterLink[] = [
+  { key: "nav.companies", href: "/companies" },
+  { key: "nav.people", href: "/people" },
+  { key: "nav.events", href: "/events" },
+  { key: "footer.termsOfService", href: "/terms" },
+  { key: "footer.privacyPolicy", href: "/privacy" },
+  { key: "footer.sitemap", href: "/sitemap" },
 ];
 
 export function Footer() {
+  const t = useT();
+
+  // Platform names stay as they are written — "LinkedIn" is LinkedIn in every
+  // language. Only "Email" is a word rather than a name, so only it translates.
+  const socialLinks: {
+    label: string;
+    href: string;
+    Icon: ComponentType<{ className?: string }>;
+  }[] = [
+    { label: "X (Twitter)", href: publication.social.x, Icon: XIcon },
+    { label: "LinkedIn", href: publication.social.linkedin, Icon: Linkedin },
+    { label: "Instagram", href: publication.social.instagram, Icon: Instagram },
+    { label: "YouTube", href: publication.social.youtube, Icon: Youtube },
+    { label: t("footer.email"), href: `mailto:${publication.emails.hello}`, Icon: Mail },
+  ];
+
   return (
     <footer className="bg-card border-t border-border mt-12">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -64,7 +83,7 @@ export function Footer() {
             <div className="mt-5 flex items-center gap-2">
               {socialLinks.map(({ label, href, Icon }) => (
                 <a
-                  key={label}
+                  key={href}
                   href={href}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel="noopener noreferrer"
@@ -85,37 +104,37 @@ export function Footer() {
               </h3>
               <ul className="space-y-2.5">
                 {publicationLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.key}>
                     <Link href={link.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
-            <nav aria-label="Categories">
+            <nav aria-label={t("footer.categories")}>
               <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                Categories
+                {t("footer.categories")}
               </h3>
               <ul className="space-y-2.5">
                 {editorialLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.key}>
                     <Link href={link.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
-            <nav aria-label="Company">
+            <nav aria-label={t("footer.company")}>
               <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                Company
+                {t("footer.company")}
               </h3>
               <ul className="space-y-2.5">
                 {companyLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.key}>
                     <Link href={link.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}
@@ -126,7 +145,7 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {publication.legalName}. All rights reserved.
+            © {new Date().getFullYear()} {publication.legalName}. {t("footer.allRightsReserved")}
           </p>
           <p className="text-xs text-muted-foreground">{publication.tagline}</p>
         </div>

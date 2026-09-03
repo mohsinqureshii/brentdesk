@@ -21,6 +21,8 @@ export const UI_STRINGS = {
   "nav.searchPlaceholder": "Search {site}",
   "nav.signIn": "Sign in",
   "nav.signOut": "Sign out",
+  "nav.account": "Account",
+  "nav.createAccount": "Create account",
   "nav.profile": "Profile",
   "nav.dashboard": "Dashboard",
   "nav.myContent": "My content",
@@ -54,6 +56,8 @@ export const UI_STRINGS = {
 
   // -------------------------------------------------------------- lists
   "list.latest": "Latest",
+  "list.latestNews": "Latest News",
+  "list.featuredCompanies": "Featured Companies",
   "list.featured": "Featured",
   "list.trending": "Trending",
   "list.mostRead": "Most read",
@@ -82,6 +86,47 @@ export const UI_STRINGS = {
   "footer.rss": "RSS",
   "footer.allRightsReserved": "All rights reserved",
   "footer.followUs": "Follow us",
+
+
+  // ------------------------------------------------- primary navigation
+  // The header and footer link labels. These were hardcoded English arrays
+  // until the archive went bilingual, which is why an Arabic page still had
+  // an English masthead and an English footer under a translated article.
+  "nav.news": "News",
+  "nav.latest": "Latest",
+  "nav.companies": "Companies",
+  "nav.people": "People",
+  "nav.events": "Events",
+  "nav.jobs": "Jobs",
+  "nav.newsletter": "Newsletter",
+  "nav.directory": "Directory",
+  "nav.industry": "Industry",
+
+  // --------------------------------------------------------- categories
+  // The industrial taxonomy, as it appears in navigation and on category
+  // pages. Category names in the database stay English; these are what a
+  // reader sees.
+  "cat.construction": "Construction",
+  "cat.infrastructure": "Infrastructure",
+  "cat.energy": "Energy",
+  "cat.manufacturing": "Manufacturing",
+  "cat.logistics": "Logistics",
+  "cat.real-estate": "Real Estate",
+  "cat.transportation": "Transportation",
+  "cat.industrial-technology": "Industrial Technology",
+  "cat.mining": "Mining",
+  "cat.utilities": "Utilities",
+
+  // -------------------------------------------------------- footer links
+  "footer.categories": "Categories",
+  "footer.editorial": "Editorial",
+  "footer.publication": "Publication",
+  "footer.aboutUs": "About",
+  "footer.contactUs": "Contact Us",
+  "footer.termsOfService": "Terms of Service",
+  "footer.privacyPolicy": "Privacy Policy",
+  "footer.sitemap": "Sitemap",
+  "footer.email": "Email",
 
   // -------------------------------------------------------------- state
   "state.loading": "Loading…",

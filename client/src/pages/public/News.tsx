@@ -14,6 +14,7 @@ import { getArticleUrl } from "@/lib/articleUrl";
 import { SidebarAd, LeaderboardAd, InContentAd, MobileStickyAd, AdUnit } from "@/components/ads/AdUnit";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { publication } from "@shared/publication";
+import { useT } from "@/lib/i18n";
 
 // ------------------------------------------------------------------
 // Types + helpers
@@ -272,6 +273,7 @@ function CategoryChips() {
  * the two lists never repeat a story.
  */
 function HeadlinesColumns({ section }: { section: HomepageSection }) {
+  const t = useT();
   const perColumn = section.articleCount || 5;
   const { data: articles = [] } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
@@ -295,7 +297,7 @@ function HeadlinesColumns({ section }: { section: HomepageSection }) {
       </div>
       {latest.length > 0 && (
         <div className="bd-card p-5">
-          <SectionHeader title="Latest News" accent={section.accentColor} link="/news" compact />
+          <SectionHeader title={t("list.latestNews")} accent={section.accentColor} link="/news" compact />
           <div>
             {latest.map((a) => (
               <ArticleRow key={a.id} article={a} compact />
@@ -435,12 +437,13 @@ function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
 }
 
 function FeaturedCompanies() {
+  const t = useT();
   const { data } = trpc.companies.list.useQuery({ isFeatured: true, limit: 8 });
   const companies = data?.items ?? [];
   if (!companies.length) return null;
   return (
-    <section aria-label="Featured companies">
-      <SectionHeader title="Featured Companies" accent="#2563eb" link="/companies" />
+    <section aria-label={t("list.featuredCompanies")}>
+      <SectionHeader title={t("list.featuredCompanies")} accent="#2563eb" link="/companies" />
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
         {companies.map((company: any) => (
           <Link
