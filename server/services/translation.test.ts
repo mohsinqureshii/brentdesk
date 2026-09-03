@@ -35,6 +35,26 @@ describe("validateTranslation", () => {
     expect(problems[0].problem).toContain("2026");
   });
 
+  it("does not read an HTML entity's code point as a figure", () => {
+    // &#8377; is a rupee sign. Counting the 8377 made the entity itself a
+    // fact the Arabic had to carry.
+    const src = { content: "<p>A &#8377;12,000 crore order.</p>" };
+    const out = { content: "<p>طلبية بقيمة 12,000 كرور روبية.</p>" };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("lets a decade be spelled out as a word", () => {
+    const src = { content: "<p>A 1970s steel processor in Jeddah.</p>" };
+    const out = { content: "<p>معالج صلب في جدة يعود إلى سبعينيات القرن الماضي.</p>" };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("still compares a bare year exactly", () => {
+    const src = { content: "<p>Commissioned in 1970.</p>" };
+    const out = { content: "<p>دخل الخدمة في السبعينيات.</p>" };
+    expect(validateTranslation(src, out)).toHaveLength(1);
+  });
+
   it("does not treat a chemical formula's subscript as a figure", () => {
     const src = { excerpt: "Cutting CO2 by 40 percent." };
     const out = { excerpt: "خفض ثاني أكسيد الكربون بنسبة 40 في المئة." };

@@ -21,18 +21,31 @@ function hrefs(html: string): string[] {
  * "Q2 2026" is a quarter, and written Arabic spells it «الربع الثاني» — the
  * 2 is an ordinal word there, not a numeral, so requiring the digit forces a
  * translator to write «الربع الثاني (Q2)» to get past the gate. Same for
- * halves, and same for a chemical formula: the 2 in CO2 is not a figure that
- * can go missing. Everything else — every price, tonnage, percentage and
- * year — is still compared exactly.
+ * halves. Same for a decade: "the 1970s" is «سبعينيات القرن الماضي», which
+ * carries the fact and no digit, and demanding the 1970 produced «عقد 1970»
+ * — grammatical, and not how a Gulf desk writes. Same for a chemical
+ * formula: the 2 in CO2 cannot go missing.
+ *
+ * Everything else — every price, tonnage, percentage and year standing on
+ * its own — is still compared exactly. The exemption is narrow by
+ * construction: a bare year like "2026" does not match, only one written as
+ * a decade.
  */
-const TOKEN_DIGITS = /\b(?:Q[1-4]|H[12]|[CNS]O2)\b/gi;
+const TOKEN_DIGITS = /\b(?:Q[1-4]|H[12]|(?:1[89]|20)\d0s|[CNS]O2)\b/gi;
 
 function digits(html: string): string[] {
   // Figures in the PROSE are facts. Digits inside markup are not: a slug like
   // /construction/big-5-opens carries a 5 that no translation should be
   // expected to reproduce, and counting it would flag every correctly
   // translated paragraph that contains a link.
-  const prose = html.replace(/<[^>]*>/g, " ").replace(TOKEN_DIGITS, " ");
+  // Entities go the same way. `&#8377;` is a rupee sign, and its code point is
+  // not a figure in the prose — leaving it in made the 8377 a fact the
+  // translation had to reproduce, which is only satisfiable by keeping the
+  // raw entity.
+  const prose = html
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&#?[a-z0-9]{1,8};/gi, " ")
+    .replace(TOKEN_DIGITS, " ");
   // Compare the digit sequences themselves, ignoring the separators, which
   // legitimately differ between scripts.
   return (prose.match(NUMBER_RE) ?? []).map(n => n.replace(/[,.]/g, "")).sort();
