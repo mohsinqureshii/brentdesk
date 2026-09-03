@@ -39,6 +39,8 @@ import {
   Users,
 } from "lucide-react";
 
+import { type UiKey } from "@shared/uiStrings";
+import { useT } from "@/lib/i18n";
 import { splitFinalClause, type EventRow } from "./eventMeta";
 import { RichText } from "./eventFormat";
 import { stripHtml } from "@/lib/sanitizeHtml";
@@ -48,8 +50,10 @@ type IconCmp = React.ComponentType<{ className?: string; strokeWidth?: number }>
 interface Stat {
   key: string;
   value: number;
-  label: string;
-  singular: string;
+  /** Plural form, as a UI-strings key. */
+  labelKey: UiKey;
+  /** Form used when the figure is exactly one. */
+  singularKey: UiKey;
   Icon: IconCmp;
   /** True for counts we hold exactly; those are never rounded. */
   exact?: boolean;
@@ -76,45 +80,45 @@ export function buildEventStats({
     {
       key: "attendees",
       value: num(event.expectedAttendees),
-      label: "Expected attendees",
-      singular: "Expected attendee",
+      labelKey: "stats.attendees",
+      singularKey: "stats.attendee",
       Icon: Users,
     },
     {
       key: "speakers",
       exact: true,
       value: num(speakerCount),
-      label: "Speakers",
-      singular: "Speaker",
+      labelKey: "stats.speakers",
+      singularKey: "stats.speaker",
       Icon: Mic2,
     },
     {
       key: "startups",
       value: num(event.expectedStartups),
-      label: "Exhibitors",
-      singular: "Exhibitor",
+      labelKey: "stats.exhibitors",
+      singularKey: "stats.exhibitor",
       Icon: Rocket,
     },
     {
       key: "tracks",
       exact: true,
       value: num(trackCount),
-      label: "Tracks",
-      singular: "Track",
+      labelKey: "stats.tracks",
+      singularKey: "stats.track",
       Icon: Layers,
     },
     {
       key: "investors",
       value: num(event.expectedInvestors),
-      label: "Investors",
-      singular: "Investor",
+      labelKey: "stats.investors",
+      singularKey: "stats.investor",
       Icon: Briefcase,
     },
     {
       key: "countries",
       value: num(event.expectedCountries),
-      label: "Countries",
-      singular: "Country",
+      labelKey: "stats.countries",
+      singularKey: "stats.country",
       Icon: Globe2,
     },
     // Only present once our live coverage has actually logged funding
@@ -123,8 +127,8 @@ export function buildEventStats({
       key: "deals",
       exact: true,
       value: num(dealCount),
-      label: "Deals announced",
-      singular: "Deal announced",
+      labelKey: "stats.dealsAnnounced",
+      singularKey: "stats.dealAnnounced",
       Icon: Handshake,
     },
   ];
@@ -139,6 +143,7 @@ export function buildEventStats({
  * instead of hanging off the left with a hole beside it.
  */
 function StatsGrid({ stats }: { stats: Stat[] }) {
+  const t = useT();
   const perRow = stats.length >= 3 ? 3 : stats.length;
   const remainder = stats.length % perRow;
   const firstOfLastRow = remainder ? stats.length - remainder : -1;
@@ -151,7 +156,7 @@ function StatsGrid({ stats }: { stats: Stat[] }) {
 
   return (
     <dl className={`grid ${perRow === 3 ? "grid-cols-2 sm:grid-cols-6" : "grid-cols-2"}`}>
-      {stats.map(({ key, value, label, singular, Icon, exact }, i) => {
+      {stats.map(({ key, value, labelKey, singularKey, Icon, exact }, i) => {
         const inLastRow = firstOfLastRow >= 0 && i >= firstOfLastRow;
         const isLastInRow = (i + 1) % perRow === 0 || i === stats.length - 1;
         return (
@@ -174,7 +179,7 @@ function StatsGrid({ stats }: { stats: Stat[] }) {
               {exact ? value.toLocaleString() : compactNumber(value)}
             </dd>
             <dt className="mt-2 text-sm text-muted-foreground">
-              {value === 1 ? singular : label}
+              {t(value === 1 ? singularKey : labelKey)}
             </dt>
           </div>
         );
@@ -206,6 +211,7 @@ export default function EventOverviewSplit({
   trackCount: number;
   dealCount?: number;
 }) {
+  const t = useT();
   const [expanded, setExpanded] = useState(false);
 
   const stats = buildEventStats({ event, speakerCount, trackCount, dealCount });
@@ -222,7 +228,7 @@ export default function EventOverviewSplit({
   return (
     <section>
       <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-        Overview
+        {t("events.overview")}
       </h2>
 
       {headlineSource && (
@@ -247,7 +253,7 @@ export default function EventOverviewSplit({
             aria-controls={`event-${event.id}-description`}
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
           >
-            {expanded ? "Read less" : "Read more"}
+            {expanded ? t("article.readLess") : t("article.readMore")}
             <ChevronDown
               className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
               aria-hidden="true"
@@ -256,7 +262,7 @@ export default function EventOverviewSplit({
         </>
       ) : (
         <p className="mt-6 text-sm text-muted-foreground">
-          The organiser hasn&rsquo;t published a description for this event yet.
+          {t("events.noDescription")}
         </p>
       )}
 
@@ -266,7 +272,7 @@ export default function EventOverviewSplit({
       {hasStats && (
         <div
           className="mt-10 rounded-2xl border border-[var(--border)] bg-card"
-          aria-label="Event by the numbers"
+          aria-label={t("events.byTheNumbers")}
         >
           <StatsGrid stats={stats} />
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { useT } from "@/lib/i18n";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,7 @@ const LOCATION_SUGGESTIONS = [
 ];
 
 export default function Profile() {
+  const t = useT();
   const [, setLocation] = useLocation();
   const { user, isAuthenticated } = useAuth();
   const utils = trpc.useUtils();
@@ -98,11 +100,11 @@ export default function Profile() {
   // Update profile mutation
   const updateProfile = trpc.userProfile.updateProfile.useMutation({
     onSuccess: () => {
-      toast.success("Profile saved successfully!");
+      toast.success(t("profile.saved"));
       utils.userProfile.getProfile.invalidate();
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to save profile");
+      toast.error(error.message || t("profile.saveFailed"));
     }
   });
 
@@ -202,12 +204,12 @@ export default function Profile() {
             <div className="flex items-center gap-3 mb-2">
               <Button variant="ghost" size="sm" onClick={() => setLocation("/dashboard")} className="text-muted-foreground">
                 <ArrowLeft className="h-4 w-4 mr-1" />
-                Dashboard
+                {t("nav.dashboard")}
               </Button>
             </div>
-            <h1 className="text-2xl lg:text-3xl font-bold text-foreground">Your Profile</h1>
+            <h1 className="text-2xl lg:text-3xl font-bold text-foreground">{t("profile.title")}</h1>
             <p className="text-muted-foreground mt-1">
-              Complete your profile to get better job matches and recommendations
+              {t("profile.subtitle")}
             </p>
           </div>
           <Button
@@ -220,7 +222,7 @@ export default function Profile() {
             ) : (
               <Save className="h-4 w-4" />
             )}
-            Save Profile
+            {t("profile.save")}
           </Button>
         </div>
 
@@ -229,9 +231,9 @@ export default function Profile() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <h3 className="font-semibold text-foreground">Profile Completion</h3>
+                <h3 className="font-semibold text-foreground">{t("profile.completion")}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {completedFields} of {profileFields.length} sections completed
+                  {t("profile.sectionsCompleted", { done: completedFields, total: profileFields.length })}
                 </p>
               </div>
               <div className="text-2xl font-bold text-emerald-600">{completionPercent}%</div>
@@ -254,37 +256,37 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                   <User className="h-4 w-4 text-blue-600" />
                 </div>
-                About You
+                {t("profile.aboutYou")}
               </CardTitle>
-              <CardDescription>Your basic information and background</CardDescription>
+              <CardDescription>{t("profile.aboutYouDesc")}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name <span className="text-red-500">*</span></Label>
+                  <Label htmlFor="name">{t("profile.fullName")} <span className="text-red-500">*</span></Label>
                   <Input
                     id="name"
-                    placeholder="Enter your full name"
+                    placeholder={t("profile.fullNamePlaceholder")}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">{t("footer.email")}</Label>
                   <Input
                     id="email"
                     value={profile?.email || ""}
                     disabled
                     className="bg-gray-50 dark:bg-gray-800"
                   />
-                  <p className="text-xs text-muted-foreground">Email cannot be changed</p>
+                  <p className="text-xs text-muted-foreground">{t("profile.emailLocked")}</p>
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="bio">Bio</Label>
+                <Label htmlFor="bio">{t("profile.bio")}</Label>
                 <Textarea
                   id="bio"
-                  placeholder="Tell us about your experience and what you're looking for..."
+                  placeholder={t("profile.bioPlaceholder")}
                   rows={4}
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
@@ -302,28 +304,28 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
                   <Briefcase className="h-4 w-4 text-purple-600" />
                 </div>
-                Professional Information
+                {t("profile.professional")}
               </CardTitle>
-              <CardDescription>Your current role and company</CardDescription>
+              <CardDescription>{t("profile.professionalDesc")}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="jobTitle">Job Title</Label>
+                  <Label htmlFor="jobTitle">{t("profile.jobTitle")}</Label>
                   <Input
                     id="jobTitle"
-                    placeholder="e.g., Product Manager"
+                    placeholder={t("profile.jobTitlePlaceholder")}
                     value={jobTitle}
                     onChange={(e) => setJobTitle(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
+                  <Label htmlFor="company">{t("footer.company")}</Label>
                   <div className="relative">
                     <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="company"
-                      placeholder="e.g., Careem"
+                      placeholder={t("profile.companyPlaceholder")}
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       className="pl-10"
@@ -332,12 +334,12 @@ export default function Profile() {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="location">Current Location</Label>
+                <Label htmlFor="location">{t("profile.currentLocation")}</Label>
                 <div className="relative">
                   <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     id="location"
-                    placeholder="e.g., Dubai, UAE"
+                    placeholder={t("profile.locationPlaceholder")}
                     value={location}
                     onChange={(e) => setLocationValue(e.target.value)}
                     className="pl-10"
@@ -354,9 +356,9 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                   <Globe className="h-4 w-4 text-orange-600" />
                 </div>
-                Interests & Skills
+                {t("profile.interestsSkills")}
               </CardTitle>
-              <CardDescription>Select topics you're interested in for better recommendations</CardDescription>
+              <CardDescription>{t("profile.interestsDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -379,7 +381,7 @@ export default function Profile() {
               <div className="relative" ref={interestRef}>
                 <div className="flex gap-2">
                   <Input
-                    placeholder="Type to search or add an interest..."
+                    placeholder={t("profile.addInterestPlaceholder")}
                     value={newInterest}
                     onChange={(e) => {
                       setNewInterest(e.target.value);
@@ -426,9 +428,9 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center">
                   <MapPin className="h-4 w-4 text-cyan-600" />
                 </div>
-                Preferred Work Locations
+                {t("profile.preferredLocations")}
               </CardTitle>
-              <CardDescription>Where would you like to work?</CardDescription>
+              <CardDescription>{t("profile.preferredLocationsDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -452,7 +454,7 @@ export default function Profile() {
               <div className="relative" ref={locationRef}>
                 <div className="flex gap-2">
                   <Input
-                    placeholder="Type to search or add a location..."
+                    placeholder={t("profile.addLocationPlaceholder")}
                     value={newLocation}
                     onChange={(e) => {
                       setNewLocation(e.target.value);
@@ -500,20 +502,20 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                   <DollarSign className="h-4 w-4 text-green-600" />
                 </div>
-                Salary Expectations
+                {t("profile.salary")}
               </CardTitle>
-              <CardDescription>This information is kept private and only used for job matching</CardDescription>
+              <CardDescription>{t("profile.salaryDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="salaryMin">Minimum (USD/year)</Label>
+                  <Label htmlFor="salaryMin">{t("profile.salaryMin")}</Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="salaryMin"
                       type="number"
-                      placeholder="e.g., 80000"
+                      placeholder={t("profile.salaryMinPlaceholder")}
                       value={salaryMin}
                       onChange={(e) => setSalaryMin(e.target.value)}
                       className="pl-10"
@@ -521,13 +523,13 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="salaryMax">Maximum (USD/year)</Label>
+                  <Label htmlFor="salaryMax">{t("profile.salaryMax")}</Label>
                   <div className="relative">
                     <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="salaryMax"
                       type="number"
-                      placeholder="e.g., 120000"
+                      placeholder={t("profile.salaryMaxPlaceholder")}
                       value={salaryMax}
                       onChange={(e) => setSalaryMax(e.target.value)}
                       className="pl-10"
@@ -545,9 +547,9 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                   <Globe className="h-4 w-4 text-indigo-600" />
                 </div>
-                Social & Web Presence
+                {t("profile.social")}
               </CardTitle>
-              <CardDescription>Connect your online profiles</CardDescription>
+              <CardDescription>{t("profile.socialDesc")}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -557,7 +559,7 @@ export default function Profile() {
                     <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="twitter"
-                      placeholder="username (without @)"
+                      placeholder={t("profile.twitterPlaceholder")}
                       value={twitterHandle}
                       onChange={(e) => setTwitterHandle(e.target.value.replace("@", ""))}
                       className="pl-10"
@@ -579,7 +581,7 @@ export default function Profile() {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="website">Personal Website</Label>
+                <Label htmlFor="website">{t("profile.personalWebsite")}</Label>
                 <div className="relative">
                   <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
@@ -601,32 +603,32 @@ export default function Profile() {
                 <div className="h-8 w-8 rounded-lg bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center">
                   <FileText className="h-4 w-4 text-rose-600" />
                 </div>
-                Resume / CV
+                {t("profile.resume")}
               </CardTitle>
-              <CardDescription>Upload your resume for easy job applications</CardDescription>
+              <CardDescription>{t("profile.resumeDesc")}</CardDescription>
             </CardHeader>
             <CardContent>
               {profile?.cvUrl ? (
                 <div className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                   <FileText className="h-10 w-10 text-emerald-500" />
                   <div className="flex-1">
-                    <p className="font-medium text-foreground">Resume uploaded</p>
+                    <p className="font-medium text-foreground">{t("profile.resumeUploaded")}</p>
                     <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-600 hover:underline">
-                      View your resume
+                      {t("profile.viewResume")}
                     </a>
                   </div>
-                  <Button variant="outline" size="sm" onClick={() => toast.info("CV management coming soon")}>
+                  <Button variant="outline" size="sm" onClick={() => toast.info(t("profile.cvComingSoon"))}>
                     <Upload className="h-4 w-4 mr-2" />
-                    Replace
+                    {t("profile.replace")}
                   </Button>
                 </div>
               ) : (
                 <div className="border-2 border-dashed border-border rounded-xl p-8 text-center">
                   <Upload className="h-8 w-8 mx-auto mb-3 text-muted-foreground" />
-                  <p className="text-foreground mb-1">Drop your resume here or click to upload</p>
-                  <p className="text-sm text-muted-foreground">PDF, DOC, or DOCX up to 5MB</p>
-                  <Button variant="outline" className="mt-4" onClick={() => toast.info("CV upload coming soon")}>
-                    Choose file
+                  <p className="text-foreground mb-1">{t("profile.dropResume")}</p>
+                  <p className="text-sm text-muted-foreground">{t("profile.resumeFormats")}</p>
+                  <Button variant="outline" className="mt-4" onClick={() => toast.info(t("profile.cvUploadComingSoon"))}>
+                    {t("profile.chooseFile")}
                   </Button>
                 </div>
               )}
@@ -638,7 +640,7 @@ export default function Profile() {
         <div className="sticky bottom-0 bg-background/80 backdrop-blur-sm border-t mt-8 -mx-6 lg:-mx-8 px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <p className="text-sm text-muted-foreground">
-              {updateProfile.isPending ? "Saving..." : "All changes are saved when you click Save"}
+              {updateProfile.isPending ? t("profile.saving") : t("profile.saveHint")}
             </p>
             <Button
               onClick={handleSave}
@@ -651,7 +653,7 @@ export default function Profile() {
               ) : (
                 <Save className="h-4 w-4" />
               )}
-              Save Profile
+              {t("profile.save")}
             </Button>
           </div>
         </div>

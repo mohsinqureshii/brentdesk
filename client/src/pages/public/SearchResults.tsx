@@ -5,6 +5,7 @@
  */
 import { useState, useEffect, useMemo } from "react";
 import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { useLocation, Link } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
@@ -35,27 +36,29 @@ import { useDebounce } from "@/hooks/useDebounce";
 
 // Content type configuration
 const typeConfig = {
-  all: { icon: Search, label: "All", color: "bg-gray-100 text-gray-700" },
-  article: { icon: Newspaper, label: "Articles", color: "bg-blue-100 text-blue-700" },
-  job: { icon: Briefcase, label: "Jobs", color: "bg-emerald-100 text-emerald-700" },
-  company: { icon: Building2, label: "Companies", color: "bg-purple-100 text-purple-700" },
-  person: { icon: Users, label: "People", color: "bg-orange-100 text-orange-700" },
-  event: { icon: Calendar, label: "Events", color: "bg-pink-100 text-pink-700" },
+  all: { icon: Search, labelKey: "common.all", color: "bg-gray-100 text-gray-700" },
+  article: { icon: Newspaper, labelKey: "common.articles", color: "bg-blue-100 text-blue-700" },
+  job: { icon: Briefcase, labelKey: "nav.jobs", color: "bg-emerald-100 text-emerald-700" },
+  company: { icon: Building2, labelKey: "nav.companies", color: "bg-purple-100 text-purple-700" },
+  person: { icon: Users, labelKey: "nav.people", color: "bg-orange-100 text-orange-700" },
+  event: { icon: Calendar, labelKey: "nav.events", color: "bg-pink-100 text-pink-700" },
 } as const;
 
 type ContentType = keyof typeof typeConfig;
 
-function formatTimeAgo(date: Date | string | null | undefined): string {
+function formatTimeAgo(
+  date: Date | string | null | undefined,
+  t: (key: UiKey, vars?: Record<string, string | number>) => string,
+): string {
   if (!date) return "";
   const now = new Date();
   const then = new Date(date);
   const diffMs = now.getTime() - then.getTime();
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  if (diffHours < 1) return "Just now";
-  if (diffHours < 24) return `${diffHours}h ago`;
-  if (diffDays < 7) return `${diffDays}d ago`;
-  if (diffDays < 30) return `${diffDays}d ago`;
+  if (diffHours < 1) return t("time.justNow");
+  if (diffHours < 24) return t("time.hoursAgo", { n: diffHours });
+  if (diffDays < 30) return t("time.daysAgo", { n: diffDays });
   return then.toLocaleDateString();
 }
 
@@ -171,7 +174,9 @@ export default function SearchResults() {
           {debouncedQuery && (
             <div className="mt-4 flex items-center justify-between">
               <p className="text-sm text-muted-foreground">
-                {isLoading ? "Searching..." : `${totalResults.toLocaleString()} results for "${debouncedQuery}"`}
+                {isLoading
+                  ? t("search.searching")
+                  : t("search.resultsFor", { count: totalResults.toLocaleString(), query: debouncedQuery })}
               </p>
             </div>
           )}
@@ -194,7 +199,7 @@ export default function SearchResults() {
                   }`}
                 >
                   <Icon className="h-3.5 w-3.5" />
-                  {config.label}
+                  {t(config.labelKey)}
                   {debouncedQuery && count > 0 && (
                     <span className={`text-xs ${isActive ? "text-emerald-100" : "text-gray-400"}`}>
                       ({count})
@@ -212,8 +217,8 @@ export default function SearchResults() {
         {!debouncedQuery || debouncedQuery.length < 2 ? (
           <div className="text-center py-20">
             <Search className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-            <h2 className="text-xl font-semibold text-gray-600 mb-2">Search {publication.name}</h2>
-            <p className="text-muted-foreground">Enter at least 2 characters to search across all content</p>
+            <h2 className="text-xl font-semibold text-gray-600 mb-2">{t("nav.searchPlaceholder", { site: publication.name })}</h2>
+            <p className="text-muted-foreground">{t("search.minCharacters")}</p>
           </div>
         ) : isLoading ? (
           <div className="space-y-6">
@@ -233,7 +238,7 @@ export default function SearchResults() {
             <Search className="h-16 w-16 mx-auto text-gray-300 mb-4" />
             <h2 className="text-xl font-semibold text-gray-600 mb-2">{t("state.noResults")}</h2>
             <p className="text-muted-foreground mb-4">
-              We couldn't find anything matching "{debouncedQuery}". Try different keywords.
+              {t("search.nothingMatching", { query: debouncedQuery })}
             </p>
           </div>
         ) : (
@@ -279,7 +284,7 @@ export default function SearchResults() {
                           {article.publishedAt && (
                             <span className="flex items-center gap-1">
                               <Clock className="h-3 w-3" />
-                              {formatTimeAgo(article.publishedAt)}
+                              {formatTimeAgo(article.publishedAt, t)}
                             </span>
                           )}
                         </div>
@@ -309,7 +314,7 @@ export default function SearchResults() {
                       {job.companyLogo ? (
                         <img
                           src={job.companyLogo}
-                          alt={job.companyName || "Company"}
+                          alt={job.companyName || t("footer.company")}
                           className="h-14 w-14 rounded-lg object-cover shrink-0"
                         />
                       ) : (

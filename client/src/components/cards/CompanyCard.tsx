@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { MapPin, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useT } from "@/lib/i18n";
 
 interface CompanyCardProps {
   id: string;
@@ -24,6 +25,7 @@ export function CompanyCard({
   jobCount = 0,
   logoUrl 
 }: CompanyCardProps) {
+  const t = useT();
   return (
     <div className="group rounded-xl border border-border bg-card p-5 shadow-card hover:shadow-elevated transition-all duration-200 hover:-translate-y-0.5">
       <div className="flex items-start gap-4">
@@ -67,16 +69,16 @@ export function CompanyCard({
           {jobCount > 0 && (
             <span className="flex items-center gap-1">
               <Briefcase className="h-3.5 w-3.5" />
-              {jobCount} jobs
+              {t("job.count", { n: jobCount })}
             </span>
           )}
         </div>
         
         <div className="flex items-center gap-2">
           <Link href={`/companies/${id}`}>
-            <Button variant="outline" size="sm">View</Button>
+            <Button variant="outline" size="sm">{t("common.view")}</Button>
           </Link>
-          <Button variant="ghost" size="sm">Follow</Button>
+          <Button variant="ghost" size="sm">{t("common.follow")}</Button>
         </div>
       </div>
     </div>

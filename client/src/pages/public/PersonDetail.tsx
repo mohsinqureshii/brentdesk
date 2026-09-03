@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "wouter";
+import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
@@ -29,6 +30,7 @@ import { ClaimProfileButton } from "@/components/ClaimProfileButton";
 import SpeakingEngagements from "@/components/events/SpeakingEngagements";
 
 export default function PersonDetail() {
+  const t = useT();
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState("overview");
   const [contactOpen, setContactOpen] = useState(false);
@@ -61,12 +63,12 @@ export default function PersonDetail() {
   if (error || !person) {
     return (
       <div className="min-h-screen bg-background overflow-x-hidden">
-        <SEO title="Person Not Found" noindex />
+        <SEO title={t("state.personNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] gap-4">
-          <h2 className="text-2xl font-bold">Person Not Found</h2>
-          <p className="text-muted-foreground">The person you're looking for doesn't exist.</p>
-          <Link href="/people"><Button variant="outline"><ArrowLeft className="h-4 w-4 mr-2" />Back to People</Button></Link>
+          <h2 className="text-2xl font-bold">{t("state.personNotFound")}</h2>
+          <p className="text-muted-foreground">{t("state.personNotFoundBody")}</p>
+          <Link href="/people"><Button variant="outline"><ArrowLeft className="h-4 w-4 mr-2" />{t("state.backToPeople")}</Button></Link>
         </div>
         <Footer />
       </div>
@@ -91,23 +93,23 @@ export default function PersonDetail() {
   const similarPeople = Array.isArray(p.similarPeople) ? p.similarPeople : [];
 
   const tabs = [
-    { id: "overview", label: "Overview" },
-    { id: "experience", label: "Career & Education" },
-    { id: "investments", label: "Investments & Companies" },
-    { id: "network", label: "Network & Influence" },
+    { id: "overview", label: t("person.tabOverview") },
+    { id: "experience", label: t("person.tabCareer") },
+    { id: "investments", label: t("person.tabInvestments") },
+    { id: "network", label: t("person.tabNetwork") },
   ];
 
   const handleFollow = () => {
-    if (!user) { toast({ title: "Sign in required", description: "Please sign in to follow people." }); return; }
+    if (!user) { toast({ title: t("auth.signInRequired"), description: t("person.signInToFollow") }); return; }
     bookmarkToggle.mutate(
       { contentType: "person" as any, contentId: p.id, contentTitle: p.name, contentSlug: p.slug },
-      { onSuccess: (res) => { setIsFollowing(res.bookmarked); toast({ title: res.bookmarked ? `Following ${p.name}` : `Unfollowed ${p.name}` }); } }
+      { onSuccess: (res) => { setIsFollowing(res.bookmarked); toast({ title: res.bookmarked ? t("person.followingName", { name: p.name }) : t("person.unfollowedName", { name: p.name }) }); } }
     );
   };
 
   const handleShare = () => {
     const url = `${window.location.origin}/people/${p.slug}`;
-    navigator.clipboard.writeText(url).then(() => toast({ title: "Profile link copied!" }));
+    navigator.clipboard.writeText(url).then(() => toast({ title: t("person.linkCopied") }));
   };
 
   return (
@@ -158,12 +160,12 @@ export default function PersonDetail() {
                 <div className="min-w-0 pb-1">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
                     <h1 className="text-2xl sm:text-3xl font-bold text-foreground">{p.name}</h1>
-                    {p.isVerified ? <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-xs">Verified</Badge> : null}
+                    {p.isVerified ? <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-xs">{t("person.verified")}</Badge> : null}
                   </div>
                   <p className="text-base sm:text-lg text-muted-foreground">
                     {p.title}
                     {p.company && (
-                      <> at <Link href={`/companies/${p.companyId ? p.slug : ''}`} className="text-primary hover:underline font-medium">{p.company}</Link></>
+                      <> {t("person.at")} <Link href={`/companies/${p.companyId ? p.slug : ''}`} className="text-primary hover:underline font-medium">{p.company}</Link></>
                     )}
                   </p>
                   {p.location && (
@@ -176,10 +178,10 @@ export default function PersonDetail() {
 
               {/* Badges Row */}
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                {openTo.length > 0 && <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-xs">Open to Intros</Badge>}
-                {angelInvestments.length > 0 && <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-400 border-0 text-xs">Angel Investor</Badge>}
-                {boardRoles.length > 0 && <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-400 border-0 text-xs">Board Member</Badge>}
-                {companiesFounded.length > 0 && <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-400 border-0 text-xs">Founder</Badge>}
+                {openTo.length > 0 && <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-xs">{t("person.openToIntros")}</Badge>}
+                {angelInvestments.length > 0 && <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-400 border-0 text-xs">{t("person.angelInvestor")}</Badge>}
+                {boardRoles.length > 0 && <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-400 border-0 text-xs">{t("person.boardMember")}</Badge>}
+                {companiesFounded.length > 0 && <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-400 border-0 text-xs">{t("person.founder")}</Badge>}
               </div>
 
               {/* Meta Info Chips */}
@@ -209,21 +211,21 @@ export default function PersonDetail() {
             <div className="hidden lg:flex flex-col gap-2 w-56 shrink-0 pt-14">
               {p.website && (
                 <Button className="w-full gap-2 bg-foreground text-background hover:bg-foreground/90" asChild>
-                  <a href={p.website} target="_blank" rel="noopener noreferrer"><Globe className="h-4 w-4" />Visit Website<ExternalLink className="h-3 w-3 ml-auto" /></a>
+                  <a href={p.website} target="_blank" rel="noopener noreferrer"><Globe className="h-4 w-4" />{t("company.visitWebsite")}<ExternalLink className="h-3 w-3 ml-auto" /></a>
                 </Button>
               )}
               <Button variant="outline" className={`w-full gap-2 ${isFollowing ? 'bg-primary/10 border-primary text-primary' : ''}`} onClick={handleFollow}>
-                <UserPlus className="h-4 w-4" />{isFollowing ? "Following" : "Follow"}
+                <UserPlus className="h-4 w-4" />{isFollowing ? t("common.following") : t("common.follow")}
               </Button>
               <Button variant="outline" className="w-full gap-2" onClick={() => setContactOpen(true)}>
-                <Mail className="h-4 w-4" />Contact
+                <Mail className="h-4 w-4" />{t("person.contact")}
               </Button>
               <Button variant="outline" className="w-full gap-2" onClick={handleShare}>
-                <Share2 className="h-4 w-4" />Share Profile
+                <Share2 className="h-4 w-4" />{t("person.shareProfile")}
               </Button>
               {p.bookingRate && (
                 <Button variant="outline" className="w-full gap-2 text-green-600 border-green-200 hover:bg-green-50">
-                  <Phone className="h-4 w-4" />Book a Call · {p.bookingRate}
+                  <Phone className="h-4 w-4" />{t("person.bookCall")} · {p.bookingRate}
                 </Button>
               )}
             </div>
@@ -232,7 +234,7 @@ export default function PersonDetail() {
           {/* Mobile Action Buttons */}
           <div className="flex lg:hidden items-center gap-2 mt-4">
             <Button variant="outline" className={`flex-1 gap-2 text-sm ${isFollowing ? 'bg-primary/10 border-primary text-primary' : ''}`} onClick={handleFollow}>
-              <UserPlus className="h-4 w-4" />{isFollowing ? "Following" : "Follow"}
+              <UserPlus className="h-4 w-4" />{isFollowing ? t("common.following") : t("common.follow")}
             </Button>
             <Button variant="outline" className="gap-2 text-sm" onClick={handleShare}><Share2 className="h-4 w-4" /></Button>
             <Button variant="outline" className="gap-2 text-sm" onClick={() => setContactOpen(true)}><Mail className="h-4 w-4" /></Button>
@@ -276,28 +278,28 @@ export default function PersonDetail() {
                     <CardContent className="p-4 text-center">
                       <Building2 className="h-5 w-5 mx-auto mb-1 text-blue-500" />
                       <div className="text-2xl font-bold">{companiesFounded.length + (p.company ? 1 : 0)}</div>
-                      <div className="text-xs text-muted-foreground">Companies</div>
+                      <div className="text-xs text-muted-foreground">{t("article.companies")}</div>
                     </CardContent>
                   </Card>
                   <Card className="bg-white dark:bg-card">
                     <CardContent className="p-4 text-center">
                       <DollarSign className="h-5 w-5 mx-auto mb-1 text-green-500" />
                       <div className="text-2xl font-bold">{angelInvestments.length}</div>
-                      <div className="text-xs text-muted-foreground">Investments</div>
+                      <div className="text-xs text-muted-foreground">{t("person.investments")}</div>
                     </CardContent>
                   </Card>
                   <Card className="bg-white dark:bg-card">
                     <CardContent className="p-4 text-center">
                       <Star className="h-5 w-5 mx-auto mb-1 text-purple-500" />
                       <div className="text-2xl font-bold">{boardRoles.length + advisorRoles.length}</div>
-                      <div className="text-xs text-muted-foreground">Board & Advisory</div>
+                      <div className="text-xs text-muted-foreground">{t("person.boardAdvisory")}</div>
                     </CardContent>
                   </Card>
                   <Card className="bg-white dark:bg-card">
                     <CardContent className="p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1 text-amber-500" />
                       <div className="text-2xl font-bold">{similarPeople.length}</div>
-                      <div className="text-xs text-muted-foreground">Network</div>
+                      <div className="text-xs text-muted-foreground">{t("person.network")}</div>
                     </CardContent>
                   </Card>
                 </div>
@@ -316,7 +318,7 @@ export default function PersonDetail() {
                 {/* About Section */}
                 {(p.bio || p.shortBio) && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">About</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.about")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: p.bio || p.shortBio }} />
                     </CardContent>
@@ -327,42 +329,42 @@ export default function PersonDetail() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Details Card */}
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Details</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.details")}</CardTitle></CardHeader>
                     <CardContent className="space-y-3">
                       {p.title && (
                         <div className="flex items-start gap-3">
                           <Briefcase className="h-4 w-4 mt-0.5 text-muted-foreground shrink-0" />
-                          <div><div className="text-xs text-muted-foreground">Primary Role</div><div className="text-sm font-medium">{p.title}</div></div>
+                          <div><div className="text-xs text-muted-foreground">{t("person.primaryRole")}</div><div className="text-sm font-medium">{p.title}</div></div>
                         </div>
                       )}
                       {p.company && (
                         <div className="flex items-start gap-3">
                           <Building2 className="h-4 w-4 mt-0.5 text-muted-foreground shrink-0" />
-                          <div><div className="text-xs text-muted-foreground">Organization</div><div className="text-sm font-medium">{p.company}</div></div>
+                          <div><div className="text-xs text-muted-foreground">{t("person.organization")}</div><div className="text-sm font-medium">{p.company}</div></div>
                         </div>
                       )}
                       {p.location && (
                         <div className="flex items-start gap-3">
                           <MapPin className="h-4 w-4 mt-0.5 text-muted-foreground shrink-0" />
-                          <div><div className="text-xs text-muted-foreground">Location</div><div className="text-sm font-medium">{p.location}</div></div>
+                          <div><div className="text-xs text-muted-foreground">{t("person.location")}</div><div className="text-sm font-medium">{p.location}</div></div>
                         </div>
                       )}
                       {p.nationality && (
                         <div className="flex items-start gap-3">
                           <Globe className="h-4 w-4 mt-0.5 text-muted-foreground shrink-0" />
-                          <div><div className="text-xs text-muted-foreground">Nationality</div><div className="text-sm font-medium">{p.nationality}</div></div>
+                          <div><div className="text-xs text-muted-foreground">{t("person.nationality")}</div><div className="text-sm font-medium">{p.nationality}</div></div>
                         </div>
                       )}
                       {regions.length > 0 && (
                         <div className="flex items-start gap-3">
                           <Globe className="h-4 w-4 mt-0.5 text-muted-foreground shrink-0" />
-                          <div><div className="text-xs text-muted-foreground">Regions</div><div className="flex flex-wrap gap-1 mt-1">{regions.map((r: any) => <Badge key={r.id} variant="secondary" className="text-xs">{r.name}</Badge>)}</div></div>
+                          <div><div className="text-xs text-muted-foreground">{t("person.regions")}</div><div className="flex flex-wrap gap-1 mt-1">{regions.map((r: any) => <Badge key={r.id} variant="secondary" className="text-xs">{r.name}</Badge>)}</div></div>
                         </div>
                       )}
                       {langs.length > 0 && (
                         <div className="flex items-start gap-3">
                           <Languages className="h-4 w-4 mt-0.5 text-muted-foreground shrink-0" />
-                          <div><div className="text-xs text-muted-foreground">Languages</div><div className="flex flex-wrap gap-1 mt-1">{langs.map((l: string, i: number) => <Badge key={i} variant="secondary" className="text-xs">{l}</Badge>)}</div></div>
+                          <div><div className="text-xs text-muted-foreground">{t("person.languages")}</div><div className="flex flex-wrap gap-1 mt-1">{langs.map((l: string, i: number) => <Badge key={i} variant="secondary" className="text-xs">{l}</Badge>)}</div></div>
                         </div>
                       )}
                     </CardContent>
@@ -370,29 +372,29 @@ export default function PersonDetail() {
 
                   {/* Expertise Card */}
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Expertise</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.expertise")}</CardTitle></CardHeader>
                     <CardContent className="space-y-4">
                       {sectors.length > 0 && (
                         <div>
-                          <div className="text-xs text-muted-foreground mb-2">Sectors</div>
+                          <div className="text-xs text-muted-foreground mb-2">{t("person.sectors")}</div>
                           <div className="flex flex-wrap gap-1.5">{sectors.map((s: any) => <Badge key={s.id} className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-400 border-0 text-xs">{s.name}</Badge>)}</div>
                         </div>
                       )}
                       {functionalStrengths.length > 0 && (
                         <div>
-                          <div className="text-xs text-muted-foreground mb-2">Functional Strengths</div>
+                          <div className="text-xs text-muted-foreground mb-2">{t("person.functionalStrengths")}</div>
                           <div className="flex flex-wrap gap-1.5">{functionalStrengths.map((s: string, i: number) => <Badge key={i} className="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-400 border-0 text-xs">{s}</Badge>)}</div>
                         </div>
                       )}
                       {openTo.length > 0 && (
                         <div>
-                          <div className="text-xs text-muted-foreground mb-2">Open To</div>
+                          <div className="text-xs text-muted-foreground mb-2">{t("person.openTo")}</div>
                           <div className="flex flex-wrap gap-1.5">{openTo.map((o: string, i: number) => <Badge key={i} className="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-xs">{o}</Badge>)}</div>
                         </div>
                       )}
                       {interests.length > 0 && (
                         <div>
-                          <div className="text-xs text-muted-foreground mb-2">Interests</div>
+                          <div className="text-xs text-muted-foreground mb-2">{t("person.interests")}</div>
                           <div className="flex flex-wrap gap-1.5">{interests.map((i: string, idx: number) => <Badge key={idx} variant="secondary" className="text-xs">{i}</Badge>)}</div>
                         </div>
                       )}
@@ -404,10 +406,10 @@ export default function PersonDetail() {
                 {experience.length > 0 && (
                   <Card className="bg-white dark:bg-card">
                     <CardHeader className="pb-3 flex flex-row items-center justify-between">
-                      <CardTitle className="text-lg">Experience</CardTitle>
+                      <CardTitle className="text-lg">{t("person.experience")}</CardTitle>
                       {experience.length > 3 && (
                         <Button variant="ghost" size="sm" onClick={() => setActiveTab("experience")} className="text-xs text-primary">
-                          View All <ChevronRight className="h-3 w-3 ml-1" />
+                          {t("common.viewAll")} <ChevronRight className="h-3 w-3 ml-1" />
                         </Button>
                       )}
                     </CardHeader>
@@ -421,10 +423,10 @@ export default function PersonDetail() {
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2">
                                 <h4 className="text-sm font-semibold">{exp.role || exp.title}</h4>
-                                {exp.current && <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-[10px]">Current</Badge>}
+                                {exp.current && <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-[10px]">{t("person.current")}</Badge>}
                               </div>
                               <p className="text-sm text-muted-foreground">{exp.company || exp.organization}</p>
-                              <p className="text-xs text-muted-foreground mt-0.5">{exp.startDate || exp.from}{exp.endDate || exp.to ? ` — ${exp.endDate || exp.to}` : exp.current ? ' — Present' : ''}</p>
+                              <p className="text-xs text-muted-foreground mt-0.5">{exp.startDate || exp.from}{exp.endDate || exp.to ? ` — ${exp.endDate || exp.to}` : exp.current ? ` — ${t("person.present")}` : ''}</p>
                             </div>
                           </div>
                         ))}
@@ -441,7 +443,7 @@ export default function PersonDetail() {
                 {/* Similar People */}
                 {similarPeople.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Similar People</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.similarPeople")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {similarPeople.map((sp: any) => (
@@ -468,7 +470,7 @@ export default function PersonDetail() {
                 {/* Full Experience Timeline */}
                 {experience.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Career Timeline</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.careerTimeline")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="relative pl-6 border-l-2 border-muted space-y-6">
                         {experience.map((exp: any, i: number) => (
@@ -476,10 +478,10 @@ export default function PersonDetail() {
                             <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-background border-2 border-primary" />
                             <div className="flex items-center gap-2 mb-1">
                               <h4 className="text-sm font-semibold">{exp.role || exp.title}</h4>
-                              {exp.current && <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-[10px]">Current</Badge>}
+                              {exp.current && <Badge className="bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400 border-0 text-[10px]">{t("person.current")}</Badge>}
                             </div>
                             <p className="text-sm text-primary font-medium">{exp.company || exp.organization}</p>
-                            <p className="text-xs text-muted-foreground mt-0.5">{exp.startDate || exp.from}{exp.endDate || exp.to ? ` — ${exp.endDate || exp.to}` : exp.current ? ' — Present' : ''}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">{exp.startDate || exp.from}{exp.endDate || exp.to ? ` — ${exp.endDate || exp.to}` : exp.current ? ` — ${t("person.present")}` : ''}</p>
                             {exp.description && <p className="text-sm text-muted-foreground mt-2">{exp.description}</p>}
                           </div>
                         ))}
@@ -491,7 +493,7 @@ export default function PersonDetail() {
                 {/* Education */}
                 {education.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Education</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.education")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="space-y-4">
                         {education.map((edu: any, i: number) => (
@@ -515,14 +517,14 @@ export default function PersonDetail() {
                 {/* Board Roles */}
                 {boardRoles.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Board Positions</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.boardPositions")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="space-y-3">
                         {boardRoles.map((br: any, i: number) => (
                           <div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-muted/30">
                             <Star className="h-5 w-5 text-amber-500 shrink-0" />
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-sm font-semibold">{br.role || br.title || 'Board Member'}</h4>
+                              <h4 className="text-sm font-semibold">{br.role || br.title || t("person.boardMember")}</h4>
                               <p className="text-sm text-muted-foreground">{br.company || br.organization}</p>
                             </div>
                             {br.since && <span className="text-xs text-muted-foreground shrink-0">{br.since}</span>}
@@ -536,14 +538,14 @@ export default function PersonDetail() {
                 {/* Advisory Roles */}
                 {advisorRoles.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Advisory Roles</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.advisoryRoles")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="space-y-3">
                         {advisorRoles.map((ar: any, i: number) => (
                           <div key={i} className="flex items-center gap-4 p-3 rounded-lg bg-muted/30">
                             <Handshake className="h-5 w-5 text-blue-500 shrink-0" />
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-sm font-semibold">{ar.role || ar.title || 'Advisor'}</h4>
+                              <h4 className="text-sm font-semibold">{ar.role || ar.title || t("person.advisor")}</h4>
                               <p className="text-sm text-muted-foreground">{ar.company || ar.organization}</p>
                             </div>
                             {ar.since && <span className="text-xs text-muted-foreground shrink-0">{ar.since}</span>}
@@ -555,7 +557,7 @@ export default function PersonDetail() {
                 )}
 
                 {experience.length === 0 && education.length === 0 && boardRoles.length === 0 && advisorRoles.length === 0 && (
-                  <Card className="bg-white dark:bg-card"><CardContent className="py-12 text-center text-muted-foreground">No career or education data available yet.</CardContent></Card>
+                  <Card className="bg-white dark:bg-card"><CardContent className="py-12 text-center text-muted-foreground">{t("person.noCareerData")}</CardContent></Card>
                 )}
               </>
             )}
@@ -567,7 +569,7 @@ export default function PersonDetail() {
                 {companiesFounded.length > 0 && (
                   <Card className="bg-white dark:bg-card">
                     <CardHeader className="pb-3">
-                      <CardTitle className="text-lg flex items-center gap-2">Companies Founded <Badge variant="secondary" className="text-xs">{companiesFounded.length}</Badge></CardTitle>
+                      <CardTitle className="text-lg flex items-center gap-2">{t("person.companiesFounded")} <Badge variant="secondary" className="text-xs">{companiesFounded.length}</Badge></CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
@@ -594,7 +596,7 @@ export default function PersonDetail() {
                 {angelInvestments.length > 0 && (
                   <Card className="bg-white dark:bg-card">
                     <CardHeader className="pb-3">
-                      <CardTitle className="text-lg flex items-center gap-2">Personal Investments <Badge variant="secondary" className="text-xs">{angelInvestments.length} Investments</Badge></CardTitle>
+                      <CardTitle className="text-lg flex items-center gap-2">{t("person.personalInvestments")} <Badge variant="secondary" className="text-xs">{t("person.nInvestments", { n: angelInvestments.length })}</Badge></CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-0">
@@ -611,7 +613,7 @@ export default function PersonDetail() {
                                 {inv.year && <span className="text-xs text-muted-foreground">{inv.year}</span>}
                               </div>
                             </div>
-                            <Badge className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-400 border-0 text-xs shrink-0">{inv.type || 'Angel'}</Badge>
+                            <Badge className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-400 border-0 text-xs shrink-0">{inv.type || t("person.angel")}</Badge>
                           </div>
                         ))}
                       </div>
@@ -620,7 +622,7 @@ export default function PersonDetail() {
                 )}
 
                 {companiesFounded.length === 0 && angelInvestments.length === 0 && (
-                  <Card className="bg-white dark:bg-card"><CardContent className="py-12 text-center text-muted-foreground">No investment or company data available yet.</CardContent></Card>
+                  <Card className="bg-white dark:bg-card"><CardContent className="py-12 text-center text-muted-foreground">{t("person.noInvestmentData")}</CardContent></Card>
                 )}
               </>
             )}
@@ -631,7 +633,7 @@ export default function PersonDetail() {
                 {/* Achievements */}
                 {achievements.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Achievements & Recognition</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.achievements")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="space-y-3">
                         {achievements.map((a: any, i: number) => (
@@ -652,7 +654,7 @@ export default function PersonDetail() {
                 {/* Similar People / Network */}
                 {similarPeople.length > 0 && (
                   <Card className="bg-white dark:bg-card">
-                    <CardHeader className="pb-3"><CardTitle className="text-lg">Network</CardTitle></CardHeader>
+                    <CardHeader className="pb-3"><CardTitle className="text-lg">{t("person.network")}</CardTitle></CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {similarPeople.map((sp: any) => (
@@ -674,7 +676,7 @@ export default function PersonDetail() {
                 )}
 
                 {achievements.length === 0 && similarPeople.length === 0 && (
-                  <Card className="bg-white dark:bg-card"><CardContent className="py-12 text-center text-muted-foreground">No network data available yet.</CardContent></Card>
+                  <Card className="bg-white dark:bg-card"><CardContent className="py-12 text-center text-muted-foreground">{t("person.noNetworkData")}</CardContent></Card>
                 )}
               </>
             )}
@@ -687,7 +689,7 @@ export default function PersonDetail() {
 
             {/* Quick Info Card */}
             <Card className="bg-white dark:bg-card">
-              <CardHeader className="pb-2"><CardTitle className="text-sm">Quick Info</CardTitle></CardHeader>
+              <CardHeader className="pb-2"><CardTitle className="text-sm">{t("person.quickInfo")}</CardTitle></CardHeader>
               <CardContent className="space-y-2 text-sm">
                 {p.email && <div className="flex items-center gap-2 text-muted-foreground"><Mail className="h-3.5 w-3.5" /><span className="truncate">{p.email}</span></div>}
                 {p.phone && <div className="flex items-center gap-2 text-muted-foreground"><Phone className="h-3.5 w-3.5" /><span>{p.phone}</span></div>}
@@ -704,11 +706,11 @@ export default function PersonDetail() {
               <CardContent className="p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <FileText className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm font-medium">Data Transparency</span>
+                  <span className="text-sm font-medium">{t("person.dataTransparency")}</span>
                 </div>
-                <p className="text-xs text-muted-foreground mb-2">This profile is compiled from public sources and verified data.</p>
-                <p className="text-xs text-muted-foreground">Last updated: {p.updatedAt ? new Date(p.updatedAt).toLocaleDateString() : 'N/A'}</p>
-                <p className="text-xs text-muted-foreground">Views: {p.viewCount?.toLocaleString() || 0}</p>
+                <p className="text-xs text-muted-foreground mb-2">{t("person.dataTransparencyBody")}</p>
+                <p className="text-xs text-muted-foreground">{t("person.lastUpdated")}: {p.updatedAt ? new Date(p.updatedAt).toLocaleDateString() : t("common.notAvailable")}</p>
+                <p className="text-xs text-muted-foreground">{t("person.views")}: {p.viewCount?.toLocaleString() || 0}</p>
               </CardContent>
             </Card>
           </aside>
@@ -719,20 +721,20 @@ export default function PersonDetail() {
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Contact {p.name}</DialogTitle>
-            <DialogDescription>Send a message to {p.name}. They will be notified via email.</DialogDescription>
+            <DialogTitle>{t("person.contactName", { name: p.name })}</DialogTitle>
+            <DialogDescription>{t("person.contactBody", { name: p.name })}</DialogDescription>
           </DialogHeader>
           <div className="space-y-4 mt-2">
             <div>
-              <label className="text-sm font-medium mb-1.5 block">Your Email</label>
+              <label className="text-sm font-medium mb-1.5 block">{t("person.yourEmail")}</label>
               <Input placeholder="your@email.com" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
             </div>
             <div>
-              <label className="text-sm font-medium mb-1.5 block">Message</label>
-              <Textarea placeholder="Write your message..." rows={4} value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} />
+              <label className="text-sm font-medium mb-1.5 block">{t("person.message")}</label>
+              <Textarea placeholder={t("person.messagePlaceholder")} rows={4} value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} />
             </div>
-            <Button className="w-full" onClick={() => { toast({ title: "Message sent!", description: `${p.name} will be notified.` }); setContactOpen(false); setContactMessage(""); setContactEmail(""); }}>
-              <Mail className="h-4 w-4 mr-2" />Send Message
+            <Button className="w-full" onClick={() => { toast({ title: t("person.messageSent"), description: t("person.willBeNotified", { name: p.name }) }); setContactOpen(false); setContactMessage(""); setContactEmail(""); }}>
+              <Mail className="h-4 w-4 mr-2" />{t("person.sendMessage")}
             </Button>
           </div>
         </DialogContent>

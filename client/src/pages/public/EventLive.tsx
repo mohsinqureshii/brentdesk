@@ -31,6 +31,7 @@ import {
 
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import {
   getEventLiveStatus,
   type EventLiveStatus,
@@ -50,8 +51,9 @@ const POLL_MS = 25_000;
 // Small local helpers
 // ----------------------------------------------------------------
 
+/** Empty string when there is no date — the caller supplies the label. */
 function formatEventDate(d: string | Date | null | undefined): string {
-  if (!d) return "Date TBA";
+  if (!d) return "";
   return fmtDate(new Date(d), {
     weekday: "long",
     month: "long",
@@ -64,7 +66,7 @@ function formatShortDateRange(
   start: string | Date | null | undefined,
   end: string | Date | null | undefined,
 ): string {
-  if (!start) return "TBA";
+  if (!start) return "";
   const s = new Date(start);
   const startStr = fmtDate(s, {
     month: "short",
@@ -83,6 +85,7 @@ function formatShortDateRange(
 
 /** Compact countdown string, re-rendering every 30s. */
 function useCountdown(target: string | Date | null | undefined): string {
+  const t = useT();
   const [, force] = useState(0);
   useEffect(() => {
     if (!target) return;
@@ -92,13 +95,13 @@ function useCountdown(target: string | Date | null | undefined): string {
 
   if (!target) return "";
   const ms = new Date(target).getTime() - Date.now();
-  if (Number.isNaN(ms) || ms <= 0) return "starting now";
+  if (Number.isNaN(ms) || ms <= 0) return t("events.startingNow");
   const days = Math.floor(ms / 86_400_000);
   const hours = Math.floor((ms % 86_400_000) / 3_600_000);
   const mins = Math.floor((ms % 3_600_000) / 60_000);
-  if (days > 0) return `in ${days}d ${hours}h`;
-  if (hours > 0) return `in ${hours}h ${mins}m`;
-  return `in ${mins}m`;
+  if (days > 0) return t("events.inDaysHours", { d: days, h: hours });
+  if (hours > 0) return t("events.inHoursMinutes", { h: hours, m: mins });
+  return t("events.inMinutes", { m: mins });
 }
 
 function chipLabel(p: LivePost): string {
@@ -116,27 +119,29 @@ function StatusBadge({
   status: EventLiveStatus;
   countdown: string;
 }) {
+  const t = useT();
   if (status === "live") {
     return (
-      <Badge className="bg-red-600 text-white border-transparent flex items-center gap-1.5 shrink-0">
+      <Badge className="bg-red-600 text-white border-transparent flex items-center gap-1.5 shrink-0 uppercase">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
         </span>
-        LIVE
+        {t("events.live")}
       </Badge>
     );
   }
   if (status === "post") {
     return (
       <Badge variant="secondary" className="shrink-0 text-muted-foreground">
-        Replay
+        {t("events.replay")}
       </Badge>
     );
   }
   return (
     <Badge className="bg-blue-600 text-white border-transparent shrink-0">
-      Starting soon{countdown ? ` · ${countdown}` : ""}
+      {t("events.startingSoon")}
+      {countdown ? ` · ${countdown}` : ""}
     </Badge>
   );
 }
@@ -146,6 +151,7 @@ function StatusBadge({
 // ----------------------------------------------------------------
 
 export default function EventLive() {
+  const t = useT();
   const { slug } = useParams<{ slug: string }>();
 
   const { data: event, isLoading, error } = trpc.events.getBySlug.useQuery(
@@ -171,18 +177,18 @@ export default function EventLive() {
   if (error || !event) {
     return (
       <div className="min-h-screen bg-background">
-        <SEO title="Event Not Found" noindex />
+        <SEO title={t("events.notFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
           <Radio className="h-12 w-12 text-muted-foreground mb-4" />
           <h1 className="text-2xl font-bold text-foreground mb-4">
-            Event Not Found
+            {t("events.notFound")}
           </h1>
           <p className="text-muted-foreground mb-6">
-            The event you're looking for doesn't exist or has been removed.
+            {t("events.notFoundBody")}
           </p>
           <Link href="/events">
-            <Button>Back to Events</Button>
+            <Button>{t("events.backToEvents")}</Button>
           </Link>
         </div>
         <Footer />
@@ -194,6 +200,7 @@ export default function EventLive() {
 }
 
 function EventLiveContent({ event }: { event: any }) {
+  const t = useT();
   const status = getEventLiveStatus(event);
   const countdown = useCountdown(event.startDate);
   const liveUrl = `${publication.siteUrl}/events/${event.slug}/live`;
@@ -305,10 +312,10 @@ function EventLiveContent({ event }: { event: any }) {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${event.title} — Live Coverage`}
+        title={t("events.seoLiveTitle", { title: event.title })}
         description={
           event.shortDescription ||
-          `Live updates, funding announcements, and key moments from ${event.title}.`
+          t("events.seoLiveDescription", { title: event.title })
         }
         canonical={liveUrl}
       />
@@ -320,15 +327,17 @@ function EventLiveContent({ event }: { event: any }) {
           <Link
             href={`/events/${event.slug}`}
             className="text-muted-foreground hover:text-foreground shrink-0"
-            aria-label="Back to event page"
-            title="Back to event page"
+            aria-label={t("events.backToEventPage")}
+            title={t("events.backToEventPage")}
           >
             <ArrowLeft className="h-4 w-4" />
           </Link>
           <h1 className="font-semibold truncate min-w-0">{event.title}</h1>
           <StatusBadge status={status} countdown={countdown} />
           <span className="ml-auto text-xs text-muted-foreground shrink-0 hidden sm:inline">
-            {feed.length} update{feed.length === 1 ? "" : "s"}
+            {feed.length === 1
+              ? t("events.updateCountOne", { n: feed.length })
+              : t("events.updateCountMany", { n: feed.length })}
           </span>
         </div>
       </div>
@@ -341,17 +350,19 @@ function EventLiveContent({ event }: { event: any }) {
           className="fixed left-1/2 -translate-x-1/2 top-36 z-50 flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground shadow-lg px-4 py-2 text-sm font-medium hover:opacity-90 transition"
         >
           <ArrowUp className="h-4 w-4" />
-          {pending.length} new update{pending.length === 1 ? "" : "s"}
+          {pending.length === 1
+            ? t("events.newUpdateOne", { n: pending.length })
+            : t("events.newUpdateMany", { n: pending.length })}
         </button>
       )}
 
       <main className="container mx-auto px-4 py-6 lg:py-8">
         {/* ---------------- Key moments rail ---------------- */}
         {pinnedPosts.length > 0 && (
-          <section className="mb-6" aria-label="Key moments">
+          <section className="mb-6" aria-label={t("events.keyMoments")}>
             <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2">
               <Pin className="h-3.5 w-3.5 text-amber-500" />
-              Key moments
+              {t("events.keyMoments")}
             </div>
             <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 snap-x">
               {pinnedPosts.map((p) => (
@@ -371,7 +382,7 @@ function EventLiveContent({ event }: { event: any }) {
 
         <div className="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-8 items-start">
           {/* ---------------- Feed ---------------- */}
-          <section aria-label="Live feed" className="min-w-0">
+          <section aria-label={t("events.liveFeed")} className="min-w-0">
             {!feedReady ? (
               <div className="space-y-3">
                 <Skeleton className="h-36 w-full" />
@@ -383,15 +394,14 @@ function EventLiveContent({ event }: { event: any }) {
                 <CardContent className="p-10 text-center">
                   <Radio className="h-10 w-10 text-muted-foreground mx-auto mb-4" />
                   <h2 className="text-lg font-semibold">
-                    Live coverage starts soon
+                    {t("events.liveStartsSoon")}
                   </h2>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Our correspondents will start posting from{" "}
-                    <span className="font-medium text-foreground">
-                      {event.title}
-                    </span>{" "}
-                    on {formatEventDate(event.startDate)}. Check back here for
-                    breaking news, funding announcements, and key moments.
+                    {t("events.liveStartsSoonBody", {
+                      event: event.title,
+                      date:
+                        formatEventDate(event.startDate) || t("events.dateTba"),
+                    })}
                   </p>
                 </CardContent>
               </Card>
@@ -428,7 +438,8 @@ function EventLiveContent({ event }: { event: any }) {
                   <div className="flex items-start gap-2">
                     <Calendar className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                     <span>
-                      {formatShortDateRange(event.startDate, event.endDate)}
+                      {formatShortDateRange(event.startDate, event.endDate) ||
+                        t("events.tba")}
                     </span>
                   </div>
                   {where && (
@@ -440,7 +451,7 @@ function EventLiveContent({ event }: { event: any }) {
                 </div>
                 <Link href={`/events/${event.slug}`} className="block pt-1">
                   <Button variant="outline" className="w-full gap-2">
-                    About this event
+                    {t("events.aboutThisEvent")}
                     <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>

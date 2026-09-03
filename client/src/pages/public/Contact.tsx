@@ -10,8 +10,10 @@ import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
+import { useT } from "@/lib/i18n";
 
 const Contact = () => {
+  const t = useT();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -25,15 +27,15 @@ const Contact = () => {
   const submit = trpc.submissions.contact.useMutation({
     onSuccess: () => {
       toast({
-        title: "Message sent",
-        description: "We've received your message and will reply within 1 business day.",
+        title: t("contact.messageSent"),
+        description: t("contact.messageSentBody"),
       });
       setFormData({ firstName: "", lastName: "", email: "", company: "", enquiryType: "", message: "" });
     },
     onError: (err) => {
       toast({
-        title: "Couldn't send your message",
-        description: err.message || "Try again in a moment.",
+        title: t("contact.sendFailed"),
+        description: err.message || t("state.tryAgainMoment"),
         variant: "destructive",
       });
     },
@@ -42,7 +44,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.email || formData.message.length < 10) {
-      toast({ title: "Please complete all required fields", variant: "destructive" });
+      toast({ title: t("form.completeRequired"), variant: "destructive" });
       return;
     }
     submit.mutate({
@@ -58,36 +60,36 @@ const Contact = () => {
   const contactCategories = [
     {
       icon: Newspaper,
-      title: "News Tips",
-      description: "Know about a contract award, project development, or industry move we should be covering? We'd love to hear from you. Please drop us a note at",
+      title: t("contact.newsTips"),
+      description: t("contact.newsTipsBody"),
       email: publication.emails.media,
-      note: "If you prefer to remain anonymous, please mention that in your email and we will protect your identity."
+      note: t("contact.newsTipsNote")
     },
     {
       icon: FileText,
-      title: "Press Releases & Announcements",
-      description: "Announcing a contract win, project milestone, executive appointment, or product for the industrial sector? Send your release to",
+      title: t("contact.pressReleases"),
+      description: t("contact.pressReleasesBody"),
       email: publication.emails.media,
-      note: "Please include the key facts — parties involved, scope, value if disclosed, and timeline — plus any supporting materials."
+      note: t("contact.pressReleasesNote")
     },
     {
       icon: Megaphone,
-      title: "Advertising & Sponsorships",
-      description: "For advertising and sponsorship inquiries, please",
-      linkText: "visit our advertise page",
+      title: t("contact.advertising"),
+      description: t("contact.advertisingBody"),
+      linkText: t("contact.advertisingLink"),
       linkHref: "/advertise",
-      suffix: "and our media team will get back to you quickly."
+      suffix: t("contact.advertisingSuffix")
     },
     {
       icon: Calendar,
-      title: "Events & Listings",
-      description: "Organizing an industry event, or want a role or event listed on the site? Please contact",
+      title: t("contact.eventsListings"),
+      description: t("contact.eventsListingsBody"),
       email: publication.emails.hello,
     },
     {
       icon: HelpCircle,
-      title: "Corrections & Feedback",
-      description: "We take accuracy seriously. If you've spotted an error in our reporting or have feedback about our coverage, please reach out to",
+      title: t("contact.corrections"),
+      description: t("contact.correctionsBody"),
       email: publication.emails.hello,
     }
   ];
@@ -105,10 +107,10 @@ const Contact = () => {
       <section className="py-16 md:py-20 border-b border-border">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Contact Us
+            {t("footer.contactUs")}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Whether you have a news tip, want to work with us, or just have a question — we're here to help. Choose the most relevant category below or use the general inquiry form.
+            {t("contact.intro")}
           </p>
         </div>
       </section>
@@ -162,9 +164,9 @@ const Contact = () => {
       {/* General Inquiry Form */}
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-3">Other Inquiries</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-3">{t("contact.otherInquiries")}</h2>
           <p className="text-muted-foreground mb-8">
-            For anything else, fill out the form below and we'll route your message to the right team. All inquiries are sent to{" "}
+            {t("contact.otherInquiriesBody")}{" "}
             <a href={`mailto:${publication.emails.hello}`} className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
               {publication.emails.hello}
             </a>.
@@ -174,21 +176,21 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">First Name <span className="text-destructive">*</span></label>
+                  <label className="block text-sm font-medium text-foreground mb-2">{t("form.firstName")} <span className="text-destructive">*</span></label>
                   <Input
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder="First name"
+                    placeholder={t("form.firstNamePlaceholder")}
                     required
                     className="bg-background"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Last Name <span className="text-destructive">*</span></label>
+                  <label className="block text-sm font-medium text-foreground mb-2">{t("form.lastName")} <span className="text-destructive">*</span></label>
                   <Input
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder="Last name"
+                    placeholder={t("form.lastNamePlaceholder")}
                     required
                     className="bg-background"
                   />
@@ -196,52 +198,52 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Email <span className="text-destructive">*</span></label>
-                <p className="text-xs text-muted-foreground mb-2">If you're able, we prefer to connect through your work email.</p>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.email")} <span className="text-destructive">*</span></label>
+                <p className="text-xs text-muted-foreground mb-2">{t("contact.workEmailNote")}</p>
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="your@email.com"
+                  placeholder={t("contact.emailPlaceholder")}
                   required
                   className="bg-background"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Company Name</label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.companyName")}</label>
                 <Input
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder="Your company or organization"
+                  placeholder={t("contact.companyPlaceholder")}
                   className="bg-background"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">What is your enquiry about? <span className="text-destructive">*</span></label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("contact.enquiryAbout")} <span className="text-destructive">*</span></label>
                 <Select value={formData.enquiryType} onValueChange={(val) => setFormData({ ...formData, enquiryType: val })}>
                   <SelectTrigger className="bg-background">
-                    <SelectValue placeholder="Please Select" />
+                    <SelectValue placeholder={t("form.pleaseSelect")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="News Tips">News Tips</SelectItem>
-                    <SelectItem value="Press Releases & Announcements">Press Releases &amp; Announcements</SelectItem>
-                    <SelectItem value="Advertising & Sponsorships">Advertising &amp; Sponsorships</SelectItem>
-                    <SelectItem value="Events & Listings">Events &amp; Listings</SelectItem>
-                    <SelectItem value="Corrections & Feedback">Corrections &amp; Feedback</SelectItem>
-                    <SelectItem value="Partnership Inquiry">Partnership Inquiry</SelectItem>
-                    <SelectItem value="Other">Other</SelectItem>
+                    <SelectItem value="News Tips">{t("contact.newsTips")}</SelectItem>
+                    <SelectItem value="Press Releases & Announcements">{t("contact.pressReleases")}</SelectItem>
+                    <SelectItem value="Advertising & Sponsorships">{t("contact.advertising")}</SelectItem>
+                    <SelectItem value="Events & Listings">{t("contact.eventsListings")}</SelectItem>
+                    <SelectItem value="Corrections & Feedback">{t("contact.corrections")}</SelectItem>
+                    <SelectItem value="Partnership Inquiry">{t("contact.partnership")}</SelectItem>
+                    <SelectItem value="Other">{t("common.other")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Message <span className="text-destructive">*</span></label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.message")} <span className="text-destructive">*</span></label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us more about your inquiry..."
+                  placeholder={t("contact.messagePlaceholder")}
                   rows={5}
                   required
                   className="bg-background"
@@ -254,9 +256,9 @@ const Contact = () => {
                 className="bg-blue-600 hover:bg-blue-700 text-white"
               >
                 {submit.isPending ? (
-                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending…</>
+                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("form.sending")}</>
                 ) : (
-                  <><Send className="w-4 h-4 mr-2" /> Submit</>
+                  <><Send className="w-4 h-4 mr-2" /> {t("form.submit")}</>
                 )}
               </Button>
             </form>

@@ -13,6 +13,7 @@
  */
 
 import { useState } from "react";
+import { useT } from "@/lib/i18n";
 import {
   Calendar,
   Clock,
@@ -57,13 +58,13 @@ import { RichText, formatDate } from "./eventFormat";
 
 // Mirrors the server's sideEventTypeEnum exactly.
 const SIDE_EVENT_TYPES = [
-  { value: "side_event", label: "Side event" },
-  { value: "workshop", label: "Workshop" },
-  { value: "networking", label: "Networking" },
-  { value: "party", label: "Party" },
-  { value: "dinner", label: "Dinner" },
-  { value: "tour", label: "Tour" },
-  { value: "other", label: "Other" },
+  { value: "side_event", labelKey: "sideEvent.typeSideEvent" },
+  { value: "workshop", labelKey: "sideEvent.typeWorkshop" },
+  { value: "networking", labelKey: "sideEvent.typeNetworking" },
+  { value: "party", labelKey: "sideEvent.typeParty" },
+  { value: "dinner", labelKey: "sideEvent.typeDinner" },
+  { value: "tour", labelKey: "sideEvent.typeTour" },
+  { value: "other", labelKey: "sideEvent.typeOther" },
 ] as const;
 
 type SideEventType = (typeof SIDE_EVENT_TYPES)[number]["value"];
@@ -86,9 +87,9 @@ type SideEventRow = {
   sortOrder?: number | null;
 };
 
-function typeLabel(t: string | null | undefined): string {
-  const found = SIDE_EVENT_TYPES.find((x) => x.value === t);
-  return found ? found.label : "Side event";
+function typeLabelKey(value: string | null | undefined) {
+  const found = SIDE_EVENT_TYPES.find((x) => x.value === value);
+  return found ? found.labelKey : ("sideEvent.typeSideEvent" as const);
 }
 
 const TYPE_TONE: Record<string, string> = {
@@ -105,6 +106,7 @@ const TYPE_TONE: Record<string, string> = {
 };
 
 function SideEventCard({ item }: { item: SideEventRow }) {
+  const t = useT();
   const timeStr = [item.startTime, item.endTime].filter(Boolean).join(" – ");
 
   return (
@@ -130,7 +132,7 @@ function SideEventCard({ item }: { item: SideEventRow }) {
                 TYPE_TONE.side_event
               }`}
             >
-              {typeLabel(item.sideEventType)}
+              {t(typeLabelKey(item.sideEventType))}
             </Badge>
             <Badge
               variant="outline"
@@ -140,7 +142,7 @@ function SideEventCard({ item }: { item: SideEventRow }) {
                   : "text-[11px]"
               }
             >
-              {item.isFree ? "Free" : "Paid"}
+              {item.isFree ? t("sideEvent.free") : t("sideEvent.paid")}
             </Badge>
           </div>
 
@@ -177,7 +179,7 @@ function SideEventCard({ item }: { item: SideEventRow }) {
             {item.capacity ? (
               <span className="flex items-center gap-1.5">
                 <Users className="h-3.5 w-3.5" />
-                {item.capacity.toLocaleString()} places
+                {t("sideEvent.places", { n: item.capacity.toLocaleString() })}
               </span>
             ) : null}
           </div>
@@ -191,7 +193,8 @@ function SideEventCard({ item }: { item: SideEventRow }) {
                   rel="noopener noreferrer"
                 >
                   <Button size="sm" className="gap-1.5">
-                    Register <ExternalLink className="h-3.5 w-3.5" />
+                    {t("sideEvent.register")}{" "}
+                    <ExternalLink className="h-3.5 w-3.5" />
                   </Button>
                 </a>
               )}
@@ -202,7 +205,7 @@ function SideEventCard({ item }: { item: SideEventRow }) {
                   rel="noopener noreferrer"
                 >
                   <Button size="sm" variant="outline" className="gap-1.5">
-                    <Globe className="h-3.5 w-3.5" /> Website
+                    <Globe className="h-3.5 w-3.5" /> {t("company.website")}
                   </Button>
                 </a>
               )}
@@ -255,6 +258,7 @@ const EMPTY_FORM: FormState = {
 };
 
 function HostSideEventDialog({ eventId }: { eventId: number }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);
@@ -268,14 +272,14 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
     onSuccess: () => {
       setSubmitted(true);
       setErrorMsg(null);
-      toast.success("Side event submitted for review");
+      toast.success(t("sideEvent.toastSubmitted"));
     },
     onError: (e) => {
       // The server caps un-moderated submissions per email per event and
       // returns a human-readable sentence — surface it verbatim rather
       // than a generic failure.
-      setErrorMsg(e.message || "Something went wrong. Please try again.");
-      toast.error("Could not submit side event");
+      setErrorMsg(e.message || t("state.errorTryAgain"));
+      toast.error(t("sideEvent.toastSubmitFailed"));
     },
   });
 
@@ -295,11 +299,11 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
     const file = e.target.files?.[0];
     if (!file) return;
     if (!file.type.startsWith("image/")) {
-      toast.error("Please choose an image file");
+      toast.error(t("upload.chooseImage"));
       return;
     }
     if (file.size > 5 * 1024 * 1024) {
-      toast.error("Images must be under 5MB");
+      toast.error(t("upload.imageTooLarge"));
       return;
     }
     setUploading(true);
@@ -310,9 +314,9 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
       if (!res.ok) throw new Error("Upload failed");
       const { url } = await res.json();
       set("imageUrl", String(url));
-      toast.success("Image uploaded");
+      toast.success(t("upload.imageUploaded"));
     } catch {
-      toast.error("Image upload failed — you can submit without one");
+      toast.error(t("upload.imageFailed"));
     } finally {
       setUploading(false);
       // Allow re-picking the same file after a failure.
@@ -330,25 +334,25 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
     const submitterEmail = form.submitterEmail.trim();
 
     if (!name || !description || !submitterName || !submitterEmail) {
-      setErrorMsg("Please fill in every field marked with *.");
+      setErrorMsg(t("form.fillRequired"));
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(submitterEmail)) {
-      setErrorMsg("Please enter a valid email address.");
+      setErrorMsg(t("form.validEmail"));
       return;
     }
 
     const capacity = form.capacity.trim() ? Number(form.capacity) : undefined;
     if (capacity !== undefined && (!Number.isFinite(capacity) || capacity < 0)) {
-      setErrorMsg("Capacity must be a positive number.");
+      setErrorMsg(t("sideEvent.capacityPositive"));
       return;
     }
 
     // Optional string fields are omitted rather than sent as "" so the
     // row stays NULL when the host left them blank.
     const optional = (v: string) => {
-      const t = v.trim();
-      return t ? t : undefined;
+      const trimmed = v.trim();
+      return trimmed ? trimmed : undefined;
     };
 
     submitMut.mutate({
@@ -376,7 +380,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
       <DialogTrigger asChild>
         <Button className="gap-2">
           <PartyPopper className="h-4 w-4" />
-          Host a side event
+          {t("sideEvent.host")}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
@@ -385,15 +389,18 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10">
               <CheckCircle2 className="h-7 w-7 text-emerald-600 dark:text-emerald-400" />
             </div>
-            <h3 className="text-xl font-semibold">Submitted for review</h3>
+            <h3 className="text-xl font-semibold">
+              {t("sideEvent.submittedTitle")}
+            </h3>
             <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-              Thanks — our team will review it shortly. Your side event is
+              {t("sideEvent.submittedIntro")}
               <strong className="font-medium text-foreground">
                 {" "}
-                not live yet
+                {t("sideEvent.submittedNotLive")}
               </strong>{" "}
-              and will only appear on this page once an editor approves it.
-              We'll email {form.submitterEmail || "you"} either way.
+              {t("sideEvent.submittedOutro", {
+                email: form.submitterEmail || t("common.you"),
+              })}
             </p>
             <div className="mt-6 flex justify-center gap-2">
               <Button
@@ -403,38 +410,36 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                   setForm(EMPTY_FORM);
                 }}
               >
-                Submit another
+                {t("sideEvent.submitAnother")}
               </Button>
-              <Button onClick={() => resetAndClose(false)}>Done</Button>
+              <Button onClick={() => resetAndClose(false)}>
+                {t("common.done")}
+              </Button>
             </div>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle>Host a side event</DialogTitle>
-              <DialogDescription>
-                Running a workshop, dinner, or party around this event? Tell us
-                about it and we'll list it here once our editors have reviewed
-                it. No account needed.
-              </DialogDescription>
+              <DialogTitle>{t("sideEvent.host")}</DialogTitle>
+              <DialogDescription>{t("sideEvent.hostBlurb")}</DialogDescription>
             </DialogHeader>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-[1fr_200px]">
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-name">Side event name *</Label>
+                    <Label htmlFor="se-name">{t("sideEvent.nameLabel")}</Label>
                     <Input
                       id="se-name"
                       value={form.name}
                       onChange={(e) => set("name", e.target.value)}
-                      placeholder="Founders' breakfast"
+                      placeholder={t("sideEvent.namePlaceholder")}
                       maxLength={255}
                       required
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-type">Type *</Label>
+                    <Label htmlFor="se-type">{t("sideEvent.typeLabel")}</Label>
                     <Select
                       value={form.sideEventType}
                       onValueChange={(v) =>
@@ -442,12 +447,12 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                       }
                     >
                       <SelectTrigger id="se-type">
-                        <SelectValue placeholder="Select a type" />
+                        <SelectValue placeholder={t("sideEvent.selectType")} />
                       </SelectTrigger>
                       <SelectContent>
-                        {SIDE_EVENT_TYPES.map((t) => (
-                          <SelectItem key={t.value} value={t.value}>
-                            {t.label}
+                        {SIDE_EVENT_TYPES.map((opt) => (
+                          <SelectItem key={opt.value} value={opt.value}>
+                            {t(opt.labelKey)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -456,20 +461,22 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label htmlFor="se-description">Description *</Label>
+                  <Label htmlFor="se-description">
+                    {t("sideEvent.descriptionLabel")}
+                  </Label>
                   <Textarea
                     id="se-description"
                     rows={4}
                     value={form.description}
                     onChange={(e) => set("description", e.target.value)}
-                    placeholder="What is it, who is it for, and what should people expect?"
+                    placeholder={t("sideEvent.descriptionPlaceholder")}
                     required
                   />
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-date">Date</Label>
+                    <Label htmlFor="se-date">{t("form.date")}</Label>
                     <Input
                       id="se-date"
                       type="date"
@@ -478,7 +485,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-start">Start time</Label>
+                    <Label htmlFor="se-start">{t("form.startTime")}</Label>
                     <Input
                       id="se-start"
                       type="time"
@@ -487,7 +494,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-end">End time</Label>
+                    <Label htmlFor="se-end">{t("form.endTime")}</Label>
                     <Input
                       id="se-end"
                       type="time"
@@ -499,16 +506,16 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
 
                 <div className="grid gap-4 sm:grid-cols-[1fr_160px]">
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-venue">Venue</Label>
+                    <Label htmlFor="se-venue">{t("form.venue")}</Label>
                     <Input
                       id="se-venue"
                       value={form.venue}
                       onChange={(e) => set("venue", e.target.value)}
-                      placeholder="Where is it happening?"
+                      placeholder={t("sideEvent.venuePlaceholder")}
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-capacity">Capacity</Label>
+                    <Label htmlFor="se-capacity">{t("form.capacity")}</Label>
                     <Input
                       id="se-capacity"
                       type="number"
@@ -522,7 +529,9 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-registration">Registration URL</Label>
+                    <Label htmlFor="se-registration">
+                      {t("form.registrationUrl")}
+                    </Label>
                     <Input
                       id="se-registration"
                       type="url"
@@ -532,7 +541,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-website">Website</Label>
+                    <Label htmlFor="se-website">{t("company.website")}</Label>
                     <Input
                       id="se-website"
                       type="url"
@@ -550,25 +559,25 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     onCheckedChange={(v) => set("isFree", v === true)}
                   />
                   <Label htmlFor="se-free" className="font-normal">
-                    This side event is free to attend
+                    {t("sideEvent.isFreeLabel")}
                   </Label>
                 </div>
 
                 {/* Cover image */}
                 <div className="space-y-1.5">
-                  <Label htmlFor="se-image">Cover image</Label>
+                  <Label htmlFor="se-image">{t("form.coverImage")}</Label>
                   {form.imageUrl ? (
                     <div className="relative w-fit">
                       <img
                         src={form.imageUrl}
-                        alt="Side event cover"
+                        alt={t("sideEvent.coverAlt")}
                         className="h-28 w-48 rounded-lg object-cover ring-1 ring-border"
                       />
                       <button
                         type="button"
                         onClick={() => set("imageUrl", "")}
                         className="absolute -right-2 -top-2 rounded-full border bg-background p-1 text-muted-foreground shadow-sm hover:text-foreground"
-                        aria-label="Remove image"
+                        aria-label={t("form.removeImage")}
                       >
                         <X className="h-3.5 w-3.5" />
                       </button>
@@ -583,7 +592,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                       ) : (
                         <ImagePlus className="h-4 w-4" />
                       )}
-                      {uploading ? "Uploading…" : "Upload a cover image (optional, max 5MB)"}
+                      {uploading ? t("state.uploading") : t("form.uploadCover")}
                     </label>
                   )}
                   <input
@@ -599,11 +608,13 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
               {/* Submitter */}
               <div className="space-y-4 border-t pt-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  About you
+                  {t("form.aboutYou")}
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-submitter-name">Your name *</Label>
+                    <Label htmlFor="se-submitter-name">
+                      {t("form.yourName")}
+                    </Label>
                     <Input
                       id="se-submitter-name"
                       value={form.submitterName}
@@ -613,7 +624,9 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="se-submitter-email">Your email *</Label>
+                    <Label htmlFor="se-submitter-email">
+                      {t("form.yourEmail")}
+                    </Label>
                     <Input
                       id="se-submitter-email"
                       type="email"
@@ -625,7 +638,9 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                   </div>
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="se-submitter-org">Organisation</Label>
+                  <Label htmlFor="se-submitter-org">
+                    {t("form.organisation")}
+                  </Label>
                   <Input
                     id="se-submitter-org"
                     value={form.submitterOrganisation}
@@ -633,7 +648,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                       set("submitterOrganisation", e.target.value)
                     }
                     maxLength={255}
-                    placeholder="Company, community, or fund"
+                    placeholder={t("sideEvent.orgPlaceholder")}
                   />
                 </div>
               </div>
@@ -647,7 +662,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
 
               <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-4">
                 <p className="text-xs text-muted-foreground">
-                  Submissions are reviewed by our editors before they appear.
+                  {t("sideEvent.moderationNote")}
                 </p>
                 <div className="flex gap-2">
                   <Button
@@ -655,7 +670,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     variant="outline"
                     onClick={() => resetAndClose(false)}
                   >
-                    Cancel
+                    {t("common.cancel")}
                   </Button>
                   <Button
                     type="submit"
@@ -665,7 +680,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                     {submitMut.isPending && (
                       <Loader2 className="h-4 w-4 animate-spin" />
                     )}
-                    Submit for review
+                    {t("sideEvent.submitForReview")}
                   </Button>
                 </div>
               </div>
@@ -680,6 +695,7 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
 // ----------------------------------------------------------------
 
 export default function EventSideEvents({ eventId }: { eventId: number }) {
+  const t = useT();
   const { data = [], isLoading } = trpc.events.getSideEvents.useQuery(
     { eventId },
     { enabled: !!eventId },
@@ -717,13 +733,11 @@ export default function EventSideEvents({ eventId }: { eventId: number }) {
             <h3 className="flex items-center gap-2 font-semibold">
               <PartyPopper className="h-4 w-4 text-primary" />
               {items.length > 0
-                ? "Running your own side event?"
-                : "No side events listed yet"}
+                ? t("sideEvent.ctaRunning")
+                : t("sideEvent.ctaEmpty")}
             </h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Add your workshop, dinner, or meetup to this page. Free, takes a
-              minute, and no account needed — our editors review every
-              submission.
+              {t("sideEvent.ctaBlurb")}
             </p>
           </div>
           <HostSideEventDialog eventId={eventId} />

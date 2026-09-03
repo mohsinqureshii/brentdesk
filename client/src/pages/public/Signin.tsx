@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff, Loader2, AlertCircle, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 
 /**
  * Customer Sign-in — split-panel layout matching the admin login pattern.
@@ -20,6 +21,7 @@ import { trpc } from "@/lib/trpc";
  *         is decorative on desktop, the form has its own sign-up link inline.
  */
 export default function Signin() {
+  const t = useT();
   const { isAuthenticated } = useAuth();
   const [, setLocation] = useLocation();
 
@@ -34,11 +36,11 @@ export default function Signin() {
       if (data.success) {
         window.location.href = "/dashboard";
       } else {
-        setError(data.error || "Invalid email or password");
+        setError(data.error || t("auth.invalidCredentials"));
       }
     },
     onError: (err) => {
-      setError(err.message || "An error occurred. Please try again.");
+      setError(err.message || t("auth.genericError"));
     },
   });
 
@@ -50,15 +52,15 @@ export default function Signin() {
 
   const validateForm = () => {
     if (!email.trim()) {
-      setError("Please enter your email");
+      setError(t("auth.enterEmail"));
       return false;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Please enter a valid email address");
+      setError(t("auth.invalidEmail"));
       return false;
     }
     if (!password) {
-      setError("Please enter your password");
+      setError(t("auth.enterPassword"));
       return false;
     }
     return true;
@@ -83,9 +85,9 @@ export default function Signin() {
             <span className="text-2xl font-bold tracking-tight text-zinc-900">{publication.wordmark}</span>
           </Link>
 
-          <h1 className="text-3xl font-bold text-zinc-900 mb-2">Welcome back</h1>
+          <h1 className="text-3xl font-bold text-zinc-900 mb-2">{t("auth.welcomeBack")}</h1>
           <p className="text-zinc-500 mb-8">
-            Sign in to follow the region's industry, save articles, apply to jobs, and customise your news feed.
+            {t("auth.signinSubtitle")}
           </p>
 
           <form onSubmit={handleSignin} className="space-y-5">
@@ -98,7 +100,7 @@ export default function Signin() {
 
             <div className="space-y-1.5">
               <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-zinc-700">
-                Email
+                {t("auth.email")}
               </Label>
               <Input
                 id="email"
@@ -116,13 +118,13 @@ export default function Signin() {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-zinc-700">
-                  Password
+                  {t("auth.password")}
                 </Label>
                 <Link
                   href="/forgot-password"
                   className="text-xs font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
                 >
-                  Forgot password?
+                  {t("auth.forgotPassword")}
                 </Link>
               </div>
               <div className="relative">
@@ -141,7 +143,7 @@ export default function Signin() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-700"
                   tabIndex={-1}
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-label={showPassword ? t("auth.hidePassword") : t("auth.showPassword")}
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
@@ -155,7 +157,7 @@ export default function Signin() {
                 onCheckedChange={(checked) => setRememberMe(checked as boolean)}
               />
               <label htmlFor="remember" className="text-sm text-zinc-600 cursor-pointer">
-                Keep me signed in for 30 days
+                {t("auth.keepSignedIn")}
               </label>
             </div>
 
@@ -165,26 +167,26 @@ export default function Signin() {
               className="w-full h-12 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-base font-semibold"
             >
               {loginMutation.isPending ? (
-                <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Signing in…</>
+                <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> {t("auth.signingIn")}</>
               ) : (
-                "Sign in"
+                t("nav.signIn")
               )}
             </Button>
           </form>
 
           {/* Sign up link (visible on mobile too, where the right panel is hidden) */}
           <p className="text-center text-sm text-zinc-600 mt-8">
-            New to {publication.name}?{" "}
+            {t("auth.newTo", { site: publication.name })}{" "}
             <Link href="/signup" className="font-semibold text-emerald-700 hover:text-emerald-800 hover:underline">
-              Create a free account
+              {t("auth.createFreeAccount")}
             </Link>
           </p>
 
           <p className="text-center text-xs text-zinc-500 mt-4">
-            By signing in you agree to our{" "}
-            <Link href="/terms" className="underline hover:no-underline">Terms</Link>
-            {" "}and{" "}
-            <Link href="/privacy" className="underline hover:no-underline">Privacy Policy</Link>.
+            {t("auth.bySigningIn")}{" "}
+            <Link href="/terms" className="underline hover:no-underline">{t("legal.terms")}</Link>
+            {" "}{t("common.and")}{" "}
+            <Link href="/privacy" className="underline hover:no-underline">{t("footer.privacyPolicy")}</Link>.
           </p>
         </div>
       </div>
@@ -220,28 +222,28 @@ export default function Signin() {
           <div className="max-w-sm space-y-8">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-emerald-300/80 mb-4">
-                MENA's tech ecosystem, in one feed
+                {t("auth.panelEyebrow")}
               </p>
               <h2 className="text-3xl xl:text-4xl font-bold leading-tight mb-4">
-                Funding rounds. Founders. Jobs.
+                {t("auth.panelHeadline")}
               </h2>
               <p className="text-sm text-white/70 leading-relaxed">
-                Independent reporting on the companies and projects building the region's technology future — Saudi Arabia, the UAE, Egypt, and beyond.
+                {t("auth.panelBody")}
               </p>
             </div>
 
             <ul className="space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
                 <span className="mt-2 inline-block w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
-                <span><strong className="text-white">Personalised feed</strong> — sectors, geographies, and funding stages you actually care about</span>
+                <span><strong className="text-white">{t("auth.benefitFeed")}</strong> — {t("auth.benefitFeedBody")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 inline-block w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
-                <span><strong className="text-white">Tech jobs board</strong> — apply with one click to roles at MENA-backed companies</span>
+                <span><strong className="text-white">{t("auth.benefitBoard")}</strong> — {t("auth.benefitBoardBody")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 inline-block w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
-                <span><strong className="text-white">Founder resources</strong> — perks, playbooks, and templates from operators in the region</span>
+                <span><strong className="text-white">{t("auth.benefitFounders")}</strong> — {t("auth.benefitFoundersBody")}</span>
               </li>
             </ul>
           </div>
@@ -252,14 +254,14 @@ export default function Signin() {
               href="/signup"
               className="inline-flex items-center gap-2 text-sm font-medium text-white border border-white/30 hover:bg-white hover:text-black transition-colors px-4 py-2.5 rounded-lg w-fit"
             >
-              Don't have an account? Sign up free
+              {t("auth.noAccountSignUp")}
             </Link>
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-xs text-white/60 hover:text-white transition-colors w-fit ml-1"
             >
               <ArrowLeft className="h-3 w-3" />
-              Back to {publication.domain}
+              {t("auth.backTo", { site: publication.domain })}
             </Link>
           </div>
         </div>

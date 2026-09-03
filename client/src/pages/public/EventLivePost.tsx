@@ -13,6 +13,7 @@ import { ArrowRight, Calendar, ChevronRight, Radio } from "lucide-react";
 
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
@@ -21,6 +22,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import LivePostCard, { type LivePost } from "@/components/events/LivePostCard";
 
 export default function EventLivePost() {
+  const t = useT();
   const { slug, postId } = useParams<{ slug: string; postId: string }>();
   const id = Number(postId);
   const validId = Number.isFinite(id) && id > 0;
@@ -47,19 +49,19 @@ export default function EventLivePost() {
   if (!validId || error || !data) {
     return (
       <div className="min-h-screen bg-background">
-        <SEO title="Update Not Found" noindex />
+        <SEO title={t("events.updateNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
           <Radio className="h-12 w-12 text-muted-foreground mb-4" />
           <h1 className="text-2xl font-bold text-foreground mb-4">
-            Update Not Found
+            {t("events.updateNotFound")}
           </h1>
           <p className="text-muted-foreground mb-6">
-            This live update doesn't exist or has been removed.
+            {t("events.updateNotFoundBody")}
           </p>
           <Link href={slug ? `/events/${slug}/live` : "/events"}>
             <Button className="gap-2">
-              {slug ? "Go to live coverage" : "Back to Events"}
+              {slug ? t("events.goToLiveCoverage") : t("events.backToEvents")}
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
@@ -73,7 +75,7 @@ export default function EventLivePost() {
     event: { id: number; title: string; slug: string };
   };
   const eventSlug = post.event?.slug || slug || "";
-  const eventTitle = post.event?.title || "Event";
+  const eventTitle = post.event?.title || t("events.event");
   const permalink = `${publication.siteUrl}/events/${eventSlug}/live/${post.id}`;
 
   const plainBody = (post.body || "")
@@ -84,8 +86,13 @@ export default function EventLivePost() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={post.headline || `Live update from ${eventTitle}`}
-        description={plainBody.slice(0, 160) || `Live coverage of ${eventTitle}.`}
+        title={
+          post.headline || t("events.liveUpdateFrom", { title: eventTitle })
+        }
+        description={
+          plainBody.slice(0, 160) ||
+          `${t("events.liveCoverageOf", { title: eventTitle })}.`
+        }
         canonical={permalink}
         ogType="article"
         ogImage={post.imageUrl || undefined}
@@ -96,7 +103,7 @@ export default function EventLivePost() {
         {/* Event context header */}
         <nav className="text-sm text-muted-foreground mb-2 flex items-center gap-1 flex-wrap">
           <Link href="/events" className="hover:text-foreground">
-            Events
+            {t("nav.events")}
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
           <Link
@@ -106,7 +113,7 @@ export default function EventLivePost() {
             {eventTitle}
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
-          <span className="text-foreground">Live update</span>
+          <span className="text-foreground">{t("events.liveUpdate")}</span>
         </nav>
         <div className="flex items-center gap-2 mb-6 text-muted-foreground">
           <Calendar className="h-4 w-4 shrink-0" />
@@ -126,16 +133,15 @@ export default function EventLivePost() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
               </span>
-              This is one update from our live coverage
+              {t("events.oneUpdateFrom")}
             </div>
             <p className="text-sm text-muted-foreground mt-1">
-              Get every breaking story, funding announcement, and key moment as
-              it happens.
+              {t("events.followLiveBlurb")}
             </p>
           </div>
           <Link href={`/events/${eventSlug}/live`} className="shrink-0">
             <Button className="gap-2">
-              Follow live coverage
+              {t("events.followLiveCoverage")}
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>

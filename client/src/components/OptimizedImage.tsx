@@ -5,6 +5,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { useT } from '@/lib/i18n';
 
 interface OptimizedImageProps {
   src: string;
@@ -86,6 +87,7 @@ export function OptimizedImage({
   sizes = '100vw',
   aspectRatio,
 }: OptimizedImageProps) {
+  const t = useT();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const [hasError, setHasError] = useState(false);
@@ -141,7 +143,7 @@ export function OptimizedImage({
         )}
         style={{ width, height, aspectRatio }}
       >
-        <span className="text-sm">Image unavailable</span>
+        <span className="text-sm">{t("state.imageUnavailable")}</span>
       </div>
     );
   }

@@ -21,6 +21,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { toast } from "sonner";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -40,6 +42,7 @@ type Started = {
 };
 
 export default function AssessmentTaker() {
+  const t = useT();
   const params = useParams<{ token: string }>();
   const token = params.token ?? "";
 
@@ -59,7 +62,7 @@ export default function AssessmentTaker() {
   const saveMut = trpc.assessments.attempt.saveAnswer.useMutation({
     // Silent — runs on each next/prev. Failed saves toast.
     onError: (e: { message: string }) =>
-      toast.error("Couldn't save answer: " + e.message),
+      toast.error(t("assessment.saveFailed") + ": " + e.message),
   });
 
   const submitMut = trpc.assessments.attempt.submit.useMutation({
@@ -110,7 +113,7 @@ export default function AssessmentTaker() {
 
   const handleSubmit = async () => {
     if (!started) return;
-    if (!confirm("Submit your assessment? You can't change answers after this.")) return;
+    if (!confirm(t("assessment.confirmSubmit"))) return;
     await persistCurrent();
     submitMut.mutate({ attemptId: started.attemptId });
   };
@@ -120,7 +123,7 @@ export default function AssessmentTaker() {
       <SimpleShell>
         <Card>
           <CardContent className="p-8 text-center text-muted-foreground">
-            Missing invite token. Use the link from the email we sent you.
+            {t("assessment.missingToken")}
           </CardContent>
         </Card>
       </SimpleShell>
@@ -133,7 +136,7 @@ export default function AssessmentTaker() {
         <Card>
           <CardContent className="p-12 text-center">
             <Loader2 className="h-8 w-8 mx-auto animate-spin text-primary mb-2" />
-            <p className="text-sm text-muted-foreground">Loading your assessment…</p>
+            <p className="text-sm text-muted-foreground">{t("assessment.loading")}</p>
           </CardContent>
         </Card>
       </SimpleShell>
@@ -145,9 +148,9 @@ export default function AssessmentTaker() {
       <SimpleShell>
         <Card>
           <CardContent className="p-8 text-center">
-            <p className="font-medium">This assessment isn't available.</p>
+            <p className="font-medium">{t("assessment.unavailable")}</p>
             <p className="text-sm text-muted-foreground mt-1">
-              {startMut.error?.message ?? "The invite link may have expired or already been used."}
+              {startMut.error?.message ?? t("assessment.linkExpired")}
             </p>
           </CardContent>
         </Card>
@@ -161,9 +164,9 @@ export default function AssessmentTaker() {
         <Card>
           <CardContent className="p-12 text-center space-y-3">
             <CheckCircle2 className="h-12 w-12 mx-auto text-green-600" />
-            <h2 className="text-2xl font-bold">Submitted!</h2>
+            <h2 className="text-2xl font-bold">{t("assessment.submitted")}</h2>
             <p className="text-sm text-muted-foreground">
-              Your assessment has been recorded. We'll let you know how you did via email.
+              {t("assessment.recorded")}
             </p>
           </CardContent>
         </Card>
@@ -180,13 +183,13 @@ export default function AssessmentTaker() {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">{tmpl.name ?? "Assessment"}</h1>
+            <h1 className="text-2xl font-bold tracking-tight">{tmpl.name ?? t("assessment.title")}</h1>
             {tmpl.description && (
               <p className="text-sm text-muted-foreground mt-1">{tmpl.description}</p>
             )}
           </div>
           <Badge variant="outline">
-            Question {index + 1} of {total}
+            {t("assessment.questionOf", { n: index + 1, total })}
           </Badge>
         </div>
 
@@ -194,17 +197,17 @@ export default function AssessmentTaker() {
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
               <span className="text-muted-foreground font-mono text-sm">
-                Q{index + 1}.
+                {t("assessment.questionAbbrev")}{index + 1}.
               </span>
               <span>{current.prompt}</span>
             </CardTitle>
             <CardDescription>
-              {QUESTION_TYPE_LABELS[current.type] ?? current.type}
+              {QUESTION_TYPE_LABELS[current.type] ? t(QUESTION_TYPE_LABELS[current.type]) : current.type}
               {current.points && (
-                <span className="ml-2 font-mono">· {current.points} pts</span>
+                <span className="ml-2 font-mono">· {current.points} {t("assessment.points")}</span>
               )}
               {current.timeLimitSeconds && (
-                <span className="ml-2 font-mono">· {current.timeLimitSeconds}s suggested</span>
+                <span className="ml-2 font-mono">· {t("assessment.suggestedSeconds", { n: current.timeLimitSeconds })}</span>
               )}
             </CardDescription>
           </CardHeader>
@@ -225,14 +228,14 @@ export default function AssessmentTaker() {
             onClick={handlePrev}
             disabled={index === 0 || saveMut.isPending}
           >
-            <ChevronLeft className="h-4 w-4 mr-1" /> Previous
+            <ChevronLeft className="h-4 w-4 mr-1" /> {t("list.previous")}
           </Button>
           <div className="text-xs text-muted-foreground">
-            {saveMut.isPending ? "Saving…" : "Answers auto-save as you move on."}
+            {saveMut.isPending ? t("common.saving") : t("assessment.autoSave")}
           </div>
           {index < total - 1 ? (
             <Button onClick={handleNext} disabled={saveMut.isPending}>
-              Next <ChevronRight className="h-4 w-4 ml-1" />
+              {t("list.next")} <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
           ) : (
             <Button onClick={handleSubmit} disabled={submitMut.isPending}>
@@ -241,7 +244,7 @@ export default function AssessmentTaker() {
               ) : (
                 <Send className="h-4 w-4 mr-2" />
               )}
-              Submit assessment
+              {t("assessment.submit")}
             </Button>
           )}
         </div>
@@ -250,13 +253,13 @@ export default function AssessmentTaker() {
   );
 }
 
-const QUESTION_TYPE_LABELS: Record<string, string> = {
-  coding: "Coding",
-  multiple_choice: "Multiple choice",
-  short_answer: "Short answer",
-  long_answer: "Long answer",
-  system_design: "System design",
-  file_upload: "File upload",
+const QUESTION_TYPE_LABELS: Record<string, UiKey> = {
+  coding: "assessment.typeCoding",
+  multiple_choice: "assessment.typeMultipleChoice",
+  short_answer: "assessment.typeShortAnswer",
+  long_answer: "assessment.typeLongAnswer",
+  system_design: "assessment.typeSystemDesign",
+  file_upload: "assessment.typeFileUpload",
 };
 
 function QuestionInput({
@@ -268,6 +271,7 @@ function QuestionInput({
   value: any;
   onChange: (patch: any) => void;
 }) {
+  const t = useT();
   switch (question.type) {
     case "multiple_choice":
       return <MultipleChoiceInput question={question} value={value} onChange={onChange} />;
@@ -278,7 +282,7 @@ function QuestionInput({
         <Input
           value={value.answerText ?? ""}
           onChange={(e) => onChange({ answerText: e.target.value })}
-          placeholder="Your answer"
+          placeholder={t("assessment.yourAnswer")}
         />
       );
     case "long_answer":
@@ -288,13 +292,13 @@ function QuestionInput({
           value={value.answerText ?? ""}
           onChange={(e) => onChange({ answerText: e.target.value })}
           rows={8}
-          placeholder="Your answer — explain your thinking and trade-offs."
+          placeholder={t("assessment.yourAnswerLong")}
         />
       );
     case "file_upload":
       return (
         <p className="text-sm text-muted-foreground">
-          File upload questions aren't supported in this version. Skip this and we'll grade manually.
+          {t("assessment.fileUploadUnsupported")}
         </p>
       );
     default:
@@ -356,11 +360,12 @@ function CodeInput({
   value: any;
   onChange: (patch: any) => void;
 }) {
+  const t = useT();
   const code = value.answerCode ?? question.starterCode ?? "";
   return (
     <div className="space-y-2">
       <Label className="text-xs">
-        Language: <span className="font-mono">{question.language ?? "any"}</span>
+        {t("assessment.language")}: <span className="font-mono">{question.language ?? t("assessment.anyLanguage")}</span>
       </Label>
       <Textarea
         value={code}
@@ -368,14 +373,14 @@ function CodeInput({
         rows={16}
         spellCheck={false}
         className="font-mono text-sm"
-        placeholder="// Write your solution here"
+        placeholder={t("assessment.codePlaceholder")}
       />
       <label className="flex items-center gap-2 text-xs">
         <Checkbox
           checked={!!value.runCode}
           onCheckedChange={(v) => onChange({ runCode: !!v })}
         />
-        Run my code against the test cases on save (slower)
+        {t("assessment.runCode")}
       </label>
     </div>
   );

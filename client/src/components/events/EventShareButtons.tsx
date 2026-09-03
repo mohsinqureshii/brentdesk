@@ -21,6 +21,7 @@
 
 import { useEffect, useState } from "react";
 import { fmtDate } from "@/lib/dates";
+import { useT } from "@/lib/i18n";
 import {
   Copy,
   Linkedin,
@@ -67,6 +68,7 @@ export default function EventShareButtons({
   size = "sm",
   className = "",
 }: EventShareButtonsProps) {
+  const t = useT();
   const [hasNativeShare, setHasNativeShare] = useState(false);
 
   // navigator.share isn't reliably present at SSR. Detect it once on
@@ -110,13 +112,13 @@ export default function EventShareButtons({
       // Clipboard API requires HTTPS / a user gesture — we're inside
       // a button click so both are satisfied.
       await navigator.clipboard.writeText(shortUrl);
-      toast.success("Link copied", {
+      toast.success(t("share.linkCopied"), {
         description: shortUrl,
         duration: 2000,
       });
     } catch {
       // Fallback for very old browsers / restrictive contexts.
-      toast.error("Couldn't copy automatically", { description: shortUrl });
+      toast.error(t("share.copyFailed"), { description: shortUrl });
     }
   };
 
@@ -137,14 +139,14 @@ export default function EventShareButtons({
   return (
     <div
       className={`flex flex-wrap items-center gap-1.5 ${className}`}
-      aria-label="Share this event"
+      aria-label={t("events.shareEvent")}
     >
       <Button
         variant="outline"
         size={btnSize}
         className="gap-1.5"
         onClick={() => handleIntent("twitter")}
-        aria-label="Share on X"
+        aria-label={t("share.onX")}
       >
         <Twitter className="h-4 w-4" />
         <span className="hidden sm:inline">X</span>
@@ -154,7 +156,7 @@ export default function EventShareButtons({
         size={btnSize}
         className="gap-1.5"
         onClick={() => handleIntent("linkedin")}
-        aria-label="Share on LinkedIn"
+        aria-label={t("share.onLinkedIn")}
       >
         <Linkedin className="h-4 w-4" />
         <span className="hidden sm:inline">LinkedIn</span>
@@ -164,7 +166,7 @@ export default function EventShareButtons({
         size={btnSize}
         className="gap-1.5"
         onClick={() => handleIntent("whatsapp")}
-        aria-label="Share on WhatsApp"
+        aria-label={t("share.onWhatsApp")}
       >
         <MessageCircle className="h-4 w-4" />
         <span className="hidden sm:inline">WhatsApp</span>
@@ -174,10 +176,10 @@ export default function EventShareButtons({
         size={btnSize}
         className="gap-1.5"
         onClick={handleCopy}
-        aria-label="Copy link"
+        aria-label={t("share.copyLink")}
       >
         <Copy className="h-4 w-4" />
-        <span className="hidden sm:inline">Copy</span>
+        <span className="hidden sm:inline">{t("share.copy")}</span>
       </Button>
       {hasNativeShare && (
         <Button
@@ -185,10 +187,10 @@ export default function EventShareButtons({
           size={btnSize}
           className="gap-1.5"
           onClick={handleNative}
-          aria-label="Share"
+          aria-label={t("article.share")}
         >
           <Share2 className="h-4 w-4" />
-          <span className="hidden sm:inline">Share</span>
+          <span className="hidden sm:inline">{t("article.share")}</span>
         </Button>
       )}
     </div>
@@ -219,7 +221,11 @@ export function buildEntityShareUrl(
   return `${origin}/e/${eventSlug}#${hash}`;
 }
 
+/** The translator handed down from a component — `const t = useT()`. */
+type Translate = ReturnType<typeof useT>;
+
 export function buildEntityShareText(
+  t: Translate,
   entityName: string,
   entityType: "speaker" | "session",
   eventTitle: string,
@@ -234,18 +240,20 @@ export function buildEntityShareText(
     : "";
   if (entityType === "speaker") {
     return dateStr
-      ? `${entityName} is speaking at ${eventTitle} on ${dateStr}`
-      : `${entityName} is speaking at ${eventTitle}`;
+      ? t("share.speakerOn", { name: entityName, event: eventTitle, date: dateStr })
+      : t("share.speaker", { name: entityName, event: eventTitle });
   }
   return dateStr
-    ? `${entityName} — ${eventTitle} on ${dateStr}`
-    : `${entityName} — ${eventTitle}`;
+    ? t("share.sessionOn", { name: entityName, event: eventTitle, date: dateStr })
+    : t("share.session", { name: entityName, event: eventTitle });
 }
 
 export function EntityShareIntents(props: EntityShareTriggerProps) {
+  const t = useT();
   const base = props.origin || getDefaultOrigin();
   const url = buildEntityShareUrl(base, props.eventSlug, props.hash);
   const text = buildEntityShareText(
+    t,
     props.entityName,
     props.entityType,
     props.eventTitle,
@@ -259,9 +267,9 @@ export function EntityShareIntents(props: EntityShareTriggerProps) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      toast.success("Link copied", { description: url, duration: 2000 });
+      toast.success(t("share.linkCopied"), { description: url, duration: 2000 });
     } catch {
-      toast.error("Couldn't copy automatically", { description: url });
+      toast.error(t("share.copyFailed"), { description: url });
     }
   };
 
@@ -278,12 +286,12 @@ export function EntityShareIntents(props: EntityShareTriggerProps) {
         <a href={twitterHref} target="_blank" rel="noopener noreferrer">
           <Button size="sm" variant="outline" className="gap-1.5">
             <Twitter className="h-4 w-4" />
-            Tweet
+            {t("share.tweet")}
           </Button>
         </a>
         <Button size="sm" variant="outline" className="gap-1.5" onClick={handleCopy}>
           <Copy className="h-4 w-4" />
-          Copy link
+          {t("share.copyLink")}
         </Button>
       </div>
       <div className="text-xs text-muted-foreground border-t pt-2 break-all">

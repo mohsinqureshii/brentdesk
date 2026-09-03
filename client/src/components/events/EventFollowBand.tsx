@@ -22,6 +22,7 @@ import { toast } from "sonner";
 
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EventFallbackTile, isUsableImage } from "./EventVisual";
@@ -30,6 +31,7 @@ import { type EventRow } from "./eventMeta";
 import { EventRsvpButtons } from "./EventRsvp";
 
 function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
+  const t = useT();
   // ---------------------------------------------------- newsletter
   const [email, setEmail] = useState("");
   const listQ = trpc.newsletters.listActive.useQuery(undefined, {
@@ -41,13 +43,14 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
   const subscribe = trpc.newsletters.subscribe.useMutation({
     onSuccess: (r: any) => {
       if (r?.success === false) {
-        toast.error(r.error || "Could not subscribe");
+        toast.error(r.error || t("newsletter.couldNotSubscribe"));
         return;
       }
-      toast.success("Subscribed — check your inbox to confirm.");
+      toast.success(t("newsletter.confirmEmail"));
       setEmail("");
     },
-    onError: (e: any) => toast.error(e.message || "Could not subscribe"),
+    onError: (e: any) =>
+      toast.error(e.message || t("newsletter.couldNotSubscribe")),
   });
 
   const goingCount = Number(event.goingCount ?? 0);
@@ -63,22 +66,21 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
       <div className="min-w-0">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-            Stay in the loop
+            {t("events.stayInTheLoop")}
           </h2>
           {goingCount > 0 && !wide && (
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Users className="h-3.5 w-3.5" aria-hidden="true" />
-              {goingCount.toLocaleString()} going
+              {t("events.goingCount", { n: goingCount.toLocaleString() })}
             </span>
           )}
         </div>
 
         <p className="mt-4 text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
-          Follow {event.title}
+          {t("events.followEvent", { title: event.title })}
         </p>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          Speaker announcements, agenda changes and our reporting from the floor —
-          we&rsquo;ll email you when something happens.
+          {t("events.followBlurb")}
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -87,7 +89,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
           {goingCount > 0 && wide && (
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Users className="h-3.5 w-3.5" aria-hidden="true" />
-              {goingCount.toLocaleString()} going
+              {t("events.goingCount", { n: goingCount.toLocaleString() })}
             </span>
           )}
         </div>
@@ -107,7 +109,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
       >
         {wide && (
           <p className="mb-3 text-sm font-semibold text-foreground">
-            Get it by email
+            {t("newsletter.getItByEmail")}
           </p>
         )}
         {newsletterSlug ? (
@@ -130,8 +132,8 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
-              placeholder="Enter your email"
-              aria-label="Email address"
+              placeholder={t("newsletter.enterEmail")}
+              aria-label={t("newsletter.emailAddress")}
               className="h-11 bg-background"
             />
             <Button
@@ -139,13 +141,13 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
               disabled={subscribe.isPending}
               className="h-11 shrink-0 bg-emerald-600 px-5 text-white hover:bg-emerald-700"
             >
-              {subscribe.isPending ? "…" : "Subscribe"}
+              {subscribe.isPending ? "…" : t("newsletter.subscribe")}
             </Button>
           </form>
         ) : (
           <Link href="/newsletter">
             <Button variant="outline" className="h-11">
-              Browse newsletters
+              {t("newsletter.browse")}
             </Button>
           </Link>
         )}
@@ -155,6 +157,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
 }
 
 function CoverageColumn({ event }: { event: EventRow }) {
+  const t = useT();
   const articles: any[] = event.relatedArticles || [];
   if (articles.length === 0) return null;
 
@@ -164,14 +167,14 @@ function CoverageColumn({ event }: { event: EventRow }) {
     <div className="min-w-0">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          {publication.name} coverage
+          {t("events.publicationCoverage", { site: publication.name })}
         </h2>
         {articles.length > shown.length && (
           <Link
             href={`/search?q=${encodeURIComponent(event.title)}`}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
           >
-            View all coverage
+            {t("events.viewAllCoverage")}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
         )}

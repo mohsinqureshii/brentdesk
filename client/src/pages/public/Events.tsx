@@ -31,6 +31,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import {
@@ -119,27 +120,27 @@ type TypeFilter =
   | "summit"
   | "other";
 
-const FORMAT_OPTIONS: { value: FormatFilter; label: string }[] = [
-  { value: "all", label: "Any format" },
-  { value: "in_person", label: "In-person" },
-  { value: "virtual", label: "Virtual" },
-  { value: "hybrid", label: "Hybrid" },
+const FORMAT_OPTIONS: { value: FormatFilter; labelKey: UiKey }[] = [
+  { value: "all", labelKey: "event.formatAny" },
+  { value: "in_person", labelKey: "event.formatInPerson" },
+  { value: "virtual", labelKey: "event.formatVirtual" },
+  { value: "hybrid", labelKey: "event.formatHybrid" },
 ];
 
-const TYPE_OPTIONS: { value: TypeFilter; label: string }[] = [
-  { value: "all", label: "Any type" },
-  { value: "conference", label: "Conference" },
-  { value: "summit", label: "Summit" },
-  { value: "webinar", label: "Webinar" },
-  { value: "meetup", label: "Meetup" },
-  { value: "workshop", label: "Workshop" },
-  { value: "hackathon", label: "Hackathon" },
-  { value: "other", label: "Other" },
+const TYPE_OPTIONS: { value: TypeFilter; labelKey: UiKey }[] = [
+  { value: "all", labelKey: "event.typeAny" },
+  { value: "conference", labelKey: "event.typeConference" },
+  { value: "summit", labelKey: "event.typeSummit" },
+  { value: "webinar", labelKey: "event.typeWebinar" },
+  { value: "meetup", labelKey: "event.typeMeetup" },
+  { value: "workshop", labelKey: "event.typeWorkshop" },
+  { value: "hackathon", labelKey: "event.typeHackathon" },
+  { value: "other", labelKey: "event.typeOther" },
 ];
 
-const PRICE_OPTIONS: { value: PriceFilter; label: string }[] = [
-  { value: "any", label: "Any price" },
-  { value: "free", label: "Free only" },
+const PRICE_OPTIONS: { value: PriceFilter; labelKey: UiKey }[] = [
+  { value: "any", labelKey: "event.priceAny" },
+  { value: "free", labelKey: "event.priceFree" },
 ];
 
 // ----------------------------------------------------------------------
@@ -148,6 +149,7 @@ const PRICE_OPTIONS: { value: PriceFilter; label: string }[] = [
 
 /** "In 12 days" / "In 3d 4h" / "Starting now" / null once it's begun. */
 function useCountdown(target: Date | string | null | undefined): string | null {
+  const t = useT();
   const [, tick] = useState(0);
   useEffect(() => {
     if (!target) return;
@@ -155,18 +157,18 @@ function useCountdown(target: Date | string | null | undefined): string | null {
     return () => clearInterval(id);
   }, [target]);
 
-  const t = asDate(target);
-  if (!t) return null;
-  const ms = t.getTime() - Date.now();
+  const at = asDate(target);
+  if (!at) return null;
+  const ms = at.getTime() - Date.now();
   if (ms <= 0) return null;
   const days = Math.floor(ms / 86_400_000);
   const hours = Math.floor((ms % 86_400_000) / 3_600_000);
   const mins = Math.floor((ms % 3_600_000) / 60_000);
-  if (days >= 7) return `In ${days} days`;
-  if (days > 0) return `In ${days}d ${hours}h`;
-  if (hours > 0) return `In ${hours}h ${mins}m`;
-  if (mins > 1) return `In ${mins}m`;
-  return "Starting now";
+  if (days >= 7) return t("events.inDays", { n: days });
+  if (days > 0) return t("events.inDaysHours", { d: days, h: hours });
+  if (hours > 0) return t("events.inHoursMins", { h: hours, m: mins });
+  if (mins > 1) return t("events.inMinutes", { n: mins });
+  return t("events.startingNow");
 }
 
 // ----------------------------------------------------------------------
@@ -442,8 +444,10 @@ export default function Events() {
               {sections.map((section) => (
                 <section key={section.key}>
                   <SectionHeading
-                    title={section.title}
-                    hint={section.hint}
+                    titleKey={section.titleKey}
+                    titleVars={section.titleVars}
+                    hintKey={section.hintKey}
+                    hintVars={section.hintVars}
                     count={section.items.length}
                     live={false}
                   />
@@ -515,8 +519,17 @@ export default function Events() {
 // ----------------------------------------------------------------------
 
 /** Topic chips seed the search box; they are plain queries, not a new
- *  taxonomy, so they can never drift out of sync with real data. */
-const POPULAR_TOPICS = ["Energy", "Construction", "Infrastructure", "Logistics", "Mining", "Manufacturing"];
+ *  taxonomy, so they can never drift out of sync with real data. The
+ *  query text stays English because the indexed content is; only the
+ *  visible label is translated. */
+const POPULAR_TOPICS: Array<{ query: string; labelKey: UiKey }> = [
+  { query: "Energy", labelKey: "cat.energy" },
+  { query: "Construction", labelKey: "cat.construction" },
+  { query: "Infrastructure", labelKey: "cat.infrastructure" },
+  { query: "Logistics", labelKey: "cat.logistics" },
+  { query: "Mining", labelKey: "cat.mining" },
+  { query: "Manufacturing", labelKey: "cat.manufacturing" },
+];
 
 function SearchHero({
   filters,
@@ -563,18 +576,17 @@ function SearchHero({
         {/* Left: promise, search, topics */}
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">
-            {publication.name} Events
+            {publication.name} {t("nav.events")}
           </p>
           <h1 className="mt-3 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
             {t("events.discover")}
             <br />
             {t("events.connectPeople")}
             <br />
-            {t("events.shapeThe")}<span className="text-emerald-600 dark:text-emerald-400">future.</span>
+            {t("events.shapeThe")}<span className="text-emerald-600 dark:text-emerald-400">{t("events.future")}</span>
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            From global expos to regional forums — find the events that connect
-            the people building the region&rsquo;s industry.
+            {t("events.heroBlurb")}
           </p>
 
           <form
@@ -598,19 +610,19 @@ function SearchHero({
           </form>
 
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="text-xs text-muted-foreground">Popular topics:</span>
+            <span className="text-xs text-muted-foreground">{t("events.popularTopics")}</span>
             {POPULAR_TOPICS.map((topic) => (
               <button
-                key={topic}
+                key={topic.query}
                 type="button"
-                onClick={() => updateFilter("search", topic)}
+                onClick={() => updateFilter("search", topic.query)}
                 className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-                  filters.search.toLowerCase() === topic.toLowerCase()
+                  filters.search.toLowerCase() === topic.query.toLowerCase()
                     ? "border-emerald-600 bg-emerald-600 text-white"
                     : "border-[var(--border)] text-muted-foreground hover:border-emerald-600/40 hover:text-foreground"
                 }`}
               >
-                {topic}
+                {t(topic.labelKey)}
               </button>
             ))}
           </div>
@@ -652,7 +664,7 @@ function SearchHero({
                       key={ev.id}
                       type="button"
                       onClick={() => setSlide(i)}
-                      aria-label={`Show ${ev.title}`}
+                      aria-label={t("events.showSlide", { title: ev.title })}
                       aria-current={i === slide}
                       className={`h-1.5 rounded-full transition-all ${
                         i === slide
@@ -715,14 +727,14 @@ function SpotlightCard({ event }: { event: SpotlightEvent }) {
 // ----------------------------------------------------------------------
 
 /** Only types the API actually accepts. */
-const TYPE_TABS: Array<{ value: Filters["type"]; label: string }> = [
-  { value: "all", label: "All events" },
-  { value: "conference", label: "Conferences" },
-  { value: "summit", label: "Summits" },
-  { value: "meetup", label: "Meetups" },
-  { value: "webinar", label: "Webinars" },
-  { value: "workshop", label: "Workshops" },
-  { value: "hackathon", label: "Hackathons" },
+const TYPE_TABS: Array<{ value: Filters["type"]; labelKey: UiKey }> = [
+  { value: "all", labelKey: "events.tabsAll" },
+  { value: "conference", labelKey: "events.tabsConferences" },
+  { value: "summit", labelKey: "events.tabsSummits" },
+  { value: "meetup", labelKey: "events.tabsMeetups" },
+  { value: "webinar", labelKey: "events.tabsWebinars" },
+  { value: "workshop", labelKey: "events.tabsWorkshops" },
+  { value: "hackathon", labelKey: "events.tabsHackathons" },
 ];
 
 function TypeTabs({
@@ -760,7 +772,7 @@ function TypeTabs({
                     : "border-[var(--border)] text-muted-foreground hover:border-emerald-600/40 hover:text-foreground"
                 }`}
               >
-                {tab.label}
+                {t(tab.labelKey)}
                 {count ? <span className="ml-1.5 opacity-70 tabular-nums">{count}</span> : null}
               </button>
             );
@@ -818,7 +830,7 @@ function TrendingPanel({
           </h2>
         </div>
         <p className="mt-0.5 pl-8 text-[11px] text-muted-foreground">
-          Ranked by RSVPs on {publication.name}
+          {t("events.rankedByRsvps", { site: publication.name })}
         </p>
       </div>
 
@@ -880,7 +892,7 @@ function RelatedArticlesPanel() {
           </h2>
         </div>
         <p className="mt-0.5 pl-8 text-[11px] text-muted-foreground">
-          Reporting from the {publication.name} newsroom
+          {t("events.newsroomReporting", { site: publication.name })}
         </p>
       </div>
 
@@ -981,8 +993,13 @@ function SectorChip({
 
 interface Section {
   key: string;
-  title: string;
-  hint?: string;
+  /** Headings are carried as string keys, not as rendered text, so
+   *  `groupEvents` stays a pure function and the memo above it does not
+   *  have to re-run every render just to pick up the reader's locale. */
+  titleKey: UiKey;
+  titleVars?: Record<string, string | number>;
+  hintKey?: UiKey;
+  hintVars?: Record<string, string | number>;
   items: CardEvent[];
   tone: "default" | "past";
 }
@@ -1008,8 +1025,8 @@ function groupEvents(
     return [
       {
         key: "past",
-        title: "Past events",
-        hint: "Archived — registration is closed",
+        titleKey: "events.pastEvents",
+        hintKey: "events.pastArchived",
         items,
         tone: "past",
       },
@@ -1020,7 +1037,8 @@ function groupEvents(
     return [
       {
         key: "results",
-        title: `Results for “${filters.search.trim()}”`,
+        titleKey: "events.resultsFor",
+        titleVars: { query: filters.search.trim() },
         items,
         tone: "default",
       },
@@ -1057,8 +1075,9 @@ function groupEvents(
   if (thisMonth.length) {
     sections.push({
       key: "month",
-      title: `This month`,
-      hint: `Everything left in ${monthLabel}`,
+      titleKey: "events.thisMonth",
+      hintKey: "events.everythingLeftIn",
+      hintVars: { month: monthLabel },
       items: thisMonth,
       tone: "default",
     });
@@ -1066,8 +1085,8 @@ function groupEvents(
   if (later.length) {
     sections.push({
       key: "later",
-      title: thisMonth.length ? "Further ahead" : "Upcoming",
-      hint: "The rest of the calendar",
+      titleKey: thisMonth.length ? "events.furtherAhead" : "event.timeUpcoming",
+      hintKey: "events.restOfCalendar",
       items: later,
       tone: "default",
     });
@@ -1076,27 +1095,36 @@ function groupEvents(
 }
 
 function SectionHeading({
-  title,
-  hint,
+  titleKey,
+  titleVars,
+  hintKey,
+  hintVars,
   count,
   live,
 }: {
-  title: string;
-  hint?: string;
+  titleKey: UiKey;
+  titleVars?: Record<string, string | number>;
+  hintKey?: UiKey;
+  hintVars?: Record<string, string | number>;
   count: number;
   live?: boolean;
 }) {
+  const t = useT();
   return (
     <div className="mb-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-b border-border pb-3">
       <div className="flex items-center gap-2.5">
         {live && <PulsingDot />}
-        <h2 className="text-xl font-bold tracking-tight sm:text-2xl">{title}</h2>
+        <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
+          {t(titleKey, titleVars)}
+        </h2>
       </div>
       <p className="pb-0.5 text-sm text-muted-foreground">
         <span className="font-medium tabular-nums text-foreground">
-          {count} event{count === 1 ? "" : "s"}
+          {count === 1
+            ? t("events.oneEvent", { n: count })
+            : t("events.nEvents", { n: count })}
         </span>
-        {hint ? ` · ${hint}` : ""}
+        {hintKey ? ` · ${t(hintKey, hintVars)}` : ""}
       </p>
     </div>
   );
@@ -1122,21 +1150,23 @@ function Masthead({
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">
-              {publication.name} Events
+              {publication.name} {t("nav.events")}
             </p>
             <h1 className="mt-3 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               {t("events.tagline")}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              The regional tech calendar in one place — with live reporting
-              from the floor while it's happening.
+              {t("events.mastheadBlurb")}
             </p>
           </div>
 
           <div className="flex shrink-0 flex-col items-start gap-5 lg:items-end">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-              <Stat value={totalPublished} label="events listed" />
-              <Stat value={cityCount} label={cityCount === 1 ? "city" : "cities"} />
+              <Stat value={totalPublished} label={t("events.listed")} />
+              <Stat
+                value={cityCount}
+                label={cityCount === 1 ? t("common.city") : t("common.cities")}
+              />
               {liveCount > 0 && (
                 <div>
                   <div className="flex items-center gap-1.5 text-2xl font-bold tabular-nums text-red-600 dark:text-red-400">
@@ -1144,7 +1174,7 @@ function Masthead({
                     {liveCount}
                   </div>
                   <div className="mt-0.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                    live now
+                    {t("events.liveNow")}
                   </div>
                 </div>
               )}
@@ -1225,7 +1255,7 @@ function Spotlight({
             {t("state.noUpcomingEvents")}
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-            Check back shortly — or submit yours and we'll list it for free.
+            {t("events.checkBackSoon")}
           </p>
         </div>
       </div>
@@ -1363,7 +1393,9 @@ function LiveRail({ events }: { events: LiveCardEvent[] }) {
             {t("events.happeningNow")}
           </h2>
           <span className="text-sm text-muted-foreground">
-            {events.length} event{events.length === 1 ? "" : "s"} being covered live
+            {events.length === 1
+              ? t("events.coveredLiveOne")
+              : t("events.coveredLiveMany", { n: events.length })}
           </span>
         </div>
         <div className="-mx-1 flex snap-x gap-4 overflow-x-auto px-1 pb-1">
@@ -1406,6 +1438,7 @@ function FilterBar({
   narrowingCount,
   onClear,
 }: FilterBarProps) {
+  const t = useT();
   return (
     <div className="sticky top-20 z-30 border-y border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
       <div className={`${CONTAINER} py-3`}>
@@ -1420,7 +1453,7 @@ function FilterBar({
                 type="button"
                 onClick={() => updateFilter("search", "")}
                 className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-emerald-600/40 bg-emerald-50 px-3 text-sm font-medium text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
-                aria-label={`Clear search for ${filters.search}`}
+                aria-label={t("events.clearSearchFor", { query: filters.search })}
               >
                 <Search className="h-3.5 w-3.5" aria-hidden />
                 <span className="max-w-[160px] truncate">{filters.search}</span>
@@ -1439,8 +1472,8 @@ function FilterBar({
               value={filters.time}
               onChange={(v) => updateFilter("time", v)}
               options={[
-                { value: "upcoming", label: "Upcoming" },
-                { value: "past", label: "Past" },
+                { value: "upcoming", labelKey: "event.timeUpcoming" },
+                { value: "past", labelKey: "event.timePast" },
               ]}
             />
 
@@ -1481,7 +1514,9 @@ function FilterBar({
                 className="ml-auto inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 <X className="h-3.5 w-3.5" />
-                Clear {narrowingCount} filter{narrowingCount === 1 ? "" : "s"}
+                {narrowingCount === 1
+                  ? t("filter.clearOne")
+                  : t("filter.clearN", { n: narrowingCount })}
               </button>
             )}
           </div>
@@ -1498,8 +1533,9 @@ function Segmented<T extends string>({
 }: {
   value: T;
   onChange: (v: T) => void;
-  options: { value: T; label: string }[];
+  options: { value: T; labelKey: UiKey }[];
 }) {
+  const t = useT();
   return (
     <div className="flex shrink-0 items-center rounded-full border border-border bg-muted/50 p-0.5">
       {options.map((opt) => {
@@ -1516,7 +1552,7 @@ function Segmented<T extends string>({
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            {opt.label}
+            {t(opt.labelKey)}
           </button>
         );
       })}
@@ -1534,14 +1570,17 @@ function SelectChip<T extends string>({
   width = "w-44",
 }: {
   value: T;
-  options: { value: T; label: string }[];
+  options: { value: T; labelKey: UiKey }[];
   onChange: (v: T) => void;
   active: boolean;
   icon?: React.ReactNode;
   width?: string;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
-  const label = options.find((o) => o.value === value)?.label || options[0].label;
+  const label = t(
+    options.find((o) => o.value === value)?.labelKey || options[0].labelKey,
+  );
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -1573,7 +1612,7 @@ function SelectChip<T extends string>({
                 : "hover:bg-accent/50"
             }`}
           >
-            {opt.label}
+            {t(opt.labelKey)}
           </button>
         ))}
       </PopoverContent>
@@ -1604,13 +1643,13 @@ function CityChip({
           }`}
         >
           <MapPin className="h-3.5 w-3.5" />
-          {value || "Any city"}
+          {value || t("filter.anyCity")}
           <ChevronDown className="h-3.5 w-3.5 opacity-60" />
         </button>
       </PopoverTrigger>
       <PopoverContent className="w-64 p-0" align="start">
         <Command>
-          <CommandInput placeholder="Search cities…" />
+          <CommandInput placeholder={t("filter.searchCities")} />
           <CommandList>
             <CommandEmpty>{t("state.noCities")}</CommandEmpty>
             <CommandGroup>
@@ -1681,15 +1720,13 @@ function EmptyState({
       </div>
       <h3 className="mt-5 text-lg font-semibold">
         {onClear
-          ? "No events match these filters"
+          ? t("events.noMatchFilters")
           : time === "past"
-            ? "No past events on record yet"
-            : "Nothing on the calendar right now"}
+            ? t("events.noPastEvents")
+            : t("events.nothingOnCalendar")}
       </h3>
       <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
-        {onClear
-          ? "Try widening your search, or clear the filters to browse the full calendar."
-          : "New events are added constantly — or submit yours and we'll list it for free."}
+        {onClear ? t("events.tryWidening") : t("events.addedConstantly")}
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         {onClear && (
@@ -1715,7 +1752,7 @@ function PastEventsTeaser({ onShowPast }: { onShowPast: () => void }) {
       <div>
         <h3 className="text-base font-semibold">{t("events.pastPrompt")}</h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          Browse the archive for recaps, recordings and our coverage.
+          {t("events.browseArchive")}
         </p>
       </div>
       <Button
@@ -1750,8 +1787,7 @@ function SubmitBand() {
               {t("events.hosting")}
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Get it in front of the region's founders, operators and investors.
-              Listing on the {publication.name} events hub is free.
+              {t("events.submitBandBlurb", { site: publication.name })}
             </p>
           </div>
           <Link href="/events/submit" className="shrink-0">

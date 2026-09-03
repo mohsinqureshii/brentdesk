@@ -17,6 +17,7 @@ import { Link } from "wouter";
 import { Clock, MapPin, Star, CalendarDays } from "lucide-react";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -126,6 +127,7 @@ function SessionRow({
   slugBySpeakerId: Map<number, string | null>;
   action?: React.ReactNode;
 }) {
+  const t = useT();
   const timeRange = formatTimeRange(session.startTime, session.endTime);
   const accent = track?.color || undefined;
   const speakers = session.speakers || [];
@@ -153,7 +155,7 @@ function SessionRow({
               <div className="shrink-0 sm:w-32">
                 <div className="flex items-center gap-1.5 text-sm font-semibold tabular-nums text-foreground">
                   <Clock className="h-3.5 w-3.5 text-muted-foreground" />
-                  {timeRange || "TBA"}
+                  {timeRange || t("events.tba")}
                 </div>
                 {track?.name && (
                   <div
@@ -173,7 +175,7 @@ function SessionRow({
                   )}
                   {session.isFeatured && (
                     <Badge className="gap-1 border-transparent bg-primary/15 text-[11px] text-primary hover:bg-primary/20">
-                      <Star className="h-3 w-3" /> Featured
+                      <Star className="h-3 w-3" /> {t("list.featured")}
                     </Badge>
                   )}
                 </div>
@@ -248,6 +250,7 @@ export default function EventAgenda({
   /** Optional per-session affordance (the page injects a share trigger). */
   renderSessionAction?: (session: Session) => React.ReactNode;
 }) {
+  const t = useT();
   const { data: sessions = [], isLoading } = trpc.events.getSchedule.useQuery(
     { eventId },
     { enabled: !!eventId },
@@ -305,10 +308,9 @@ export default function EventAgenda({
       <Card className="border-dashed">
         <CardContent className="flex flex-col items-center gap-2 p-10 text-center">
           <CalendarDays className="h-8 w-8 text-muted-foreground" />
-          <p className="font-medium">The agenda isn't published yet</p>
+          <p className="font-medium">{t("events.agendaNotPublished")}</p>
           <p className="text-sm text-muted-foreground">
-            Sessions and speaking slots will appear here as soon as the
-            organisers confirm them.
+            {t("events.agendaNotPublishedBody")}
           </p>
         </CardContent>
       </Card>
@@ -345,7 +347,7 @@ export default function EventAgenda({
                 }`}
               >
                 <div className="text-sm font-semibold leading-tight">
-                  Day {d}
+                  {t("events.dayN", { n: d })}
                 </div>
                 {dt && (
                   <div
@@ -366,7 +368,7 @@ export default function EventAgenda({
 
       <div className="flex items-baseline justify-between gap-3">
         <h3 className="text-lg font-semibold">
-          {days.length > 1 ? `Day ${day}` : "Agenda"}
+          {days.length > 1 ? t("events.dayN", { n: day }) : t("events.agenda")}
           {activeDate && (
             <span className="ml-2 text-sm font-normal text-muted-foreground">
               {formatDayLabel(activeDate)}
@@ -374,14 +376,16 @@ export default function EventAgenda({
           )}
         </h3>
         <span className="text-xs uppercase tracking-wider text-muted-foreground">
-          {daySessions.length} session{daySessions.length === 1 ? "" : "s"}
+          {daySessions.length === 1
+            ? t("events.sessionCountOne", { n: daySessions.length })
+            : t("events.sessionCountMany", { n: daySessions.length })}
         </span>
       </div>
 
       {daySessions.length === 0 ? (
         <Card className="border-dashed">
           <CardContent className="p-8 text-center text-sm text-muted-foreground">
-            No sessions scheduled for this day yet.
+            {t("events.noSessionsForDay")}
           </CardContent>
         </Card>
       ) : (

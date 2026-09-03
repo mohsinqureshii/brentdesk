@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { Calendar, MapPin, Mic2, Star, ChevronRight } from "lucide-react";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -35,6 +36,7 @@ export default function SpeakingEngagements({
   personId: number;
   className?: string;
 }) {
+  const t = useT();
   const { data = [], isLoading } =
     trpc.events.getSpeakingEngagements.useQuery(
       { personId },
@@ -45,7 +47,7 @@ export default function SpeakingEngagements({
     return (
       <Card className={`bg-white dark:bg-card ${className}`}>
         <CardHeader className="pb-3">
-          <CardTitle className="text-lg">Speaking At</CardTitle>
+          <CardTitle className="text-lg">{t("person.speakingAt")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {[0, 1].map((i) => (
@@ -64,7 +66,7 @@ export default function SpeakingEngagements({
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-lg">
           <Mic2 className="h-4 w-4 text-primary" />
-          Speaking At
+          {t("person.speakingAt")}
           <Badge variant="secondary" className="text-xs">
             {engagements.length}
           </Badge>
@@ -92,7 +94,7 @@ export default function SpeakingEngagements({
                     </h4>
                     {e.isFeatured && (
                       <Badge className="gap-1 border-transparent bg-amber-100 text-[10px] text-amber-700 dark:bg-amber-950 dark:text-amber-400">
-                        <Star className="h-2.5 w-2.5" /> Featured
+                        <Star className="h-2.5 w-2.5" /> {t("list.featured")}
                       </Badge>
                     )}
                   </div>

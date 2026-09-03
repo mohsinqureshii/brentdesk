@@ -25,44 +25,49 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
-const benefits = [
+// Copy lives as keys, not sentences: the page is the same in both editions,
+// only the language changes. Author names stay as written.
+const benefits: { icon: typeof Briefcase; titleKey: UiKey; descriptionKey: UiKey }[] = [
   {
     icon: Briefcase,
-    title: "Personalized Job Matches",
-    description: "Get matched with industry roles based on your skills and preferences"
+    titleKey: "auth.benefitMatches",
+    descriptionKey: "auth.benefitMatchesBody"
   },
   {
     icon: TrendingUp,
-    title: "Track Companies & Funding",
-    description: "Follow companies and get notified about new projects and contract awards"
+    titleKey: "auth.benefitTracking",
+    descriptionKey: "auth.benefitTrackingBody"
   },
   {
     icon: Bell,
-    title: "Custom News Alerts",
-    description: "Receive breaking news about topics and companies you care about"
+    titleKey: "auth.benefitAlerts",
+    descriptionKey: "auth.benefitAlertsBody"
   },
   {
     icon: BookOpen,
-    title: "Exclusive Resources",
-    description: "Access founder perks, templates, playbooks, and calculators"
+    titleKey: "auth.benefitResources",
+    descriptionKey: "auth.benefitResourcesBody"
   }
 ];
 
-const testimonials = [
+const testimonials: { quoteKey: UiKey; author: string; roleKey: UiKey }[] = [
   {
-    quote: `${publication.name} helped me land my dream job at an EPC contractor in Riyadh.`,
+    quoteKey: "auth.testimonialOne",
     author: "Sarah M.",
-    role: "Product Manager"
+    roleKey: "auth.testimonialOneRole"
   },
   {
-    quote: "The best resource for staying updated on the region's industrial economy.",
+    quoteKey: "auth.testimonialTwo",
     author: "Ahmed K.",
-    role: "Founder & CEO"
+    roleKey: "auth.testimonialTwoRole"
   }
 ];
 
 export default function Signup() {
+  const t = useT();
   const { isAuthenticated } = useAuth();
   const [, setLocation] = useLocation();
   
@@ -84,11 +89,11 @@ export default function Signup() {
         // Redirect to dashboard on successful registration
         window.location.href = "/dashboard";
       } else {
-        setError(data.error || "Registration failed. Please try again.");
+        setError(data.error || t("auth.registrationFailed"));
       }
     },
     onError: (err) => {
-      setError(err.message || "An error occurred. Please try again.");
+      setError(err.message || t("auth.genericError"));
     }
   });
 
@@ -101,35 +106,35 @@ export default function Signup() {
 
   const validateForm = () => {
     if (!name.trim()) {
-      setError("Please enter your name");
+      setError(t("auth.enterName"));
       return false;
     }
     if (name.trim().length < 2) {
-      setError("Name must be at least 2 characters");
+      setError(t("auth.nameTooShort"));
       return false;
     }
     if (!email.trim()) {
-      setError("Please enter your email");
+      setError(t("auth.enterEmail"));
       return false;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Please enter a valid email address");
+      setError(t("auth.invalidEmail"));
       return false;
     }
     if (!password) {
-      setError("Please enter a password");
+      setError(t("auth.choosePassword"));
       return false;
     }
     if (password.length < 8) {
-      setError("Password must be at least 8 characters");
+      setError(t("auth.passwordTooShort"));
       return false;
     }
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError(t("auth.passwordsMismatch"));
       return false;
     }
     if (!agreedToTerms) {
-      setError("Please agree to the Terms of Service and Privacy Policy");
+      setError(t("auth.mustAgree"));
       return false;
     }
     return true;
@@ -162,14 +167,13 @@ export default function Signup() {
               <div className="text-white">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-sm font-medium mb-6">
                   <Sparkles className="h-4 w-4 text-yellow-400" />
-                  Join the region's industry professionals
+                  {t("auth.joinBadge")}
                 </div>
                 <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  Your window on the region's industrial economy
+                  {t("auth.signupHeadline")}
                 </h1>
                 <p className="text-lg text-white/70 mb-8">
-                  Create your free account to access personalized job matches, exclusive founder resources, 
-                  and stay ahead with curated news from the region's fastest-growing tech scene.
+                  {t("auth.signupSubhead")}
                 </p>
                 
                 {/* Benefits List */}
@@ -180,8 +184,8 @@ export default function Signup() {
                         <benefit.icon className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-white">{benefit.title}</h3>
-                        <p className="text-sm text-white/60">{benefit.description}</p>
+                        <h3 className="font-semibold text-white">{t(benefit.titleKey)}</h3>
+                        <p className="text-sm text-white/60">{t(benefit.descriptionKey)}</p>
                       </div>
                     </div>
                   ))}
@@ -192,9 +196,9 @@ export default function Signup() {
               <div className="lg:pl-8">
                 <Card className="bg-white shadow-2xl border-0">
                   <CardHeader className="text-center pb-2">
-                    <CardTitle className="text-2xl">Create Your Account</CardTitle>
+                    <CardTitle className="text-2xl">{t("auth.createYourAccount")}</CardTitle>
                     <CardDescription>
-                      It's free and takes less than a minute
+                      {t("auth.freeAndFast")}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -209,11 +213,11 @@ export default function Signup() {
 
                       {/* Name Field */}
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name</Label>
+                        <Label htmlFor="name">{t("auth.fullName")}</Label>
                         <Input
                           id="name"
                           type="text"
-                          placeholder="Enter your full name"
+                          placeholder={t("auth.fullNamePlaceholder")}
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           disabled={registerMutation.isPending}
@@ -223,11 +227,11 @@ export default function Signup() {
 
                       {/* Email Field */}
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
+                        <Label htmlFor="email">{t("auth.emailAddress")}</Label>
                         <Input
                           id="email"
                           type="email"
-                          placeholder="Enter your email"
+                          placeholder={t("newsletter.enterEmail")}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           disabled={registerMutation.isPending}
@@ -237,12 +241,12 @@ export default function Signup() {
 
                       {/* Password Field */}
                       <div className="space-y-2">
-                        <Label htmlFor="password">Password</Label>
+                        <Label htmlFor="password">{t("auth.password")}</Label>
                         <div className="relative">
                           <Input
                             id="password"
                             type={showPassword ? "text" : "password"}
-                            placeholder="Create a password (min. 8 characters)"
+                            placeholder={t("auth.passwordPlaceholder")}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             disabled={registerMutation.isPending}
@@ -260,12 +264,12 @@ export default function Signup() {
 
                       {/* Confirm Password Field */}
                       <div className="space-y-2">
-                        <Label htmlFor="confirmPassword">Confirm Password</Label>
+                        <Label htmlFor="confirmPassword">{t("auth.confirmPassword")}</Label>
                         <div className="relative">
                           <Input
                             id="confirmPassword"
                             type={showConfirmPassword ? "text" : "password"}
-                            placeholder="Confirm your password"
+                            placeholder={t("auth.confirmPasswordPlaceholder")}
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             disabled={registerMutation.isPending}
@@ -291,13 +295,13 @@ export default function Signup() {
                             className="mt-1"
                           />
                           <label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
-                            I agree to {publication.name}'s{" "}
+                            {t("auth.agreeTo", { site: publication.name })}{" "}
                             <Link href="/terms" className="text-foreground underline hover:no-underline">
-                              Terms of Service
+                              {t("footer.termsOfService")}
                             </Link>{" "}
-                            and{" "}
+                            {t("common.and")}{" "}
                             <Link href="/privacy" className="text-foreground underline hover:no-underline">
-                              Privacy Policy
+                              {t("footer.privacyPolicy")}
                             </Link>
                           </label>
                         </div>
@@ -310,7 +314,7 @@ export default function Signup() {
                             className="mt-1"
                           />
                           <label htmlFor="newsletter" className="text-sm text-muted-foreground leading-relaxed">
-                            Subscribe to {publication.newsletter.name} (recommended)
+                            {t("auth.subscribeNewsletter", { newsletter: publication.newsletter.name })}
                           </label>
                         </div>
                       </div>
@@ -324,12 +328,12 @@ export default function Signup() {
                         {registerMutation.isPending ? (
                           <>
                             <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                            Creating Account...
+                            {t("auth.creatingAccount")}
                           </>
                         ) : (
                           <>
                             <Rocket className="h-5 w-5 mr-2" />
-                            Create Account
+                            {t("nav.createAccount")}
                           </>
                         )}
                       </Button>
@@ -339,9 +343,9 @@ export default function Signup() {
                       {/* Already have account */}
                       <div className="text-center">
                         <p className="text-sm text-muted-foreground">
-                          Already have an account?{" "}
+                          {t("auth.alreadyHaveAccount")}{" "}
                           <Link href="/signin" className="text-foreground font-medium hover:underline">
-                            Sign In
+                            {t("nav.signIn")}
                           </Link>
                         </p>
                       </div>
@@ -351,7 +355,7 @@ export default function Signup() {
 
                 {/* Social Proof */}
                 <div className="mt-6 text-center">
-                  <p className="text-white/60 text-sm mb-3">Trusted by professionals at</p>
+                  <p className="text-white/60 text-sm mb-3">{t("auth.trustedBy")}</p>
                   <div className="flex items-center justify-center gap-6 text-white/40">
                     <span className="font-semibold">Careem</span>
                     <span className="font-semibold">Noon</span>
@@ -367,13 +371,13 @@ export default function Signup() {
         {/* Testimonials Section */}
         <section className="py-16 bg-muted/30">
           <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-center mb-10">What Our Members Say</h2>
+            <h2 className="text-2xl font-bold text-center mb-10">{t("auth.membersSay")}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, idx) => (
                 <Card key={idx} className="bg-background">
                   <CardContent className="pt-6">
                     <p className="text-lg italic text-muted-foreground mb-4">
-                      "{testimonial.quote}"
+                      "{t(testimonial.quoteKey, { site: publication.name })}"
                     </p>
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
@@ -381,7 +385,7 @@ export default function Signup() {
                       </div>
                       <div>
                         <p className="font-medium">{testimonial.author}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                        <p className="text-sm text-muted-foreground">{t(testimonial.roleKey)}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -394,16 +398,16 @@ export default function Signup() {
         {/* CTA Section */}
         <section className="py-16 bg-black text-white">
           <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Join MENA's Tech Community?</h2>
+            <h2 className="text-3xl font-bold mb-4">{t("auth.ctaHeadline")}</h2>
             <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Get instant access to job matches, founder resources, and the latest news from the region's tech ecosystem.
+              {t("auth.ctaBody")}
             </p>
             <Link href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Button 
                 size="lg"
                 className="bg-white text-black hover:bg-white/90 rounded-full px-8"
               >
-                Create Free Account
+                {t("auth.createFreeAccount")}
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>

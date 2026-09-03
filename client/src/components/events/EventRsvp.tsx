@@ -22,12 +22,14 @@ import { publication } from "@shared/publication";
 import { toast } from "sonner";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 
 export type RsvpStatus = "going" | "interested" | "not_going";
 
 export function useEventRsvp(eventId: number, slug: string) {
+  const t = useT();
   const { user } = useAuth();
   const utils = trpc.useUtils();
 
@@ -46,15 +48,20 @@ export function useEventRsvp(eventId: number, slug: string) {
     },
     onError: (e: any) => {
       setOptimistic(null);
-      toast.error(e?.message || "Could not update your RSVP");
+      toast.error(e?.message || t("events.rsvpError"));
     },
   });
 
   const setStatus = (status: RsvpStatus) => {
     if (!user) {
-      toast("Sign in to RSVP", {
-        description: `Your RSVP and reminder emails live on your ${publication.name} account.`,
-        action: { label: "Sign in", onClick: () => { window.location.href = "/signin"; } },
+      toast(t("events.signInToRsvp"), {
+        description: t("events.rsvpAccountNote", { site: publication.name }),
+        action: {
+          label: t("nav.signIn"),
+          onClick: () => {
+            window.location.href = "/signin";
+          },
+        },
       });
       return;
     }
@@ -83,6 +90,7 @@ export function EventRsvpButtons({
   variant?: "hero" | "band";
   className?: string;
 }) {
+  const t = useT();
   const { current, setStatus, isPending } = useEventRsvp(eventId, slug);
 
   const going = current === "going";
@@ -107,7 +115,7 @@ export function EventRsvpButtons({
         ) : (
           <Users className="h-4 w-4" aria-hidden="true" />
         )}
-        {going ? "You're going" : "I'm going"}
+        {going ? t("events.youAreGoing") : t("events.imGoing")}
       </Button>
 
       <Button
@@ -126,7 +134,7 @@ export function EventRsvpButtons({
         ) : (
           <Bell className="h-4 w-4" aria-hidden="true" />
         )}
-        {interested ? "Following" : "Follow"}
+        {interested ? t("common.following") : t("common.follow")}
       </Button>
     </div>
   );

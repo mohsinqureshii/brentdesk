@@ -22,6 +22,8 @@
 
 import { useRef } from "react";
 
+import { useT } from "@/lib/i18n";
+
 export interface EventTab {
   id: string;
   label: string;
@@ -48,6 +50,7 @@ export default function EventTabBar({
   onChange: (id: string) => void;
   className?: string;
 }) {
+  const t = useT();
   const listRef = useRef<HTMLDivElement | null>(null);
 
   const focusTab = (index: number) => {
@@ -86,7 +89,7 @@ export default function EventTabBar({
       <div
         ref={listRef}
         role="tablist"
-        aria-label="Event sections"
+        aria-label={t("events.sections")}
         onKeyDown={onKeyDown}
         className="flex gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >

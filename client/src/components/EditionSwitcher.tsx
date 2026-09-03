@@ -17,6 +17,7 @@
  */
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
   DropdownMenuLabel, DropdownMenuSeparator,
@@ -43,6 +44,7 @@ function setEditionAndReload(slug: string) {
 }
 
 export function EditionSwitcher({ compact = false, className = "" }: EditionSwitcherProps) {
+  const t = useT();
   const editions = trpc.editions.list.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const current = trpc.editions.current.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const [open, setOpen] = useState(false);
@@ -59,7 +61,7 @@ export function EditionSwitcher({ compact = false, className = "" }: EditionSwit
           variant="ghost"
           size="sm"
           className={`gap-1.5 px-2 ${className}`}
-          aria-label={`Currently viewing: ${active.name} edition`}
+          aria-label={t("edition.currentlyViewing", { edition: active.name })}
         >
           <span className="text-base leading-none">{active.flagEmoji || "🌍"}</span>
           {!compact && (
@@ -70,7 +72,7 @@ export function EditionSwitcher({ compact = false, className = "" }: EditionSwit
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="flex items-center gap-2 text-xs">
-          <Globe className="h-3.5 w-3.5" /> Choose edition
+          <Globe className="h-3.5 w-3.5" /> {t("nav.chooseEdition")}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {list
