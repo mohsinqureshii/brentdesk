@@ -119,6 +119,15 @@
     "list.topStory": "أبرز خبر",
     "list.sidebar": "الشريط الجانبي",
     "common.advertisement": "إعلان",
-    "common.closeAd": "إغلاق الإعلان"
+    "common.closeAd": "إغلاق الإعلان",
+    "common.viewAll": "عرض الكل",
+    "common.subscribing": "جارٍ الاشتراك…",
+    "common.supportJournalism": "ادعم صحافة مستقلة",
+    "search.placeholder": "ابحث في المقالات والوظائف والشركات والأشخاص والفعاليات…",
+    "search.noResults": "جرّب كلمات أخرى، أو تصفّح الأقسام",
+    "search.quickLinks": "روابط سريعة",
+    "common.adBlocker": "يمكنك تعطيل مانع الإعلانات لدعم {site}",
+    "newsletter.unsubscribeAnytime": "يمكنك إلغاء الاشتراك في أي وقت. اطّلع على",
+    "common.all": "الكل"
   }
 }

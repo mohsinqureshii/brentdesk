@@ -302,10 +302,10 @@ export function AdUnit({
         >
           <div>
             <p className="text-xs text-muted-foreground/70 mb-1">
-              Support independent journalism
+              {t("common.supportJournalism")}
             </p>
             <p className="text-[10px] text-muted-foreground/50">
-              Consider disabling your ad blocker for {publication.name}
+              {t("common.adBlocker", { site: publication.name })}
             </p>
           </div>
         </div>

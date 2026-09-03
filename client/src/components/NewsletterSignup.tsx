@@ -204,7 +204,7 @@ export function NewsletterSignup({
           {subscribeMutation.isPending ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin mr-2" />
-              Subscribing...
+              {t("common.subscribing")}
             </>
           ) : (
             t("newsletter.subscribe")
@@ -212,8 +212,8 @@ export function NewsletterSignup({
         </Button>
 
         <p className="text-xs text-center text-muted-foreground">
-          You can unsubscribe at any time. Read our{" "}
-          <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
+          {t("newsletter.unsubscribeAnytime")}{" "}
+          <a href="/privacy" className="underline hover:text-foreground">{t("footer.privacyPolicy")}</a>.
         </p>
       </form>
     </div>

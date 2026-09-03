@@ -99,6 +99,7 @@ function SectionHeader({
   link,
   compact = false,
 }: { title: string; accent?: string | null; link?: string | null; compact?: boolean }) {
+  const t = useT();
   return (
     <div className="flex items-center justify-between gap-2 mb-4">
       <h2
@@ -112,7 +113,7 @@ function SectionHeader({
           href={link}
           className="shrink-0 text-xs font-semibold text-primary hover:underline flex items-center gap-1"
         >
-          {compact ? "All" : "View all"} <ArrowRight className="h-3.5 w-3.5" />
+          {compact ? t("common.all") : t("common.viewAll")} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       )}
     </div>
@@ -205,7 +206,7 @@ function TopStorySection({ section }: { section: HomepageSection }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
         <div className="relative p-6 lg:p-8">
           <span className="inline-block bg-white text-black text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1 rounded-sm mb-4">
-            Top Story
+            {t("list.topStory")}
           </span>
           <h1
             className="text-white font-extrabold tracking-tight leading-[1.15] text-2xl lg:text-4xl max-w-2xl"
@@ -313,6 +314,7 @@ function HeadlinesColumns({ section }: { section: HomepageSection }) {
 }
 
 function InBriefSection({ section }: { section: HomepageSection }) {
+  const t = useT();
   const { data: articles = [] } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
     limit: section.articleCount || 6,
@@ -337,7 +339,7 @@ function InBriefSection({ section }: { section: HomepageSection }) {
         href="/news"
         className="mt-4 inline-flex items-center justify-center gap-1.5 rounded-md border border-border py-2 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
       >
-        View all <ArrowRight className="h-3.5 w-3.5" />
+        {t("common.viewAll")} <ArrowRight className="h-3.5 w-3.5" />
       </Link>
     </div>
   );
@@ -509,6 +511,7 @@ function MostReadWidget({ section }: { section: HomepageSection }) {
 }
 
 function JobsWidget({ section, editionCountryId }: { section: HomepageSection; editionCountryId?: number }) {
+  const t = useT();
   const { data } = trpc.jobs.list.useQuery({ editionCountryId });
   const jobs = (data?.items ?? []).slice(0, section.articleCount || 5);
   if (!jobs.length) return null;
@@ -520,7 +523,7 @@ function JobsWidget({ section, editionCountryId }: { section: HomepageSection; e
           <Briefcase className="h-4 w-4 text-primary" /> {section.name}
         </h2>
         <Link href="/jobs" className="text-xs font-semibold text-primary hover:underline">
-          View all
+          {t("common.viewAll")}
         </Link>
       </div>
       <ul>
@@ -548,6 +551,7 @@ function JobsWidget({ section, editionCountryId }: { section: HomepageSection; e
 }
 
 function EventsWidget({ section, editionCountryId }: { section: HomepageSection; editionCountryId?: number }) {
+  const t = useT();
   const { data } = trpc.events.list.useQuery({ editionCountryId });
   const events = (data?.items ?? []).slice(0, section.articleCount || 4);
   if (!events.length) return null;
@@ -558,7 +562,7 @@ function EventsWidget({ section, editionCountryId }: { section: HomepageSection;
           <Calendar className="h-4 w-4 text-primary" /> {section.name}
         </h2>
         <Link href="/events" className="text-xs font-semibold text-primary hover:underline">
-          View all
+          {t("common.viewAll")}
         </Link>
       </div>
       <ul>
