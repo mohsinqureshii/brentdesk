@@ -7,6 +7,7 @@ const OG_IMAGE = `${BASE}${publication.assets.ogImage}`;
 import { getDb } from "../db";
 import { articles, categories, articleCategories, users, media, tags, articleTags, companies, investors, people, events, jobs, accelerators , eventLivePosts } from "../../drizzle/schema";
 import { eq, and, desc, isNotNull, count, sql } from "drizzle-orm";
+import { localizeArticle, localizeArticles } from "./translation.service";
 
 /**
  * Safely convert a string or Date timestamp to ISO string
@@ -63,7 +64,19 @@ interface ArticleSSRData {
  * Returns null if article not found OR if the URL category doesn't match the article's primary category
  * (non-primary category URLs should 301 redirect, not render)
  */
-export async function getArticleForSSR(categorySlug: string, articleSlug: string): Promise<ArticleSSRData | null> {
+/**
+ * The article a crawler and a no-JS reader are served.
+ *
+ * `locale` is what makes /ar/construction/big-5-opens an Arabic page rather
+ * than an English page with an Arabic `lang` attribute. Without it the head
+ * said "ar" and every word under it was English — which is worse than not
+ * translating at all, because it asks Google to index two URLs carrying the
+ * same text as if they were different languages.
+ */
+export async function getArticleForSSR(
+  categorySlug: string, articleSlug: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<ArticleSSRData | null> {
   const db = await getDb();
   if (!db) return null;
 
@@ -170,7 +183,7 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
   try {
     if (category) {
       const sibs = await db
-        .select({ title: articles.title, slug: articles.slug })
+        .select({ id: articles.id, title: articles.title, slug: articles.slug })
         .from(articles)
         .where(and(
           eq(articles.primaryCategoryId, row.primaryCategoryId!),
@@ -178,21 +191,28 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
         ))
         .orderBy(desc(articles.publishedAt))
         .limit(8);
-      related = sibs
-        .filter((s: any) => s.slug !== row.slug)
-        .slice(0, 5)
-        .map((s: any) => ({
-          title: s.title,
-          url: `${BASE}/${category.slug}/${s.slug}`,
-        }));
+      const siblings = await localizeArticles(
+        locale,
+        sibs.filter((s: any) => s.slug !== row.slug).slice(0, 5),
+      );
+      related = siblings.map((s: any) => ({
+        title: s.title,
+        url: `${BASE}/${category.slug}/${s.slug}`,
+      }));
     }
   } catch (err) {
     console.error('[SSR] related-article fetch failed:', err);
   }
 
+  // The overlay, applied once to the row this page is built from. Every
+  // generator below — meta tags, JSON-LD, the prerendered body — reads these
+  // fields, so doing it here localizes the whole page instead of each of them
+  // growing its own copy. A no-op on the default language.
+  const a = await localizeArticle(locale, row as any) as typeof row;
+
   return {
-    title: row.title,
-    description: row.excerpt || publication.description,
+    title: a.title,
+    description: a.excerpt || publication.description,
     image: row.mediaUrl || null,
     imageWidth: row.mediaWidth || null,
     imageHeight: row.mediaHeight || null,
@@ -202,9 +222,9 @@ export async function getArticleForSSR(categorySlug: string, articleSlug: string
     updatedAt: row.updatedAt,
     author,
     category,
-    content: row.content || '',
-    seoTitle: row.seoTitle,
-    seoDescription: row.seoDescription,
+    content: a.content || '',
+    seoTitle: a.seoTitle,
+    seoDescription: a.seoDescription,
     seoKeywords: row.seoKeywords,
     canonicalUrlOverride: row.canonicalUrl,
     related,

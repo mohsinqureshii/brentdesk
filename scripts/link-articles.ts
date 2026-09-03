@@ -197,6 +197,19 @@ function assignCategories(a: Article): string[] {
  *  an article about Aramco's refinery AI — both mention Microsoft, neither
  *  is about it. A reader following that link is misled, and a search engine
  *  reads it as a topical signal that is simply false. */
+/** Names two unrelated companies both go by.
+ *
+ *  "Masdar" is Abu Dhabi's renewable energy developer AND the Al-Muhaidib
+ *  building materials distributor founded in Saudi Arabia in 1971. Both are
+ *  in this archive, and a link anchored on the bare name lands the reader on
+ *  the wrong company — which is exactly what happened: eight Big 5 pieces
+ *  about building materials pointed at a solar story.
+ *
+ *  The full names ("Masdar Building Materials") still anchor fine. Only the
+ *  ambiguous short form is barred, because no amount of scoring can tell
+ *  which company a bare "Masdar" in the prose means. */
+const COLLIDING_NAMES = new Set(["Masdar"]);
+
 function anchors(a: Article): string[] {
   const out: string[] = [];
   const headline = a.headline;
@@ -204,6 +217,7 @@ function anchors(a: Article): string[] {
   for (const c of a.companies ?? []) {
     // Institutional names are too generic to anchor safely.
     if (/^(Ministry|General Authority|National Centre|Royal Commission|Public Investment Fund)\b/i.test(c)) continue;
+    if (COLLIDING_NAMES.has(c)) continue;
     if (c.length < 4) continue;
     // The company must be named in the headline, or be an unambiguous
     // shortening of something in it ("ADNOC Gas" for a headline about ADNOC).
@@ -214,6 +228,7 @@ function anchors(a: Article): string[] {
   // Distinctive multi-word project names from the headline itself.
   for (const m of headline.matchAll(/\b([A-Z][a-z]+(?:[ -][A-Z][a-z']+){1,3})\b/g)) {
     const p = m[1];
+    if (COLLIDING_NAMES.has(p)) continue;
     if (p.length >= 8 && !/^(Saudi Arabia|The |A |An |United States|United Arab|Abu Dhabi|New |More )/.test(p)) out.push(p);
   }
   return [...new Set(out)].filter(distinctive).sort((x, y) => y.length - x.length);

@@ -455,14 +455,17 @@ async function trySubcategorySSR(url: string, template: string): Promise<{ html:
  * The category can be either a parent or child category slug.
  * Also accepts /news/:slug as a universal prefix.
  */
-async function tryArticleSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
+async function tryArticleSSR(
+  url: string, template: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<{ html: string; status: number } | null> {
   const urlParts = url.split('/').filter(Boolean);
   if (urlParts.length !== 2) return null;
   
   const [categorySlug, articleSlug] = urlParts;
   console.log('[SSR] Attempting article SSR:', { categorySlug, articleSlug, url });
   try {
-    const article = await getArticleForSSR(categorySlug, articleSlug);
+    const article = await getArticleForSSR(categorySlug, articleSlug, locale);
     console.log('[SSR] Article found:', !!article, article?.title);
     if (article) {
       // Serve every article at exactly ONE URL. /news/:slug and
@@ -497,7 +500,10 @@ async function tryArticleSSR(url: string, template: string): Promise<{ html: str
  * Try SSR for 3-segment article URLs: /parentCat/childCat/articleSlug
  * e.g. /technology/health-tech/article-slug, /news/press-release/article-slug
  */
-async function tryThreeSegmentArticleSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
+async function tryThreeSegmentArticleSSR(
+  url: string, template: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<{ html: string; status: number } | null> {
   const urlParts = url.split('/').filter(Boolean);
   if (urlParts.length !== 3) return null;
   
@@ -519,7 +525,7 @@ async function tryThreeSegmentArticleSSR(url: string, template: string): Promise
       );
       return { html: redirectHtml, status: 301 };
     }
-    const article = await getArticleForSSR(childSlug, articleSlug);
+    const article = await getArticleForSSR(childSlug, articleSlug, locale);
     if (article) {
       const metaTags = generateMetaTags(article);
       const jsonLd = generateJsonLd(article);
@@ -529,7 +535,7 @@ async function tryThreeSegmentArticleSSR(url: string, template: string): Promise
     }
     
     // Also try with the parent slug (some articles have parent as primary category)
-    const articleByParent = await getArticleForSSR(parentSlug, articleSlug);
+    const articleByParent = await getArticleForSSR(parentSlug, articleSlug, locale);
     if (articleByParent) {
       const metaTags = generateMetaTags(articleByParent);
       const jsonLd = generateJsonLd(articleByParent);
@@ -539,7 +545,7 @@ async function tryThreeSegmentArticleSSR(url: string, template: string): Promise
     }
     
     // Also try with 'news' as universal prefix
-    const articleByNews = await getArticleForSSR('news', articleSlug);
+    const articleByNews = await getArticleForSSR('news', articleSlug, locale);
     if (articleByNews) {
       const metaTags = generateMetaTags(articleByNews);
       const jsonLd = generateJsonLd(articleByNews);
@@ -561,7 +567,10 @@ async function tryThreeSegmentArticleSSR(url: string, template: string): Promise
  * Handles old URLs like /neobanks-in-mena-... that should redirect to /catSlug/neobanks-in-mena-...
  * These appear in GSC as 404s - redirect to canonical URL
  */
-async function tryBareArticleSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
+async function tryBareArticleSSR(
+  url: string, template: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<{ html: string; status: number } | null> {
   const urlParts = url.split('/').filter(Boolean);
   if (urlParts.length !== 1) return null;
   
@@ -656,17 +665,24 @@ export async function runSSR(url: string, template: string): Promise<{ html: str
   const path = url.split("?")[0];
   const query = url.slice(path.length);
   let routed = url;
+  // The language the prefix asks for, carried into the render. Stripping the
+  // prefix is only half the job: without this the page routes correctly and
+  // then renders in English under an Arabic `lang` attribute.
+  let locale: { code: string; isDefault: boolean } | undefined;
   try {
     const { listLocales } = await import("../services/translation.service");
     const { splitLocalePath } = await import("../services/locale.service");
     const active = await listLocales({ activeOnly: true });
     const { code, basePath } = splitLocalePath(path, active.map(l => l.code));
-    if (code) routed = basePath + query;
+    if (code) {
+      routed = basePath + query;
+      locale = { code, isDefault: false };
+    }
   } catch {
     // No locale table yet — serve the URL as written.
   }
 
-  const result = await routeSSR(routed, template);
+  const result = await routeSSR(routed, template, locale);
   if (!result) return null;
   // Language head, applied once for every route rather than in each of the
   // eleven meta-tag generators: <html lang dir>, the canonical for THIS
@@ -681,7 +697,10 @@ export async function runSSR(url: string, template: string): Promise<{ html: str
   }
 }
 
-async function routeSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
+async function routeSSR(
+  url: string, template: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<{ html: string; status: number } | null> {
   // 0a. Live coverage pages (/events/:slug/live[/:postId])
   const liveResult = await tryEventLiveSSR(url, template);
   if (liveResult) return liveResult;
@@ -707,15 +726,15 @@ async function routeSSR(url: string, template: string): Promise<{ html: string; 
   if (subcatResult) return subcatResult;
   
   // 5. Article pages (catch-all for /:cat/:slug - must be last)
-  const articleResult = await tryArticleSSR(url, template);
+  const articleResult = await tryArticleSSR(url, template, locale);
   if (articleResult) return articleResult;
   
   // 6. 3-segment article URLs: /parentCat/childCat/articleSlug
-  const threeSegResult = await tryThreeSegmentArticleSSR(url, template);
+  const threeSegResult = await tryThreeSegmentArticleSSR(url, template, locale);
   if (threeSegResult) return threeSegResult;
   
   // 7. Bare article slug: /:articleSlug (old URLs without category prefix)
-  const bareArticleResult = await tryBareArticleSSR(url, template);
+  const bareArticleResult = await tryBareArticleSSR(url, template, locale);
   if (bareArticleResult) return bareArticleResult;
   
   return null;
