@@ -31,6 +31,8 @@
  */
 
 import { useState } from "react";
+import { useT } from "@/lib/i18n";
+import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import { Bookmark, CalendarDays, MapPin, Radio } from "lucide-react";
 import { toast } from "sonner";
@@ -82,7 +84,7 @@ export function formatLongDateRange(
   if (!s) return "Date TBD";
   const e = asDate(end);
   const fmt = (d: Date) =>
-    d.toLocaleDateString("en-US", {
+    fmtDate(d, {
       month: "long",
       day: "numeric",
       year: "numeric",
@@ -94,7 +96,7 @@ export function formatLongDateRange(
     s.getDate() === e.getDate();
   if (!e || sameDay) return fmt(s);
   if (s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth()) {
-    const month = s.toLocaleDateString("en-US", { month: "long" });
+    const month = fmtDate(s, { month: "long" });
     return `${month} ${s.getDate()}–${e.getDate()}, ${s.getFullYear()}`;
   }
   return `${fmt(s)} – ${fmt(e)}`;
@@ -106,7 +108,7 @@ export function formatShortDate(
 ): string {
   const s = asDate(start);
   if (!s) return "Date TBD";
-  return s.toLocaleDateString("en-US", {
+  return fmtDate(s, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -502,6 +504,7 @@ export interface LiveCardEvent {
 }
 
 export function LiveEventCard({ event }: { event: LiveCardEvent }) {
+  const t = useT();
   const location = formatLocation(event.city, event.country, event.format);
   // The only real-time number `listLiveNow` returns is the count of live
   // posts filed in the last hour. It is labelled as exactly that — this
@@ -546,7 +549,7 @@ export function LiveEventCard({ event }: { event: LiveCardEvent }) {
             <span className="truncate">{location}</span>
           </p>
           <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-zinc-900 shadow-sm transition-colors group-hover:bg-emerald-500 group-hover:text-white">
-            Watch Live
+            {t("events.watchLive")}
             <span aria-hidden="true">→</span>
           </span>
         </div>

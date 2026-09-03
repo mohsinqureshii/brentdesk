@@ -6,7 +6,7 @@
 import { z } from "zod";
 import { eq, and, or, desc, asc, like, inArray, isNotNull, sql, gte } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
-import { localizeArticle, localizeArticles } from "../../services/translation.service";
+import { localizeArticle, localizeArticles, localizeRows } from "../../services/translation.service";
 import { getDb } from "../../db";
 import { 
   articles, 
@@ -1644,7 +1644,7 @@ export const newsRouter = router({
    * Get active flash news (public)
    */
   getFlashNews: publicProcedure
-    .query(async () => {
+    .query(async ({ ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -1673,7 +1673,7 @@ export const newsRouter = router({
         .orderBy(newsRecencyDesc)
         .limit(10);
 
-      return flashArticles;
+      return localizeArticles(ctx.locale, flashArticles);
     }),
 
   /**
@@ -1913,7 +1913,7 @@ export const newsRouter = router({
    */
   getCategoryBySlug: publicProcedure
     .input(z.object({ slug: z.string() }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -1925,7 +1925,8 @@ export const newsRouter = router({
         ))
         .limit(1);
 
-      return result[0] || null;
+      if (!result[0]) return null;
+      return (await localizeRows(ctx.locale, "category", result))[0];
     }),
 
   /**
@@ -1938,7 +1939,7 @@ export const newsRouter = router({
       limit: z.number().default(20),
       sortBy: z.enum(["publishedAt", "viewCount"]).default("publishedAt"),
     }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -2067,7 +2068,7 @@ export const newsRouter = router({
       }));
 
       return {
-        items: enrichedResults,
+        items: await localizeArticles(ctx.locale, enrichedResults),
         total,
         page,
         totalPages: Math.ceil(total / limit),
@@ -2079,7 +2080,7 @@ export const newsRouter = router({
    * Get all categories with article counts (public) - for Browse Categories sidebar
    */
   getAllCategoriesWithCounts: publicProcedure
-    .query(async () => {
+    .query(async ({ ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -2122,7 +2123,10 @@ export const newsRouter = router({
         counts.map(r => [Number(r.categoryId), Number(r.count)]),
       );
 
-      return allCategories
+      // Localize before sorting: the sort is by count, but the name a reader
+      // reads has to be the translated one.
+      const named = await localizeRows(ctx.locale, "category", allCategories);
+      return named
         .map(cat => ({ ...cat, articleCount: countByCategory.get(cat.id) ?? 0 }))
         .sort((a, b) => b.articleCount - a.articleCount);
     }),
@@ -2190,8 +2194,11 @@ export const newsRouter = router({
       articleId: z.number(),
       limit: z.number().default(5),
     }))
-    .query(async ({ input }) => {
-      return relatedContentService.getRelatedArticles(input.articleId, input.limit);
+    .query(async ({ input, ctx }) => {
+      return localizeArticles(
+        ctx.locale,
+        await relatedContentService.getRelatedArticles(input.articleId, input.limit),
+      );
     }),
 
   /**
@@ -2257,8 +2264,11 @@ export const newsRouter = router({
       page: z.number().default(1),
       limit: z.number().default(10),
     }))
-    .query(async ({ input }) => {
-      return relatedContentService.getArticlesByCategory(input.categorySlug, input.page, input.limit);
+    .query(async ({ input, ctx }) => {
+      const res = await relatedContentService.getArticlesByCategory(
+        input.categorySlug, input.page, input.limit,
+      );
+      return { ...res, articles: await localizeArticles(ctx.locale, res.articles) };
     }),
 
   /**
@@ -2270,8 +2280,11 @@ export const newsRouter = router({
       page: z.number().default(1),
       limit: z.number().default(10),
     }))
-    .query(async ({ input }) => {
-      return relatedContentService.getArticlesByTopic(input.topicSlug, input.page, input.limit);
+    .query(async ({ input, ctx }) => {
+      const res = await relatedContentService.getArticlesByTopic(
+        input.topicSlug, input.page, input.limit,
+      );
+      return { ...res, articles: await localizeArticles(ctx.locale, res.articles) };
     }),
 
   /**
@@ -2284,7 +2297,7 @@ export const newsRouter = router({
       limit: z.number().default(20),
       sortBy: z.enum(["publishedAt", "viewCount"]).default("publishedAt"),
     }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -2404,7 +2417,7 @@ export const newsRouter = router({
       }));
 
       return {
-        items: enrichedResults,
+        items: await localizeArticles(ctx.locale, enrichedResults),
         total,
         page,
         totalPages: Math.ceil(total / limit),

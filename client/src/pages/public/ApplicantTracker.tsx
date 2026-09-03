@@ -5,6 +5,7 @@
  */
 
 import { useState, useMemo } from "react";
+import { fmtDate } from "@/lib/dates";
 import { useParams, Link, useLocation } from "wouter";
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
@@ -101,7 +102,7 @@ function formatTimeAgo(date: string | Date | null): string {
   if (diffHours < 1) return "Just now";
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return fmtDate(new Date(date), { month: "short", day: "numeric", year: "numeric" });
 }
 
 export default function ApplicantTracker() {

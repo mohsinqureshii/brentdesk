@@ -30,6 +30,8 @@
  */
 
 import { useEffect, useMemo, useState } from "react";
+import { useT } from "@/lib/i18n";
+import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -533,6 +535,7 @@ function SearchHero({
   cityCount: number;
   liveCount: number;
 }) {
+  const t = useT();
   const [draft, setDraft] = useState(filters.search);
   useEffect(() => setDraft(filters.search), [filters.search]);
 
@@ -563,11 +566,11 @@ function SearchHero({
             {publication.name} Events
           </p>
           <h1 className="mt-3 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-            Discover events.
+            {t("events.discover")}
             <br />
-            Connect people.
+            {t("events.connectPeople")}
             <br />
-            Shape the <span className="text-emerald-600 dark:text-emerald-400">future.</span>
+            {t("events.shapeThe")}<span className="text-emerald-600 dark:text-emerald-400">future.</span>
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             From global expos to regional forums — find the events that connect
@@ -585,12 +588,12 @@ function SearchHero({
             <input
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
-              placeholder="Search events, topics or locations"
-              aria-label="Search events"
+              placeholder={t("events.searchLong")}
+              aria-label={t("events.search")}
               className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
             />
             <Button type="submit" className="shrink-0 rounded-full bg-emerald-600 px-5 hover:bg-emerald-700">
-              Search
+              {t("nav.search")}
             </Button>
           </form>
 
@@ -614,16 +617,16 @@ function SearchHero({
 
           <dl className="mt-8 flex items-center gap-8">
             <div>
-              <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">Events listed</dt>
+              <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{t("events.listed")}</dt>
               <dd className="text-2xl font-bold tabular-nums text-foreground">{totalPublished}</dd>
             </div>
             <div>
-              <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">Cities</dt>
+              <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{t("common.cities")}</dt>
               <dd className="text-2xl font-bold tabular-nums text-foreground">{cityCount}</dd>
             </div>
             {liveCount > 0 && (
               <div>
-                <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">Live now</dt>
+                <dt className="text-[11px] uppercase tracking-wide text-muted-foreground">{t("events.liveNow")}</dt>
                 <dd className="flex items-center gap-1.5 text-2xl font-bold tabular-nums text-red-600">
                   <PulsingDot /> {liveCount}
                 </dd>
@@ -663,7 +666,7 @@ function SearchHero({
             </div>
           ) : (
             <div className="flex aspect-[16/11] items-center justify-center rounded-2xl border border-dashed border-[var(--border)] text-sm text-muted-foreground">
-              No upcoming events scheduled yet.
+              {t("state.noUpcomingEventsShort")}
             </div>
           )}
         </div>
@@ -673,6 +676,7 @@ function SearchHero({
 }
 
 function SpotlightCard({ event }: { event: SpotlightEvent }) {
+  const t = useT();
   const location = formatLocation(event.city, event.country, event.format);
   return (
     <Link href={`/events/${event.slug}`} className="group block">
@@ -681,7 +685,7 @@ function SpotlightCard({ event }: { event: SpotlightEvent }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
           <span className="inline-flex rounded-full bg-emerald-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-            Featured
+            {t("list.featured")}
           </span>
           <h2 className="mt-3 line-clamp-2 text-2xl font-bold leading-tight text-white sm:text-3xl">
             {event.title}
@@ -698,7 +702,7 @@ function SpotlightCard({ event }: { event: SpotlightEvent }) {
             </span>
           </div>
           <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-neutral-900 transition-transform group-hover:translate-x-0.5">
-            View details <ArrowRight className="h-4 w-4" aria-hidden />
+            {t("common.viewDetails")}<ArrowRight className="h-4 w-4" aria-hidden />
           </span>
         </div>
       </div>
@@ -736,10 +740,11 @@ function TypeTabs({
   narrowingCount: number;
   onClear: () => void;
 }) {
+  const t = useT();
   return (
     <div className="border-b border-[var(--border)] bg-background/95 backdrop-blur">
       <div className={`${CONTAINER} flex items-center gap-3 overflow-x-auto py-3`}>
-        <div className="flex items-center gap-2" role="tablist" aria-label="Event type">
+        <div className="flex items-center gap-2" role="tablist" aria-label={t("events.type")}>
           {TYPE_TABS.map((tab) => {
             const active = filters.type === tab.value;
             const count = tab.value === "all" ? undefined : typeCounts?.[tab.value];
@@ -765,7 +770,7 @@ function TypeTabs({
         <div className="ml-auto flex shrink-0 items-center gap-2">
           {narrowingCount > 0 && (
             <Button variant="ghost" size="sm" onClick={onClear} className="h-9">
-              Clear <span className="ml-1 tabular-nums">({narrowingCount})</span>
+              {t("filter.clear")}<span className="ml-1 tabular-nums">({narrowingCount})</span>
             </Button>
           )}
         </div>
@@ -785,6 +790,7 @@ function TrendingPanel({
   editionCountryId?: number;
   liveIdSet: Set<number>;
 }) {
+  const t = useT();
   // "registrations" is a real sortBy option on the events list; it ranks
   // by RSVP volume. No synthetic trend score is invented here, and the
   // panel is labelled for what it actually measures.
@@ -808,7 +814,7 @@ function TrendingPanel({
             <TrendingUp className="h-3.5 w-3.5" aria-hidden />
           </span>
           <h2 className="text-sm font-bold tracking-tight text-foreground">
-            Most anticipated
+            {t("events.mostAnticipated")}
           </h2>
         </div>
         <p className="mt-0.5 pl-8 text-[11px] text-muted-foreground">
@@ -834,7 +840,7 @@ function TrendingPanel({
         href="/events"
         className="flex items-center justify-between border-t border-[var(--border)] px-4 py-2.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50/60 dark:text-emerald-400 dark:hover:bg-emerald-500/10"
       >
-        View all events <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+        {t("events.viewAll")}<ArrowRight className="h-3.5 w-3.5" aria-hidden />
       </Link>
     </div>
   );
@@ -845,6 +851,7 @@ function TrendingPanel({
  * feed — no new endpoint, and nothing renders if there are no articles.
  */
 function RelatedArticlesPanel() {
+  const t = useT();
   const q = trpc.news.list.useQuery({ page: 1, limit: 4 } as any, {
     staleTime: 5 * 60_000,
   });
@@ -869,7 +876,7 @@ function RelatedArticlesPanel() {
             <Newspaper className="h-3.5 w-3.5" aria-hidden />
           </span>
           <h2 className="text-sm font-bold tracking-tight text-foreground">
-            Event coverage
+            {t("events.coverage")}
           </h2>
         </div>
         <p className="mt-0.5 pl-8 text-[11px] text-muted-foreground">
@@ -925,7 +932,7 @@ function RelatedArticlesPanel() {
         href="/news"
         className="flex items-center justify-between border-t border-[var(--border)] px-4 py-2.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50/60 dark:text-blue-400 dark:hover:bg-blue-500/10"
       >
-        More from the newsroom <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+        {t("list.moreFromNewsroom")}<ArrowRight className="h-3.5 w-3.5" aria-hidden />
       </Link>
     </div>
   );
@@ -940,6 +947,7 @@ function SectorChip({
   value: number | null;
   onChange: (v: number | null) => void;
 }) {
+  const t = useT();
   const { data } = trpc.events.listSectors.useQuery(undefined, {
     staleTime: 10 * 60_000,
   });
@@ -950,14 +958,14 @@ function SectorChip({
     <select
       value={value ?? ""}
       onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}
-      aria-label="Filter by sector"
+      aria-label={t("filter.bySector")}
       className={`h-9 shrink-0 rounded-full border px-3 text-sm ${
         value
           ? "border-emerald-600 bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
           : "border-border bg-background text-muted-foreground"
       }`}
     >
-      <option value="">All sectors</option>
+      <option value="">{t("filter.allSectors")}</option>
       {sectors.map((sec) => (
         <option key={sec.id} value={sec.id}>
           {sec.name}
@@ -1023,7 +1031,7 @@ function groupEvents(
   const endOfMonth = new Date();
   endOfMonth.setMonth(endOfMonth.getMonth() + 1, 0);
   endOfMonth.setHours(23, 59, 59, 999);
-  const monthLabel = new Date().toLocaleDateString("en-US", { month: "long" });
+  const monthLabel = fmtDate(new Date(), { month: "long" });
 
   const happening: CardEvent[] = [];
   const thisMonth: CardEvent[] = [];
@@ -1107,6 +1115,7 @@ function Masthead({
   cityCount: number;
   liveCount: number;
 }) {
+  const t = useT();
   return (
     <section className="border-b border-border bg-muted/40">
       <div className={`${CONTAINER} py-10 lg:py-14`}>
@@ -1116,7 +1125,7 @@ function Masthead({
               {publication.name} Events
             </p>
             <h1 className="mt-3 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
-              Every conference, summit and demo day that matters.
+              {t("events.tagline")}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               The regional tech calendar in one place — with live reporting
@@ -1143,7 +1152,7 @@ function Masthead({
             <Link href="/events/submit">
               <Button size="lg" className="gap-2 rounded-full">
                 <Plus className="h-4 w-4" />
-                Submit an event
+                {t("events.submit")}
               </Button>
             </Link>
           </div>
@@ -1194,6 +1203,7 @@ function Spotlight({
   event: SpotlightEvent | null;
   loading: boolean;
 }) {
+  const t = useT();
   const countdown = useCountdown(event?.startDate);
 
   if (loading) {
@@ -1212,7 +1222,7 @@ function Spotlight({
         <div className="rounded-3xl border border-dashed border-border px-8 py-14 text-center">
           <CalendarDays className="mx-auto h-8 w-8 text-muted-foreground" />
           <h2 className="mt-4 text-xl font-semibold">
-            No upcoming events on the calendar yet
+            {t("state.noUpcomingEvents")}
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
             Check back shortly — or submit yours and we'll list it for free.
@@ -1256,7 +1266,7 @@ function Spotlight({
           <div className="relative flex min-h-[440px] flex-col justify-end p-6 text-white sm:p-10 lg:min-h-[520px] lg:p-14">
             <div className="mb-5 flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-sm">
-                Spotlight
+                {t("list.spotlight")}
               </span>
               <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-sm">
                 {typeLabelFor(event.type)}
@@ -1316,10 +1326,10 @@ function Spotlight({
                 }}
               >
                 <Ticket className="h-4 w-4" />
-                Get tickets
+                {t("events.getTickets")}
               </Button>
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 transition-colors group-hover:text-white">
-                View event
+                {t("events.view")}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
@@ -1340,16 +1350,17 @@ function Spotlight({
  * read as a duplicate of this section.
  */
 function LiveRail({ events }: { events: LiveCardEvent[] }) {
+  const t = useT();
   return (
     <section className="w-full border-y border-red-500/15 bg-red-50/60 py-8 dark:bg-red-950/15">
       <div className={CONTAINER}>
         <div className="mb-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
           <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-red-500">
             <PulsingDot light />
-            Live now
+            {t("events.liveNow")}
           </span>
           <h2 className="text-xl font-bold text-foreground sm:text-2xl">
-            Happening right now
+            {t("events.happeningNow")}
           </h2>
           <span className="text-sm text-muted-foreground">
             {events.length} event{events.length === 1 ? "" : "s"} being covered live
@@ -1579,6 +1590,7 @@ function CityChip({
   cities: { city: string; count: number }[];
   onChange: (c: string | null) => void;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -1600,7 +1612,7 @@ function CityChip({
         <Command>
           <CommandInput placeholder="Search cities…" />
           <CommandList>
-            <CommandEmpty>No cities found.</CommandEmpty>
+            <CommandEmpty>{t("state.noCities")}</CommandEmpty>
             <CommandGroup>
               <CommandItem
                 value="__any__"
@@ -1609,7 +1621,7 @@ function CityChip({
                   setOpen(false);
                 }}
               >
-                Any city
+                {t("filter.anyCity")}
               </CommandItem>
               {cities.map((c) => (
                 <CommandItem
@@ -1661,6 +1673,7 @@ function EmptyState({
   time: TimeFilter;
   onClear?: () => void;
 }) {
+  const t = useT();
   return (
     <div className="rounded-3xl border border-dashed border-border px-6 py-20 text-center">
       <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-muted">
@@ -1681,13 +1694,13 @@ function EmptyState({
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         {onClear && (
           <Button onClick={onClear} variant="outline" className="rounded-full">
-            Clear filters
+            {t("filter.clearFilters")}
           </Button>
         )}
         <Link href="/events/submit">
           <Button className="gap-2 rounded-full">
             <Plus className="h-4 w-4" />
-            Submit an event
+            {t("events.submit")}
           </Button>
         </Link>
       </div>
@@ -1696,10 +1709,11 @@ function EmptyState({
 }
 
 function PastEventsTeaser({ onShowPast }: { onShowPast: () => void }) {
+  const t = useT();
   return (
     <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-muted/40 px-6 py-6 sm:flex-row">
       <div>
-        <h3 className="text-base font-semibold">Looking for something that already happened?</h3>
+        <h3 className="text-base font-semibold">{t("events.pastPrompt")}</h3>
         <p className="mt-1 text-sm text-muted-foreground">
           Browse the archive for recaps, recordings and our coverage.
         </p>
@@ -1709,7 +1723,7 @@ function PastEventsTeaser({ onShowPast }: { onShowPast: () => void }) {
         onClick={onShowPast}
         className="shrink-0 gap-2 rounded-full"
       >
-        View past events
+        {t("events.viewPast")}
         <ArrowRight className="h-4 w-4" />
       </Button>
     </div>
@@ -1726,13 +1740,14 @@ function PastEventsTeaser({ onShowPast }: { onShowPast: () => void }) {
  * — same message, none of the occlusion.
  */
 function SubmitBand() {
+  const t = useT();
   return (
     <section className="border-t border-border bg-muted/40">
       <div className={`${CONTAINER} py-14`}>
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div className="max-w-xl">
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Hosting an event?
+              {t("events.hosting")}
             </h2>
             <p className="mt-2 text-muted-foreground">
               Get it in front of the region's founders, operators and investors.
@@ -1742,7 +1757,7 @@ function SubmitBand() {
           <Link href="/events/submit" className="shrink-0">
             <Button size="lg" className="gap-2 rounded-full">
               <Plus className="h-4 w-4" />
-              Submit your event
+              {t("events.submitYours")}
             </Button>
           </Link>
         </div>

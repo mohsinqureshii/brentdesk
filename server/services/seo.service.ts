@@ -13,6 +13,8 @@ import { eq, and, isNotNull, desc, sql, count, or } from "drizzle-orm";
 import { getDb } from "../db";
 import { seoMeta, articles, jobs, people, investors, events, resources, research, redirects, categories, companies, accelerators, tags, articleTags, workflowStatuses, users, media } from "../../drizzle/schema";
 import { toDbDate } from "../_core/dbValues";
+import { listLocales } from "./translation.service";
+import { sitemapAlternates } from "./hreflang.service";
 
 // ============================================================
 // TYPES
@@ -1008,7 +1010,20 @@ export class SeoService {
         break;
     }
 
-    return this.buildSitemapXml(urls);
+    // Every URL exists in every configured language — the read layer overlays
+    // the translation and falls back to English per field — so each entry
+    // carries the full reciprocal alternate set.
+    //
+    // hreflang is an enhancement; the URL list is the sitemap's actual job.
+    // If the locale read fails, serve the sitemap without alternates rather
+    // than 500 on it and leave the archive undiscoverable in every language.
+    let activeLocales: Array<{ code: string; isDefault: boolean }> = [];
+    try {
+      activeLocales = await listLocales({ activeOnly: true });
+    } catch (e) {
+      console.error(`[Sitemap] locales unavailable, omitting hreflang: ${(e as Error).message}`);
+    }
+    return this.buildSitemapXml(urls, activeLocales);
   }
 
   /**
@@ -1389,8 +1404,9 @@ Crawl-delay: 0
     lastmod: string;
     priority: string;
     images?: Array<{ loc: string; title?: string | null; caption?: string | null }>;
-  }>): string {
+  }>, locales: Array<{ code: string; isDefault: boolean }> = []): string {
     const hasImages = urls.some(u => u.images && u.images.length > 0);
+    const hasAlternates = locales.length > 1;
 
     const urlEntries = urls.map(u => {
       const imageBlocks = (u.images || []).map(img => `
@@ -1399,17 +1415,25 @@ Crawl-delay: 0
       <image:title><![CDATA[${img.title}]]></image:title>` : ''}${img.caption ? `
       <image:caption><![CDATA[${img.caption}]]></image:caption>` : ''}
     </image:image>`).join("");
+      const alternates = hasAlternates
+        ? sitemapAlternates(u.loc, this.baseUrl, locales)
+        : "";
       return `
   <url>
     <loc>${this.escapeXml(u.loc)}</loc>
     <lastmod>${u.lastmod}</lastmod>
-    <priority>${u.priority}</priority>${imageBlocks}
+    <priority>${u.priority}</priority>${alternates}${imageBlocks}
   </url>`;
     }).join("");
 
-    const ns = hasImages
-      ? 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'
-      : 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"';
+    // Namespaces are declared only when used: an unused xmlns is harmless but
+    // a missing one makes the whole document invalid, and a single-language
+    // site should produce byte-for-byte the sitemap it produced before.
+    const ns = [
+      'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+      hasImages ? 'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : "",
+      hasAlternates ? 'xmlns:xhtml="http://www.w3.org/1999/xhtml"' : "",
+    ].filter(Boolean).join(" ");
 
     return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset ${ns}>${urlEntries}

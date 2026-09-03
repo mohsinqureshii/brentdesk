@@ -4,6 +4,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
+import { useT } from "@/lib/i18n";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Input } from "@/components/ui/input";
@@ -45,6 +46,7 @@ const typeConfig = {
 };
 
 export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [, setLocation] = useLocation();
   const debouncedQuery = useDebounce(query, 300);
@@ -184,7 +186,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             <Input
               ref={inputRef}
               type="search"
-              placeholder="Search articles, jobs, companies, people, events..."
+              placeholder={t("search.placeholder")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="h-14 pl-12 pr-12 text-lg border-gray-200 focus:border-emerald-500 focus:ring-emerald-500"
@@ -210,7 +212,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                 <div className="text-center py-12">
                   <Search className="h-12 w-12 mx-auto text-gray-300 mb-4" />
                   <p className="text-gray-500">No results found for "{debouncedQuery}"</p>
-                  <p className="text-sm text-gray-400 mt-1">Try different keywords or browse categories</p>
+                  <p className="text-sm text-gray-400 mt-1">{t("search.noResults")}</p>
                 </div>
               ) : (
                 <div className="space-y-6">
@@ -230,7 +232,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                             onClick={() => { onClose(); setQuery(""); }}
                             className="text-xs text-emerald-600 hover:text-emerald-700 flex items-center gap-1"
                           >
-                            View all <ArrowRight className="h-3 w-3" />
+                            {t("common.viewAll")} <ArrowRight className="h-3 w-3" />
                           </Link>
                         </div>
                         <div className="space-y-2">
@@ -277,7 +279,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
           {/* Quick Links when no query */}
           {debouncedQuery.length < 2 && (
             <div className="mt-6">
-              <p className="text-sm font-medium text-gray-500 mb-3">Quick Links</p>
+              <p className="text-sm font-medium text-gray-500 mb-3">{t("search.quickLinks")}</p>
               <div className="flex flex-wrap gap-2">
                 {[
                   { label: "Latest News", href: "/" },

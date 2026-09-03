@@ -41,7 +41,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "industrial-technology",
+      "industrial-ai",
+      "warehousing",
+      "infrastructure"
     ]
   }
 ]

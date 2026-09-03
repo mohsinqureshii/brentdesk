@@ -39,7 +39,10 @@
     "replacementReason": null,
     "categories": [
       "energy",
-      "oil-gas"
+      "oil-gas",
+      "power",
+      "metals",
+      "mining"
     ],
     "wordCount": 634
   }

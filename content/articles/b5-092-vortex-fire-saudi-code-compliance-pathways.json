@@ -9,7 +9,11 @@
     "author": "BrentDesk Staff",
     "primaryCategory": "construction",
     "categories": [
-      "construction"
+      "construction",
+      "manufacturing",
+      "real-estate",
+      "transportation",
+      "energy"
     ],
     "tags": [
       "Fire Safety",

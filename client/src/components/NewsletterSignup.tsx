@@ -5,6 +5,8 @@
 
 import { useState } from "react";
 import { publication } from "@shared/publication";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,12 +23,15 @@ interface NewsletterSignupProps {
   className?: string;
 }
 
-const availableLists = [
-  { slug: "daily-brief", name: publication.newsletter.name, description: "Top industrial stories every morning" },
-  { slug: "projects-weekly", name: "Projects Weekly", description: "Major project awards and tenders" },
-  { slug: "energy-brief", name: "Energy Brief", description: "Oil & gas, power and renewables" },
-  { slug: "jobs-alerts", name: "Job Alerts", description: "New industry roles" },
-  { slug: "event-updates", name: "Event Updates", description: "Upcoming industry events" },
+/** The lists a reader can pick. The masthead's own daily keeps its name in
+ *  every language; the rest are described rather than branded, so both the
+ *  name and the description translate. */
+const availableLists: Array<{ slug: string; name?: string; nameKey?: UiKey; descriptionKey: UiKey }> = [
+  { slug: "daily-brief", name: publication.newsletter.name, descriptionKey: "newsletter.dailyDescription" },
+  { slug: "projects-weekly", nameKey: "newsletter.projectsWeekly", descriptionKey: "newsletter.projectsDescription" },
+  { slug: "energy-brief", nameKey: "cat.energy", descriptionKey: "newsletter.eventsDescription" },
+  { slug: "jobs-alerts", nameKey: "newsletter.jobAlerts", descriptionKey: "newsletter.jobsDescription" },
+  { slug: "event-updates", nameKey: "newsletter.eventUpdates", descriptionKey: "newsletter.eventsDescription" },
 ];
 
 export function NewsletterSignup({
@@ -36,6 +41,7 @@ export function NewsletterSignup({
   showLists = false,
   className = ""
 }: NewsletterSignupProps) {
+  const t = useT();
   const [email, setEmail] = useState("");
   const [selectedLists, setSelectedLists] = useState<string[]>([listSlug]);
   const [consentMarketing, setConsentMarketing] = useState(false);
@@ -44,17 +50,17 @@ export function NewsletterSignup({
   const subscribeMutation = trpc.admin.newsletter.subscribe.useMutation({
     onSuccess: () => {
       setIsSubmitted(true);
-      toast.success("Successfully subscribed! Check your email to confirm.");
+      toast.success(t("newsletter.confirmEmail"));
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to subscribe. Please try again.");
+      toast.error(error.message || t("newsletter.error"));
     },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
-      toast.error("Please enter your email address");
+      toast.error(t("newsletter.needEmail"));
       return;
     }
     
@@ -78,7 +84,7 @@ export function NewsletterSignup({
     return (
       <div className={`flex items-center gap-3 ${className}`}>
         <CheckCircle className="w-5 h-5 text-green-500" />
-        <span className="text-sm">Thanks for subscribing! Check your inbox to confirm.</span>
+        <span className="text-sm">{t("newsletter.confirmInbox")}</span>
       </div>
     );
   }
@@ -88,7 +94,7 @@ export function NewsletterSignup({
       <form onSubmit={handleSubmit} className={`flex gap-2 ${className}`}>
         <Input
           type="email"
-          placeholder="Enter your email"
+          placeholder={t("newsletter.enterEmail")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="flex-1"
@@ -98,7 +104,7 @@ export function NewsletterSignup({
           {subscribeMutation.isPending ? (
             <Loader2 className="w-4 h-4 animate-spin" />
           ) : (
-            "Subscribe"
+            t("newsletter.subscribe")
           )}
         </Button>
       </form>
@@ -108,14 +114,14 @@ export function NewsletterSignup({
   if (variant === "footer") {
     return (
       <div className={className}>
-        <h3 className="font-semibold mb-2">Stay Updated</h3>
+        <h3 className="font-semibold mb-2">{t("newsletter.stayUpdated")}</h3>
         <p className="text-sm text-muted-foreground mb-4">
           {publication.newsletter.description}
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
           <Input
             type="email"
-            placeholder="Enter your email"
+            placeholder={t("newsletter.enterEmail")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={subscribeMutation.isPending}
@@ -126,10 +132,10 @@ export function NewsletterSignup({
             ) : (
               <Mail className="w-4 h-4 mr-2" />
             )}
-            Subscribe
+            {t("newsletter.subscribe")}
           </Button>
           <p className="text-xs text-muted-foreground">
-            By subscribing, you agree to our Privacy Policy.
+            {t("newsletter.consent")}
           </p>
         </form>
       </div>
@@ -144,7 +150,7 @@ export function NewsletterSignup({
           <Mail className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h3 className="font-semibold">Subscribe to {publication.name}</h3>
+          <h3 className="font-semibold">{t("newsletter.subscribe")} — {publication.name}</h3>
           <p className="text-sm text-muted-foreground">
             {publication.tagline}
           </p>
@@ -154,7 +160,7 @@ export function NewsletterSignup({
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
           type="email"
-          placeholder="Enter your email address"
+          placeholder={t("newsletter.emailPlaceholder")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={subscribeMutation.isPending}
@@ -162,7 +168,7 @@ export function NewsletterSignup({
 
         {showLists && (
           <div className="space-y-3">
-            <Label className="text-sm font-medium">Select newsletters:</Label>
+            <Label className="text-sm font-medium">{t("newsletter.selectLists")}</Label>
             <div className="grid gap-2">
               {availableLists.map((list) => (
                 <div key={list.slug} className="flex items-start gap-2">
@@ -173,9 +179,9 @@ export function NewsletterSignup({
                   />
                   <div className="grid gap-0.5 leading-none">
                     <Label htmlFor={list.slug} className="text-sm font-medium cursor-pointer">
-                      {list.name}
+                      {list.name ?? t(list.nameKey!)}
                     </Label>
-                    <p className="text-xs text-muted-foreground">{list.description}</p>
+                    <p className="text-xs text-muted-foreground">{t(list.descriptionKey)}</p>
                   </div>
                 </div>
               ))}
@@ -198,16 +204,16 @@ export function NewsletterSignup({
           {subscribeMutation.isPending ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin mr-2" />
-              Subscribing...
+              {t("common.subscribing")}
             </>
           ) : (
-            "Subscribe Now"
+            t("newsletter.subscribe")
           )}
         </Button>
 
         <p className="text-xs text-center text-muted-foreground">
-          You can unsubscribe at any time. Read our{" "}
-          <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
+          {t("newsletter.unsubscribeAnytime")}{" "}
+          <a href="/privacy" className="underline hover:text-foreground">{t("footer.privacyPolicy")}</a>.
         </p>
       </form>
     </div>

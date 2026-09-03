@@ -23,6 +23,7 @@ import {
   articles, articleTags, articleCompanies, articlePeople, articleCategories,
   articleRelatedEntities,
   tags, categories, companies, people, users, countries, events,
+  contentTranslations, homepageSections,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
@@ -319,7 +320,7 @@ async function linkRelatedArticles(db: Db, inputs: ArticleInput[]): Promise<numb
 function archiveCandidates(files?: string[]): string[] {
   return files?.length
     ? files
-    : [path.resolve(import.meta.dirname, "articles.json"),
+    : [bundledFile("articles.json") ?? path.resolve(process.cwd(), "dist", "articles.json"),
        path.resolve(process.cwd(), "dist", "articles.json")];
 }
 
@@ -339,6 +340,49 @@ function archiveSources(files?: string[]): string[] {
  * file cannot be read, which makes the caller fall back to its own test
  * rather than run an ingest that has nothing to ingest.
  */
+/**
+ * How many translated fields the build carries.
+ *
+ * The boot check compared article counts alone, so a deploy whose only new
+ * content was a translated archive looked, to the check, exactly like a
+ * deploy with nothing to publish: 268 articles in the build, 268 in the
+ * database, skip. The Arabic then never landed and the site served English
+ * under an Arabic switcher. Counting fields rather than files means adding
+ * bodies to already-translated headlines also registers as new content.
+ */
+/**
+ * Where a bundled data file might be, next to this module and under dist/.
+ *
+ * `import.meta.dirname` is defined in the built ESM bundle and undefined
+ * under a CJS transpile, where passing it to path.resolve throws. The throw
+ * was caught and turned into "0 files", which silently means "nothing to
+ * publish" — a failure mode that looks exactly like success in the logs.
+ */
+function bundledFile(name: string): string | undefined {
+  const here = typeof import.meta.dirname === "string" ? import.meta.dirname : undefined;
+  const candidates = [
+    here ? path.resolve(here, name) : undefined,
+    path.resolve(process.cwd(), "dist", name),
+  ].filter((f): f is string => !!f);
+  return [...new Set(candidates)].find(f => existsSync(f));
+}
+
+export function publishableTranslationCount(): number {
+  try {
+    const file = bundledFile("translations.json");
+    if (!file) return 0;
+    const parsed = JSON.parse(readFileSync(file, "utf8"));
+    const batch: Array<{ fields?: Record<string, string> }> =
+      Array.isArray(parsed) ? parsed : [parsed];
+    return batch.reduce(
+      (n, t) => n + Object.values(t.fields ?? {}).filter(v => v && String(v).trim()).length,
+      0,
+    );
+  } catch {
+    return 0;
+  }
+}
+
 export function publishableArticleCount(): number {
   try {
     const file = archiveSources()[0];
@@ -352,6 +396,129 @@ export function publishableArticleCount(): number {
   } catch {
     return 0;
   }
+}
+
+
+/**
+ * Publish the translated archive bundled at dist/translations.json.
+ *
+ * Runs after the articles, because a translation is keyed to an article that
+ * has to exist first. Idempotent on (entity, locale, field): re-running
+ * updates in place, so a corrected translation ships on the next deploy
+ * without anything to clean up.
+ *
+ * Rows land as `published` — these were reviewed in the repository before
+ * they were merged, which is the review step a runtime translation gets in
+ * the admin panel instead.
+ */
+/** Translatable site furniture, by the entityType a translation file declares.
+ *  Each entry needs a table with `id`, `slug` and `name`. */
+const FURNITURE: Record<string, { entityType: string; table: any }> = {
+  category: { entityType: "category", table: categories },
+  homepage_section: { entityType: "homepage_section", table: homepageSections },
+};
+
+async function ingestTranslations(db: Db): Promise<{ written: number; missing: string[] }> {
+  const file = bundledFile("translations.json");
+  if (!file) return { written: 0, missing: [] };
+
+  const parsed = JSON.parse(readFileSync(file, "utf8"));
+  const batch: Array<{ slug: string; locale: string; fields: Record<string, string>; translator?: string }> =
+    Array.isArray(parsed) ? parsed : [parsed];
+  if (!batch.length) return { written: 0, missing: [] };
+
+  const { createHash } = await import("crypto");
+  const hash = (t: string) => createHash("sha256").update(t).digest("hex");
+
+  let written = 0;
+  const missing: string[] = [];
+  const now = toDbDate(new Date());
+
+  for (const t of batch) {
+    // The site's own chrome — navigation, buttons, labels — rather than an
+    // article. Stored under entityType "ui" with the string key as the
+    // field, which is why entityId is 0: there is no row it belongs to.
+    if ((t as any).entityType === "ui") {
+      for (const [key, value] of Object.entries(t.fields)) {
+        if (!value || !String(value).trim()) continue;
+        await db.insert(contentTranslations).values({
+          entityType: "ui", entityId: 0, locale: t.locale, field: key, value,
+          source: "ai", status: "published", model: t.translator ?? null,
+          sourceHash: null, translatedAt: now,
+        } as any).onDuplicateKeyUpdate({
+          set: { value, status: "published", model: t.translator ?? null, translatedAt: now } as any,
+        });
+        written++;
+      }
+      continue;
+    }
+
+    // The site's furniture: category names and homepage block headings.
+    // Editors write these, they are not article copy, and a reader meets them
+    // on every page — an Arabic homepage under an English "Latest Headlines"
+    // is the same half-translated page as an Arabic article under an English
+    // masthead. Keyed by slug, because ids differ per environment.
+    const furniture = FURNITURE[(t as any).entityType as string];
+    if (furniture) {
+      const [ent] = await db
+        .select({ id: furniture.table.id, name: furniture.table.name })
+        .from(furniture.table)
+        .where(eq(furniture.table.slug, t.slug))
+        .limit(1);
+      if (!ent) { missing.push(`${(t as any).entityType}:${t.slug}`); continue; }
+      for (const [field, value] of Object.entries(t.fields)) {
+        if (!value || !String(value).trim()) continue;
+        const source = (ent as any)[field] as string | undefined;
+        await db.insert(contentTranslations).values({
+          entityType: furniture.entityType, entityId: ent.id, locale: t.locale,
+          field, value, source: "ai", status: "published",
+          model: t.translator ?? null,
+          sourceHash: source ? hash(source) : null, translatedAt: now,
+        } as any).onDuplicateKeyUpdate({
+          set: {
+            value, source: "ai", status: "published", model: t.translator ?? null,
+            sourceHash: source ? hash(source) : null, translatedAt: now,
+          } as any,
+        });
+        written++;
+      }
+      continue;
+    }
+
+    const [row] = await db
+      .select({ id: articles.id, title: articles.title, excerpt: articles.excerpt,
+                content: articles.content, seoTitle: articles.seoTitle,
+                seoDescription: articles.seoDescription })
+      .from(articles).where(eq(articles.slug, t.slug)).limit(1);
+    if (!row) { missing.push(t.slug); continue; }
+
+    for (const [field, value] of Object.entries(t.fields)) {
+      if (!value || !String(value).trim()) continue;
+      const source = (row as any)[field] as string | undefined;
+      await db.insert(contentTranslations).values({
+        entityType: "article",
+        entityId: row.id,
+        locale: t.locale,
+        field,
+        value,
+        source: "ai",
+        status: "published",
+        model: t.translator ?? null,
+        // Hashed against the English it was made from, so editing the article
+        // later marks the translation stale instead of silently serving a
+        // translation of a paragraph that is no longer there.
+        sourceHash: source ? hash(source) : null,
+        translatedAt: now,
+      } as any).onDuplicateKeyUpdate({
+        set: {
+          value, source: "ai", status: "published", model: t.translator ?? null,
+          sourceHash: source ? hash(source) : null, translatedAt: now,
+        } as any,
+      });
+      written++;
+    }
+  }
+  return { written, missing };
 }
 
 export async function runIngest(files?: string[]): Promise<{ created: number; updated: number; missing: string[] }> {
@@ -397,6 +564,13 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
       }
     }
     const edges = await linkRelatedArticles(db, seen);
+    const translations = await ingestTranslations(db);
+    if (translations.written) {
+      console.log(`[ingest] ${translations.written} translated fields published` +
+        (translations.missing.length
+          ? ` · ${translations.missing.length} referenced an article that is not in the archive`
+          : ""));
+    }
     console.log(`[ingest] ${created} created, ${updated} updated, ${edges} related-article links`);
     if (held) console.log(`[ingest] ${held} scheduled for a later date and held back`);
     if (missing.size) {

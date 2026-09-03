@@ -9,7 +9,11 @@
     "author": "BrentDesk Staff",
     "primaryCategory": "manufacturing",
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "supply-chain",
+      "logistics",
+      "construction",
+      "facilities-management"
     ],
     "tags": [
       "Market Entry",

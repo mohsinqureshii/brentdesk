@@ -10,8 +10,10 @@
     "primaryCategory": "construction",
     "categories": [
       "construction",
-      "supply-chain",
-      "logistics"
+      "chemicals",
+      "manufacturing",
+      "water",
+      "infrastructure"
     ],
     "tags": [
       "Concrete",

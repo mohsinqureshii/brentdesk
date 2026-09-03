@@ -41,8 +41,11 @@
     "categories": [
       "rail",
       "transportation",
+      "logistics",
       "mining",
-      "chemicals"
+      "manufacturing",
+      "chemicals",
+      "ports"
     ]
   }
 ]

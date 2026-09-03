@@ -48,35 +48,62 @@ describe("shouldSeed", () => {
 });
 
 describe("shouldIngest", () => {
+  const A = (articles: number | null, translations: number | null = 0) => ({ articles, translations });
+  const W = (articles: number, translations = 0) => ({ articles, translations });
+
   it("publishes an archive larger than the database", () => {
-    expect(shouldIngest(undefined, 115, 266)).toBe(true);
+    expect(shouldIngest(undefined, A(115), W(266))).toBe(true);
   });
 
   it("leaves a database that already has the whole archive alone", () => {
-    expect(shouldIngest(undefined, 266, 266)).toBe(false);
+    expect(shouldIngest(undefined, A(266), W(266))).toBe(false);
   });
 
   it("does not run on an archive it could not read", () => {
     // want === 0 means the bundled file was missing or unparseable. Running
     // an ingest then would only report zero and confuse the deploy log.
-    expect(shouldIngest(undefined, 0, 0)).toBe(false);
+    expect(shouldIngest(undefined, A(0), W(0))).toBe(false);
   });
 
   it("bootstraps an empty database from a readable archive", () => {
-    expect(shouldIngest(undefined, 0, 266)).toBe(true);
+    expect(shouldIngest(undefined, A(0), W(266))).toBe(true);
   });
 
   it("does not run when the database holds more than the build ships", () => {
     // Articles written in the CMS rather than shipped in the archive file.
-    expect(shouldIngest(undefined, 300, 266)).toBe(false);
+    expect(shouldIngest(undefined, A(300), W(266))).toBe(false);
   });
 
   it("honours the flags either way", () => {
-    expect(shouldIngest("1", 266, 266)).toBe(true);
-    expect(shouldIngest("0", 0, 266)).toBe(false);
+    expect(shouldIngest("1", A(266), W(266))).toBe(true);
+    expect(shouldIngest("0", A(0), W(266))).toBe(false);
   });
 
   it("decides nothing on a count it could not read", () => {
-    expect(shouldIngest(undefined, null, 266)).toBe(false);
+    expect(shouldIngest(undefined, A(null), W(266))).toBe(false);
+  });
+
+  // The case that shipped English under an Arabic switcher: every article
+  // already published, and a build carrying a translated archive the
+  // database has never seen.
+  it("publishes translations into a database that already has every article", () => {
+    expect(shouldIngest(undefined, A(268, 0), W(268, 1578))).toBe(true);
+  });
+
+  it("stops once the translations have landed too", () => {
+    expect(shouldIngest(undefined, A(268, 1578), W(268, 1578))).toBe(false);
+  });
+
+  it("publishes a translation the archive has grown since the last deploy", () => {
+    // 268 headlines translated, bodies added in this build.
+    expect(shouldIngest(undefined, A(268, 1072), W(268, 1578))).toBe(true);
+  });
+
+  it("does not run for translations it could not read", () => {
+    expect(shouldIngest(undefined, A(268, 0), W(268, 0))).toBe(false);
+  });
+
+  it("ignores a translation count it could not read", () => {
+    expect(shouldIngest(undefined, A(268, null), W(268, 1578))).toBe(false);
   });
 });

@@ -45,7 +45,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "construction"
+      "construction",
+      "supply-chain",
+      "infrastructure",
+      "real-estate",
+      "water"
     ],
     "internalLinks": [
       "saudi-arabia-1-6-trillion-construction-pipeline-2026"

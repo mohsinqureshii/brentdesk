@@ -19,6 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 import { toast } from "sonner";
+import { fmtDateTime } from "@/lib/dates";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -209,7 +210,7 @@ export default function LivePostCard({
       ? "border-l-4 border-l-blue-500"
       : "";
 
-  const fullDate = new Date(post.publishedAt).toLocaleString("en-US", {
+  const fullDate = fmtDateTime(new Date(post.publishedAt), {
     month: "short",
     day: "numeric",
     year: "numeric",

@@ -46,7 +46,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "supply-chain",
+      "logistics",
+      "transportation",
+      "power"
     ],
     "internalLinks": [
       "ceer-local-content-agreements-saudi-ev-supply-chain-2026"

@@ -10,8 +10,10 @@
     "primaryCategory": "logistics",
     "categories": [
       "logistics",
+      "construction",
       "ports",
-      "warehousing"
+      "warehousing",
+      "roads"
     ],
     "tags": [
       "Mawani",

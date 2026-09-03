@@ -38,12 +38,27 @@ export function shouldSeed(
       || (have.locales !== null && have.locales < target.locales);
 }
 
-/** Ingest when the bundled archive would publish more articles than the
- *  database holds. `want` of 0 means the archive could not be read, which is
- *  not a reason to run an ingest with nothing to ingest. */
-export function shouldIngest(flag: string | undefined, have: Count, want: number): boolean {
+/**
+ * Ingest when the build carries more than the database holds — of EITHER
+ * articles or translations.
+ *
+ * Articles alone were not enough. A release whose only new content was a
+ * translated archive looked, to a check counting articles, exactly like a
+ * deploy with nothing to do: 268 in the build, 268 in the database, skip.
+ * The Arabic never landed, and the site served English under an Arabic
+ * language switcher — the one failure this whole check exists to prevent,
+ * reappearing on a different axis.
+ *
+ * A `want` of 0 means that file could not be read, which is not a reason to
+ * run an ingest with nothing to ingest.
+ */
+export function shouldIngest(
+  flag: string | undefined,
+  have: { articles: Count; translations: Count },
+  want: { articles: number; translations: number },
+): boolean {
   const forced = flagged(flag);
   if (forced !== null) return forced;
-  if (have === null) return false;
-  return have === 0 ? want > 0 : have < want;
+  const behind = (h: Count, w: number) => h !== null && (h === 0 ? w > 0 : h < w);
+  return behind(have.articles, want.articles) || behind(have.translations, want.translations);
 }

@@ -44,7 +44,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "manufacturing"
+      "manufacturing",
+      "construction",
+      "transportation",
+      "industrial-technology",
+      "aviation"
     ]
   }
 ]

@@ -10,8 +10,10 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
+      "logistics",
       "supply-chain",
-      "logistics"
+      "construction",
+      "transportation"
     ],
     "tags": [
       "UAE Manufacturing",

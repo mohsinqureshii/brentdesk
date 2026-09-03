@@ -10,8 +10,10 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
+      "construction",
       "supply-chain",
-      "logistics"
+      "logistics",
+      "metals"
     ],
     "tags": [
       "Localisation",

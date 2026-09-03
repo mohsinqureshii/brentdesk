@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { useT } from "@/lib/i18n";
+import { fmtDate } from "@/lib/dates";
 import { useParams } from "wouter";
 import { useState } from "react";
 import { publication } from "@shared/publication";
@@ -47,7 +49,7 @@ function formatTimeAgo(date: Date | string | null): string {
   if (diffMins < 60) return `${diffMins}m ago`;
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return past.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return fmtDate(past, { month: "short", day: "numeric" });
 }
 
 // Helper function to estimate read time
@@ -77,6 +79,7 @@ function formatTagType(tagType: string | null): string {
 }
 
 export default function TagPage() {
+  const t = useT();
   const { slug } = useParams<{ slug: string }>();
   const [sortBy, setSortBy] = useState<"latest" | "popular">("latest");
   const [page, setPage] = useState(1);
@@ -131,10 +134,10 @@ export default function TagPage() {
         <Header />
         <div className="flex flex-col items-center justify-center py-32">
           <Tag className="h-12 w-12 text-muted-foreground mb-4" />
-          <h1 className="text-2xl font-bold mb-4">Tag Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4">{t("state.tagNotFound")}</h1>
           <p className="text-muted-foreground mb-6">The tag "{tagSlug}" does not exist or has no published articles.</p>
           <Link href="/news">
-            <Button>Back to News</Button>
+            <Button>{t("state.backToNews")}</Button>
           </Link>
         </div>
         <Footer />
@@ -189,7 +192,7 @@ export default function TagPage() {
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <Button variant="default" size="sm" className="gap-1.5 sm:gap-2 text-xs sm:text-sm h-8 sm:h-9">
                 <Rss className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline">Follow</span> {tag.name}
+                <span className="hidden xs:inline">{t("common.follow")}</span> {tag.name}
               </Button>
               <Button variant="outline" size="sm" className="gap-1.5 sm:gap-2 text-xs sm:text-sm h-8 sm:h-9">
                 <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -216,7 +219,7 @@ export default function TagPage() {
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Latest
+                  {t("list.latest")}
                 </button>
                 <button 
                   onClick={() => { setSortBy("popular"); setPage(1); }}
@@ -226,7 +229,7 @@ export default function TagPage() {
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Most Popular
+                  {t("list.mostRead")}
                 </button>
               </div>
             </div>
@@ -238,7 +241,7 @@ export default function TagPage() {
           {articles.length === 0 ? (
             <div className="text-center py-16">
               <Tag className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">No published articles found with this tag yet.</p>
+              <p className="text-muted-foreground">{t("state.noArticlesTag")}</p>
             </div>
           ) : (
             <div className="grid lg:grid-cols-[1fr_340px] gap-4 sm:gap-6 lg:gap-8 items-start">
@@ -381,7 +384,7 @@ export default function TagPage() {
               <div className="lg:hidden mb-6">
                 {relatedTags.length > 0 && (
                   <div className="bg-background rounded-xl p-4 border border-border">
-                    <h3 className="font-semibold text-foreground mb-3 text-sm">Browse Tags</h3>
+                    <h3 className="font-semibold text-foreground mb-3 text-sm">{t("list.browseTags")}</h3>
                     <div className="flex flex-wrap gap-2">
                       {relatedTags.slice(0, 12).map((t) => (
                         <Link 
@@ -445,7 +448,7 @@ export default function TagPage() {
                 {/* Browse Popular Tags */}
                 {relatedTags.length > 0 && (
                   <div className="bg-background rounded-xl p-5 border border-border">
-                    <h3 className="font-semibold text-foreground mb-4">Popular Tags</h3>
+                    <h3 className="font-semibold text-foreground mb-4">{t("list.popularTags")}</h3>
                     <div className="space-y-1">
                       {relatedTags.slice(0, 15).map((t) => (
                         <Link 
@@ -481,7 +484,7 @@ export default function TagPage() {
                   </p>
                   <Button className="w-full gap-2" size="sm">
                     <Mail className="h-4 w-4" />
-                    Subscribe
+                    {t("newsletter.subscribe")}
                   </Button>
                 </div>
               </aside>

@@ -46,7 +46,10 @@
     "replacementReason": null,
     "categories": [
       "rail",
-      "transportation"
+      "transportation",
+      "roads",
+      "construction",
+      "real-estate"
     ]
   }
 ]

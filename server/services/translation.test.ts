@@ -18,6 +18,70 @@ describe("validateTranslation", () => {
     expect(problems[0].problem).toContain("links changed");
   });
 
+  it("treats 3.0 and 3 as the same figure", () => {
+    // Stripping the decimal point made "3.0" into "30", which no correct
+    // translation contains — so the only way past the gate was to write
+    // «3.0 مليار» where Arabic wants «3 مليارات».
+    const src = { excerpt: "A $3.0 billion reset." };
+    const out = { excerpt: "إعادة ضبط بقيمة 3 مليارات دولار." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("still compares the decimal part", () => {
+    const src = { excerpt: "Net income of $26.9bn." };
+    const out = { excerpt: "صافي دخل 26.8 مليار دولار." };
+    expect(validateTranslation(src, out)).toHaveLength(1);
+  });
+
+  it("ignores thousands separators", () => {
+    const src = { excerpt: "About 1,000 exhibitors." };
+    const out = { excerpt: "نحو 1000 عارض." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("lets a quarter be spelled out as a word", () => {
+    // "Q3" is an ordinal, and written Arabic spells it. Counting the 3 as a
+    // figure forced translators to write «الربع الثالث (Q3)» purely to get
+    // past the gate, which is a worse sentence for no factual gain.
+    const src = { excerpt: "Net income of $26.9bn in Q3 2025." };
+    const out = { excerpt: "صافي دخل 26.9 مليار دولار في الربع الثالث من 2025." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("still counts the year alongside a spelled-out quarter", () => {
+    const src = { excerpt: "Awards slowed in Q1 2026." };
+    const out = { excerpt: "تباطأت الترسيات في الربع الأول." };
+    const problems = validateTranslation(src, out);
+    expect(problems).toHaveLength(1);
+    expect(problems[0].problem).toContain("2026");
+  });
+
+  it("does not read an HTML entity's code point as a figure", () => {
+    // &#8377; is a rupee sign. Counting the 8377 made the entity itself a
+    // fact the Arabic had to carry.
+    const src = { content: "<p>A &#8377;12,000 crore order.</p>" };
+    const out = { content: "<p>طلبية بقيمة 12,000 كرور روبية.</p>" };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("lets a decade be spelled out as a word", () => {
+    const src = { content: "<p>A 1970s steel processor in Jeddah.</p>" };
+    const out = { content: "<p>معالج صلب في جدة يعود إلى سبعينيات القرن الماضي.</p>" };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
+  it("still compares a bare year exactly", () => {
+    const src = { content: "<p>Commissioned in 1970.</p>" };
+    const out = { content: "<p>دخل الخدمة في السبعينيات.</p>" };
+    expect(validateTranslation(src, out)).toHaveLength(1);
+  });
+
+  it("does not treat a chemical formula's subscript as a figure", () => {
+    const src = { excerpt: "Cutting CO2 by 40 percent." };
+    const out = { excerpt: "خفض ثاني أكسيد الكربون بنسبة 40 في المئة." };
+    expect(validateTranslation(src, out)).toEqual([]);
+  });
+
   it("accepts a translation that keeps its hrefs", () => {
     const src = { content: '<p>See <a href="/construction/big-5-opens">the report</a>.</p>' };
     const out = { content: '<p>راجع <a href="/construction/big-5-opens">التقرير</a>.</p>' };

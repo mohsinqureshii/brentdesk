@@ -20,6 +20,7 @@
  */
 
 import { useEffect, useState } from "react";
+import { fmtDate } from "@/lib/dates";
 import {
   Copy,
   Linkedin,
@@ -225,7 +226,7 @@ export function buildEntityShareText(
   eventStartDate: string | null | undefined,
 ): string {
   const dateStr = eventStartDate
-    ? new Date(eventStartDate).toLocaleDateString("en-US", {
+    ? fmtDate(new Date(eventStartDate), {
         month: "short",
         day: "numeric",
         year: "numeric",

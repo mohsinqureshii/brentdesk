@@ -23,6 +23,7 @@ import { useEffect, useMemo, type ReactNode } from "react";
 import { Router as WouterRouter } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { applyDocumentLocale, localeFromPath } from "@/lib/locale";
+import { StringsProvider } from "@/lib/i18n";
 
 /** Known before any request returns, so a hard load of /ar/... is laid out
  *  right to left immediately rather than after a round trip. Extended by
@@ -61,7 +62,11 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   // URL keeps working untouched.
   const base = active.isDefault ? "" : `/${active.code}`;
 
-  return <WouterRouter base={base}>{children}</WouterRouter>;
+  return (
+    <WouterRouter base={base}>
+      <StringsProvider>{children}</StringsProvider>
+    </WouterRouter>
+  );
 }
 
 export default LocaleProvider;

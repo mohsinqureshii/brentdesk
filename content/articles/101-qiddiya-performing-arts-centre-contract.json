@@ -40,7 +40,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "construction"
+      "construction",
+      "real-estate",
+      "supply-chain",
+      "metals",
+      "logistics"
     ],
     "wordCount": 536
   }

@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { useT } from "@/lib/i18n";
+import { fmtDateTime } from "@/lib/dates";
 import { trpc } from "@/lib/trpc";
 
 /**
@@ -53,6 +55,7 @@ function QuoteItem({ quote }: { quote: TickerQuote }) {
 }
 
 export function MarketTicker({ headline, headlineHref }: { headline?: string; headlineHref?: string }) {
+  const t = useT();
   const { data: liveQuotes } = trpc.stocks.getQuotes.useQuery(
     { categoryId: "markets" },
     { staleTime: 5 * 60 * 1000, retry: false },
@@ -62,7 +65,7 @@ export function MarketTicker({ headline, headlineHref }: { headline?: string; he
     liveQuotes && liveQuotes.length > 0
       ? liveQuotes.map((q) => ({
           label: SYMBOL_LABELS[q.symbol] ?? q.symbol,
-          price: q.price >= 1000 ? Math.round(q.price).toLocaleString("en-US") : q.price.toFixed(2),
+          price: q.price >= 1000 ? fmtDateTime(Math.round(q.price)) : q.price.toFixed(2),
           changePercent: q.changePercent,
         }))
       : FALLBACK_QUOTES;
@@ -73,7 +76,7 @@ export function MarketTicker({ headline, headlineHref }: { headline?: string; he
         {headline && (
           <div className="flex items-center gap-2.5 min-w-0 flex-1">
             <span className="bg-white text-black text-[10px] font-extrabold tracking-widest uppercase px-2 py-0.5 rounded-sm shrink-0">
-              Latest
+              {t("list.latest")}
             </span>
             {headlineHref ? (
               <Link href={headlineHref} className="text-xs text-white/85 hover:text-white truncate">

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -72,6 +73,7 @@ interface PersonData {
 }
 
 function PersonListItem({ person }: { person: PersonData }) {
+  const t = useT();
   const [expanded, setExpanded] = useState(false);
   const bio = person.shortBio || person.bio || "";
   const shouldTruncate = bio.length > 100;
@@ -122,9 +124,9 @@ function PersonListItem({ person }: { person: PersonData }) {
             className="text-sm font-medium text-foreground hover:underline mt-1.5 flex items-center gap-1"
           >
             {expanded ? (
-              <>Show less <ChevronUp className="h-3.5 w-3.5" /></>
+              <>{t("common.showLess")}<ChevronUp className="h-3.5 w-3.5" /></>
             ) : (
-              <>Show more <ChevronDown className="h-3.5 w-3.5" /></>
+              <>{t("common.showMore")}<ChevronDown className="h-3.5 w-3.5" /></>
             )}
           </button>
         )}
@@ -158,6 +160,7 @@ function PersonListItem({ person }: { person: PersonData }) {
 }
 
 export default function People() {
+  const t = useT();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedType, setSelectedType] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
@@ -227,9 +230,9 @@ export default function People() {
         <section className="bg-foreground text-background">
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
-              <Badge className="bg-primary text-white border-0 mb-4">People Directory</Badge>
+              <Badge className="bg-primary text-white border-0 mb-4">{t("directory.people")}</Badge>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
-                The people running the region's industry
+                {t("directory.peopleTagline")}
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">
                 Executives, engineers and decision-makers across construction, energy, infrastructure and logistics in Saudi Arabia, the GCC and MENA.
@@ -241,7 +244,7 @@ export default function People() {
                 </div>
                 <div className="flex items-center gap-2 text-background/60 text-sm">
                   <Briefcase className="h-4 w-4" />
-                  <span>Executives, Engineers & Leaders</span>
+                  <span>{t("directory.peopleSubtitle")}</span>
                 </div>
               </div>
             </div>
@@ -257,7 +260,7 @@ export default function People() {
                 <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search people..."
+                  placeholder={t("directory.searchPeople")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 h-11 bg-background border-border"
@@ -278,7 +281,7 @@ export default function People() {
 
                 <Button variant="default" className="h-11 px-6 gap-2 font-medium">
                   <Search className="h-4 w-4" />
-                  Search
+                  {t("nav.search")}
                 </Button>
               </div>
             </div>
@@ -305,7 +308,7 @@ export default function People() {
                 className="text-muted-foreground hover:text-foreground gap-1 h-8"
               >
                 <X className="h-3.5 w-3.5" />
-                Clear filters
+                {t("filter.clearFilters")}
               </Button>
             )}
           </div>
@@ -326,10 +329,10 @@ export default function People() {
           {!isLoading && filteredPeople.length === 0 && (
             <div className="text-center py-10">
               <Users className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-              <p className="text-muted-foreground text-lg mb-2">No people found</p>
-              <p className="text-caption text-muted-foreground mb-4">Try adjusting your search or filters</p>
+              <p className="text-muted-foreground text-lg mb-2">{t("state.noPeople")}</p>
+              <p className="text-caption text-muted-foreground mb-4">{t("state.tryAdjusting")}</p>
               <Button variant="outline" onClick={clearFilters}>
-                Clear all filters
+                {t("filter.clearAll")}
               </Button>
             </div>
           )}

@@ -15,7 +15,8 @@
  */
 
 import { router, publicProcedure } from "../_core/trpc";
-import { listLocales } from "../services/translation.service";
+import { listLocales, getTranslations } from "../services/translation.service";
+import { UI_STRINGS } from "../../shared/uiStrings";
 
 export const publicLocalesRouter = router({
   list: publicProcedure.query(async () => {
@@ -28,6 +29,23 @@ export const publicLocalesRouter = router({
       flagEmoji: l.flagEmoji,
       isDefault: l.isDefault,
     }));
+  }),
+
+  /**
+   * The site's own words in the language being served.
+   *
+   * English is returned as-is on the default locale without touching the
+   * database — the common case must not cost a query. Otherwise the stored
+   * strings are laid over the English so a key nobody has translated yet
+   * still renders a word rather than a key.
+   */
+  strings: publicProcedure.query(async ({ ctx }) => {
+    if (ctx.locale.isDefault) return { locale: ctx.locale.code, strings: UI_STRINGS as Record<string, string> };
+    const stored = await getTranslations("ui", 0, ctx.locale.code);
+    return {
+      locale: ctx.locale.code,
+      strings: { ...(UI_STRINGS as Record<string, string>), ...stored },
+    };
   }),
 
   current: publicProcedure.query(({ ctx }) => ({

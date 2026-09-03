@@ -3,6 +3,54 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================================
+   ARABIC — STC Forward
+   ------------------------------------------------------------
+   Inter has no Arabic. Without a face that does, an Arabic page
+   falls back to whatever the browser picks, which on Windows is
+   usually Tahoma: the letterforms are wrong, the joins are wrong,
+   and the page stops looking like the same publication.
+
+   Self-hosted rather than fetched: the file is 51KB as woff2 and
+   loading it from our own origin is one fewer third party in the
+   critical path. `unicode-range` keeps it out of the way of
+   English pages — a browser only downloads it when Arabic
+   characters are actually on the page.
+
+   Only Regular exists in the licensed file we have, so bold text
+   in Arabic is synthesised by the browser. If STC Forward Bold is
+   licensed later, drop it in and add a second @font-face at 700.
+   ============================================================ */
+@font-face {
+  font-family: "STC Forward";
+  src: url("/fonts/stc-forward-regular.woff2") format("woff2"),
+       url("/fonts/stc-forward-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  /* Arabic block, supplement, extended-A, and the presentation forms
+     browsers use for contextual shaping. */
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF,
+                 U+0660-0669, U+06F0-06F9;
+}
+
+/* Arabic pages lead with STC Forward and keep Inter for the Latin
+   that remains — company names, units, model numbers. The order
+   matters: STC Forward covers Latin too, but Inter is the
+   publication's Latin face and should stay it. */
+[lang="ar"], [dir="rtl"], .font-arabic {
+  font-family: "STC Forward", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Arabic renders shorter than Latin at the same size and reads
+   tight at Inter's line-height. */
+[dir="rtl"] body,
+[lang="ar"] .article-content,
+[dir="rtl"] .article-content {
+  line-height: 1.9;
+  letter-spacing: 0;
+}
+
 @theme inline {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;

@@ -37,6 +37,9 @@ import { getDb } from "../db";
 import { contentTranslations, locales } from "../../drizzle/schema";
 import { invokeLLMProvider, type LLMProvider } from "./ai/llmProvider.service";
 import { toDbDate } from "../_core/dbValues";
+import { validateTranslation, type FieldProblem } from "./translationChecks";
+
+export { validateTranslation, type FieldProblem } from "./translationChecks";
 
 export type TranslationStatus = "draft" | "published" | "stale";
 
@@ -96,6 +99,12 @@ export async function listLocales(opts: { activeOnly?: boolean } = {}): Promise<
     const db = await getDb();
     if (!db) return [];
     const rows = await db.select().from(locales);
+    // A read that comes back as anything but a set of rows means the table is
+    // not there yet — a database mid-migration, or a stub. Report no languages
+    // rather than throwing: every caller of this treats "no locales" as
+    // single-language, which is the safe reading. Not cached, so the next
+    // request tries again instead of holding an empty list for a minute.
+    if (!Array.isArray(rows)) return [];
     localeCache = { rows: rows.map(toLocaleRow), ts: now };
   }
   const all = [...localeCache.rows].sort((a, b) => a.sortOrder - b.sortOrder);
@@ -239,68 +248,6 @@ function buildUserPrompt(fields: Record<string, string>): string {
     ``,
     JSON.stringify(fields, null, 2),
   ].join("\n");
-}
-
-// ============================================================
-// Response validation — the part that keeps a model honest
-// ============================================================
-
-const HREF_RE = /href\s*=\s*"([^"]*)"/gi;
-const NUMBER_RE = /\d[\d,.]*/g;
-
-function hrefs(html: string): string[] {
-  return [...html.matchAll(HREF_RE)].map(m => m[1]).sort();
-}
-
-function digits(html: string): string[] {
-  // Figures in the PROSE are facts. Digits inside markup are not: a slug
-  // like /construction/big-5-opens carries a 5 that no translation should be
-  // expected to reproduce, and counting it would flag every correctly
-  // translated paragraph that contains a link.
-  const prose = html.replace(/<[^>]*>/g, " ");
-  // Compare the digit sequences themselves, ignoring the separators, which
-  // legitimately differ between scripts.
-  return (prose.match(NUMBER_RE) ?? []).map(n => n.replace(/[,.]/g, "")).sort();
-}
-
-export interface FieldProblem { field: string; problem: string }
-
-/** Everything wrong with a candidate translation. Empty means it is safe to
- *  store. */
-export function validateTranslation(
-  source: Record<string, string>, candidate: Record<string, string>,
-): FieldProblem[] {
-  const problems: FieldProblem[] = [];
-  for (const [field, src] of Object.entries(source)) {
-    const out = candidate[field];
-    if (!out || !out.trim()) {
-      problems.push({ field, problem: "came back empty" });
-      continue;
-    }
-
-    const srcHrefs = hrefs(src), outHrefs = hrefs(out);
-    if (srcHrefs.join("|") !== outHrefs.join("|")) {
-      problems.push({
-        field,
-        problem: `links changed (${srcHrefs.length} in, ${outHrefs.length} out)`,
-      });
-    }
-
-    const srcTags = (src.match(/<\/?[a-z][^>]*>/gi) ?? []).length;
-    const outTags = (out.match(/<\/?[a-z][^>]*>/gi) ?? []).length;
-    if (srcTags !== outTags) {
-      problems.push({ field, problem: `HTML tag count changed (${srcTags} → ${outTags})` });
-    }
-
-    const srcNums = digits(src), outNums = digits(out);
-    // A figure that appears in the English and not the translation means a
-    // fact went missing. The reverse means one was invented.
-    const missing = srcNums.filter(n => !outNums.includes(n));
-    if (missing.length) {
-      problems.push({ field, problem: `figures missing from the translation: ${missing.slice(0, 5).join(", ")}` });
-    }
-  }
-  return problems;
 }
 
 function parseJsonResponse(text: string): Record<string, string> {
@@ -517,4 +464,44 @@ export async function localizeArticle<T extends { id: number }>(
 ): Promise<T> {
   if (!locale || locale.isDefault) return row;
   return applyTranslation(row, await getTranslations("article", row.id, locale.code));
+}
+
+/**
+ * The same overlay for anything that is not an article.
+ *
+ * Categories and homepage sections carry editor-written names — "Latest
+ * Headlines", "In Brief", "Construction" — that a reader sees on every page.
+ * Translating 268 articles and leaving those in English produces an Arabic
+ * homepage with an English masthead over every block, which is what the
+ * archive looked like until this existed.
+ */
+export async function localizeRows<T extends { id: number }>(
+  locale: { code: string; isDefault: boolean } | undefined,
+  entityType: string, rows: T[],
+): Promise<T[]> {
+  if (!locale || locale.isDefault || !rows.length) return rows;
+  const map = await getTranslationsFor(entityType, rows.map(r => r.id), locale.code);
+  return rows.map(r => applyTranslation(r, map.get(r.id)));
+}
+
+/**
+ * Rewrite the category label carried alongside a row.
+ *
+ * Article rows arrive with `categoryName` joined in, which is a category's
+ * field on someone else's record — `localizeRows` cannot reach it, because
+ * the row's own id is the article's. This maps by the category id the row
+ * already carries.
+ */
+export async function localizeCategoryLabels<T extends Record<string, any>>(
+  locale: { code: string; isDefault: boolean } | undefined,
+  rows: T[], idField = "categoryId", labelField = "categoryName",
+): Promise<T[]> {
+  if (!locale || locale.isDefault || !rows.length) return rows;
+  const ids = [...new Set(rows.map(r => r[idField]).filter((v): v is number => typeof v === "number"))];
+  if (!ids.length) return rows;
+  const map = await getTranslationsFor("category", ids, locale.code);
+  return rows.map(r => {
+    const name = map.get(r[idField])?.name;
+    return name ? { ...r, [labelField]: name } : r;
+  });
 }

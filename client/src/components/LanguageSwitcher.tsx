@@ -27,6 +27,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Languages, Check, ChevronDown } from "lucide-react";
 import { LOCALE_COOKIE, stripLocale, withLocale } from "@/lib/locale";
+import { useT } from "@/lib/i18n";
 
 export interface LanguageSwitcherProps {
   /** Compact mode for tight headers — the code only, no native name. */
@@ -38,6 +39,7 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
   const localesQuery = trpc.locales.list.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const currentQuery = trpc.locales.current.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const [open, setOpen] = useState(false);
+  const t = useT();
 
   const list = localesQuery.data || [];
   const active = currentQuery.data;
@@ -60,6 +62,42 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
     window.location.assign(target);
   }
 
+  // Two languages is a toggle, not a menu. EN | AR sitting in the header is
+  // one click and no hunting, which is what "convert and see" needs. Three or
+  // more and it goes back to a dropdown, because a segmented control stops
+  // fitting.
+  if (list.length === 2) {
+    return (
+      <div
+        className={`flex items-center rounded-full border border-white/30 overflow-hidden ${className}`}
+        role="group"
+        aria-label={t("nav.language")}
+      >
+        {list.map((l) => {
+          const isActive = active.code === l.code;
+          return (
+            <button
+              key={l.code}
+              type="button"
+              onClick={() => !isActive && switchTo(l.code, l.isDefault)}
+              aria-current={isActive ? "true" : undefined}
+              lang={l.code}
+              dir={l.direction}
+              title={l.nativeName}
+              className={`px-2.5 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                isActive
+                  ? "bg-white text-black"
+                  : "text-white/80 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              {l.code}
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
@@ -80,7 +118,7 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel className="text-xs">Read this page in</DropdownMenuLabel>
+        <DropdownMenuLabel className="text-xs">{t("nav.readThisPageIn")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {list.map((l) => (
           <DropdownMenuItem

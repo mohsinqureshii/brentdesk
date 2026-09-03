@@ -1,4 +1,6 @@
 import React from "react";
+import { useT } from "@/lib/i18n";
+import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import { useParams } from "wouter";
 import { useState } from "react";
@@ -50,7 +52,7 @@ function formatTimeAgo(date: Date | string | null): string {
   if (diffMins < 60) return `${diffMins}m ago`;
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return past.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return fmtDate(past, { month: "short", day: "numeric" });
 }
 
 // Helper function to estimate read time
@@ -67,6 +69,7 @@ interface CategoryNewsProps {
 }
 
 export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: CategoryNewsProps = {}) {
+  const t = useT();
   const params = useParams<{ parentSlug: string; childSlug?: string }>();
   // Allow props to override URL params (used by CategoryOrArticle for bare slug routes)
   const parentSlug = overrideParentSlug || params.parentSlug;
@@ -134,13 +137,13 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
   if (error || !category) {
     return (
       <div className="min-h-screen bg-background">
-        <SEO title="Category Not Found" noindex />
+        <SEO title={t("state.categoryNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center py-32">
-          <h1 className="text-2xl font-bold mb-4">Category Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4">{t("state.categoryNotFound")}</h1>
           <p className="text-muted-foreground mb-6">The category "{categorySlug}" does not exist.</p>
           <Link href="/news">
-            <Button>Back to News</Button>
+            <Button>{t("state.backToNews")}</Button>
           </Link>
         </div>
         <Footer />
@@ -206,7 +209,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <Button variant="default" size="sm" className="gap-1.5 sm:gap-2 text-xs sm:text-sm h-8 sm:h-9">
                 <Rss className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                <span className="hidden xs:inline">Follow</span> {category.name}
+                <span className="hidden xs:inline">{t("common.follow")}</span> {category.name}
               </Button>
               <Button variant="outline" size="sm" className="gap-1.5 sm:gap-2 text-xs sm:text-sm h-8 sm:h-9">
                 <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -233,7 +236,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Latest
+                  {t("list.latest")}
                 </button>
                 <button 
                   onClick={() => { setSortBy("popular"); setPage(1); }}
@@ -243,7 +246,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Most Popular
+                  {t("list.mostRead")}
                 </button>
               </div>
             </div>
@@ -259,7 +262,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
         <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
           {articles.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-muted-foreground">No articles found in this category yet.</p>
+              <p className="text-muted-foreground">{t("state.noArticlesCategory")}</p>
             </div>
           ) : (
             <div className="grid lg:grid-cols-[1fr_340px] gap-4 sm:gap-6 lg:gap-8 items-start">
@@ -286,7 +289,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
                       <div className="flex flex-col justify-center">
                         <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
                           <Badge className={`${categoryColor} text-white border-0 rounded-full text-xs sm:text-sm`}>
-                            Featured
+                            {t("list.featured")}
                           </Badge>
                           {featuredArticle.tags?.slice(0, 1).map(tag => (
                             <Badge key={tag.id} variant="secondary" className="rounded-full text-xs sm:text-sm">
@@ -401,7 +404,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
               <div className="lg:hidden mb-6">
                 {allCategories && allCategories.length > 0 && (
                   <div className="bg-background rounded-xl p-4 border border-border">
-                    <h3 className="font-semibold text-foreground mb-3 text-sm">Browse Categories</h3>
+                    <h3 className="font-semibold text-foreground mb-3 text-sm">{t("list.browseCategories")}</h3>
                     <div className="flex flex-wrap gap-2">
                       {allCategories.filter(c => c.articleCount > 0).slice(0, 8).map((cat) => (
                         <Link 
@@ -465,7 +468,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
                 {/* Browse Categories */}
                 {allCategories && allCategories.length > 0 && (
                   <div className="bg-background rounded-xl p-5 border border-border">
-                    <h3 className="font-semibold text-foreground mb-4">Browse Categories</h3>
+                    <h3 className="font-semibold text-foreground mb-4">{t("list.browseCategories")}</h3>
                     <div className="space-y-1">
                       {allCategories.filter(c => c.articleCount > 0).slice(0, 10).map((cat) => (
                         <Link 
@@ -501,7 +504,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
                   </p>
                   <Button className="w-full gap-2" size="sm">
                     <Mail className="h-4 w-4" />
-                    Subscribe
+                    {t("newsletter.subscribe")}
                   </Button>
                 </div>
               </aside>

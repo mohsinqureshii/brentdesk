@@ -9,7 +9,11 @@
     "author": "BrentDesk Staff",
     "primaryCategory": "industrial-technology",
     "categories": [
-      "industrial-technology"
+      "industrial-technology",
+      "construction",
+      "manufacturing",
+      "supply-chain",
+      "facilities-management"
     ],
     "tags": [
       "Industrial Technology",

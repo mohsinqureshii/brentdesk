@@ -45,7 +45,10 @@
     "replacementReason": null,
     "categories": [
       "oil-gas",
-      "energy"
+      "energy",
+      "water",
+      "supply-chain",
+      "facilities-management"
     ]
   }
 ]

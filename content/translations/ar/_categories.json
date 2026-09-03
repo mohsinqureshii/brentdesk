@@ -1,0 +1,290 @@
+[
+  {
+    "slug": "construction",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الإنشاءات"
+    }
+  },
+  {
+    "slug": "epc",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الهندسة والتوريد والإنشاء"
+    }
+  },
+  {
+    "slug": "engineering",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الهندسة"
+    }
+  },
+  {
+    "slug": "infrastructure",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "البنية التحتية"
+    }
+  },
+  {
+    "slug": "roads",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الطرق"
+    }
+  },
+  {
+    "slug": "water",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "المياه"
+    }
+  },
+  {
+    "slug": "telecom-infrastructure",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "بنية الاتصالات"
+    }
+  },
+  {
+    "slug": "energy",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الطاقة"
+    }
+  },
+  {
+    "slug": "oil-gas",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "النفط والغاز"
+    }
+  },
+  {
+    "slug": "renewables",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الطاقة المتجددة"
+    }
+  },
+  {
+    "slug": "power",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الكهرباء"
+    }
+  },
+  {
+    "slug": "manufacturing",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الصناعة"
+    }
+  },
+  {
+    "slug": "heavy-equipment",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "المعدات الثقيلة"
+    }
+  },
+  {
+    "slug": "machinery",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الآلات"
+    }
+  },
+  {
+    "slug": "chemicals",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الكيماويات"
+    }
+  },
+  {
+    "slug": "logistics",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الخدمات اللوجستية"
+    }
+  },
+  {
+    "slug": "ports",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الموانئ"
+    }
+  },
+  {
+    "slug": "warehousing",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "التخزين"
+    }
+  },
+  {
+    "slug": "supply-chain",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "سلسلة الإمداد"
+    }
+  },
+  {
+    "slug": "real-estate",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "العقارات"
+    }
+  },
+  {
+    "slug": "facilities-management",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "إدارة المرافق"
+    }
+  },
+  {
+    "slug": "transportation",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "النقل"
+    }
+  },
+  {
+    "slug": "aviation",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الطيران"
+    }
+  },
+  {
+    "slug": "rail",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "السكك الحديدية"
+    }
+  },
+  {
+    "slug": "mining",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "التعدين"
+    }
+  },
+  {
+    "slug": "metals",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "المعادن"
+    }
+  },
+  {
+    "slug": "utilities",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "المرافق"
+    }
+  },
+  {
+    "slug": "industrial-technology",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "التقنية الصناعية"
+    }
+  },
+  {
+    "slug": "automation",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الأتمتة"
+    }
+  },
+  {
+    "slug": "robotics",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الروبوتات"
+    }
+  },
+  {
+    "slug": "data-centers",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "مراكز البيانات"
+    }
+  },
+  {
+    "slug": "industrial-ai",
+    "locale": "ar",
+    "entityType": "category",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الذكاء الاصطناعي الصناعي"
+    }
+  }
+]

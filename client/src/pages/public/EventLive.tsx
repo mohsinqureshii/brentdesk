@@ -17,6 +17,7 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link, useParams } from "wouter";
 import {
   ArrowLeft,
@@ -51,7 +52,7 @@ const POLL_MS = 25_000;
 
 function formatEventDate(d: string | Date | null | undefined): string {
   if (!d) return "Date TBA";
-  return new Date(d).toLocaleDateString("en-US", {
+  return fmtDate(new Date(d), {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -65,7 +66,7 @@ function formatShortDateRange(
 ): string {
   if (!start) return "TBA";
   const s = new Date(start);
-  const startStr = s.toLocaleDateString("en-US", {
+  const startStr = fmtDate(s, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -73,7 +74,7 @@ function formatShortDateRange(
   if (!end) return startStr;
   const e = new Date(end);
   if (s.toDateString() === e.toDateString()) return startStr;
-  return `${startStr} – ${e.toLocaleDateString("en-US", {
+  return `${startStr} – ${fmtDate(e, {
     month: "short",
     day: "numeric",
     year: "numeric",

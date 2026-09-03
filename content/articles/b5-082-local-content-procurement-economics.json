@@ -10,7 +10,10 @@
     "primaryCategory": "supply-chain",
     "categories": [
       "supply-chain",
-      "logistics"
+      "logistics",
+      "construction",
+      "manufacturing",
+      "water"
     ],
     "tags": [
       "Local Content",

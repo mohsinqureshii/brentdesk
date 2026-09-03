@@ -10,7 +10,10 @@
     "primaryCategory": "chemicals",
     "categories": [
       "chemicals",
-      "manufacturing"
+      "manufacturing",
+      "construction",
+      "supply-chain",
+      "logistics"
     ],
     "tags": [
       "Arkaz",

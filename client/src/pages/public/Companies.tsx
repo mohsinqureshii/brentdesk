@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -34,6 +35,7 @@ const locationServerValue: Record<string, string> = {
 const accentColors = ["orange", "blue", "purple", "teal", "pink", "green"] as const;
 
 export default function Companies() {
+  const t = useT();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All Regions");
@@ -91,9 +93,9 @@ export default function Companies() {
         <section className="bg-foreground text-background">
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
-              <Badge className="bg-primary text-white border-0 mb-4">Company Directory</Badge>
+              <Badge className="bg-primary text-white border-0 mb-4">{t("directory.companies")}</Badge>
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
-                The companies building the region
+                {t("directory.companiesSubtitle")}
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">
                 Contractors, developers, operators and manufacturers across construction, energy, infrastructure and logistics in Saudi Arabia, the GCC and MENA.
@@ -121,7 +123,7 @@ export default function Companies() {
                 <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search companies..."
+                  placeholder={t("directory.searchCompanies")}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSearch()}
@@ -153,7 +155,7 @@ export default function Companies() {
 
                 <Button variant="default" className="h-11 px-6 gap-2 font-medium" onClick={handleSearch}>
                   <Search className="h-4 w-4" />
-                  Search
+                  {t("nav.search")}
                 </Button>
               </div>
             </div>
@@ -179,7 +181,7 @@ export default function Companies() {
                 className="text-muted-foreground hover:text-foreground gap-1 h-8"
               >
                 <X className="h-3.5 w-3.5" />
-                Clear filters
+                {t("filter.clearFilters")}
               </Button>
             )}
           </div>
@@ -194,7 +196,7 @@ export default function Companies() {
           {/* Error State */}
           {error && (
             <div className="text-center py-10">
-              <p className="text-destructive text-lg mb-2">Error loading companies</p>
+              <p className="text-destructive text-lg mb-2">{t("state.errorCompanies")}</p>
               <p className="text-caption text-muted-foreground">{error.message}</p>
             </div>
           )}
@@ -222,10 +224,10 @@ export default function Companies() {
 
           {!isLoading && !error && companies.length === 0 && (
             <div className="text-center py-10">
-              <p className="text-muted-foreground text-lg mb-2">No companies found</p>
-              <p className="text-caption text-muted-foreground mb-4">Try adjusting your search or filters</p>
+              <p className="text-muted-foreground text-lg mb-2">{t("state.noCompanies")}</p>
+              <p className="text-caption text-muted-foreground mb-4">{t("state.tryAdjusting")}</p>
               <Button variant="outline" onClick={clearFilters}>
-                Clear all filters
+                {t("filter.clearAll")}
               </Button>
             </div>
           )}

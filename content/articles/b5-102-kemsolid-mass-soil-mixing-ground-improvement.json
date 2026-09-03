@@ -9,7 +9,11 @@
     "author": "BrentDesk Staff",
     "primaryCategory": "construction",
     "categories": [
-      "construction"
+      "construction",
+      "heavy-equipment",
+      "manufacturing",
+      "supply-chain",
+      "logistics"
     ],
     "tags": [
       "Ground Improvement",

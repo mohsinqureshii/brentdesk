@@ -10,7 +10,10 @@
     "primaryCategory": "facilities-management",
     "categories": [
       "facilities-management",
-      "real-estate"
+      "real-estate",
+      "construction",
+      "water",
+      "infrastructure"
     ],
     "tags": [
       "Giga Projects",

@@ -11,6 +11,7 @@ import { homepageBlocks, homepageSections, articles, categories, media } from ".
 import { workflowService } from "../services/workflow.service";
 import { desc, sql } from "drizzle-orm";
 import { newsRecencyDesc } from "../_core/articleOrder";
+import { localizeArticles, localizeRows, localizeCategoryLabels } from "../services/translation.service";
 
 // ============================================================
 // HOMEPAGE ADMIN ROUTER
@@ -303,7 +304,7 @@ export const homepageRouter = router({
    * Get all active sections with category info (public - for frontend rendering)
    */
   getSections: publicProcedure
-    .query(async () => {
+    .query(async ({ ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -334,7 +335,12 @@ export const homepageRouter = router({
         .where(eq(homepageSections.isActive, 1))
         .orderBy(asc(homepageSections.sortOrder));
 
-      return sections;
+      // Two different owners of a name on one row: the section's own
+      // ("Latest Headlines") and the category it points at ("Construction").
+      return localizeCategoryLabels(
+        ctx.locale,
+        await localizeRows(ctx.locale, "homepage_section", sections),
+      );
     }),
 
   /**
@@ -345,7 +351,7 @@ export const homepageRouter = router({
       sectionId: z.number(),
       limit: z.number().optional().default(4),
     }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -391,7 +397,10 @@ export const homepageRouter = router({
         .orderBy(newsRecencyDesc)
         .limit(limit);
 
-      return query;
+      return localizeCategoryLabels(
+        ctx.locale,
+        await localizeArticles(ctx.locale, await query),
+      );
     }),
 
   /**

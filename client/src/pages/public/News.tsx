@@ -1,4 +1,5 @@
 import React from "react";
+import { fmtDate } from "@/lib/dates";
 import { Header } from "@/components/layout/Header";
 import { MarketTicker } from "@/components/layout/MarketTicker";
 import { JsonLd } from "@/components/JsonLd";
@@ -14,6 +15,7 @@ import { getArticleUrl } from "@/lib/articleUrl";
 import { SidebarAd, LeaderboardAd, InContentAd, MobileStickyAd, AdUnit } from "@/components/ads/AdUnit";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { publication } from "@shared/publication";
+import { useT } from "@/lib/i18n";
 
 // ------------------------------------------------------------------
 // Types + helpers
@@ -75,7 +77,7 @@ function formatTimeAgo(date: Date | string | null | undefined): string {
   if (diffMins < 60) return diffMins <= 1 ? "Just now" : `${diffMins}m ago`;
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return then.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return fmtDate(then, { month: "short", day: "numeric", year: "numeric" });
 }
 
 function readTime(article: Article): string {
@@ -97,6 +99,7 @@ function SectionHeader({
   link,
   compact = false,
 }: { title: string; accent?: string | null; link?: string | null; compact?: boolean }) {
+  const t = useT();
   return (
     <div className="flex items-center justify-between gap-2 mb-4">
       <h2
@@ -110,7 +113,7 @@ function SectionHeader({
           href={link}
           className="shrink-0 text-xs font-semibold text-primary hover:underline flex items-center gap-1"
         >
-          {compact ? "All" : "View all"} <ArrowRight className="h-3.5 w-3.5" />
+          {compact ? t("common.all") : t("common.viewAll")} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       )}
     </div>
@@ -174,6 +177,7 @@ function ArticleRow({ article, compact = false }: { article: Article; compact?: 
 // ------------------------------------------------------------------
 
 function TopStorySection({ section }: { section: HomepageSection }) {
+  const t = useT();
   const { data: articles = [], isLoading } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
     limit: section.articleCount || 4,
@@ -186,7 +190,7 @@ function TopStorySection({ section }: { section: HomepageSection }) {
   if (!lead) return null;
 
   return (
-    <section aria-label="Top story" className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+    <section aria-label={t("list.topStory")} className="grid grid-cols-1 lg:grid-cols-5 gap-5">
       {/* Lead card — dark editorial hero */}
       <Link
         href={getArticleUrl(lead)}
@@ -202,7 +206,7 @@ function TopStorySection({ section }: { section: HomepageSection }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
         <div className="relative p-6 lg:p-8">
           <span className="inline-block bg-white text-black text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1 rounded-sm mb-4">
-            Top Story
+            {t("list.topStory")}
           </span>
           <h1
             className="text-white font-extrabold tracking-tight leading-[1.15] text-2xl lg:text-4xl max-w-2xl"
@@ -240,13 +244,14 @@ function TopStorySection({ section }: { section: HomepageSection }) {
 // ------------------------------------------------------------------
 
 function CategoryChips() {
+  const t = useT();
   const { data: categories } = trpc.news.getAllCategoriesWithCounts.useQuery(undefined, {
     staleTime: 5 * 60 * 1000,
   });
   const parents = ((categories ?? []) as any[]).filter((c) => !c.parentId && c.isActive !== 0);
   if (!parents.length) return null;
   return (
-    <nav aria-label="Categories" className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
+    <nav aria-label={t("footer.categories")} className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
       {parents.map((c: any) => (
         <Link
           key={c.slug}
@@ -272,6 +277,7 @@ function CategoryChips() {
  * the two lists never repeat a story.
  */
 function HeadlinesColumns({ section }: { section: HomepageSection }) {
+  const t = useT();
   const perColumn = section.articleCount || 5;
   const { data: articles = [] } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
@@ -295,7 +301,7 @@ function HeadlinesColumns({ section }: { section: HomepageSection }) {
       </div>
       {latest.length > 0 && (
         <div className="bd-card p-5">
-          <SectionHeader title="Latest News" accent={section.accentColor} link="/news" compact />
+          <SectionHeader title={t("list.latestNews")} accent={section.accentColor} link="/news" compact />
           <div>
             {latest.map((a) => (
               <ArticleRow key={a.id} article={a} compact />
@@ -308,6 +314,7 @@ function HeadlinesColumns({ section }: { section: HomepageSection }) {
 }
 
 function InBriefSection({ section }: { section: HomepageSection }) {
+  const t = useT();
   const { data: articles = [] } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
     limit: section.articleCount || 6,
@@ -332,7 +339,7 @@ function InBriefSection({ section }: { section: HomepageSection }) {
         href="/news"
         className="mt-4 inline-flex items-center justify-center gap-1.5 rounded-md border border-border py-2 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
       >
-        View all <ArrowRight className="h-3.5 w-3.5" />
+        {t("common.viewAll")} <ArrowRight className="h-3.5 w-3.5" />
       </Link>
     </div>
   );
@@ -389,12 +396,13 @@ function CategorySection({ section }: { section: HomepageSection }) {
 // ------------------------------------------------------------------
 
 function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
+  const t = useT();
   const { data } = trpc.events.list.useQuery({ editionCountryId });
   const events = (data?.items ?? []).slice(0, 5);
   if (!events.length) return null;
   return (
-    <section aria-label="Events">
-      <SectionHeader title="Events" accent="#2563eb" link="/events" />
+    <section aria-label={t("nav.events")}>
+      <SectionHeader title={t("nav.events")} accent="#2563eb" link="/events" />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {events.map((event: any) => {
           const d = event.startDate ? new Date(event.startDate) : null;
@@ -412,7 +420,7 @@ function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
                   <div className="absolute top-2 left-2 bg-card rounded-md px-2 py-1 text-center leading-tight shadow-sm">
                     <div className="text-sm font-extrabold text-foreground">{d.getDate()}</div>
                     <div className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
-                      {d.toLocaleDateString("en-US", { month: "short" })}
+                      {fmtDate(d, { month: "short" })}
                     </div>
                   </div>
                 )}
@@ -435,12 +443,13 @@ function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
 }
 
 function FeaturedCompanies() {
+  const t = useT();
   const { data } = trpc.companies.list.useQuery({ isFeatured: true, limit: 8 });
   const companies = data?.items ?? [];
   if (!companies.length) return null;
   return (
-    <section aria-label="Featured companies">
-      <SectionHeader title="Featured Companies" accent="#2563eb" link="/companies" />
+    <section aria-label={t("list.featuredCompanies")}>
+      <SectionHeader title={t("list.featuredCompanies")} accent="#2563eb" link="/companies" />
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
         {companies.map((company: any) => (
           <Link
@@ -502,6 +511,7 @@ function MostReadWidget({ section }: { section: HomepageSection }) {
 }
 
 function JobsWidget({ section, editionCountryId }: { section: HomepageSection; editionCountryId?: number }) {
+  const t = useT();
   const { data } = trpc.jobs.list.useQuery({ editionCountryId });
   const jobs = (data?.items ?? []).slice(0, section.articleCount || 5);
   if (!jobs.length) return null;
@@ -513,7 +523,7 @@ function JobsWidget({ section, editionCountryId }: { section: HomepageSection; e
           <Briefcase className="h-4 w-4 text-primary" /> {section.name}
         </h2>
         <Link href="/jobs" className="text-xs font-semibold text-primary hover:underline">
-          View all
+          {t("common.viewAll")}
         </Link>
       </div>
       <ul>
@@ -541,6 +551,7 @@ function JobsWidget({ section, editionCountryId }: { section: HomepageSection; e
 }
 
 function EventsWidget({ section, editionCountryId }: { section: HomepageSection; editionCountryId?: number }) {
+  const t = useT();
   const { data } = trpc.events.list.useQuery({ editionCountryId });
   const events = (data?.items ?? []).slice(0, section.articleCount || 4);
   if (!events.length) return null;
@@ -551,7 +562,7 @@ function EventsWidget({ section, editionCountryId }: { section: HomepageSection;
           <Calendar className="h-4 w-4 text-primary" /> {section.name}
         </h2>
         <Link href="/events" className="text-xs font-semibold text-primary hover:underline">
-          View all
+          {t("common.viewAll")}
         </Link>
       </div>
       <ul>
@@ -561,7 +572,7 @@ function EventsWidget({ section, editionCountryId }: { section: HomepageSection;
               <div className="bd-headline text-[13px] text-foreground line-clamp-2">{event.title}</div>
               <div className="mt-1 text-[11px] text-muted-foreground">
                 {event.startDate &&
-                  new Date(event.startDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                  fmtDate(new Date(event.startDate), { month: "short", day: "numeric" })}
                 {(event.city || event.country) && ` · ${[event.city, event.country].filter(Boolean).join(", ")}`}
               </div>
             </Link>
@@ -573,6 +584,7 @@ function EventsWidget({ section, editionCountryId }: { section: HomepageSection;
 }
 
 function NewsletterBox() {
+  const t = useT();
   return (
     <div className="bd-card p-5">
       <h2 className="bd-section-title mb-1.5">{publication.newsletter.name}</h2>
@@ -587,6 +599,7 @@ function NewsletterBox() {
 // ------------------------------------------------------------------
 
 export default function News() {
+  const t = useT();
   const { editionCountryId } = useEdition();
 
   const { data: sections, isLoading: sectionsLoading } = trpc.admin.homepage.getSections.useQuery();
@@ -667,7 +680,7 @@ export default function News() {
           </div>
 
           {/* Rail */}
-          <aside className="space-y-6 min-w-0" aria-label="Sidebar">
+          <aside className="space-y-6 min-w-0" aria-label={t("list.sidebar")}>
             <SidebarAd slotKey="home-sidebar-top" />
             {railSections.map((section, i) => (
               <React.Fragment key={section.id}>

@@ -109,3 +109,34 @@ export async function applyLocaleHead(html: string, path: string): Promise<strin
   out = out.replace(/<\/head>/i, `    ${alternates}\n  </head>`);
   return out;
 }
+
+/**
+ * The alternate set for a sitemap entry.
+ *
+ * Same rules as the page tags — reciprocal, absolute, self-included — but
+ * expressed as `xhtml:link` inside `<url>`, which is how a sitemap carries
+ * hreflang. A sitemap that lists only the English URLs leaves the Arabic
+ * archive discoverable solely through the tags on the English pages, which
+ * is slower and weaker than declaring both.
+ *
+ * Returns "" when one language is configured, so a single-language site
+ * emits exactly the sitemap it emitted before.
+ */
+export function sitemapAlternates(
+  loc: string, baseUrl: string,
+  active: Array<{ code: string; isDefault: boolean }>,
+): string {
+  if (active.length < 2) return "";
+  const bare = loc.startsWith(baseUrl) ? loc.slice(baseUrl.length) || "/" : loc;
+  const url = (l: { code: string; isDefault: boolean }) =>
+    baseUrl + (l.isDefault ? bare : `/${l.code}${bare === "/" ? "" : bare}`);
+
+  const lines = active.map(l =>
+    `\n    <xhtml:link rel="alternate" hreflang="${escapeAttr(l.code)}" href="${escapeAttr(url(l))}" />`,
+  );
+  const def = active.find(l => l.isDefault);
+  if (def) {
+    lines.push(`\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeAttr(url(def))}" />`);
+  }
+  return lines.join("");
+}

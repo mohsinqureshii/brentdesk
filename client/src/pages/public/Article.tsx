@@ -1,4 +1,5 @@
 import { useLocation, Link } from "wouter";
+import { fmtDate, fmtTime } from "@/lib/dates";
 import { useParams } from "wouter";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Header } from "@/components/layout/Header";
@@ -12,6 +13,7 @@ import { Clock, Share2, Bookmark, MessageCircle, ThumbsUp, Twitter, Linkedin, Fa
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { useT } from "@/lib/i18n";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
@@ -25,7 +27,7 @@ const containerClass = "w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8";
 function formatDate(date: Date | string | null): string {
   if (!date) return "Recently";
   const d = new Date(date);
-  return d.toLocaleDateString('en-US', { 
+  return fmtDate(d, { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
@@ -35,7 +37,7 @@ function formatDate(date: Date | string | null): string {
 function formatTime(date: Date | string | null): string {
   if (!date) return "";
   const d = new Date(date);
-  return d.toLocaleTimeString('en-US', { 
+  return fmtTime(d, { 
     hour: 'numeric', 
     minute: '2-digit',
     hour12: true 
@@ -199,6 +201,7 @@ const RelatedArticlesCarousel = ({ articles }: { articles: RelatedArticle[] }) =
 };
 
 export default function Article() {
+  const t = useT();
   // Support both URL patterns:
   // - /:categorySlug/:articleSlug (new category-based)
   // - /article/:slug (legacy)
@@ -353,13 +356,13 @@ export default function Article() {
   if (error || !article) {
     return (
       <div className="min-h-screen bg-background overflow-x-hidden">
-        <SEO title="Article Not Found" noindex />
+        <SEO title={t("state.articleNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Article Not Found</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t("state.articleNotFound")}</h1>
           <p className="text-muted-foreground mb-6">The article you're looking for doesn't exist or has been removed.</p>
           <Link href="/news">
-            <Button>Back to News</Button>
+            <Button>{t("state.backToNews")}</Button>
           </Link>
         </div>
         <Footer />
@@ -553,7 +556,7 @@ export default function Article() {
             {/* Tags */}
             {articleTagsList.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-border">
-                <span className="text-xs sm:text-sm font-medium text-foreground mr-2">Topics:</span>
+                <span className="text-xs sm:text-sm font-medium text-foreground mr-2">{t("article.topics")}</span>
                 {articleTagsList.map((tag) => (
                   <Link key={tag.id || tag.name} href={`/tag/${tag.slug || tag.name.toLowerCase().replace(/\s+/g, '-')}`}>
                     <Badge variant="outline" className="rounded-full hover:bg-muted transition-colors text-xs">
@@ -567,7 +570,7 @@ export default function Article() {
             {/* Share & Save Section */}
             <div className="flex items-center justify-between mb-6 sm:mb-8">
               <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-xs sm:text-sm text-muted-foreground">Share:</span>
+                <span className="text-xs sm:text-sm text-muted-foreground">{t("article.share")}</span>
                 <Button variant="outline" size="sm" className="rounded-full h-8 w-8 sm:h-9 sm:w-9 p-0">
                   <Twitter className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </Button>
@@ -621,7 +624,7 @@ export default function Article() {
                     href={`/author/${article.author?.username || article.author?.id || 'unknown'}`}
                     className="text-xs sm:text-sm text-primary hover:underline font-medium inline-flex items-center gap-1"
                   >
-                    View Bio →
+                    {t("article.viewBio")} →
                   </Link>
                 </div>
               </div>
@@ -656,7 +659,7 @@ export default function Article() {
               <div className="bg-card border border-border rounded-xl p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-4 sm:mb-5">
                   <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                  <h3 className="font-bold text-base sm:text-lg text-foreground">Most Popular</h3>
+                  <h3 className="font-bold text-base sm:text-lg text-foreground">{t("list.mostRead")}</h3>
                 </div>
                 <div className="space-y-3 sm:space-y-4">
                   {mostPopular.map((item, idx) => (
@@ -693,7 +696,7 @@ export default function Article() {
         {/* Related Entities Section */}
         {relatedEntities.length > 0 && (
           <section className="mt-8 sm:mt-10 lg:mt-12 pt-6 sm:pt-8 border-t border-border">
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-4 sm:mb-6">Mentioned in This Article</h2>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-4 sm:mb-6">{t("article.mentionedIn")}</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {relatedEntities.map((entity) => (
                 <Link
@@ -730,7 +733,7 @@ export default function Article() {
         {relatedArticles.length > 0 && (
           <section className="mt-8 sm:mt-10 lg:mt-12 pt-6 sm:pt-8 border-t border-border">
             <div className="flex items-center justify-between mb-4 sm:mb-6">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Related Articles</h2>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">{t("article.relatedArticles")}</h2>
               <Link href="/news" className="text-xs sm:text-sm text-primary hover:underline">
                 View all →
               </Link>

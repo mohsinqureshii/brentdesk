@@ -10,9 +10,12 @@
     "primaryCategory": "manufacturing",
     "categories": [
       "manufacturing",
-      "renewables",
       "energy",
-      "metals"
+      "renewables",
+      "metals",
+      "construction",
+      "mining",
+      "supply-chain"
     ],
     "tags": [
       "Al Yamamah Steel",

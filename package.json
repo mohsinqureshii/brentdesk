@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
-    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && esbuild scripts/seed.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/seed.js && esbuild scripts/reset.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/reset.js && esbuild scripts/ingest.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/ingest.js && tsx scripts/bundle-articles.ts && (if [ \"$PRERENDER_ON_BUILD\" = \"1\" ]; then tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts; else echo '[Build] Skipping prerender/sitemaps (set PRERENDER_ON_BUILD=1 to enable; both are also produced at runtime)'; fi)",
+    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && esbuild scripts/seed.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/seed.js && esbuild scripts/reset.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/reset.js && esbuild scripts/ingest.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/ingest.js && tsx scripts/bundle-articles.ts && tsx scripts/bundle-translations.ts && (if [ \"$PRERENDER_ON_BUILD\" = \"1\" ]; then tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts; else echo '[Build] Skipping prerender/sitemaps (set PRERENDER_ON_BUILD=1 to enable; both are also produced at runtime)'; fi)",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
@@ -19,7 +19,7 @@
     "qa:articles": "tsx scripts/qa-articles.ts",
     "prerender": "tsx scripts/prerender.ts",
     "sitemaps": "tsx scripts/generate-sitemaps.ts",
-    "build:local": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && esbuild scripts/seed.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/seed.js && esbuild scripts/reset.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/reset.js && esbuild scripts/ingest.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/ingest.js && tsx scripts/bundle-articles.ts && tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts"
+    "build:local": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && esbuild scripts/seed.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/seed.js && esbuild scripts/reset.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/reset.js && esbuild scripts/ingest.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/ingest.js && tsx scripts/bundle-articles.ts && tsx scripts/bundle-translations.ts && tsx scripts/prerender.ts && tsx scripts/generate-sitemaps.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.907.0",

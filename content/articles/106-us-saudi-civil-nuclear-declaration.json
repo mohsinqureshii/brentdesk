@@ -41,7 +41,10 @@
     "replacementReason": null,
     "categories": [
       "power",
-      "energy"
+      "energy",
+      "construction",
+      "supply-chain",
+      "oil-gas"
     ],
     "wordCount": 638
   }

@@ -10,7 +10,11 @@
     "primaryCategory": "facilities-management",
     "categories": [
       "facilities-management",
-      "real-estate"
+      "real-estate",
+      "construction",
+      "energy",
+      "utilities",
+      "industrial-technology"
     ],
     "tags": [
       "Facilities Management",

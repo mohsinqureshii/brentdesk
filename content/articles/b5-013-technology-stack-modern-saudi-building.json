@@ -10,7 +10,11 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
-      "automation"
+      "construction",
+      "automation",
+      "engineering",
+      "facilities-management",
+      "real-estate"
     ],
     "tags": [
       "Smart Buildings",

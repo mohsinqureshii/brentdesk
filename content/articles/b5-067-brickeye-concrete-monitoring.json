@@ -10,7 +10,10 @@
     "primaryCategory": "industrial-technology",
     "categories": [
       "industrial-technology",
-      "construction"
+      "construction",
+      "engineering",
+      "infrastructure",
+      "data-centers"
     ],
     "tags": [
       "Brickeye",

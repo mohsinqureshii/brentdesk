@@ -10,7 +10,10 @@
     "primaryCategory": "heavy-equipment",
     "categories": [
       "heavy-equipment",
-      "manufacturing"
+      "manufacturing",
+      "construction",
+      "water",
+      "ports"
     ],
     "tags": [
       "Alqimma",

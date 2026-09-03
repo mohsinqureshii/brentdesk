@@ -43,7 +43,11 @@
     "replacementOf": null,
     "replacementReason": null,
     "categories": [
-      "infrastructure"
+      "infrastructure",
+      "utilities",
+      "construction",
+      "water",
+      "transportation"
     ]
   }
 ]
