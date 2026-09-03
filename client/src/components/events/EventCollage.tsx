@@ -21,6 +21,8 @@
 import { useMemo, useState } from "react";
 import { Play } from "lucide-react";
 
+import { useT } from "@/lib/i18n";
+
 import {
   buildSlides,
   GalleryLightbox,
@@ -58,6 +60,7 @@ function CollageTile({
   onOpen: (slide: GallerySlide) => void;
   className: string;
 }) {
+  const t = useT();
   // The wrapper is sheared; tile contents are counter-sheared and scaled
   // slightly so the slant never exposes a corner of the frame.
   const inner = "h-full w-full [transform:skewX(8deg)_scale(1.16)] origin-center";
@@ -83,7 +86,9 @@ function CollageTile({
         {index === 0 && (
           <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 [transform:skewX(8deg)]">
             <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-white/60">
-              {event.type ? String(event.type).replace(/_/g, " ") : "Event"}
+              {event.type
+                ? String(event.type).replace(/_/g, " ")
+                : t("events.event")}
             </span>
             <span className="mt-1 block line-clamp-2 text-xl font-black leading-tight tracking-tight text-white/90 drop-shadow-sm">
               {event.title}
@@ -100,8 +105,8 @@ function CollageTile({
       onClick={() => onOpen(slide)}
       aria-label={
         slide.kind === "video"
-          ? `Play video ${index + 1} of ${total}`
-          : `View larger: ${slide.alt}`
+          ? t("events.playVideoN", { n: index + 1, total })
+          : t("events.viewLarger", { name: slide.alt })
       }
       className={`group relative overflow-hidden rounded-xl border border-[var(--border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${className}`}
     >
@@ -135,6 +140,7 @@ export default function EventCollage({
   rows: GalleryRow[];
   className?: string;
 }) {
+  const t = useT();
   const slides = useMemo(() => buildSlides(event, rows || []), [event, rows]);
   const [lightbox, setLightbox] = useState<GallerySlide | null>(null);
 
@@ -196,7 +202,7 @@ export default function EventCollage({
           credit wherever the photo appears. */}
       {showsFeatured && event.featuredImageCredit ? (
         <p className="mt-3 text-right text-[11px] text-muted-foreground">
-          Photo:{" "}
+          {t("events.photoCredit")}{" "}
           {event.featuredImageSource ? (
             <a
               href={event.featuredImageSource}
@@ -230,6 +236,7 @@ export function EventPhotoStrip({
   event: CollageEvent;
   rows: GalleryRow[];
 }) {
+  const t = useT();
   const slides = useMemo(() => buildSlides(event, rows || []), [event, rows]);
   const [lightbox, setLightbox] = useState<GallerySlide | null>(null);
 
@@ -238,9 +245,9 @@ export function EventPhotoStrip({
   if (slides.length <= 3) return null;
 
   return (
-    <section aria-label="Event photos">
+    <section aria-label={t("events.eventPhotos")}>
       <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-        Photos
+        {t("events.photos")}
       </h2>
       <div className="-mx-1 mt-4 flex snap-x gap-3 overflow-x-auto px-1 pb-2">
         {slides.map((slide, i) => (
@@ -251,8 +258,8 @@ export function EventPhotoStrip({
             className="group shrink-0 snap-start text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             aria-label={
               slide.kind === "video"
-                ? `Play video ${i + 1} of ${slides.length}`
-                : `View photo ${i + 1} of ${slides.length}`
+                ? t("events.playVideoN", { n: i + 1, total: slides.length })
+                : t("events.viewPhotoN", { n: i + 1, total: slides.length })
             }
           >
             <span className="relative block h-40 w-60 overflow-hidden rounded-xl ring-1 ring-[var(--border)] sm:h-44 sm:w-72">

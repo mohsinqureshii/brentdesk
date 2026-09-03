@@ -13,6 +13,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { fmtNumber, fmtDateTime } from "@/lib/dates";
 import { useLocation } from "wouter";
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
@@ -282,7 +283,7 @@ export default function CandidateProfile() {
               automatically. You can edit the parsed fields below.
               {c?.parsedResumeAt && (
                 <span className="block mt-1 text-xs">
-                  Last parsed: {new Date(c.parsedResumeAt).toLocaleString()}
+                  Last parsed: {fmtDateTime(c.parsedResumeAt)}
                 </span>
               )}
             </CardDescription>

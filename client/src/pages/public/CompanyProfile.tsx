@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link } from "wouter";
 import { useParams } from "wouter";
 import { publication } from "@shared/publication";
@@ -66,17 +67,21 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { ClaimProfileButton } from "@/components/ClaimProfileButton";
 import SEO from "@/components/SEO";
 import { JsonLd } from "@/components/JsonLd";
 
-const roleTypeMap: Record<string, string> = {
-  full_time: "Full-time",
-  part_time: "Part-time",
-  contract: "Contract",
-  internship: "Internship",
-  freelance: "Freelance",
+const roleTypeKeys: Record<string, UiKey> = {
+  full_time: "job.fullTime",
+  part_time: "job.partTime",
+  contract: "job.contract",
+  internship: "job.internship",
+  freelance: "job.freelance",
 };
+
+type Translate = ReturnType<typeof useT>;
 
 function formatCurrency(amount: string | number | null, currency = "USD") {
   if (!amount) return null;
@@ -85,20 +90,20 @@ function formatCurrency(amount: string | number | null, currency = "USD") {
   if (num >= 1_000_000_000) return `$${(num / 1_000_000_000).toFixed(1)}B`;
   if (num >= 1_000_000) return `$${(num / 1_000_000).toFixed(1)}M`;
   if (num >= 1_000) return `$${(num / 1_000).toFixed(0)}K`;
-  return `$${num.toLocaleString()}`;
+  return `$${fmtNumber(num)}`;
 }
 
-function timeAgo(dateStr: string | null) {
+function timeAgo(dateStr: string | null, t: Translate) {
   if (!dateStr) return "";
   const d = new Date(dateStr);
   const now = new Date();
   const diff = now.getTime() - d.getTime();
   const days = Math.floor(diff / 86400000);
-  if (days < 1) return "Today";
-  if (days === 1) return "Yesterday";
-  if (days < 30) return `${days}d ago`;
-  if (days < 365) return `${Math.floor(days / 30)}mo ago`;
-  return `${Math.floor(days / 365)}y ago`;
+  if (days < 1) return t("time.today");
+  if (days === 1) return t("time.yesterday");
+  if (days < 30) return t("time.daysAgo", { n: days });
+  if (days < 365) return t("time.monthsAgo", { n: Math.floor(days / 30) });
+  return t("time.yearsAgo", { n: Math.floor(days / 365) });
 }
 
 // Profile completeness calculator
@@ -117,6 +122,7 @@ function calcCompleteness(c: any): number {
 }
 
 export default function CompanyProfile() {
+  const t = useT();
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState("overview");
   const [showFullAbout, setShowFullAbout] = useState(false);
@@ -164,14 +170,14 @@ export default function CompanyProfile() {
   if (error || !company) {
     return (
       <div className="min-h-screen bg-background overflow-x-hidden">
-        <SEO title="Company Not Found" noindex />
+        <SEO title={t("state.companyNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
           <Building2 className="h-12 w-12 text-muted-foreground mb-4" />
-          <h1 className="text-2xl font-bold text-foreground mb-4">Company Not Found</h1>
-          <p className="text-muted-foreground mb-6">The company you're looking for doesn't exist or has been removed.</p>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t("state.companyNotFound")}</h1>
+          <p className="text-muted-foreground mb-6">{t("state.companyNotFoundBody")}</p>
           <Link href="/companies">
-            <Button>Back to Companies</Button>
+            <Button>{t("state.backToCompanies")}</Button>
           </Link>
         </div>
         <Footer />
@@ -208,8 +214,8 @@ export default function CompanyProfile() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${company.name} - Company Profile | ${publication.name}`}
-        description={shortDescription || company.tagline || company.description || `${company.name} company profile on ${publication.name}.`}
+        title={`${company.name} - ${t("company.profile")} | ${publication.name}`}
+        description={shortDescription || company.tagline || company.description || t("company.profileMeta", { name: company.name, site: publication.name })}
         canonical={`${publication.siteUrl}/companies/${company.slug}`}
         ogImage={company.logo || undefined}
       />
@@ -237,7 +243,7 @@ export default function CompanyProfile() {
         {/* Subtle gradient banner - smaller when no cover */}
         {c.coverImage ? (
           <div className="h-24 sm:h-32 w-full overflow-hidden">
-            <img src={c.coverImage} alt={`${company.name} cover`} className="w-full h-full object-cover" />
+            <img src={c.coverImage} alt={t("company.coverAlt", { name: company.name })} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-white/80 dark:from-card/80 via-transparent to-transparent" />
           </div>
         ) : (
@@ -270,19 +276,19 @@ export default function CompanyProfile() {
                 {verificationLevel === "verified" && (
                   <Badge className="gap-1 bg-blue-500 text-white hover:bg-blue-500 border-0 text-xs">
                     <CheckCircle2 className="h-3 w-3" />
-                    Verified
+                    {t("company.verified")}
                   </Badge>
                 )}
                 {company.isFeatured ? (
                   <Badge className="gap-1 bg-amber-500 text-white hover:bg-amber-500 border-0 text-xs">
                     <Star className="h-3 w-3" />
-                    Featured
+                    {t("list.featured")}
                   </Badge>
                 ) : null}
                 {c.hiringActively ? (
                   <Badge className="gap-1 bg-green-500 text-white hover:bg-green-500 border-0 text-xs">
                     <Zap className="h-3 w-3" />
-                    Hiring
+                    {t("company.hiring")}
                   </Badge>
                 ) : null}
               </div>
@@ -308,7 +314,7 @@ export default function CompanyProfile() {
                 {company.foundedYear && (
                   <span className="flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5" />
-                    Est. {company.foundedYear}
+                    {t("company.established", { year: company.foundedYear })}
                   </span>
                 )}
                 {company.employeeCount && (
@@ -335,7 +341,7 @@ export default function CompanyProfile() {
                 <a href={company.website} target="_blank" rel="noopener noreferrer">
                   <Button className="w-full gap-2 bg-foreground text-background hover:bg-foreground/90 h-10">
                     <Globe className="h-4 w-4" />
-                    Visit Website
+                    {t("company.visitWebsite")}
                     <ExternalLink className="h-3 w-3 ml-auto" />
                   </Button>
                 </a>
@@ -344,30 +350,30 @@ export default function CompanyProfile() {
                 variant="outline"
                 className={`w-full gap-2 h-9 text-sm ${isFollowing ? 'bg-primary/10 border-primary text-primary' : ''}`}
                 onClick={() => {
-                  if (!user) { toast({ title: "Sign in required", description: "Please sign in to follow companies." }); return; }
+                  if (!user) { toast({ title: t("auth.signInRequired"), description: t("company.signInToFollow") }); return; }
                   bookmarkToggle.mutate(
                     { contentType: "company" as any, contentId: company.id, contentTitle: company.name, contentSlug: company.slug },
-                    { onSuccess: (res) => { setIsFollowing(res.bookmarked); toast({ title: res.bookmarked ? `Following ${company.name}` : `Unfollowed ${company.name}` }); } }
+                    { onSuccess: (res) => { setIsFollowing(res.bookmarked); toast({ title: res.bookmarked ? t("company.nowFollowing", { name: company.name }) : t("company.unfollowed", { name: company.name }) }); } }
                   );
                 }}
               >
                 <UserPlus className="h-4 w-4" />
-                {isFollowing ? "Following" : "Follow"}
+                {isFollowing ? t("common.following") : t("common.follow")}
               </Button>
               <Button variant="outline" className="w-full gap-2 h-9 text-sm" onClick={() => setContactOpen(true)}>
                 <Mail className="h-4 w-4" />
-                Contact
+                {t("company.contact")}
               </Button>
               <Button
                 variant="outline"
                 className="w-full gap-2 h-9 text-sm"
                 onClick={() => {
                   const url = `${window.location.origin}/companies/${company.slug}`;
-                  navigator.clipboard.writeText(url).then(() => toast({ title: "Profile link copied to clipboard!" }));
+                  navigator.clipboard.writeText(url).then(() => toast({ title: t("company.linkCopied") }));
                 }}
               >
                 <Share2 className="h-4 w-4" />
-                Share Profile
+                {t("company.shareProfile")}
               </Button>
             </div>
           </div>
@@ -381,7 +387,7 @@ export default function CompanyProfile() {
             <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex-1">
               <Button className="w-full gap-2 bg-foreground text-background hover:bg-foreground/90 h-9 text-sm">
                 <Globe className="h-4 w-4" />
-                Website
+                {t("company.website")}
               </Button>
             </a>
           )}
@@ -389,22 +395,22 @@ export default function CompanyProfile() {
             variant="outline"
             className={`flex-1 gap-2 h-9 text-sm ${isFollowing ? 'bg-primary/10 border-primary text-primary' : ''}`}
             onClick={() => {
-              if (!user) { toast({ title: "Sign in required", description: "Please sign in to follow companies." }); return; }
+              if (!user) { toast({ title: t("auth.signInRequired"), description: t("company.signInToFollow") }); return; }
               bookmarkToggle.mutate(
                 { contentType: "company" as any, contentId: company.id, contentTitle: company.name, contentSlug: company.slug },
-                { onSuccess: (res) => { setIsFollowing(res.bookmarked); toast({ title: res.bookmarked ? `Following ${company.name}` : `Unfollowed ${company.name}` }); } }
+                { onSuccess: (res) => { setIsFollowing(res.bookmarked); toast({ title: res.bookmarked ? t("company.nowFollowing", { name: company.name }) : t("company.unfollowed", { name: company.name }) }); } }
               );
             }}
           >
             <UserPlus className="h-4 w-4" />
-            {isFollowing ? "Following" : "Follow"}
+            {isFollowing ? t("common.following") : t("common.follow")}
           </Button>
           <Button
             variant="outline"
             className="gap-2 h-9 text-sm"
             onClick={() => {
               const url = `${window.location.origin}/companies/${company.slug}`;
-              navigator.clipboard.writeText(url).then(() => toast({ title: "Profile link copied!" }));
+              navigator.clipboard.writeText(url).then(() => toast({ title: t("company.linkCopied") }));
             }}
           >
             <Share2 className="h-4 w-4" />
@@ -416,21 +422,21 @@ export default function CompanyProfile() {
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Contact {company.name}</DialogTitle>
-            <DialogDescription>Send a message to this company. They will receive it via email.</DialogDescription>
+            <DialogTitle>{t("company.contactTitle", { name: company.name })}</DialogTitle>
+            <DialogDescription>{t("company.contactDescription")}</DialogDescription>
           </DialogHeader>
           <div className="space-y-4 pt-2">
             <div>
-              <label className="text-sm font-medium mb-1.5 block">Your Email</label>
+              <label className="text-sm font-medium mb-1.5 block">{t("common.yourEmail")}</label>
               <Input placeholder="your@email.com" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} />
             </div>
             <div>
-              <label className="text-sm font-medium mb-1.5 block">Message</label>
-              <Textarea placeholder="Write your message..." rows={4} value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} />
+              <label className="text-sm font-medium mb-1.5 block">{t("common.message")}</label>
+              <Textarea placeholder={t("company.messagePlaceholder")} rows={4} value={contactMessage} onChange={(e) => setContactMessage(e.target.value)} />
             </div>
-            <Button className="w-full" onClick={() => { toast({ title: "Message sent!", description: "The company will be notified." }); setContactOpen(false); setContactMessage(""); setContactEmail(""); }}>
+            <Button className="w-full" onClick={() => { toast({ title: t("company.messageSent"), description: t("company.messageSentBody") }); setContactOpen(false); setContactMessage(""); setContactEmail(""); }}>
               <Mail className="h-4 w-4 mr-2" />
-              Send Message
+              {t("company.sendMessage")}
             </Button>
           </div>
         </DialogContent>
@@ -444,22 +450,22 @@ export default function CompanyProfile() {
           <div className="border-b border-border mb-6 overflow-x-auto">
             <TabsList className="bg-transparent h-auto p-0 gap-0 w-auto">
               <TabsTrigger value="overview" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                Overview
+                {t("company.tabOverview")}
               </TabsTrigger>
               <TabsTrigger value="news" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                News {newsCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{newsCount}</Badge>}
+                {t("nav.news")} {newsCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{newsCount}</Badge>}
               </TabsTrigger>
               <TabsTrigger value="jobs" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                Jobs {jobCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{jobCount}</Badge>}
+                {t("nav.jobs")} {jobCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{jobCount}</Badge>}
               </TabsTrigger>
               <TabsTrigger value="people" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                People {peopleCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{peopleCount}</Badge>}
+                {t("nav.people")} {peopleCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{peopleCount}</Badge>}
               </TabsTrigger>
               <TabsTrigger value="products" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                Products {productCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{productCount}</Badge>}
+                {t("company.tabProducts")} {productCount > 0 && <Badge variant="secondary" className="ml-1.5 h-5 px-1.5 text-[10px]">{productCount}</Badge>}
               </TabsTrigger>
               <TabsTrigger value="press" className="rounded-none border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:shadow-none px-4 py-2.5 text-sm font-medium">
-                Press & Resources
+                {t("company.tabPress")}
               </TabsTrigger>
             </TabsList>
           </div>
@@ -475,13 +481,13 @@ export default function CompanyProfile() {
                     <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
                       <div className="text-lg font-bold text-foreground">{company.employeeCount}</div>
-                      <div className="text-[11px] text-muted-foreground">Employees</div>
+                      <div className="text-[11px] text-muted-foreground">{t("company.employees")}</div>
                     </div>
                   )}
                   <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
                     <Eye className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
-                    <div className="text-lg font-bold text-foreground">{(company.viewCount || 0).toLocaleString()}</div>
-                    <div className="text-[11px] text-muted-foreground">Profile Views</div>
+                    <div className="text-lg font-bold text-foreground">{fmtNumber((company.viewCount || 0))}</div>
+                    <div className="text-[11px] text-muted-foreground">{t("company.profileViews")}</div>
                   </div>
                 </div>
 
@@ -491,19 +497,19 @@ export default function CompanyProfile() {
                     <CardContent className="p-5">
                       <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
                         <BarChart3 className="h-4 w-4 text-blue-500" />
-                        Key Metrics
+                        {t("company.keyMetrics")}
                       </h3>
                       <div className="grid grid-cols-2 gap-4">
                         {c.countriesServed && (
                           <div>
-                            <div className="text-xs text-muted-foreground uppercase tracking-wider">Countries</div>
+                            <div className="text-xs text-muted-foreground uppercase tracking-wider">{t("company.countries")}</div>
                             <div className="text-sm font-semibold text-foreground mt-0.5">{c.countriesServed}</div>
                           </div>
                         )}
                         {c.clientsCount && (
                           <div>
-                            <div className="text-xs text-muted-foreground uppercase tracking-wider">Clients</div>
-                            <div className="text-sm font-semibold text-foreground mt-0.5">{c.clientsCount.toLocaleString()}</div>
+                            <div className="text-xs text-muted-foreground uppercase tracking-wider">{t("company.clients")}</div>
+                            <div className="text-sm font-semibold text-foreground mt-0.5">{fmtNumber(c.clientsCount)}</div>
                           </div>
                         )}
                       </div>
@@ -515,16 +521,16 @@ export default function CompanyProfile() {
                 {(company.description || c.mission || c.vision || c.problemSolved) && (
                   <Card className="border border-border">
                     <CardContent className="p-5 sm:p-6">
-                      <h2 className="text-lg font-semibold text-foreground mb-3">About {company.name}</h2>
+                      <h2 className="text-lg font-semibold text-foreground mb-3">{t("company.aboutName", { name: company.name })}</h2>
                       <div className={`text-sm text-muted-foreground leading-relaxed whitespace-pre-line ${!showFullAbout && company.description && company.description.length > 500 ? "line-clamp-6" : ""}`}>
-                        {company.description || company.tagline || "No description available."}
+                        {company.description || company.tagline || t("company.noDescription")}
                       </div>
                       {company.description && company.description.length > 500 && (
                         <button
                           onClick={() => setShowFullAbout(!showFullAbout)}
                           className="text-sm text-primary font-medium mt-2 flex items-center gap-1 hover:underline"
                         >
-                          {showFullAbout ? "Show less" : "Read more"}
+                          {showFullAbout ? t("common.showLess") : t("article.readMore")}
                           {showFullAbout ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                         </button>
                       )}
@@ -536,7 +542,7 @@ export default function CompanyProfile() {
                             <div>
                               <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
                                 <Target className="h-3.5 w-3.5" />
-                                Mission
+                                {t("company.mission")}
                               </div>
                               <p className="text-sm text-foreground leading-relaxed">{c.mission}</p>
                             </div>
@@ -545,7 +551,7 @@ export default function CompanyProfile() {
                             <div>
                               <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
                                 <Rocket className="h-3.5 w-3.5" />
-                                Vision
+                                {t("company.vision")}
                               </div>
                               <p className="text-sm text-foreground leading-relaxed">{c.vision}</p>
                             </div>
@@ -554,7 +560,7 @@ export default function CompanyProfile() {
                             <div>
                               <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
                                 <Zap className="h-3.5 w-3.5" />
-                                Problem Solved
+                                {t("company.problemSolved")}
                               </div>
                               <p className="text-sm text-foreground leading-relaxed">{c.problemSolved}</p>
                             </div>
@@ -563,7 +569,7 @@ export default function CompanyProfile() {
                             <div>
                               <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
                                 <Globe className="h-3.5 w-3.5" />
-                                Market Served
+                                {t("company.marketServed")}
                               </div>
                               <p className="text-sm text-foreground leading-relaxed">{c.marketServed}</p>
                             </div>
@@ -581,14 +587,14 @@ export default function CompanyProfile() {
                       <CardContent className="p-5">
                         <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
                           <span className="h-2 w-2 rounded-full bg-blue-500" />
-                          Company Details
+                          {t("company.details")}
                         </h3>
                         <div className="space-y-3">
-                          {company.industry && <DetailRow label="Industry" value={company.industry} />}
-                          {locationText && <DetailRow label="Headquarters" value={locationText} />}
-                          {company.foundedYear && <DetailRow label="Founded" value={String(company.foundedYear)} />}
-                          {company.employeeCount && <DetailRow label="Team Size" value={`${company.employeeCount} employees`} />}
-                          {c.countriesServed && <DetailRow label="Countries" value={String(c.countriesServed)} />}
+                          {company.industry && <DetailRow label={t("company.industry")} value={company.industry} />}
+                          {locationText && <DetailRow label={t("company.headquarters")} value={locationText} />}
+                          {company.foundedYear && <DetailRow label={t("company.founded")} value={String(company.foundedYear)} />}
+                          {company.employeeCount && <DetailRow label={t("company.teamSize")} value={t("company.nEmployees", { n: company.employeeCount })} />}
+                          {c.countriesServed && <DetailRow label={t("company.countries")} value={String(c.countriesServed)} />}
                         </div>
                       </CardContent>
                     </Card>
@@ -598,12 +604,12 @@ export default function CompanyProfile() {
                       <CardContent className="p-5">
                         <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
                           <span className="h-2 w-2 rounded-full bg-amber-500" />
-                          Focus Areas
+                          {t("company.focusAreas")}
                         </h3>
                         <div className="space-y-3">
                           {company.sectors && company.sectors.length > 0 && (
                             <div>
-                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">Sectors</div>
+                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">{t("company.sectors")}</div>
                               <div className="flex flex-wrap gap-1.5">
                                 {company.sectors.map((s: any) => (
                                   <Badge key={s.id} variant="secondary" className="rounded-full text-xs">{s.name}</Badge>
@@ -613,7 +619,7 @@ export default function CompanyProfile() {
                           )}
                           {company.regions && company.regions.length > 0 && (
                             <div>
-                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">Regions</div>
+                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">{t("company.regions")}</div>
                               <div className="flex flex-wrap gap-1.5">
                                 {company.regions.map((r: any) => (
                                   <Badge key={r.id} variant="outline" className="rounded-full text-xs">{r.name}</Badge>
@@ -623,7 +629,7 @@ export default function CompanyProfile() {
                           )}
                           {certifications && certifications.length > 0 && (
                             <div>
-                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">Certifications</div>
+                              <div className="text-[11px] text-muted-foreground uppercase tracking-wider mb-1.5">{t("company.certifications")}</div>
                               <div className="flex flex-wrap gap-1.5">
                                 {certifications.map((cert, i) => (
                                   <Badge key={i} variant="outline" className="rounded-full text-xs gap-1">
@@ -646,7 +652,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-5">
                         <Milestone className="h-5 w-5 text-muted-foreground" />
-                        Company Timeline
+                        {t("company.timeline")}
                       </h2>
                       <div className="relative pl-6 border-l-2 border-border space-y-5">
                         {timeline.map((item, i) => (
@@ -672,7 +678,7 @@ export default function CompanyProfile() {
                         <div className="mb-5">
                           <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-3">
                             <Handshake className="h-4 w-4 text-muted-foreground" />
-                            Notable Customers
+                            {t("company.notableCustomers")}
                           </h3>
                           <div className="flex flex-wrap gap-3">
                             {notableCustomers.map((cust, i) => (
@@ -688,7 +694,7 @@ export default function CompanyProfile() {
                         <div>
                           <h3 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-3">
                             <Handshake className="h-4 w-4 text-muted-foreground" />
-                            Strategic Partnerships
+                            {t("company.partnerships")}
                           </h3>
                           <div className="grid sm:grid-cols-2 gap-3">
                             {partnerships.map((p, i) => (
@@ -713,7 +719,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <MessageSquare className="h-5 w-5 text-muted-foreground" />
-                        Recent Updates
+                        {t("company.recentUpdates")}
                       </h2>
                       <div className="space-y-4">
                         {updates.slice(0, 5).map((update: any) => (
@@ -732,7 +738,7 @@ export default function CompanyProfile() {
                               {update.title && <div className="text-sm font-semibold text-foreground">{update.title}</div>}
                               {update.content && <p className="text-sm text-muted-foreground mt-0.5 line-clamp-2">{update.content}</p>}
                               {update.image && <img src={update.image} alt="" className="mt-2 rounded-lg max-h-40 object-cover" />}
-                              <div className="text-[11px] text-muted-foreground mt-1.5">{timeAgo(update.createdAt)}</div>
+                              <div className="text-[11px] text-muted-foreground mt-1.5">{timeAgo(update.createdAt, t)}</div>
                             </div>
                           </div>
                         ))}
@@ -750,7 +756,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <Award className="h-5 w-5 text-amber-500" />
-                        Awards & Recognition
+                        {t("company.awards")}
                       </h2>
                       <div className="grid sm:grid-cols-2 gap-3">
                         {awards.map((award: any) => (
@@ -776,7 +782,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <Newspaper className="h-5 w-5 text-muted-foreground" />
-                        News & Media Coverage
+                        {t("company.newsCoverage")}
                       </h2>
                       <div className="space-y-3">
                         {relatedArticles.map((article: any) => (
@@ -790,7 +796,7 @@ export default function CompanyProfile() {
                                 {article.excerpt && <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{article.excerpt}</p>}
                                 <div className="flex items-center gap-2 mt-1.5">
                                   <Badge variant="outline" className="text-[10px] rounded-full">{article.mentionType}</Badge>
-                                  <span className="text-[11px] text-muted-foreground">{timeAgo(article.publishedAt)}</span>
+                                  <span className="text-[11px] text-muted-foreground">{timeAgo(article.publishedAt, t)}</span>
                                 </div>
                               </div>
                               <ArrowUpRight className="h-4 w-4 text-muted-foreground shrink-0 mt-1" />
@@ -804,8 +810,8 @@ export default function CompanyProfile() {
                   <Card className="border border-border">
                     <CardContent className="p-8 text-center">
                       <Newspaper className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-                      <h3 className="text-sm font-semibold text-foreground mb-1">No news coverage yet</h3>
-                      <p className="text-xs text-muted-foreground">Articles mentioning {company.name} will appear here.</p>
+                      <h3 className="text-sm font-semibold text-foreground mb-1">{t("company.noNews")}</h3>
+                      <p className="text-xs text-muted-foreground">{t("company.noNewsBody", { name: company.name })}</p>
                     </CardContent>
                   </Card>
                 )}
@@ -817,7 +823,7 @@ export default function CompanyProfile() {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between mb-2">
                       <h2 className="text-lg font-semibold text-foreground">
-                        Open Positions ({openJobs.length})
+                        {t("company.openPositions", { n: openJobs.length })}
                       </h2>
                     </div>
                     {openJobs.map((job: any) => (
@@ -834,9 +840,9 @@ export default function CompanyProfile() {
                                   </span>
                                 )}
                                 {job.roleType && (
-                                  <Badge variant="secondary" className="text-[10px] rounded-full">{roleTypeMap[job.roleType] || job.roleType}</Badge>
+                                  <Badge variant="secondary" className="text-[10px] rounded-full">{roleTypeKeys[job.roleType] ? t(roleTypeKeys[job.roleType]) : job.roleType}</Badge>
                                 )}
-                                {job.isRemote ? <Badge variant="outline" className="text-[10px] rounded-full">Remote</Badge> : null}
+                                {job.isRemote ? <Badge variant="outline" className="text-[10px] rounded-full">{t("job.remote")}</Badge> : null}
                                 {(job.salaryMin || job.salaryMax) && (
                                   <span className="flex items-center gap-1">
                                     <DollarSign className="h-3 w-3" />
@@ -855,8 +861,8 @@ export default function CompanyProfile() {
                   <Card className="border border-border">
                     <CardContent className="p-8 text-center">
                       <Briefcase className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-                      <h3 className="text-sm font-semibold text-foreground mb-1">No open positions</h3>
-                      <p className="text-xs text-muted-foreground">{company.name} doesn't have any open positions right now.</p>
+                      <h3 className="text-sm font-semibold text-foreground mb-1">{t("company.noJobs")}</h3>
+                      <p className="text-xs text-muted-foreground">{t("company.noJobsBody", { name: company.name })}</p>
                     </CardContent>
                   </Card>
                 )}
@@ -870,7 +876,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <Users className="h-5 w-5 text-muted-foreground" />
-                        Leadership Team
+                        {t("company.leadership")}
                       </h2>
                       <div className="grid sm:grid-cols-2 gap-3">
                         {keyPeople.map((person, i) => (
@@ -903,7 +909,7 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <Users className="h-5 w-5 text-muted-foreground" />
-                        Team Members on {publication.name}
+                        {t("company.teamOn", { site: publication.name })}
                       </h2>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {teamMembers.map((member: any) => (
@@ -932,8 +938,8 @@ export default function CompanyProfile() {
                   <Card className="border border-border">
                     <CardContent className="p-8 text-center">
                       <Users className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-                      <h3 className="text-sm font-semibold text-foreground mb-1">No team members listed</h3>
-                      <p className="text-xs text-muted-foreground">Team information for {company.name} hasn't been added yet.</p>
+                      <h3 className="text-sm font-semibold text-foreground mb-1">{t("company.noTeam")}</h3>
+                      <p className="text-xs text-muted-foreground">{t("company.noTeamBody", { name: company.name })}</p>
                     </CardContent>
                   </Card>
                 )}
@@ -965,7 +971,7 @@ export default function CompanyProfile() {
                           {product.screenshots && (product.screenshots as string[]).length > 0 && (
                             <div className="flex gap-2 overflow-x-auto pb-2 mb-3">
                               {(product.screenshots as string[]).map((ss: string, i: number) => (
-                                <img key={i} src={ss} alt={`${product.name} screenshot ${i + 1}`} className="h-32 rounded-lg border border-border object-cover shrink-0" />
+                                <img key={i} src={ss} alt={t("company.screenshotAlt", { name: product.name, n: i + 1 })} className="h-32 rounded-lg border border-border object-cover shrink-0" />
                               ))}
                             </div>
                           )}
@@ -974,7 +980,7 @@ export default function CompanyProfile() {
                               <a href={product.demoVideo} target="_blank" rel="noopener noreferrer">
                                 <Button variant="outline" size="sm" className="gap-1.5 text-xs rounded-full">
                                   <Play className="h-3 w-3" />
-                                  Watch Demo
+                                  {t("company.watchDemo")}
                                 </Button>
                               </a>
                             )}
@@ -990,8 +996,8 @@ export default function CompanyProfile() {
                   <Card className="border border-border">
                     <CardContent className="p-8 text-center">
                       <Package className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-                      <h3 className="text-sm font-semibold text-foreground mb-1">No products listed</h3>
-                      <p className="text-xs text-muted-foreground">Product information for {company.name} hasn't been added yet.</p>
+                      <h3 className="text-sm font-semibold text-foreground mb-1">{t("company.noProducts")}</h3>
+                      <p className="text-xs text-muted-foreground">{t("company.noProductsBody", { name: company.name })}</p>
                     </CardContent>
                   </Card>
                 )}
@@ -1004,11 +1010,11 @@ export default function CompanyProfile() {
                   <CardContent className="p-5 sm:p-6">
                     <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                       <FileText className="h-5 w-5 text-muted-foreground" />
-                      Press & PR
+                      {t("company.pressPr")}
                     </h2>
                     {c.boilerplate && (
                       <div className="mb-4">
-                        <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Company Boilerplate</div>
+                        <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">{t("company.boilerplate")}</div>
                         <p className="text-sm text-muted-foreground leading-relaxed bg-muted/30 rounded-lg p-3 border border-border">{c.boilerplate}</p>
                       </div>
                     )}
@@ -1017,7 +1023,7 @@ export default function CompanyProfile() {
                         <a href={c.mediaKit} target="_blank" rel="noopener noreferrer">
                           <Button variant="outline" size="sm" className="gap-1.5 text-xs rounded-full">
                             <Download className="h-3 w-3" />
-                            Media Kit
+                            {t("company.mediaKit")}
                           </Button>
                         </a>
                       )}
@@ -1025,7 +1031,7 @@ export default function CompanyProfile() {
                         <a href={c.logoPack} target="_blank" rel="noopener noreferrer">
                           <Button variant="outline" size="sm" className="gap-1.5 text-xs rounded-full">
                             <Download className="h-3 w-3" />
-                            Logo Pack
+                            {t("company.logoPack")}
                           </Button>
                         </a>
                       )}
@@ -1033,13 +1039,13 @@ export default function CompanyProfile() {
                         <a href={`mailto:${c.prContactEmail}`}>
                           <Button variant="outline" size="sm" className="gap-1.5 text-xs rounded-full">
                             <Mail className="h-3 w-3" />
-                            PR Contact
+                            {t("company.prContact")}
                           </Button>
                         </a>
                       )}
                     </div>
                     {!c.boilerplate && !c.mediaKit && !c.logoPack && !c.prContactEmail && (
-                      <p className="text-sm text-muted-foreground italic">No press materials available yet.</p>
+                      <p className="text-sm text-muted-foreground italic">{t("company.noPress")}</p>
                     )}
                   </CardContent>
                 </Card>
@@ -1050,11 +1056,11 @@ export default function CompanyProfile() {
                     <CardContent className="p-5 sm:p-6">
                       <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                         <BookOpen className="h-5 w-5 text-muted-foreground" />
-                        Resources
+                        {t("company.resources")}
                       </h2>
                       {whitepapers && whitepapers.length > 0 && (
                         <div className="mb-4">
-                          <h3 className="text-sm font-semibold text-foreground mb-2">Whitepapers</h3>
+                          <h3 className="text-sm font-semibold text-foreground mb-2">{t("company.whitepapers")}</h3>
                           <div className="space-y-2">
                             {whitepapers.map((wp, i) => (
                               <a key={i} href={wp.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-2.5 rounded-lg border border-border hover:bg-muted/30 transition-colors">
@@ -1071,14 +1077,14 @@ export default function CompanyProfile() {
                       )}
                       {caseStudies && caseStudies.length > 0 && (
                         <div>
-                          <h3 className="text-sm font-semibold text-foreground mb-2">Case Studies</h3>
+                          <h3 className="text-sm font-semibold text-foreground mb-2">{t("company.caseStudies")}</h3>
                           <div className="space-y-2">
                             {caseStudies.map((cs, i) => (
                               <a key={i} href={cs.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-2.5 rounded-lg border border-border hover:bg-muted/30 transition-colors">
                                 <GraduationCap className="h-4 w-4 text-emerald-500 shrink-0" />
                                 <div className="flex-1 min-w-0">
                                   <div className="text-sm font-medium text-foreground truncate">{cs.title}</div>
-                                  {cs.client && <p className="text-xs text-muted-foreground">Client: {cs.client}</p>}
+                                  {cs.client && <p className="text-xs text-muted-foreground">{t("company.clientLabel", { name: cs.client })}</p>}
                                 </div>
                                 <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
                               </a>
@@ -1098,7 +1104,7 @@ export default function CompanyProfile() {
               <Card className="border border-border">
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Profile Strength</span>
+                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{t("company.profileStrength")}</span>
                     <span className="text-sm font-bold text-foreground">{profileStrength}%</span>
                   </div>
                   <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
@@ -1112,9 +1118,9 @@ export default function CompanyProfile() {
                     />
                   </div>
                   <div className="text-[11px] text-muted-foreground mt-1.5">
-                    {profileStrength >= 80 ? "Featured ready" :
-                     profileStrength >= 50 ? "Discoverable" :
-                     "Basic — add more info to rank higher"}
+                    {profileStrength >= 80 ? t("company.strengthHigh") :
+                     profileStrength >= 50 ? t("company.strengthMedium") :
+                     t("company.strengthLow")}
                   </div>
                 </CardContent>
               </Card>
@@ -1123,7 +1129,7 @@ export default function CompanyProfile() {
               {(company.website || company.linkedIn || company.twitter || c.facebook || c.instagram || c.youtube || company.email || company.phone) && (
                 <Card className="border border-border">
                   <CardContent className="p-4">
-                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Connect</h3>
+                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">{t("company.connect")}</h3>
                     <div className="space-y-2">
                       {company.website && (
                         <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 text-sm text-foreground hover:text-primary transition-colors">
@@ -1207,9 +1213,9 @@ export default function CompanyProfile() {
                       <Building2 className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm">Is this your company?</h3>
+                      <h3 className="font-semibold text-foreground text-sm">{t("company.isThisYours")}</h3>
                       <p className="text-xs text-muted-foreground mt-0.5">
-                        Claim this profile to update information, post jobs, and track analytics.
+                        {t("company.claimPrompt")}
                       </p>
                     </div>
                   </div>
@@ -1225,18 +1231,18 @@ export default function CompanyProfile() {
               {/* Data Transparency */}
               <Card className="border border-border">
                 <CardContent className="p-4">
-                  <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Data Transparency</h3>
+                  <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">{t("company.dataTransparency")}</h3>
                   <div className="space-y-1.5 text-xs text-muted-foreground">
                     <div className="flex items-center justify-between">
-                      <span>Last updated</span>
-                      <span className="text-foreground font-medium">{timeAgo(company.updatedAt)}</span>
+                      <span>{t("company.lastUpdated")}</span>
+                      <span className="text-foreground font-medium">{timeAgo(company.updatedAt, t)}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span>Data source</span>
+                      <span>{t("company.dataSource")}</span>
                       <Badge variant="outline" className="text-[10px] rounded-full capitalize">{dataSource}</Badge>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span>Verification</span>
+                      <span>{t("company.verification")}</span>
                       <Badge variant="outline" className="text-[10px] rounded-full capitalize">{verificationLevel}</Badge>
                     </div>
                   </div>
@@ -1253,7 +1259,7 @@ export default function CompanyProfile() {
           <div className="mt-10">
             <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
               <Layers className="h-5 w-5 text-muted-foreground" />
-              Similar Companies
+              {t("company.similar")}
             </h2>
             <div className="flex gap-4 overflow-x-auto pb-4 -mx-1 px-1">
               {similarCompanies.map((sim: any) => (

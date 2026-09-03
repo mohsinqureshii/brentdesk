@@ -20,6 +20,7 @@
  */
 import { useEffect, useState } from "react";
 import { useEdition } from "@/hooks/useEdition";
+import { useT } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
@@ -30,6 +31,7 @@ function readCookie(name: string): string | undefined {
 }
 
 export function EditionFirstVisitBanner() {
+  const t = useT();
   const { edition, isLoading } = useEdition();
   const [dismissed, setDismissed] = useState(true);
 
@@ -59,9 +61,7 @@ export function EditionFirstVisitBanner() {
         <p className="flex items-center gap-2 min-w-0">
           <span className="text-base shrink-0">{edition.flagEmoji || "🌍"}</span>
           <span className="truncate">
-            You're viewing the <strong>{edition.name}</strong> edition.
-            Content from your country surfaces first. Switch via the
-            flag in the header.
+            {t("edition.firstVisitNote", { edition: edition.name })}
           </span>
         </p>
         <Button
@@ -69,7 +69,7 @@ export function EditionFirstVisitBanner() {
           size="icon"
           onClick={close}
           className="shrink-0 h-7 w-7 text-white/80 hover:text-white hover:bg-white/10"
-          aria-label="Dismiss"
+          aria-label={t("common.dismiss")}
         >
           <X className="h-4 w-4" />
         </Button>

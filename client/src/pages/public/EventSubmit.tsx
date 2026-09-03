@@ -20,6 +20,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -50,15 +52,15 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const EVENT_TYPES = [
-  { value: "conference", label: "Conference" },
-  { value: "webinar", label: "Webinar" },
-  { value: "meetup", label: "Meetup" },
-  { value: "workshop", label: "Workshop" },
-  { value: "hackathon", label: "Hackathon" },
-  { value: "summit", label: "Summit" },
-  { value: "other", label: "Other" },
-] as const;
+const EVENT_TYPES: ReadonlyArray<{ value: string; labelKey: UiKey }> = [
+  { value: "conference", labelKey: "event.typeConference" },
+  { value: "webinar", labelKey: "event.typeWebinar" },
+  { value: "meetup", labelKey: "event.typeMeetup" },
+  { value: "workshop", labelKey: "event.typeWorkshop" },
+  { value: "hackathon", labelKey: "event.typeHackathon" },
+  { value: "summit", labelKey: "event.typeSummit" },
+  { value: "other", labelKey: "event.typeOther" },
+];
 
 // Minimal timezone picker — covers MENA + the cities most submitters
 // will reach for. The full IANA list is overwhelming and gives no
@@ -121,6 +123,7 @@ const EMPTY_FORM: FormState = {
 };
 
 export default function EventSubmit() {
+  const t = useT();
   const [, navigate] = useLocation();
   const { user, loading: authLoading, isAuthenticated } = useAuth();
   const { data: countriesList } = trpc.jobs.listCountries.useQuery(undefined, {
@@ -158,7 +161,7 @@ export default function EventSubmit() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
     onError: (err: any) => {
-      toast.error(err.message || "Submission failed. Please try again.");
+      toast.error(err.message || t("event.submitFailed"));
     },
   });
 
@@ -169,27 +172,27 @@ export default function EventSubmit() {
 
   const validate = (): boolean => {
     const next: Partial<Record<keyof FormState, string>> = {};
-    const t = form.title.trim();
-    if (t.length < 4 || t.length > 512) {
-      next.title = "Title must be between 4 and 512 characters.";
+    const title = form.title.trim();
+    if (title.length < 4 || title.length > 512) {
+      next.title = t("event.errTitleLength");
     }
     if (form.tagline.length > 255) {
-      next.tagline = "Tagline must be 255 characters or fewer.";
+      next.tagline = t("event.errTaglineLength");
     }
     if (form.description.length > 5000) {
-      next.description = "Description must be 5000 characters or fewer.";
+      next.description = t("event.errDescriptionLength");
     }
     if (!form.startDate) {
-      next.startDate = "Start date is required.";
+      next.startDate = t("event.errStartDateRequired");
     }
     if (form.websiteUrl && !isPlausibleUrl(form.websiteUrl)) {
-      next.websiteUrl = "Enter a full URL (https://...).";
+      next.websiteUrl = t("event.errFullUrl");
     }
     if (form.registrationUrl && !isPlausibleUrl(form.registrationUrl)) {
-      next.registrationUrl = "Enter a full URL (https://...).";
+      next.registrationUrl = t("event.errFullUrl");
     }
     if (form.organizerEmail && !/.+@.+\..+/.test(form.organizerEmail)) {
-      next.organizerEmail = "Enter a valid email address.";
+      next.organizerEmail = t("event.errValidEmail");
     }
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -198,7 +201,7 @@ export default function EventSubmit() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
-      toast.error("Please fix the highlighted fields and try again.");
+      toast.error(t("event.errFixFields"));
       return;
     }
 
@@ -208,7 +211,7 @@ export default function EventSubmit() {
     // so a moderator can interpret it in EventEditor.
     const startISO = buildDate(form.startDate, form.startTime);
     if (!startISO) {
-      setErrors((e) => ({ ...e, startDate: "Invalid start date/time." }));
+      setErrors((e) => ({ ...e, startDate: t("event.errInvalidStart") }));
       return;
     }
     const endISO = form.endDate
@@ -242,15 +245,12 @@ export default function EventSubmit() {
               <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center mb-5">
                 <CheckCircle2 className="w-7 h-7 text-emerald-500" />
               </div>
-              <h1 className="text-3xl font-bold mb-3">Thanks — we got it</h1>
+              <h1 className="text-3xl font-bold mb-3">{t("event.submitThanks")}</h1>
               <p className="text-muted-foreground mb-2 max-w-lg mx-auto">
-                Your event has been submitted (ref{" "}
-                <span className="font-mono text-foreground">#{submittedId}</span>).
-                It will go through AI review first, then a human editor.
+                {t("event.submitBody", { ref: `#${submittedId}` })}
               </p>
               <p className="text-sm text-muted-foreground mb-8 max-w-lg mx-auto">
-                If approved, it will appear on the public Events page and
-                you'll see it listed under your account submissions.
+                {t("event.submitApprovedNote")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button
@@ -265,11 +265,11 @@ export default function EventSubmit() {
                     });
                   }}
                 >
-                  Submit another event
+                  {t("event.submitAnother")}
                 </Button>
                 <Button variant="outline" asChild>
                   <Link href="/events">
-                    Back to Events <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("state.backToEvents")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -289,7 +289,7 @@ export default function EventSubmit() {
         <Header />
         <main className="max-w-3xl mx-auto px-4 py-20 text-center">
           <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
-          <p className="text-sm text-muted-foreground mt-3">Loading…</p>
+          <p className="text-sm text-muted-foreground mt-3">{t("state.loading")}</p>
         </main>
       </div>
     );
@@ -301,20 +301,17 @@ export default function EventSubmit() {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Submit your event
+            {t("events.submitYours")}
           </h1>
           <p className="text-muted-foreground mt-2">
-            Tell us about your tech event and we'll review it for the Events
-            Hub. Conferences, webinars, hackathons, meetups — bring it on.
+            {t("event.submitIntro")}
           </p>
         </div>
 
         <Alert className="mb-8">
           <Sparkles className="h-4 w-4" />
           <AlertDescription>
-            Submissions are checked by AI for spam/test entries, then
-            reviewed by an editor. You'll see your event live within 1–2
-            business days if everything checks out.
+            {t("event.submitReviewNotice")}
           </AlertDescription>
         </Alert>
 
@@ -323,55 +320,55 @@ export default function EventSubmit() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Info className="w-5 h-5" /> The basics
+                <Info className="w-5 h-5" /> {t("event.sectionBasics")}
               </CardTitle>
               <CardDescription>
-                Title and a short summary of what the event is about.
+                {t("event.sectionBasicsHint")}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Field label="Event title" required error={errors.title}>
+              <Field label={t("event.fieldTitle")} required error={errors.title}>
                 <Input
                   value={form.title}
                   onChange={(e) => update("title", e.target.value)}
-                  placeholder="e.g. LEAP 2026"
+                  placeholder={t("event.titlePlaceholder")}
                   maxLength={512}
                 />
               </Field>
               <Field
-                label="Tagline"
+                label={t("event.fieldTagline")}
                 error={errors.tagline}
-                hint="One-line headline (optional, max 255 chars)."
+                hint={t("event.taglineHint")}
               >
                 <Input
                   value={form.tagline}
                   onChange={(e) => update("tagline", e.target.value)}
-                  placeholder="The largest tech event in the MENA region"
+                  placeholder={t("event.taglinePlaceholder")}
                   maxLength={255}
                 />
               </Field>
               <Field
-                label="Description"
+                label={t("event.fieldDescription")}
                 error={errors.description}
-                hint={`What's the event about? Who should attend? (${form.description.length} / 5000)`}
+                hint={t("event.descriptionHint", { count: form.description.length })}
               >
                 <Textarea
                   value={form.description}
                   onChange={(e) => update("description", e.target.value)}
                   rows={6}
                   maxLength={5000}
-                  placeholder="A few sentences explaining the agenda, audience, and what attendees will get."
+                  placeholder={t("event.descriptionPlaceholder")}
                 />
               </Field>
-              <Field label="Event type">
+              <Field label={t("events.type")}>
                 <Select value={form.type} onValueChange={(v) => update("type", v)}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    {EVENT_TYPES.map((t) => (
-                      <SelectItem key={t.value} value={t.value}>
-                        {t.label}
+                    {EVENT_TYPES.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>
+                        {t(opt.labelKey)}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -384,36 +381,36 @@ export default function EventSubmit() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <CalendarDays className="w-5 h-5" /> When
+                <CalendarDays className="w-5 h-5" /> {t("event.sectionWhen")}
               </CardTitle>
               <CardDescription>
-                Leave the end date blank for a single-day event.
+                {t("event.sectionWhenHint")}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Field label="Start date" required error={errors.startDate}>
+                <Field label={t("event.fieldStartDate")} required error={errors.startDate}>
                   <Input
                     type="date"
                     value={form.startDate}
                     onChange={(e) => update("startDate", e.target.value)}
                   />
                 </Field>
-                <Field label="Start time">
+                <Field label={t("event.fieldStartTime")}>
                   <Input
                     type="time"
                     value={form.startTime}
                     onChange={(e) => update("startTime", e.target.value)}
                   />
                 </Field>
-                <Field label="End date">
+                <Field label={t("event.fieldEndDate")}>
                   <Input
                     type="date"
                     value={form.endDate}
                     onChange={(e) => update("endDate", e.target.value)}
                   />
                 </Field>
-                <Field label="End time">
+                <Field label={t("event.fieldEndTime")}>
                   <Input
                     type="time"
                     value={form.endTime}
@@ -421,7 +418,7 @@ export default function EventSubmit() {
                   />
                 </Field>
               </div>
-              <Field label="Timezone">
+              <Field label={t("event.fieldTimezone")}>
                 <Select
                   value={form.timezone}
                   onValueChange={(v) => update("timezone", v)}
@@ -445,45 +442,44 @@ export default function EventSubmit() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" /> Where
+                <MapPin className="w-5 h-5" /> {t("event.sectionWhere")}
               </CardTitle>
               <CardDescription>
-                Venue + address for in-person events. Leave blank for fully
-                virtual.
+                {t("event.sectionWhereHint")}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Field label="Venue name">
+              <Field label={t("event.fieldVenue")}>
                 <Input
                   value={form.venue}
                   onChange={(e) => update("venue", e.target.value)}
-                  placeholder="e.g. Riyadh Front"
+                  placeholder={t("event.venuePlaceholder")}
                   maxLength={255}
                 />
               </Field>
-              <Field label="Address">
+              <Field label={t("event.fieldAddress")}>
                 <Input
                   value={form.address}
                   onChange={(e) => update("address", e.target.value)}
-                  placeholder="Street, district"
+                  placeholder={t("event.addressPlaceholder")}
                 />
               </Field>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Field label="City">
+                <Field label={t("event.fieldCity")}>
                   <Input
                     value={form.city}
                     onChange={(e) => update("city", e.target.value)}
-                    placeholder="Riyadh"
+                    placeholder={t("event.cityPlaceholder")}
                     maxLength={128}
                   />
                 </Field>
-                <Field label="Country">
+                <Field label={t("event.fieldCountry")}>
                   <Select
                     value={form.country}
                     onValueChange={(v) => update("country", v)}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select country" />
+                      <SelectValue placeholder={t("event.selectCountry")} />
                     </SelectTrigger>
                     <SelectContent>
                       {(countriesList || []).map((c) => (
@@ -502,15 +498,14 @@ export default function EventSubmit() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Globe className="w-5 h-5" /> Links
+                <Globe className="w-5 h-5" /> {t("event.sectionLinks")}
               </CardTitle>
               <CardDescription>
-                Optional but recommended — the AI moderator weighs real
-                websites positively.
+                {t("event.sectionLinksHint")}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Field label="Event website" error={errors.websiteUrl}>
+              <Field label={t("event.fieldWebsite")} error={errors.websiteUrl}>
                 <Input
                   type="url"
                   value={form.websiteUrl}
@@ -519,7 +514,7 @@ export default function EventSubmit() {
                 />
               </Field>
               <Field
-                label="Registration / ticket URL"
+                label={t("event.fieldRegistrationUrl")}
                 error={errors.registrationUrl}
               >
                 <Input
@@ -536,26 +531,25 @@ export default function EventSubmit() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <User className="w-5 h-5" /> Organizer
+                <User className="w-5 h-5" /> {t("event.sectionOrganizer")}
               </CardTitle>
               <CardDescription>
-                Who's running this. We'll use this if we need to reach out
-                with questions.
+                {t("event.sectionOrganizerHint")}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <Field label="Organizer name">
+              <Field label={t("event.fieldOrganizerName")}>
                 <Input
                   value={form.organizerName}
                   onChange={(e) => update("organizerName", e.target.value)}
-                  placeholder="Org name or your name"
+                  placeholder={t("event.organizerNamePlaceholder")}
                   maxLength={255}
                 />
               </Field>
               <Field
-                label="Organizer email"
+                label={t("event.fieldOrganizerEmail")}
                 error={errors.organizerEmail}
-                hint="Use a domain that matches the organizer where possible — it helps approval go faster."
+                hint={t("event.organizerEmailHint")}
               >
                 <Input
                   type="email"
@@ -570,16 +564,16 @@ export default function EventSubmit() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
             <Button variant="outline" type="button" asChild>
-              <Link href="/events">Cancel</Link>
+              <Link href="/events">{t("common.cancel")}</Link>
             </Button>
             <Button type="submit" disabled={submitMut.isPending}>
               {submitMut.isPending ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Submitting…
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("event.submitting")}
                 </>
               ) : (
                 <>
-                  Submit event <ArrowRight className="ml-2 h-4 w-4" />
+                  {t("event.submitEvent")} <ArrowRight className="ml-2 h-4 w-4" />
                 </>
               )}
             </Button>

@@ -74,7 +74,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand column */}
           <div className="md:col-span-4">
-            <Link href="/" aria-label={`${publication.name} home`}>
+            <Link href="/" aria-label={t("nav.siteHome", { site: publication.name })}>
               <Wordmark className="text-foreground text-2xl" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-sm">

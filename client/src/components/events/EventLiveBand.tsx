@@ -16,6 +16,7 @@ import { Link } from "wouter";
 import { ArrowRight, Play, Radio } from "lucide-react";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { EventFallbackTile } from "./EventVisual";
 import { CONTAINER, relativeStart, useNow, type EventRow } from "./eventMeta";
 import { formatTimeRange } from "./eventFormat";
@@ -29,7 +30,11 @@ type Session = {
   dayNumber?: number | null;
 };
 
-/** First line of a post's body — used when it has no headline. */
+/**
+ * First line of a post's body — used when it has no headline. Returns an
+ * empty string when there is nothing to show; the caller supplies the
+ * translated fallback, since a plain function cannot read the string table.
+ */
 function postHeadline(post: any): string {
   if (post?.headline) return String(post.headline);
   const body = String(post?.body || "")
@@ -38,7 +43,7 @@ function postHeadline(post: any): string {
     .replace(/[*_`>#~]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-  return body.slice(0, 140) || "Live update";
+  return body.slice(0, 140);
 }
 
 export default function EventLiveBand({
@@ -48,6 +53,7 @@ export default function EventLiveBand({
   event: EventRow;
   posts: any[];
 }) {
+  const t = useT();
   const now = useNow(60_000, true);
 
   const { data: scheduleRows = [] } = trpc.events.getSchedule.useQuery(
@@ -84,28 +90,30 @@ export default function EventLiveBand({
   const metaBits = [
     currentSession?.location || null,
     updates === 0
-      ? "No updates yet"
-      : `${updates} update${updates === 1 ? "" : "s"}`,
+      ? t("events.noUpdatesYet")
+      : updates === 1
+        ? t("events.updateCountOne", { n: updates })
+        : t("events.updateCountMany", { n: updates }),
   ].filter(Boolean) as string[];
 
   const leadImage = lead?.imageUrl || null;
   const hasVideo = !!lead?.embedUrl;
 
   return (
-    <section className={`${CONTAINER} mt-12`} aria-label="Live coverage">
+    <section className={`${CONTAINER} mt-12`} aria-label={t("events.liveCoverage")}>
       <div className="grid gap-4 rounded-2xl bg-zinc-950 p-6 text-white lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-8 lg:p-8">
         {/* ------------------------------------------------- left */}
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/60">
-              Live at {event.title}
+              {t("events.liveAt", { title: event.title })}
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
               <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
               </span>
-              Live
+              {t("events.live")}
             </span>
           </div>
 
@@ -113,7 +121,7 @@ export default function EventLiveBand({
             <Link
               href={`/events/${event.slug}/live`}
               className="group relative block h-28 w-full shrink-0 overflow-hidden rounded-xl sm:w-44"
-              aria-label={`Open live coverage of ${event.title}`}
+              aria-label={t("events.openLiveCoverage", { title: event.title })}
             >
               {leadImage ? (
                 <img
@@ -145,7 +153,9 @@ export default function EventLiveBand({
 
             <div className="min-w-0">
               <h2 className="text-xl font-bold leading-snug text-white sm:text-2xl">
-                {lead ? postHeadline(lead) : `Live coverage of ${event.title}`}
+                {lead
+                  ? postHeadline(lead) || t("events.liveUpdate")
+                  : t("events.liveCoverageOf", { title: event.title })}
               </h2>
               <p className="mt-2 text-sm text-white/60">
                 {metaBits.join(" · ")}
@@ -159,7 +169,7 @@ export default function EventLiveBand({
           <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
             <div className="flex items-center justify-between gap-3">
               <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-white/50">
-                Up next
+                {t("events.upNext")}
               </span>
             </div>
             <h3 className="mt-3 text-base font-bold leading-snug text-white">
@@ -186,7 +196,7 @@ export default function EventLiveBand({
               href={`/events/${event.slug}/live`}
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline"
             >
-              View all live sessions
+              {t("events.viewAllLiveSessions")}
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </div>

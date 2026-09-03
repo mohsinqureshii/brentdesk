@@ -5,6 +5,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Input } from "@/components/ui/input";
@@ -37,13 +38,28 @@ interface SearchResult {
   image?: string | null;
 }
 
-const typeConfig = {
-  article: { icon: Newspaper, color: "bg-blue-100 text-blue-700", label: "Article", path: "/article" },
-  job: { icon: Briefcase, color: "bg-emerald-100 text-emerald-700", label: "Job", path: "/jobs" },
-  company: { icon: Building2, color: "bg-purple-100 text-purple-700", label: "Company", path: "/companies" },
-  person: { icon: Users, color: "bg-orange-100 text-orange-700", label: "Person", path: "/people" },
-  event: { icon: Calendar, color: "bg-pink-100 text-pink-700", label: "Event", path: "/events" },
+// Two keys per type: the badge on a single result, and the heading over the
+// group. English pluralises with an "s"; Arabic does not, so the plural is a
+// key of its own rather than a suffix.
+const typeConfig: Record<
+  SearchResult["type"],
+  { icon: typeof Newspaper; color: string; labelKey: UiKey; pluralKey: UiKey; path: string }
+> = {
+  article: { icon: Newspaper, color: "bg-blue-100 text-blue-700", labelKey: "search.typeArticle", pluralKey: "common.articles", path: "/article" },
+  job: { icon: Briefcase, color: "bg-emerald-100 text-emerald-700", labelKey: "search.typeJob", pluralKey: "nav.jobs", path: "/jobs" },
+  company: { icon: Building2, color: "bg-purple-100 text-purple-700", labelKey: "search.typeCompany", pluralKey: "nav.companies", path: "/companies" },
+  person: { icon: Users, color: "bg-orange-100 text-orange-700", labelKey: "search.typePerson", pluralKey: "nav.people", path: "/people" },
+  event: { icon: Calendar, color: "bg-pink-100 text-pink-700", labelKey: "search.typeEvent", pluralKey: "nav.events", path: "/events" },
 };
+
+// Shown when the box is empty. Keys, not labels, for the same reason as the
+// type badges above.
+const quickLinks: { key: UiKey; href: string }[] = [
+  { key: "list.latestNews", href: "/" },
+  { key: "search.openJobs", href: "/jobs" },
+  { key: "nav.companies", href: "/companies" },
+  { key: "search.upcomingEvents", href: "/events" },
+];
 
 export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
   const t = useT();
@@ -211,7 +227,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
               ) : results.length === 0 ? (
                 <div className="text-center py-12">
                   <Search className="h-12 w-12 mx-auto text-gray-300 mb-4" />
-                  <p className="text-gray-500">No results found for "{debouncedQuery}"</p>
+                  <p className="text-gray-500">{t("search.noResultsFor", { query: debouncedQuery })}</p>
                   <p className="text-sm text-gray-400 mt-1">{t("search.noResults")}</p>
                 </div>
               ) : (
@@ -225,7 +241,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                       <div key={type}>
                         <div className="flex items-center justify-between mb-3">
                           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
-                            {config.label}s
+                            {t(config.pluralKey)}
                           </h3>
                           <Link 
                             href={`/search?q=${encodeURIComponent(debouncedQuery)}&type=${type}`}
@@ -262,7 +278,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                                   )}
                                 </div>
                                 <Badge className={config.color} variant="secondary">
-                                  {config.label}
+                                  {t(config.labelKey)}
                                 </Badge>
                               </button>
                             );
@@ -281,14 +297,9 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             <div className="mt-6">
               <p className="text-sm font-medium text-gray-500 mb-3">{t("search.quickLinks")}</p>
               <div className="flex flex-wrap gap-2">
-                {[
-                  { label: "Latest News", href: "/" },
-                  { label: "Open Jobs", href: "/jobs" },
-                  { label: "Companies", href: "/companies" },
-                  { label: "Upcoming Events", href: "/events" },
-                ].map((link) => (
+                {quickLinks.map((link) => (
                   <Link
-                    key={link.label}
+                    key={link.href}
                     href={link.href}
                     onClick={() => { onClose(); setQuery(""); }}
                   >
@@ -296,7 +307,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                       variant="outline" 
                       className="px-3 py-1.5 text-sm cursor-pointer hover:bg-gray-100"
                     >
-                      {link.label}
+                      {t(link.key)}
                     </Badge>
                   </Link>
                 ))}

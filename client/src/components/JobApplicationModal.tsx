@@ -42,6 +42,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useT } from "@/lib/i18n";
 
 interface JobApplicationModalProps {
   open: boolean;
@@ -58,6 +59,7 @@ export function JobApplicationModal({
   jobTitle,
   companyName,
 }: JobApplicationModalProps) {
+  const t = useT();
   const { user } = useAuth();
   const { toast } = useToast();
   const utils = trpc.useUtils();
@@ -104,16 +106,16 @@ export function JobApplicationModal({
       setSubmitted(true);
       utils.jobApplications.checkApplication.invalidate({ jobId });
       toast({
-        title: "Application Submitted!",
-        description: `Your application for ${jobTitle} at ${companyName} has been sent.`,
+        title: t("job.applicationSubmitted"),
+        description: t("job.applicationSentToast", { job: jobTitle, company: companyName }),
       });
     },
     onError: (error) => {
       console.error("[JobApplicationModal] Application submission failed:", error);
-      const errorMessage = error.message || "Something went wrong. Please try again.";
+      const errorMessage = error.message || t("job.submitError");
       setValidationError(errorMessage);
       toast({
-        title: "Application Failed",
+        title: t("job.applicationFailed"),
         description: errorMessage,
         variant: "destructive",
       });
@@ -126,12 +128,12 @@ export function JobApplicationModal({
 
     const allowedTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
     if (!allowedTypes.includes(file.type)) {
-      toast({ title: "Invalid File Type", description: "Please upload a PDF or Word document.", variant: "destructive" });
+      toast({ title: t("job.invalidFileType"), description: t("job.invalidFileTypeBody"), variant: "destructive" });
       return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      toast({ title: "File Too Large", description: "CV must be less than 5MB.", variant: "destructive" });
+      toast({ title: t("job.fileTooLarge"), description: t("job.fileTooLargeBody"), variant: "destructive" });
       return;
     }
 
@@ -143,14 +145,14 @@ export function JobApplicationModal({
       if (response.ok) {
         const data = await response.json();
         setCvUrl(data.url);
-        toast({ title: "CV Uploaded", description: "Your CV has been uploaded successfully." });
+        toast({ title: t("job.cvUploaded"), description: t("job.cvUploadedBody") });
       } else {
         setCvUrl(`cv-${user?.id}-${Date.now()}`);
-        toast({ title: "CV Attached", description: "Your CV has been attached to the application." });
+        toast({ title: t("job.cvAttachedTitle"), description: t("job.cvAttachedBody") });
       }
     } catch {
       setCvUrl(`cv-${file.name}`);
-      toast({ title: "CV Attached", description: "Your CV reference has been saved." });
+      toast({ title: t("job.cvAttachedTitle"), description: t("job.cvReferenceSaved") });
     } finally {
       setIsUploading(false);
     }
@@ -158,12 +160,12 @@ export function JobApplicationModal({
 
   const handleSubmit = () => {
     if (!user) {
-      setValidationError("You must be logged in to apply.");
+      setValidationError(t("job.mustBeLoggedIn"));
       return;
     }
 
     if (!hasProperProfile && !cvUrl) {
-      setValidationError("Please upload your CV to apply.");
+      setValidationError(t("job.uploadCvToApply"));
       return;
     }
 
@@ -222,11 +224,11 @@ export function JobApplicationModal({
             <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
               <CheckCircle2 className="h-8 w-8 text-green-600" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">Application Submitted!</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2">{t("job.applicationSubmitted")}</h2>
             <p className="text-muted-foreground mb-8">
-              Your application for <strong>{jobTitle}</strong> has been sent to <strong>{companyName}</strong>. The hiring team will review it and get back to you soon.
+              {t("job.applicationSentBody", { job: jobTitle, company: companyName })}
             </p>
-            <Button onClick={() => onOpenChange(false)} className="w-full">Close</Button>
+            <Button onClick={() => onOpenChange(false)} className="w-full">{t("nav.close")}</Button>
           </div>
         </DialogContent>
       </Dialog>
@@ -243,11 +245,11 @@ export function JobApplicationModal({
             className="text-muted-foreground hover:text-foreground mb-3 text-sm font-medium flex items-center gap-1 transition"
           >
             <ChevronLeft className="h-4 w-4" />
-            Back to Job
+            {t("job.backToJob")}
           </button>
           <h2 className="text-2xl font-bold text-foreground">{jobTitle}</h2>
           <p className="text-sm text-muted-foreground pt-1">
-            at <span className="font-semibold text-foreground">{companyName}</span>
+            {t("common.at")} <span className="font-semibold text-foreground">{companyName}</span>
           </p>
         </div>
 
@@ -275,17 +277,17 @@ export function JobApplicationModal({
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <p className="font-semibold text-foreground">{user?.name || "Unknown"}</p>
+                  <p className="font-semibold text-foreground">{user?.name || t("common.unknown")}</p>
                   {hasProperProfile && (
                     <Badge variant="outline" className="text-emerald-600 border-emerald-500/30 bg-emerald-500/10 text-xs">
-                      <ShieldCheck className="w-3 h-3 mr-1" /> Complete Profile
+                      <ShieldCheck className="w-3 h-3 mr-1" /> {t("job.completeProfile")}
                     </Badge>
                   )}
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">{user?.email}</p>
                 {(user as any)?.jobTitle && (
                   <p className="text-sm text-muted-foreground mt-0.5">
-                    {(user as any).jobTitle}{(user as any).company ? ` at ${(user as any).company}` : ""}
+                    {(user as any).jobTitle}{(user as any).company ? ` ${t("common.at")} ${(user as any).company}` : ""}
                   </p>
                 )}
               </div>
@@ -298,9 +300,9 @@ export function JobApplicationModal({
               <div className="flex items-start gap-3 mb-4">
                 <Sparkles className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-emerald-900 dark:text-emerald-200">Quick Apply Ready</p>
+                  <p className="font-semibold text-emerald-900 dark:text-emerald-200">{t("job.quickApplyReady")}</p>
                   <p className="text-sm text-emerald-800/70 dark:text-emerald-300/70 mt-1">
-                    Your profile will be shared with the employer. Add a note or expand the form for more details.
+                    {t("job.quickApplyBody")}
                   </p>
                 </div>
               </div>
@@ -309,7 +311,7 @@ export function JobApplicationModal({
                 onClick={() => setShowFullForm(true)}
                 className="text-sm text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium"
               >
-                + Add cover letter or more details
+                + {t("job.addCoverLetter")}
               </button>
             </div>
           )}
@@ -319,27 +321,27 @@ export function JobApplicationModal({
             <div className="space-y-3">
               <Label className="text-base font-semibold flex items-center gap-2">
                 <FileText className="h-5 w-5 text-primary" />
-                Resume / CV
+                {t("job.resumeCv")}
               </Label>
               <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary/50 transition bg-muted/30">
                 {cvUrl ? (
                   <div className="flex flex-col items-center gap-2">
                     <CheckCircle2 className="h-8 w-8 text-green-600" />
-                    <span className="text-base font-medium text-foreground">CV attached</span>
+                    <span className="text-base font-medium text-foreground">{t("job.cvAttached")}</span>
                   </div>
                 ) : (
                   <>
                     <Upload className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
-                    <p className="text-sm text-muted-foreground mb-4">Upload your CV (PDF or Word, max 5MB)</p>
+                    <p className="text-sm text-muted-foreground mb-4">{t("job.uploadCvHint")}</p>
                     <label className="cursor-pointer">
                       <Button variant="outline" size="sm" disabled={isUploading} asChild>
                         <span>
                           {isUploading ? (
-                            <><Loader2 className="h-4 w-4 animate-spin mr-2" />Uploading...</>
+                            <><Loader2 className="h-4 w-4 animate-spin mr-2" />{t("common.uploading")}</>
                           ) : (
                             <>
                               <Upload className="h-4 w-4 mr-2" />
-                              Choose File
+                              {t("job.chooseFile")}
                             </>
                           )}
                         </span>
@@ -362,10 +364,10 @@ export function JobApplicationModal({
           {(!hasProperProfile || showFullForm) && (
             <div className="space-y-3">
               <Label className="text-base font-semibold">
-                Cover Letter {hasProperProfile ? "(Optional)" : "(Recommended)"}
+                {t("job.coverLetter")} {hasProperProfile ? t("job.optionalTag") : t("job.recommendedTag")}
               </Label>
               <Textarea
-                placeholder="Tell the hiring team why you're a great fit for this role..."
+                placeholder={t("job.coverLetterPlaceholder")}
                 value={coverLetter}
                 onChange={(e) => setCoverLetter(e.target.value)}
                 rows={4}
@@ -379,9 +381,9 @@ export function JobApplicationModal({
           {/* Quick Note for Complete Profiles */}
           {hasProperProfile && !showFullForm && (
             <div className="space-y-3">
-              <Label className="text-base font-semibold">Quick Note (Optional)</Label>
+              <Label className="text-base font-semibold">{t("job.quickNote")}</Label>
               <Textarea
-                placeholder="Add a brief note to your application..."
+                placeholder={t("job.quickNotePlaceholder")}
                 value={coverLetter}
                 onChange={(e) => setCoverLetter(e.target.value)}
                 rows={3}
@@ -397,22 +399,22 @@ export function JobApplicationModal({
             <div className="space-y-4 bg-gradient-to-br from-slate-50 to-slate-50/50 dark:from-slate-900/20 dark:to-slate-900/10 rounded-lg p-5 border">
               <h3 className="font-semibold text-base text-foreground flex items-center gap-2">
                 <Briefcase className="h-5 w-5 text-primary" />
-                Professional Details
+                {t("job.professionalDetails")}
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">Current Company</Label>
+                  <Label className="text-sm font-medium">{t("job.currentCompany")}</Label>
                   <Input
-                    placeholder="e.g. Google"
+                    placeholder={t("job.currentCompanyPlaceholder")}
                     value={currentCompany}
                     onChange={(e) => setCurrentCompany(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">Current Title</Label>
+                  <Label className="text-sm font-medium">{t("job.currentTitle")}</Label>
                   <Input
-                    placeholder="e.g. Senior Engineer"
+                    placeholder={t("job.currentTitlePlaceholder")}
                     value={currentTitle}
                     onChange={(e) => setCurrentTitle(e.target.value)}
                   />
@@ -421,28 +423,28 @@ export function JobApplicationModal({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">Years of Experience</Label>
+                  <Label className="text-sm font-medium">{t("job.yearsExperience")}</Label>
                   <Input
                     type="number"
-                    placeholder="e.g. 5"
+                    placeholder={t("job.yearsExperiencePlaceholder")}
                     value={yearsOfExperience}
                     onChange={(e) => setYearsOfExperience(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">Notice Period</Label>
+                  <Label className="text-sm font-medium">{t("job.noticePeriod")}</Label>
                   <Select value={noticePeriod || "not_set"} onValueChange={(v) => setNoticePeriod(v === "not_set" ? "" : v)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select..." />
+                      <SelectValue placeholder={t("common.select")} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="not_set">Not specified</SelectItem>
-                      <SelectItem value="immediate">Immediate</SelectItem>
-                      <SelectItem value="1_week">1 Week</SelectItem>
-                      <SelectItem value="2_weeks">2 Weeks</SelectItem>
-                      <SelectItem value="1_month">1 Month</SelectItem>
-                      <SelectItem value="2_months">2 Months</SelectItem>
-                      <SelectItem value="3_months">3 Months</SelectItem>
+                      <SelectItem value="not_set">{t("job.noticeNotSpecified")}</SelectItem>
+                      <SelectItem value="immediate">{t("job.noticeImmediate")}</SelectItem>
+                      <SelectItem value="1_week">{t("job.noticeOneWeek")}</SelectItem>
+                      <SelectItem value="2_weeks">{t("job.noticeTwoWeeks")}</SelectItem>
+                      <SelectItem value="1_month">{t("job.noticeOneMonth")}</SelectItem>
+                      <SelectItem value="2_months">{t("job.noticeTwoMonths")}</SelectItem>
+                      <SelectItem value="3_months">{t("job.noticeThreeMonths")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -450,7 +452,7 @@ export function JobApplicationModal({
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">Expected Salary (Annual)</Label>
+                  <Label className="text-sm font-medium">{t("job.expectedSalary")}</Label>
                   <div className="flex gap-2">
                     <Select value={expectedSalaryCurrency} onValueChange={setExpectedSalaryCurrency}>
                       <SelectTrigger className="w-20">
@@ -466,7 +468,7 @@ export function JobApplicationModal({
                     </Select>
                     <Input
                       type="number"
-                      placeholder="e.g. 80000"
+                      placeholder={t("job.salaryPlaceholder")}
                       value={expectedSalary}
                       onChange={(e) => setExpectedSalary(e.target.value)}
                       className="flex-1"
@@ -482,11 +484,11 @@ export function JobApplicationModal({
             <div className="space-y-4 bg-gradient-to-br from-slate-50 to-slate-50/50 dark:from-slate-900/20 dark:to-slate-900/10 rounded-lg p-5 border">
               <h3 className="font-semibold text-base text-foreground flex items-center gap-2">
                 <LinkIcon className="h-5 w-5 text-primary" />
-                Links
+                {t("job.links")}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">LinkedIn Profile</Label>
+                  <Label className="text-sm font-medium">{t("job.linkedinProfile")}</Label>
                   <Input
                     placeholder="https://linkedin.com/in/..."
                     value={linkedinUrl}
@@ -494,7 +496,7 @@ export function JobApplicationModal({
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium">Portfolio / Website</Label>
+                  <Label className="text-sm font-medium">{t("job.portfolioWebsite")}</Label>
                   <Input
                     placeholder="https://..."
                     value={portfolioUrl}
@@ -518,7 +520,7 @@ export function JobApplicationModal({
           className="px-6"
           disabled={applyMutation.isPending}
         >
-          Cancel
+          {t("common.cancel")}
         </Button>
         <Button
           onClick={handleSubmit}
@@ -526,11 +528,11 @@ export function JobApplicationModal({
           className="min-w-[180px] text-base font-semibold"
         >
           {applyMutation.isPending ? (
-            <><Loader2 className="h-4 w-4 animate-spin mr-2" />Submitting...</>
+            <><Loader2 className="h-4 w-4 animate-spin mr-2" />{t("common.submitting")}</>
           ) : hasProperProfile && !showFullForm ? (
-            <><Sparkles className="h-4 w-4 mr-2" />Quick Apply</>
+            <><Sparkles className="h-4 w-4 mr-2" />{t("job.quickApply")}</>
           ) : (
-            "Submit Application"
+            t("job.submitApplication")
           )}
         </Button>
       </div>

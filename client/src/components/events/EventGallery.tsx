@@ -28,6 +28,8 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
 
+import { fmtDate } from "@/lib/dates";
+import { useT } from "@/lib/i18n";
 import {
   Dialog,
   DialogContent,
@@ -149,6 +151,7 @@ export function GalleryLightbox({
   slide: GallerySlide | null;
   onClose: () => void;
 }) {
+  const t = useT();
   const open = !!slide;
   const embed = slide && slide.kind === "video" ? videoEmbedUrl(slide.url) : null;
   const isFile = !!slide && slide.kind === "video" && !embed;
@@ -157,7 +160,9 @@ export function GalleryLightbox({
     <Dialog open={open} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="max-w-4xl border-[var(--border)] p-4">
         <DialogHeader className="sr-only">
-          <DialogTitle>{slide?.caption || slide?.alt || "Event media"}</DialogTitle>
+          <DialogTitle>
+            {slide?.caption || slide?.alt || t("events.media")}
+          </DialogTitle>
         </DialogHeader>
         {slide && slide.kind === "image" && (
           <img
@@ -170,7 +175,7 @@ export function GalleryLightbox({
           <div className="aspect-video w-full overflow-hidden rounded-lg bg-black">
             <iframe
               src={embed}
-              title={slide?.caption || "Event video"}
+              title={slide?.caption || t("events.video")}
               className="h-full w-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
               allowFullScreen
@@ -213,6 +218,7 @@ export default function EventGalleryBlock({
   rows: GalleryRow[];
   isLoading?: boolean;
 }) {
+  const t = useT();
   const [slides, setSlides] = useState<GallerySlide[]>(() => buildSlides(event, rows));
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<GallerySlide | null>(null);
@@ -272,7 +278,7 @@ export default function EventGalleryBlock({
     const e = (event as any).endDate ? new Date(String((event as any).endDate).replace(" ", "T")) : null;
     if (!d || isNaN(d.getTime())) return null;
     const f = (x: Date, withYear = true) =>
-      x.toLocaleDateString("en-GB", { day: "numeric", month: "short", ...(withYear ? { year: "numeric" } : {}) });
+      fmtDate(x, { day: "numeric", month: "short", ...(withYear ? { year: "numeric" } : {}) });
     if (e && !isNaN(e.getTime()) && e.toDateString() !== d.toDateString()) {
       return `${f(d, d.getFullYear() !== e.getFullYear())} – ${f(e)}`;
     }
@@ -287,7 +293,7 @@ export default function EventGalleryBlock({
         type="button"
         onClick={() => setLightbox(current)}
         className="block h-full w-full cursor-zoom-in"
-        aria-label={`View larger: ${current.alt}`}
+        aria-label={t("events.viewLarger", { name: current.alt })}
       >
         <img
           src={current.url}
@@ -302,7 +308,9 @@ export default function EventGalleryBlock({
         type="button"
         onClick={() => setLightbox(current)}
         className="relative flex h-full w-full items-center justify-center bg-zinc-950"
-        aria-label={`Play video: ${current.caption || event.title}`}
+        aria-label={t("events.playVideoNamed", {
+          name: current.caption || event.title,
+        })}
       >
         <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-zinc-900 shadow-lg">
           <Play className="ml-0.5 h-7 w-7" fill="currentColor" />
@@ -347,7 +355,7 @@ export default function EventGalleryBlock({
     );
 
   return (
-    <section aria-label="Event media" className="space-y-3">
+    <section aria-label={t("events.media")} className="space-y-3">
       {/* ------------------------------------------------------- hero */}
       <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-[var(--border)] bg-muted">
         {heroInner}
@@ -355,7 +363,7 @@ export default function EventGalleryBlock({
         {event.isFeatured ? (
           <span className="pointer-events-none absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm">
             <Star className="h-3 w-3" fill="currentColor" aria-hidden="true" />
-            Featured
+            {t("list.featured")}
           </span>
         ) : null}
 
@@ -370,7 +378,7 @@ export default function EventGalleryBlock({
             credit wherever the photo is shown. */}
         {current?.isFeaturedImage && event.featuredImageCredit ? (
           <p className="absolute bottom-2 right-3 z-10 max-w-[70%] truncate rounded bg-black/45 px-2 py-0.5 text-right text-[10px] text-white/85">
-            Photo:{" "}
+            {t("events.photoCredit")}{" "}
             {event.featuredImageSource ? (
               <a
                 href={event.featuredImageSource}
@@ -399,7 +407,7 @@ export default function EventGalleryBlock({
             <button
               type="button"
               onClick={() => scrollStrip(-1)}
-              aria-label="Scroll thumbnails left"
+              aria-label={t("events.scrollThumbsLeft")}
               className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
@@ -422,8 +430,14 @@ export default function EventGalleryBlock({
                   }}
                   aria-label={
                     slide.kind === "video"
-                      ? `Play video ${i + 1} of ${slides.length}`
-                      : `Show image ${i + 1} of ${slides.length}`
+                      ? t("events.playVideoN", {
+                          n: i + 1,
+                          total: slides.length,
+                        })
+                      : t("events.showImageN", {
+                          n: i + 1,
+                          total: slides.length,
+                        })
                   }
                   aria-current={isActive ? "true" : undefined}
                   className={`relative aspect-[16/10] shrink-0 grow-0 basis-[calc((100%-1rem)/3)] overflow-hidden rounded-lg bg-muted transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 sm:basis-[calc((100%-2rem)/5)] ${
@@ -459,7 +473,7 @@ export default function EventGalleryBlock({
             <button
               type="button"
               onClick={() => scrollStrip(1)}
-              aria-label="Scroll thumbnails right"
+              aria-label={t("events.scrollThumbsRight")}
               className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <ChevronRight className="h-4 w-4" aria-hidden="true" />

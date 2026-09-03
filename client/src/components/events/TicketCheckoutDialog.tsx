@@ -13,6 +13,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -85,6 +86,7 @@ export function TicketCheckoutDialog({
   tickets,
   initialTicketId,
 }: TicketCheckoutDialogProps) {
+  const t = useT();
   const { user } = useAuth();
 
   const [quantities, setQuantities] = useState<Record<number, number>>({});
@@ -120,9 +122,9 @@ export function TicketCheckoutDialog({
   // Derived subtotal (client-side preview; server re-validates).
   const subtotalCents = useMemo(() => {
     let sum = 0;
-    for (const t of tickets) {
-      const qty = quantities[t.id] || 0;
-      sum += qty * t.priceCents;
+    for (const tier of tickets) {
+      const qty = quantities[tier.id] || 0;
+      sum += qty * tier.priceCents;
     }
     return sum;
   }, [quantities, tickets]);
@@ -156,7 +158,7 @@ export function TicketCheckoutDialog({
     },
     onError: (err) => {
       setAppliedPromo(null);
-      setPromoError(err.message || "Promo code could not be applied");
+      setPromoError(err.message || t("ticket.promoFailed"));
     },
   });
 
@@ -165,11 +167,11 @@ export function TicketCheckoutDialog({
       if (data?.url) {
         window.location.href = data.url;
       } else {
-        setSubmitError("Stripe did not return a checkout URL");
+        setSubmitError(t("ticket.noCheckoutUrl"));
       }
     },
     onError: (err) => {
-      setSubmitError(err.message || "Could not start checkout");
+      setSubmitError(err.message || t("ticket.checkoutFailed"));
     },
   });
 
@@ -197,11 +199,11 @@ export function TicketCheckoutDialog({
   function handleApplyPromo() {
     const code = promoInput.trim();
     if (!code) {
-      setPromoError("Enter a promo code first");
+      setPromoError(t("ticket.enterPromo"));
       return;
     }
     if (subtotalCents <= 0) {
-      setPromoError("Add at least one ticket before applying a code");
+      setPromoError(t("ticket.addTicketFirst"));
       return;
     }
     applyPromo.mutate({ eventId, code, subtotalCents });
@@ -210,11 +212,11 @@ export function TicketCheckoutDialog({
   function handleCheckout() {
     setSubmitError(null);
     if (totalQty === 0) {
-      setSubmitError("Pick at least one ticket");
+      setSubmitError(t("ticket.pickTicket"));
       return;
     }
     if (!email.trim()) {
-      setSubmitError("Email is required");
+      setSubmitError(t("form.emailRequired"));
       return;
     }
     const items = Object.entries(quantities)
@@ -242,11 +244,9 @@ export function TicketCheckoutDialog({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Ticket className="h-5 w-5 text-primary" />
-            Get tickets — {eventTitle}
+            {t("events.getTickets")} — {eventTitle}
           </DialogTitle>
-          <DialogDescription>
-            Pick your tickets and we'll hand you off to Stripe to complete payment.
-          </DialogDescription>
+          <DialogDescription>{t("ticket.checkoutBlurb")}</DialogDescription>
         </DialogHeader>
 
         <div className="space-y-5">
@@ -254,40 +254,42 @@ export function TicketCheckoutDialog({
           <div className="space-y-3">
             {tickets.length === 0 && (
               <div className="rounded-md border border-dashed p-4 text-sm text-muted-foreground text-center">
-                No ticket tiers are on sale right now.
+                {t("ticket.noneOnSale")}
               </div>
             )}
-            {tickets.map((t) => {
-              const qty = quantities[t.id] || 0;
-              const max = Math.min(t.maxPerOrder ?? 99, t.remaining ?? 99);
-              const disabled = t.soldOut || max === 0;
+            {tickets.map((tier) => {
+              const qty = quantities[tier.id] || 0;
+              const max = Math.min(tier.maxPerOrder ?? 99, tier.remaining ?? 99);
+              const disabled = tier.soldOut || max === 0;
               return (
                 <div
-                  key={t.id}
+                  key={tier.id}
                   className={`flex items-center justify-between gap-3 rounded-md border p-3 ${
                     disabled ? "opacity-50" : ""
                   }`}
                 >
                   <div className="min-w-0 flex-1">
                     <div className="flex items-baseline justify-between gap-2">
-                      <div className="font-medium truncate">{t.name}</div>
+                      <div className="font-medium truncate">{tier.name}</div>
                       <div className="text-sm font-semibold whitespace-nowrap">
-                        {formatMoney(t.priceCents, t.currency)}
+                        {formatMoney(tier.priceCents, tier.currency)}
                       </div>
                     </div>
-                    {t.description && (
+                    {tier.description && (
                       <div className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
-                        {t.description}
+                        {tier.description}
                       </div>
                     )}
                     <div className="text-[11px] text-muted-foreground mt-1">
-                      {t.soldOut
-                        ? "Sold out"
-                        : t.remaining !== null
-                        ? `${t.remaining} remaining`
+                      {tier.soldOut
+                        ? t("ticket.soldOut")
+                        : tier.remaining !== null
+                        ? t("ticket.remaining", { n: tier.remaining })
                         : null}
-                      {t.maxPerOrder ? (
-                        <span className="ml-2">Max {t.maxPerOrder} per order</span>
+                      {tier.maxPerOrder ? (
+                        <span className="ml-2">
+                          {t("ticket.maxPerOrder", { n: tier.maxPerOrder })}
+                        </span>
                       ) : null}
                     </div>
                   </div>
@@ -297,9 +299,9 @@ export function TicketCheckoutDialog({
                       size="icon"
                       variant="outline"
                       className="h-8 w-8"
-                      onClick={() => changeQty(t, -1)}
+                      onClick={() => changeQty(tier, -1)}
                       disabled={disabled || qty === 0}
-                      aria-label={`Decrease ${t.name}`}
+                      aria-label={t("ticket.decrease", { name: tier.name })}
                     >
                       <Minus className="h-4 w-4" />
                     </Button>
@@ -309,9 +311,9 @@ export function TicketCheckoutDialog({
                       size="icon"
                       variant="outline"
                       className="h-8 w-8"
-                      onClick={() => changeQty(t, 1)}
+                      onClick={() => changeQty(tier, 1)}
                       disabled={disabled || qty >= max}
-                      aria-label={`Increase ${t.name}`}
+                      aria-label={t("ticket.increase", { name: tier.name })}
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
@@ -325,7 +327,7 @@ export function TicketCheckoutDialog({
           <div className="space-y-2">
             <Label className="text-sm flex items-center gap-1.5">
               <Tag className="h-3.5 w-3.5" />
-              Promo code
+              {t("ticket.promoCode")}
             </Label>
             <div className="flex gap-2">
               <Input
@@ -334,7 +336,7 @@ export function TicketCheckoutDialog({
                   setPromoInput(e.target.value);
                   setPromoError(null);
                 }}
-                placeholder="Optional"
+                placeholder={t("common.optional")}
                 disabled={isApplyingPromo}
               />
               <Button
@@ -343,7 +345,11 @@ export function TicketCheckoutDialog({
                 onClick={handleApplyPromo}
                 disabled={isApplyingPromo || !promoInput.trim()}
               >
-                {isApplyingPromo ? <Loader2 className="h-4 w-4 animate-spin" /> : "Apply"}
+                {isApplyingPromo ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  t("common.apply")
+                )}
               </Button>
             </div>
             {promoError && (
@@ -353,8 +359,10 @@ export function TicketCheckoutDialog({
             )}
             {appliedPromo && (
               <div className="text-xs text-green-600 dark:text-green-400">
-                Code <strong>{appliedPromo.code}</strong> applied —{" "}
-                {formatMoney(appliedPromo.discountCents, currency)} off
+                {t("ticket.codeLabel")} <strong>{appliedPromo.code}</strong>{" "}
+                {t("ticket.appliedOff", {
+                  amount: formatMoney(appliedPromo.discountCents, currency),
+                })}
               </div>
             )}
           </div>
@@ -363,7 +371,7 @@ export function TicketCheckoutDialog({
           <div className="space-y-3 border-t pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="space-y-1.5">
-                <Label htmlFor="ts-checkout-email">Email *</Label>
+                <Label htmlFor="ts-checkout-email">{t("form.emailLabel")}</Label>
                 <Input
                   id="ts-checkout-email"
                   type="email"
@@ -374,31 +382,31 @@ export function TicketCheckoutDialog({
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="ts-checkout-name">Full name</Label>
+                <Label htmlFor="ts-checkout-name">{t("form.fullName")}</Label>
                 <Input
                   id="ts-checkout-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Jane Doe"
+                  placeholder={t("form.namePlaceholder")}
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="ts-checkout-phone">Phone</Label>
+                <Label htmlFor="ts-checkout-phone">{t("form.phone")}</Label>
                 <Input
                   id="ts-checkout-phone"
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Optional"
+                  placeholder={t("common.optional")}
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="ts-checkout-company">Company</Label>
+                <Label htmlFor="ts-checkout-company">{t("form.company")}</Label>
                 <Input
                   id="ts-checkout-company"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
-                  placeholder="Optional"
+                  placeholder={t("common.optional")}
                 />
               </div>
             </div>
@@ -407,17 +415,19 @@ export function TicketCheckoutDialog({
           {/* Order summary */}
           <div className="border-t pt-4 space-y-1.5 text-sm">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Subtotal</span>
+              <span className="text-muted-foreground">
+                {t("ticket.subtotal")}
+              </span>
               <span className="tabular-nums">{formatMoney(subtotalCents, currency)}</span>
             </div>
             {discountCents > 0 && (
               <div className="flex justify-between text-green-600 dark:text-green-400">
-                <span>Discount</span>
+                <span>{t("ticket.discount")}</span>
                 <span className="tabular-nums">-{formatMoney(discountCents, currency)}</span>
               </div>
             )}
             <div className="flex justify-between text-base font-semibold border-t pt-2 mt-2">
-              <span>Total</span>
+              <span>{t("ticket.total")}</span>
               <span className="tabular-nums">{formatMoney(totalCents, currency)}</span>
             </div>
           </div>
@@ -429,7 +439,7 @@ export function TicketCheckoutDialog({
                 {submitError}
                 {submitError.toLowerCase().includes("stripe is not configured") && (
                   <div className="text-xs text-muted-foreground mt-1">
-                    Please contact the organiser to complete your purchase.
+                    {t("ticket.contactOrganiser")}
                   </div>
                 )}
               </div>
@@ -444,7 +454,7 @@ export function TicketCheckoutDialog({
             onClick={() => onOpenChange(false)}
             disabled={isSubmitting}
           >
-            Cancel
+            {t("common.cancel")}
           </Button>
           <Button
             type="button"
@@ -454,10 +464,10 @@ export function TicketCheckoutDialog({
             {isSubmitting ? (
               <>
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                Redirecting…
+                {t("ticket.redirecting")}
               </>
             ) : (
-              <>Continue to checkout</>
+              <>{t("ticket.continueCheckout")}</>
             )}
           </Button>
         </DialogFooter>

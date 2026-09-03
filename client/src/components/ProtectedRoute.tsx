@@ -7,6 +7,7 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { useT } from "@/lib/i18n";
 import { Loader2 } from "lucide-react";
 
 interface ProtectedRouteProps {
@@ -15,6 +16,7 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRouteProps) {
+  const t = useT();
   const { user, loading } = useAuth();
   const [location, setLocation] = useLocation();
 
@@ -42,7 +44,7 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <Loader2 className="h-8 w-8 animate-spin text-[#2E7D32] mx-auto mb-4" />
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600">{t("state.loading")}</p>
         </div>
       </div>
     );

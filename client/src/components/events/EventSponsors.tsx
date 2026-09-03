@@ -13,7 +13,9 @@
 import { Link } from "wouter";
 import { Award } from "lucide-react";
 
+import type { UiKey } from "@shared/uiStrings";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export type EventSponsor = {
@@ -35,7 +37,7 @@ type TierKey = "platinum" | "gold" | "silver" | "bronze" | "partner";
 
 const TIERS: Array<{
   key: TierKey;
-  label: string;
+  label: UiKey;
   /** Tailwind grid + tile-height pair, largest tier first. */
   grid: string;
   tile: string;
@@ -45,7 +47,7 @@ const TIERS: Array<{
 }> = [
   {
     key: "platinum",
-    label: "Platinum",
+    label: "events.tierPlatinum",
     grid: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
     tile: "h-32",
     logo: "max-h-20",
@@ -54,7 +56,7 @@ const TIERS: Array<{
   },
   {
     key: "gold",
-    label: "Gold",
+    label: "events.tierGold",
     grid: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
     tile: "h-28",
     logo: "max-h-16",
@@ -63,7 +65,7 @@ const TIERS: Array<{
   },
   {
     key: "silver",
-    label: "Silver",
+    label: "events.tierSilver",
     grid: "grid-cols-2 sm:grid-cols-4 lg:grid-cols-5",
     tile: "h-24",
     logo: "max-h-14",
@@ -72,7 +74,7 @@ const TIERS: Array<{
   },
   {
     key: "bronze",
-    label: "Bronze",
+    label: "events.tierBronze",
     grid: "grid-cols-3 sm:grid-cols-5 lg:grid-cols-6",
     tile: "h-20",
     logo: "max-h-12",
@@ -81,7 +83,7 @@ const TIERS: Array<{
   },
   {
     key: "partner",
-    label: "Partners",
+    label: "events.tierPartners",
     grid: "grid-cols-3 sm:grid-cols-6 lg:grid-cols-8",
     tile: "h-16",
     logo: "max-h-10",
@@ -106,7 +108,8 @@ function SponsorTile({
   logo: string;
   name: string;
 }) {
-  const label = sponsor.name || "Sponsor";
+  const t = useT();
+  const label = sponsor.name || t("events.sponsor");
   const body = (
     <div
       className={`flex ${tile} w-full items-center justify-center rounded-xl border bg-white p-4 transition group-hover:border-primary/40 group-hover:shadow-sm`}
@@ -154,6 +157,7 @@ function SponsorTile({
 
 /** Pure presentational tier grid — no fetching, no section heading. */
 export function SponsorTierGrid({ sponsors }: { sponsors: EventSponsor[] }) {
+  const t = useT();
   if (!sponsors || sponsors.length === 0) return null;
 
   const known = new Set(TIERS.map((t) => t.key as string));
@@ -174,7 +178,7 @@ export function SponsorTierGrid({ sponsors }: { sponsors: EventSponsor[] }) {
             className={`mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] ${g.accent}`}
           >
             <span className="h-px w-4 bg-current opacity-40" aria-hidden="true" />
-            {g.label}
+            {t(g.label)}
           </div>
           <div className={`grid gap-3 ${g.grid}`}>
             {g.items.map((s) => (
@@ -195,11 +199,13 @@ export function SponsorTierGrid({ sponsors }: { sponsors: EventSponsor[] }) {
 
 export default function EventSponsors({
   eventId,
-  title = "Sponsors & partners",
+  title,
 }: {
   eventId: number;
   title?: string | null;
 }) {
+  const t = useT();
+  const heading = title === undefined ? t("events.sponsorsAndPartners") : title;
   const { data = [], isLoading } = trpc.events.getSponsors.useQuery(
     { eventId },
     { enabled: !!eventId },
@@ -223,10 +229,10 @@ export default function EventSponsors({
 
   return (
     <section id="sponsors" className="scroll-mt-24">
-      {title && (
+      {heading && (
         <h2 className="mb-4 flex items-center gap-2 text-xl font-semibold">
           <Award className="h-5 w-5 text-primary" />
-          {title}
+          {heading}
         </h2>
       )}
       <SponsorTierGrid sponsors={sponsors} />

@@ -8,6 +8,8 @@ import { useState } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -39,6 +41,14 @@ import {
 
 type EntityType = "person" | "company" | "accelerator" | "event" | "investor";
 
+const entityLabelKeys: Record<EntityType, UiKey> = {
+  person: "claim.entityPerson",
+  company: "claim.entityCompany",
+  accelerator: "claim.entityAccelerator",
+  event: "claim.entityEvent",
+  investor: "claim.entityInvestor",
+};
+
 interface ClaimProfileButtonProps {
   entityType: EntityType;
   entityId: number;
@@ -54,6 +64,7 @@ export function ClaimProfileButton({
   compact = false,
   className = "",
 }: ClaimProfileButtonProps) {
+  const t = useT();
   const { user, loading: authLoading } = useAuth();
   const [, navigate] = useLocation();
   const [showClaimDialog, setShowClaimDialog] = useState(false);
@@ -77,7 +88,7 @@ export function ClaimProfileButton({
 
   const claimMutation = trpc.claimedProfiles.claimProfile.useMutation({
     onSuccess: () => {
-      toast.success("Claim request submitted! An admin will review your request.");
+      toast.success(t("claim.submitted"));
       setShowClaimDialog(false);
       setRequestNote("");
       setProofText("");
@@ -86,7 +97,7 @@ export function ClaimProfileButton({
       utils.claimedProfiles.getClaimStatus.invalidate({ entityType, entityId });
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to submit claim request");
+      toast.error(error.message || t("claim.submitFailed"));
     },
   });
 
@@ -100,7 +111,7 @@ export function ClaimProfileButton({
 
   const handleSubmitClaim = () => {
     if (!requestNote.trim()) {
-      toast.error("Please provide a reason for your claim");
+      toast.error(t("claim.reasonRequired"));
       return;
     }
     claimMutation.mutate({
@@ -113,13 +124,7 @@ export function ClaimProfileButton({
     });
   };
 
-  const entityLabel = {
-    person: "Person",
-    company: "Company",
-    accelerator: "Accelerator",
-    event: "Event",
-    investor: "Investor",
-  }[entityType];
+  const entityLabel = t(entityLabelKeys[entityType]);
 
   if (authLoading) return null;
 
@@ -129,7 +134,7 @@ export function ClaimProfileButton({
       <div className={`flex items-center gap-2 ${className}`}>
         <Badge className="bg-emerald-100 text-emerald-800 border-emerald-200 gap-1.5 px-3 py-1">
           <ShieldCheck className="h-3.5 w-3.5" />
-          Claimed
+          {t("claim.claimed")}
         </Badge>
         <Button
           size={compact ? "sm" : "default"}
@@ -138,7 +143,7 @@ export function ClaimProfileButton({
           onClick={() => navigate("/dashboard/claimed-profiles")}
         >
           <Settings className="h-4 w-4" />
-          {compact ? "Manage" : "Manage Profile"}
+          {compact ? t("claim.manage") : t("claim.manageProfile")}
         </Button>
       </div>
     );
@@ -149,7 +154,7 @@ export function ClaimProfileButton({
     return (
       <Badge className={`bg-amber-100 text-amber-800 border-amber-200 gap-1.5 px-3 py-1 ${className}`}>
         <Clock className="h-3.5 w-3.5" />
-        {userClaim.status === "under_review" ? "Under Review" : "Claim Pending"}
+        {userClaim.status === "under_review" ? t("claim.underReview") : t("claim.pending")}
       </Badge>
     );
   }
@@ -160,7 +165,7 @@ export function ClaimProfileButton({
       <div className={`flex items-center gap-2 ${className}`}>
         <Badge className="bg-orange-100 text-orange-800 border-orange-200 gap-1.5 px-3 py-1">
           <HelpCircle className="h-3.5 w-3.5" />
-          Clarification Needed
+          {t("claim.clarificationNeeded")}
         </Badge>
         <Button
           size="sm"
@@ -169,7 +174,7 @@ export function ClaimProfileButton({
           onClick={() => navigate("/dashboard/claimed-profiles")}
         >
           <AlertCircle className="h-4 w-4" />
-          View Details
+          {t("common.viewDetails")}
         </Button>
       </div>
     );
@@ -179,7 +184,7 @@ export function ClaimProfileButton({
   if (userClaim?.claimed && userClaim.status === "rejected") {
     return (
       <Badge className={`bg-red-100 text-red-800 border-red-200 gap-1.5 px-3 py-1 ${className}`} variant="outline">
-        Claim Rejected
+        {t("claim.rejected")}
       </Badge>
     );
   }
@@ -189,7 +194,7 @@ export function ClaimProfileButton({
     return (
       <Badge className={`bg-emerald-100 text-emerald-800 border-emerald-200 gap-1.5 px-3 py-1 ${className}`}>
         <ShieldCheck className="h-3.5 w-3.5" />
-        Claimed
+        {t("claim.claimed")}
       </Badge>
     );
   }
@@ -208,7 +213,7 @@ export function ClaimProfileButton({
         ) : (
           <UserCheck className="h-4 w-4" />
         )}
-        {compact ? "Claim" : `Claim this ${entityLabel}`}
+        {compact ? t("claim.claim") : t("claim.claimThis", { entity: entityLabel })}
       </Button>
 
       {/* Claim Dialog with Full Form */}
@@ -217,11 +222,10 @@ export function ClaimProfileButton({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <UserCheck className="h-5 w-5 text-emerald-600" />
-              Claim {entityLabel} Profile
+              {t("claim.claimProfileTitle", { entity: entityLabel })}
             </DialogTitle>
             <DialogDescription>
-              Submit a claim request for <strong>{entityName}</strong>. An admin will review and
-              verify your ownership before approving.
+              {t("claim.submitRequestFor")} <strong>{entityName}</strong>. {t("claim.adminWillVerify")}
             </DialogDescription>
           </DialogHeader>
 
@@ -229,9 +233,7 @@ export function ClaimProfileButton({
             {/* Info Banner */}
             <div className="rounded-lg border border-blue-200 bg-blue-50 p-3">
               <p className="text-sm text-blue-800">
-                <strong>What happens next?</strong> After submitting, an admin will review your request.
-                You may be asked for additional clarification. Once approved, you will be able to manage
-                this profile, post content, and manage job listings.
+                <strong>{t("claim.whatNext")}</strong> {t("claim.whatNextBody")}
               </p>
             </div>
 
@@ -239,44 +241,44 @@ export function ClaimProfileButton({
             <div className="space-y-1.5">
               <Label className="flex items-center gap-1.5 text-sm">
                 <Mail className="h-3.5 w-3.5 text-muted-foreground" />
-                Your Account Email
+                {t("claim.accountEmail")}
               </Label>
               <Input
-                value={user?.email || "No email on file"}
+                value={user?.email || t("claim.noEmailOnFile")}
                 disabled
                 className="bg-muted/50 text-muted-foreground"
               />
-              <p className="text-xs text-muted-foreground">Auto-detected from your account</p>
+              <p className="text-xs text-muted-foreground">{t("claim.autoDetected")}</p>
             </div>
 
             {/* Reason (Required) */}
             <div className="space-y-1.5">
               <Label htmlFor="requestNote" className="flex items-center gap-1.5 text-sm">
                 <FileText className="h-3.5 w-3.5 text-muted-foreground" />
-                Reason for Claiming <span className="text-red-500">*</span>
+                {t("claim.reasonLabel")} <span className="text-red-500">*</span>
               </Label>
               <Textarea
                 id="requestNote"
                 value={requestNote}
                 onChange={(e) => setRequestNote(e.target.value)}
-                placeholder="e.g. I am the founder/CEO of this company, I am the person listed, I represent this organization..."
+                placeholder={t("claim.reasonPlaceholder")}
                 rows={3}
                 maxLength={2000}
               />
-              <p className="text-xs text-muted-foreground">{requestNote.length}/2000 characters</p>
+              <p className="text-xs text-muted-foreground">{t("claim.charCount", { n: requestNote.length })}</p>
             </div>
 
             {/* Proof (Optional) */}
             <div className="space-y-1.5">
               <Label htmlFor="proofText" className="flex items-center gap-1.5 text-sm">
                 <ShieldCheck className="h-3.5 w-3.5 text-muted-foreground" />
-                Proof of Ownership <span className="text-muted-foreground">(optional)</span>
+                {t("claim.proofLabel")} <span className="text-muted-foreground">{t("common.optionalSuffix")}</span>
               </Label>
               <Textarea
                 id="proofText"
                 value={proofText}
                 onChange={(e) => setProofText(e.target.value)}
-                placeholder="Provide any proof: LinkedIn profile URL, company website link, official document reference, etc."
+                placeholder={t("claim.proofPlaceholder")}
                 rows={2}
                 maxLength={2000}
               />
@@ -286,7 +288,7 @@ export function ClaimProfileButton({
             <div className="space-y-1.5">
               <Label htmlFor="companyEmail" className="flex items-center gap-1.5 text-sm">
                 <Building2 className="h-3.5 w-3.5 text-muted-foreground" />
-                Company / Organization Email <span className="text-muted-foreground">(optional)</span>
+                {t("claim.companyEmailLabel")} <span className="text-muted-foreground">{t("common.optionalSuffix")}</span>
               </Label>
               <Input
                 id="companyEmail"
@@ -296,14 +298,14 @@ export function ClaimProfileButton({
                 placeholder="your.name@company.com"
               />
               <p className="text-xs text-muted-foreground">
-                Providing a company email helps speed up verification
+                {t("claim.companyEmailHelp")}
               </p>
             </div>
           </div>
 
           <DialogFooter>
             <Button variant="outline" onClick={() => setShowClaimDialog(false)}>
-              Cancel
+              {t("common.cancel")}
             </Button>
             <Button
               onClick={handleSubmitClaim}
@@ -315,7 +317,7 @@ export function ClaimProfileButton({
               ) : (
                 <UserCheck className="h-4 w-4 mr-2" />
               )}
-              Submit Claim
+              {t("claim.submit")}
             </Button>
           </DialogFooter>
         </DialogContent>

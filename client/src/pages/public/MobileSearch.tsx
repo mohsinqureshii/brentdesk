@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { Search, X, TrendingUp, Clock, ArrowRight } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 
 const trendingTopics = [
   "NEOM", "Aramco", "EPC Awards", "Giga-projects", "Renewables",
@@ -9,6 +10,7 @@ const trendingTopics = [
 ];
 
 export default function MobileSearch() {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [recentSearches] = useState<string[]>(() => {
     try {
@@ -44,7 +46,7 @@ export default function MobileSearch() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch(query)}
-            placeholder="Search news, companies, people..."
+            placeholder={t("search.newsCompaniesPeople")}
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
           />
           {query && (
@@ -60,7 +62,7 @@ export default function MobileSearch() {
         {recentSearches.length > 0 && !query && (
           <div className="mb-6">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-              Recent
+              {t("search.recent")}
             </h3>
             <div className="space-y-1">
               {recentSearches.map((term) => (
@@ -80,7 +82,7 @@ export default function MobileSearch() {
         {/* Trending topics */}
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-            Trending Topics
+            {t("search.trendingTopics")}
           </h3>
           <div className="flex flex-wrap gap-2">
             {trendingTopics.map((topic) => (

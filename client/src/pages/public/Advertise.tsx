@@ -11,8 +11,10 @@ import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
+import { useT } from "@/lib/i18n";
 
 const Advertise = () => {
+  const t = useT();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -29,15 +31,15 @@ const Advertise = () => {
   const submit = trpc.submissions.advertise.useMutation({
     onSuccess: () => {
       toast({
-        title: "Inquiry received",
-        description: "Our media team will reach out within 1 business day.",
+        title: t("advertise.inquiryReceived"),
+        description: t("advertise.inquiryReceivedBody"),
       });
       setFormData({ firstName: "", lastName: "", email: "", jobTitle: "", company: "", industry: "", budget: "", objectives: [], message: "" });
     },
     onError: (err) => {
       toast({
-        title: "Couldn't submit your inquiry",
-        description: err.message || "Try again in a moment.",
+        title: t("advertise.submitFailed"),
+        description: err.message || t("state.tryAgainMoment"),
         variant: "destructive",
       });
     },
@@ -55,7 +57,7 @@ const Advertise = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.company || formData.message.length < 5) {
-      toast({ title: "Please complete all required fields", variant: "destructive" });
+      toast({ title: t("form.completeRequired"), variant: "destructive" });
       return;
     }
     submit.mutate({
@@ -71,12 +73,14 @@ const Advertise = () => {
     });
   };
 
+  // `value` is what the form submits, so it stays English; `label` is what the
+  // reader sees.
   const advertisingObjectives = [
-    "Run display advertising on the site",
-    "Sponsor the newsletter",
-    "Distribute branded content / sponsored article",
-    "Promote an event, tender, or recruitment campaign",
-    "Something else (please explain in the Message area)"
+    { value: "Run display advertising on the site", label: t("advertise.objDisplay") },
+    { value: "Sponsor the newsletter", label: t("advertise.objNewsletter") },
+    { value: "Distribute branded content / sponsored article", label: t("advertise.objBranded") },
+    { value: "Promote an event, tender, or recruitment campaign", label: t("advertise.objPromote") },
+    { value: "Something else (please explain in the Message area)", label: t("advertise.objOther") },
   ];
 
   return (
@@ -92,10 +96,10 @@ const Advertise = () => {
       <section className="py-16 md:py-20 border-b border-border">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Advertise with {publication.name}
+            {t("advertise.title", { site: publication.name })}
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
-            {publication.name} is read by the people who plan, build, and operate the physical economy — contractors, developers, engineers, energy and utility executives, logistics operators, procurement leaders, and the financiers behind them — with coverage focused on Saudi Arabia, the GCC and MENA. Advertising with {publication.name} puts your brand alongside the news these decision-makers rely on, in a professional editorial environment rather than a general-interest feed.
+            {t("advertise.intro", { site: publication.name })}
           </p>
         </div>
       </section>
@@ -103,28 +107,28 @@ const Advertise = () => {
       {/* Ad Formats */}
       <section className="py-12 md:py-16 border-b border-border">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground mb-6">Ad Formats</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-6">{t("advertise.adFormats")}</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Leaderboard</h3>
-                  <p className="text-sm text-muted-foreground">970×250 and 970×90 placements at the top of the homepage, section fronts, and articles.</p>
+                  <h3 className="font-semibold text-foreground">{t("advertise.leaderboard")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("advertise.leaderboardDesc")}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-foreground">In-Content</h3>
-                  <p className="text-sm text-muted-foreground">728×90 units placed within article bodies, seen at the point of reading.</p>
+                  <h3 className="font-semibold text-foreground">{t("advertise.inContent")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("advertise.inContentDesc")}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Right Rail</h3>
-                  <p className="text-sm text-muted-foreground">300×250 and 300×600 units in the sidebar, persistent across article and listing pages.</p>
+                  <h3 className="font-semibold text-foreground">{t("advertise.rightRail")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("advertise.rightRailDesc")}</p>
                 </div>
               </div>
             </div>
@@ -132,32 +136,32 @@ const Advertise = () => {
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Mobile</h3>
-                  <p className="text-sm text-muted-foreground">Mobile-optimized banner and sticky formats for readers on phones and tablets.</p>
+                  <h3 className="font-semibold text-foreground">{t("advertise.mobile")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("advertise.mobileDesc")}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Native & Branded Content</h3>
-                  <p className="text-sm text-muted-foreground">Clearly labelled sponsored articles and branded features, produced to editorial standards.</p>
+                  <h3 className="font-semibold text-foreground">{t("advertise.native")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("advertise.nativeDesc")}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold text-foreground">Newsletter Sponsorship</h3>
-                  <p className="text-sm text-muted-foreground">Dedicated placements in {publication.newsletter.name}, delivered to subscribers' inboxes every morning.</p>
+                  <h3 className="font-semibold text-foreground">{t("advertise.newsletterSponsorship")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("advertise.newsletterSponsorshipDesc", { name: publication.newsletter.name })}</p>
                 </div>
               </div>
             </div>
           </div>
           <p className="text-sm text-muted-foreground mt-6">
-            For a media kit, current availability, and rates, email{" "}
+            {t("advertise.mediaKit")}{" "}
             <a href={`mailto:${publication.emails.advertising}`} className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
               {publication.emails.advertising}
             </a>{" "}
-            or use the form below.
+            {t("advertise.orUseForm")}
           </p>
         </div>
       </section>
@@ -165,15 +169,15 @@ const Advertise = () => {
       {/* Ads & Sponsorships Form */}
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-3">{publication.name} Ads &amp; Sponsorships</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-3">{t("advertise.adsSponsorships", { site: publication.name })}</h2>
           <p className="text-muted-foreground mb-2">
-            This form is for paid sponsorship and advertising inquiries only. For editorial pitches or press outreach, please see our{" "}
+            {t("advertise.formNote")}{" "}
             <a href="/contact" className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
-              contact page
+              {t("advertise.contactPageLink")}
             </a>.
           </p>
           <p className="text-sm text-muted-foreground mb-8">
-            All inquiries are sent to{" "}
+            {t("advertise.allInquiriesSentTo")}{" "}
             <a href={`mailto:${publication.emails.advertising}`} className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
               {publication.emails.advertising}
             </a>.
@@ -183,21 +187,21 @@ const Advertise = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">First Name <span className="text-destructive">*</span></label>
+                  <label className="block text-sm font-medium text-foreground mb-2">{t("form.firstName")} <span className="text-destructive">*</span></label>
                   <Input
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder="First name"
+                    placeholder={t("form.firstNamePlaceholder")}
                     required
                     className="bg-background"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Last Name <span className="text-destructive">*</span></label>
+                  <label className="block text-sm font-medium text-foreground mb-2">{t("form.lastName")} <span className="text-destructive">*</span></label>
                   <Input
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder="Last name"
+                    placeholder={t("form.lastNamePlaceholder")}
                     required
                     className="bg-background"
                   />
@@ -205,93 +209,93 @@ const Advertise = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Email <span className="text-destructive">*</span></label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.email")} <span className="text-destructive">*</span></label>
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="your@company.com"
+                  placeholder={t("advertise.emailPlaceholder")}
                   required
                   className="bg-background"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Job Title <span className="text-destructive">*</span></label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.jobTitle")} <span className="text-destructive">*</span></label>
                 <Input
                   value={formData.jobTitle}
                   onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
-                  placeholder="Your role"
+                  placeholder={t("advertise.rolePlaceholder")}
                   required
                   className="bg-background"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Company Name <span className="text-destructive">*</span></label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.companyName")} <span className="text-destructive">*</span></label>
                 <Input
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder="Your company"
+                  placeholder={t("advertise.companyPlaceholder")}
                   required
                   className="bg-background"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Industry</label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.industry")}</label>
                 <Select value={formData.industry} onValueChange={(val) => setFormData({ ...formData, industry: val })}>
                   <SelectTrigger className="bg-background">
-                    <SelectValue placeholder="Please Select" />
+                    <SelectValue placeholder={t("form.pleaseSelect")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Construction & Contracting">Construction &amp; Contracting</SelectItem>
-                    <SelectItem value="Energy / Oil & Gas">Energy / Oil &amp; Gas</SelectItem>
-                    <SelectItem value="Utilities & Power">Utilities &amp; Power</SelectItem>
-                    <SelectItem value="Manufacturing">Manufacturing</SelectItem>
-                    <SelectItem value="Logistics / Supply Chain">Logistics / Supply Chain</SelectItem>
-                    <SelectItem value="Transportation / Aviation / Ports / Rail">Transportation / Aviation / Ports / Rail</SelectItem>
-                    <SelectItem value="Mining & Metals">Mining &amp; Metals</SelectItem>
-                    <SelectItem value="Chemicals">Chemicals</SelectItem>
-                    <SelectItem value="Real Estate Development">Real Estate Development</SelectItem>
-                    <SelectItem value="Data Centers / Industrial Technology">Data Centers / Industrial Technology</SelectItem>
-                    <SelectItem value="Engineering / Professional Services">Engineering / Professional Services</SelectItem>
-                    <SelectItem value="Financial Services">Financial Services</SelectItem>
-                    <SelectItem value="Government / Public Sector">Government / Public Sector</SelectItem>
-                    <SelectItem value="Other">Other</SelectItem>
+                    <SelectItem value="Construction & Contracting">{t("advertise.indConstruction")}</SelectItem>
+                    <SelectItem value="Energy / Oil & Gas">{t("advertise.indEnergy")}</SelectItem>
+                    <SelectItem value="Utilities & Power">{t("advertise.indUtilities")}</SelectItem>
+                    <SelectItem value="Manufacturing">{t("cat.manufacturing")}</SelectItem>
+                    <SelectItem value="Logistics / Supply Chain">{t("advertise.indLogistics")}</SelectItem>
+                    <SelectItem value="Transportation / Aviation / Ports / Rail">{t("advertise.indTransport")}</SelectItem>
+                    <SelectItem value="Mining & Metals">{t("advertise.indMining")}</SelectItem>
+                    <SelectItem value="Chemicals">{t("advertise.indChemicals")}</SelectItem>
+                    <SelectItem value="Real Estate Development">{t("advertise.indRealEstate")}</SelectItem>
+                    <SelectItem value="Data Centers / Industrial Technology">{t("advertise.indDataCenters")}</SelectItem>
+                    <SelectItem value="Engineering / Professional Services">{t("advertise.indEngineering")}</SelectItem>
+                    <SelectItem value="Financial Services">{t("advertise.indFinancial")}</SelectItem>
+                    <SelectItem value="Government / Public Sector">{t("advertise.indGovernment")}</SelectItem>
+                    <SelectItem value="Other">{t("common.other")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Do you have a marketing budget for this initiative? <span className="text-destructive">*</span></label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("advertise.budgetQuestion")} <span className="text-destructive">*</span></label>
                 <Select value={formData.budget} onValueChange={(val) => setFormData({ ...formData, budget: val })}>
                   <SelectTrigger className="bg-background">
-                    <SelectValue placeholder="Please Select" />
+                    <SelectValue placeholder={t("form.pleaseSelect")} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Yes, $50,000+">Yes, $50,000+</SelectItem>
-                    <SelectItem value="Yes, $25,000-$50,000">Yes, $25,000–$50,000</SelectItem>
-                    <SelectItem value="Yes, $10,000-$25,000">Yes, $10,000–$25,000</SelectItem>
-                    <SelectItem value="Yes, less than $10,000">Yes, less than $10,000</SelectItem>
-                    <SelectItem value="No / Looking for editorial coverage">No / I'm looking for editorial coverage</SelectItem>
+                    <SelectItem value="Yes, $50,000+">{t("advertise.budget50kPlus")}</SelectItem>
+                    <SelectItem value="Yes, $25,000-$50,000">{t("advertise.budget25to50k")}</SelectItem>
+                    <SelectItem value="Yes, $10,000-$25,000">{t("advertise.budget10to25k")}</SelectItem>
+                    <SelectItem value="Yes, less than $10,000">{t("advertise.budgetUnder10k")}</SelectItem>
+                    <SelectItem value="No / Looking for editorial coverage">{t("advertise.budgetNone")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-3">Advertising Objectives</label>
+                <label className="block text-sm font-medium text-foreground mb-3">{t("advertise.objectives")}</label>
                 <div className="space-y-3">
                   {advertisingObjectives.map((objective) => (
-                    <div key={objective} className="flex items-start gap-3">
+                    <div key={objective.value} className="flex items-start gap-3">
                       <Checkbox
-                        id={objective}
-                        checked={formData.objectives.includes(objective)}
-                        onCheckedChange={() => toggleObjective(objective)}
+                        id={objective.value}
+                        checked={formData.objectives.includes(objective.value)}
+                        onCheckedChange={() => toggleObjective(objective.value)}
                         className="mt-0.5"
                       />
-                      <label htmlFor={objective} className="text-sm text-foreground cursor-pointer leading-relaxed">
-                        {objective}
+                      <label htmlFor={objective.value} className="text-sm text-foreground cursor-pointer leading-relaxed">
+                        {objective.label}
                       </label>
                     </div>
                   ))}
@@ -299,14 +303,14 @@ const Advertise = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Message</label>
+                <label className="block text-sm font-medium text-foreground mb-2">{t("form.message")}</label>
                 <p className="text-xs text-muted-foreground mb-2">
-                  This is your opportunity to ask us for specifics to be addressed in our initial reply. Please keep this section short and to the point about your ask.
+                  {t("advertise.messageHint")}
                 </p>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about your advertising goals..."
+                  placeholder={t("advertise.messagePlaceholder")}
                   rows={4}
                   className="bg-background"
                 />
@@ -318,9 +322,9 @@ const Advertise = () => {
                 className="bg-blue-600 hover:bg-blue-700 text-white"
               >
                 {submit.isPending ? (
-                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending…</>
+                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("form.sending")}</>
                 ) : (
-                  <><Send className="w-4 h-4 mr-2" /> Submit</>
+                  <><Send className="w-4 h-4 mr-2" /> {t("form.submit")}</>
                 )}
               </Button>
             </form>

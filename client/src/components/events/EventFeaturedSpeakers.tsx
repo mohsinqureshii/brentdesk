@@ -17,6 +17,7 @@ import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { initialsOf } from "./eventFormat";
 
 interface Speaker {
@@ -60,6 +61,7 @@ export default function EventFeaturedSpeakers({
   speakers: Speaker[];
   onViewAll: () => void;
 }) {
+  const t = useT();
   // Same query the agenda uses — react-query dedupes it, so this costs
   // nothing extra on a page that already renders the agenda preview.
   const { data: scheduleRows = [] } = trpc.events.getSchedule.useQuery(
@@ -86,17 +88,17 @@ export default function EventFeaturedSpeakers({
   const remaining = speakers.length - shown.length;
 
   return (
-    <section aria-label="Featured speakers">
+    <section aria-label={t("events.featuredSpeakers")}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          Featured speakers
+          {t("events.featuredSpeakers")}
         </h2>
         <button
           type="button"
           onClick={onViewAll}
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
         >
-          View all speakers
+          {t("events.viewAllSpeakers")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </button>
       </div>
@@ -159,7 +161,9 @@ export default function EventFeaturedSpeakers({
                 +{remaining}
               </span>
               <span className="mt-1.5 text-sm text-muted-foreground">
-                More speaker{remaining === 1 ? "" : "s"} on the programme
+                {remaining === 1
+                  ? t("events.moreSpeakersOne")
+                  : t("events.moreSpeakersMany")}
               </span>
             </button>
           </li>

@@ -21,6 +21,7 @@ import { useMemo, useState } from "react";
 import { ArrowRight, MapPin, Star } from "lucide-react";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EventFallbackTile, isUsableImage } from "./EventVisual";
 import { type GalleryRow } from "./EventGallery";
@@ -84,8 +85,9 @@ function VenueCard({
   event: EventRow;
   gallery: GalleryRow[];
 }) {
+  const t = useT();
   const name = event.venueName || event.venue || null;
-  const locality = formatLocation(event.city, event.country, event.format);
+  const locality = formatLocation(t, event.city, event.country, event.format);
   const directionsUrl = buildDirectionsUrl(event);
 
   const galleryImage = (gallery || []).find((g) => isUsableImage(g?.imageUrl));
@@ -99,7 +101,7 @@ function VenueCard({
         {image ? (
           <img
             src={image}
-            alt={name ? `${name}` : "Venue"}
+            alt={name ? `${name}` : t("events.venue")}
             loading="lazy"
             className="h-full w-full object-cover"
           />
@@ -118,7 +120,7 @@ function VenueCard({
       </div>
 
       <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-        About the venue
+        {t("events.aboutVenue")}
       </h3>
       <p className="mt-3 text-2xl font-bold tracking-tight text-foreground">
         {name || locality}
@@ -131,7 +133,7 @@ function VenueCard({
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
         >
-          Get directions
+          {t("events.getDirections")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </a>
       )}
@@ -148,6 +150,7 @@ export default function EventAgendaPreview({
   gallery: GalleryRow[];
   onOpenAgenda: () => void;
 }) {
+  const t = useT();
   const { data: rows = [], isLoading } = trpc.events.getSchedule.useQuery(
     { eventId: event.id },
     { enabled: !!event.id },
@@ -191,11 +194,10 @@ export default function EventAgendaPreview({
       <section className="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="min-w-0">
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-            Agenda
+            {t("events.agenda")}
           </h2>
           <p className="mt-5 text-sm text-muted-foreground">
-            The agenda isn&rsquo;t published yet. Sessions will appear here as
-            soon as the organisers confirm them.
+            {t("events.agendaComingSoon")}
           </p>
         </div>
         {venue}
@@ -217,7 +219,7 @@ export default function EventAgendaPreview({
       {/* ---------------------------------------------------- agenda */}
       <div className="min-w-0">
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          Agenda
+          {t("events.agenda")}
         </h2>
 
         {days.length > 1 && (
@@ -237,7 +239,9 @@ export default function EventAgendaPreview({
                       : "border-[var(--border)] hover:border-emerald-600/40 hover:bg-muted"
                   }`}
                 >
-                  <div className="text-sm font-bold leading-tight">Day {d}</div>
+                  <div className="text-sm font-bold leading-tight">
+                    {t("events.dayN", { n: d })}
+                  </div>
                   {dt && (
                     <div
                       className={`text-xs leading-tight ${
@@ -258,7 +262,7 @@ export default function EventAgendaPreview({
             <li key={s.id} className="flex items-start gap-4 py-4">
               <div className="w-20 shrink-0 tabular-nums">
                 <div className="text-sm font-bold text-foreground">
-                  {formatTime(s.startTime) || "TBA"}
+                  {formatTime(s.startTime) || t("events.tba")}
                 </div>
                 {s.endTime && (
                   <div className="text-xs text-muted-foreground">
@@ -270,7 +274,7 @@ export default function EventAgendaPreview({
               {s.isFeatured ? (
                 <Star
                   className="mt-0.5 h-4 w-4 shrink-0 fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400"
-                  aria-label="Featured session"
+                  aria-label={t("events.featuredSession")}
                 />
               ) : (
                 <span className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
@@ -298,7 +302,7 @@ export default function EventAgendaPreview({
           onClick={onOpenAgenda}
           className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
         >
-          View full agenda
+          {t("events.viewFullAgenda")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </button>
       </div>

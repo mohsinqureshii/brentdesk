@@ -31,6 +31,7 @@ import {
 } from "lucide-react";
 
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { stripHtml } from "@/lib/sanitizeHtml";
 import { SidebarAd } from "@/components/ads/AdUnit";
 import {
@@ -97,9 +98,10 @@ function FactRow({
 
 /** Dates, place and the organiser's own links — all from event columns. */
 function KeyFacts({ event }: { event: EventRow }) {
+  const t = useT();
   const duration = durationLabel(event.startDate, event.endDate);
   const venueName = event.venueName || event.venue || null;
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   const directionsUrl = buildDirectionsUrl(event);
   const website = event.websiteUrl || null;
 
@@ -107,8 +109,8 @@ function KeyFacts({ event }: { event: EventRow }) {
 
   if (event.startDate) {
     rows.push(
-      <FactRow Icon={CalendarDays} label="Dates" key="dates">
-        {formatLongDateRange(event.startDate, event.endDate)}
+      <FactRow Icon={CalendarDays} label={t("events.dates")} key="dates">
+        {formatLongDateRange(t, event.startDate, event.endDate)}
         {duration && (
           <span className="block font-normal text-muted-foreground">{duration}</span>
         )}
@@ -118,7 +120,7 @@ function KeyFacts({ event }: { event: EventRow }) {
 
   if (venueName || location) {
     rows.push(
-      <FactRow Icon={MapPin} label="Venue" key="venue">
+      <FactRow Icon={MapPin} label={t("events.venue")} key="venue">
         {venueName || location}
         {venueName && location && (
           <span className="block font-normal text-muted-foreground">{location}</span>
@@ -130,7 +132,8 @@ function KeyFacts({ event }: { event: EventRow }) {
             rel="noopener noreferrer"
             className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
           >
-            Get directions <ArrowRight className="h-3 w-3" aria-hidden="true" />
+            {t("events.getDirections")}{" "}
+            <ArrowRight className="h-3 w-3" aria-hidden="true" />
           </a>
         )}
       </FactRow>,
@@ -139,7 +142,7 @@ function KeyFacts({ event }: { event: EventRow }) {
 
   if (website) {
     rows.push(
-      <FactRow Icon={Globe} label="Official site" key="site">
+      <FactRow Icon={Globe} label={t("events.officialSite")} key="site">
         <a
           href={website}
           target="_blank"
@@ -155,14 +158,14 @@ function KeyFacts({ event }: { event: EventRow }) {
 
   if (event.registrationUrl) {
     rows.push(
-      <FactRow Icon={Ticket} label="Registration" key="reg">
+      <FactRow Icon={Ticket} label={t("events.registration")} key="reg">
         <a
           href={event.registrationUrl}
           target="_blank"
           rel="noopener noreferrer nofollow"
           className="inline-flex items-center gap-1 text-emerald-700 hover:underline dark:text-emerald-400"
         >
-          Register on the organiser&rsquo;s site
+          {t("events.registerOnOrganiserSite")}
           <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
         </a>
       </FactRow>,
@@ -172,7 +175,7 @@ function KeyFacts({ event }: { event: EventRow }) {
   if (rows.length === 0) return null;
 
   return (
-    <RailCard title="Key facts">
+    <RailCard title={t("events.keyFacts")}>
       <div className="divide-y divide-[var(--border)]">{rows}</div>
     </RailCard>
   );
@@ -180,6 +183,7 @@ function KeyFacts({ event }: { event: EventRow }) {
 
 /** Who runs the event. Omitted when no organiser has been recorded. */
 function Organiser({ event }: { event: EventRow }) {
+  const t = useT();
   const name = event.organizerName;
   if (!name) return null;
   const blurb = event.organizerDescription
@@ -187,7 +191,7 @@ function Organiser({ event }: { event: EventRow }) {
     : null;
 
   return (
-    <RailCard title="Organiser">
+    <RailCard title={t("events.organiser")}>
       <div className="flex items-start gap-3">
         <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
           <Building2 className="h-4 w-4" aria-hidden="true" />
@@ -206,7 +210,8 @@ function Organiser({ event }: { event: EventRow }) {
               rel="noopener noreferrer nofollow"
               className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
             >
-              Visit organiser <ExternalLink className="h-3 w-3" aria-hidden="true" />
+              {t("events.visitOrganiser")}{" "}
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </a>
           )}
         </div>
@@ -217,6 +222,7 @@ function Organiser({ event }: { event: EventRow }) {
 
 /** Other upcoming events, current one excluded. */
 function MoreEvents({ currentId }: { currentId: number }) {
+  const t = useT();
   const q = trpc.events.list.useQuery({
     page: 1,
     limit: 8,
@@ -233,13 +239,13 @@ function MoreEvents({ currentId }: { currentId: number }) {
 
   return (
     <RailCard
-      title="Coming up next"
+      title={t("events.comingUpNext")}
       action={
         <Link
           href="/events"
           className="text-[11px] font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
         >
-          All events
+          {t("events.allEvents")}
         </Link>
       }
     >
@@ -287,9 +293,10 @@ function MoreEvents({ currentId }: { currentId: number }) {
 // ------------------------------------------------------------------ rail
 
 export default function EventSidebar({ event }: { event: EventRow }) {
+  const t = useT();
   return (
     <aside
-      aria-label={`About ${event.title}`}
+      aria-label={t("events.aboutEvent", { title: event.title })}
       className="space-y-6 lg:sticky lg:top-24 lg:self-start"
     >
       <KeyFacts event={event} />

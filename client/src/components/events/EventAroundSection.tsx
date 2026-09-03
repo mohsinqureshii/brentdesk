@@ -15,6 +15,7 @@
 import { ArrowRight } from "lucide-react";
 
 import { stripHtml } from "@/lib/sanitizeHtml";
+import { useT } from "@/lib/i18n";
 import { EventFallbackTile, isUsableImage } from "./EventVisual";
 import { type EventRow } from "./eventMeta";
 
@@ -92,16 +93,17 @@ export default function EventAroundSection({
   highlights: any[];
   onSelectTab: (id: string, scroll?: boolean) => void;
 }) {
+  const t = useT();
   const cards = buildAroundCards({ event, sideEvents, tracks, highlights });
   if (cards.length === 0) return null;
 
   const exploreTab = cards.find((c) => c.tab)?.tab || null;
 
   return (
-    <section aria-label={`Around ${event.title}`}>
+    <section aria-label={t("events.aroundEvent", { title: event.title })}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          Around {event.title}
+          {t("events.aroundEvent", { title: event.title })}
         </h2>
         {exploreTab && (
           <button
@@ -109,7 +111,7 @@ export default function EventAroundSection({
             onClick={() => onSelectTab(exploreTab, true)}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
           >
-            Explore all
+            {t("events.exploreAll")}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </button>
         )}

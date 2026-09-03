@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 
 import { stripHtml } from "@/lib/sanitizeHtml";
+import { useT } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -85,6 +86,7 @@ export default function EventHeroSection({
   onOpenCheckout: (ticketId?: number) => void;
   onSelectTab: (id: string, scroll?: boolean) => void;
 }) {
+  const t = useT();
   const provider = event.ticketProvider || "none";
   const externalProvider = isExternalProvider(provider) ? provider : null;
   const externalUrl = externalTicketUrlOf(event);
@@ -102,7 +104,7 @@ export default function EventHeroSection({
   const directionsUrl = buildDirectionsUrl(event);
   const duration = durationLabel(event.startDate, event.endDate);
   const venueName = event.venueName || event.venue || null;
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   const sectors: Array<{ id: number; name: string }> = event.sectors || [];
   const shortDescription = stripHtml(event.shortDescription || "");
 
@@ -121,10 +123,10 @@ export default function EventHeroSection({
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
                 </span>
-                Live now
+                {t("events.liveNow")}
               </span>
             )}
-            {mode === "post" && <Chip>Event ended</Chip>}
+            {mode === "post" && <Chip>{t("events.ended")}</Chip>}
             {event.format && (
               <Chip>
                 {FORMAT_LABEL[String(event.format)] ||
@@ -134,7 +136,8 @@ export default function EventHeroSection({
             {event.type && <Chip>{typeLabelFor(event.type)}</Chip>}
             {event.isFeatured ? (
               <Chip>
-                <Star className="h-3 w-3" aria-hidden="true" /> Featured
+                <Star className="h-3 w-3" aria-hidden="true" />{" "}
+                {t("events.featured")}
               </Chip>
             ) : null}
           </div>
@@ -164,7 +167,7 @@ export default function EventHeroSection({
               />
               <div className="min-w-0">
                 <div className="font-bold text-foreground">
-                  {formatLongDateRange(event.startDate, event.endDate)}
+                  {formatLongDateRange(t, event.startDate, event.endDate)}
                 </div>
                 {duration && (
                   <div className="mt-0.5 text-sm text-muted-foreground">
@@ -221,7 +224,8 @@ export default function EventHeroSection({
                       className="h-12 gap-2 rounded-lg bg-emerald-600 px-8 text-sm font-semibold text-white hover:bg-emerald-700"
                       onClick={handleExternalClick}
                     >
-                      <Ticket className="h-4 w-4" aria-hidden="true" /> Get Tickets
+                      <Ticket className="h-4 w-4" aria-hidden="true" />{" "}
+                      {t("events.getTickets")}
                     </Button>
                     <ProviderBadge provider={externalProvider} align="left" />
                   </>
@@ -234,7 +238,8 @@ export default function EventHeroSection({
                       onOpenCheckout();
                     }}
                   >
-                    <Ticket className="h-4 w-4" aria-hidden="true" /> Get Tickets
+                    <Ticket className="h-4 w-4" aria-hidden="true" />{" "}
+                    {t("events.getTickets")}
                   </Button>
                 ) : legacyUrl ? (
                   <a href={legacyUrl} target="_blank" rel="noopener noreferrer">
@@ -242,7 +247,8 @@ export default function EventHeroSection({
                       size="lg"
                       className="h-12 gap-2 rounded-lg bg-emerald-600 px-8 text-sm font-semibold text-white hover:bg-emerald-700"
                     >
-                      <Ticket className="h-4 w-4" aria-hidden="true" /> Get Tickets
+                      <Ticket className="h-4 w-4" aria-hidden="true" />{" "}
+                      {t("events.getTickets")}
                     </Button>
                   </a>
                 ) : null}
@@ -266,12 +272,13 @@ export default function EventHeroSection({
             <Dialog>
               <DialogTrigger asChild>
                 <button type="button" className={secondaryAction}>
-                  <Share2 className="h-4 w-4" aria-hidden="true" /> Share
+                  <Share2 className="h-4 w-4" aria-hidden="true" />{" "}
+                  {t("article.share")}
                 </button>
               </DialogTrigger>
               <DialogContent className="max-w-sm">
                 <DialogHeader>
-                  <DialogTitle>Share this event</DialogTitle>
+                  <DialogTitle>{t("events.shareEvent")}</DialogTitle>
                 </DialogHeader>
                 <EventShareButtons
                   slug={event.slug}
@@ -288,7 +295,8 @@ export default function EventHeroSection({
               download={`${event.slug}.ics`}
               className={secondaryAction}
             >
-              <Calendar className="h-4 w-4" aria-hidden="true" /> Add to Calendar
+              <Calendar className="h-4 w-4" aria-hidden="true" />{" "}
+              {t("events.addToCalendar")}
             </a>
 
             {directionsUrl && (
@@ -298,7 +306,8 @@ export default function EventHeroSection({
                 rel="noopener noreferrer"
                 className={secondaryAction}
               >
-                <Navigation className="h-4 w-4" aria-hidden="true" /> Directions
+                <Navigation className="h-4 w-4" aria-hidden="true" />{" "}
+                {t("events.directions")}
               </a>
             )}
 
@@ -307,7 +316,7 @@ export default function EventHeroSection({
                 href={`/events/${event.slug}/live`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-red-600 hover:underline dark:text-red-400"
               >
-                Follow live coverage
+                {t("events.followLive")}
               </Link>
             )}
           </div>

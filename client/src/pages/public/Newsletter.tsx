@@ -8,8 +8,10 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
+import { useT } from "@/lib/i18n";
 
 const Newsletter = () => {
+  const t = useT();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [selectedNewsletters, setSelectedNewsletters] = useState<string[]>(["daily-brief"]);
@@ -18,21 +20,21 @@ const Newsletter = () => {
     onSuccess: (data) => {
       if (data.alreadySubscribed) {
         toast({
-          title: "Already subscribed",
-          description: "We've got you. Check your inbox for our most recent issue.",
+          title: t("newsletter.alreadySubscribed"),
+          description: t("newsletter.alreadySubscribedBody"),
         });
       } else {
         toast({
-          title: "You're in",
-          description: "Welcome email on its way. Check your inbox in a minute.",
+          title: t("newsletter.youreIn"),
+          description: t("newsletter.youreInBody"),
         });
       }
       setEmail("");
     },
     onError: (err) => {
       toast({
-        title: "Subscription failed",
-        description: err.message || "Try again in a moment.",
+        title: t("newsletter.failed"),
+        description: err.message || t("state.tryAgainMoment"),
         variant: "destructive",
       });
     },
@@ -58,40 +60,40 @@ const Newsletter = () => {
     {
       id: "daily-brief",
       name: publication.newsletter.name,
-      frequency: "Every morning",
+      frequency: t("newsletter.everyMorning"),
       description: publication.newsletter.description,
     },
     {
       id: "projects-weekly",
-      name: "Projects Weekly",
-      frequency: "Weekly",
-      description: "Major project awards, tenders, and milestones across construction and infrastructure — tracked from announcement to delivery.",
+      name: t("newsletter.projectsWeekly"),
+      frequency: t("newsletter.weekly"),
+      description: t("newsletter.projectsDetail"),
     },
     {
       id: "energy-brief",
-      name: "Energy Brief",
-      frequency: "Weekly",
-      description: "Oil & gas, power, utilities and renewables: upstream developments, offtake deals, and the policy moves shaping regional energy.",
+      name: t("newsletter.energyBrief"),
+      frequency: t("newsletter.weekly"),
+      description: t("newsletter.energyDetail"),
     },
     {
       id: "jobs-alerts",
-      name: "Job Alerts",
-      frequency: "As posted",
-      description: "New roles across the industries we cover — engineering, construction, energy, logistics, and operations.",
+      name: t("newsletter.jobAlerts"),
+      frequency: t("newsletter.asPosted"),
+      description: t("newsletter.jobsDetail"),
     },
     {
       id: "event-updates",
-      name: "Event Updates",
-      frequency: "Monthly",
-      description: "Upcoming conferences, exhibitions, and industry gatherings across Saudi Arabia, the GCC, and MENA.",
+      name: t("newsletter.eventUpdates"),
+      frequency: t("newsletter.monthly"),
+      description: t("newsletter.eventsDetail"),
     }
   ];
 
   const benefits = [
-    "Written by our newsroom",
-    "No spam, ever",
-    "Unsubscribe anytime",
-    "Free to read"
+    t("newsletter.byOurNewsroom"),
+    t("newsletter.noSpam"),
+    t("newsletter.unsubscribeAnytimeShort"),
+    t("newsletter.freeToRead"),
   ];
 
   return (
@@ -107,10 +109,10 @@ const Newsletter = () => {
               <span className="text-sm font-medium">{publication.newsletter.name}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              The Industrial Economy, Every Morning
+              {t("newsletter.heroTitle")}
             </h1>
             <p className="text-lg text-gray-300 mb-8">
-              {publication.newsletter.description} Contract awards, project milestones, energy moves, and the people behind them — in one concise read.
+              {publication.newsletter.description} {t("newsletter.heroBody")}
             </p>
 
             {/* Quick Subscribe Form */}
@@ -119,7 +121,7 @@ const Newsletter = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder={t("newsletter.enterEmail")}
                 required
                 className="flex-1 bg-white text-gray-900 border-white/20 placeholder:text-gray-500"
               />
@@ -129,9 +131,9 @@ const Newsletter = () => {
                 disabled={subscribe.isPending}
               >
                 {subscribe.isPending ? (
-                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Subscribing…</>
+                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("common.subscribing")}</>
                 ) : (
-                  <>Subscribe <ArrowRight className="w-4 h-4 ml-2" /></>
+                  <>{t("newsletter.subscribe")} <ArrowRight className="w-4 h-4 ml-2" /></>
                 )}
               </Button>
             </form>
@@ -153,9 +155,9 @@ const Newsletter = () => {
       <section className="py-16">
         <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Choose Your Newsletters</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">{t("newsletter.selectLists")}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Select the briefings that match your work. You can update your preferences anytime.
+              {t("newsletter.selectListsBody")}
             </p>
           </div>
 
@@ -193,14 +195,14 @@ const Newsletter = () => {
             <Button
               onClick={() => {
                 toast({
-                  title: "Preferences saved",
-                  description: `You'll receive ${selectedNewsletters.length} newsletter(s). Enter your email above to subscribe.`,
+                  title: t("newsletter.preferencesSaved"),
+                  description: t("newsletter.preferencesSavedBody", { n: selectedNewsletters.length }),
                 });
               }}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8"
               disabled={selectedNewsletters.length === 0}
             >
-              Subscribe to {selectedNewsletters.length} Newsletter{selectedNewsletters.length !== 1 ? 's' : ''}
+              {t("newsletter.subscribeToCount", { n: selectedNewsletters.length })}
             </Button>
           </div>
         </div>
@@ -210,9 +212,9 @@ const Newsletter = () => {
       <section className="py-16 bg-card">
         <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">What to Expect</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">{t("newsletter.whatToExpect")}</h2>
             <p className="text-muted-foreground">
-              A sample of how {publication.newsletter.name} lands in your inbox
+              {t("newsletter.sampleIntro", { name: publication.newsletter.name })}
             </p>
           </div>
 
@@ -223,7 +225,7 @@ const Newsletter = () => {
               </div>
               <div>
                 <h4 className="font-bold text-foreground">{publication.newsletter.name}</h4>
-                <p className="text-sm text-muted-foreground">Your morning briefing</p>
+                <p className="text-sm text-muted-foreground">{t("newsletter.morningBriefing")}</p>
               </div>
             </div>
 
@@ -231,13 +233,13 @@ const Newsletter = () => {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Zap className="w-4 h-4 text-blue-600" />
-                  <span className="text-xs font-medium text-blue-600 uppercase">Top Story</span>
+                  <span className="text-xs font-medium text-blue-600 uppercase">{t("list.topStory")}</span>
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  Main contract awarded on a giga-project package
+                  {t("newsletter.sampleHeadline")}
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  The day's most consequential story, with the parties, scope, and what it signals for the wider program...
+                  {t("newsletter.sampleLede")}
                 </p>
               </div>
 
@@ -245,15 +247,15 @@ const Newsletter = () => {
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
                   <TrendingUp className="w-5 h-5 text-blue-600" />
                   <div>
-                    <h4 className="font-medium text-foreground text-sm">Energy: capacity additions and offtake agreements</h4>
-                    <p className="text-xs text-muted-foreground">Power, oil &amp; gas, and renewables in brief</p>
+                    <h4 className="font-medium text-foreground text-sm">{t("newsletter.sampleEnergy")}</h4>
+                    <p className="text-xs text-muted-foreground">{t("newsletter.sampleEnergySub")}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
                   <Users className="w-5 h-5 text-blue-600" />
                   <div>
-                    <h4 className="font-medium text-foreground text-sm">People: appointments across the sector</h4>
-                    <p className="text-xs text-muted-foreground">Who's moving where, and why it matters</p>
+                    <h4 className="font-medium text-foreground text-sm">{t("newsletter.samplePeople")}</h4>
+                    <p className="text-xs text-muted-foreground">{t("newsletter.samplePeopleSub")}</p>
                   </div>
                 </div>
               </div>

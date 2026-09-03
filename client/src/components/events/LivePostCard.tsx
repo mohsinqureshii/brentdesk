@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { fmtDateTime } from "@/lib/dates";
+import { useT } from "@/lib/i18n";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -153,6 +154,7 @@ function LinkCard({ url, label }: { url: string; label: string }) {
 }
 
 function VideoEmbed({ url, title }: { url: string; title: string }) {
+  const t = useT();
   const ytId = youTubeId(url);
   if (ytId) {
     return (
@@ -169,9 +171,9 @@ function VideoEmbed({ url, title }: { url: string; title: string }) {
     );
   }
   if (isTwitterStatus(url)) {
-    return <LinkCard url={url} label="View post on X" />;
+    return <LinkCard url={url} label={t("live.viewOnX")} />;
   }
-  return <LinkCard url={url} label="Watch video" />;
+  return <LinkCard url={url} label={t("live.watchVideo")} />;
 }
 
 // ----------------------------------------------------------------
@@ -188,6 +190,7 @@ export default function LivePostCard({
   /** Permalink page renders the card slightly bigger. */
   large?: boolean;
 }) {
+  const t = useT();
   const type = (post.postType || "update") as LivePostType;
   const pinned = !!post.isPinned;
 
@@ -195,9 +198,9 @@ export default function LivePostCard({
     const url = `${window.location.origin}/events/${eventSlug}/live/${post.id}`;
     try {
       await navigator.clipboard.writeText(url);
-      toast("Link copied");
+      toast(t("share.linkCopied"));
     } catch {
-      toast("Could not copy link");
+      toast(t("share.copyLinkFailed"));
     }
   };
 
@@ -231,22 +234,22 @@ export default function LivePostCard({
           {pinned && (
             <span
               className="flex items-center gap-1 text-amber-600 dark:text-amber-400 font-medium"
-              title="Pinned key moment"
+              title={t("live.pinned")}
             >
               <Pin className="h-3.5 w-3.5" />
             </span>
           )}
           {type === "breaking" ? (
             <Badge className="bg-red-600 text-white border-transparent gap-1 px-2 py-0 text-[10px] tracking-wider">
-              <Zap className="h-3 w-3" /> BREAKING
+              <Zap className="h-3 w-3" /> {t("live.breaking")}
             </Badge>
           ) : type === "session" ? (
             <span className="flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wider">
-              <Calendar className="h-3 w-3" /> Session
+              <Calendar className="h-3 w-3" /> {t("live.session")}
             </span>
           ) : type === "sponsor" ? (
             <span className="uppercase tracking-wider text-[10px] border rounded-full px-2 py-0.5">
-              Sponsored
+              {t("live.sponsored")}
             </span>
           ) : (
             <span className="uppercase tracking-wider text-[10px]">{type}</span>
@@ -262,8 +265,8 @@ export default function LivePostCard({
             type="button"
             onClick={handleShare}
             className="shrink-0 p-1 -m-1 hover:text-primary transition"
-            aria-label="Copy link to this update"
-            title="Copy link"
+            aria-label={t("live.copyPermalink")}
+            title={t("share.copyLink")}
           >
             <Share2 className="h-3.5 w-3.5" />
           </button>
@@ -288,11 +291,13 @@ export default function LivePostCard({
             </div>
             <div className="min-w-0">
               <div className="text-[10px] uppercase tracking-wider text-emerald-600 font-semibold">
-                Funding announced
+                {t("live.fundingAnnounced")}
               </div>
               <div className={`font-bold leading-tight ${large ? "text-2xl" : "text-lg"}`}>
-                {post.companyName || post.headline || "New deal"}
-                {post.fundingAmount ? ` raises ${post.fundingAmount}` : ""}
+                {post.companyName || post.headline || t("live.newDeal")}
+                {post.fundingAmount
+                  ? ` ${t("live.raises", { amount: post.fundingAmount })}`
+                  : ""}
               </div>
               {post.headline && post.companyName && (
                 <div className="text-sm font-medium mt-0.5">{post.headline}</div>
@@ -329,12 +334,16 @@ export default function LivePostCard({
                 href={post.imageUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Open full image"
+                title={t("live.openFullImage")}
                 className="block"
               >
                 <img
                   src={post.imageUrl}
-                  alt={post.headline || stripTags(post.body).slice(0, 80) || "Live photo"}
+                  alt={
+                    post.headline ||
+                    stripTags(post.body).slice(0, 80) ||
+                    t("live.photoAlt")
+                  }
                   className={`w-full rounded-lg object-cover cursor-zoom-in ${
                     large ? "max-h-[36rem]" : "max-h-96"
                   }`}
@@ -355,7 +364,10 @@ export default function LivePostCard({
               <h3 className="font-semibold leading-tight mb-2">{post.headline}</h3>
             )}
             {post.embedUrl && (
-              <VideoEmbed url={post.embedUrl} title={post.headline || "Live video"} />
+              <VideoEmbed
+                url={post.embedUrl}
+                title={post.headline || t("live.videoTitle")}
+              />
             )}
             <PostBody html={post.body} className="mt-2" />
           </div>
@@ -375,11 +387,11 @@ export default function LivePostCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mt-3"
-                title="Open full image"
+                title={t("live.openFullImage")}
               >
                 <img
                   src={post.imageUrl}
-                  alt={post.headline || "Update image"}
+                  alt={post.headline || t("live.updateAlt")}
                   className="w-full rounded-lg object-cover max-h-80 cursor-zoom-in"
                   loading="lazy"
                 />
@@ -387,7 +399,10 @@ export default function LivePostCard({
             )}
             {post.embedUrl && (
               <div className="mt-3">
-                <LinkCard url={post.embedUrl} label={post.headline || "Related link"} />
+                <LinkCard
+                  url={post.embedUrl}
+                  label={post.headline || t("live.relatedLink")}
+                />
               </div>
             )}
           </div>
@@ -399,7 +414,7 @@ export default function LivePostCard({
             <span className="h-5 w-5 rounded-full bg-muted flex items-center justify-center text-[10px] font-semibold uppercase">
               {post.authorName.slice(0, 1)}
             </span>
-            by {post.authorName}
+            {t("article.by")} {post.authorName}
           </div>
         )}
       </CardContent>

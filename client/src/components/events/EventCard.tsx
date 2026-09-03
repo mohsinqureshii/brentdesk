@@ -38,6 +38,7 @@ import { Bookmark, CalendarDays, MapPin, Radio } from "lucide-react";
 import { toast } from "sonner";
 
 import { publication } from "@shared/publication";
+import type { UiKey } from "@shared/uiStrings";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -47,26 +48,31 @@ import { EventMedia, typeLabelFor } from "./EventVisual";
 // Shared formatting helpers (also used by the hero + live rail)
 // ----------------------------------------------------------------------
 
+/** The shape `useT()` returns — helpers below take it so they can translate. */
+type Translate = (key: UiKey, vars?: Record<string, string | number>) => string;
+
 export function asDate(value: Date | string | null | undefined): Date | null {
   if (!value) return null;
   const d = value instanceof Date ? value : new Date(value);
   return Number.isFinite(d.getTime()) ? d : null;
 }
 
-const MONTHS_SHORT = [
-  "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
-];
-
-/** Date-block content: `{ month: "MAR", day: "4–7" }`. */
+/**
+ * Date-block content: `{ month: "MAR", day: "4–7" }`.
+ *
+ * The month comes from `fmtDate`, not a hardcoded English array — the card
+ * strip is drawn `uppercase`, so English still reads MAR while Arabic reads
+ * the Arabic month instead of "MAR" on a translated page.
+ */
 export function cardDateStrip(
+  t: Translate,
   start: Date | string | null | undefined,
   end: Date | string | null | undefined,
 ): { month: string; day: string } {
   const s = asDate(start);
-  if (!s) return { month: "TBD", day: "—" };
+  if (!s) return { month: t("events.tbd"), day: "—" };
   const e = asDate(end);
-  const month = MONTHS_SHORT[s.getMonth()];
+  const month = fmtDate(s, { month: "short" });
   const sameMonth =
     e && s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth();
   if (e && sameMonth && s.getDate() !== e.getDate()) {
@@ -77,11 +83,12 @@ export function cardDateStrip(
 
 /** "March 4–7, 2026" — the long form used by the hero and card meta. */
 export function formatLongDateRange(
+  t: Translate,
   start: Date | string | null | undefined,
   end: Date | string | null | undefined,
 ): string {
   const s = asDate(start);
-  if (!s) return "Date TBD";
+  if (!s) return t("events.dateTbd");
   const e = asDate(end);
   const fmt = (d: Date) =>
     fmtDate(d, {
@@ -104,10 +111,11 @@ export function formatLongDateRange(
 
 /** "Mar 4, 2026" — the compact form used by the sidebar rows. */
 export function formatShortDate(
+  t: Translate,
   start: Date | string | null | undefined,
 ): string {
   const s = asDate(start);
-  if (!s) return "Date TBD";
+  if (!s) return t("events.dateTbd");
   return fmtDate(s, {
     month: "short",
     day: "numeric",
@@ -116,26 +124,31 @@ export function formatShortDate(
 }
 
 export function formatLocation(
+  t: Translate,
   city: string | null | undefined,
   country: string | null | undefined,
   format: string | null | undefined,
 ): string {
-  if (format === "virtual") return "Online";
+  if (format === "virtual") return t("events.online");
   const parts = [city, country].filter(Boolean);
-  return parts.length ? parts.join(", ") : "Location TBD";
+  return parts.length ? parts.join(", ") : t("events.locationTbd");
 }
 
 export function formatPriceLabel(
+  t: Translate,
   isFree: number | boolean | null | undefined,
   ticketPrice: string | number | null | undefined,
   ticketCurrency: string | null | undefined,
 ): { label: string; tone: "free" | "paid" } | null {
-  if (isFree) return { label: "Free", tone: "free" };
+  if (isFree) return { label: t("events.free"), tone: "free" };
   const n = ticketPrice != null ? Number(ticketPrice) : NaN;
   if (!Number.isFinite(n) || n <= 0) return null;
   const currency = (ticketCurrency || "USD").toUpperCase();
   const symbol = currency === "USD" ? "$" : `${currency} `;
-  return { label: `From ${symbol}${Math.round(n)}`, tone: "paid" };
+  return {
+    label: t("events.priceFrom", { price: `${symbol}${Math.round(n)}` }),
+    tone: "paid",
+  };
 }
 
 // ----------------------------------------------------------------------
@@ -183,6 +196,7 @@ export interface BookmarkableEvent {
  * single request per render, so a 24-card grid is still one round-trip.
  */
 export function useEventBookmark(event: BookmarkableEvent) {
+  const t = useT();
   const { isAuthenticated } = useAuth();
   const utils = trpc.useUtils();
   const [optimistic, setOptimistic] = useState<boolean | null>(null);
@@ -200,12 +214,14 @@ export function useEventBookmark(event: BookmarkableEvent) {
         contentId: event.id,
       });
       toast.success(
-        result.bookmarked ? "Saved to your bookmarks" : "Removed from bookmarks",
+        result.bookmarked
+          ? t("events.savedToBookmarks")
+          : t("events.removedFromBookmarks"),
       );
     },
     onError: () => {
       setOptimistic(null);
-      toast.error("Couldn't update your bookmarks. Please try again.");
+      toast.error(t("events.bookmarkError"));
     },
   });
 
@@ -216,10 +232,10 @@ export function useEventBookmark(event: BookmarkableEvent) {
     e?.stopPropagation();
 
     if (!isAuthenticated) {
-      toast("Sign in to save events", {
-        description: `Bookmarks are stored on your ${publication.name} account.`,
+      toast(t("events.signInToSave"), {
+        description: t("events.bookmarksStoredOn", { site: publication.name }),
         action: {
-          label: "Sign in",
+          label: t("nav.signIn"),
           onClick: () => {
             window.location.href = "/signin";
           },
@@ -249,6 +265,7 @@ export function EventBookmarkButton({
   event: BookmarkableEvent;
   className?: string;
 }) {
+  const t = useT();
   const { saved, toggle, isPending } = useEventBookmark(event);
 
   return (
@@ -256,8 +273,12 @@ export function EventBookmarkButton({
       type="button"
       onClick={toggle}
       aria-pressed={saved}
-      aria-label={saved ? `Remove ${event.title} from bookmarks` : `Save ${event.title} to bookmarks`}
-      title={saved ? "Saved" : "Save event"}
+      aria-label={
+        saved
+          ? t("events.removeFromBookmarks", { title: event.title })
+          : t("events.saveToBookmarks", { title: event.title })
+      }
+      title={saved ? t("article.saved") : t("events.saveEvent")}
       disabled={isPending}
       className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-zinc-700 shadow-sm ring-1 ring-black/5 transition-colors hover:bg-white hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:opacity-60 ${className}`}
     >
@@ -280,6 +301,7 @@ export function EventSaveButton({
   event: BookmarkableEvent;
   className?: string;
 }) {
+  const t = useT();
   const { saved, toggle, isPending } = useEventBookmark(event);
 
   return (
@@ -288,7 +310,7 @@ export function EventSaveButton({
       onClick={toggle}
       aria-pressed={saved}
       disabled={isPending}
-      title={saved ? "Saved to your bookmarks" : "Save this event"}
+      title={saved ? t("events.savedToBookmarks") : t("events.saveThisEvent")}
       className={`inline-flex h-12 items-center justify-center gap-2 rounded-lg border px-6 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:opacity-60 ${
         saved
           ? "border-emerald-600 bg-emerald-600/10 text-emerald-700 dark:text-emerald-400"
@@ -299,7 +321,7 @@ export function EventSaveButton({
         className={`h-4 w-4 ${saved ? "fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400" : ""}`}
         aria-hidden="true"
       />
-      {saved ? "Saved" : "Save Event"}
+      {saved ? t("article.saved") : t("events.saveEvent")}
     </button>
   );
 }
@@ -338,9 +360,11 @@ export function EventCard({
   isLive?: boolean;
   tone?: "default" | "past";
 }) {
-  const { month, day } = cardDateStrip(event.startDate, event.endDate);
-  const location = formatLocation(event.city, event.country, event.format);
+  const t = useT();
+  const { month, day } = cardDateStrip(t, event.startDate, event.endDate);
+  const location = formatLocation(t, event.city, event.country, event.format);
   const price = formatPriceLabel(
+    t,
     event.isFree,
     event.ticketPrice,
     event.ticketCurrency,
@@ -388,7 +412,7 @@ export function EventCard({
         {isLive && (
           <span className="absolute bottom-2.5 left-2.5 z-10 inline-flex items-center gap-1.5 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
             <PulsingDot light />
-            Live
+            {t("events.live")}
           </span>
         )}
 
@@ -440,7 +464,7 @@ export function EventCard({
           <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
             <CalendarDays className="h-3.5 w-3.5 shrink-0" />
             <span className="truncate">
-              {formatLongDateRange(event.startDate, event.endDate)}
+              {formatLongDateRange(t, event.startDate, event.endDate)}
             </span>
           </p>
         </div>
@@ -505,7 +529,7 @@ export interface LiveCardEvent {
 
 export function LiveEventCard({ event }: { event: LiveCardEvent }) {
   const t = useT();
-  const location = formatLocation(event.city, event.country, event.format);
+  const location = formatLocation(t, event.city, event.country, event.format);
   // The only real-time number `listLiveNow` returns is the count of live
   // posts filed in the last hour. It is labelled as exactly that — this
   // hub has no viewer/concurrency telemetry to show.
@@ -530,13 +554,15 @@ export function LiveEventCard({ event }: { event: LiveCardEvent }) {
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-3">
           <span className="inline-flex items-center gap-1.5 rounded-md bg-red-600 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow">
             <PulsingDot light />
-            Live
+            {t("events.live")}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm">
             <Radio className="h-3 w-3" />
-            {updates > 0
-              ? `${updates} update${updates === 1 ? "" : "s"} this hour`
-              : "Coverage open"}
+            {updates <= 0
+              ? t("events.coverageOpen")
+              : updates === 1
+                ? t("events.updatesThisHourOne", { n: updates })
+                : t("events.updatesThisHourMany", { n: updates })}
           </span>
         </div>
 
@@ -575,7 +601,8 @@ export function TrendingEventRow({
   event: CardEvent;
   rank: number;
 }) {
-  const location = formatLocation(event.city, event.country, event.format);
+  const t = useT();
+  const location = formatLocation(t, event.city, event.country, event.format);
 
   return (
     <div className="group relative flex items-start gap-3">
@@ -603,7 +630,7 @@ export function TrendingEventRow({
           {location}
         </p>
         <p className="mt-0.5 truncate text-[11px] text-muted-foreground">
-          {formatShortDate(event.startDate)}
+          {formatShortDate(t, event.startDate)}
         </p>
       </div>
     </div>

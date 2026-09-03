@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
+import { fmtNumber } from "@/lib/dates";
 import { Link } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
@@ -48,22 +49,26 @@ import { LeaderboardAd, MobileStickyAd } from "@/components/ads/AdUnit";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import { useToast } from "@/hooks/use-toast";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
 // ============================================================
 // HELPERS
 // ============================================================
 
-function formatTimeAgo(date: Date | string | null): string {
-  if (!date) return "Recently";
+type Translate = ReturnType<typeof useT>;
+
+function formatTimeAgo(date: Date | string | null, t: Translate): string {
+  if (!date) return t("time.recently");
   const now = new Date();
   const then = new Date(date);
   const diffMs = now.getTime() - then.getTime();
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  if (diffHours < 1) return "Just now";
-  if (diffHours < 24) return `${diffHours}h ago`;
-  if (diffDays < 7) return `${diffDays}d ago`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
+  if (diffHours < 1) return t("time.justNow");
+  if (diffHours < 24) return t("time.hoursAgo", { n: diffHours });
+  if (diffDays < 7) return t("time.daysAgo", { n: diffDays });
+  if (diffDays < 30) return t("time.weeksAgo", { n: Math.floor(diffDays / 7) });
   return then.toLocaleDateString();
 }
 
@@ -83,37 +88,72 @@ function formatSalary(min: string | number | null, max: string | number | null, 
   return undefined;
 }
 
-const datePostedOptions = [
-  { value: "any", label: "Any time" },
-  { value: "past_24h", label: "Past 24 hours" },
-  { value: "past_week", label: "Past week" },
-  { value: "past_month", label: "Past month" },
+// Every option below carries a translation key rather than an English
+// label. The `value` is what the server filters and sorts on, so it stays
+// in English whatever language the page is read in.
+const datePostedOptions: { value: string; labelKey: UiKey }[] = [
+  { value: "any", labelKey: "filter.anyTime" },
+  { value: "past_24h", labelKey: "filter.past24h" },
+  { value: "past_week", labelKey: "filter.pastWeek" },
+  { value: "past_month", labelKey: "filter.pastMonth" },
 ];
 
-const departmentOptions = [
-  "Engineering", "Product", "Design", "Marketing", "Sales",
-  "Operations", "Finance", "Human Resource", "Legal", "Technology",
-  "Data", "Customer Success", "Business Development",
+const departmentOptions: { value: string; labelKey: UiKey }[] = [
+  { value: "Engineering", labelKey: "dept.engineering" },
+  { value: "Product", labelKey: "dept.product" },
+  { value: "Design", labelKey: "dept.design" },
+  { value: "Marketing", labelKey: "dept.marketing" },
+  { value: "Sales", labelKey: "dept.sales" },
+  { value: "Operations", labelKey: "dept.operations" },
+  { value: "Finance", labelKey: "dept.finance" },
+  { value: "Human Resource", labelKey: "dept.humanResource" },
+  { value: "Legal", labelKey: "dept.legal" },
+  { value: "Technology", labelKey: "dept.technology" },
+  { value: "Data", labelKey: "dept.data" },
+  { value: "Customer Success", labelKey: "dept.customerSuccess" },
+  { value: "Business Development", labelKey: "dept.businessDevelopment" },
 ];
 
-const roleTypeLabels: Record<string, string> = {
-  full_time: "Full-time", part_time: "Part-time", contract: "Contract",
-  internship: "Internship", freelance: "Freelance",
+const roleTypeKeys: Record<string, UiKey> = {
+  full_time: "job.fullTime", part_time: "job.partTime", contract: "job.contract",
+  internship: "job.internship", freelance: "job.freelance",
 };
 
-const seniorityLabels: Record<string, string> = {
-  entry: "Entry Level", junior: "Junior", mid: "Mid Level", senior: "Senior",
-  lead: "Lead", manager: "Manager", director: "Director", vp: "VP",
-  c_level: "C-Level", executive: "Executive",
+const seniorityKeys: Record<string, UiKey> = {
+  entry: "job.entryLevel", junior: "job.junior", mid: "job.midLevel", senior: "job.senior",
+  lead: "job.lead", manager: "job.manager", director: "job.director", vp: "job.vp",
+  c_level: "job.cLevel", executive: "job.executive",
 };
 
-const sortOptions = [
-  { value: "publishedAt-desc", label: "Most Recent" },
-  { value: "salaryMax-desc", label: "Salary: High to Low" },
-  { value: "salaryMax-asc", label: "Salary: Low to High" },
-  { value: "viewCount-desc", label: "Most Viewed" },
-  { value: "title-asc", label: "Title: A-Z" },
+const sortOptions: { value: string; labelKey: UiKey }[] = [
+  { value: "publishedAt-desc", labelKey: "sort.mostRecent" },
+  { value: "salaryMax-desc", labelKey: "sort.salaryHighLow" },
+  { value: "salaryMax-asc", labelKey: "sort.salaryLowHigh" },
+  { value: "viewCount-desc", labelKey: "sort.mostViewed" },
+  { value: "title-asc", labelKey: "sort.titleAz" },
 ];
+
+function roleTypeLabel(value: string | null | undefined, t: Translate): string | null {
+  if (!value) return null;
+  const key = roleTypeKeys[value];
+  return key ? t(key) : value;
+}
+
+function seniorityLabel(value: string | null | undefined, t: Translate): string | null {
+  if (!value) return null;
+  const key = seniorityKeys[value];
+  return key ? t(key) : value;
+}
+
+function departmentLabel(value: string, t: Translate): string {
+  const option = departmentOptions.find((d) => d.value === value);
+  return option ? t(option.labelKey) : value;
+}
+
+function datePostedLabel(value: string, t: Translate): string {
+  const option = datePostedOptions.find((d) => d.value === value);
+  return option ? t(option.labelKey) : value;
+}
 
 // Landing page removed — users go directly to job listings
 
@@ -163,7 +203,8 @@ function JobListItem({
   isSelected: boolean;
   onClick: () => void;
 }) {
-  const roleLabel = job.roleType ? roleTypeLabels[job.roleType] || job.roleType : null;
+  const t = useT();
+  const roleLabel = roleTypeLabel(job.roleType, t);
 
   return (
     <div
@@ -193,10 +234,10 @@ function JobListItem({
           </h3>
           <p className="text-xs text-foreground/80 truncate leading-tight">{job.companyName}</p>
           <p className="text-[11px] text-muted-foreground truncate leading-tight">
-            {job.location || "Remote"}{(job.isRemote || job.remoteType === "fully_remote") ? " (Remote)" : job.remoteType === "hybrid" ? " (Hybrid)" : ""}
+            {job.location || t("job.remote")}{(job.isRemote || job.remoteType === "fully_remote") ? ` (${t("job.remote")})` : job.remoteType === "hybrid" ? ` (${t("job.hybrid")})` : ""}
           </p>
           <div className="flex items-center gap-1.5 mt-0.5">
-            <span className="text-[10px] text-muted-foreground/60">{formatTimeAgo(job.publishedAt)}</span>
+            <span className="text-[10px] text-muted-foreground/60">{formatTimeAgo(job.publishedAt, t)}</span>
             {roleLabel && (
               <>
                 <span className="text-[10px] text-muted-foreground/40">·</span>
@@ -205,7 +246,7 @@ function JobListItem({
             )}
             {!job.applyUrl && (
               <span className="inline-flex items-center gap-0.5 text-[10px] text-green-600 font-medium">
-                <Sparkles className="h-2.5 w-2.5" /> Easy Apply
+                <Sparkles className="h-2.5 w-2.5" /> {t("job.easyApply")}
               </span>
             )}
           </div>
@@ -232,6 +273,7 @@ function JobListItem({
 // ============================================================
 
 function CompanyInsights({ job }: { job: JobItem }) {
+  const t = useT();
   const companySlug = job.companyName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
   const { data: companyData } = trpc.companies.getBySlug.useQuery(
     { slug: companySlug },
@@ -258,7 +300,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
       {/* About the company */}
       <div className="px-5 py-4">
         <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-          <Building2 className="h-4 w-4 text-blue-600" /> About {job.companyName}
+          <Building2 className="h-4 w-4 text-blue-600" /> {t("company.aboutName", { name: job.companyName })}
         </h3>
         <div className="flex items-start gap-3">
           <div className="h-14 w-14 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-gray-200 shadow-sm shrink-0">
@@ -274,7 +316,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
                 {job.companyName}
               </Link>
               {companyData?.isVerified === 1 && (
-                <Badge className="bg-blue-100 text-blue-700 border-0 text-[10px] px-1.5 py-0">Verified</Badge>
+                <Badge className="bg-blue-100 text-blue-700 border-0 text-[10px] px-1.5 py-0">{t("company.verified")}</Badge>
               )}
             </div>
             {companyData?.tagline && (
@@ -288,7 +330,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
               )}
               {companyData?.employeeCount && (
                 <span className="flex items-center gap-1">
-                  <Users className="h-3 w-3" /> {companyData.employeeCount} employees
+                  <Users className="h-3 w-3" /> {t("company.nEmployees", { n: companyData.employeeCount })}
                 </span>
               )}
               {companyData?.location && (
@@ -311,7 +353,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
         <div className="flex items-center gap-2 mt-3">
           <Link href={`/companies/${companySlug}`}>
             <Button variant="outline" size="sm" className="rounded-full gap-1.5 text-xs h-7 border-blue-200 text-blue-700 hover:bg-blue-50">
-              <Building2 className="h-3 w-3" /> View Profile
+              <Building2 className="h-3 w-3" /> {t("company.viewProfile")}
             </Button>
           </Link>
           {companyData && (
@@ -326,7 +368,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
             />
           )}
           <Button variant="outline" size="sm" className="rounded-full gap-1.5 text-xs h-7 border-green-200 text-green-700 hover:bg-green-50 ml-auto">
-            <UserPlus className="h-3 w-3" />{' '}Follow
+            <UserPlus className="h-3 w-3" />{' '}{t("common.follow")}
           </Button>
         </div>
       </div>
@@ -339,25 +381,25 @@ function CompanyInsights({ job }: { job: JobItem }) {
             {companyData?.foundedYear && (
               <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/20 dark:to-blue-900/10 rounded-lg p-2.5 text-center">
                 <p className="text-sm font-bold text-blue-700 dark:text-blue-400">{companyData.foundedYear}</p>
-                <p className="text-[10px] text-muted-foreground">Founded</p>
+                <p className="text-[10px] text-muted-foreground">{t("company.founded")}</p>
               </div>
             )}
             {companyData?.stage && (
               <div className="bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950/20 dark:to-purple-900/10 rounded-lg p-2.5 text-center">
                 <p className="text-xs font-bold text-purple-700 dark:text-purple-400 capitalize">{companyData.stage.replace(/_/g, " ")}</p>
-                <p className="text-[10px] text-muted-foreground">Stage</p>
+                <p className="text-[10px] text-muted-foreground">{t("company.stage")}</p>
               </div>
             )}
             {companyData?.totalFunding && (
               <div className="bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950/20 dark:to-green-900/10 rounded-lg p-2.5 text-center">
                 <p className="text-xs font-bold text-green-700 dark:text-green-400">{companyData.totalFunding}</p>
-                <p className="text-[10px] text-muted-foreground">Funding</p>
+                <p className="text-[10px] text-muted-foreground">{t("company.funding")}</p>
               </div>
             )}
             {companyData?.employeeCount && (
               <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 dark:from-amber-950/20 dark:to-amber-900/10 rounded-lg p-2.5 text-center">
                 <p className="text-xs font-bold text-amber-700 dark:text-amber-400">{companyData.employeeCount}</p>
-                <p className="text-[10px] text-muted-foreground">Employees</p>
+                <p className="text-[10px] text-muted-foreground">{t("company.employees")}</p>
               </div>
             )}
           </div>
@@ -367,7 +409,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
       {/* Tech Stack */}
       {companyData?.techStack && Array.isArray(companyData.techStack) && (companyData.techStack as string[]).length > 0 && (
         <div className="px-5 pb-3">
-          <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">Tech Stack</p>
+          <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">{t("company.techStack")}</p>
           <div className="flex flex-wrap gap-1">
             {(companyData.techStack as string[]).slice(0, 8).map((tech) => (
               <Badge key={tech} variant="secondary" className="text-[10px] rounded-full px-2 py-0.5">{tech}</Badge>
@@ -381,13 +423,13 @@ function CompanyInsights({ job }: { job: JobItem }) {
       <div className="px-5 py-3 border-t border-border bg-gradient-to-r from-blue-50/50 to-indigo-50/50 dark:from-blue-950/10 dark:to-indigo-950/10">
         <div className="flex items-center gap-2 mb-2.5">
           <TrendingUp className="h-3.5 w-3.5 text-blue-600" />
-          <span className="text-xs font-semibold text-foreground">Hiring Insights</span>
+          <span className="text-xs font-semibold text-foreground">{t("job.hiringInsights")}</span>
         </div>
         <div className="space-y-2">
           {(job.applicationCount ?? 0) > 0 && (
             <div>
               <div className="flex items-center justify-between mb-0.5">
-                <span className="text-[11px] text-muted-foreground">Applicants</span>
+                <span className="text-[11px] text-muted-foreground">{t("job.applicants")}</span>
                 <span className="text-[11px] font-semibold text-foreground">{job.applicationCount}</span>
               </div>
               <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -398,7 +440,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
           {(job.viewCount ?? 0) > 0 && (
             <div>
               <div className="flex items-center justify-between mb-0.5">
-                <span className="text-[11px] text-muted-foreground">Views</span>
+                <span className="text-[11px] text-muted-foreground">{t("job.views")}</span>
                 <span className="text-[11px] font-semibold text-foreground">{job.viewCount}</span>
               </div>
               <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -407,17 +449,17 @@ function CompanyInsights({ job }: { job: JobItem }) {
             </div>
           )}
           <div className="flex items-center justify-between">
-            <span className="text-[11px] text-muted-foreground">Posted</span>
-            <span className="text-[11px] font-medium text-foreground">{formatTimeAgo(job.publishedAt)}</span>
+            <span className="text-[11px] text-muted-foreground">{t("job.posted")}</span>
+            <span className="text-[11px] font-medium text-foreground">{formatTimeAgo(job.publishedAt, t)}</span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-[11px] text-muted-foreground">Competition Level</span>
+            <span className="text-[11px] text-muted-foreground">{t("job.competitionLevel")}</span>
             <Badge className={`text-[10px] border-0 rounded-full px-2 py-0 ${
               (job.applicationCount || 0) > 20 ? "bg-red-100 text-red-700" :
               (job.applicationCount || 0) > 5 ? "bg-amber-100 text-amber-700" :
               "bg-green-100 text-green-700"
             }`}>
-              {(job.applicationCount || 0) > 20 ? "High" : (job.applicationCount || 0) > 5 ? "Medium" : "Low"}
+              {(job.applicationCount || 0) > 20 ? t("common.high") : (job.applicationCount || 0) > 5 ? t("common.medium") : t("common.low")}
             </Badge>
           </div>
         </div>
@@ -427,7 +469,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
       <div className="px-5 py-3 border-t border-border">
         <div className="flex items-center gap-2 mb-2">
           <Target className="h-3.5 w-3.5 text-purple-600" />
-          <span className="text-xs font-semibold text-foreground">Similar Companies Hiring</span>
+          <span className="text-xs font-semibold text-foreground">{t("company.similarHiring")}</span>
         </div>
         <div className="flex flex-wrap gap-1.5">
           {similarCompanies.map((company) => (
@@ -454,13 +496,14 @@ function JobDetailPanel({
   job: JobItem;
   onClose: () => void;
 }) {
+  const t = useT();
   const { user } = useAuth();
   const { toast } = useToast();
   const [showApplyModal, setShowApplyModal] = useState(false);
 
   const salary = formatSalary(job.salaryMin, job.salaryMax, job.salaryCurrency);
-  const roleLabel = job.roleType ? roleTypeLabels[job.roleType] || job.roleType : null;
-  const seniorityLabel = job.seniority ? seniorityLabels[job.seniority] || job.seniority : null;
+  const roleLabel = roleTypeLabel(job.roleType, t);
+  const seniority = seniorityLabel(job.seniority, t);
   const skills = (job.skills as string[] | null) || [];
   const isExternalApply = !!job.applyUrl;
   const companySlug = job.companyName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
@@ -498,9 +541,9 @@ function JobDetailPanel({
     trackClickMutation.mutate({ jobId: job.id, clickType: "share" });
     try {
       await navigator.clipboard.writeText(`${window.location.origin}/jobs/${job.slug}`);
-      toast({ title: "Link Copied", description: "Job link copied to clipboard!" });
+      toast({ title: t("common.linkCopied"), description: t("job.linkCopied") });
     } catch {
-      toast({ title: "Share", description: `${window.location.origin}/jobs/${job.slug}` });
+      toast({ title: t("article.share"), description: `${window.location.origin}/jobs/${job.slug}` });
     }
   };
 
@@ -524,8 +567,8 @@ function JobDetailPanel({
                   {job.companyName}
                 </Link>
                 {" · "}
-                <span>{job.location || "Remote"}</span>
-                {(job.isRemote || job.remoteType === "fully_remote") && <span className="text-emerald-600"> (Remote)</span>}
+                <span>{job.location || t("job.remote")}</span>
+                {(job.isRemote || job.remoteType === "fully_remote") && <span className="text-emerald-600"> ({t("job.remote")})</span>}
               </p>
             </div>
             <Button variant="ghost" size="icon" className="lg:hidden shrink-0" onClick={onClose}>
@@ -537,19 +580,19 @@ function JobDetailPanel({
           <div className="flex items-center gap-2 mt-3">
             {hasApplied ? (
               <Button disabled className="gap-2 rounded-full h-9 text-sm">
-                <CheckCircle className="h-4 w-4" /> Applied
+                <CheckCircle className="h-4 w-4" /> {t("job.applied")}
               </Button>
             ) : (
               <Button onClick={handleApplyClick} className="gap-2 rounded-full h-9 text-sm bg-blue-600 hover:bg-blue-700 text-white font-semibold">
                 {isExternalApply ? (
-                  <><ExternalLink className="h-4 w-4" /> Apply</>
+                  <><ExternalLink className="h-4 w-4" /> {t("job.apply")}</>
                 ) : (
-                  <><Sparkles className="h-4 w-4" /> Easy Apply</>
+                  <><Sparkles className="h-4 w-4" /> {t("job.easyApply")}</>
                 )}
               </Button>
             )}
             <Button variant="outline" size="sm" className="rounded-full h-9 gap-1.5" onClick={handleShare}>
-              <Share2 className="h-3.5 w-3.5" /> Share
+              <Share2 className="h-3.5 w-3.5" /> {t("article.share")}
             </Button>
             <BookmarkButton
               contentType="job"
@@ -562,7 +605,7 @@ function JobDetailPanel({
             />
             <Link href={`/jobs/${job.slug}`} className="ml-auto">
               <Button variant="ghost" size="sm" className="rounded-full h-9 gap-1.5 text-xs text-muted-foreground">
-                <ExternalLink className="h-3.5 w-3.5" /> Full page
+                <ExternalLink className="h-3.5 w-3.5" /> {t("job.fullPage")}
               </Button>
             </Link>
           </div>
@@ -577,9 +620,9 @@ function JobDetailPanel({
                 <Briefcase className="h-3 w-3" /> {roleLabel}
               </Badge>
             )}
-            {seniorityLabel && (
+            {seniority && (
               <Badge variant="secondary" className="rounded-full text-xs font-normal gap-1 bg-purple-50 text-purple-700 border border-purple-200">
-                <GraduationCap className="h-3 w-3" /> {seniorityLabel}
+                <GraduationCap className="h-3 w-3" /> {seniority}
               </Badge>
             )}
             {salary && (
@@ -589,7 +632,7 @@ function JobDetailPanel({
             )}
             {(job.isRemote || job.remoteType === "fully_remote" || job.remoteType === "hybrid") && (
               <Badge className="rounded-full text-xs font-normal gap-1 bg-amber-50 text-amber-700 border border-amber-200">
-                <Globe className="h-3 w-3" /> {job.remoteType === "hybrid" ? "Hybrid" : "Remote"}
+                <Globe className="h-3 w-3" /> {job.remoteType === "hybrid" ? t("job.hybrid") : t("job.remote")}
               </Badge>
             )}
             {job.department && (
@@ -602,7 +645,7 @@ function JobDetailPanel({
           {/* About the Role */}
           {job.description && (
             <div className="px-5 py-4 border-b border-border">
-              <h3 className="text-sm font-semibold text-foreground mb-2">About the Role</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{t("job.aboutRole")}</h3>
               <div
                 className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
                 dangerouslySetInnerHTML={{ __html: job.description }}
@@ -614,7 +657,7 @@ function JobDetailPanel({
           {job.requirements && (
             <div className="px-5 py-4 border-b border-border">
               <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                <Award className="h-4 w-4 text-blue-500" /> Requirements
+                <Award className="h-4 w-4 text-blue-500" /> {t("job.requirements")}
               </h3>
               <div
                 className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
@@ -627,7 +670,7 @@ function JobDetailPanel({
           {job.benefits && (
             <div className="px-5 py-4 border-b border-border">
               <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                <Heart className="h-4 w-4 text-pink-500" /> Benefits & Perks
+                <Heart className="h-4 w-4 text-pink-500" /> {t("job.benefitsPerks")}
               </h3>
               <div
                 className="text-sm text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
@@ -639,7 +682,7 @@ function JobDetailPanel({
           {/* Skills */}
           {skills.length > 0 && (
             <div className="px-5 py-4 border-b border-border">
-              <h3 className="text-sm font-semibold text-foreground mb-2">Skills & Tags</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{t("job.skillsTags")}</h3>
               <div className="flex flex-wrap gap-1.5">
                 {skills.map((s) => (
                   <Badge key={s} className="bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-xs font-normal">
@@ -697,6 +740,7 @@ function TopFilterBar({
   onSortChange: (val: string) => void;
   totalItems: number;
 }) {
+  const t = useT();
   const { data: countriesData } = trpc.jobs.listCountries.useQuery();
   const { data: citiesData } = trpc.jobs.listCities.useQuery(
     { countryId: filters.countryId! },
@@ -724,10 +768,10 @@ function TopFilterBar({
         >
           <SelectTrigger className="h-7 text-[11px] w-auto min-w-[100px] rounded-full border-gray-300 bg-white px-2.5">
             <Globe className="h-3 w-3 mr-1 text-muted-foreground" />
-            <SelectValue placeholder="Location" />
+            <SelectValue placeholder={t("job.location")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Locations</SelectItem>
+            <SelectItem value="all">{t("filter.allLocations")}</SelectItem>
             {(countriesData || []).map((c) => (
               <SelectItem key={c.id} value={String(c.id)}>{c.name}</SelectItem>
             ))}
@@ -742,10 +786,10 @@ function TopFilterBar({
           >
             <SelectTrigger className="h-7 text-[11px] w-auto min-w-[90px] rounded-full border-gray-300 bg-white px-2.5">
               <MapPin className="h-3 w-3 mr-1 text-muted-foreground" />
-              <SelectValue placeholder="City" />
+              <SelectValue placeholder={t("filter.city")} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Cities</SelectItem>
+              <SelectItem value="all">{t("filter.allCities")}</SelectItem>
               {citiesData.map((c) => (
                 <SelectItem key={c.id} value={String(c.id)}>{c.name}</SelectItem>
               ))}
@@ -760,12 +804,12 @@ function TopFilterBar({
         >
           <SelectTrigger className="h-7 text-[11px] w-auto min-w-[95px] rounded-full border-gray-300 bg-white px-2.5">
             <Briefcase className="h-3 w-3 mr-1 text-muted-foreground" />
-            <SelectValue placeholder="Job Type" />
+            <SelectValue placeholder={t("job.type")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Types</SelectItem>
-            {Object.entries(roleTypeLabels).map(([val, label]) => (
-              <SelectItem key={val} value={val}>{label}</SelectItem>
+            <SelectItem value="all">{t("filter.allTypes")}</SelectItem>
+            {Object.entries(roleTypeKeys).map(([val, labelKey]) => (
+              <SelectItem key={val} value={val}>{t(labelKey)}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -777,12 +821,12 @@ function TopFilterBar({
         >
           <SelectTrigger className="h-7 text-[11px] w-auto min-w-[100px] rounded-full border-gray-300 bg-white px-2.5">
             <GraduationCap className="h-3 w-3 mr-1 text-muted-foreground" />
-            <SelectValue placeholder="Experience" />
+            <SelectValue placeholder={t("filter.experience")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Levels</SelectItem>
-            {Object.entries(seniorityLabels).map(([val, label]) => (
-              <SelectItem key={val} value={val}>{label}</SelectItem>
+            <SelectItem value="all">{t("filter.allLevels")}</SelectItem>
+            {Object.entries(seniorityKeys).map(([val, labelKey]) => (
+              <SelectItem key={val} value={val}>{t(labelKey)}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -796,7 +840,7 @@ function TopFilterBar({
               : "bg-white text-muted-foreground border-gray-300 hover:border-gray-400"
           }`}
         >
-          <Globe className="h-3 w-3" /> Remote
+          <Globe className="h-3 w-3" /> {t("job.remote")}
         </button>
 
         {/* Department */}
@@ -806,12 +850,12 @@ function TopFilterBar({
         >
           <SelectTrigger className="h-7 text-[11px] w-auto min-w-[105px] rounded-full border-gray-300 bg-white px-2.5">
             <Building2 className="h-3 w-3 mr-1 text-muted-foreground" />
-            <SelectValue placeholder="Department" />
+            <SelectValue placeholder={t("job.department")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Departments</SelectItem>
+            <SelectItem value="all">{t("filter.allDepartments")}</SelectItem>
             {departmentOptions.map((d) => (
-              <SelectItem key={d} value={d}>{d}</SelectItem>
+              <SelectItem key={d.value} value={d.value}>{t(d.labelKey)}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -823,11 +867,11 @@ function TopFilterBar({
         >
           <SelectTrigger className="h-7 text-[11px] w-auto min-w-[100px] rounded-full border-gray-300 bg-white px-2.5">
             <Clock className="h-3 w-3 mr-1 text-muted-foreground" />
-            <SelectValue placeholder="Date Posted" />
+            <SelectValue placeholder={t("filter.datePosted")} />
           </SelectTrigger>
           <SelectContent>
             {datePostedOptions.map((opt) => (
-              <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+              <SelectItem key={opt.value} value={opt.value}>{t(opt.labelKey)}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -839,10 +883,10 @@ function TopFilterBar({
         >
           <SelectTrigger className="h-7 text-[11px] w-auto min-w-[95px] rounded-full border-gray-300 bg-white px-2.5">
             <DollarSign className="h-3 w-3 mr-1 text-muted-foreground" />
-            <SelectValue placeholder="Salary" />
+            <SelectValue placeholder={t("job.salary")} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="any">Any Salary</SelectItem>
+            <SelectItem value="any">{t("filter.anySalary")}</SelectItem>
             <SelectItem value="30000">$30k+</SelectItem>
             <SelectItem value="50000">$50k+</SelectItem>
             <SelectItem value="80000">$80k+</SelectItem>
@@ -856,11 +900,11 @@ function TopFilterBar({
           <Select value={sortValue} onValueChange={onSortChange}>
             <SelectTrigger className="h-7 text-[11px] w-auto min-w-[120px] rounded-full border-gray-300 bg-white px-2.5">
               <ArrowUpDown className="h-3 w-3 mr-1 text-muted-foreground" />
-              <SelectValue placeholder="Sort by" />
+              <SelectValue placeholder={t("filter.sortBy")} />
             </SelectTrigger>
             <SelectContent>
               {sortOptions.map((opt) => (
-                <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                <SelectItem key={opt.value} value={opt.value}>{t(opt.labelKey)}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -870,34 +914,34 @@ function TopFilterBar({
       {/* Active filters + results count */}
       <div className="flex items-center gap-2 mt-2 flex-wrap">
         <p className="text-xs text-muted-foreground font-medium">
-          {totalItems.toLocaleString()} job{totalItems !== 1 ? "s" : ""} found
+          {t(totalItems === 1 ? "job.foundOne" : "job.foundCount", { n: fmtNumber(totalItems) })}
         </p>
         {activeFilterCount > 0 && (
           <>
             <span className="text-xs text-muted-foreground">·</span>
             {filters.roleType && (
               <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-blue-100 text-blue-700 border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("roleType", undefined)}>
-                {roleTypeLabels[filters.roleType]} <X className="h-2.5 w-2.5" />
+                {roleTypeLabel(filters.roleType, t)} <X className="h-2.5 w-2.5" />
               </Badge>
             )}
             {filters.seniority && (
               <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-purple-100 text-purple-700 border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("seniority", undefined)}>
-                {seniorityLabels[filters.seniority]} <X className="h-2.5 w-2.5" />
+                {seniorityLabel(filters.seniority, t)} <X className="h-2.5 w-2.5" />
               </Badge>
             )}
             {!!filters.isRemote && (
               <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-amber-100 text-amber-700 border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("isRemote", undefined)}>
-                Remote <X className="h-2.5 w-2.5" />
+                {t("job.remote")} <X className="h-2.5 w-2.5" />
               </Badge>
             )}
             {filters.department && (
               <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-teal-100 text-teal-700 border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("department", undefined)}>
-                {filters.department} <X className="h-2.5 w-2.5" />
+                {departmentLabel(filters.department, t)} <X className="h-2.5 w-2.5" />
               </Badge>
             )}
             {filters.datePosted && (
               <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-orange-100 text-orange-700 border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("datePosted", undefined)}>
-                {datePostedOptions.find(o => o.value === filters.datePosted)?.label} <X className="h-2.5 w-2.5" />
+                {datePostedLabel(filters.datePosted, t)} <X className="h-2.5 w-2.5" />
               </Badge>
             )}
             {filters.salaryMin && (
@@ -906,7 +950,7 @@ function TopFilterBar({
               </Badge>
             )}
             <button onClick={onClear} className="text-[11px] text-blue-600 hover:underline font-medium ml-1">
-              Clear all
+              {t("filter.clearAllShort")}
             </button>
           </>
         )}
@@ -920,6 +964,7 @@ function TopFilterBar({
 // ============================================================
 
 function JobsListing() {
+  const t = useT();
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedJobIndex, setSelectedJobIndex] = useState(0);
@@ -984,7 +1029,7 @@ function JobsListing() {
           <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             type="search"
-            placeholder="Search by title, company, or keyword..."
+            placeholder={t("job.searchPlaceholder")}
             className="pl-10 bg-card text-sm h-11 rounded-lg border-gray-300"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -1018,10 +1063,10 @@ function JobsListing() {
             ) : jobsList.length === 0 ? (
               <div className="text-center py-16 px-4">
                 <Briefcase className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
-                <h3 className="text-sm font-semibold text-foreground mb-1">No jobs found</h3>
-                <p className="text-xs text-muted-foreground">Try adjusting your search or filters</p>
+                <h3 className="text-sm font-semibold text-foreground mb-1">{t("state.noJobs")}</h3>
+                <p className="text-xs text-muted-foreground">{t("state.tryAdjusting")}</p>
                 <Button variant="outline" size="sm" className="mt-3 text-xs rounded-full" onClick={handleClearFilters}>
-                  Clear all filters
+                  {t("filter.clearAll")}
                 </Button>
               </div>
             ) : (
@@ -1062,7 +1107,7 @@ function JobsListing() {
             <div className="flex items-center justify-center h-full text-center px-8">
               <div>
                 <Briefcase className="h-12 w-12 mx-auto mb-4 text-muted-foreground/40" />
-                <p className="text-sm text-muted-foreground">Select a job to see details</p>
+                <p className="text-sm text-muted-foreground">{t("job.selectToSeeDetails")}</p>
               </div>
             </div>
           )}
@@ -1086,11 +1131,13 @@ function JobsListing() {
 // ============================================================
 
 export default function Jobs() {
+  const t = useT();
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`Industry Jobs | ${publication.name}`}
-        description="Jobs in construction, energy, infrastructure, manufacturing and logistics across Saudi Arabia, the GCC and MENA — engineering, operations, HSE, project management and more."
+        title={`${t("job.pageTitle")} | ${publication.name}`}
+        description={t("job.pageDescription")}
         canonical={`${publication.siteUrl}/jobs`}
         keywords="industrial jobs, construction jobs, energy jobs, engineering jobs, project management, HSE, Saudi Arabia jobs, GCC jobs"
         ogImage={`${publication.siteUrl}${publication.assets.ogImage}`}
