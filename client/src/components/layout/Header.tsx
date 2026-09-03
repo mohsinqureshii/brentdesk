@@ -95,14 +95,14 @@ export function Wordmark({ className = "" }: { className?: string }) {
 
   return (
     <span
-      // Inter Tight is drawn tight; Arabic is not, and negative tracking
-      // crowds the joins, so the Arabic mark goes without it.
+      // The Latin display face is drawn tight; Arabic is not, and negative
+      // tracking crowds the joins, so the Arabic mark goes without it.
       className={`font-extrabold leading-none select-none ${localized ? "" : "tracking-tight"} ${className}`}
       // Named only for the Latin mark. An inline family beats even the
-      // unlayered rule that delivers STC Forward, and Inter Tight has no
-      // Arabic glyphs — naming it here would drop the Arabic mark to
-      // whatever the browser falls back to, which on Windows is Tahoma.
-      // Leaving it unset lets the mark inherit the page's own face.
+      // unlayered rule that delivers STC Forward, and Google Sans ships no
+      // Arabic — naming it here would drop the Arabic mark to whatever the
+      // browser falls back to, which on Windows is Tahoma. Leaving it unset
+      // lets the mark inherit the page's own face.
       style={localized ? undefined : { fontFamily: "var(--font-display)" }}
     >
       {mark.replace(/\.$/, "")}

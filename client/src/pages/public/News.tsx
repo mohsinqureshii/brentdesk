@@ -67,22 +67,29 @@ function newsDate(a: { eventDate?: string | null; publishedAt?: Date | string | 
   return a.eventDate ?? a.publishedAt;
 }
 
-function formatTimeAgo(date: Date | string | null | undefined): string {
-  if (!date) return "Recently";
+/** These sit outside the components that use them, so they cannot call the
+ *  hook themselves and take the translator instead. They were the last
+ *  English left on the Arabic home page: every card carried "9h ago" and
+ *  "2 min read" in Latin because the keys existed but nothing reached for
+ *  them. */
+type Translate = ReturnType<typeof useT>;
+
+function formatTimeAgo(t: Translate, date: Date | string | null | undefined): string {
+  if (!date) return t("time.recently");
   const then = new Date(date);
   const diffMs = Date.now() - then.getTime();
   const diffMins = Math.floor(diffMs / 60000);
   const diffHours = Math.floor(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
-  if (diffMins < 60) return diffMins <= 1 ? "Just now" : `${diffMins}m ago`;
-  if (diffHours < 24) return `${diffHours}h ago`;
-  if (diffDays < 7) return `${diffDays}d ago`;
+  if (diffMins < 60) return diffMins <= 1 ? t("time.justNow") : t("time.minutesAgo", { n: diffMins });
+  if (diffHours < 24) return t("time.hoursAgo", { n: diffHours });
+  if (diffDays < 7) return t("time.daysAgo", { n: diffDays });
   return fmtDate(then, { month: "short", day: "numeric", year: "numeric" });
 }
 
-function readTime(article: Article): string {
+function readTime(t: Translate, article: Article): string {
   const words = (article.excerpt?.length ?? 300) / 5 + 400;
-  return `${Math.max(1, Math.round(words / 250))} min read`;
+  return t("article.minRead", { n: Math.max(1, Math.round(words / 250)) });
 }
 
 function kicker(article: Article): string | null {
@@ -132,14 +139,15 @@ function Thumb({ article, className }: { article: Article; className?: string })
 }
 
 function MetaLine({ article, showRead = true }: { article: Article; showRead?: boolean }) {
+  const t = useT();
   return (
     <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
-      <span>{formatTimeAgo(newsDate(article))}</span>
+      <span>{formatTimeAgo(t, newsDate(article))}</span>
       {showRead && (
         <>
           <span aria-hidden>·</span>
           <span className="inline-flex items-center gap-1">
-            <Clock className="h-3 w-3" /> {readTime(article)}
+            <Clock className="h-3 w-3" /> {readTime(t, article)}
           </span>
         </>
       )}
@@ -208,10 +216,7 @@ function TopStorySection({ section }: { section: HomepageSection }) {
           <span className="inline-block bg-white text-black text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1 rounded-sm mb-4">
             {t("list.topStory")}
           </span>
-          <h1
-            className="text-white font-extrabold tracking-tight leading-[1.15] text-2xl lg:text-4xl max-w-2xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h1 className="bd-display text-white font-extrabold tracking-tight leading-[1.15] text-2xl lg:text-4xl max-w-2xl">
             {lead.title}
           </h1>
           {lead.excerpt && (
@@ -220,10 +225,10 @@ function TopStorySection({ section }: { section: HomepageSection }) {
             </p>
           )}
           <div className="mt-4 flex items-center gap-2 text-xs text-white/60">
-            <span>{formatTimeAgo(newsDate(lead))}</span>
+            <span>{formatTimeAgo(t, newsDate(lead))}</span>
             <span aria-hidden>·</span>
             <span className="inline-flex items-center gap-1">
-              <Clock className="h-3 w-3" /> {readTime(lead)}
+              <Clock className="h-3 w-3" /> {readTime(t, lead)}
             </span>
           </div>
         </div>
@@ -327,7 +332,7 @@ function InBriefSection({ section }: { section: HomepageSection }) {
         {(articles as Article[]).map((a) => (
           <li key={a.id} className="flex gap-3 py-2.5 border-b border-border last:border-0">
             <span className="text-[11px] font-semibold text-muted-foreground w-14 shrink-0 pt-0.5">
-              {formatTimeAgo(newsDate(a))}
+              {formatTimeAgo(t, newsDate(a))}
             </span>
             <Link href={getArticleUrl(a)} className="group min-w-0">
               <span className="bd-headline text-sm text-foreground line-clamp-2">{a.title}</span>
@@ -480,6 +485,7 @@ function FeaturedCompanies() {
 // ------------------------------------------------------------------
 
 function MostReadWidget({ section }: { section: HomepageSection }) {
+  const t = useT();
   const { data: mostRead = [] } = trpc.news.getMostRead.useQuery({
     limit: section.articleCount || 5,
     days: 30,
@@ -491,17 +497,14 @@ function MostReadWidget({ section }: { section: HomepageSection }) {
       <ol>
         {(mostRead as Article[]).map((a, i) => (
           <li key={a.id} className="flex gap-3 py-2.5 border-b border-border last:border-0">
-            <span
-              className="text-lg font-extrabold text-muted-foreground/40 w-7 shrink-0"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
+            <span className="bd-display text-lg font-extrabold text-muted-foreground/40 w-7 shrink-0">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="min-w-0">
               <Link href={getArticleUrl(a)} className="group">
                 <span className="bd-headline text-sm text-foreground line-clamp-2">{a.title}</span>
               </Link>
-              <div className="mt-1 text-[11px] text-muted-foreground">{formatTimeAgo(newsDate(a))}</div>
+              <div className="mt-1 text-[11px] text-muted-foreground">{formatTimeAgo(t, newsDate(a))}</div>
             </div>
           </li>
         ))}

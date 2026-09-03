@@ -6,7 +6,7 @@
 /* ============================================================
    ARABIC — STC Forward
    ------------------------------------------------------------
-   Inter has no Arabic. Without a face that does, an Arabic page
+   Google Sans has no Arabic. Without a face that does, an Arabic page
    falls back to whatever the browser picks, which on Windows is
    usually Tahoma: the letterforms are wrong, the joins are wrong,
    and the page stops looking like the same publication.
@@ -34,21 +34,22 @@
                  U+0660-0669, U+06F0-06F9;
 }
 
-/* Arabic pages lead with STC Forward and keep Inter for the Latin
-   that remains — company names, units, model numbers. The `unicode-range`
-   above does that split by itself: the browser reaches for STC Forward
-   only for Arabic codepoints and falls through to Inter for the rest.
+/* Arabic pages lead with STC Forward and keep Google Sans Text for the
+   Latin that remains — company names, units, model numbers. The
+   `unicode-range` above does that split by itself: the browser reaches for
+   STC Forward only for Arabic codepoints and falls through for the rest.
+   Google Sans ships no Arabic subset, so the two faces cannot compete.
 
    The second rule is the one that makes any of this visible. Setting the
    family on the Arabic ROOT is not enough, because `body` further down
-   sets its own `font-family: Inter`, and .bd-headline and .bd-section-title
-   set `var(--font-display)` — a direct declaration always beats an
-   inherited one, so every headline on the site kept rendering in Inter
-   Tight no matter what the root said. Forcing inheritance through the
+   sets its own `font-family`, and .bd-headline and .bd-section-title set
+   `var(--font-display)` — a direct declaration always beats an inherited
+   one, so every headline on the site kept rendering in the Latin display
+   face no matter what the root said. Forcing inheritance through the
    subtree is what actually delivers the face; it is unlayered, so it wins
    over both Tailwind's utilities and the component layer. */
 [lang="ar"], [dir="rtl"], .font-arabic {
-  font-family: "STC Forward", "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: "STC Forward", "Google Sans Text", ui-sans-serif, system-ui, sans-serif;
 }
 [lang="ar"] *:not(code):not(pre):not(kbd):not(samp),
 [dir="rtl"] *:not(code):not(pre):not(kbd):not(samp),
@@ -57,7 +58,7 @@
 }
 
 /* Arabic renders shorter than Latin at the same size and reads
-   tight at Inter's line-height. */
+   tight at the Latin line-height. */
 [dir="rtl"] body,
 [lang="ar"] .article-content,
 [dir="rtl"] .article-content {
@@ -66,8 +67,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Google Sans Text', 'Google Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Google Sans', 'Google Sans Text', ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -199,7 +200,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.7;
     overflow-x: clip;
     width: 100%;
@@ -342,7 +343,7 @@
     gap: 0.625rem;
     font-family: var(--font-display);
     font-size: 1.25rem;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
   }
@@ -361,6 +362,15 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 0.625rem;
+  }
+
+  /* The display face as a class rather than an inline style. This matters
+     for Arabic: the rule that delivers STC Forward works by forcing the
+     whole subtree to inherit, and an inline `font-family` beats it, so an
+     inline display face silently drops Arabic text to the browser's own
+     fallback. A class sits in this layer, which that rule outranks. */
+  .bd-display {
+    font-family: var(--font-display);
   }
 
   /* Headline link hover */

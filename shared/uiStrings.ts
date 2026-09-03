@@ -1628,6 +1628,7 @@ export const UI_STRINGS = {
   "time.daysAgo": "{n}d ago",
   "time.hoursAgo": "{n}h ago",
   "time.justNow": "Just now",
+  "time.minutesAgo": "{n}m ago",
   "time.monthsAgo": "{n}mo ago",
   "time.recently": "Recently",
   "time.today": "Today",
