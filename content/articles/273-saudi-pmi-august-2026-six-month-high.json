@@ -1,0 +1,43 @@
+[
+  {
+    "commission": 1160,
+    "headline": "Saudi Non-Oil Growth Hits a Six-Month High as Export Orders Keep Falling",
+    "slug": "saudi-pmi-august-2026-non-oil-six-month-high",
+    "deck": "Firms are hiring at close to a decade high and discounting at the same time. That combination is the story, not the headline index.",
+    "excerpt": "The Riyad Bank Saudi Arabia PMI rose to 53.8 in August from 53.1 in July, a six-month high. Employment grew at one of its sharpest rates in a decade while firms cut selling prices for a second month, and export orders fell more steeply.",
+    "content": "<p>Saudi Arabia's non-oil private sector expanded at its fastest pace in six months in August, with the seasonally adjusted <a href=\"https://www.pmi.spglobal.com/Public/Home/PressRelease/aea20bc20e8e4620aae8ab552437814f\">Riyad Bank Saudi Arabia PMI</a>, compiled by S&amp;P Global, rising to 53.8 from 53.1 in July.</p><p>The reading is the fifth consecutive month above the 50 mark that separates expansion from contraction. Output rose at its strongest rate in seven months and new orders increased for a fifth straight month, which is the combination that matters most to anyone selling into the domestic market: demand is not merely holding, it is compounding.</p><p>Two qualifications sit underneath the headline. The first is the comparison the survey itself draws. At 53.8 the index remains well below its long-run average of 56.8, so conditions are improving without having returned to the pace recorded before the regional shock that interrupted the series earlier in the year. Growth and recovery are not the same measurement, and the gap between the two is about three index points.</p><p>The second is the export component, which moved in the opposite direction. New export orders fell more sharply in August, which the survey attributes to regional tensions. That divergence — domestic orders up, foreign orders down — is the most industrially significant thing in the release, because it describes a private sector whose growth is being carried by the internal project pipeline rather than by outbound trade.</p><p>For manufacturers, that has a practical consequence. A factory built on domestic offtake is exposed to the timing of a small number of very large programmes: the giga-projects, the utilities build-out, the industrial cities. A factory built on export demand diversifies that risk across markets with independent cycles. The kingdom's industrial policy has been explicit about wanting the second kind of plant, and the export line in this survey is the one that would show it arriving.</p><p>Beneath the headline the labour line is the most striking. Employment rose for a second consecutive month and did so at one of the sharpest rates recorded in a decade. Hiring at that pace is a capacity decision rather than a response to a busy month: firms add permanent headcount when they expect the order book to persist, and they do it in a market where Saudisation quotas make each hire a longer commitment than it would be elsewhere.</p><p>Set against that, firms cut their selling prices for a second month running in an effort to reaccelerate demand. Hiring hard while discounting is an uncomfortable combination. It describes companies buying market share and absorbing the cost in margin, which works while the pipeline holds and becomes a problem quickly if it does not. Purchasing activity rose at its fastest rate since February as delivery times improved, so the discounting is not being forced by input costs — it is a choice about competition.</p><p>The PMI is a diffusion index of purchasing managers' responses rather than a measure of output volume, so it records the direction and breadth of change rather than its size. A reading of 53.8 says more firms saw improvement than deterioration; it does not say by how much. It is a useful leading indicator precisely because purchasing decisions run ahead of production, and a poor guide to the level of activity in any single month.</p><p>Read alongside the industrial data the kingdom has published this year — a rising count of licensed factories and a rebound in industrial output driven by mining and utilities — the August survey is consistent with a non-oil economy that is broadening. What it does not yet show is that broadening reaching international customers.</p>",
+    "author": "BrentDesk Staff",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "Saudi Arabia",
+      "PMI",
+      "Non-Oil Economy",
+      "Saudi Manufacturing",
+      "Exports"
+    ],
+    "companies": [
+      "Riyad Bank",
+      "S&P Global"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-03",
+    "informationCutoff": "2026-09-03",
+    "primarySourceUrl": "https://www.pmi.spglobal.com/Public/Home/PressRelease/aea20bc20e8e4620aae8ab552437814f",
+    "primarySourceName": "S&P Global",
+    "secondarySourceUrls": [
+      "https://www.arabnews.com/business/saudi-pmi-rises-to-6-month-high-as-non-oil-growth-accelerates-3000302",
+      "https://economymiddleeast.com/news/saudi-arabias-august-pmi-rises-to-53-8-as-non-oil-business-growth-hits-six-month-high/",
+      "https://www.fx.co/en/forex-news/3137893",
+      "https://www.pmi.spglobal.com/Public/Home/PressRelease/1b5d46376dbf430f87c9ebcbf8c80527"
+    ],
+    "seoTitle": "Saudi PMI Hits 53.8 in August, a Six-Month High",
+    "seoDescription": "The Riyad Bank Saudi Arabia PMI rose to 53.8 in August, a six-month high, but new export orders fell more sharply on regional tensions.",
+    "articleType": "news",
+    "wordCount": 597,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

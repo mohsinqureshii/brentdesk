@@ -1,0 +1,45 @@
+[
+  {
+    "commission": 1161,
+    "headline": "Humain Seeks $2.5bn Fund to Finance Saudi Data Centre Build-Out",
+    "slug": "humain-25bn-fund-saudi-data-centres",
+    "deck": "The fund is sized at 250MW. The company's stated target is 6GW. The gap between those two numbers is the point.",
+    "excerpt": "Humain, the Public Investment Fund's artificial intelligence company, is seeking an initial $2.5bn from global and domestic investors for a vehicle to finance Saudi data centre capacity. The fund would support around 250MW, against a company target of 6GW by 2034.",
+    "content": "<p>Humain, the artificial intelligence company owned by Saudi Arabia's Public Investment Fund, is seeking to raise an initial $2.5bn from global and domestic investors for a fund dedicated to data centre projects in the kingdom, <a href=\"https://www.bloomberg.com/news/articles/2026-09-03/saudi-firm-humain-eyes-2-5-billion-fund-to-build-data-centers\">Bloomberg</a> reported.</p><p>The vehicle would finance roughly 250MW of capacity, with the potential to grow to as much as 1GW. Read against Humain's own targets — 1.9GW by 2030 and 6GW by 2034 — the fund covers a small fraction of the programme, which is the most informative thing about it.</p><p>Data centres at this scale are not built from a balance sheet. A gigawatt of AI compute capacity runs to tens of billions of dollars once land, power infrastructure, cooling, buildings and the chips themselves are counted, and the chips depreciate on a cycle far shorter than the concrete. Standing up a dedicated fund is how that cost gets distributed across investors who want infrastructure-like returns without holding the operating risk. A $2.5bn first close is a structure being tested, not a programme being financed.</p><p>The construction demand is already in the market. Humain has tendered infrastructure works for a 6GW campus in east Riyadh, a package that is civil and electrical work at a scale comparable to a heavy industrial estate rather than a commercial building. The company has also broken ground on facilities in Riyadh and Dammam with an initial 100MW each, and has a joint venture with DataVolt covering multi-gigawatt capacity.</p><p>Timing is the other pressure. Humain's first two facilities, at 100MW each in Riyadh and Dammam, were slated to go live in the second quarter of this year, which means the company is raising construction capital while already operating. That is the harder sequence: an operator with live load has revenue and a reference plant to show investors, but it also has a utilisation problem to solve on day one rather than a design to argue about.</p><p>Power is the binding constraint, not capital or land. A 6GW campus is a load roughly comparable to a large industrial city, and it has to be supplied continuously rather than in the peaking pattern that most Saudi generation is optimised around. That places the data centre programme directly against the renewables and grid build-out being procured separately through the Saudi Power Procurement Company, and makes the sequencing of substations and transmission the schedule item that decides whether campuses energise on time.</p><p>The industrial read-through goes beyond the buildings. Chilled water plant, switchgear, transformers, cabling, prefabricated electrical rooms and structural steel are all specified early and ordered in volume, and the kingdom's industrial policy has been pushing to localise exactly those categories. A programme of this size is the first domestic demand signal large enough to justify local production lines for equipment that has historically been imported.</p><p>Humain launched with substantial hardware commitments, including an initial deployment of Nvidia processors and a large-scale agreement with AMD, and has been positioning itself as a sovereign compute provider rather than a landlord. That distinction matters commercially: a colocation operator sells space and power, while a compute provider carries the cost of the silicon and must keep it utilised.</p><p>Whether the fund closes at $2.5bn, and on what terms, has not been disclosed.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "data-centers",
+    "tags": [
+      "Data Centres",
+      "Humain",
+      "Public Investment Fund",
+      "Saudi Arabia",
+      "Industrial AI"
+    ],
+    "companies": [
+      "Humain",
+      "Public Investment Fund",
+      "DataVolt"
+    ],
+    "people": [
+      "Tareq Amin"
+    ],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-09-03",
+    "informationCutoff": "2026-09-03",
+    "primarySourceUrl": "https://www.bloomberg.com/news/articles/2026-09-03/saudi-firm-humain-eyes-2-5-billion-fund-to-build-data-centers",
+    "primarySourceName": "Bloomberg",
+    "secondarySourceUrls": [
+      "https://www.investing.com/news/stock-market-news/humain-plans-25-billion-fund-for-saudi-data-center-projects--bloomberg-93CH-4888112",
+      "https://www.constructionweeksaudi.com/projects-tenders/humain-tenders-data-centre",
+      "https://www.datacenterdynamics.com/en/news/humain-breaks-ground-two-data-centers-with-first-facilities-expected-to-go-live-in-q2-2026/"
+    ],
+    "seoTitle": "Humain Seeks $2.5bn Fund for Saudi Data Centre Build-Out",
+    "seoDescription": "PIF-owned Humain is raising an initial $2.5bn to finance Saudi data centre capacity, covering about 250MW against a 6GW target by 2034.",
+    "articleType": "news",
+    "wordCount": 537,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]
