@@ -45,10 +45,11 @@ const personTypes = ["All", "Executives", "Engineering", "Operations", "Governme
 
 // Derive an industry-flavored role category from a person's job title.
 function classifyRole(title: string | null | undefined): "Executives" | "Engineering" | "Operations" | "Government" {
-  const t = (title || "").toLowerCase();
-  if (/minister|ministry|government|authority|municipal|regulator|commission|public sector/.test(t)) return "Government";
-  if (/engineer|technical|cto|architect|scientist|r&d|technolog/.test(t)) return "Engineering";
-  if (/operations|coo|supply chain|logistics|plant |procurement|maintenance|project manager|site manager|hse/.test(t)) return "Operations";
+  // Not `t`: this file translates, and `t` is the translator everywhere else in it.
+  const role = (title || "").toLowerCase();
+  if (/minister|ministry|government|authority|municipal|regulator|commission|public sector/.test(role)) return "Government";
+  if (/engineer|technical|cto|architect|scientist|r&d|technolog/.test(role)) return "Engineering";
+  if (/operations|coo|supply chain|logistics|plant |procurement|maintenance|project manager|site manager|hse/.test(role)) return "Operations";
   return "Executives";
 }
 

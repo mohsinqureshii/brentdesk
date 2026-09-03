@@ -65,8 +65,8 @@ export default function EventTicketsSuccess() {
 
   useEffect(() => {
     if (order.data?.status === "pending") {
-      const t = setTimeout(() => setAttempt((a) => a + 1), 3000);
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => setAttempt((a) => a + 1), 3000);
+      return () => clearTimeout(timer);
     }
   }, [order.data?.status, attempt]);
 

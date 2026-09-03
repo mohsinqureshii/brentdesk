@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "paths": {
+      "@/*": ["./client/src/*"],
+      "@shared/*": ["/tmp/claude-0/-home-user-brentdesk/d50d1ff2-ca17-5719-9476-cdd22869c100/scratchpad/i18n/shadow/shared/*"],
+      "@test/*": ["./test-support/*"]
+    }
+  },
+  "include": [
+    "client/src/pages/public/Jobs.tsx",
+    "client/src/pages/public/JobDetail.tsx",
+    "client/src/components/dashboard/JobPipeline.tsx"
+  ]
+}
