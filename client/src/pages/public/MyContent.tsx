@@ -5,6 +5,7 @@
  */
 
 import { useState, useMemo } from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link, useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -791,7 +792,7 @@ export default function MyContent() {
 
                             <p className="text-sm text-muted-foreground">
                               Role: <span className="capitalize font-medium">{profile.role}</span>
-                              {profile.createdAt && ` · Claimed ${new Date(profile.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`}
+                              {profile.createdAt && ` · Claimed ${fmtDate(new Date(profile.createdAt), { month: "short", day: "numeric", year: "numeric" })}`}
                             </p>
 
                             {/* Verification note for rejected/needs_clarification */}

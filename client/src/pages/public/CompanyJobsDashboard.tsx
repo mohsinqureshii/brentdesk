@@ -7,6 +7,7 @@
  */
 
 import { useState, useMemo } from "react";
+import { fmtDate } from "@/lib/dates";
 import { trpc } from "@/lib/trpc";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
@@ -115,7 +116,7 @@ export default function CompanyJobsDashboard() {
 
   const formatDate = (date: Date | string | null) => {
     if (!date) return "—";
-    return new Date(date).toLocaleDateString("en-US", {
+    return fmtDate(new Date(date), {
       month: "short",
       day: "numeric",
       year: "numeric",

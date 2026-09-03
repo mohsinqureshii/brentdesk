@@ -117,6 +117,8 @@
     "newsletter.eventUpdates": "مستجدات الفعاليات",
     "newsletter.eventsDescription": "فعاليات القطاع القادمة",
     "list.topStory": "أبرز خبر",
-    "list.sidebar": "الشريط الجانبي"
+    "list.sidebar": "الشريط الجانبي",
+    "common.advertisement": "إعلان",
+    "common.closeAd": "إغلاق الإعلان"
   }
 }

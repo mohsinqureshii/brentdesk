@@ -9,12 +9,13 @@
  */
 
 import { sanitizeHtml, looksLikeHtml } from "@/lib/sanitizeHtml";
+import { fmtDate, fmtTime } from "@/lib/dates";
 
 export function formatDate(d: string | Date | null | undefined): string {
   if (!d) return "TBD";
   const date = typeof d === "string" ? new Date(d) : d;
   if (Number.isNaN(date.getTime())) return "TBD";
-  return date.toLocaleDateString("en-US", {
+  return fmtDate(date, {
     month: "long",
     day: "numeric",
     year: "numeric",
@@ -29,7 +30,7 @@ export function formatDateRange(
   const s = new Date(start);
   if (Number.isNaN(s.getTime())) return "TBD";
   const e = end ? new Date(end) : null;
-  const startStr = s.toLocaleDateString("en-US", {
+  const startStr = fmtDate(s, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -39,12 +40,12 @@ export function formatDateRange(
   }
   // Same year/month → "March 4–7, 2026"
   if (s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth()) {
-    return `${s.toLocaleDateString("en-US", {
+    return `${fmtDate(s, {
       month: "long",
       day: "numeric",
     })}–${e.getDate()}, ${s.getFullYear()}`;
   }
-  const endStr = e.toLocaleDateString("en-US", {
+  const endStr = fmtDate(e, {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -56,7 +57,7 @@ export function formatTime(d: string | Date | null | undefined): string {
   if (!d) return "";
   const date = typeof d === "string" ? new Date(d) : d;
   if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleTimeString("en-US", {
+  return fmtTime(date, {
     hour: "numeric",
     minute: "2-digit",
     hour12: true,
@@ -95,7 +96,7 @@ export function dateForDayNumber(
 /** "Wed, Mar 4" — the compact day-tab label. */
 export function formatDayLabel(date: Date | null): string {
   if (!date) return "";
-  return date.toLocaleDateString("en-US", {
+  return fmtDate(date, {
     weekday: "short",
     month: "short",
     day: "numeric",

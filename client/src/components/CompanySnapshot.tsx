@@ -4,6 +4,7 @@
  */
 
 import { Link } from "wouter";
+import { fmtDate } from "@/lib/dates";
 import { trpc } from "@/lib/trpc";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -61,7 +62,7 @@ function formatAmount(amount: number | string | null, currency: string = "USD"):
 function formatDate(date: Date | string | null): string {
   if (!date) return "";
   const d = new Date(date);
-  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  return fmtDate(d, { month: "short", year: "numeric" });
 }
 
 export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps) {

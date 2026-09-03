@@ -30,6 +30,7 @@
  */
 
 import { useEffect, useMemo, useState } from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -1023,7 +1024,7 @@ function groupEvents(
   const endOfMonth = new Date();
   endOfMonth.setMonth(endOfMonth.getMonth() + 1, 0);
   endOfMonth.setHours(23, 59, 59, 999);
-  const monthLabel = new Date().toLocaleDateString("en-US", { month: "long" });
+  const monthLabel = fmtDate(new Date(), { month: "long" });
 
   const happening: CardEvent[] = [];
   const thisMonth: CardEvent[] = [];

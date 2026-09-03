@@ -31,6 +31,7 @@
  */
 
 import { useState } from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import { Bookmark, CalendarDays, MapPin, Radio } from "lucide-react";
 import { toast } from "sonner";
@@ -82,7 +83,7 @@ export function formatLongDateRange(
   if (!s) return "Date TBD";
   const e = asDate(end);
   const fmt = (d: Date) =>
-    d.toLocaleDateString("en-US", {
+    fmtDate(d, {
       month: "long",
       day: "numeric",
       year: "numeric",
@@ -94,7 +95,7 @@ export function formatLongDateRange(
     s.getDate() === e.getDate();
   if (!e || sameDay) return fmt(s);
   if (s.getFullYear() === e.getFullYear() && s.getMonth() === e.getMonth()) {
-    const month = s.toLocaleDateString("en-US", { month: "long" });
+    const month = fmtDate(s, { month: "long" });
     return `${month} ${s.getDate()}–${e.getDate()}, ${s.getFullYear()}`;
   }
   return `${fmt(s)} – ${fmt(e)}`;
@@ -106,7 +107,7 @@ export function formatShortDate(
 ): string {
   const s = asDate(start);
   if (!s) return "Date TBD";
-  return s.toLocaleDateString("en-US", {
+  return fmtDate(s, {
     month: "short",
     day: "numeric",
     year: "numeric",

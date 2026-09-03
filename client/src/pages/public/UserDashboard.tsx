@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link, useLocation } from "wouter";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -52,12 +53,12 @@ function timeAgo(date: Date | string | null): string {
   if (minutes < 60) return `${minutes}m ago`;
   if (hours < 24) return `${hours}h ago`;
   if (days < 7) return `${days}d ago`;
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return fmtDate(d, { month: "short", day: "numeric" });
 }
 
 function formatDate(date: Date | string | null): string {
   if (!date) return "";
-  return new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return fmtDate(new Date(date), { month: "short", day: "numeric", year: "numeric" });
 }
 
 // Content type icons and colors
@@ -462,7 +463,7 @@ export default function UserDashboard() {
                                 <div className="flex gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer group">
                                   <div className="h-12 w-12 rounded-lg bg-purple-50 flex flex-col items-center justify-center flex-shrink-0">
                                     <span className="text-[10px] font-bold text-purple-600 uppercase">
-                                      {event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", { month: "short" }) : "TBD"}
+                                      {event.startDate ? fmtDate(new Date(event.startDate), { month: "short" }) : "TBD"}
                                     </span>
                                     <span className="text-lg font-bold text-purple-800 leading-none">
                                       {event.startDate ? new Date(event.startDate).getDate() : "?"}
@@ -937,7 +938,7 @@ export default function UserDashboard() {
                             <div className="flex items-start gap-3">
                               <div className="h-12 w-12 rounded-lg bg-purple-50 flex flex-col items-center justify-center flex-shrink-0">
                                 <span className="text-[10px] font-bold text-purple-600 uppercase">
-                                  {event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", { month: "short" }) : "TBD"}
+                                  {event.startDate ? fmtDate(new Date(event.startDate), { month: "short" }) : "TBD"}
                                 </span>
                                 <span className="text-lg font-bold text-purple-800 leading-none">
                                   {event.startDate ? new Date(event.startDate).getDate() : "?"}

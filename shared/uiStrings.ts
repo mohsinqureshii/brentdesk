@@ -58,6 +58,8 @@ export const UI_STRINGS = {
   "list.latest": "Latest",
   "list.topStory": "Top story",
   "list.sidebar": "Sidebar",
+  "common.advertisement": "Advertisement",
+  "common.closeAd": "Close ad",
   "list.latestNews": "Latest News",
   "list.featuredCompanies": "Featured Companies",
   "list.featured": "Featured",

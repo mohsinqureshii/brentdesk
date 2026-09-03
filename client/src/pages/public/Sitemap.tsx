@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { fmtDate } from "@/lib/dates";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -168,7 +169,7 @@ const Sitemap = () => {
 
         {/* Last Updated */}
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <p>Last updated: {fmtDate(new Date(), { year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>
       </section>
 

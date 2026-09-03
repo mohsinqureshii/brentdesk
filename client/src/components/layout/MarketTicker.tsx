@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { fmtDateTime } from "@/lib/dates";
 import { trpc } from "@/lib/trpc";
 
 /**
@@ -62,7 +63,7 @@ export function MarketTicker({ headline, headlineHref }: { headline?: string; he
     liveQuotes && liveQuotes.length > 0
       ? liveQuotes.map((q) => ({
           label: SYMBOL_LABELS[q.symbol] ?? q.symbol,
-          price: q.price >= 1000 ? Math.round(q.price).toLocaleString("en-US") : q.price.toFixed(2),
+          price: q.price >= 1000 ? fmtDateTime(Math.round(q.price)) : q.price.toFixed(2),
           changePercent: q.changePercent,
         }))
       : FALLBACK_QUOTES;

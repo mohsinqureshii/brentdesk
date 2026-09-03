@@ -1,4 +1,5 @@
 import React from "react";
+import { fmtDate } from "@/lib/dates";
 import { Header } from "@/components/layout/Header";
 import { MarketTicker } from "@/components/layout/MarketTicker";
 import { JsonLd } from "@/components/JsonLd";
@@ -76,7 +77,7 @@ function formatTimeAgo(date: Date | string | null | undefined): string {
   if (diffMins < 60) return diffMins <= 1 ? "Just now" : `${diffMins}m ago`;
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return then.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return fmtDate(then, { month: "short", day: "numeric", year: "numeric" });
 }
 
 function readTime(article: Article): string {
@@ -417,7 +418,7 @@ function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
                   <div className="absolute top-2 left-2 bg-card rounded-md px-2 py-1 text-center leading-tight shadow-sm">
                     <div className="text-sm font-extrabold text-foreground">{d.getDate()}</div>
                     <div className="text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
-                      {d.toLocaleDateString("en-US", { month: "short" })}
+                      {fmtDate(d, { month: "short" })}
                     </div>
                   </div>
                 )}
@@ -567,7 +568,7 @@ function EventsWidget({ section, editionCountryId }: { section: HomepageSection;
               <div className="bd-headline text-[13px] text-foreground line-clamp-2">{event.title}</div>
               <div className="mt-1 text-[11px] text-muted-foreground">
                 {event.startDate &&
-                  new Date(event.startDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                  fmtDate(new Date(event.startDate), { month: "short", day: "numeric" })}
                 {(event.city || event.country) && ` · ${[event.city, event.country].filter(Boolean).join(", ")}`}
               </div>
             </Link>

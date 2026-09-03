@@ -1,4 +1,5 @@
 import React from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import { useParams } from "wouter";
 import { useState } from "react";
@@ -50,7 +51,7 @@ function formatTimeAgo(date: Date | string | null): string {
   if (diffMins < 60) return `${diffMins}m ago`;
   if (diffHours < 24) return `${diffHours}h ago`;
   if (diffDays < 7) return `${diffDays}d ago`;
-  return past.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return fmtDate(past, { month: "short", day: "numeric" });
 }
 
 // Helper function to estimate read time

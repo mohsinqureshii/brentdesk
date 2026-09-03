@@ -15,6 +15,7 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 
 // Standard IAB ad sizes
 const AD_SIZES: Record<string, { width: number; height: number }> = {
@@ -57,6 +58,7 @@ export function AdUnit({
   lazy = true,
   category,
 }: AdUnitProps) {
+  const t = useT();
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(!lazy);
   const [viewStartTime, setViewStartTime] = useState<number | null>(null);
@@ -208,7 +210,7 @@ export function AdUnit({
       {adData && adData.type !== "empty" && (
         <div className="flex items-center justify-center mb-0.5">
           <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground/60 font-medium">
-            Advertisement
+            {t("common.advertisement")}
           </span>
         </div>
       )}
@@ -487,6 +489,7 @@ export function FooterAd({ slotKey, className }: { slotKey: string; className?: 
 }
 
 export function MobileStickyAd({ slotKey }: { slotKey: string }) {
+  const t = useT();
   const [dismissed, setDismissed] = useState(false);
   
   if (dismissed) return null;
@@ -499,7 +502,7 @@ export function MobileStickyAd({ slotKey }: { slotKey: string }) {
         <button
           onClick={() => setDismissed(true)}
           className="absolute -top-6 right-2 bg-background/90 border border-border rounded-t-md px-2 py-0.5 text-[10px] text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Close ad"
+          aria-label={t("common.closeAd")}
         >
           ✕
         </button>

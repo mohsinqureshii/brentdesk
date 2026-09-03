@@ -1,4 +1,5 @@
 import { useLocation, Link } from "wouter";
+import { fmtDate, fmtTime } from "@/lib/dates";
 import { useParams } from "wouter";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Header } from "@/components/layout/Header";
@@ -26,7 +27,7 @@ const containerClass = "w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8";
 function formatDate(date: Date | string | null): string {
   if (!date) return "Recently";
   const d = new Date(date);
-  return d.toLocaleDateString('en-US', { 
+  return fmtDate(d, { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
@@ -36,7 +37,7 @@ function formatDate(date: Date | string | null): string {
 function formatTime(date: Date | string | null): string {
   if (!date) return "";
   const d = new Date(date);
-  return d.toLocaleTimeString('en-US', { 
+  return fmtTime(d, { 
     hour: 'numeric', 
     minute: '2-digit',
     hour12: true 

@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { fmtDate } from "@/lib/dates";
 import { Link, useParams } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
@@ -23,7 +24,7 @@ const formatDate = (date: Date | string | null) => {
   if (diffDays < 7) return `${diffDays} days ago`;
   if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
   
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return fmtDate(d, { month: 'short', day: 'numeric', year: 'numeric' });
 };
 
 // Helper to get placeholder image
