@@ -4,7 +4,7 @@
     "incremental": false,
     "paths": {
       "@/*": ["./client/src/*"],
-      "@shared/uiStrings": ["/tmp/claude-0/-home-user-brentdesk/d50d1ff2-ca17-5719-9476-cdd22869c100/scratchpad/uiStringsCheck.ts"],
+      "@shared/uiStrings": ["/tmp/claude-0/-home-user-brentdesk/d50d1ff2-ca17-5719-9476-cdd22869c100/scratchpad/i18n/uiStrings.patched.ts"],
       "@shared/*": ["./shared/*"],
       "@test/*": ["./test-support/*"]
     }
