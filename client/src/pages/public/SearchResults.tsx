@@ -4,6 +4,7 @@
  * Accessible at /search?q={query}&type={type}
  */
 import { useState, useEffect, useMemo } from "react";
+import { useT } from "@/lib/i18n";
 import { useLocation, Link } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
@@ -59,6 +60,7 @@ function formatTimeAgo(date: Date | string | null | undefined): string {
 }
 
 export default function SearchResults() {
+  const t = useT();
   const [location, setLocation] = useLocation();
   
   // Parse URL params
@@ -148,7 +150,7 @@ export default function SearchResults() {
             <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search articles, jobs, companies, people, events..."
+              placeholder={t("search.placeholder")}
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               className="h-14 pl-12 pr-12 text-lg"
@@ -229,7 +231,7 @@ export default function SearchResults() {
         ) : totalResults === 0 ? (
           <div className="text-center py-20">
             <Search className="h-16 w-16 mx-auto text-gray-300 mb-4" />
-            <h2 className="text-xl font-semibold text-gray-600 mb-2">No results found</h2>
+            <h2 className="text-xl font-semibold text-gray-600 mb-2">{t("state.noResults")}</h2>
             <p className="text-muted-foreground mb-4">
               We couldn't find anything matching "{debouncedQuery}". Try different keywords.
             </p>
@@ -239,7 +241,7 @@ export default function SearchResults() {
             {/* Articles */}
             {(activeType === "all" || activeType === "article") && articlesData?.items && articlesData.items.length > 0 && (
               <ResultSection
-                title="Articles"
+                title={t("common.articles")}
                 icon={Newspaper}
                 count={counts.article}
                 showViewAll={activeType === "all" && counts.article > 5}
@@ -291,7 +293,7 @@ export default function SearchResults() {
             {/* Jobs */}
             {(activeType === "all" || activeType === "job") && jobsData?.items && jobsData.items.length > 0 && (
               <ResultSection
-                title="Jobs"
+                title={t("nav.jobs")}
                 icon={Briefcase}
                 count={counts.job}
                 showViewAll={activeType === "all" && counts.job > 5}
@@ -341,7 +343,7 @@ export default function SearchResults() {
             {/* Companies */}
             {(activeType === "all" || activeType === "company") && companiesData?.items && companiesData.items.length > 0 && (
               <ResultSection
-                title="Companies"
+                title={t("nav.companies")}
                 icon={Building2}
                 count={counts.company}
                 showViewAll={activeType === "all" && counts.company > 5}
@@ -386,7 +388,7 @@ export default function SearchResults() {
             {/* People */}
             {(activeType === "all" || activeType === "person") && peopleData?.items && peopleData.items.length > 0 && (
               <ResultSection
-                title="People"
+                title={t("nav.people")}
                 icon={Users}
                 count={counts.person}
                 showViewAll={activeType === "all" && counts.person > 5}
@@ -425,7 +427,7 @@ export default function SearchResults() {
             {/* Events */}
             {(activeType === "all" || activeType === "event") && eventsData?.items && eventsData.items.length > 0 && (
               <ResultSection
-                title="Events"
+                title={t("nav.events")}
                 icon={Calendar}
                 count={counts.event}
                 showViewAll={activeType === "all" && counts.event > 5}
@@ -498,6 +500,7 @@ function ResultSection({
   onViewAll: () => void;
   children: React.ReactNode;
 }) {
+  const t = useT();
   return (
     <section>
       <div className="flex items-center justify-between mb-4">
@@ -508,7 +511,7 @@ function ResultSection({
         </div>
         {showViewAll && (
           <Button variant="ghost" size="sm" onClick={onViewAll} className="text-emerald-600 hover:text-emerald-700">
-            View all <ArrowRight className="h-4 w-4 ml-1" />
+            {t("common.viewAll")}<ArrowRight className="h-4 w-4 ml-1" />
           </Button>
         )}
       </div>

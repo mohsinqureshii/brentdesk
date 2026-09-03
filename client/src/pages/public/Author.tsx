@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useT } from "@/lib/i18n";
 import { fmtDate } from "@/lib/dates";
 import { Link, useParams } from "wouter";
 import { publication } from "@shared/publication";
@@ -43,6 +44,7 @@ function getPlaceholderImage(index: number): string {
 const ARTICLES_PER_PAGE = 20;
 
 const Author = () => {
+  const t = useT();
   const { id } = useParams<{ id: string }>();
   const [allArticles, setAllArticles] = useState<any[]>([]);
   const [page, setPage] = useState(1);
@@ -116,13 +118,13 @@ const Author = () => {
   if (!author) {
     return (
       <div className="min-h-screen bg-background overflow-x-hidden">
-        <SEO title="Author Not Found" noindex />
+        <SEO title={t("state.authorNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-          <h1 className="text-2xl font-bold text-foreground mb-2">Author Not Found</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-2">{t("state.authorNotFound")}</h1>
           <p className="text-muted-foreground mb-6">The author you're looking for doesn't exist or has been removed.</p>
           <Link href="/">
-            <Button>Return Home</Button>
+            <Button>{t("state.backHome")}</Button>
           </Link>
         </div>
         <Footer />
@@ -298,7 +300,7 @@ const Author = () => {
                       {isFetching ? (
                         <>
                           <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                          Loading...
+                          {t("state.loading")}
                         </>
                       ) : (
                         "Load More Articles"
@@ -314,7 +316,7 @@ const Author = () => {
               </>
             ) : (
               <div className="text-center py-12 text-muted-foreground">
-                <p>No articles published yet.</p>
+                <p>{t("state.noArticlesYet")}</p>
               </div>
             )}
           </div>
@@ -323,9 +325,9 @@ const Author = () => {
           <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-6">
             {/* Ad Placeholder */}
             <div className="bg-muted rounded-xl p-6 text-center">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Advertisement</p>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{t("common.advertisement")}</p>
               <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg aspect-[4/3] flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">Ad Space</span>
+                <span className="text-muted-foreground text-sm">{t("common.adSpace")}</span>
               </div>
             </div>
 
@@ -334,7 +336,7 @@ const Author = () => {
               <div className="bg-card border border-border rounded-xl p-5">
                 <div className="flex items-center gap-2 mb-5">
                   <TrendingUp className="h-5 w-5 text-[#0a0]" />
-                  <h3 className="font-bold text-lg text-foreground">Most Popular</h3>
+                  <h3 className="font-bold text-lg text-foreground">{t("list.mostRead")}</h3>
                 </div>
                 <div className="space-y-4">
                   {mostPopular.map((item, idx) => (

@@ -13,6 +13,7 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { Button } from "@/components/ui/button";
+import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 interface ListPaginationProps {
@@ -130,6 +131,7 @@ interface LoadMoreProps {
 }
 
 export function LoadMore({ onClick, isLoading, hasMore, className }: LoadMoreProps) {
+  const t = useT();
   if (!hasMore) return null;
 
   return (
@@ -144,7 +146,7 @@ export function LoadMore({ onClick, isLoading, hasMore, className }: LoadMorePro
         {isLoading ? (
           <>
             <span className="animate-spin mr-2">⏳</span>
-            Loading...
+            {t("state.loading")}
           </>
         ) : (
           "Load More"
@@ -170,12 +172,13 @@ export function PageInfo({
   itemsPerPage,
   className,
 }: PageInfoProps) {
+  const t = useT();
   const startItem = (currentPage - 1) * itemsPerPage + 1;
   const endItem = Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
     <p className={cn("text-sm text-muted-foreground", className)}>
-      Showing <span className="font-medium">{startItem}</span> to{" "}
+      {t("list.showing")}<span className="font-medium">{startItem}</span> to{" "}
       <span className="font-medium">{endItem}</span> of{" "}
       <span className="font-medium">{totalItems}</span> results
     </p>

@@ -4,6 +4,7 @@
  */
 
 import { Link } from "wouter";
+import { useT } from "@/lib/i18n";
 import { fmtDate } from "@/lib/dates";
 import { trpc } from "@/lib/trpc";
 import { getArticleUrl } from "@/lib/articleUrl";
@@ -66,6 +67,7 @@ function formatDate(date: Date | string | null): string {
 }
 
 export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps) {
+  const t = useT();
   // Fetch company details
   const { data: company, isLoading: companyLoading } = trpc.companies.get.useQuery(
     { id: companyId },
@@ -156,7 +158,7 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
                 className="flex items-center gap-1 hover:text-primary transition-colors"
               >
                 <Globe className="h-3 w-3" />
-                Website
+                {t("company.website")}
               </a>
             )}
           </div>
@@ -167,7 +169,7 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Users className="h-4 w-4 text-blue-500" />
-              <span className="text-sm font-semibold text-foreground">Key People</span>
+              <span className="text-sm font-semibold text-foreground">{t("company.keyPeople")}</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {keyPeople.map((person: any) => (
@@ -199,7 +201,7 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Newspaper className="h-4 w-4 text-orange-500" />
-              <span className="text-sm font-semibold text-foreground">Recent News</span>
+              <span className="text-sm font-semibold text-foreground">{t("company.recentNews")}</span>
             </div>
             <div className="space-y-2">
               {recentNews.map((article: any) => (
@@ -235,6 +237,7 @@ interface ArticleCompanySnapshotsProps {
 }
 
 export function ArticleCompanySnapshots({ articleId }: ArticleCompanySnapshotsProps) {
+  const t = useT();
   const { data: linkedCompanies, isLoading } = trpc.news.getArticleCompanies.useQuery(
     { articleId },
     { enabled: articleId > 0 }
@@ -265,7 +268,7 @@ export function ArticleCompanySnapshots({ articleId }: ArticleCompanySnapshotsPr
     <div className="space-y-4">
       <h3 className="font-bold text-base text-foreground flex items-center gap-2">
         <Building2 className="h-4 w-4 text-primary" />
-        Companies in this Article
+        {t("article.companiesInArticle")}
       </h3>
       {primaryCompanies.slice(0, 3).map((link) => (
         <CompanySnapshot

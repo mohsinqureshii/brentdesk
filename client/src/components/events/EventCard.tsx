@@ -31,6 +31,7 @@
  */
 
 import { useState } from "react";
+import { useT } from "@/lib/i18n";
 import { fmtDate } from "@/lib/dates";
 import { Link } from "wouter";
 import { Bookmark, CalendarDays, MapPin, Radio } from "lucide-react";
@@ -503,6 +504,7 @@ export interface LiveCardEvent {
 }
 
 export function LiveEventCard({ event }: { event: LiveCardEvent }) {
+  const t = useT();
   const location = formatLocation(event.city, event.country, event.format);
   // The only real-time number `listLiveNow` returns is the count of live
   // posts filed in the last hour. It is labelled as exactly that — this
@@ -547,7 +549,7 @@ export function LiveEventCard({ event }: { event: LiveCardEvent }) {
             <span className="truncate">{location}</span>
           </p>
           <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-zinc-900 shadow-sm transition-colors group-hover:bg-emerald-500 group-hover:text-white">
-            Watch Live
+            {t("events.watchLive")}
             <span aria-hidden="true">→</span>
           </span>
         </div>
