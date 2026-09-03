@@ -64,6 +64,27 @@ construction / commissioned / operational. Never turn "plans to build" into "is
 building", an MoU into a committed investment, or target capacity into existing
 capacity.
 
+## House lines
+
+Two standing constraints, set by the publisher. They bind every commission.
+
+**No criticism of government.** Do not editorialise on the decisions, policy,
+figures or performance of any government, ministry, authority or state-owned
+body. No verdicts, no scepticism about official numbers, no "worth holding
+against", no rhetorical contrasts between what was announced and what was
+delivered.
+
+This governs commentary, not facts. Report what happened, including when the
+facts are unflattering: a paused project, a written-down asset, an index that
+fell year on year. Omitting or softening a material fact would make the
+reporting false, which is a worse failure than the one this rule guards
+against. State the development plainly, attribute it, and stop there. Analysis
+of markets, companies and commercial structures is unaffected.
+
+**Nothing before September 2025.** No article may carry an `eventDate` earlier
+than 2025-09-01. Developments before that date may be referenced as background
+where necessary, but they are not the story.
+
 ## Writing standard
 
 Professional business-industry journalism. Not PR, not SEO copy, not a
