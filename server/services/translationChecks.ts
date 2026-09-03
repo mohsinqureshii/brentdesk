@@ -15,12 +15,24 @@ function hrefs(html: string): string[] {
   return [...html.matchAll(HREF_RE)].map(m => m[1]).sort();
 }
 
+/**
+ * Digits that are part of a token rather than a quantity.
+ *
+ * "Q2 2026" is a quarter, and written Arabic spells it «الربع الثاني» — the
+ * 2 is an ordinal word there, not a numeral, so requiring the digit forces a
+ * translator to write «الربع الثاني (Q2)» to get past the gate. Same for
+ * halves, and same for a chemical formula: the 2 in CO2 is not a figure that
+ * can go missing. Everything else — every price, tonnage, percentage and
+ * year — is still compared exactly.
+ */
+const TOKEN_DIGITS = /\b(?:Q[1-4]|H[12]|[CNS]O2)\b/gi;
+
 function digits(html: string): string[] {
   // Figures in the PROSE are facts. Digits inside markup are not: a slug like
   // /construction/big-5-opens carries a 5 that no translation should be
   // expected to reproduce, and counting it would flag every correctly
   // translated paragraph that contains a link.
-  const prose = html.replace(/<[^>]*>/g, " ");
+  const prose = html.replace(/<[^>]*>/g, " ").replace(TOKEN_DIGITS, " ");
   // Compare the digit sequences themselves, ignoring the separators, which
   // legitimately differ between scripts.
   return (prose.match(NUMBER_RE) ?? []).map(n => n.replace(/[,.]/g, "")).sort();

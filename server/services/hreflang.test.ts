@@ -7,7 +7,7 @@ vi.mock("./translation.service", () => ({
 }));
 
 import { listLocales } from "./translation.service";
-import { localeLinkTags, applyLocaleHead } from "./hreflang.service";
+import { localeLinkTags, applyLocaleHead, sitemapAlternates } from "./hreflang.service";
 
 const loc = (code: string, isDefault = false, direction: "ltr" | "rtl" = "ltr") => ({
   id: 1, code, name: code, nativeName: code, direction, flagEmoji: null,
@@ -108,5 +108,27 @@ describe("applyLocaleHead", () => {
   it("leaves the page untouched when there is only one language", async () => {
     mocked.mockResolvedValue([loc("en", true)]);
     expect(await applyLocaleHead(page, "/construction/big-5-opens")).toBe(page);
+  });
+});
+
+describe("sitemapAlternates", () => {
+  const BASE = "https://brentdesk.com";
+  const langs = [{ code: "en", isDefault: true }, { code: "ar", isDefault: false }];
+
+  it("declares both languages plus x-default for an article URL", () => {
+    const out = sitemapAlternates(`${BASE}/construction/big-5-opens`, BASE, langs);
+    expect(out).toContain('hreflang="en" href="https://brentdesk.com/construction/big-5-opens"');
+    expect(out).toContain('hreflang="ar" href="https://brentdesk.com/ar/construction/big-5-opens"');
+    expect(out).toContain('hreflang="x-default" href="https://brentdesk.com/construction/big-5-opens"');
+  });
+
+  it("does not leave a bare slash on the front page", () => {
+    const out = sitemapAlternates(`${BASE}/`, BASE, langs);
+    expect(out).toContain('href="https://brentdesk.com/ar"');
+    expect(out).not.toContain("/ar/\"");
+  });
+
+  it("emits nothing when one language is configured", () => {
+    expect(sitemapAlternates(`${BASE}/mining`, BASE, [{ code: "en", isDefault: true }])).toBe("");
   });
 });

@@ -99,6 +99,12 @@ export async function listLocales(opts: { activeOnly?: boolean } = {}): Promise<
     const db = await getDb();
     if (!db) return [];
     const rows = await db.select().from(locales);
+    // A read that comes back as anything but a set of rows means the table is
+    // not there yet — a database mid-migration, or a stub. Report no languages
+    // rather than throwing: every caller of this treats "no locales" as
+    // single-language, which is the safe reading. Not cached, so the next
+    // request tries again instead of holding an empty list for a minute.
+    if (!Array.isArray(rows)) return [];
     localeCache = { rows: rows.map(toLocaleRow), ts: now };
   }
   const all = [...localeCache.rows].sort((a, b) => a.sortOrder - b.sortOrder);
