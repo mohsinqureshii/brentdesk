@@ -110,7 +110,10 @@ export function Header() {
             </Link>
 
             {/* Center Section - Main Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* The bar is pinned ltr so the wordmark and the controls keep
+                their designed sides; the nav is a list of words, so it reads
+                in the language of the page. */}
+            <nav dir={dir} className="hidden lg:flex items-center gap-1">
               {mainNavItems.map((item) => (
                 <Link
                   key={item.key}
