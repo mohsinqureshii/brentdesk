@@ -19,7 +19,7 @@
  * once a request comes back.
  */
 
-import { useEffect, useMemo, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
 import { Router as WouterRouter } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { applyDocumentLocale, localeFromPath } from "@/lib/locale";
@@ -29,6 +29,12 @@ import { StringsProvider } from "@/lib/i18n";
  *  right to left immediately rather than after a round trip. Extended by
  *  whatever the desk has configured, which the query below supplies. */
 const KNOWN_RTL = new Set(["ar", "he", "fa", "ur", "ps", "sd", "ckb", "dv", "yi"]);
+
+/** The reading direction of the page, for the handful of components that
+ *  have to branch on it in JavaScript rather than in CSS — which side a
+ *  drawer slides in from cannot be expressed as a style. */
+const DirectionContext = createContext<"ltr" | "rtl">("ltr");
+export const useDirection = () => useContext(DirectionContext);
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const localesQuery = trpc.locales.list.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
@@ -63,9 +69,11 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const base = active.isDefault ? "" : `/${active.code}`;
 
   return (
-    <WouterRouter base={base}>
-      <StringsProvider>{children}</StringsProvider>
-    </WouterRouter>
+    <DirectionContext.Provider value={active.direction}>
+      <WouterRouter base={base}>
+        <StringsProvider>{children}</StringsProvider>
+      </WouterRouter>
+    </DirectionContext.Provider>
   );
 }
 

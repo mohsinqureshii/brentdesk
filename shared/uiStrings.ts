@@ -128,6 +128,8 @@ export const UI_STRINGS = {
   "nav.newsletter": "Newsletter",
   "nav.directory": "Directory",
   "nav.industry": "Industry",
+  "nav.explore": "Explore",
+  "nav.me": "Me",
 
   // --------------------------------------------------------- categories
   // The industrial taxonomy, as it appears in navigation and on category

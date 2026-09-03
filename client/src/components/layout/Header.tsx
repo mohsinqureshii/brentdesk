@@ -18,6 +18,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useT } from "@/lib/i18n";
+import { useDirection } from "@/components/LocaleProvider";
 import type { UiKey } from "@shared/uiStrings";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
@@ -83,6 +84,7 @@ export function Header() {
   const [location] = useLocation();
   const [searchOpen, setSearchOpen] = useState(false);
   const t = useT();
+  const dir = useDirection();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isAuthenticated, logout } = useAuth();
 
@@ -91,7 +93,17 @@ export function Header() {
       <header className="sticky top-0 z-50 w-full bd-ink">
         {/* Main Navigation Row */}
         <div className="w-full border-b border-white/10">
-          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+          {/* The masthead does not mirror. The wordmark is a Latin brand mark
+              and the controls are icons, so flipping the bar buys nothing and
+              moves the menu button to the side no Arabic reader reaches for.
+              Keeping it `ltr` leaves the wordmark on the left and the search,
+              language and menu controls on the right in both languages; the
+              text inside them is still translated, and everything below the
+              masthead mirrors normally. */}
+          <div
+            dir="ltr"
+            className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between"
+          >
             {/* Left Section - Wordmark */}
             <Link href="/" className="flex items-center shrink-0" aria-label={`${publication.name} home`}>
               <Wordmark className="text-white text-[26px]" />
@@ -186,8 +198,17 @@ export function Header() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent
-                  side="left"
-                  className="w-full max-w-[320px] p-0 bd-ink border-none overflow-y-auto [&>button]:hidden"
+                  // Opens from under the button that summoned it.
+                  side="right"
+                  // The bar above is pinned `ltr`; the menu itself is content
+                  // and reads in the language of the page.
+                  dir={dir}
+                  // Explicit colours rather than the `bd-ink` class: that class
+                  // lives in Tailwind's component layer, and SheetContent's own
+                  // `bg-background` utility overrode it — a white panel with the
+                  // white text below still on it. Passing a bg utility also lets
+                  // tailwind-merge drop `bg-background` instead of fighting it.
+                  className="w-full max-w-[320px] p-0 bg-[#0b0d12] text-white border-none overflow-y-auto [&>button]:hidden"
                 >
                   <div className="flex flex-col h-full">
                     {/* Header with wordmark */}

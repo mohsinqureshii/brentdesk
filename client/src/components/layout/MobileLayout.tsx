@@ -4,17 +4,23 @@ import { publication } from "@shared/publication";
 import { Newspaper, Briefcase, Compass, Search, User, ArrowLeft, Bell } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
 interface MobileLayoutProps {
   children: ReactNode;
 }
 
-const tabs = [
-  { id: "news", label: "News", icon: Newspaper, href: "/" },
-  { id: "jobs", label: "Jobs", icon: Briefcase, href: "/jobs" },
-  { id: "explore", label: "Explore", icon: Compass, href: "/explore" },
-  { id: "search", label: "Search", icon: Search, href: "/search-mobile" },
-  { id: "profile", label: "Me", icon: User, href: "/profile-mobile" },
+/* The mobile tab bar. This is the whole navigation on a phone, and it was
+   the last English left on the Arabic site — it is not reachable from the
+   desktop page tree, so the sweep that caught everything else walked
+   straight past it. */
+const tabs: { id: string; key: UiKey; icon: typeof Newspaper; href: string }[] = [
+  { id: "news", key: "nav.news", icon: Newspaper, href: "/" },
+  { id: "jobs", key: "nav.jobs", icon: Briefcase, href: "/jobs" },
+  { id: "explore", key: "nav.explore", icon: Compass, href: "/explore" },
+  { id: "search", key: "nav.search", icon: Search, href: "/search-mobile" },
+  { id: "profile", key: "nav.me", icon: User, href: "/profile-mobile" },
 ];
 
 // Routes that should show the mobile layout
@@ -45,6 +51,7 @@ function getActiveTab(path: string): string {
 }
 
 export function MobileBottomNav() {
+  const t = useT();
   const [location] = useLocation();
   const activeTab = getActiveTab(location);
 
@@ -61,7 +68,7 @@ export function MobileBottomNav() {
               }`}>
                 <Icon className={`h-5 w-5 ${isActive ? "stroke-[2.5]" : "stroke-[1.5]"}`} />
                 <span className={`text-[10px] leading-tight ${isActive ? "font-semibold" : "font-normal"}`}>
-                  {tab.label}
+                  {t(tab.key)}
                 </span>
               </button>
             </Link>

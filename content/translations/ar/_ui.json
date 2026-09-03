@@ -198,6 +198,8 @@
     "events.view": "عرض الفعالية",
     "events.viewPast": "عرض الفعاليات السابقة",
     "events.watchLive": "شاهد مباشرة",
-    "company.website": "الموقع الإلكتروني"
+    "company.website": "الموقع الإلكتروني",
+    "nav.explore": "استكشف",
+    "nav.me": "حسابي"
   }
 }

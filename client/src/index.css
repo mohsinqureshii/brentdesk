@@ -35,11 +35,25 @@
 }
 
 /* Arabic pages lead with STC Forward and keep Inter for the Latin
-   that remains — company names, units, model numbers. The order
-   matters: STC Forward covers Latin too, but Inter is the
-   publication's Latin face and should stay it. */
+   that remains — company names, units, model numbers. The `unicode-range`
+   above does that split by itself: the browser reaches for STC Forward
+   only for Arabic codepoints and falls through to Inter for the rest.
+
+   The second rule is the one that makes any of this visible. Setting the
+   family on the Arabic ROOT is not enough, because `body` further down
+   sets its own `font-family: Inter`, and .bd-headline and .bd-section-title
+   set `var(--font-display)` — a direct declaration always beats an
+   inherited one, so every headline on the site kept rendering in Inter
+   Tight no matter what the root said. Forcing inheritance through the
+   subtree is what actually delivers the face; it is unlayered, so it wins
+   over both Tailwind's utilities and the component layer. */
 [lang="ar"], [dir="rtl"], .font-arabic {
   font-family: "STC Forward", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+[lang="ar"] *:not(code):not(pre):not(kbd):not(samp),
+[dir="rtl"] *:not(code):not(pre):not(kbd):not(samp),
+.font-arabic *:not(code):not(pre):not(kbd):not(samp) {
+  font-family: inherit;
 }
 
 /* Arabic renders shorter than Latin at the same size and reads
