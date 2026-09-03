@@ -39,18 +39,22 @@ import { trpc } from "@/lib/trpc";
 import { JsonLd } from "@/components/JsonLd";
 import SEO from "@/components/SEO";
 import { useToast } from "@/hooks/use-toast";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
-function formatTimeAgo(date: Date | string | null): string {
-  if (!date) return "Recently";
+type Translate = ReturnType<typeof useT>;
+
+function formatTimeAgo(date: Date | string | null, t: Translate): string {
+  if (!date) return t("time.recently");
   const now = new Date();
   const then = new Date(date);
   const diffMs = now.getTime() - then.getTime();
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  if (diffHours < 1) return "Just now";
-  if (diffHours < 24) return `${diffHours}h ago`;
-  if (diffDays < 7) return `${diffDays}d ago`;
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
+  if (diffHours < 1) return t("time.justNow");
+  if (diffHours < 24) return t("time.hoursAgo", { n: diffHours });
+  if (diffDays < 7) return t("time.daysAgo", { n: diffDays });
+  if (diffDays < 30) return t("time.weeksAgo", { n: Math.floor(diffDays / 7) });
   return then.toLocaleDateString();
 }
 
@@ -71,27 +75,42 @@ function parseListFromText(text: string | null): string[] {
   return text.trim() ? [text.trim()] : [];
 }
 
-const roleTypeLabels: Record<string, string> = {
-  full_time: "Full-time",
-  part_time: "Part-time",
-  contract: "Contract",
-  internship: "Internship",
-  freelance: "Freelance",
+// The role and seniority tables hold translation keys; the database value
+// stays English and is resolved to the reader's language at render.
+const roleTypeKeys: Record<string, UiKey> = {
+  full_time: "job.fullTime",
+  part_time: "job.partTime",
+  contract: "job.contract",
+  internship: "job.internship",
+  freelance: "job.freelance",
 };
 
-const seniorityLabels: Record<string, string> = {
-  entry: "Entry Level",
-  junior: "Junior",
-  mid: "Mid Level",
-  senior: "Senior",
-  lead: "Lead",
-  manager: "Manager",
-  director: "Director",
-  vp: "VP",
-  c_level: "C-Level",
+const seniorityKeys: Record<string, UiKey> = {
+  entry: "job.entryLevel",
+  junior: "job.junior",
+  mid: "job.midLevel",
+  senior: "job.senior",
+  lead: "job.lead",
+  manager: "job.manager",
+  director: "job.director",
+  vp: "job.vp",
+  c_level: "job.cLevel",
 };
+
+function roleTypeLabel(value: string | null, t: Translate): string {
+  if (!value) return t("job.fullTime");
+  const key = roleTypeKeys[value];
+  return key ? t(key) : value.replace(/_/g, " ");
+}
+
+function seniorityLabel(value: string | null, t: Translate): string | null {
+  if (!value) return null;
+  const key = seniorityKeys[value];
+  return key ? t(key) : value.replace(/_/g, " ");
+}
 
 export default function JobDetail() {
+  const t = useT();
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
   const { toast } = useToast();
@@ -158,9 +177,9 @@ export default function JobDetail() {
       trackClickMutation.mutate({ jobId: job.id, clickType: "share" });
       try {
         await navigator.clipboard.writeText(window.location.href);
-        toast({ title: "Link Copied", description: "Job link copied to clipboard!" });
+        toast({ title: t("common.linkCopied"), description: t("job.linkCopied") });
       } catch {
-        toast({ title: "Share", description: window.location.href });
+        toast({ title: t("article.share"), description: window.location.href });
       }
     }
   };
@@ -180,14 +199,14 @@ export default function JobDetail() {
   if (error || !job) {
     return (
       <div className="min-h-screen bg-background overflow-x-hidden">
-        <SEO title="Job Not Found" noindex />
+        <SEO title={t("state.jobNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
           <Briefcase className="h-12 w-12 text-muted-foreground mb-4" />
-          <h1 className="text-2xl font-bold text-foreground mb-4">Job Not Found</h1>
-          <p className="text-muted-foreground mb-6">The job you're looking for doesn't exist or has been removed.</p>
+          <h1 className="text-2xl font-bold text-foreground mb-4">{t("state.jobNotFound")}</h1>
+          <p className="text-muted-foreground mb-6">{t("state.jobNotFoundBody")}</p>
           <Link href="/jobs">
-            <Button>Back to Jobs</Button>
+            <Button>{t("state.backToJobs")}</Button>
           </Link>
         </div>
               <Footer />
@@ -205,8 +224,8 @@ export default function JobDetail() {
   const companySlug = job.companyName.toLowerCase().replace(/\s+/g, "-");
   const hasApplied = applicationStatus?.applied;
   const isExternalApply = !!job.applyUrl;
-  const roleTypeLabel = job.roleType ? roleTypeLabels[job.roleType] || job.roleType.replace(/_/g, " ") : "Full-time";
-  const seniorityLabel = job.seniority ? seniorityLabels[job.seniority] || job.seniority.replace(/_/g, " ") : null;
+  const roleLabel = roleTypeLabel(job.roleType, t);
+  const seniority = seniorityLabel(job.seniority, t);
   const skills = (job as any).skills as string[] | null;
   const responsibilities = (job as any).responsibilities as string | null;
   const responsibilitiesList = parseListFromText(responsibilities);
@@ -225,8 +244,8 @@ export default function JobDetail() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${job.title} at ${job.companyName}`}
-        description={`${job.title} job opportunity at ${job.companyName}. ${job.location ? `Location: ${job.location}.` : ""} ${salary ? `Salary: ${salary}.` : ""} Apply now on ${publication.name}.`}
+        title={t("job.seoTitle", { title: job.title, company: job.companyName })}
+        description={`${t("job.seoDescription", { title: job.title, company: job.companyName })} ${job.location ? t("job.seoLocation", { location: job.location }) : ""} ${salary ? t("job.seoSalary", { salary }) : ""} ${t("job.seoApplyNow", { site: publication.name })}`}
         canonical={`${publication.siteUrl}/jobs/${job.slug}`}
       />
       <JsonLd
@@ -308,14 +327,14 @@ export default function JobDetail() {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
-            <span className="text-sm font-medium">Back to Jobs</span>
+            <span className="text-sm font-medium">{t("state.backToJobs")}</span>
           </Link>
 
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
             {/* Company Logo */}
             <div className="relative shrink-0">
               <Badge className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-blue-500 text-white hover:bg-blue-500 border-0 text-xs font-semibold px-3 py-0.5 rounded-full shadow-sm">
-                {roleTypeLabel}
+                {roleLabel}
               </Badge>
               <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-background bg-white dark:bg-card">
                 {job.companyLogo ? (
@@ -336,7 +355,7 @@ export default function JobDetail() {
                 {job.title}
               </h1>
               <p className="text-lg text-muted-foreground mb-3">
-                at{" "}
+                {t("job.at")}{" "}
                 <Link href={`/companies/${companySlug}`} className="text-primary hover:underline font-medium">
                   {job.companyName}
                 </Link>
@@ -345,7 +364,7 @@ export default function JobDetail() {
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="h-4 w-4 text-muted-foreground/70" />
-                  {job.location || "Remote"}
+                  {job.location || t("job.remote")}
                 </span>
                 {salary && (
                   <span className="flex items-center gap-1.5">
@@ -355,12 +374,12 @@ export default function JobDetail() {
                 )}
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-4 w-4 text-muted-foreground/70" />
-                  Posted {formatTimeAgo(job.publishedAt)}
+                  {t("job.postedAgo", { time: formatTimeAgo(job.publishedAt, t) })}
                 </span>
                 {(job as any).viewCount > 0 && (
                   <span className="flex items-center gap-1.5">
                     <Eye className="h-4 w-4 text-muted-foreground/70" />
-                    {(job as any).viewCount} views
+                    {t("job.viewsN", { n: (job as any).viewCount })}
                   </span>
                 )}
               </div>
@@ -369,18 +388,18 @@ export default function JobDetail() {
                 {isRemote && (
                   <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border-0 rounded-full text-xs">
                     <Laptop className="h-3 w-3 mr-1" />
-                    {job.remoteType === "hybrid" ? "Hybrid" : "Remote"}
+                    {job.remoteType === "hybrid" ? t("job.hybrid") : t("job.remote")}
                   </Badge>
                 )}
-                {seniorityLabel && (
+                {seniority && (
                   <Badge variant="secondary" className="rounded-full text-xs">
-                    {seniorityLabel}
+                    {seniority}
                   </Badge>
                 )}
                 {isExternalApply && (
                   <Badge variant="outline" className="rounded-full text-xs text-blue-600 border-blue-200 dark:text-blue-400 dark:border-blue-800">
                     <ExternalLink className="h-3 w-3 mr-1" />
-                    External Apply
+                    {t("job.externalApply")}
                   </Badge>
                 )}
               </div>
@@ -392,23 +411,25 @@ export default function JobDetail() {
                 <div className="text-center p-4 rounded-xl border border-emerald-200 dark:border-emerald-800/30 bg-emerald-50 dark:bg-emerald-950/20">
                   <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 mb-1">
                     <CheckCircle className="h-5 w-5" />
-                    <span className="font-semibold text-sm">Applied</span>
+                    <span className="font-semibold text-sm">{t("job.applied")}</span>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {applicationStatus?.application?.applicationMethod === "external" ? "Applied externally" : `Applied via ${publication.name}`}
+                    {applicationStatus?.application?.applicationMethod === "external"
+                      ? t("job.appliedExternally")
+                      : t("job.appliedVia", { site: publication.name })}
                   </p>
                 </div>
               ) : (
                 <Button className="w-full gap-2 bg-foreground text-background hover:bg-foreground/90 h-11" onClick={handleApplyClick}>
                   {isExternalApply ? (
                     <>
-                      Apply on Company Site
+                      {t("job.applyOnCompanySite")}
                       <ExternalLink className="h-4 w-4" />
                     </>
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      Apply Now
+                      {t("job.applyNow")}
                     </>
                   )}
                 </Button>
@@ -423,7 +444,7 @@ export default function JobDetail() {
               />
               <Button variant="outline" className="w-full gap-2 h-10" onClick={handleShare}>
                 <Share2 className="h-4 w-4" />
-                Share Job
+                {t("job.shareJob")}
               </Button>
             </div>
           </div>
@@ -437,20 +458,20 @@ export default function JobDetail() {
             <div className="flex-1 text-center p-3 rounded-xl border border-emerald-200 bg-emerald-50 dark:bg-emerald-950/20 dark:border-emerald-800/30">
               <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400">
                 <CheckCircle className="h-4 w-4" />
-                <span className="font-semibold text-sm">Applied</span>
+                <span className="font-semibold text-sm">{t("job.applied")}</span>
               </div>
             </div>
           ) : (
             <Button className="flex-1 gap-2 bg-foreground text-background hover:bg-foreground/90" onClick={handleApplyClick}>
               {isExternalApply ? (
                 <>
-                  Apply on Company Site
+                  {t("job.applyOnCompanySite")}
                   <ExternalLink className="h-4 w-4" />
                 </>
               ) : (
                 <>
                   <Send className="h-4 w-4" />
-                  Apply Now
+                  {t("job.applyNow")}
                 </>
               )}
             </Button>
@@ -478,33 +499,33 @@ export default function JobDetail() {
             <div>
               <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                 <Sparkles className="h-5 w-5 text-blue-500" />
-                Overview
+                {t("job.overview")}
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-200/50 dark:border-blue-800/30 p-4 text-center">
                   <Briefcase className="h-6 w-6 mx-auto mb-2 text-blue-600 dark:text-blue-400" />
-                  <div className="text-sm font-bold text-foreground">{roleTypeLabel}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">Job Type</div>
+                  <div className="text-sm font-bold text-foreground">{roleLabel}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t("job.type")}</div>
                 </div>
-                {seniorityLabel && (
+                {seniority && (
                   <div className="rounded-xl bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20 border border-purple-200/50 dark:border-purple-800/30 p-4 text-center">
                     <GraduationCap className="h-6 w-6 mx-auto mb-2 text-purple-600 dark:text-purple-400" />
-                    <div className="text-sm font-bold text-foreground">{seniorityLabel}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">Seniority</div>
+                    <div className="text-sm font-bold text-foreground">{seniority}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{t("job.seniority")}</div>
                   </div>
                 )}
                 {salary && (
                   <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 border border-emerald-200/50 dark:border-emerald-800/30 p-4 text-center">
                     <DollarSign className="h-6 w-6 mx-auto mb-2 text-emerald-600 dark:text-emerald-400" />
                     <div className="text-sm font-bold text-foreground">{salary}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">Salary</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{t("job.salary")}</div>
                   </div>
                 )}
                 {(job as any).applicationCount > 0 && (
                   <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border border-amber-200/50 dark:border-amber-800/30 p-4 text-center">
                     <Users className="h-6 w-6 mx-auto mb-2 text-amber-600 dark:text-amber-400" />
                     <div className="text-2xl font-bold text-foreground">{(job as any).applicationCount}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">Applicants</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{t("job.applicants")}</div>
                   </div>
                 )}
               </div>
@@ -513,10 +534,10 @@ export default function JobDetail() {
             {/* About the Role */}
             <Card className="border border-border">
               <CardContent className="p-5 sm:p-6">
-                <h2 className="text-lg font-semibold text-foreground mb-3">About the Role</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-3">{t("job.aboutRole")}</h2>
                 <div
                   className="text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none"
-                  dangerouslySetInnerHTML={{ __html: job.description || "No description provided." }}
+                  dangerouslySetInnerHTML={{ __html: job.description || t("job.noDescription") }}
                 />
               </CardContent>
             </Card>
@@ -527,46 +548,46 @@ export default function JobDetail() {
                 <CardContent className="p-5 sm:p-6">
                   <h3 className="flex items-center gap-2 text-base font-semibold text-foreground mb-4">
                     <span className="h-2 w-2 rounded-full bg-blue-500" />
-                    Job Details
+                    {t("job.details")}
                   </h3>
                   <div className="space-y-4">
                     <div>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Employment Type</div>
-                      <div className="text-sm font-medium text-foreground">{roleTypeLabel}</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.employmentType")}</div>
+                      <div className="text-sm font-medium text-foreground">{roleLabel}</div>
                     </div>
-                    {seniorityLabel && (
+                    {seniority && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Seniority Level</div>
-                        <div className="text-sm font-medium text-foreground">{seniorityLabel}</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.seniorityLevel")}</div>
+                        <div className="text-sm font-medium text-foreground">{seniority}</div>
                       </div>
                     )}
                     <div>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Location</div>
-                      <div className="text-sm font-medium text-foreground">{job.location || "Remote"}</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.location")}</div>
+                      <div className="text-sm font-medium text-foreground">{job.location || t("job.remote")}</div>
                     </div>
                     {isRemote && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Remote Policy</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.remotePolicy")}</div>
                         <div className="text-sm font-medium text-foreground">
-                          {job.remoteType === "hybrid" ? "Hybrid" : job.remoteType === "fully_remote" ? "Fully Remote" : "Remote Friendly"}
+                          {job.remoteType === "hybrid" ? t("job.hybrid") : job.remoteType === "fully_remote" ? t("job.fullyRemote") : t("job.remoteFriendly")}
                         </div>
                       </div>
                     )}
                     {salary && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Salary Range</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.salaryRange")}</div>
                         <div className="text-sm font-medium text-foreground">{salary}</div>
                       </div>
                     )}
                     {job.publishedAt && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Posted</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.posted")}</div>
                         <div className="text-sm font-medium text-foreground">{new Date(job.publishedAt).toLocaleDateString()}</div>
                       </div>
                     )}
                     {job.expiresAt && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Expires</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{t("job.expires")}</div>
                         <div className="text-sm font-medium text-foreground">{new Date(job.expiresAt).toLocaleDateString()}</div>
                       </div>
                     )}
@@ -578,12 +599,12 @@ export default function JobDetail() {
                 <CardContent className="p-5 sm:p-6">
                   <h3 className="flex items-center gap-2 text-base font-semibold text-foreground mb-4">
                     <span className="h-2 w-2 rounded-full bg-amber-500" />
-                    Skills & Tags
+                    {t("job.skillsTags")}
                   </h3>
                   <div className="space-y-4">
                     {skills && skills.length > 0 && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Required Skills</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{t("job.requiredSkills")}</div>
                         <div className="flex flex-wrap gap-1.5">
                           {skills.map((s) => (
                             <Badge key={s} className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 border-0 rounded-full text-xs">
@@ -595,26 +616,26 @@ export default function JobDetail() {
                     )}
                     {isRemote && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Work Style</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{t("job.workStyle")}</div>
                         <div className="flex flex-wrap gap-1.5">
                           <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border-0 rounded-full text-xs">
-                            {job.remoteType === "hybrid" ? "Hybrid" : "Remote"}
+                            {job.remoteType === "hybrid" ? t("job.hybrid") : t("job.remote")}
                           </Badge>
                         </div>
                       </div>
                     )}
-                    {seniorityLabel && (
+                    {seniority && (
                       <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Experience Level</div>
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{t("job.experienceLevel")}</div>
                         <div className="flex flex-wrap gap-1.5">
                           <Badge variant="secondary" className="rounded-full text-xs">
-                            {seniorityLabel}
+                            {seniority}
                           </Badge>
                         </div>
                       </div>
                     )}
-                    {!skills && !isRemote && !seniorityLabel && (
-                      <p className="text-sm text-muted-foreground italic">No skill tags available yet.</p>
+                    {!skills && !isRemote && !seniority && (
+                      <p className="text-sm text-muted-foreground italic">{t("job.noSkills")}</p>
                     )}
                   </div>
                 </CardContent>
@@ -627,7 +648,7 @@ export default function JobDetail() {
                 <CardContent className="p-5 sm:p-6">
                   <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                     <Target className="h-5 w-5 text-muted-foreground" />
-                    Responsibilities
+                    {t("job.responsibilities")}
                   </h2>
                   <ul className="space-y-3">
                     {responsibilitiesList.map((item, i) => (
@@ -647,7 +668,7 @@ export default function JobDetail() {
                 <CardContent className="p-5 sm:p-6">
                   <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                     <Award className="h-5 w-5 text-muted-foreground" />
-                    Requirements
+                    {t("job.requirements")}
                   </h2>
                   <div
                     className="text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
@@ -663,7 +684,7 @@ export default function JobDetail() {
                 <CardContent className="p-5 sm:p-6">
                   <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
                     <Heart className="h-5 w-5 text-muted-foreground" />
-                    Benefits & Perks
+                    {t("job.benefitsPerks")}
                   </h2>
                   <div
                     className="text-muted-foreground leading-relaxed prose prose-sm dark:prose-invert max-w-none [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1"
@@ -689,13 +710,13 @@ export default function JobDetail() {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-semibold text-foreground text-sm truncate">{job.companyName}</h3>
-                    <p className="text-xs text-muted-foreground">{job.location || "MENA Region"}</p>
+                    <p className="text-xs text-muted-foreground">{job.location || t("job.menaRegion")}</p>
                   </div>
                 </div>
                 <Link href={`/companies/${companySlug}`}>
                   <Button variant="outline" className="w-full gap-2 rounded-full" size="sm">
                     <Building2 className="h-4 w-4" />
-                    View Company Profile
+                    {t("company.viewCompanyProfile")}
                   </Button>
                 </Link>
               </CardContent>
@@ -707,24 +728,24 @@ export default function JobDetail() {
             {((job as any).applicationCount > 0 || (job as any).viewCount > 0) && (
               <Card className="border border-border">
                 <CardContent className="p-5">
-                  <h3 className="font-semibold text-foreground text-sm mb-3">Job Insights</h3>
+                  <h3 className="font-semibold text-foreground text-sm mb-3">{t("job.insights")}</h3>
                   <div className="space-y-3">
                     {(job as any).applicationCount > 0 && (
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">Applicants</span>
+                        <span className="text-xs text-muted-foreground">{t("job.applicants")}</span>
                         <span className="font-medium text-sm text-foreground">{(job as any).applicationCount}</span>
                       </div>
                     )}
                     {(job as any).viewCount > 0 && (
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">Views</span>
+                        <span className="text-xs text-muted-foreground">{t("job.views")}</span>
                         <span className="font-medium text-sm text-foreground">{(job as any).viewCount}</span>
                       </div>
                     )}
                     {job.publishedAt && (
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">Posted</span>
-                        <span className="font-medium text-sm text-foreground">{formatTimeAgo(job.publishedAt)}</span>
+                        <span className="text-xs text-muted-foreground">{t("job.posted")}</span>
+                        <span className="font-medium text-sm text-foreground">{formatTimeAgo(job.publishedAt, t)}</span>
                       </div>
                     )}
                   </div>
