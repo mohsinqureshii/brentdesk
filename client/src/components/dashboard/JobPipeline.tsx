@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Bookmark, FileEdit, Send, MessageSquare, Eye, MoreHorizontal, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useT } from "@/lib/i18n";
+import type { UiKey } from "@shared/uiStrings";
 
 interface Job {
   id: string;
@@ -30,15 +32,17 @@ const mockJobs: Record<string, Job[]> = {
   ],
 };
 
-const pipelineTabs = [
-  { value: "saved", label: "Saved", icon: Bookmark },
-  { value: "started", label: "Application started", icon: FileEdit },
-  { value: "applied", label: "Applied", icon: Send },
-  { value: "interviewing", label: "Interviewing", icon: MessageSquare },
-  { value: "seen", label: "Seen", icon: Eye },
+const pipelineTabs: { value: string; labelKey: UiKey; icon: typeof Bookmark }[] = [
+  { value: "saved", labelKey: "job.saved", icon: Bookmark },
+  { value: "started", labelKey: "job.applicationStarted", icon: FileEdit },
+  { value: "applied", labelKey: "job.applied", icon: Send },
+  { value: "interviewing", labelKey: "job.interviewing", icon: MessageSquare },
+  { value: "seen", labelKey: "job.seen", icon: Eye },
 ];
 
 function JobCard({ job }: { job: Job }) {
+  const t = useT();
+
   return (
     <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:shadow-soft transition-shadow">
       {/* Company Logo */}
@@ -70,7 +74,7 @@ function JobCard({ job }: { job: Job }) {
       <div className="flex items-center gap-2">
         <Button variant="outline" size="sm" className="hidden sm:flex gap-1.5">
           <ExternalLink className="h-3.5 w-3.5" />
-          View
+          {t("common.view")}
         </Button>
         <Button variant="ghost" size="icon" className="h-8 w-8">
           <MoreHorizontal className="h-4 w-4" />
@@ -81,12 +85,13 @@ function JobCard({ job }: { job: Job }) {
 }
 
 export function JobPipeline() {
+  const t = useT();
   const [activeTab, setActiveTab] = useState("saved");
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-h3 text-foreground">Your job pipeline</h2>
+        <h2 className="text-h3 text-foreground">{t("job.pipeline")}</h2>
       </div>
       
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -101,7 +106,7 @@ export function JobPipeline() {
                 className="gap-2 data-[state=active]:bg-card data-[state=active]:shadow-soft rounded-lg px-4 py-2"
               >
                 <Icon className="h-4 w-4" />
-                <span className="hidden sm:inline">{tab.label}</span>
+                <span className="hidden sm:inline">{t(tab.labelKey)}</span>
                 {count > 0 && (
                   <span className="h-5 min-w-5 px-1.5 rounded-full bg-foreground/10 text-caption font-medium">
                     {count}
@@ -121,7 +126,7 @@ export function JobPipeline() {
                 ))
               ) : (
                 <div className="text-center py-12 rounded-xl border border-dashed border-border">
-                  <p className="text-muted-foreground">No jobs in this stage yet</p>
+                  <p className="text-muted-foreground">{t("job.noneInStage")}</p>
                 </div>
               )}
             </div>

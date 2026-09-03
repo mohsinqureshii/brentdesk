@@ -144,7 +144,7 @@ export default function EventTicketsSuccess() {
           <CardContent className="p-10 text-center space-y-4">
             <Loader2 className="h-10 w-10 animate-spin text-primary mx-auto" />
             <h1 className="text-xl font-semibold">
-              {t("tickets.processingEllipsis")}
+              {t("tickets.processing")}…
             </h1>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               {t("tickets.processingBody")}

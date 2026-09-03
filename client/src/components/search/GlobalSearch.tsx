@@ -52,6 +52,15 @@ const typeConfig: Record<
   event: { icon: Calendar, color: "bg-pink-100 text-pink-700", labelKey: "search.typeEvent", pluralKey: "nav.events", path: "/events" },
 };
 
+// Shown when the box is empty. Keys, not labels, for the same reason as the
+// type badges above.
+const quickLinks: { key: UiKey; href: string }[] = [
+  { key: "list.latestNews", href: "/" },
+  { key: "search.openJobs", href: "/jobs" },
+  { key: "nav.companies", href: "/companies" },
+  { key: "search.upcomingEvents", href: "/events" },
+];
+
 export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
   const t = useT();
   const [query, setQuery] = useState("");
@@ -288,12 +297,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
             <div className="mt-6">
               <p className="text-sm font-medium text-gray-500 mb-3">{t("search.quickLinks")}</p>
               <div className="flex flex-wrap gap-2">
-                {([
-                  { key: "list.latestNews", href: "/" },
-                  { key: "search.openJobs", href: "/jobs" },
-                  { key: "nav.companies", href: "/companies" },
-                  { key: "search.upcomingEvents", href: "/events" },
-                ] as { key: UiKey; href: string }[]).map((link) => (
+                {quickLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
