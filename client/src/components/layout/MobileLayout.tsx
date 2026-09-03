@@ -1,6 +1,6 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { publication } from "@shared/publication";
+import { Wordmark } from "@/components/layout/Header";
 import { Newspaper, Briefcase, Compass, Search, User, ArrowLeft, Bell } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
@@ -92,9 +92,9 @@ export function MobileTopBar({ title, showBack }: { title?: string; showBack?: b
           </button>
         ) : (
           <Link href="/">
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              {publication.name.toLowerCase()}<span className="text-primary">.</span>
-            </span>
+            {/* The shared mark rather than a second copy of it, so this bar
+                follows the language like the masthead does. */}
+            <Wordmark className="text-lg text-foreground" />
           </Link>
         )}
         {title && (

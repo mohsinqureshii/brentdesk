@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { publication } from "@shared/publication";
+import { useWordmark } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,6 +23,7 @@ import { useT } from "@/lib/i18n";
  */
 export default function Signin() {
   const t = useT();
+  const wordmark = useWordmark();
   const { isAuthenticated } = useAuth();
   const [, setLocation] = useLocation();
 
@@ -82,7 +84,7 @@ export default function Signin() {
         <div className="w-full max-w-md mx-auto">
           {/* Wordmark */}
           <Link href="/" className="inline-block mb-12">
-            <span className="text-2xl font-bold tracking-tight text-zinc-900">{publication.wordmark}</span>
+            <span className="text-2xl font-bold tracking-tight text-zinc-900">{wordmark}</span>
           </Link>
 
           <h1 className="text-3xl font-bold text-zinc-900 mb-2">{t("auth.welcomeBack")}</h1>
@@ -215,7 +217,7 @@ export default function Signin() {
         <div className="relative w-full flex flex-col justify-between p-12 xl:p-16 text-white">
           {/* Top — wordmark */}
           <div>
-            <span className="text-3xl xl:text-4xl font-bold tracking-tight">{publication.wordmark}</span>
+            <span className="text-3xl xl:text-4xl font-bold tracking-tight">{wordmark}</span>
           </div>
 
           {/* Middle — value prop tailored to readers, founders, jobseekers */}

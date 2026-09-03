@@ -14,6 +14,20 @@ export const publication = {
   name: "BrentDesk",
   /** Lowercase wordmark rendered in the header/footer. */
   wordmark: "brentdesk.",
+  /**
+   * The wordmark in languages that do not use the Latin alphabet, keyed by
+   * locale code. A locale absent from this map keeps `wordmark` above.
+   *
+   * This lives here rather than in the UI string table on purpose. Those
+   * strings arrive from a query, so a mark looked up through them would
+   * paint "brentdesk." and then swap to the Arabic on every single load —
+   * a flicker on the one element that has to look permanent. The locale is
+   * known from the URL before React renders, so reading the mark from a
+   * plain map makes the first paint the right one.
+   */
+  wordmarksByLocale: {
+    ar: "برنت ديسك.",
+  } as Record<string, string | undefined>,
   /** Legal entity used in copyright lines and terms. */
   legalName: "BrentDesk Media",
   /** Apex domain (no scheme). */

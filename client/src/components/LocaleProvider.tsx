@@ -36,6 +36,13 @@ const KNOWN_RTL = new Set(["ar", "he", "fa", "ur", "ps", "sd", "ckb", "dv", "yi"
 const DirectionContext = createContext<"ltr" | "rtl">("ltr");
 export const useDirection = () => useContext(DirectionContext);
 
+/** The language code of the page, for the few things that are chosen per
+ *  language rather than translated — the wordmark, which is a brand mark
+ *  and not a string. Read from the URL, so it is correct on the first
+ *  paint rather than after the strings query returns. */
+const LocaleContext = createContext<string>("en");
+export const useLocale = () => useContext(LocaleContext);
+
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const localesQuery = trpc.locales.list.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const list = localesQuery.data;
@@ -70,9 +77,11 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   return (
     <DirectionContext.Provider value={active.direction}>
-      <WouterRouter base={base}>
-        <StringsProvider>{children}</StringsProvider>
-      </WouterRouter>
+      <LocaleContext.Provider value={active.code}>
+        <WouterRouter base={base}>
+          <StringsProvider>{children}</StringsProvider>
+        </WouterRouter>
+      </LocaleContext.Provider>
     </DirectionContext.Provider>
   );
 }

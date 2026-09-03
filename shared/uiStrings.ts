@@ -112,6 +112,9 @@ export const UI_STRINGS = {
   "footer.terms": "Terms of use",
   "footer.rss": "RSS",
   "footer.allRightsReserved": "All rights reserved",
+  "footer.description": "{site} covers the physical economy — construction, infrastructure, energy, manufacturing, logistics, transportation, mining, utilities and industrial technology — across Saudi Arabia, the GCC, MENA and the markets connected to them.",
+  "footer.tagline": "Industry, infrastructure and the physical economy",
+  "newsletter.marketingConsent": "I agree to receive marketing communications and partner offers from {site}.",
   "footer.followUs": "Follow us",
 
 

@@ -18,7 +18,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useT } from "@/lib/i18n";
-import { useDirection } from "@/components/LocaleProvider";
+import { useDirection, useLocale } from "@/components/LocaleProvider";
 import type { UiKey } from "@shared/uiStrings";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
@@ -67,14 +67,45 @@ const mobileNavSections: { key: UiKey; items: { key: UiKey; href: string; hasArr
   },
 ];
 
-/** Text wordmark — crisp at every size, no image dependency. */
+/**
+ * The wordmark as plain text, for the few places that lay the mark out
+ * themselves — the sign-in panels, which colour the trailing dot with the
+ * rest of the word rather than in the accent. Same source as <Wordmark>.
+ */
+export function useWordmark(): string {
+  return publication.wordmarksByLocale[useLocale()] ?? publication.wordmark;
+}
+
+/**
+ * Text wordmark — crisp at every size, no image dependency.
+ *
+ * Renders the mark for the language being read: `brentdesk.` in English,
+ * `برنت ديسك.` in Arabic. The locale comes from the URL, so a hard load of
+ * /ar paints the Arabic mark rather than swapping to it a moment later.
+ *
+ * The trailing dot is a separate span so it keeps the accent colour. It is
+ * a neutral character, so in Arabic the bidi algorithm puts it at the left
+ * end of the mark — the end of the word on a right-to-left line, which is
+ * where it belongs.
+ */
 export function Wordmark({ className = "" }: { className?: string }) {
+  const locale = useLocale();
+  const localized = publication.wordmarksByLocale[locale];
+  const mark = localized ?? publication.wordmark;
+
   return (
     <span
-      className={`font-extrabold tracking-tight leading-none select-none ${className}`}
-      style={{ fontFamily: "var(--font-display)" }}
+      // Inter Tight is drawn tight; Arabic is not, and negative tracking
+      // crowds the joins, so the Arabic mark goes without it.
+      className={`font-extrabold leading-none select-none ${localized ? "" : "tracking-tight"} ${className}`}
+      // Named only for the Latin mark. An inline family beats even the
+      // unlayered rule that delivers STC Forward, and Inter Tight has no
+      // Arabic glyphs — naming it here would drop the Arabic mark to
+      // whatever the browser falls back to, which on Windows is Tahoma.
+      // Leaving it unset lets the mark inherit the page's own face.
+      style={localized ? undefined : { fontFamily: "var(--font-display)" }}
     >
-      {publication.wordmark.replace(/\.$/, "")}
+      {mark.replace(/\.$/, "")}
       <span className="text-primary">.</span>
     </span>
   );
@@ -93,118 +124,29 @@ export function Header() {
       <header className="sticky top-0 z-50 w-full bd-ink">
         {/* Main Navigation Row */}
         <div className="w-full border-b border-white/10">
-          {/* The masthead does not mirror. The wordmark is a Latin brand mark
-              and the controls are icons, so flipping the bar buys nothing and
-              moves the menu button to the side no Arabic reader reaches for.
-              Keeping it `ltr` leaves the wordmark on the left and the search,
-              language and menu controls on the right in both languages; the
-              text inside them is still translated, and everything below the
-              masthead mirrors normally. */}
-          <div
-            dir="ltr"
-            className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between"
-          >
-            {/* Left Section - Wordmark */}
-            <Link href="/" className="flex items-center shrink-0" aria-label={`${publication.name} home`}>
-              <Wordmark className="text-white text-[26px]" />
-            </Link>
-
-            {/* Center Section - Main Navigation */}
-            {/* The bar is pinned ltr so the wordmark and the controls keep
-                their designed sides; the nav is a list of words, so it reads
-                in the language of the page. */}
-            <nav dir={dir} className="hidden lg:flex items-center gap-1">
-              {mainNavItems.map((item) => (
-                <Link
-                  key={item.key}
-                  href={item.href}
-                  className={`text-[15px] font-semibold px-4 py-2 rounded-md transition-colors ${
-                    (item.href === "/" ? location === "/" : location.startsWith(item.href))
-                      ? "text-white"
-                      : "text-white/75 hover:text-white"
-                  }`}
-                >
-                  {t(item.key)}
-                </Link>
-              ))}
-            </nav>
-
-            {/* Right Section */}
-            <div className="flex items-center gap-2">
-              {/* Renders nothing until a second language is configured, so
-                  a single-language site carries no dead control. */}
-              <LanguageSwitcher className="text-white hover:bg-white/10" />
-
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setSearchOpen(true)}
-                aria-label={t("nav.search")}
-                className="text-white h-10 w-10 hover:bg-white/10"
-              >
-                <Search className="h-5 w-5" />
-              </Button>
-
-              {isAuthenticated ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="hidden md:flex h-9 px-4 text-sm font-semibold border-white/40 text-white bg-transparent hover:bg-white hover:text-black rounded-full transition-colors gap-2"
-                    >
-                      <User className="h-4 w-4" />
-                      {user?.name || t("nav.account")}
-                      <ChevronDown className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48">
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
-                        <LayoutDashboard className="h-4 w-4" />
-                        {t("nav.dashboard")}
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard/my-content" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
-                        <LayoutDashboard className="h-4 w-4" />
-                        {t("nav.myContent")}
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/profile" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
-                        <UserCircle className="h-4 w-4" />
-                        {t("nav.profile")}
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem
-                      onClick={() => logout()}
-                      className="cursor-pointer text-sm font-medium text-red-600 focus:text-red-600"
-                    >
-                      {t("nav.signOut")}
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <Link href="/signin">
-                  <Button className="hidden md:flex h-9 px-5 text-sm font-semibold bg-white text-black hover:bg-white/90 rounded-full">
-                    {t("nav.signIn")}
-                  </Button>
-                </Link>
-              )}
-
-              {/* Mobile Menu Trigger */}
+          {/* The masthead mirrors with the page. The brand — menu button and
+              wordmark as one group — leads the reading direction, so it sits
+              at the left in English and at the right in Arabic: where a
+              reader of either language looks first, and on a phone where
+              their thumb already is. The controls take the far end. */}
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+            {/* Brand — the menu button and the wordmark travel together, so
+                mirroring the bar keeps them beside each other rather than
+                throwing them to opposite ends. */}
+            <div className="flex items-center gap-1 shrink-0">
+              {/* Menu button — grouped with the wordmark, not the controls. */}
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" aria-label={t("nav.menu")} className="lg:hidden h-10 w-10 text-white hover:bg-white/10">
+                  <Button variant="ghost" size="icon" aria-label={t("nav.menu")} className="lg:hidden h-10 w-10 -ms-2 text-white hover:bg-white/10">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
                 <SheetContent
-                  // Opens from under the button that summoned it.
-                  side="right"
-                  // The bar above is pinned `ltr`; the menu itself is content
-                  // and reads in the language of the page.
+                  // Opens from under the button that summoned it, which is
+                  // whichever side the language starts on: left in English,
+                  // right in Arabic. Radix takes a physical side, so this is
+                  // the one part of the drawer that cannot be left to CSS.
+                  side={dir === "rtl" ? "right" : "left"}
                   dir={dir}
                   // Explicit colours rather than the `bd-ink` class: that class
                   // lives in Tailwind's component layer, and SheetContent's own
@@ -348,6 +290,91 @@ export function Header() {
                   </div>
                 </SheetContent>
               </Sheet>
+              <Link href="/" className="flex items-center shrink-0" aria-label={`${publication.name} home`}>
+                <Wordmark className="text-white text-[26px]" />
+              </Link>
+            </div>
+
+            {/* Center Section - Main Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  className={`text-[15px] font-semibold px-4 py-2 rounded-md transition-colors ${
+                    (item.href === "/" ? location === "/" : location.startsWith(item.href))
+                      ? "text-white"
+                      : "text-white/75 hover:text-white"
+                  }`}
+                >
+                  {t(item.key)}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Right Section */}
+            <div className="flex items-center gap-2">
+              {/* Renders nothing until a second language is configured, so
+                  a single-language site carries no dead control. */}
+              <LanguageSwitcher className="text-white hover:bg-white/10" />
+
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setSearchOpen(true)}
+                aria-label={t("nav.search")}
+                className="text-white h-10 w-10 hover:bg-white/10"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+
+              {isAuthenticated ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="hidden md:flex h-9 px-4 text-sm font-semibold border-white/40 text-white bg-transparent hover:bg-white hover:text-black rounded-full transition-colors gap-2"
+                    >
+                      <User className="h-4 w-4" />
+                      {user?.name || t("nav.account")}
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
+                        <LayoutDashboard className="h-4 w-4" />
+                        {t("nav.dashboard")}
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard/my-content" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
+                        <LayoutDashboard className="h-4 w-4" />
+                        {t("nav.myContent")}
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/profile" className="cursor-pointer text-sm font-medium w-full flex items-center gap-2">
+                        <UserCircle className="h-4 w-4" />
+                        {t("nav.profile")}
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={() => logout()}
+                      className="cursor-pointer text-sm font-medium text-red-600 focus:text-red-600"
+                    >
+                      {t("nav.signOut")}
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link href="/signin">
+                  <Button className="hidden md:flex h-9 px-5 text-sm font-semibold bg-white text-black hover:bg-white/90 rounded-full">
+                    {t("nav.signIn")}
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

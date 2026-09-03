@@ -152,7 +152,7 @@ export function NewsletterSignup({
         <div>
           <h3 className="font-semibold">{t("newsletter.subscribe")} — {publication.name}</h3>
           <p className="text-sm text-muted-foreground">
-            {publication.tagline}
+            {t("footer.tagline")}
           </p>
         </div>
       </div>
@@ -196,7 +196,7 @@ export function NewsletterSignup({
             onCheckedChange={(checked) => setConsentMarketing(checked as boolean)}
           />
           <Label htmlFor="consent" className="text-xs text-muted-foreground cursor-pointer">
-            I agree to receive marketing communications and partner offers from {publication.name}.
+            {t("newsletter.marketingConsent", { site: publication.name })}
           </Label>
         </div>
 

@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import { Link } from "wouter";
 import { Linkedin, Instagram, Youtube, Mail } from "lucide-react";
 import { publication } from "@shared/publication";
-import { Wordmark } from "@/components/layout/Header";
+import { Wordmark, useWordmark } from "@/components/layout/Header";
 import { useT } from "@/lib/i18n";
 import type { UiKey } from "@shared/uiStrings";
 
@@ -53,6 +53,8 @@ const companyLinks: FooterLink[] = [
 
 export function Footer() {
   const t = useT();
+  // Without the trailing dot: this is the name as a heading, not the mark.
+  const brand = useWordmark().replace(/\.$/, "");
 
   // Platform names stay as they are written — "LinkedIn" is LinkedIn in every
   // language. Only "Email" is a word rather than a name, so only it translates.
@@ -78,7 +80,7 @@ export function Footer() {
               <Wordmark className="text-foreground text-2xl" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-sm">
-              {publication.description}
+              {t("footer.description", { site: publication.name })}
             </p>
             <div className="mt-5 flex items-center gap-2">
               {socialLinks.map(({ label, href, Icon }) => (
@@ -99,8 +101,12 @@ export function Footer() {
           {/* Link columns */}
           <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <nav aria-label={publication.name}>
+              {/* The heading is the brand itself, so it takes the mark for
+                  the language being read. `uppercase` leaves the English
+                  identical to the literal it replaced; Arabic has no case,
+                  so it simply reads as the Arabic name. */}
               <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                {publication.name}
+                {brand}
               </h3>
               <ul className="space-y-2.5">
                 {publicationLinks.map((link) => (
@@ -147,7 +153,7 @@ export function Footer() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} {publication.legalName}. {t("footer.allRightsReserved")}
           </p>
-          <p className="text-xs text-muted-foreground">{publication.tagline}</p>
+          <p className="text-xs text-muted-foreground">{t("footer.tagline")}</p>
         </div>
       </div>
     </footer>
