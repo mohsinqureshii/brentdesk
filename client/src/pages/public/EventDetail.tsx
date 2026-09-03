@@ -76,6 +76,7 @@ import {
 
 import { publication } from "@shared/publication";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { stripHtml, sanitizeHtml, looksLikeHtml } from "@/lib/sanitizeHtml";
 import { isEventLive } from "@/lib/eventLive";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
@@ -198,6 +199,7 @@ function getFaqs(event: EventRow): Array<{ question: string; answer: string }> {
 // ================================================================
 
 export default function EventDetail() {
+  const t = useT();
   // The route uses /events/:id but the value is actually the slug
   // (matches the old URL contract — don't change without a redirect).
   const { id: slug } = useParams<{ id: string }>();
@@ -232,18 +234,18 @@ export default function EventDetail() {
   if (error || !event) {
     return (
       <div className="min-h-screen bg-background">
-        <SEO title="Event Not Found" noindex />
+        <SEO title={t("state.eventNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
           <Calendar className="h-12 w-12 text-muted-foreground mb-4" />
           <h1 className="text-2xl font-bold text-foreground mb-4">
-            Event Not Found
+            {t("state.eventNotFound")}
           </h1>
           <p className="text-muted-foreground mb-6">
-            The event you're looking for doesn't exist or has been removed.
+            {t("event.notFoundBody")}
           </p>
           <Link href="/events">
-            <Button>Back to Events</Button>
+            <Button>{t("state.backToEvents")}</Button>
           </Link>
         </div>
         <Footer />
@@ -508,6 +510,7 @@ function EventPageLayout({
   faqs: Array<{ question: string; answer: string }>;
   eventUrl: string;
 }) {
+  const t = useT();
   const eventId = event.id as number;
 
   // ------------------------------------------------------------ data
@@ -582,21 +585,21 @@ function EventPageLayout({
 
   const tabs: EventTab[] = useMemo(() => {
     const defs: Record<string, { label: string; show: boolean }> = {
-      overview: { label: "Overview", show: true },
-      live: { label: "Live", show: mode === "live" },
-      recap: { label: "Recap", show: mode === "post" },
-      speakers: { label: "Speakers", show: speakers.length > 0 },
-      agenda: { label: "Agenda", show: schedule.length > 0 },
-      tickets: { label: "Tickets", show: hasTickets },
+      overview: { label: t("event.tabOverview"), show: true },
+      live: { label: t("event.tabLive"), show: mode === "live" },
+      recap: { label: t("event.tabRecap"), show: mode === "post" },
+      speakers: { label: t("event.tabSpeakers"), show: speakers.length > 0 },
+      agenda: { label: t("event.tabAgenda"), show: schedule.length > 0 },
+      tickets: { label: t("event.tabTickets"), show: hasTickets },
       // The side-events panel carries the public "host a side event"
       // submission form, so it stays available for events that haven't
       // happened yet even with nothing listed.
       "side-events": {
-        label: "Side Events",
+        label: t("event.tabSideEvents"),
         show: sideEvents.length > 0 || mode !== "post",
       },
-      venue: { label: "Venue", show: hasVenue },
-      faq: { label: "FAQs", show: faqs.length > 0 },
+      venue: { label: t("event.tabVenue"), show: hasVenue },
+      faq: { label: t("event.tabFaqs"), show: faqs.length > 0 },
     };
     return BASE_TAB_ORDER.filter((id) => defs[id]?.show).map((id) => ({
       id,
@@ -604,6 +607,7 @@ function EventPageLayout({
       icon: TAB_ICONS[id],
     }));
   }, [
+    t,
     mode,
     speakers.length,
     hasTickets,
@@ -623,7 +627,7 @@ function EventPageLayout({
   // this event doesn't have at all) — fall back to Overview for display
   // without discarding the request, so a late-arriving Speakers tab still
   // honours `#speakers`.
-  const activeTab = tabs.some((t) => t.id === requestedTab)
+  const activeTab = tabs.some((tab) => tab.id === requestedTab)
     ? requestedTab
     : "overview";
 
@@ -664,11 +668,11 @@ function EventPageLayout({
     <main className="pb-24 lg:pb-16">
       {/* --------------------------------------------------- breadcrumb */}
       <div className={`${CONTAINER} pt-5`}>
-        <nav aria-label="Breadcrumb">
+        <nav aria-label={t("common.breadcrumb")}>
           <ol className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground sm:text-sm">
             <li>
               <Link href="/" className="hover:text-foreground">
-                Home
+                {t("nav.home")}
               </Link>
             </li>
             <li aria-hidden="true">
@@ -676,7 +680,7 @@ function EventPageLayout({
             </li>
             <li>
               <Link href="/events" className="hover:text-foreground">
-                Events
+                {t("nav.events")}
               </Link>
             </li>
             <li aria-hidden="true">
@@ -703,12 +707,13 @@ function EventPageLayout({
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
             </span>
             <span className="truncate text-sm font-medium">
-              Live coverage in progress — {livePosts.length} update
-              {livePosts.length === 1 ? "" : "s"}
+              {livePosts.length === 1
+                ? t("event.liveCoverageOne")
+                : t("event.liveCoverageMany", { n: livePosts.length })}
             </span>
             <Link href={`/events/${event.slug}/live`} className="ml-auto shrink-0">
               <Button size="sm" className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700">
-                Follow live <ArrowRight className="h-3.5 w-3.5" />
+                {t("event.followLive")} <ArrowRight className="h-3.5 w-3.5" />
               </Button>
             </Link>
           </div>
@@ -850,6 +855,7 @@ function MobileTicketBar({
   onOpenCheckout: (ticketId?: number) => void;
   onSelectTab: (id: string, scroll?: boolean) => void;
 }) {
+  const t = useT();
   const provider = event.ticketProvider || "none";
   const externalProvider = isExternalProvider(provider) ? provider : null;
   const externalUrl = externalTicketUrlOf(event);
@@ -877,7 +883,7 @@ function MobileTicketBar({
           className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700"
           onClick={handleExternalClick}
         >
-          <Ticket className="h-4 w-4" aria-hidden="true" /> Tickets
+          <Ticket className="h-4 w-4" aria-hidden="true" /> {t("event.tabTickets")}
         </Button>
       ) : isInternal ? (
         <Button
@@ -888,12 +894,12 @@ function MobileTicketBar({
             onOpenCheckout();
           }}
         >
-          <Ticket className="h-4 w-4" aria-hidden="true" /> Tickets
+          <Ticket className="h-4 w-4" aria-hidden="true" /> {t("event.tabTickets")}
         </Button>
       ) : (
         <a href={externalUrl} target="_blank" rel="noopener noreferrer">
           <Button size="sm" className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700">
-            <Ticket className="h-4 w-4" aria-hidden="true" /> Tickets
+            <Ticket className="h-4 w-4" aria-hidden="true" /> {t("event.tabTickets")}
           </Button>
         </a>
       )}
@@ -1027,12 +1033,13 @@ function EventEditorialBlocks({
   expectItems: ExpectItem[] | null;
   leftoverHighlights: any[];
 }) {
+  const t = useT();
   return (
     <>
     {event.whatToExpect && (
       <section>
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          What to expect
+          {t("event.whatToExpect")}
         </h2>
         {expectItems ? (
           <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -1066,7 +1073,7 @@ function EventEditorialBlocks({
     {leftoverHighlights.length > 0 && (
       <section>
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-          Event highlights
+          {t("event.highlights")}
         </h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {leftoverHighlights.map((h: any) => (
@@ -1095,7 +1102,7 @@ function EventEditorialBlocks({
       (event as any).targetAudience.length > 0 && (
         <section>
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-            Who should attend
+            {t("event.whoShouldAttend")}
           </h2>
           <div className="mt-6 flex flex-wrap gap-2">
             {((event as any).targetAudience as string[]).map((aud) => (
@@ -1124,6 +1131,7 @@ function EventEditorialBlocks({
  * real trend (velocity) metric behind it.
  */
 function MostAnticipated({ currentId }: { currentId: number }) {
+  const t = useT();
   const q = trpc.events.list.useQuery({
     page: 1,
     limit: 8,
@@ -1139,21 +1147,21 @@ function MostAnticipated({ currentId }: { currentId: number }) {
   if (!q.isLoading && items.length === 0) return null;
 
   return (
-    <section aria-label="Most anticipated events">
+    <section aria-label={t("event.mostAnticipatedEvents")}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <div>
           <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
-            Most anticipated
+            {t("events.mostAnticipated")}
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Upcoming events by interest on {publication.name}
+            {t("event.byInterestOn", { site: publication.name })}
           </p>
         </div>
         <Link
           href="/events"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
         >
-          View all events
+          {t("events.viewAll")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>
       </div>
@@ -1173,20 +1181,20 @@ function MostAnticipated({ currentId }: { currentId: number }) {
  * green box at the end reads as a second, unfinished layout.
  */
 function HostYourEventBand() {
+  const t = useT();
   return (
     <section className="flex flex-col gap-6 rounded-2xl border border-emerald-600/25 bg-emerald-50/60 px-7 py-8 dark:bg-emerald-500/[0.07] sm:flex-row sm:items-center sm:justify-between lg:px-10">
       <div className="min-w-0">
         <h2 className="text-xl font-bold tracking-tight text-foreground lg:text-2xl">
-          Host your event on {publication.name}
+          {t("event.hostYourEventOn", { site: publication.name })}
         </h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          List your conference, expo or forum in front of the region&rsquo;s
-          industry leaders, engineers and decision-makers.
+          {t("event.hostBandBlurb")}
         </p>
       </div>
       <Link href="/events/submit" className="shrink-0">
         <Button className="h-11 gap-1.5 rounded-lg bg-emerald-600 px-6 text-sm font-semibold text-white hover:bg-emerald-700">
-          Submit an event <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          {t("events.submit")} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Button>
       </Link>
     </section>
@@ -1336,10 +1344,11 @@ function SpeakersPanel({
   event: EventRow;
   speakers: any[];
 }) {
+  const t = useT();
   if (!speakers || speakers.length === 0) {
     return (
       <p className="text-sm text-muted-foreground">
-        The speaker line-up hasn't been announced yet.
+        {t("event.speakersTba")}
       </p>
     );
   }
@@ -1347,7 +1356,9 @@ function SpeakersPanel({
   return (
     <div>
       <h2 className="text-2xl font-bold tracking-tight text-foreground">
-        {speakers.length} Speaker{speakers.length === 1 ? "" : "s"}
+        {speakers.length === 1
+          ? t("event.oneSpeaker")
+          : t("event.nSpeakers", { n: speakers.length })}
       </h2>
       <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {speakers.map((s: any) => (
@@ -1406,7 +1417,7 @@ function SpeakersPanel({
                     href={s.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${s.name} on LinkedIn`}
+                    aria-label={t("person.onLinkedin", { name: s.name })}
                     className="hover:text-emerald-700 dark:hover:text-emerald-400"
                   >
                     <Linkedin className="h-4 w-4" />
@@ -1417,7 +1428,7 @@ function SpeakersPanel({
                     href={s.twitterUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${s.name} on X / Twitter`}
+                    aria-label={t("person.onTwitter", { name: s.name })}
                     className="hover:text-emerald-700 dark:hover:text-emerald-400"
                   >
                     <Twitter className="h-4 w-4" />
@@ -1428,7 +1439,7 @@ function SpeakersPanel({
                     href={s.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${s.name}'s website`}
+                    aria-label={t("person.website", { name: s.name })}
                     className="hover:text-emerald-700 dark:hover:text-emerald-400"
                   >
                     <Globe className="h-4 w-4" />
@@ -1439,7 +1450,7 @@ function SpeakersPanel({
                     href={`/people/${s.personSlug}`}
                     className="ml-auto text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
                   >
-                    Profile
+                    {t("nav.profile")}
                   </Link>
                 )}
               </div>
@@ -1456,21 +1467,22 @@ function SpeakersPanel({
  * pre-filled tweet and a copy-link to the in-page anchor.
  */
 function SpeakerShareTrigger({ event, speaker }: { event: EventRow; speaker: any }) {
+  const t = useT();
   return (
     <Dialog>
       <DialogTrigger asChild>
         <button
           type="button"
           className="-m-1 shrink-0 p-1 text-muted-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
-          aria-label={`Share ${speaker.name}`}
-          title="Share"
+          aria-label={t("event.shareX", { name: speaker.name })}
+          title={t("article.share")}
         >
           <Share2 className="h-4 w-4" />
         </button>
       </DialogTrigger>
       <DialogContent className="max-w-sm">
         <DialogHeader>
-          <DialogTitle>Share speaker</DialogTitle>
+          <DialogTitle>{t("event.shareSpeaker")}</DialogTitle>
         </DialogHeader>
         <EntityShareIntents
           eventSlug={event.slug}
@@ -1515,21 +1527,22 @@ function SessionShareTrigger({
   event: EventRow;
   session: { id: number; title: string; speakerName?: string | null };
 }) {
+  const t = useT();
   return (
     <Dialog>
       <DialogTrigger asChild>
         <button
           type="button"
           className="-m-1 shrink-0 p-1 text-muted-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
-          aria-label={`Share ${session.title}`}
-          title="Share this session"
+          aria-label={t("event.shareX", { name: session.title })}
+          title={t("event.shareThisSession")}
         >
           <Share2 className="h-4 w-4" />
         </button>
       </DialogTrigger>
       <DialogContent className="max-w-sm">
         <DialogHeader>
-          <DialogTitle>Share session</DialogTitle>
+          <DialogTitle>{t("event.shareSession")}</DialogTitle>
         </DialogHeader>
         <EntityShareIntents
           eventSlug={event.slug}
@@ -1555,6 +1568,7 @@ function TicketsPanel({
   isLoading: boolean;
   onOpenCheckout: (ticketId?: number) => void;
 }) {
+  const t = useT();
   const externalUrl = externalTicketUrlOf(event);
   const provider = event.ticketProvider || "none";
   const externalProvider = isExternalProvider(provider) ? provider : null;
@@ -1579,7 +1593,7 @@ function TicketsPanel({
     if (!externalUrl && !event.isFree) {
       return (
         <p className="text-sm text-muted-foreground">
-          Ticket details haven't been published yet.
+          {t("event.ticketsTba")}
         </p>
       );
     }
@@ -1591,14 +1605,14 @@ function TicketsPanel({
           </span>
           <div>
             <h3 className="font-bold text-foreground">
-              {event.isFree ? "Free entry" : "Get your ticket"}
+              {event.isFree ? t("event.freeEntry") : t("event.getYourTicket")}
             </h3>
             <p className="text-sm text-muted-foreground">
               {provider === "eventbrite"
-                ? "Tickets sold via Eventbrite."
+                ? t("event.viaEventbrite")
                 : provider === "luma"
-                ? "Register on Luma."
-                : "Ticket sales handled by the organiser."}
+                ? t("event.viaLuma")
+                : t("event.viaOrganiser")}
             </p>
           </div>
         </div>
@@ -1609,7 +1623,7 @@ function TicketsPanel({
               onClick={handleExternalClick}
             >
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              {event.isFree ? "Register" : "Buy tickets"}
+              {event.isFree ? t("event.register") : t("event.buyTickets")}
             </Button>
             <ProviderBadge provider={externalProvider} align="left" />
           </div>
@@ -1622,7 +1636,7 @@ function TicketsPanel({
           >
             <Button className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700">
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              {event.isFree ? "Register" : "Buy tickets"}
+              {event.isFree ? t("event.register") : t("event.buyTickets")}
             </Button>
           </a>
         ) : null}
@@ -1632,46 +1646,48 @@ function TicketsPanel({
 
   return (
     <div id="tickets" className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {tickets.map((t: TicketRow) => (
+      {tickets.map((tier: TicketRow) => (
         <article
-          key={t.id}
+          key={tier.id}
           className={`rounded-2xl border bg-card p-5 ${
-            t.soldOut
+            tier.soldOut
               ? "border-[var(--border)] opacity-60"
               : "border-emerald-600/30"
           }`}
         >
           <div className="flex items-baseline justify-between gap-2">
-            <h3 className="text-base font-bold text-foreground">{t.name}</h3>
+            <h3 className="text-base font-bold text-foreground">{tier.name}</h3>
             <div className="text-2xl font-bold tabular-nums text-foreground">
-              {formatCurrency(t.priceCents, t.currency)}
+              {formatCurrency(tier.priceCents, tier.currency)}
             </div>
           </div>
-          {t.description && (
-            <p className="mt-2 text-sm text-muted-foreground">{t.description}</p>
+          {tier.description && (
+            <p className="mt-2 text-sm text-muted-foreground">{tier.description}</p>
           )}
           <div className="mt-3 space-y-1 text-xs text-muted-foreground">
-            {t.remaining !== null && t.remaining !== undefined && (
+            {tier.remaining !== null && tier.remaining !== undefined && (
               <div className="flex items-center gap-1.5">
                 <Users className="h-3 w-3" aria-hidden="true" />
-                {t.soldOut
-                  ? "Sold out"
-                  : `${Number(t.remaining).toLocaleString()} remaining`}
+                {tier.soldOut
+                  ? t("event.soldOut")
+                  : t("event.nRemaining", {
+                      n: Number(tier.remaining).toLocaleString(),
+                    })}
               </div>
             )}
-            {t.salesEndAt && (
+            {tier.salesEndAt && (
               <div className="flex items-center gap-1.5">
                 <Clock className="h-3 w-3" aria-hidden="true" />
-                Sales end {formatDate(t.salesEndAt)}
+                {t("event.salesEnd", { date: formatDate(tier.salesEndAt) })}
               </div>
             )}
           </div>
           <Button
             className="mt-4 w-full bg-emerald-600 text-white hover:bg-emerald-700"
-            disabled={!!t.soldOut}
+            disabled={!!tier.soldOut}
             onClick={() => {
               if (provider === "internal") {
-                onOpenCheckout(t.id);
+                onOpenCheckout(tier.id);
                 return;
               }
               if (externalUrl) {
@@ -1679,7 +1695,7 @@ function TicketsPanel({
               }
             }}
           >
-            {t.soldOut ? "Sold out" : "Get tickets"}
+            {tier.soldOut ? t("event.soldOut") : t("events.getTickets")}
           </Button>
         </article>
       ))}
@@ -1694,6 +1710,7 @@ function TicketsPanel({
  * the Get Directions CTA.
  */
 function VenuePanel({ event }: { event: EventRow }) {
+  const t = useT();
   const name = event.venueName || event.venue || null;
   const address = event.venueAddress || event.address || event.addressLine || null;
   const locality = [event.city, event.country].filter(Boolean).join(", ");
@@ -1704,7 +1721,7 @@ function VenuePanel({ event }: { event: EventRow }) {
     <div className="grid gap-8 lg:grid-cols-2">
       <div>
         <h2 className="text-2xl font-bold tracking-tight text-foreground">
-          {name || locality || "Venue"}
+          {name || locality || t("event.tabVenue")}
         </h2>
         {(address || locality) && (
           <address className="mt-2 not-italic text-sm leading-relaxed text-muted-foreground">
@@ -1714,8 +1731,7 @@ function VenuePanel({ event }: { event: EventRow }) {
         )}
         {event.format === "virtual" && (
           <p className="mt-2 text-sm text-muted-foreground">
-            This is a virtual event — joining details come with your
-            registration.
+            {t("event.virtualJoiningDetails")}
           </p>
         )}
 
@@ -1729,7 +1745,7 @@ function VenuePanel({ event }: { event: EventRow }) {
                 {name || locality}
               </div>
               <p className="text-sm text-muted-foreground">
-                Open the location in your maps app for routes and travel time.
+                {t("event.openInMaps")}
               </p>
             </div>
           </div>
@@ -1743,7 +1759,7 @@ function VenuePanel({ event }: { event: EventRow }) {
             className="mt-6 inline-block"
           >
             <Button className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700">
-              <Navigation className="h-4 w-4" aria-hidden="true" /> Get Directions
+              <Navigation className="h-4 w-4" aria-hidden="true" /> {t("event.getDirections")}
             </Button>
           </a>
         )}
@@ -1753,7 +1769,7 @@ function VenuePanel({ event }: { event: EventRow }) {
         {event.venueImage && (
           <img
             src={event.venueImage}
-            alt={name ? `${name}` : "Venue"}
+            alt={name ? `${name}` : t("event.tabVenue")}
             loading="lazy"
             className="aspect-[16/9] w-full rounded-2xl object-cover ring-1 ring-[var(--border)]"
           />
@@ -1763,7 +1779,9 @@ function VenuePanel({ event }: { event: EventRow }) {
           <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--border)]">
             <iframe
               src={event.venueMapUrl}
-              title={`Map of ${name || locality || "the venue"}`}
+              title={t("event.mapOf", {
+                place: name || locality || t("event.theVenue"),
+              })}
               className="h-full w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -1781,6 +1799,7 @@ function VenuePanel({ event }: { event: EventRow }) {
 // ================================================================
 
 function LivePanel({ event, posts }: { event: EventRow; posts: any[] }) {
+  const t = useT();
   const nowSession = findCurrentSession(event.schedule || []);
 
   return (
@@ -1790,9 +1809,11 @@ function LivePanel({ event, posts }: { event: EventRow; posts: any[] }) {
       <div>
         <div className="mb-4 flex items-center gap-2">
           <Radio className="h-5 w-5 text-red-500" aria-hidden="true" />
-          <h2 className="text-xl font-bold tracking-tight">Live feed</h2>
+          <h2 className="text-xl font-bold tracking-tight">{t("event.liveFeed")}</h2>
           <span className="text-sm text-muted-foreground">
-            {posts.length} update{posts.length === 1 ? "" : "s"}
+            {posts.length === 1
+              ? t("event.oneUpdate")
+              : t("event.nUpdates", { n: posts.length })}
           </span>
           {/* RSS subscribe link — the per-event live feed for Feedly /
               NetNewsWire / IFTTT subscribers. */}
@@ -1801,8 +1822,8 @@ function LivePanel({ event, posts }: { event: EventRow; posts: any[] }) {
             target="_blank"
             rel="noopener noreferrer"
             className="ml-auto text-muted-foreground transition hover:text-orange-500"
-            aria-label="Subscribe to live coverage RSS feed"
-            title="RSS feed of live coverage"
+            aria-label={t("event.rssAria")}
+            title={t("event.rssTitle")}
           >
             <Rss className="h-4 w-4" />
           </a>
@@ -1810,8 +1831,7 @@ function LivePanel({ event, posts }: { event: EventRow; posts: any[] }) {
 
         {posts.length === 0 ? (
           <p className="rounded-2xl border border-[var(--border)] bg-card p-8 text-center text-sm text-muted-foreground">
-            The live feed will appear here as soon as our correspondents start
-            posting.
+            {t("event.liveFeedEmpty")}
           </p>
         ) : (
           <ul className="space-y-3">
@@ -1838,10 +1858,11 @@ function findCurrentSession(schedule: any[]): any | null {
 }
 
 function NowHappeningCard({ session }: { session: any }) {
+  const t = useT();
   return (
     <div className="rounded-2xl border border-emerald-600/30 bg-emerald-50/60 p-5 dark:bg-emerald-500/[0.07]">
       <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-        Now happening
+        {t("event.nowHappening")}
       </div>
       <h3 className="text-xl font-bold">{session.title}</h3>
       <div className="mt-2 flex flex-wrap gap-3 text-sm text-muted-foreground">
@@ -1868,6 +1889,7 @@ function NowHappeningCard({ session }: { session: any }) {
 }
 
 function LivePostCard({ post }: { post: any }) {
+  const t = useT();
   const type = post.postType || "update";
   const time = formatTime(post.publishedAt);
   const dateStr = formatDate(post.publishedAt);
@@ -1877,7 +1899,7 @@ function LivePostCard({ post }: { post: any }) {
       <span className="flex items-center gap-2">
         {post.isPinned ? (
           <Badge variant="outline" className="py-0 text-[10px]">
-            Pinned
+            {t("event.pinned")}
           </Badge>
         ) : null}
         <span className="uppercase tracking-wider">{type}</span>
@@ -1899,10 +1921,10 @@ function LivePostCard({ post }: { post: any }) {
             </div>
             <div className="min-w-0">
               <div className="text-xs font-semibold uppercase text-emerald-600">
-                Just announced
+                {t("event.justAnnounced")}
               </div>
               <div className="text-lg font-bold leading-tight">
-                {post.companyName || "New deal"}
+                {post.companyName || t("event.newDeal")}
                 {post.fundingAmount ? ` · ${post.fundingAmount}` : ""}
               </div>
               {post.body && (
@@ -1963,7 +1985,7 @@ function LivePostCard({ post }: { post: any }) {
         <CardContent className="p-0">
           <img
             src={post.imageUrl}
-            alt={post.headline || "Live photo"}
+            alt={post.headline || t("event.livePhoto")}
             className="h-auto w-full"
             loading="lazy"
           />
@@ -1989,7 +2011,7 @@ function LivePostCard({ post }: { post: any }) {
               src={post.embedUrl}
               className="h-full w-full"
               allowFullScreen
-              title={post.headline || "Live video"}
+              title={post.headline || t("event.liveVideo")}
             />
           </div>
           {post.headline && <h3 className="font-semibold">{post.headline}</h3>}
@@ -2100,6 +2122,7 @@ function LiveBlogJsonLd({
 // ================================================================
 
 function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
+  const t = useT();
   const recordings: any[] = (event as any).recordings || [];
 
   const fundingCount = posts.filter((p: any) => p.postType === "funding").length;
@@ -2112,15 +2135,41 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
   );
 
   const stats: Array<{ label: string; value: number }> = [
-    ...(attendeesShown > 0 ? [{ label: "Attendees", value: attendeesShown }] : []),
+    ...(attendeesShown > 0
+      ? [{ label: t("event.statAttendees"), value: attendeesShown }]
+      : []),
     ...(fundingCount > 0
-      ? [{ label: `Deal${fundingCount === 1 ? "" : "s"} announced`, value: fundingCount }]
+      ? [
+          {
+            label:
+              fundingCount === 1
+                ? t("event.statDealAnnounced")
+                : t("event.statDealsAnnounced"),
+            value: fundingCount,
+          },
+        ]
       : []),
     ...(sessionCount > 0
-      ? [{ label: `Session${sessionCount === 1 ? "" : "s"}`, value: sessionCount }]
+      ? [
+          {
+            label:
+              sessionCount === 1
+                ? t("event.statSession")
+                : t("event.statSessions"),
+            value: sessionCount,
+          },
+        ]
       : []),
     ...(posts.length > 0
-      ? [{ label: `Live update${posts.length === 1 ? "" : "s"}`, value: posts.length }]
+      ? [
+          {
+            label:
+              posts.length === 1
+                ? t("event.statLiveUpdate")
+                : t("event.statLiveUpdates"),
+            value: posts.length,
+          },
+        ]
       : []),
   ];
 
@@ -2128,7 +2177,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
     <div className="space-y-12">
       {stats.length >= 2 && (
         <section>
-          <h2 className="text-xl font-bold tracking-tight">By the numbers</h2>
+          <h2 className="text-xl font-bold tracking-tight">{t("event.byTheNumbers")}</h2>
           <dl className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
             {stats.map((s) => (
               <div
@@ -2149,15 +2198,15 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
         <section className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-emerald-600/30 bg-emerald-50/60 p-6 dark:bg-emerald-500/[0.07]">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-              Recap
+              {t("event.tabRecap")}
             </div>
             <h2 className="mt-1 text-xl font-bold">
-              Read the full recap of {event.title}
+              {t("event.readFullRecapOf", { title: event.title })}
             </h2>
           </div>
           <Link href={`/news/${(event as any).recapArticleSlug || ""}`}>
             <Button className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700">
-              Read recap <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              {t("event.readRecap")} <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </Link>
         </section>
@@ -2165,7 +2214,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
 
       {recordings.length > 0 && (
         <section>
-          <h2 className="text-xl font-bold tracking-tight">Session recordings</h2>
+          <h2 className="text-xl font-bold tracking-tight">{t("event.sessionRecordings")}</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {recordings.map((r) => (
               <Card key={r.id} className="overflow-hidden">
@@ -2208,7 +2257,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
       {photoPosts.length > 0 && (
         <section>
           <h2 className="flex items-center gap-2 text-xl font-bold tracking-tight">
-            <Camera className="h-5 w-5" aria-hidden="true" /> From the floor
+            <Camera className="h-5 w-5" aria-hidden="true" /> {t("event.fromTheFloor")}
           </h2>
           <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
             {photoPosts.map((p: any) => (
@@ -2233,7 +2282,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
 
       {(event.sponsors || []).length > 0 && (
         <section>
-          <h2 className="text-xl font-bold tracking-tight">Sponsored by</h2>
+          <h2 className="text-xl font-bold tracking-tight">{t("event.sponsoredBy")}</h2>
           <div className="mt-4">
             <SponsorTierGrid sponsors={event.sponsors} />
           </div>
@@ -2245,20 +2294,18 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
         photoPosts.length === 0 &&
         !(event as any).recapArticleId && (
           <p className="text-sm text-muted-foreground">
-            This event has finished. Recordings and a recap will appear here if
-            the organiser publishes them.
+            {t("event.recapEmpty")}
           </p>
         )}
 
       <section className="rounded-2xl border border-[var(--border)] bg-muted/30 p-6 text-center">
-        <h2 className="text-lg font-bold">Going next year?</h2>
+        <h2 className="text-lg font-bold">{t("event.goingNextYear")}</h2>
         <p className="mt-1.5 text-sm text-muted-foreground">
-          Find the next edition and other upcoming events across the {publication.name}{" "}
-          hub.
+          {t("event.findNextEdition", { site: publication.name })}
         </p>
         <Link href="/events" className="mt-4 inline-block">
           <Button variant="outline" className="gap-2">
-            Browse all events <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            {t("event.browseAllEvents")} <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Button>
         </Link>
       </section>

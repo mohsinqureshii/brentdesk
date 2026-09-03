@@ -12,6 +12,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { useT } from "@/lib/i18n";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SEO from "@/components/SEO";
@@ -40,6 +41,7 @@ function formatMoney(cents: number | null | undefined, currency: string | null |
 }
 
 export default function EventTicketsSuccess() {
+  const t = useT();
   const { slug } = useParams<{ slug: string }>();
 
   const sessionId = useMemo(() => {
@@ -74,15 +76,16 @@ export default function EventTicketsSuccess() {
         <Card>
           <CardContent className="p-8 text-center space-y-3">
             <AlertCircle className="h-10 w-10 text-destructive mx-auto" />
-            <h1 className="text-xl font-semibold">Missing session id</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tickets.missingSession")}
+            </h1>
             <p className="text-sm text-muted-foreground">
-              We couldn't find a checkout session reference. If you just paid,
-              please check your email for a confirmation.
+              {t("tickets.missingSessionBody")}
             </p>
             <Link href={`/events/${slug}`}>
               <Button variant="outline" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Back to event
+                {t("events.backToEvent")}
               </Button>
             </Link>
           </CardContent>
@@ -109,16 +112,16 @@ export default function EventTicketsSuccess() {
         <Card>
           <CardContent className="p-8 text-center space-y-3">
             <AlertCircle className="h-10 w-10 text-amber-500 mx-auto" />
-            <h1 className="text-xl font-semibold">Order not found</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tickets.orderNotFound")}
+            </h1>
             <p className="text-sm text-muted-foreground">
-              We couldn't find this order yet. Please refresh in a moment, or
-              check your email — we'll send a confirmation as soon as the
-              payment clears.
+              {t("tickets.orderNotFoundBody")}
             </p>
             <Link href={`/events/${slug}`}>
               <Button variant="outline" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Back to event
+                {t("events.backToEvent")}
               </Button>
             </Link>
           </CardContent>
@@ -133,14 +136,18 @@ export default function EventTicketsSuccess() {
   if (o.status === "pending") {
     return (
       <Shell>
-        <SEO title={`Processing your order — ${o.eventTitle || ""}`} noindex />
+        <SEO
+          title={`${t("tickets.processing")} — ${o.eventTitle || ""}`}
+          noindex
+        />
         <Card>
           <CardContent className="p-10 text-center space-y-4">
             <Loader2 className="h-10 w-10 animate-spin text-primary mx-auto" />
-            <h1 className="text-xl font-semibold">Processing your order…</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tickets.processingEllipsis")}
+            </h1>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
-              Stripe is confirming your payment. This usually takes a few
-              seconds. You'll receive an email receipt as soon as it clears.
+              {t("tickets.processingBody")}
             </p>
           </CardContent>
         </Card>
@@ -149,22 +156,24 @@ export default function EventTicketsSuccess() {
   }
 
   if (o.status === "cancelled" || o.status === "failed") {
+    const stopped =
+      o.status === "cancelled"
+        ? t("tickets.checkoutCancelled")
+        : t("tickets.paymentFailed");
     return (
       <Shell>
-        <SEO title={`Order ${o.status} — ${o.eventTitle || ""}`} noindex />
+        <SEO title={`${stopped} — ${o.eventTitle || ""}`} noindex />
         <Card>
           <CardContent className="p-8 text-center space-y-3">
             <AlertCircle className="h-10 w-10 text-destructive mx-auto" />
-            <h1 className="text-xl font-semibold">
-              {o.status === "cancelled" ? "Checkout cancelled" : "Payment failed"}
-            </h1>
+            <h1 className="text-xl font-semibold">{stopped}</h1>
             <p className="text-sm text-muted-foreground">
-              No charge was made. You can try again from the event page.
+              {t("tickets.noCharge")}
             </p>
             <Link href={`/events/${o.eventSlug || slug}`}>
               <Button className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Back to event
+                {t("events.backToEvent")}
               </Button>
             </Link>
           </CardContent>
@@ -178,26 +187,41 @@ export default function EventTicketsSuccess() {
 
   return (
     <Shell>
-      <SEO title={`Order confirmed — ${o.eventTitle || ""}`} noindex />
+      <SEO
+        title={`${t("tickets.orderConfirmed")} — ${o.eventTitle || ""}`}
+        noindex
+      />
       <Card>
         <CardContent className="p-8 space-y-6">
           <div className="text-center space-y-2">
             <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto" />
             <h1 className="text-2xl font-bold">
-              {o.status === "refunded" ? "Order refunded" : "You're going!"}
+              {o.status === "refunded"
+                ? t("tickets.orderRefunded")
+                : t("tickets.confirmed")}
             </h1>
             <p className="text-sm text-muted-foreground">
-              Order #{o.id} · {attendeeCount} ticket{attendeeCount === 1 ? "" : "s"} ·{" "}
-              {formatMoney(o.totalCents, o.currency)} paid
+              {attendeeCount === 1
+                ? t("tickets.orderSummaryOne", {
+                    id: o.id,
+                    n: attendeeCount,
+                    total: formatMoney(o.totalCents, o.currency),
+                  })
+                : t("tickets.orderSummaryMany", {
+                    id: o.id,
+                    n: attendeeCount,
+                    total: formatMoney(o.totalCents, o.currency),
+                  })}
             </p>
             <p className="text-sm text-muted-foreground">
-              Confirmation sent to <strong>{o.customerEmail}</strong>
+              {t("tickets.confirmationSentTo")}{" "}
+              <strong>{o.customerEmail}</strong>
             </p>
           </div>
 
           <div className="border-t pt-5 space-y-2">
             <div className="text-xs uppercase tracking-wide text-muted-foreground font-medium">
-              Tickets
+              {t("tickets.heading")}
             </div>
             <ul className="space-y-2">
               {(o.items || []).map((it) => (
@@ -220,21 +244,23 @@ export default function EventTicketsSuccess() {
 
           <div className="border-t pt-5 space-y-1.5 text-sm">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Subtotal</span>
+              <span className="text-muted-foreground">
+                {t("tickets.subtotal")}
+              </span>
               <span className="tabular-nums">
                 {formatMoney(o.subtotalCents, o.currency)}
               </span>
             </div>
             {(o.discountCents || 0) > 0 && (
               <div className="flex justify-between text-green-600 dark:text-green-400">
-                <span>Discount</span>
+                <span>{t("tickets.discount")}</span>
                 <span className="tabular-nums">
                   -{formatMoney(o.discountCents, o.currency)}
                 </span>
               </div>
             )}
             <div className="flex justify-between font-semibold border-t pt-2 mt-2">
-              <span>Total</span>
+              <span>{t("tickets.total")}</span>
               <span className="tabular-nums">
                 {formatMoney(o.totalCents, o.currency)}
               </span>
@@ -245,13 +271,13 @@ export default function EventTicketsSuccess() {
             <Link href={calendarHref}>
               <Button variant="outline" className="gap-2">
                 <Calendar className="h-4 w-4" />
-                Add to calendar
+                {t("events.addToCalendar")}
               </Button>
             </Link>
             <Link href={`/events/${o.eventSlug || slug}`}>
               <Button variant="ghost" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
-                Back to event
+                {t("events.backToEvent")}
               </Button>
             </Link>
           </div>

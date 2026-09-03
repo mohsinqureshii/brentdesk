@@ -398,9 +398,9 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
                 {" "}
                 {t("sideEvent.submittedNotLive")}
               </strong>{" "}
-              {t("sideEvent.submittedOutro", {
-                email: form.submitterEmail || t("common.you"),
-              })}
+              {form.submitterEmail
+                ? t("sideEvent.submittedOutro", { email: form.submitterEmail })
+                : t("sideEvent.submittedOutroNoEmail")}
             </p>
             <div className="mt-6 flex justify-center gap-2">
               <Button
