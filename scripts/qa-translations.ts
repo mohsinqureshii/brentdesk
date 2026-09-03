@@ -35,6 +35,21 @@ const SCRIPT_RANGES: Record<string, RegExp> = {
   zh: /[一-鿿]/,
 };
 
+/** The slugs the seed actually creates, read from the seed itself so a rename
+ *  there turns into a QA error here rather than a heading that silently stays
+ *  English. */
+function seededSlugs(arrayName: string): Set<string> {
+  const seed = readFileSync(path.join(ROOT, "..", "scripts", "seed-brentdesk.ts"), "utf8");
+  const block = new RegExp(`const ${arrayName}[^=]*=\\s*\\[([\\s\\S]*?)\\n\\s*\\];`).exec(seed);
+  const out = new Set<string>();
+  if (!block) return out;
+  for (const m of block[1].matchAll(/slug:\s*"([^"]+)"/g)) out.add(m[1]);
+  return out;
+}
+const SEEDED_CATEGORIES = seededSlugs("NEWS_CATEGORIES");
+const SEEDED_SECTIONS = seededSlugs("SECTIONS");
+let furnitureTranslated = 0;
+
 interface Issue { file: string; level: "error" | "warn"; message: string }
 const issues: Issue[] = [];
 const err = (file: string, message: string) => issues.push({ file, level: "error", message });
@@ -61,18 +76,25 @@ const script = SCRIPT_RANGES[locale.split("-")[0]];
 let fieldCount = 0;
 let uiTranslated = 0;
 
+// One article per file, but the furniture files (_categories, _sections)
+// carry a list — a file per category name would be 32 files holding one word
+// each.
+const entries: Array<{ file: string; t: any }> = [];
 for (const file of files) {
-  let t: any;
   try {
-    t = JSON.parse(readFileSync(path.join(TDIR, file), "utf8"));
+    const parsed = JSON.parse(readFileSync(path.join(TDIR, file), "utf8"));
+    for (const t of Array.isArray(parsed) ? parsed : [parsed]) entries.push({ file, t });
   } catch (e) {
     err(file, `invalid JSON: ${(e as Error).message}`);
-    continue;
   }
+}
 
+for (const { file, t } of entries) {
   if (!t.slug) { err(file, `missing "slug"`); continue; }
   if (!t.fields || typeof t.fields !== "object") { err(file, `missing "fields"`); continue; }
-  if (file !== `${t.slug}.json`) warn(file, `filename does not match slug "${t.slug}"`);
+  if (!file.startsWith("_") && file !== `${t.slug}.json`) {
+    warn(file, `filename does not match slug "${t.slug}"`);
+  }
 
   // The site's own words rather than an article: keys come from
   // shared/uiStrings.ts, so the check is coverage, not link and figure
@@ -94,6 +116,23 @@ for (const file of files) {
         }
       }
     }
+    continue;
+  }
+
+  // Site furniture: a category name or a homepage block heading. There is no
+  // English article behind these, so the article checks do not apply — what
+  // matters is that the slug is one the seed actually creates (a typo here
+  // fails silently at ingest, leaving the heading in English forever) and
+  // that the name was translated.
+  if (t.entityType === "category" || t.entityType === "homepage_section") {
+    const known = t.entityType === "category" ? SEEDED_CATEGORIES : SEEDED_SECTIONS;
+    if (!known.has(t.slug)) {
+      err(file, `${t.entityType} "${t.slug}" is not seeded — nothing will match it`);
+    }
+    const name = (t.fields as Record<string, string>).name;
+    if (!name || !name.trim()) err(file, `${t.slug}: no "name"`);
+    else if (script && !script.test(name)) warn(file, `${t.slug}: no ${locale} script`);
+    furnitureTranslated++;
     continue;
   }
 
@@ -131,11 +170,12 @@ for (const i of [...errors, ...warns]) {
   console.log(`${i.level === "error" ? "ERROR" : " warn"}  ${i.file}: ${i.message}`);
 }
 
-const articleFiles = files.filter(f => f !== "_ui.json").length;
+const articleFiles = files.filter(f => !f.startsWith("_")).length;
 const pct = ((articleFiles / english.size) * 100).toFixed(1);
 console.log(
   `\n${articleFiles}/${english.size} articles translated into ${locale} (${pct}%) · ` +
   `${fieldCount} fields · ${uiTranslated}/${Object.keys(UI_STRINGS).length} UI strings · ` +
+  `${furnitureTranslated} category and section names · ` +
   `${errors.length} errors · ${warns.length} warnings`,
 );
 process.exit(errors.length ? 1 : 0);

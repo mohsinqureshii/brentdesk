@@ -23,7 +23,7 @@ import {
   articles, articleTags, articleCompanies, articlePeople, articleCategories,
   articleRelatedEntities,
   tags, categories, companies, people, users, countries, events,
-  contentTranslations,
+  contentTranslations, homepageSections,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
@@ -368,6 +368,13 @@ export function publishableArticleCount(): number {
  * they were merged, which is the review step a runtime translation gets in
  * the admin panel instead.
  */
+/** Translatable site furniture, by the entityType a translation file declares.
+ *  Each entry needs a table with `id`, `slug` and `name`. */
+const FURNITURE: Record<string, { entityType: string; table: any }> = {
+  category: { entityType: "category", table: categories },
+  homepage_section: { entityType: "homepage_section", table: homepageSections },
+};
+
 async function ingestTranslations(db: Db): Promise<{ written: number; missing: string[] }> {
   const candidates = [
     path.resolve(import.meta.dirname, "translations.json"),
@@ -401,6 +408,38 @@ async function ingestTranslations(db: Db): Promise<{ written: number; missing: s
           sourceHash: null, translatedAt: now,
         } as any).onDuplicateKeyUpdate({
           set: { value, status: "published", model: t.translator ?? null, translatedAt: now } as any,
+        });
+        written++;
+      }
+      continue;
+    }
+
+    // The site's furniture: category names and homepage block headings.
+    // Editors write these, they are not article copy, and a reader meets them
+    // on every page — an Arabic homepage under an English "Latest Headlines"
+    // is the same half-translated page as an Arabic article under an English
+    // masthead. Keyed by slug, because ids differ per environment.
+    const furniture = FURNITURE[(t as any).entityType as string];
+    if (furniture) {
+      const [ent] = await db
+        .select({ id: furniture.table.id, name: furniture.table.name })
+        .from(furniture.table)
+        .where(eq(furniture.table.slug, t.slug))
+        .limit(1);
+      if (!ent) { missing.push(`${(t as any).entityType}:${t.slug}`); continue; }
+      for (const [field, value] of Object.entries(t.fields)) {
+        if (!value || !String(value).trim()) continue;
+        const source = (ent as any)[field] as string | undefined;
+        await db.insert(contentTranslations).values({
+          entityType: furniture.entityType, entityId: ent.id, locale: t.locale,
+          field, value, source: "ai", status: "published",
+          model: t.translator ?? null,
+          sourceHash: source ? hash(source) : null, translatedAt: now,
+        } as any).onDuplicateKeyUpdate({
+          set: {
+            value, source: "ai", status: "published", model: t.translator ?? null,
+            sourceHash: source ? hash(source) : null, translatedAt: now,
+          } as any,
         });
         written++;
       }

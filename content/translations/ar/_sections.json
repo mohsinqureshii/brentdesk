@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "top-story",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "أبرز الأخبار"
+    }
+  },
+  {
+    "slug": "latest-headlines",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "آخر العناوين"
+    }
+  },
+  {
+    "slug": "in-brief",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "باختصار"
+    }
+  },
+  {
+    "slug": "home-construction",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الإنشاءات"
+    }
+  },
+  {
+    "slug": "home-infrastructure",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "البنية التحتية"
+    }
+  },
+  {
+    "slug": "home-energy",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الطاقة"
+    }
+  },
+  {
+    "slug": "home-manufacturing",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الصناعة"
+    }
+  },
+  {
+    "slug": "home-logistics",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الخدمات اللوجستية"
+    }
+  },
+  {
+    "slug": "most-read",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "الأكثر قراءة"
+    }
+  },
+  {
+    "slug": "sidebar-jobs",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "وظائف القطاع"
+    }
+  },
+  {
+    "slug": "sidebar-events",
+    "locale": "ar",
+    "entityType": "homepage_section",
+    "translator": "claude-opus-5",
+    "fields": {
+      "name": "فعاليات قادمة"
+    }
+  }
+]

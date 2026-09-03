@@ -101,6 +101,22 @@
     "nav.createAccount": "إنشاء حساب",
     "footer.categories": "الأقسام",
     "list.latestNews": "أحدث الأخبار",
-    "list.featuredCompanies": "شركات مختارة"
+    "list.featuredCompanies": "شركات مختارة",
+    "newsletter.enterEmail": "أدخل بريدك الإلكتروني",
+    "newsletter.stayUpdated": "ابقَ على اطلاع",
+    "newsletter.confirmInbox": "شكراً لاشتراكك. تحقّق من بريدك لتأكيد الاشتراك.",
+    "newsletter.confirmEmail": "تم الاشتراك. تحقّق من بريدك لتأكيده.",
+    "newsletter.needEmail": "يرجى إدخال بريدك الإلكتروني",
+    "newsletter.selectLists": "اختر النشرات",
+    "newsletter.consent": "باشتراكك فإنك توافق على سياسة الخصوصية.",
+    "newsletter.dailyDescription": "أهم أخبار الصناعة كل صباح",
+    "newsletter.projectsWeekly": "أسبوعية المشاريع",
+    "newsletter.projectsDescription": "أبرز ترسيات المشاريع والمناقصات",
+    "newsletter.jobAlerts": "تنبيهات الوظائف",
+    "newsletter.jobsDescription": "وظائف جديدة في القطاع",
+    "newsletter.eventUpdates": "مستجدات الفعاليات",
+    "newsletter.eventsDescription": "فعاليات القطاع القادمة",
+    "list.topStory": "أبرز خبر",
+    "list.sidebar": "الشريط الجانبي"
   }
 }

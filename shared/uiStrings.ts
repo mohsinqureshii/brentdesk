@@ -56,6 +56,8 @@ export const UI_STRINGS = {
 
   // -------------------------------------------------------------- lists
   "list.latest": "Latest",
+  "list.topStory": "Top story",
+  "list.sidebar": "Sidebar",
   "list.latestNews": "Latest News",
   "list.featuredCompanies": "Featured Companies",
   "list.featured": "Featured",
@@ -74,6 +76,20 @@ export const UI_STRINGS = {
   "newsletter.emailPlaceholder": "Your email address",
   "newsletter.thanks": "You're subscribed.",
   "newsletter.error": "That didn't go through. Try again.",
+  "newsletter.enterEmail": "Enter your email",
+  "newsletter.stayUpdated": "Stay updated",
+  "newsletter.confirmInbox": "Thanks for subscribing. Check your inbox to confirm.",
+  "newsletter.confirmEmail": "Subscribed. Check your email to confirm.",
+  "newsletter.needEmail": "Please enter your email address",
+  "newsletter.selectLists": "Choose newsletters",
+  "newsletter.consent": "By subscribing, you agree to our Privacy Policy.",
+  "newsletter.dailyDescription": "The industrial stories that matter, every morning",
+  "newsletter.projectsWeekly": "Projects Weekly",
+  "newsletter.projectsDescription": "Major project awards and tenders",
+  "newsletter.jobAlerts": "Job Alerts",
+  "newsletter.jobsDescription": "New roles across the industry",
+  "newsletter.eventUpdates": "Event Updates",
+  "newsletter.eventsDescription": "Industry events coming up",
 
   // ------------------------------------------------------------- footer
   "footer.sections": "Sections",

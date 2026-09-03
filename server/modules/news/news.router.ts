@@ -6,7 +6,7 @@
 import { z } from "zod";
 import { eq, and, or, desc, asc, like, inArray, isNotNull, sql, gte } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
-import { localizeArticle, localizeArticles } from "../../services/translation.service";
+import { localizeArticle, localizeArticles, localizeRows } from "../../services/translation.service";
 import { getDb } from "../../db";
 import { 
   articles, 
@@ -1913,7 +1913,7 @@ export const newsRouter = router({
    */
   getCategoryBySlug: publicProcedure
     .input(z.object({ slug: z.string() }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -1925,7 +1925,8 @@ export const newsRouter = router({
         ))
         .limit(1);
 
-      return result[0] || null;
+      if (!result[0]) return null;
+      return (await localizeRows(ctx.locale, "category", result))[0];
     }),
 
   /**
@@ -2079,7 +2080,7 @@ export const newsRouter = router({
    * Get all categories with article counts (public) - for Browse Categories sidebar
    */
   getAllCategoriesWithCounts: publicProcedure
-    .query(async () => {
+    .query(async ({ ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -2122,7 +2123,10 @@ export const newsRouter = router({
         counts.map(r => [Number(r.categoryId), Number(r.count)]),
       );
 
-      return allCategories
+      // Localize before sorting: the sort is by count, but the name a reader
+      // reads has to be the translated one.
+      const named = await localizeRows(ctx.locale, "category", allCategories);
+      return named
         .map(cat => ({ ...cat, articleCount: countByCategory.get(cat.id) ?? 0 }))
         .sort((a, b) => b.articleCount - a.articleCount);
     }),

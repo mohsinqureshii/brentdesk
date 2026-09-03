@@ -465,3 +465,43 @@ export async function localizeArticle<T extends { id: number }>(
   if (!locale || locale.isDefault) return row;
   return applyTranslation(row, await getTranslations("article", row.id, locale.code));
 }
+
+/**
+ * The same overlay for anything that is not an article.
+ *
+ * Categories and homepage sections carry editor-written names — "Latest
+ * Headlines", "In Brief", "Construction" — that a reader sees on every page.
+ * Translating 268 articles and leaving those in English produces an Arabic
+ * homepage with an English masthead over every block, which is what the
+ * archive looked like until this existed.
+ */
+export async function localizeRows<T extends { id: number }>(
+  locale: { code: string; isDefault: boolean } | undefined,
+  entityType: string, rows: T[],
+): Promise<T[]> {
+  if (!locale || locale.isDefault || !rows.length) return rows;
+  const map = await getTranslationsFor(entityType, rows.map(r => r.id), locale.code);
+  return rows.map(r => applyTranslation(r, map.get(r.id)));
+}
+
+/**
+ * Rewrite the category label carried alongside a row.
+ *
+ * Article rows arrive with `categoryName` joined in, which is a category's
+ * field on someone else's record — `localizeRows` cannot reach it, because
+ * the row's own id is the article's. This maps by the category id the row
+ * already carries.
+ */
+export async function localizeCategoryLabels<T extends Record<string, any>>(
+  locale: { code: string; isDefault: boolean } | undefined,
+  rows: T[], idField = "categoryId", labelField = "categoryName",
+): Promise<T[]> {
+  if (!locale || locale.isDefault || !rows.length) return rows;
+  const ids = [...new Set(rows.map(r => r[idField]).filter((v): v is number => typeof v === "number"))];
+  if (!ids.length) return rows;
+  const map = await getTranslationsFor("category", ids, locale.code);
+  return rows.map(r => {
+    const name = map.get(r[idField])?.name;
+    return name ? { ...r, [labelField]: name } : r;
+  });
+}

@@ -175,6 +175,7 @@ function ArticleRow({ article, compact = false }: { article: Article; compact?: 
 // ------------------------------------------------------------------
 
 function TopStorySection({ section }: { section: HomepageSection }) {
+  const t = useT();
   const { data: articles = [], isLoading } = trpc.admin.homepage.getSectionArticles.useQuery({
     sectionId: section.id,
     limit: section.articleCount || 4,
@@ -187,7 +188,7 @@ function TopStorySection({ section }: { section: HomepageSection }) {
   if (!lead) return null;
 
   return (
-    <section aria-label="Top story" className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+    <section aria-label={t("list.topStory")} className="grid grid-cols-1 lg:grid-cols-5 gap-5">
       {/* Lead card — dark editorial hero */}
       <Link
         href={getArticleUrl(lead)}
@@ -241,13 +242,14 @@ function TopStorySection({ section }: { section: HomepageSection }) {
 // ------------------------------------------------------------------
 
 function CategoryChips() {
+  const t = useT();
   const { data: categories } = trpc.news.getAllCategoriesWithCounts.useQuery(undefined, {
     staleTime: 5 * 60 * 1000,
   });
   const parents = ((categories ?? []) as any[]).filter((c) => !c.parentId && c.isActive !== 0);
   if (!parents.length) return null;
   return (
-    <nav aria-label="Categories" className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
+    <nav aria-label={t("footer.categories")} className="flex gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
       {parents.map((c: any) => (
         <Link
           key={c.slug}
@@ -391,12 +393,13 @@ function CategorySection({ section }: { section: HomepageSection }) {
 // ------------------------------------------------------------------
 
 function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
+  const t = useT();
   const { data } = trpc.events.list.useQuery({ editionCountryId });
   const events = (data?.items ?? []).slice(0, 5);
   if (!events.length) return null;
   return (
-    <section aria-label="Events">
-      <SectionHeader title="Events" accent="#2563eb" link="/events" />
+    <section aria-label={t("nav.events")}>
+      <SectionHeader title={t("nav.events")} accent="#2563eb" link="/events" />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {events.map((event: any) => {
           const d = event.startDate ? new Date(event.startDate) : null;
@@ -576,6 +579,7 @@ function EventsWidget({ section, editionCountryId }: { section: HomepageSection;
 }
 
 function NewsletterBox() {
+  const t = useT();
   return (
     <div className="bd-card p-5">
       <h2 className="bd-section-title mb-1.5">{publication.newsletter.name}</h2>
@@ -590,6 +594,7 @@ function NewsletterBox() {
 // ------------------------------------------------------------------
 
 export default function News() {
+  const t = useT();
   const { editionCountryId } = useEdition();
 
   const { data: sections, isLoading: sectionsLoading } = trpc.admin.homepage.getSections.useQuery();
@@ -670,7 +675,7 @@ export default function News() {
           </div>
 
           {/* Rail */}
-          <aside className="space-y-6 min-w-0" aria-label="Sidebar">
+          <aside className="space-y-6 min-w-0" aria-label={t("list.sidebar")}>
             <SidebarAd slotKey="home-sidebar-top" />
             {railSections.map((section, i) => (
               <React.Fragment key={section.id}>
