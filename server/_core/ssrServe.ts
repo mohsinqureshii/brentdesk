@@ -657,6 +657,30 @@ async function tryEventLiveSSR(url: string, template: string): Promise<{ html: s
   }
 }
 
+/**
+ * The path with its language prefix removed, and the language it named.
+ *
+ * Both the SSR router and the static fallback need this, and they have to
+ * agree: /ar/companies routed correctly but 404'd at the fallback, because
+ * the known-page check still had the "ar" on the front and no page is named
+ * "/ar/companies". Every Arabic URL that is not an article or a category —
+ * the Arabic HOME PAGE among them — was a 404.
+ */
+export async function stripLocale(path: string): Promise<{
+  basePath: string; locale?: { code: string; isDefault: boolean };
+}> {
+  try {
+    const { listLocales } = await import("../services/translation.service");
+    const { splitLocalePath } = await import("../services/locale.service");
+    const active = await listLocales({ activeOnly: true });
+    const { code, basePath } = splitLocalePath(path, active.map(l => l.code));
+    if (code) return { basePath, locale: { code, isDefault: false } };
+  } catch {
+    // No locale table yet — the URL is already the path.
+  }
+  return { basePath: path };
+}
+
 export async function runSSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
   // A language is a path prefix, so /ar/construction/big-5-opens has to
   // resolve to the same article as /construction/big-5-opens. Strip it
@@ -664,23 +688,11 @@ export async function runSSR(url: string, template: string): Promise<{ html: str
   // whole non-default language 404s.
   const path = url.split("?")[0];
   const query = url.slice(path.length);
-  let routed = url;
   // The language the prefix asks for, carried into the render. Stripping the
   // prefix is only half the job: without this the page routes correctly and
   // then renders in English under an Arabic `lang` attribute.
-  let locale: { code: string; isDefault: boolean } | undefined;
-  try {
-    const { listLocales } = await import("../services/translation.service");
-    const { splitLocalePath } = await import("../services/locale.service");
-    const active = await listLocales({ activeOnly: true });
-    const { code, basePath } = splitLocalePath(path, active.map(l => l.code));
-    if (code) {
-      routed = basePath + query;
-      locale = { code, isDefault: false };
-    }
-  } catch {
-    // No locale table yet — serve the URL as written.
-  }
+  const { basePath, locale } = await stripLocale(path);
+  const routed = locale ? basePath + query : url;
 
   const result = await routeSSR(routed, template, locale);
   if (!result) return null;
@@ -776,7 +788,13 @@ export function serveStatic(app: Express) {
 
   console.log(`[SSR] serveStatic initialized with distPath: ${distPath}`);
 
-  app.use(express.static(distPath));
+  // `index: false` so a request for "/" is NOT answered with the raw
+  // index.html from disk. It used to be, which meant the home page — the
+  // most linked page on the site — was the one page that never got its
+  // canonical, its hreflang alternates or its `lang`/`dir`. Google had no
+  // way to learn the Arabic home page existed. Every other path already
+  // fell through to the handler below; now "/" does too.
+  app.use(express.static(distPath, { index: false }));
 
   // SSR for all content pages
   app.use("*", async (req, res, next) => {
@@ -821,8 +839,11 @@ export function serveStatic(app: Express) {
       }
       console.log(`[SSR] runSSR returned null for ${url}, falling back to static page meta tags`);
       
-      // For known static pages: inject SEO meta tags
-      const cleanPath = url.split('?')[0].split('#')[0];
+      // For known static pages: inject SEO meta tags.
+      // Stripped of its language first — /ar/companies is the companies page
+      // in Arabic, not an unknown URL.
+      const rawPath = url.split('?')[0].split('#')[0];
+      const cleanPath = (await stripLocale(rawPath)).basePath;
       const isKnownPage = knownStaticPages.has(cleanPath);
       
       // Determine HTTP status: 404 for unknown pages, 200 for known pages
@@ -860,6 +881,17 @@ export function serveStatic(app: Express) {
         );
       }
       
+      // Language head, same as the SSR routes get. Without it the Arabic
+      // home page, directory and events pages went out as lang="en" with the
+      // English canonical on them — declaring themselves to be the English
+      // page they are the translation of.
+      try {
+        const { applyLocaleHead } = await import("../services/hreflang.service");
+        finalTemplate = await applyLocaleHead(finalTemplate, rawPath);
+      } catch (err) {
+        console.error("[SSR] locale head failed on static page:", (err as Error).message);
+      }
+
       res.status(pageStatus).set({ "Content-Type": "text/html" } as any).end(finalTemplate);
     } catch (error) {
       console.error('[SSR] Error in production SSR:', error);

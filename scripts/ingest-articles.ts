@@ -320,7 +320,7 @@ async function linkRelatedArticles(db: Db, inputs: ArticleInput[]): Promise<numb
 function archiveCandidates(files?: string[]): string[] {
   return files?.length
     ? files
-    : [path.resolve(import.meta.dirname, "articles.json"),
+    : [bundledFile("articles.json") ?? path.resolve(process.cwd(), "dist", "articles.json"),
        path.resolve(process.cwd(), "dist", "articles.json")];
 }
 
@@ -340,6 +340,49 @@ function archiveSources(files?: string[]): string[] {
  * file cannot be read, which makes the caller fall back to its own test
  * rather than run an ingest that has nothing to ingest.
  */
+/**
+ * How many translated fields the build carries.
+ *
+ * The boot check compared article counts alone, so a deploy whose only new
+ * content was a translated archive looked, to the check, exactly like a
+ * deploy with nothing to publish: 268 articles in the build, 268 in the
+ * database, skip. The Arabic then never landed and the site served English
+ * under an Arabic switcher. Counting fields rather than files means adding
+ * bodies to already-translated headlines also registers as new content.
+ */
+/**
+ * Where a bundled data file might be, next to this module and under dist/.
+ *
+ * `import.meta.dirname` is defined in the built ESM bundle and undefined
+ * under a CJS transpile, where passing it to path.resolve throws. The throw
+ * was caught and turned into "0 files", which silently means "nothing to
+ * publish" — a failure mode that looks exactly like success in the logs.
+ */
+function bundledFile(name: string): string | undefined {
+  const here = typeof import.meta.dirname === "string" ? import.meta.dirname : undefined;
+  const candidates = [
+    here ? path.resolve(here, name) : undefined,
+    path.resolve(process.cwd(), "dist", name),
+  ].filter((f): f is string => !!f);
+  return [...new Set(candidates)].find(f => existsSync(f));
+}
+
+export function publishableTranslationCount(): number {
+  try {
+    const file = bundledFile("translations.json");
+    if (!file) return 0;
+    const parsed = JSON.parse(readFileSync(file, "utf8"));
+    const batch: Array<{ fields?: Record<string, string> }> =
+      Array.isArray(parsed) ? parsed : [parsed];
+    return batch.reduce(
+      (n, t) => n + Object.values(t.fields ?? {}).filter(v => v && String(v).trim()).length,
+      0,
+    );
+  } catch {
+    return 0;
+  }
+}
+
 export function publishableArticleCount(): number {
   try {
     const file = archiveSources()[0];
@@ -376,11 +419,7 @@ const FURNITURE: Record<string, { entityType: string; table: any }> = {
 };
 
 async function ingestTranslations(db: Db): Promise<{ written: number; missing: string[] }> {
-  const candidates = [
-    path.resolve(import.meta.dirname, "translations.json"),
-    path.resolve(process.cwd(), "dist", "translations.json"),
-  ];
-  const file = [...new Set(candidates.map(f => path.resolve(f)))].find(f => existsSync(f));
+  const file = bundledFile("translations.json");
   if (!file) return { written: 0, missing: [] };
 
   const parsed = JSON.parse(readFileSync(file, "utf8"));

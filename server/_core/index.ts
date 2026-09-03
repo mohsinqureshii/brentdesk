@@ -13,6 +13,7 @@ import { editionMiddleware } from "../routes/editionMiddleware";
 import { schedulerService } from "../services/scheduler.service";
 import { adsRoutes } from "../routes/ads";
 import seoMiddleware from "../routes/seoMiddleware";
+import { localeNegotiationMiddleware } from "../routes/localeNegotiation";
 import uploadRoute from "../routes/upload";
 import stripeWebhookRoute from "../routes/stripeWebhook";
 import eventCalendarRoute from "../routes/eventCalendar";
@@ -545,6 +546,12 @@ async function startServer() {
   app.use(adsRoutes);
   // Article redirect middleware for SEO (301 redirects for non-primary category URLs)
   app.use(articleRedirectMiddleware);
+  // Language negotiation — sends a reader whose browser or previous choice
+  // asks for another language to that language's URL. Runs AFTER the SEO
+  // redirects so a URL is already canonical before a locale prefix goes on
+  // it, and BEFORE the edition resolver and the SPA fallback so the redirect
+  // happens instead of a render. Never touches crawlers.
+  app.use(localeNegotiationMiddleware);
   // Edition resolver — attaches req.edition + sets Vary: Cookie so any
   // cache layer keys personalized HTML by the tsEdition cookie.
   // Bots always get International, never a country edition.
@@ -679,20 +686,28 @@ async function startServer() {
       const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
       const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
       const { LOCALE_SEED_COUNT } = await import("../../scripts/seed-locales");
-      const { publishableArticleCount } = await import("../../scripts/ingest-articles");
+      const { publishableArticleCount, publishableTranslationCount } =
+        await import("../../scripts/ingest-articles");
 
-      const [countries, companyCount, eventCount, localeCount, articleCount] = await Promise.all([
-        countRows("countries"), countRows("companies"),
-        countRows("events"), countRows("locales"), countRows("articles"),
-      ]);
+      const [countries, companyCount, eventCount, localeCount, articleCount, translationCount] =
+        await Promise.all([
+          countRows("countries"), countRows("companies"),
+          countRows("events"), countRows("locales"), countRows("articles"),
+          countRows("content_translations"),
+        ]);
       const archiveCount = publishableArticleCount();
+      const translatedCount = publishableTranslationCount();
 
       const seed = shouldSeed(
         process.env.SEED_ON_BOOT,
         { countries, companies: companyCount, events: eventCount, locales: localeCount },
         { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT, locales: LOCALE_SEED_COUNT },
       );
-      const ingest = shouldIngest(process.env.INGEST_ON_BOOT, articleCount, archiveCount);
+      const ingest = shouldIngest(
+        process.env.INGEST_ON_BOOT,
+        { articles: articleCount, translations: translationCount },
+        { articles: archiveCount, translations: translatedCount },
+      );
 
       // Say what was decided and on what numbers. A deploy that publishes
       // nothing and a deploy that had nothing to publish look identical in
@@ -703,7 +718,8 @@ async function startServer() {
         `[bootstrap] articles ${show(articleCount, archiveCount)} · ` +
           `companies ${show(companyCount, COMPANY_PROFILE_COUNT)} · ` +
           `events ${show(eventCount, EVENT_PROFILE_COUNT)} · ` +
-          `locales ${show(localeCount, LOCALE_SEED_COUNT)} — ` +
+          `locales ${show(localeCount, LOCALE_SEED_COUNT)} · ` +
+          `translations ${show(translationCount, translatedCount)} — ` +
           ([seed && "seeding", ingest && "ingesting"].filter(Boolean).join(" and ") ||
             "nothing to do"),
       );
