@@ -106,4 +106,27 @@ describe("shouldIngest", () => {
   it("ignores a translation count it could not read", () => {
     expect(shouldIngest(undefined, A(268, null), W(268, 1578))).toBe(false);
   });
+
+  // A corpus audit rewrote headlines and merged duplicates: fewer articles
+  // in the build than in the database, the same translations, and nothing
+  // for a count to notice. The fingerprint is what carries that release.
+  it("publishes a build whose archive changed without growing", () => {
+    expect(shouldIngest(undefined, { ...A(288, 1410), revision: "aaaa" }, { ...W(277, 1410), revision: "bbbb" })).toBe(true);
+  });
+
+  it("leaves a database that published this exact build alone", () => {
+    expect(shouldIngest(undefined, { ...A(277, 1410), revision: "bbbb" }, { ...W(277, 1410), revision: "bbbb" })).toBe(false);
+  });
+
+  it("publishes once into a database that never recorded a fingerprint", () => {
+    expect(shouldIngest(undefined, { ...A(288, 1410), revision: "" }, { ...W(277, 1410), revision: "bbbb" })).toBe(true);
+  });
+
+  it("decides nothing on a fingerprint it could not read", () => {
+    expect(shouldIngest(undefined, { ...A(288, 1410), revision: null }, { ...W(277, 1410), revision: "bbbb" })).toBe(false);
+  });
+
+  it("does not run a changed fingerprint against an unreadable archive", () => {
+    expect(shouldIngest(undefined, { ...A(288, 1410), revision: "aaaa" }, { ...W(0, 0), revision: "bbbb" })).toBe(false);
+  });
 });

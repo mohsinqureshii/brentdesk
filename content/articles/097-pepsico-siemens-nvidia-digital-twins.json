@@ -1,7 +1,7 @@
 [
   {
     "commission": 97,
-    "headline": "PepsiCo Moves Siemens and NVIDIA Digital Twins Into Its US Plants and Warehouses",
+    "headline": "PepsiCo moves Siemens and NVIDIA digital twins into its US plants and warehouses",
     "slug": "pepsico-siemens-nvidia-digital-twins-plants-warehouses",
     "deck": "The twin is no longer a demonstration. PepsiCo is using it to size capital spending before anything is built — and Siemens is packaging the same capability as a product.",
     "excerpt": "PepsiCo has begun converting selected US manufacturing and warehouse sites into high-fidelity digital twins under a multi-year collaboration with Siemens and NVIDIA announced at CES 2026. The company reports a 20 percent throughput increase on initial deployment and capital expenditure reductions of 10 to 15 percent. Siemens is simultaneously turning the underlying tooling into a marketplace product.",
@@ -32,7 +32,7 @@
       "https://press.siemens.com/global/en/pressrelease/siemens-and-nvidia-expand-partnership-build-industrial-ai-operating-system",
       "https://interestingengineering.com/ai-robotics/siemens-nvidia-industrial-ai-operating-system"
     ],
-    "seoTitle": "PepsiCo Deploys Siemens and NVIDIA Digital Twins in Plants",
+    "seoTitle": "PepsiCo deploys Siemens and NVIDIA digital twins in plants",
     "seoDescription": "PepsiCo is turning selected US plants and warehouses into digital twins with Siemens and NVIDIA, citing 20% higher throughput and lower capital spend.",
     "articleType": "news",
     "wordCount": 647,

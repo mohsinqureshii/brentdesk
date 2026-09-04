@@ -1,7 +1,7 @@
 [
   {
     "commission": 95,
-    "headline": "Aramco Puts AI Into Refinery Planning Across Its Global Network in Deployment With Emerson",
+    "headline": "Aramco puts AI into refinery planning across its global network in deployment with Emerson",
     "slug": "aramco-emerson-refinery-planning-ai-hybrid-models",
     "deck": "Hybrid AI models are now running inside the planning system that decides what Aramco's refineries process — a move out of the pilot phase and into the operating chain.",
     "excerpt": "Emerson has deployed AI-driven Aspen Hybrid Models into Aramco's refinery planning environment, creating what the two companies describe as one of the largest multi-site, multi-period refinery optimisation models in operation. Emerson says yield and quality prediction accuracy has reached up to 98.5 percent in key units. The work marks a shift in industrial AI from demonstration projects to systems embedded in daily plant decisions.",
@@ -34,7 +34,7 @@
       "https://www.processingmagazine.com/news-notes/news/55373920/emerson-emerson-aramco-deploy-ai-solution-aimed-at-higher-refinery-yield-volume-and-efficiencies",
       "https://www.adnoc.ae/en/news-and-media/press-releases/2025/adnoc-masdar-xrg-and-microsoft-to-advance-ai-for-energy-and-energy-for-ai"
     ],
-    "seoTitle": "Aramco Deploys Refinery Planning AI With Emerson",
+    "seoTitle": "Aramco deploys refinery planning AI with Emerson",
     "seoDescription": "Emerson has deployed AI hybrid models into Aramco's refinery planning across its global network, reporting up to 98.5% yield prediction accuracy.",
     "articleType": "news",
     "wordCount": 649,

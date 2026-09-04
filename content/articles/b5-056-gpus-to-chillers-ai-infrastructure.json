@@ -1,7 +1,7 @@
 [
   {
     "commission": 1056,
-    "headline": "From GPUs to Chillers: The Physical Bill Behind an AI Data Centre",
+    "headline": "From GPUs to chillers: the physical bill behind an AI data centre",
     "slug": "ai-data-centre-physical-requirements-cooling-water-saudi-arabia",
     "deck": "Rack densities have outrun air cooling, Saudi data centre water use is forecast to more than quadruple by 2030, and the Kingdom's ambient conditions remove several cooling options before design starts.",
     "excerpt": "Saudi Arabia's data centre liquid cooling market is forecast to grow from about $48.6 million in 2026 to $252.8 million by 2031. Behind that number sits a chain of physical requirements — heat rejection, water, ambient temperature and equipment lead times — that determines what can actually be built and where.",
@@ -39,7 +39,7 @@
       "https://archdesk.com/blog/global-ai-data-center-construction-2026",
       "https://www.danfoss.com/en/industries/buildings-commercial/dps/data-center-liquid-cooling/"
     ],
-    "seoTitle": "From GPUs to Chillers: The Physical Bill for AI Capacity",
+    "seoTitle": "From GPUs to chillers: the physical bill for AI capacity",
     "seoDescription": "Saudi data centre liquid cooling is forecast to grow from $48.6m to $252.8m by 2031, while water use quadruples. The constraints are mechanical, not digital.",
     "articleType": "report",
     "researchConfidence": "B",

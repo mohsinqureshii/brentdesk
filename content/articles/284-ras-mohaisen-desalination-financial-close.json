@@ -1,27 +1,44 @@
-[{
-  "commission": 1169,
-  "headline": "Ras Mohaisen Desalination Reaches Financial Close at SAR2.57bn, Fully Privately Funded",
-  "slug": "ras-mohaisen-desalination-financial-close-swpc",
-  "deck": "A 300,000 cubic metre plant with its own 30MW renewable field, financed entirely by the private sector.",
-  "excerpt": "The Saudi Water Partnership Company has reached financial close on the Ras Mohaisen independent water desalination plant in Al-Qunfudhah, at SAR2.57bn. ACWA Power, HACO and AlKifah Holding hold the project company, which will build 300,000 cubic metres a day of capacity.",
-  "content": "<p>The Saudi Water Partnership Company has announced financial close on the Ras Mohaisen independent water desalination plant, a project in Al-Qunfudhah in the Makkah region carrying total investment of SAR2.57bn, or around $686m. The financing is entirely private, according to <a href=\"https://www.swpc.sa/en/swpc-announces-financial-close-for-ras-mohaisen-independent-water-desalination-plant-project-valued-at-over-sar-2-5-billion/\">SWPC</a>.</p><p>The plant is being developed by Ras Mohaisen First Water Desalination Company, owned by ACWA Power with 45 per cent, Haji Abdullah Alireza &amp; Co with 35 per cent and AlKifah Holding with 20 per cent. Total capacity is 300,000 cubic metres a day, with initial production of 100,000 cubic metres a day scheduled for 2028 and full output by 2030.</p><p>The 30MW renewable energy field built into the scheme is the technically interesting element. Desalination is an energy-intensive process, and in reverse osmosis the electricity to drive high-pressure pumps is the dominant operating cost after finance. Attaching dedicated generation to a plant hedges part of that exposure at the point of consumption rather than through a tariff, and it does so on a load that runs continuously — which suits solar less well than a daytime-peaking industrial load and therefore has to be sized carefully against the plant's actual profile.</p><p>The ownership split is also worth noting. ACWA Power is the region's most established independent water and power developer and takes the largest stake, but the two Saudi partners hold 55 per cent between them. HACO and AlKifah are domestic industrial groups rather than international utilities, and a majority domestic holding in a project of this size reflects how far local capital has moved into infrastructure that was once financed almost entirely from abroad.</p><p>Full private financing is the structural point. Water production in the kingdom was historically funded and operated by the state, with SWPC created to procure capacity from independent developers under long-term offtake agreements instead. A financial close with no public capital means the risk of construction and availability sits with the project company, and the state's exposure is limited to the water purchase agreement.</p><p>Al-Qunfudhah sits on the Red Sea coast south of Jeddah, an area served historically by longer transmission from larger plants further north. Placing 300,000 cubic metres a day of capacity there addresses distribution as much as production: water moved shorter distances arrives with lower pumping cost and lower losses.</p><p>The staged output profile — a third of capacity in 2028 and the balance by 2030 — is standard for plants of this size, where trains are commissioned sequentially rather than the whole facility at once. It also means the project reaches full production in the year the kingdom has set as the horizon for a range of infrastructure targets.</p><p>The engineering, procurement and construction contractor for the plant has not been named in the financial close announcement.</p>",
-  "author": "Mo Qureshi",
-  "primaryCategory": "water",
-  "tags": ["Desalination", "SWPC", "ACWA Power", "Water", "Saudi Arabia"],
-  "companies": ["Saudi Water Partnership Company", "ACWA Power", "Haji Abdullah Alireza & Co", "AlKifah Holding"],
-  "people": [],
-  "country": "Saudi Arabia",
-  "eventDate": "2026-01-05",
-  "informationCutoff": "2026-01-08",
-  "primarySourceUrl": "https://www.swpc.sa/en/swpc-announces-financial-close-for-ras-mohaisen-independent-water-desalination-plant-project-valued-at-over-sar-2-5-billion/",
-  "primarySourceName": "Saudi Water Partnership Company",
-  "secondarySourceUrls": ["https://www.zawya.com/en/projects/utilities/saudi-arabias-ras-mohaisen-desalination-project-reaches-financial-close-h7e6s18i", "https://smartwatermagazine.com/news/saudi-water-partnership-company/swpc-reaches-financial-close-us686-million-ras-mohaisen", "https://idrawater.org/news/swpc-announces-financial-close-for-ras-mohaisen-independent-water-desalination-plant-project-valued-at-over-sar-2-5-billion/"],
-  "seoTitle": "Ras Mohaisen Desalination Reaches SAR2.57bn Close",
-  "seoDescription": "SWPC has reached financial close on the SAR2.57bn Ras Mohaisen desalination plant, a 300,000 cubic metre a day project fully financed by the private sector.",
-  "articleType": "news",
-  "wordCount": 555,
-  "researchConfidence": "A",
-  "imageReviewRequired": true,
-  "replacementOf": null,
-  "replacementReason": null
-}]
+[
+  {
+    "commission": 1169,
+    "headline": "Ras Mohaisen desalination reaches financial close at SAR2.57bn, fully privately funded",
+    "slug": "ras-mohaisen-desalination-financial-close-swpc",
+    "deck": "A 300,000 cubic metre plant with its own 30MW renewable field, financed entirely by the private sector.",
+    "excerpt": "The Saudi Water Partnership Company has reached financial close on the Ras Mohaisen independent water desalination plant in Al-Qunfudhah, at SAR2.57bn. ACWA Power, HACO and AlKifah Holding hold the project company, which will build 300,000 cubic metres a day of capacity.",
+    "content": "<p>The Saudi Water Partnership Company has announced financial close on the Ras Mohaisen independent water desalination plant, a project in Al-Qunfudhah in the Makkah region carrying total investment of SAR2.57bn, or around $686m. The financing is entirely private, according to <a href=\"https://www.swpc.sa/en/swpc-announces-financial-close-for-ras-mohaisen-independent-water-desalination-plant-project-valued-at-over-sar-2-5-billion/\">SWPC</a>.</p><p>The plant is being developed by Ras Mohaisen First Water Desalination Company, owned by ACWA Power with 45 per cent, Haji Abdullah Alireza &amp; Co with 35 per cent and AlKifah Holding with 20 per cent. Total capacity is 300,000 cubic metres a day, with initial production of 100,000 cubic metres a day scheduled for 2028 and full output by 2030.</p><p>The 30MW renewable energy field built into the scheme is the technically interesting element. Desalination is an energy-intensive process, and in reverse osmosis the electricity to drive high-pressure pumps is the dominant operating cost after finance. Attaching dedicated generation to a plant hedges part of that exposure at the point of consumption rather than through a tariff, and it does so on a load that runs continuously — which suits solar less well than a daytime-peaking industrial load and therefore has to be sized carefully against the plant's actual profile.</p><p>The ownership split is also worth noting. ACWA Power is the region's most established independent water and power developer and takes the largest stake, but the two Saudi partners hold 55 per cent between them. HACO and AlKifah are domestic industrial groups rather than international utilities, and a majority domestic holding in a project of this size reflects how far local capital has moved into infrastructure that was once financed almost entirely from abroad.</p><p>Full private financing is the structural point. Water production in the kingdom was historically funded and operated by the state, with SWPC created to procure capacity from independent developers under long-term offtake agreements instead. A financial close with no public capital means the risk of construction and availability sits with the project company, and the state's exposure is limited to the water purchase agreement.</p><p>Al-Qunfudhah sits on the Red Sea coast south of Jeddah, an area served historically by longer transmission from larger plants further north. Placing 300,000 cubic metres a day of capacity there addresses distribution as much as production: water moved shorter distances arrives with lower pumping cost and lower losses.</p><p>The staged output profile — a third of capacity in 2028 and the balance by 2030 — is standard for plants of this size, where trains are commissioned sequentially rather than the whole facility at once. It also means the project reaches full production in the year the kingdom has set as the horizon for a range of infrastructure targets.</p><p>The engineering, procurement and construction contractor for the plant has not been named in the financial close announcement.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "water",
+    "tags": [
+      "Desalination",
+      "SWPC",
+      "ACWA Power",
+      "Water",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Saudi Water Partnership Company",
+      "ACWA Power",
+      "Haji Abdullah Alireza & Co",
+      "AlKifah Holding"
+    ],
+    "people": [],
+    "country": "Saudi Arabia",
+    "eventDate": "2026-01-05",
+    "informationCutoff": "2026-01-08",
+    "primarySourceUrl": "https://www.swpc.sa/en/swpc-announces-financial-close-for-ras-mohaisen-independent-water-desalination-plant-project-valued-at-over-sar-2-5-billion/",
+    "primarySourceName": "Saudi Water Partnership Company",
+    "secondarySourceUrls": [
+      "https://www.zawya.com/en/projects/utilities/saudi-arabias-ras-mohaisen-desalination-project-reaches-financial-close-h7e6s18i",
+      "https://smartwatermagazine.com/news/saudi-water-partnership-company/swpc-reaches-financial-close-us686-million-ras-mohaisen",
+      "https://idrawater.org/news/swpc-announces-financial-close-for-ras-mohaisen-independent-water-desalination-plant-project-valued-at-over-sar-2-5-billion/"
+    ],
+    "seoTitle": "Ras Mohaisen desalination reaches SAR2.57bn close",
+    "seoDescription": "SWPC has reached financial close on the SAR2.57bn Ras Mohaisen desalination plant, a 300,000 cubic metre a day project fully financed by the private sector.",
+    "articleType": "news",
+    "wordCount": 458,
+    "researchConfidence": "A",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

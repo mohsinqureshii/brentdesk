@@ -1,27 +1,40 @@
-[{
-  "commission": 1167,
-  "headline": "Egypt Plans an Industrial Investment Fund and 2.8m Tonnes of New Iron Licences",
-  "slug": "egypt-industrial-investment-fund-iron-production-licences",
-  "deck": "Eight billet licences at two sizes, structured so that mid-scale producers can bid rather than only the integrated mills.",
-  "excerpt": "Egypt's Ministry of Industry has said it will launch the country's first industrial investment fund in September and is in the final stages of issuing new iron production licences with combined annual capacity of about 2.8 million tonnes.",
-  "content": "<p>Egypt's Ministry of Industry has said it will launch the country's first industrial investment fund in September, and that it is in the final stages of issuing new iron production licences carrying combined annual capacity of around 2.8 million tonnes, according to <a href=\"https://www.dailynewsegypt.com/2026/07/28/egypt-to-launch-industrial-investment-fund-issue-new-iron-production-licences/\">Daily News Egypt</a>.</p><p>The licences are structured as eight awards at two capacities: four at 500,000 tonnes a year and four at 200,000 tonnes. That split is a deliberate piece of market design. A single 2.8 million tonne licence would be biddable only by an integrated producer; eight smaller ones open the field to mid-scale rolling and melting operations, and the two size bands let the authority place larger capacity where power and scrap supply justify it while seeding smaller plants elsewhere.</p><p>Billet is the semi-finished product that sits between steelmaking and rolling, and it is the constraint in most developing steel markets. A country can have rolling capacity and still import billet, which leaves its construction sector exposed to international price movements at the point where domestic value should be captured. Licensing billet capacity specifically, rather than finished long products, is aimed at that gap.</p><p>The timing places the announcement against a construction market that consumes the output. Egypt's building sector is the principal domestic customer for reinforcing steel, and the country has been running large infrastructure and new-city programmes that draw heavily on it. Domestic billet reduces the foreign currency required to feed that demand, which is the more immediate motivation than export positioning.</p><p>Power is the qualifier on all of it. Electric arc furnace steelmaking is among the most electricity-intensive industrial processes, and adding 2.8 million tonnes of annual billet capacity implies a load that has to be supplied reliably rather than intermittently. Where that power comes from, and at what tariff, tends to determine whether licensed capacity is actually built and whether it runs at rates that make the plant viable.</p><p>The industrial investment fund addresses a different constraint. Manufacturers expanding capacity in Egypt have generally financed through banks at rates that make long-payback industrial investment difficult, and a dedicated vehicle is intended to provide equity and longer-tenor financing for expansion. The ministry has said further funds will follow the first.</p><p>The ministry has also indicated that new industrial cities will be announced, without naming locations.</p><p>Terms for the licensing round had not been published at the time of the announcement.</p>",
-  "author": "Jakson Gudawela",
-  "primaryCategory": "metals",
-  "tags": ["Egypt", "Steel", "Industrial Policy", "Manufacturing", "Investment"],
-  "companies": ["Industrial Development Authority"],
-  "people": [],
-  "country": "Egypt",
-  "eventDate": "2026-07-28",
-  "informationCutoff": "2026-07-31",
-  "primarySourceUrl": "https://www.dailynewsegypt.com/2026/07/28/egypt-to-launch-industrial-investment-fund-issue-new-iron-production-licences/",
-  "primarySourceName": "Daily News Egypt",
-  "secondarySourceUrls": ["https://www.steelradar.com/en/haber/egypt-will-offer-8-new-licenses-for-28-million-tons-of-billet-production/", "https://www.tradingview.com/news/reuters.com,2026-07-30:newsml_ZawW09xg:0-egypt-to-invite-investors-for-2-8mln-tonne-iron-projects/"],
-  "seoTitle": "Egypt Plans Industrial Fund and 2.8m Tonnes Iron Licences",
-  "seoDescription": "Egypt will launch its first industrial investment fund in September and is finalising eight iron production licences totalling 2.8 million tonnes a year.",
-  "articleType": "news",
-  "wordCount": 505,
-  "researchConfidence": "B",
-  "imageReviewRequired": true,
-  "replacementOf": null,
-  "replacementReason": null
-}]
+[
+  {
+    "commission": 1167,
+    "headline": "Egypt plans an industrial investment fund and 2.8m tonnes of new iron licences",
+    "slug": "egypt-industrial-investment-fund-iron-production-licences",
+    "deck": "Eight billet licences at two sizes, structured so that mid-scale producers can bid rather than only the integrated mills.",
+    "excerpt": "Egypt's Ministry of Industry has said it will launch the country's first industrial investment fund in September and is in the final stages of issuing new iron production licences with combined annual capacity of about 2.8 million tonnes.",
+    "content": "<p>Egypt's Ministry of Industry has said it will launch the country's first industrial investment fund in September, and that it is in the final stages of issuing new iron production licences carrying combined annual capacity of around 2.8 million tonnes, according to <a href=\"https://www.dailynewsegypt.com/2026/07/28/egypt-to-launch-industrial-investment-fund-issue-new-iron-production-licences/\">Daily News Egypt</a>.</p><p>The licences are structured as eight awards at two capacities: four at 500,000 tonnes a year and four at 200,000 tonnes. That split is a deliberate piece of market design. A single 2.8 million tonne licence would be biddable only by an integrated producer; eight smaller ones open the field to mid-scale rolling and melting operations, and the two size bands let the authority place larger capacity where power and scrap supply justify it while seeding smaller plants elsewhere. At those sizes the four larger licences account for 2 million tonnes of the total and the four smaller ones for 800,000 tonnes, and Reuters reported on 30 July that the ministry would invite investors to bid for the projects.</p><p>Billet is the semi-finished product that sits between steelmaking and rolling, and it is the constraint in most developing steel markets. A country can have rolling capacity and still import billet, which leaves its construction sector exposed to international price movements at the point where domestic value should be captured. Licensing billet capacity specifically, rather than finished long products, is aimed at that gap.</p><p>The timing places the announcement against a construction market that consumes the output. Egypt's building sector is the principal domestic customer for reinforcing steel, and the country has been running large infrastructure and new-city programmes that draw heavily on it. Domestic billet reduces the foreign currency required to feed that demand, which is the more immediate motivation than export positioning.</p><p>Power is the qualifier on all of it. Electric arc furnace steelmaking is among the most electricity-intensive industrial processes, and adding 2.8 million tonnes of annual billet capacity implies a load that has to be supplied reliably rather than intermittently. Where that power comes from, and at what tariff, tends to determine whether licensed capacity is actually built and whether it runs at rates that make the plant viable.</p><p>The industrial investment fund addresses a different constraint. Manufacturers expanding capacity in Egypt have generally financed through banks at rates that make long-payback industrial investment difficult, and a dedicated vehicle is intended to provide equity and longer-tenor financing for expansion. The ministry has said further funds will follow the first.</p><p>The ministry has also indicated that new industrial cities will be announced, without naming locations.</p><p>Terms for the licensing round had not been published at the time of the announcement.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "metals",
+    "tags": [
+      "Egypt",
+      "Steel",
+      "Industrial Policy",
+      "Manufacturing",
+      "Investment"
+    ],
+    "companies": [
+      "Industrial Development Authority"
+    ],
+    "people": [],
+    "country": "Egypt",
+    "eventDate": "2026-07-28",
+    "informationCutoff": "2026-07-31",
+    "primarySourceUrl": "https://www.dailynewsegypt.com/2026/07/28/egypt-to-launch-industrial-investment-fund-issue-new-iron-production-licences/",
+    "primarySourceName": "Daily News Egypt",
+    "secondarySourceUrls": [
+      "https://www.steelradar.com/en/haber/egypt-will-offer-8-new-licenses-for-28-million-tons-of-billet-production/",
+      "https://www.tradingview.com/news/reuters.com,2026-07-30:newsml_ZawW09xg:0-egypt-to-invite-investors-for-2-8mln-tonne-iron-projects/"
+    ],
+    "seoTitle": "Egypt plans industrial fund and 2.8m tonnes iron licences",
+    "seoDescription": "Egypt will launch its first industrial investment fund in September and is finalising eight iron production licences totalling 2.8 million tonnes a year.",
+    "articleType": "news",
+    "wordCount": 438,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
     "commission": 98,
-    "headline": "Industrial Ransomware Is Stopping Production Without Ever Reaching the Control System",
+    "headline": "Industrial ransomware is stopping production without ever reaching the control system",
     "slug": "industrial-cybersecurity-ot-ransomware-2026-connected-factories",
     "deck": "Dragos counted 1,140 ransomware incidents at industrial organisations in the second quarter, two-thirds of them in manufacturing. West Pharmaceutical and Mackay Sugar both halted plants without their control systems being touched.",
     "excerpt": "Industrial ransomware incidents reached 1,140 in the second quarter of 2026, with manufacturing accounting for 747 of them. The disruption is arriving through enterprise IT systems rather than industrial controls, as the shutdowns at West Pharmaceutical Services and Mackay Sugar both showed. Regulation is tightening in parallel through NIS2 in Europe and the Saudi National Cybersecurity Authority's operational technology controls.",
@@ -35,7 +35,7 @@
       "https://www.cybersecuritydive.com/news/west-pharmaceutical-restoring-operations-ransomware-attack/820250/",
       "https://nca.gov.sa/en/regulatory-documents/controls-list/otcc/"
     ],
-    "seoTitle": "Industrial Ransomware Halts Plants Without Touching Controls",
+    "seoTitle": "Industrial ransomware halts plants without touching controls",
     "seoDescription": "Dragos counted 1,140 industrial ransomware incidents in Q2 2026. West Pharmaceutical and Mackay Sugar halted production without any control system compromise.",
     "articleType": "report",
     "wordCount": 926,

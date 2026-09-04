@@ -1,7 +1,7 @@
 [
   {
     "commission": 1014,
-    "headline": "Saudi Construction Is Moving From BIM to Connected Jobsites",
+    "headline": "Saudi construction is moving from BIM to connected jobsites",
     "slug": "saudi-construction-bim-connected-jobsites-ai-delivery-2026",
     "deck": "A model that stops at the design office is a drawing set with extra steps. The value is in what the site sends back.",
     "excerpt": "Saudi developers and contractors are extending building information modelling from design into site execution, using AI-supported scheduling, progress capture and permitting data. Adoption across the sector was estimated at about a quarter in 2024, and the practical constraint is the flow of data back from the field.",
@@ -45,7 +45,7 @@
       "https://www.arabnews.com/node/2607675/saudi-arabia",
       "https://www.big5constructsaudi.com/"
     ],
-    "seoTitle": "Saudi Construction Moves From BIM to Connected Sites",
+    "seoTitle": "Saudi construction moves from BIM to connected sites",
     "seoDescription": "Saudi contractors are extending BIM into site execution with reality capture, telematics and AI scheduling. The constraint is return data.",
     "articleType": "news",
     "wordCount": 673,

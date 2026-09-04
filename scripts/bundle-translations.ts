@@ -23,6 +23,10 @@ import path from "path";
 
 const ROOT = path.resolve(import.meta.dirname, "..", "content", "translations");
 const OUT = path.resolve(import.meta.dirname, "..", "dist", "translations.json");
+// Merged and renamed articles keep their old URLs as 301s. The list lives
+// in content/ beside the articles it concerns and ships with the bundle.
+const REDIRECTS_SRC = path.resolve(import.meta.dirname, "..", "content", "redirects.json");
+const REDIRECTS_OUT = path.resolve(import.meta.dirname, "..", "dist", "redirects.json");
 
 export interface TranslationFile {
   /** The English article this translates, by slug. */
@@ -35,6 +39,11 @@ export interface TranslationFile {
 }
 
 function main() {
+  if (existsSync(REDIRECTS_SRC)) {
+    mkdirSync(path.dirname(REDIRECTS_OUT), { recursive: true });
+    writeFileSync(REDIRECTS_OUT, readFileSync(REDIRECTS_SRC));
+    console.log(`[bundle] redirects -> dist/redirects.json`);
+  }
   const out: TranslationFile[] = [];
 
   if (!existsSync(ROOT)) {

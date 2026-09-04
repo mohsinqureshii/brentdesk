@@ -686,7 +686,7 @@ async function startServer() {
       const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
       const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
       const { LOCALE_SEED_COUNT } = await import("../../scripts/seed-locales");
-      const { publishableArticleCount, publishableTranslationCount } =
+      const { publishableArticleCount, publishableTranslationCount, archiveRevision, recordedArchiveRevision } =
         await import("../../scripts/ingest-articles");
 
       const [countries, companyCount, eventCount, localeCount, articleCount, translationCount] =
@@ -697,6 +697,18 @@ async function startServer() {
         ]);
       const archiveCount = publishableArticleCount();
       const translatedCount = publishableTranslationCount();
+      // The build's fingerprint against the one last published. Counts miss
+      // a release that only edits, merges or renames — see shouldIngest.
+      const wantRevision = archiveRevision();
+      const haveRevision = await (async (): Promise<string | null> => {
+        try {
+          const { getDb } = await import("../db");
+          const db = await getDb();
+          return db ? await recordedArchiveRevision(db as any) : null;
+        } catch {
+          return null;
+        }
+      })();
 
       const seed = shouldSeed(
         process.env.SEED_ON_BOOT,
@@ -705,8 +717,8 @@ async function startServer() {
       );
       const ingest = shouldIngest(
         process.env.INGEST_ON_BOOT,
-        { articles: articleCount, translations: translationCount },
-        { articles: archiveCount, translations: translatedCount },
+        { articles: articleCount, translations: translationCount, revision: haveRevision },
+        { articles: archiveCount, translations: translatedCount, revision: wantRevision },
       );
 
       // Say what was decided and on what numbers. A deploy that publishes
@@ -719,7 +731,8 @@ async function startServer() {
           `companies ${show(companyCount, COMPANY_PROFILE_COUNT)} · ` +
           `events ${show(eventCount, EVENT_PROFILE_COUNT)} · ` +
           `locales ${show(localeCount, LOCALE_SEED_COUNT)} · ` +
-          `translations ${show(translationCount, translatedCount)} — ` +
+          `translations ${show(translationCount, translatedCount)} · ` +
+          `revision ${haveRevision === null ? "?" : haveRevision || "none"}/${wantRevision} — ` +
           ([seed && "seeding", ingest && "ingesting"].filter(Boolean).join(" and ") ||
             "nothing to do"),
       );

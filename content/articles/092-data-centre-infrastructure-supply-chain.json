@@ -1,7 +1,7 @@
 [
   {
     "commission": 92,
-    "headline": "Data Centre Construction Runs Into the Limits of the Industrial Supply Chain",
+    "headline": "Data centre construction runs into the limits of the industrial supply chain",
     "slug": "data-centre-construction-power-cooling-supply-chain-2026",
     "deck": "Hyperscale capital spending is heading toward three-quarters of a trillion dollars this year. The constraint has moved to grid connections, transformers, cable and cooling equipment.",
     "excerpt": "Amazon, Microsoft, Alphabet and Meta have guided to 2026 capital spending that analyst tallies put at around $725 billion, roughly double 2025. With the IEA calling for global grid investment to rise about 50 percent by 2030 and rack densities pushing past 300 kW, the limiting factor on data centre delivery is now the manufacture of transformers, cable and liquid cooling equipment.",
@@ -37,7 +37,7 @@
       "https://uecable.com/articles/cable-industry-outlook-2026/",
       "https://www.iea.org/reports/electricity-2026/demand"
     ],
-    "seoTitle": "Data Centre Buildout Strains the Industrial Supply Chain",
+    "seoTitle": "Data centre buildout strains the industrial supply chain",
     "seoDescription": "Hyperscale 2026 capex nears $725bn, but grid connections, transformers, cable and liquid cooling equipment now set the pace of data centre delivery.",
     "articleType": "report",
     "wordCount": 805,

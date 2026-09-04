@@ -19,11 +19,12 @@ import { drizzle, type MySql2Database } from "drizzle-orm/mysql2";
 import { eq, and } from "drizzle-orm";
 import { readFileSync, existsSync } from "fs";
 import path from "path";
+import { createHash } from "crypto";
 import {
   articles, articleTags, articleCompanies, articlePeople, articleCategories,
   articleRelatedEntities,
   tags, categories, companies, people, users, countries, events,
-  contentTranslations, homepageSections,
+  contentTranslations, homepageSections, redirects, settings,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
@@ -35,6 +36,11 @@ export interface ArticleInput {
   commission: number;
   headline: string;
   slug: string;
+  /** Slugs this article was published under before. A rename keeps the
+   *  database row — same id, so translations, links and history survive —
+   *  and updates the slug in place; the old URL is a 301 in
+   *  content/redirects.json rather than a second copy of the article. */
+  previousSlugs?: string[];
   /** Standfirst / deck. Optional. */
   deck?: string;
   excerpt: string;
@@ -222,10 +228,31 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
     robotsIndexing: "index" as const,
   };
 
-  const existingId = await idFor(db, articles, articles.slug, input.slug);
+  let existingId = await idFor(db, articles, articles.slug, input.slug);
+  if (!existingId) {
+    for (const old of input.previousSlugs ?? []) {
+      existingId = await idFor(db, articles, articles.slug, old);
+      if (existingId) break;
+    }
+  }
   let articleId: number;
   if (existingId) {
-    await db.update(articles).set(values as any).where(eq(articles.id, existingId));
+    // Only write when something the reader sees has changed. `updatedAt`
+    // is ON UPDATE CURRENT_TIMESTAMP, so an unconditional UPDATE on every
+    // boot bumped dateModified on all 288 articles each deploy — a signal
+    // to search engines that the whole archive was revised daily.
+    const [cur] = await db.select({
+      slug: articles.slug,
+      title: articles.title, excerpt: articles.excerpt, content: articles.content,
+      seoTitle: articles.seoTitle, seoDescription: articles.seoDescription,
+      eventDate: articles.eventDate, sourceUrl: articles.sourceUrl,
+    }).from(articles).where(eq(articles.id, existingId)).limit(1);
+    const same = cur && (["slug","title","excerpt","content","seoTitle","seoDescription","sourceUrl"] as const)
+      .every(k => (cur as any)[k] === (values as any)[k])
+      && String(cur.eventDate ?? "").slice(0, 10) === String(values.eventDate ?? "").slice(0, 10);
+    if (!same) {
+      await db.update(articles).set(values as any).where(eq(articles.id, existingId));
+    }
     articleId = existingId;
     // Rebuild joins so a re-run reflects the current input exactly.
     await db.delete(articleTags).where(eq(articleTags.articleId, articleId));
@@ -527,6 +554,119 @@ async function ingestTranslations(db: Db): Promise<{ written: number; missing: s
   return { written, missing };
 }
 
+
+/**
+ * Publish the redirect list bundled at dist/redirects.json. A merged or
+ * renamed article records its old URL here so the request layer answers
+ * it with a 301 instead of a 404. Upsert on fromPath, so re-running is
+ * safe and an edited target replaces the old one.
+ */
+async function ingestRedirects(db: Db): Promise<number> {
+  const file = bundledFile("redirects.json");
+  if (!file) return 0;
+  let rows: { from: string; to: string }[] = [];
+  try { rows = JSON.parse(readFileSync(file, "utf8")).redirects ?? []; } catch { return 0; }
+  let n = 0;
+  for (const r of rows) {
+    if (!r.from || !r.to || r.from === r.to) continue;
+    const [existing] = await db.select({ id: redirects.id, toPath: redirects.toPath })
+      .from(redirects).where(eq(redirects.fromPath, r.from)).limit(1);
+    if (existing) {
+      if (existing.toPath !== r.to) await db.update(redirects).set({ toPath: r.to, statusCode: 301, isActive: 1 } as any).where(eq(redirects.id, existing.id));
+    } else {
+      await db.insert(redirects).values({ fromPath: r.from, toPath: r.to, statusCode: 301, isActive: 1 } as any);
+    }
+    n++;
+  }
+  return n;
+}
+
+/**
+ * Unpublish archive articles that were merged away.
+ *
+ * Deleting the JSON file removes an article from the build, not from the
+ * database: the row stayed published, listed in feeds and sitemaps and
+ * indexed at its old URL, while the redirect for that URL sent readers
+ * elsewhere — two copies of one story as far as a crawler could tell. An
+ * article whose path is a redirect source and whose slug the archive no
+ * longer carries is moved to the archived status, marked noindex and has its
+ * publication date cleared, which is the "unpublished" every public query
+ * already understands. A slug the archive still ships is never touched, so a
+ * redirect cannot retire a live article by accident.
+ */
+async function retireRedirectedArticles(db: Db, live: Set<string>): Promise<number> {
+  const file = bundledFile("redirects.json");
+  if (!file) return 0;
+  let rows: { from: string; to: string }[] = [];
+  try { rows = JSON.parse(readFileSync(file, "utf8")).redirects ?? []; } catch { return 0; }
+  const { workflowService } = await import("../server/services/workflow.service");
+  const archived = await workflowService.getStatusBySlug("editorial", "archived");
+  const published = await workflowService.getStatusBySlug("editorial", "published");
+  if (!archived || !published) return 0;
+  let n = 0;
+  for (const r of rows) {
+    const slug = String(r.from ?? "").split("/").filter(Boolean).pop();
+    if (!slug || live.has(slug)) continue;
+    const [row] = await db.select({ id: articles.id, statusId: articles.statusId })
+      .from(articles).where(eq(articles.slug, slug)).limit(1);
+    if (!row || row.statusId !== published.id) continue;
+    await db.update(articles)
+      .set({ statusId: archived.id, robotsIndexing: "noindex", publishedAt: null } as any)
+      .where(eq(articles.id, row.id));
+    n++;
+  }
+  return n;
+}
+
+/**
+ * Fingerprint of everything this build would publish.
+ *
+ * The boot check compares row counts, and a release that edits, merges or
+ * renames articles ships the same number of rows as the one before it —
+ * invisible to a count, so the corrected headlines never reached the site.
+ * The fingerprint is recorded after a successful ingest and compared on the
+ * next boot; a build that changed anything the reader sees no longer needs
+ * anyone to remember a deploy variable.
+ */
+export function archiveRevision(): string {
+  const h = createHash("sha256");
+  for (const name of ["articles.json", "translations.json", "redirects.json"]) {
+    const f = bundledFile(name);
+    h.update(`${name}:`);
+    if (f) h.update(readFileSync(f));
+  }
+  return h.digest("hex").slice(0, 16);
+}
+
+const REVISION_KEY = "archive_revision";
+
+/** The fingerprint last published, "" when none was ever recorded, null when
+ *  the table could not be read — the caller must not decide on a null. */
+export async function recordedArchiveRevision(db: Db): Promise<string | null> {
+  try {
+    const [row] = await db.select({ value: settings.value })
+      .from(settings).where(eq(settings.key, REVISION_KEY)).limit(1);
+    return row ? String(row.value ?? "") : "";
+  } catch {
+    return null;
+  }
+}
+
+async function recordArchiveRevision(db: Db, rev: string): Promise<void> {
+  const [existing] = await db.select({ id: settings.id })
+    .from(settings).where(eq(settings.key, REVISION_KEY)).limit(1);
+  if (existing) {
+    await db.update(settings).set({ value: rev } as any).where(eq(settings.id, existing.id));
+  } else {
+    await db.insert(settings).values({
+      key: REVISION_KEY, value: rev, type: "string", group: "content",
+      label: "Published archive revision",
+      description: "Fingerprint of the bundled editorial archive the boot ingest last published.",
+      isPublic: 0,
+    } as any);
+  }
+}
+
 export async function runIngest(files?: string[]): Promise<{ created: number; updated: number; missing: string[] }> {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is required");
@@ -553,6 +693,7 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
     let created = 0, updated = 0, held = 0;
     const missing = new Set<string>();
     const seen: ArticleInput[] = [];
+    const shipped = new Set<string>();
     const today = new Date().toISOString().slice(0, 10);
     for (const file of sources) {
       const parsed = JSON.parse(readFileSync(file, "utf8"));
@@ -562,6 +703,7 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
         // ships in the archive file so the next deploy after its date picks
         // it up, and stays out of the database until then rather than being
         // published under a date that has not happened.
+        shipped.add(item.slug);
         if ((item as any).status === "SCHEDULED" && item.eventDate > today) { held++; continue; }
         seen.push(item);
         const r = await ingest(db, item, published.id);
@@ -570,6 +712,10 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
       }
     }
     const edges = await linkRelatedArticles(db, seen);
+    const redirectCount = await ingestRedirects(db);
+    if (redirectCount) console.log(`[ingest] ${redirectCount} redirects published`);
+    const retired = await retireRedirectedArticles(db, shipped);
+    if (retired) console.log(`[ingest] ${retired} merged articles unpublished`);
     const translations = await ingestTranslations(db);
     if (translations.written) {
       console.log(`[ingest] ${translations.written} translated fields published` +
@@ -588,6 +734,8 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
           `(e.g. ${sample}${missing.size > 12 ? ", …" : ""})`,
       );
     }
+    // Only a full run of the bundled archive is "the archive published".
+    if (!files?.length) await recordArchiveRevision(db, archiveRevision());
     return { created, updated, missing: [...missing] };
   } finally {
     await pool.end();

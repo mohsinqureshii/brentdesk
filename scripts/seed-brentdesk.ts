@@ -461,33 +461,38 @@ async function seedHomepageSections(db: SeedDb) {
  * no invented biographies, employers, credentials or social accounts,
  * because none of that can be legitimately supported.
  */
-const AUTHORS: Array<{ publicName: string; name: string; jobTitle: string | null; authorBio: string }> = [
+const AUTHORS: Array<{ publicName: string; username: string; name: string; jobTitle: string | null; authorBio: string }> = [
   {
     publicName: "Mo Qureshi",
+    username: "mo-qureshi",
     name: "Mo Qureshi",
     jobTitle: "Editor",
     authorBio: "Mo covers Saudi Arabia and the wider GCC for BrentDesk, with a focus on construction, infrastructure, energy and industrial strategy.",
   },
   {
     publicName: "Jakson Gudawela",
+    username: "jakson-gudawela",
     name: "Jakson Gudawela",
     jobTitle: "Industry Correspondent",
     authorBio: "Jakson Gudawela reports on manufacturing, oil and gas, mining, logistics and industrial technology for BrentDesk.",
   },
   {
     publicName: "BrentDesk Research",
+    username: "brentdesk-research",
     name: "BrentDesk Research",
     jobTitle: "Research Desk",
     authorBio: "Data-led research and market analysis from the BrentDesk research desk.",
   },
   {
     publicName: "Mo Qureshi + BrentDesk Staff",
+    username: "mo-qureshi-brentdesk-staff",
     name: "Mo Qureshi + BrentDesk Staff",
     jobTitle: null,
     authorBio: "Reported by Mo Qureshi with the BrentDesk newsroom.",
   },
   {
     publicName: "BrentDesk Staff",
+    username: "brentdesk-staff",
     name: "BrentDesk Staff",
     jobTitle: null,
     authorBio: "Reporting from the BrentDesk newsroom.",
@@ -505,10 +510,17 @@ async function seedAuthors(db: SeedDb) {
 
   let added = 0;
   for (const a of AUTHORS) {
-    const existing = await db.select({ id: users.id }).from(users).where(eq(users.publicName, a.publicName)).limit(1);
-    if (existing.length) continue;
+    const existing = await db.select({ id: users.id, username: users.username }).from(users).where(eq(users.publicName, a.publicName)).limit(1);
+    if (existing.length) {
+      // Bylines link to /author/<username> and the article JSON-LD carries
+      // the same URL. Rows seeded before usernames existed linked by
+      // numeric id, which resolves but is not a readable, stable author URL.
+      if (!existing[0].username) await db.update(users).set({ username: a.username }).where(eq(users.id, existing[0].id));
+      continue;
+    }
     await db.insert(users).values({
       openId: `author_${a.publicName.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`,
+      username: a.username,
       name: a.name,
       publicName: a.publicName,
       jobTitle: a.jobTitle,

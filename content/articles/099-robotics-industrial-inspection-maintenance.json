@@ -1,7 +1,7 @@
 [
   {
     "commission": 99,
-    "headline": "ADNOC Puts a Heavy-Duty Inspection Robot Into a Gas Plant as Industrial Robotics Moves Off the Trial Site",
+    "headline": "ADNOC puts a heavy-duty inspection robot into a gas plant as industrial robotics moves off the trial site",
     "slug": "robotics-industrial-inspection-adnoc-taweelah-anybotics-spot",
     "deck": "Taurob's robot is now walking rounds at Taweelah, Aramco says robots and drones handle close to a third of routine operations at Abqaiq, and the machine that can turn a valve rather than just look at it is due this year.",
     "excerpt": "ADNOC has deployed a heavy-duty Taurob inspection robot at its Taweelah gas compression plant, with an operator robot able to turn valves due from the ARGOS joint industry project by the end of 2026. Aramco operates more than a hundred drones and its own magnetic crawlers. ANYbotics has shipped over 200 ANYmal units and Boston Dynamics more than 3,000 Spots, with explosion-proof certification and gauge-reading models the changes that made routine deployment possible.",
@@ -40,7 +40,7 @@
       "https://bostondynamics.com/blog/aivi-learning-now-powered-google-gemini-robotics/",
       "https://ifr.org/ifr-press-releases/news/service-robots-see-global-growth-boom"
     ],
-    "seoTitle": "ADNOC Deploys Heavy-Duty Inspection Robot at Taweelah",
+    "seoTitle": "ADNOC deploys heavy-duty inspection robot at Taweelah",
     "seoDescription": "ADNOC has deployed a Taurob inspection robot at Taweelah as Aramco, ANYbotics and Boston Dynamics scale robotic inspection across industrial sites.",
     "articleType": "news",
     "wordCount": 880,

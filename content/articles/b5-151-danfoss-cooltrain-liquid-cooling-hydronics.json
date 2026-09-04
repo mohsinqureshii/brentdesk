@@ -1,7 +1,7 @@
 [
   {
     "commission": 1151,
-    "headline": "The AI Rack Has Become a Hydronic Problem, and Danfoss Is Selling the Valve Train",
+    "headline": "The AI rack has become a hydronic problem, and Danfoss is selling the valve train",
     "slug": "danfoss-cooltrain-picv-liquid-cooling-hydronic-balancing-saudi-data-centres",
     "deck": "Direct-to-chip cooling turns every server rack into a branch of a chilled water system that has to be balanced, metered and shut off safely. That is HVACR work, and it is the sharpest overlap between Riyadh's two trade shows this week.",
     "excerpt": "Danfoss launched CoolTrain in March 2026: ready-built valve trains that connect the technology cooling system to a server rack, with an AB-QM pressure independent control valve providing continuous hydronic balancing. It is a precise illustration of how AI infrastructure lands as a mechanical trade problem.",
@@ -39,7 +39,7 @@
       "https://www.mordorintelligence.com/industry-reports/study-of-data-center-water-consumption-in-saudi-arabia",
       "https://www.marketsandmarkets.com/Market-Reports/geography/data-center-liquid-cooling-market/Saudi-Arabia"
     ],
-    "seoTitle": "The AI Rack Is Now a Hydronic Problem",
+    "seoTitle": "The AI rack is now a hydronic problem",
     "seoDescription": "Danfoss CoolTrain valve trains bring pressure-independent balancing to direct-to-chip cooling, turning AI capacity into an HVACR commissioning question.",
     "articleType": "report",
     "researchConfidence": "B",

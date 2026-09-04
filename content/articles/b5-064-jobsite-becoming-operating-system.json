@@ -1,7 +1,7 @@
 [
   {
     "commission": 1064,
-    "headline": "Nobody Is Buying a Jobsite Operating System, and That Is the Problem",
+    "headline": "Nobody is buying a jobsite operating system, and that is the problem",
     "slug": "construction-site-integration-data-ownership-handover-operating-system",
     "deck": "The devices work. The integration does not. On a Saudi project handing over to a thirty-year operating contract, the question of who owns the data is worth more than any individual sensor.",
     "excerpt": "Construction sites now generate continuous data from plant, materials, structures and people. Almost none of it survives handover in usable form. The unsolved problem in connected construction is not sensing but ownership, integration and continuity into operations.",
@@ -30,7 +30,7 @@
       "https://www.kenresearch.com/industry-reports/ksa-facility-management-market",
       "https://constructionmagazine.news/CON/article/586AFD3A-beyond-telematics-iot-and-equipment-connectivity"
     ],
-    "seoTitle": "The Jobsite Operating System Nobody Is Buying",
+    "seoTitle": "The jobsite operating system nobody is buying",
     "seoDescription": "Construction sensing works; integration does not. On Saudi projects heading into decades-long FM contracts, data ownership matters more than any device.",
     "articleType": "opinion",
     "researchConfidence": "B",

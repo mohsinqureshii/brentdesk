@@ -109,6 +109,57 @@ describe("applyLocaleHead", () => {
     mocked.mockResolvedValue([loc("en", true)]);
     expect(await applyLocaleHead(page, "/construction/big-5-opens")).toBe(page);
   });
+
+  // The rest of the head was written for English. An Arabic page whose
+  // og:url and NewsArticle url point at the English URL is telling every
+  // consumer of that data that it is the English page.
+  const full = [
+    '<html lang="en">',
+    "  <head>",
+    '    <link rel="canonical" href="https://brentdesk.com/construction/big-5-opens" />',
+    '    <meta property="og:url" content="https://brentdesk.com/construction/big-5-opens" />',
+    '    <meta name="twitter:url" content="https://brentdesk.com/construction/big-5-opens" />',
+    '    <script type="application/ld+json">' + JSON.stringify({
+      "@type": "NewsArticle", url: "https://brentdesk.com/construction/big-5-opens",
+      mainEntityOfPage: { "@type": "WebPage", "@id": "https://brentdesk.com/construction/big-5-opens" },
+      publisher: { "@type": "Organization", url: "https://brentdesk.com", logo: { url: "https://brentdesk.com/logo.png" } },
+      inLanguage: "en-US",
+    }) + "</script>",
+    '    <script type="application/ld+json">' + JSON.stringify({
+      "@type": "BreadcrumbList", itemListElement: [
+        { position: 1, name: "Home", item: "https://brentdesk.com" },
+        { position: 2, name: "Construction", item: "https://brentdesk.com/construction" },
+        { position: 3, name: "Big 5 opens", item: "https://brentdesk.com/construction/big-5-opens" },
+      ],
+    }) + "</script>",
+    "  </head>",
+    "</html>",
+  ].join("\n");
+
+  it("points og:url, twitter:url and the structured data at the Arabic page", async () => {
+    const out = await applyLocaleHead(full, "/ar/construction/big-5-opens");
+    expect(out).toContain('<meta property="og:url" content="https://brentdesk.com/ar/construction/big-5-opens" />');
+    expect(out).toContain('<meta name="twitter:url" content="https://brentdesk.com/ar/construction/big-5-opens" />');
+    expect(out).toContain('"url":"https://brentdesk.com/ar/construction/big-5-opens"');
+    expect(out).toContain('"@id":"https://brentdesk.com/ar/construction/big-5-opens"');
+    expect(out).toContain('"inLanguage":"ar"');
+    expect(out).not.toMatch(/"(?:url|@id)":"https:\/\/brentdesk\.com\/construction\/big-5-opens"/);
+  });
+
+  it("localises the breadcrumb but not the publisher", async () => {
+    const out = await applyLocaleHead(full, "/ar/construction/big-5-opens");
+    expect(out).toContain('"item":"https://brentdesk.com/ar"');
+    expect(out).toContain('"item":"https://brentdesk.com/ar/construction"');
+    expect(out).toContain('"publisher":{"@type":"Organization","url":"https://brentdesk.com"');
+    expect(out).toContain('"logo":{"url":"https://brentdesk.com/logo.png"}');
+  });
+
+  it("leaves an English page's head alone apart from the alternates", async () => {
+    const out = await applyLocaleHead(full, "/construction/big-5-opens");
+    expect(out).toContain('<meta property="og:url" content="https://brentdesk.com/construction/big-5-opens" />');
+    expect(out).toContain('"inLanguage":"en-US"');
+    expect(out).toContain('"item":"https://brentdesk.com/construction"');
+  });
 });
 
 describe("sitemapAlternates", () => {

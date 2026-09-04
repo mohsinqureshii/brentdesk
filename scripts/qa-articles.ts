@@ -78,9 +78,23 @@ const LEAKED_METHODOLOGY = [
 const ARTICLE_TYPES = new Set(["news", "opinion", "press_release", "report", "interview"]);
 
 const ARCHIVE_START = "2025-09-14";
-const TODAY = "2026-09-02";
+/** The gate runs on the day an article is published, so "today" is the
+ *  machine's date, not a constant that quietly went stale the day after it
+ *  was written and then failed every article dated after it. */
+const TODAY = new Date().toISOString().slice(0, 10);
 /** How far ahead a commission may be dated while flagged SCHEDULED. */
-const SCHEDULE_HORIZON = "2026-09-09";
+const SCHEDULE_HORIZON = new Date(Date.now() + 7 * 86400 * 1000).toISOString().slice(0, 10);
+
+/**
+ * Commission numbers that were retired on purpose. The coverage check below
+ * insists every number in the original brief exists, which is right for a
+ * commission that was never written and wrong for one that was merged into
+ * a later article: the merge is recorded in content/redirects.json and the
+ * old URL answers with a 301.
+ */
+const RETIRED_COMMISSIONS = new Map<number, string>([
+  [35, "merged into 270 (Round 10 exploration licences); redirect in content/redirects.json"],
+]);
 
 interface Issue { file: string; level: "error" | "warn"; message: string }
 const issues: Issue[] = [];
@@ -245,7 +259,8 @@ for (const file of files) {
 
 // Coverage.
 for (let n = 1; n <= 100; n++) {
-  if (!seenCommissions.has(n)) issues.push({ file: "-", level: "error", message: `commission ${String(n).padStart(3, "0")} missing` });
+  if (seenCommissions.has(n) || RETIRED_COMMISSIONS.has(n)) continue;
+  issues.push({ file: "-", level: "error", message: `commission ${String(n).padStart(3, "0")} missing` });
 }
 
 const errors = issues.filter(i => i.level === "error");

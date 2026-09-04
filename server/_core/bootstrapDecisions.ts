@@ -54,11 +54,22 @@ export function shouldSeed(
  */
 export function shouldIngest(
   flag: string | undefined,
-  have: { articles: Count; translations: Count },
-  want: { articles: number; translations: number },
+  have: { articles: Count; translations: Count; revision?: string | null },
+  want: { articles: number; translations: number; revision?: string },
 ): boolean {
   const forced = flagged(flag);
   if (forced !== null) return forced;
   const behind = (h: Count, w: number) => h !== null && (h === 0 ? w > 0 : h < w);
-  return behind(have.articles, want.articles) || behind(have.translations, want.translations);
+  if (behind(have.articles, want.articles) || behind(have.translations, want.translations)) return true;
+
+  // A release that edits, merges or renames articles ships the same number
+  // of rows as the one before it, which the counts cannot see. The build's
+  // fingerprint can: it changes whenever anything the reader sees changed.
+  // A stored fingerprint that could not be read (null) decides nothing, as
+  // with the counts; a database that never recorded one ("") is behind by
+  // definition. An unreadable archive (want.articles 0) still never runs.
+  if (want.revision && want.articles > 0 && have.revision !== null && have.revision !== undefined) {
+    return have.revision !== want.revision;
+  }
+  return false;
 }

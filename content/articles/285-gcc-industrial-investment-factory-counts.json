@@ -1,26 +1,39 @@
-[{
-  "commission": 1170,
-  "headline": "GCC Industrial Investment Reaches $626bn, but Factory Counts Tell a Different Story",
-  "slug": "gcc-industrial-investment-626bn-factory-counts-2026",
-  "deck": "Qatar has a tenth of Saudi Arabia's factories and a quarter of its industrial investment, which is what a hydrocarbon-processing base looks like next to a diversified one.",
-  "excerpt": "Industrial investment across the GCC has reached $626.4bn, according to figures from the Gulf Organization for Industrial Consulting. Saudi Arabia leads on both factory count and value, but investment per plant varies by more than tenfold across the six states.",
-  "content": "<p>Industrial investment across the Gulf Cooperation Council states has reached $626.4bn, according to data from the Gulf Industrial Platform, affiliated with the <a href=\"https://timeskuwait.com/industrial-investment-in-gcc-hits-626-4-billion-kuwaits-sector-shows-strong-growth/\">Gulf Organization for Industrial Consulting</a>.</p><p>Saudi Arabia leads on both measures, with 9,094 factories and $245.2bn of industrial investment. The UAE follows on plant count with 7,328 factories, then Oman with 1,932, Qatar with 989, Kuwait with 932 and Bahrain with 930. On investment value the order is different: Qatar sits second at $62.7bn, ahead of Kuwait at $49.32bn, the UAE at $42.4bn, Bahrain at $26.2bn and Oman at $25.3bn.</p><p>The divergence between those two rankings is the substance of the data. Dividing investment by plant count gives roughly $63m per factory in Qatar and $53m in Kuwait, against about $27m in Saudi Arabia, $28m in Bahrain, $13m in Oman and under $6m in the UAE. Those are not small differences in degree; they describe different kinds of industrial economy.</p><p>A base averaging $60m per plant is one built around a small number of very large hydrocarbon processing facilities — gas processing, petrochemicals, fertiliser, aluminium — where a single complex carries billions of dollars of capital and employs comparatively few people. A base averaging under $6m per plant is built around light manufacturing, assembly, food processing, packaging and building materials, where plants are numerous, cheaper and closer to their customers.</p><p>Neither is inherently the better position, and they fail differently. Capital-intensive processing generates export earnings and high value per employee, but it concentrates risk in a handful of assets and in the commodity cycles they serve. Light manufacturing is resilient in the opposite way — no single closure is material — but it competes on cost against imports and generates less value per worker.</p><p>Saudi Arabia's position in the middle of that distribution is the more interesting one, because it holds both. The kingdom has the region's largest petrochemical and mining complexes alongside a plant count approaching ten thousand, and it has been adding factories at a rate above eleven per cent a year. A base that grows in plant count while retaining heavy processing capacity is moving toward the composition that industrial policy across the region has been aiming at.</p><p>For suppliers, the practical reading is where to sell what. Process equipment, large rotating machinery, heat exchangers and specialist alloys follow the capital-intensive markets. Material handling, packaging lines, small automation and building products follow the plant-count markets. The two lists overlap far less than a regional sales territory implies.</p><p>The figures are a stock rather than a flow: they describe accumulated investment and operating plants, not activity in a period, so year-on-year movement in them is slower than the licensing data individual states publish monthly.</p>",
-  "author": "Jakson Gudawela",
-  "primaryCategory": "manufacturing",
-  "tags": ["GCC", "Industrial Investment", "Manufacturing", "Industrial Policy", "Gulf"],
-  "companies": ["Gulf Organization for Industrial Consulting"],
-  "people": [],
-  "eventDate": "2026-07-16",
-  "informationCutoff": "2026-07-19",
-  "primarySourceUrl": "https://timeskuwait.com/industrial-investment-in-gcc-hits-626-4-billion-kuwaits-sector-shows-strong-growth/",
-  "primarySourceName": "Gulf Organization for Industrial Consulting",
-  "secondarySourceUrls": ["https://timeskuwait.com/kuwait-invests-49-3-billion-in-industrial-sector-932-factories-provide-158000-jobs/", "https://www.goic.org.qa/GOICCMS/WebsiteNews_202_EN.html"],
-  "seoTitle": "GCC Industrial Investment Reaches $626bn",
-  "seoDescription": "GCC industrial investment has reached $626.4bn, with Saudi Arabia leading on 9,094 factories and $245.2bn, while Qatar and Kuwait show far higher value per plant.",
-  "articleType": "report",
-  "wordCount": 525,
-  "researchConfidence": "B",
-  "imageReviewRequired": true,
-  "replacementOf": null,
-  "replacementReason": null
-}]
+[
+  {
+    "commission": 1170,
+    "headline": "GCC industrial investment reaches $626bn, but factory counts tell a different story",
+    "slug": "gcc-industrial-investment-626bn-factory-counts-2026",
+    "deck": "Qatar has a tenth of Saudi Arabia's factories and a quarter of its industrial investment, which is what a hydrocarbon-processing base looks like next to a diversified one.",
+    "excerpt": "Industrial investment across the GCC has reached $626.4bn, according to figures from the Gulf Organization for Industrial Consulting. Saudi Arabia leads on both factory count and value, but investment per plant varies by more than tenfold across the six states.",
+    "content": "<p>Industrial investment across the Gulf Cooperation Council states has reached $626.4bn, according to data from the Gulf Industrial Platform, affiliated with the <a href=\"https://timeskuwait.com/industrial-investment-in-gcc-hits-626-4-billion-kuwaits-sector-shows-strong-growth/\">Gulf Organization for Industrial Consulting</a>.</p><p>Saudi Arabia leads on both measures, with 9,094 factories and $245.2bn of industrial investment. The UAE follows on plant count with 7,328 factories, then Oman with 1,932, Qatar with 989, Kuwait with 932 and Bahrain with 930. On investment value the order is different: Qatar sits second at $62.7bn, ahead of Kuwait at $49.32bn, the UAE at $42.4bn, Bahrain at $26.2bn and Oman at $25.3bn.</p><p>The divergence between those two rankings is the substance of the data. Dividing investment by plant count gives roughly $63m per factory in Qatar and $53m in Kuwait, against about $27m in Saudi Arabia, $28m in Bahrain, $13m in Oman and under $6m in the UAE. Those are not small differences in degree; they describe different kinds of industrial economy.</p><p>A base averaging $60m per plant is one built around a small number of very large hydrocarbon processing facilities — gas processing, petrochemicals, fertiliser, aluminium — where a single complex carries billions of dollars of capital and employs comparatively few people. A base averaging under $6m per plant is built around light manufacturing, assembly, food processing, packaging and building materials, where plants are numerous, cheaper and closer to their customers.</p><p>Neither is inherently the better position, and they fail differently. Capital-intensive processing generates export earnings and high value per employee, but it concentrates risk in a handful of assets and in the commodity cycles they serve. Light manufacturing is resilient in the opposite way — no single closure is material — but it competes on cost against imports and generates less value per worker.</p><p>Saudi Arabia's position in the middle of that distribution is the more interesting one, because it holds both. The kingdom has the region's largest petrochemical and mining complexes alongside a plant count approaching ten thousand, and it has been adding factories at a rate above eleven per cent a year. A base that grows in plant count while retaining heavy processing capacity is moving toward the composition that industrial policy across the region has been aiming at.</p><p>For suppliers, the practical reading is where to sell what. Process equipment, large rotating machinery, heat exchangers and specialist alloys follow the capital-intensive markets. Material handling, packaging lines, small automation and building products follow the plant-count markets. The two lists overlap far less than a regional sales territory implies.</p><p>The figures are a stock rather than a flow: they describe accumulated investment and operating plants, not activity in a period, so year-on-year movement in them is slower than the licensing data individual states publish monthly.</p>",
+    "author": "Jakson Gudawela",
+    "primaryCategory": "manufacturing",
+    "tags": [
+      "GCC",
+      "Industrial Investment",
+      "Manufacturing",
+      "Industrial Policy",
+      "Gulf"
+    ],
+    "companies": [
+      "Gulf Organization for Industrial Consulting"
+    ],
+    "people": [],
+    "eventDate": "2026-07-16",
+    "informationCutoff": "2026-07-19",
+    "primarySourceUrl": "https://timeskuwait.com/industrial-investment-in-gcc-hits-626-4-billion-kuwaits-sector-shows-strong-growth/",
+    "primarySourceName": "Gulf Organization for Industrial Consulting",
+    "secondarySourceUrls": [
+      "https://timeskuwait.com/kuwait-invests-49-3-billion-in-industrial-sector-932-factories-provide-158000-jobs/",
+      "https://www.goic.org.qa/GOICCMS/WebsiteNews_202_EN.html"
+    ],
+    "seoTitle": "GCC industrial investment reaches $626bn",
+    "seoDescription": "GCC industrial investment has reached $626.4bn. Saudi Arabia leads on 9,094 factories and $245.2bn, while Qatar and Kuwait show far higher value per plant.",
+    "articleType": "report",
+    "wordCount": 449,
+    "researchConfidence": "B",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": null
+  }
+]

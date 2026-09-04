@@ -41,9 +41,18 @@ export async function localeLinkTags(path: string): Promise<{
   canonical: string;
   lang: string;
   dir: "ltr" | "rtl";
+  /** The page is in the source language; nothing else in the head to fix. */
+  isDefault: boolean;
+  /** The same page in the source language — what the templates wrote. */
+  sourceUrl: string;
+  /** The language-less path, "/construction/big-5-opens". */
+  basePath: string;
 }> {
   const active = await listLocales({ activeOnly: true });
-  const fallback = { alternates: "", canonical: "", lang: "en", dir: "ltr" as const };
+  const fallback = {
+    alternates: "", canonical: "", lang: "en", dir: "ltr" as const,
+    isDefault: true, sourceUrl: "", basePath: path,
+  };
   if (active.length < 2) return fallback;
 
   const { code, basePath } = splitLocalePath(path, active.map(l => l.code));
@@ -68,6 +77,9 @@ export async function localeLinkTags(path: string): Promise<{
     canonical: url(here),
     lang: here.code,
     dir: here.direction,
+    isDefault: here.isDefault,
+    sourceUrl: def ? url(def) : url(here),
+    basePath,
   };
 }
 
@@ -80,7 +92,7 @@ export async function localeLinkTags(path: string): Promise<{
  * each of the eleven meta-tag generators growing its own copy.
  */
 export async function applyLocaleHead(html: string, path: string): Promise<string> {
-  const { alternates, canonical, lang, dir } = await localeLinkTags(path);
+  const { alternates, canonical, lang, dir, isDefault, sourceUrl, basePath } = await localeLinkTags(path);
   if (!alternates) return html;
 
   let out = html;
@@ -95,6 +107,12 @@ export async function applyLocaleHead(html: string, path: string): Promise<strin
       return `<html${cleaned} lang="${lang}" dir="${dir}">`;
     },
   );
+  // og:locale is written once for English in the article template. A share
+  // of an Arabic URL should carry the Arabic locale, or the preview is
+  // labelled as an English page.
+  const ogLocale = lang === "ar" ? "ar_SA" : lang === "en" ? "en_US" : `${lang}_${lang.toUpperCase()}`;
+  out = out.replace(/<meta property="og:locale" content="[^"]*"\s*\/?>/i,
+    `<meta property="og:locale" content="${ogLocale}" />`);
 
   // The canonical must point at this language's URL, not the English one.
   if (/<link\s+rel="canonical"/i.test(out)) {
@@ -104,6 +122,40 @@ export async function applyLocaleHead(html: string, path: string): Promise<strin
     );
   } else {
     out = out.replace(/<\/head>/i, `    <link rel="canonical" href="${escapeAttr(canonical)}" />\n  </head>`);
+  }
+
+  // Everything else in the head that names the page was written for the
+  // source language: og:url and twitter:url, the NewsArticle's url and
+  // mainEntityOfPage, the breadcrumb, inLanguage. Left alone, the Arabic
+  // page's own structured data says it is the English one — which asks a
+  // search engine to fold it back into the English result.
+  if (!isDefault && sourceUrl) {
+    out = out.replace(/<meta property="og:url" content="[^"]*"\s*\/?>/i,
+      `<meta property="og:url" content="${escapeAttr(canonical)}" />`);
+    out = out.replace(/<meta name="twitter:url" content="[^"]*"\s*\/?>/i,
+      `<meta name="twitter:url" content="${escapeAttr(canonical)}" />`);
+
+    const home = absoluteUrl("/").replace(/\/$/, "");
+    const localHome = `${home}/${lang}`;
+    const section = basePath.split("/").filter(Boolean)[0];
+    const sourceSection = section ? `${home}/${section}` : "";
+    const localSection = section ? `${localHome}/${section}` : "";
+    const swap = (body: string, from: string, to: string) =>
+      from ? body.split(JSON.stringify(from)).join(JSON.stringify(to)) : body;
+
+    out = out.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/gi,
+      (_m, open: string, body: string, close: string) => {
+        let b = swap(body, sourceUrl, canonical);
+        b = b.replace(/"inLanguage":"[^"]*"/g, `"inLanguage":${JSON.stringify(lang)}`);
+        // Only a breadcrumb names the home and section pages as pages; the
+        // publisher's url on a NewsArticle is the organisation, not a page.
+        if (/"@type":"BreadcrumbList"/.test(b)) {
+          b = swap(b, sourceSection, localSection);
+          b = swap(b, `${home}/`, localHome);
+          b = swap(b, home, localHome);
+        }
+        return open + b + close;
+      });
   }
 
   out = out.replace(/<\/head>/i, `    ${alternates}\n  </head>`);

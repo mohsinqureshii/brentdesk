@@ -1,7 +1,7 @@
 [
   {
     "commission": 1096,
-    "headline": "The Technology Stack Behind Modern Facilities Management",
+    "headline": "The technology stack behind modern facilities management",
     "slug": "facilities-management-technology-stack-cafm-bms-sensors",
     "deck": "Asset register, work-order system, building controls, metering and sensors. The layers are simple individually and fail almost entirely at the joins.",
     "excerpt": "Facilities management technology is usually sold as a platform and delivered as a set of loosely connected layers: an asset register, a work-order system, building controls, energy metering and condition sensors. Understanding how they fit together explains why most deployments underperform.",
@@ -38,7 +38,7 @@
       "https://www.imarcgroup.com/saudi-arabia-facility-management-market",
       "https://sbc.gov.sa/En/MediaCenter/Lists/SBCDigitalLibraryDocuments/Saudi%20Building%20Code%20System.pdf"
     ],
-    "seoTitle": "The Technology Stack Behind Facilities Management",
+    "seoTitle": "The technology stack behind facilities management",
     "seoDescription": "Asset register, work orders, building controls, metering and condition sensors: how the FM technology layers fit together and where deployments fail.",
     "articleType": "report",
     "wordCount": 795,

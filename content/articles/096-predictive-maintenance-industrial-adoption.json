@@ -1,7 +1,7 @@
 [
   {
     "commission": 96,
-    "headline": "Predictive Maintenance Moves From Alert to Work Order as Augury Links Machine Health to Maintenance Execution",
+    "headline": "Predictive maintenance moves from alert to work order as Augury links machine health to maintenance execution",
     "slug": "predictive-maintenance-augury-maintainx-closed-loop-industrial-adoption",
     "deck": "The analytics were never the hard part. A March integration between Augury and MaintainX targets the gap that has cost predictive maintenance most of its return: the distance between an accurate alert and a technician who acts on it.",
     "excerpt": "Augury and MaintainX have integrated predictive machine health monitoring with maintenance work orders, closing the loop between detection and repair. Published deployments at Canfor's Axis mill, Fiberon and Colgate-Palmolive put figures on what the technology has delivered. The economics driving adoption are an ageing maintenance workforce and an installed base that has to be maintained through the cycle.",
@@ -36,7 +36,7 @@
       "https://www.automationworld.com/process/plant-maintenance/article/21549899/colgate-palmolive-focuses-on-machine-health-to-improve-supply-chain-operations",
       "https://www.augury.com/media-center/press/machine-health-category-leader-augury-releases-first-ai-powered-predictive-maintenance-solution-for-ultra-low-rpm-machinery/"
     ],
-    "seoTitle": "Predictive Maintenance Moves From Alert to Work Order",
+    "seoTitle": "Predictive maintenance moves from alert to work order",
     "seoDescription": "Augury and MaintainX have linked machine health monitoring to maintenance work orders, with named deployment results at Canfor, Fiberon and Colgate-Palmolive.",
     "articleType": "news",
     "wordCount": 760,

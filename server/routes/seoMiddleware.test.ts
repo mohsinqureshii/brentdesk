@@ -2,6 +2,14 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import express from 'express';
 import type { Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
+import { vi } from 'vitest';
+// The operator-managed redirects table, stood in for by one known row.
+vi.mock('../services/slug.service', () => ({
+  slugService: {
+    getRedirect: async (path: string) =>
+      path === '/construction/old-merged-article' ? { toPath: '/construction/kept-article', statusCode: 301 } : null,
+  },
+}));
 import seoMiddleware from './seoMiddleware';
 
 // Mount the real SEO middleware in a minimal Express app served on an
@@ -197,5 +205,26 @@ describe('SEO Middleware URL Patterns', () => {
       expect(res.status).toBe(301);
       expect(res.headers.location).toBe('/energy');
     });
+  });
+});
+
+describe('redirects table', () => {
+  let server: Server; let base: string;
+  beforeAll(async () => {
+    const app = express(); app.use(seoMiddleware); app.get('*', (_req, res) => res.status(200).send('ok'));
+    await new Promise<void>(r => { server = app.listen(0, () => r()); });
+    base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  });
+  afterAll(() => new Promise<void>(r => server.close(() => r())));
+
+  it('answers a merged article URL with a 301 to the kept one', async () => {
+    const res = await fetch(base + '/construction/old-merged-article?utm=x', { redirect: 'manual' });
+    expect(res.status).toBe(301);
+    expect(res.headers.get('location')).toBe('/construction/kept-article?utm=x');
+  });
+
+  it('leaves an unknown path alone', async () => {
+    const res = await fetch(base + '/construction/some-live-article', { redirect: 'manual' });
+    expect(res.status).toBe(200);
   });
 });

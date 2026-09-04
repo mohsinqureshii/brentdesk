@@ -1,0 +1,144 @@
+{
+  "redirects": [
+    {
+      "from": "/construction/diriyah-samoca-490m-contract-albawani-hassan-allam",
+      "to": "/construction/diriyah-samoca-contract-albawani-hassan-allam",
+      "why": "duplicate of the same announcement; merged"
+    },
+    {
+      "from": "/ar/construction/diriyah-samoca-490m-contract-albawani-hassan-allam",
+      "to": "/ar/construction/diriyah-samoca-contract-albawani-hassan-allam",
+      "why": "duplicate of the same announcement; merged"
+    },
+    {
+      "from": "/mining/saudi-arabia-qualifies-24-bidders-tenth-mineral-exploration-licensing-round",
+      "to": "/mining/saudi-round-10-exploration-licences-24-bidders-block-selection",
+      "why": "duplicate of the same announcement; merged"
+    },
+    {
+      "from": "/ar/mining/saudi-arabia-qualifies-24-bidders-tenth-mineral-exploration-licensing-round",
+      "to": "/ar/mining/saudi-round-10-exploration-licences-24-bidders-block-selection",
+      "why": "duplicate of the same announcement; merged"
+    },
+    {
+      "from": "/construction/big-5-construct-saudi-2026-complete-visitor-guide",
+      "to": "/construction/big-5-construct-saudi-2026-opens-ministry-industry-patronage",
+      "why": "same opening-week event; merged into one report"
+    },
+    {
+      "from": "/ar/construction/big-5-construct-saudi-2026-complete-visitor-guide",
+      "to": "/ar/construction/big-5-construct-saudi-2026-opens-ministry-industry-patronage",
+      "why": "same opening-week event; merged into one report"
+    },
+    {
+      "from": "/construction/big-5-construct-saudi-2026-four-day-agenda",
+      "to": "/construction/fawaz-al-shora-opens-big-5-construct-saudi-2026",
+      "why": "same opening-week event; merged into one report"
+    },
+    {
+      "from": "/ar/construction/big-5-construct-saudi-2026-four-day-agenda",
+      "to": "/ar/construction/fawaz-al-shora-opens-big-5-construct-saudi-2026",
+      "why": "same opening-week event; merged into one report"
+    },
+    {
+      "from": "/construction/big-5-construct-saudi-2026-opens-riyadh-front",
+      "to": "/construction/fawaz-al-shora-opens-big-5-construct-saudi-2026",
+      "why": "same opening-week event; merged into one report"
+    },
+    {
+      "from": "/ar/construction/big-5-construct-saudi-2026-opens-riyadh-front",
+      "to": "/ar/construction/fawaz-al-shora-opens-big-5-construct-saudi-2026",
+      "why": "same opening-week event; merged into one report"
+    },
+    {
+      "from": "/construction/big-5-day-one-five-recurring-themes-2026",
+      "to": "/construction/big-5-construct-saudi-day-one-takeaways-2026",
+      "why": "day-one themes folded into the day-one report"
+    },
+    {
+      "from": "/ar/construction/big-5-day-one-five-recurring-themes-2026",
+      "to": "/ar/construction/big-5-construct-saudi-day-one-takeaways-2026",
+      "why": "day-one themes folded into the day-one report"
+    },
+    {
+      "from": "/construction/big-5-construct-saudi-2026-ten-companies-that-stood-out",
+      "to": "/construction/companies-that-stood-out-big-5-construct-saudi-2026",
+      "why": "listicle duplicate of the companies piece; folded into it"
+    },
+    {
+      "from": "/ar/construction/big-5-construct-saudi-2026-ten-companies-that-stood-out",
+      "to": "/ar/construction/companies-that-stood-out-big-5-construct-saudi-2026",
+      "why": "listicle duplicate of the companies piece; folded into it"
+    },
+    {
+      "from": "/construction/big-5-saudi-three-days-changed-my-mind",
+      "to": "/construction/four-days-big-5-changed-how-i-think-saudi-construction",
+      "why": "same reflection two days apart; folded into the four-day piece"
+    },
+    {
+      "from": "/ar/construction/big-5-saudi-three-days-changed-my-mind",
+      "to": "/ar/construction/four-days-big-5-changed-how-i-think-saudi-construction",
+      "why": "same reflection two days apart; folded into the four-day piece"
+    },
+    {
+      "from": "/construction/partnerships-launches-big-5-construct-saudi-2026",
+      "to": "/construction/big-5-construct-saudi-2026-deal-partnership-tracker",
+      "why": "same corporate record as the tracker; folded into it"
+    },
+    {
+      "from": "/ar/construction/partnerships-launches-big-5-construct-saudi-2026",
+      "to": "/ar/construction/big-5-construct-saudi-2026-deal-partnership-tracker",
+      "why": "same corporate record as the tracker; folded into it"
+    },
+    {
+      "from": "/construction/big-5-2026-what-happened-who-announced-what",
+      "to": "/construction/big-5-construct-saudi-2026-deals-technologies-people",
+      "why": "duplicate closing wrap; folded into the main one"
+    },
+    {
+      "from": "/ar/construction/big-5-2026-what-happened-who-announced-what",
+      "to": "/ar/construction/big-5-construct-saudi-2026-deals-technologies-people",
+      "why": "duplicate closing wrap; folded into the main one"
+    },
+    {
+      "from": "/construction/25-things-learned-big-5-construct-saudi-2026",
+      "to": "/construction/saudi-construction-next-twelve-months-after-big-5-2026",
+      "why": "listicle wrap folded into the forward-looking analysis"
+    },
+    {
+      "from": "/construction/ten-things-learned-four-days-big-5-saudi-2026",
+      "to": "/construction/saudi-construction-next-twelve-months-after-big-5-2026",
+      "why": "renamed: listicle slug replaced with the topic"
+    },
+    {
+      "from": "/ar/construction/25-things-learned-big-5-construct-saudi-2026",
+      "to": "/ar/construction/saudi-construction-next-twelve-months-after-big-5-2026",
+      "why": "listicle wrap folded into the forward-looking analysis"
+    },
+    {
+      "from": "/ar/construction/ten-things-learned-four-days-big-5-saudi-2026",
+      "to": "/ar/construction/saudi-construction-next-twelve-months-after-big-5-2026",
+      "why": "renamed: listicle slug replaced with the topic"
+    },
+    {
+      "from": "/construction/five-trends-three-days-big5-construct-saudi-2026",
+      "to": "/construction/three-days-big-5-construct-saudi-2026-made-clear",
+      "why": "renamed: listicle slug replaced with the topic"
+    },
+    {
+      "from": "/ar/construction/five-trends-three-days-big5-construct-saudi-2026",
+      "to": "/ar/construction/three-days-big-5-construct-saudi-2026-made-clear",
+      "why": "renamed: listicle slug replaced with the topic"
+    },
+    {
+      "from": "/industrial-technology/ten-technologies-changing-construction-big-5-saudi-2026",
+      "to": "/industrial-technology/technologies-changing-construction-big-5-saudi-2026",
+      "why": "renamed: listicle slug replaced with the topic"
+    },
+    {
+      "from": "/ar/industrial-technology/ten-technologies-changing-construction-big-5-saudi-2026",
+      "to": "/ar/industrial-technology/technologies-changing-construction-big-5-saudi-2026",
+      "why": "renamed: listicle slug replaced with the topic"
+    }
+  ]
+}

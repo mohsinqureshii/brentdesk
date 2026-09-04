@@ -23,6 +23,7 @@ import { Router, Request, Response, NextFunction } from "express";
 import { eq, and, isNotNull } from "drizzle-orm";
 import { getDb } from "../db";
 import { tags, categories } from "../../drizzle/schema";
+import { slugService } from "../services/slug.service";
 
 const BASE = getBaseUrl();
 const SITE = publication.name;
@@ -57,6 +58,27 @@ router.use(async (req: Request, _res: Response, next: NextFunction) => {
   } catch {
     // No locale table yet — nothing is language-prefixed.
   }
+  next();
+});
+
+
+// ============================================================
+// 0. OPERATOR-MANAGED REDIRECTS (redirects table)
+// A merged or renamed article keeps its old URL alive as a 301. The
+// table existed and the admin could write to it, but nothing consulted
+// it on a request, so every redirect ever saved there was inert.
+// ============================================================
+router.use(async (req: Request, res: Response, next: NextFunction) => {
+  if (req.method !== "GET" && req.method !== "HEAD") return next();
+  const path = req.path;
+  if (path === "/" || path.startsWith("/api/") || path.includes(".")) return next();
+  try {
+    const hit = await slugService.getRedirect(path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path);
+    if (hit && hit.toPath && hit.toPath !== path) {
+      const query = req.url.slice(req.path.length);
+      return res.redirect(hit.statusCode === 302 ? 302 : 301, hit.toPath + query);
+    }
+  } catch { /* a lookup failure must never take the page down */ }
   next();
 });
 
