@@ -152,12 +152,29 @@ async function idFor(
 }
 
 /** Resolve a byline to its user id. Never creates one — the approved list is fixed. */
+/** Bylines link to /author/<username>; the seed sets these, but a database
+ *  seeded before usernames existed only gets them from a seed that the boot
+ *  check no longer runs. The ingest sees every byline on every deploy, so it
+ *  is the reliable place to fill a missing one. Same values as the seed. */
+const AUTHOR_USERNAMES: Record<string, string> = {
+  "Mo Qureshi": "mo-qureshi",
+  "Jakson Gudawela": "jakson-gudawela",
+  "BrentDesk Research": "brentdesk-research",
+  "Mo Qureshi + BrentDesk Staff": "mo-qureshi-brentdesk-staff",
+  "BrentDesk Staff": "brentdesk-staff",
+};
+
 async function resolveAuthor(db: Db, name: string): Promise<number> {
   const [row] = await db
-    .select({ id: users.id })
+    .select({ id: users.id, username: users.username })
     .from(users)
     .where(eq(users.publicName, name))
     .limit(1);
+  if (row && !row.username && AUTHOR_USERNAMES[name]) {
+    const [taken] = await db.select({ id: users.id }).from(users)
+      .where(eq(users.username, AUTHOR_USERNAMES[name])).limit(1);
+    if (!taken) await db.update(users).set({ username: AUTHOR_USERNAMES[name] } as any).where(eq(users.id, row.id));
+  }
   if (!row) {
     // List what the database actually has rather than a hardcoded set. The
     // hardcoded list said "Mo" while the seeded author was "Mo Qureshi",
@@ -251,7 +268,11 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
       .every(k => (cur as any)[k] === (values as any)[k])
       && String(cur.eventDate ?? "").slice(0, 10) === String(values.eventDate ?? "").slice(0, 10);
     if (!same) {
-      await db.update(articles).set(values as any).where(eq(articles.id, existingId));
+      // An edit is not a publication. Re-ingesting a corrected article must
+      // keep the date it was first published — an audit that touched every
+      // headline used to re-date the whole archive to the day it deployed.
+      const { publishedAt: _keep, ...edits } = values;
+      await db.update(articles).set(edits as any).where(eq(articles.id, existingId));
     }
     articleId = existingId;
     // Rebuild joins so a re-run reflects the current input exactly.
@@ -646,7 +667,18 @@ export async function recordedArchiveRevision(db: Db): Promise<string | null> {
   try {
     const [row] = await db.select({ value: settings.value })
       .from(settings).where(eq(settings.key, REVISION_KEY)).limit(1);
-    return row ? String(row.value ?? "") : "";
+    if (!row) return "";
+    // A JSON column hands the string back either parsed or as its JSON
+    // text ("\"abc\"", quotes included) depending on the driver; either
+    // way the fingerprint is the bare string.
+    const raw = row.value;
+    if (typeof raw !== "string") return raw == null ? "" : String(raw);
+    try {
+      const parsed = JSON.parse(raw);
+      return typeof parsed === "string" ? parsed : raw;
+    } catch {
+      return raw;
+    }
   } catch {
     return null;
   }

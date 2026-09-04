@@ -7,7 +7,7 @@ const OG_IMAGE = `${BASE}${publication.assets.ogImage}`;
 import { getDb } from "../db";
 import { articles, categories, articleCategories, users, media, tags, articleTags, companies, investors, people, events, jobs, accelerators , eventLivePosts } from "../../drizzle/schema";
 import { eq, and, desc, isNotNull, count, sql } from "drizzle-orm";
-import { localizeArticle, localizeArticles } from "./translation.service";
+import { localizeArticle, localizeArticles, localizeCategoryLabels } from "./translation.service";
 
 /**
  * Safely convert a string or Date timestamp to ISO string
@@ -138,6 +138,19 @@ export async function getArticleForSSR(
     if (firstCat) category = firstCat;
   }
 
+  // The section name is a category's field on the article's row, so the
+  // article overlay below cannot reach it; without this the Arabic page's
+  // breadcrumb and articleSection said "Construction".
+  if (category && locale && !locale.isDefault && row.primaryCategoryId) {
+    try {
+      const [loc] = await localizeCategoryLabels(locale,
+        [{ categoryId: row.primaryCategoryId, categoryName: category.name }]);
+      if (loc?.categoryName) category = { ...category, name: loc.categoryName };
+    } catch (err) {
+      console.error('[SSR] category label localisation failed:', err);
+    }
+  }
+
   const expectedCategorySlug = category?.slug || 'news';
 
   // Check parent category match (one extra query only when URL slug differs from article category)
@@ -264,7 +277,19 @@ export function generateMetaTags(article: ArticleSSRData): string {
   const modifiedTime = safeISOString(article.updatedAt) || publishedTime;
 
   // Build image meta tags with dimensions for WhatsApp/social media compatibility
+  // An article without a featured image still needs a share card: with no
+  // og:image at all, a summary_large_image card renders blank and a crawler
+  // falls back to whatever it finds first on the page.
   let imageMetaTags = '';
+  if (!article.image) {
+    imageMetaTags = `
+    <meta property="og:image" content="${OG_IMAGE}" />
+    <meta property="og:image:secure_url" content="${OG_IMAGE}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="${escapeHtml(SITE)}" />`;
+  }
   if (article.image) {
     // Detect MIME type from URL extension to fix mismatches (e.g. stored as image/png but URL ends in .jpg)
     const inferMimeTypeFromUrl = (url: string, storedType: string | null): string => {
@@ -309,8 +334,8 @@ export function generateMetaTags(article: ArticleSSRData): string {
     <meta name="twitter:url" content="${article.url}" />
     <meta name="twitter:title" content="${escapedTitle}" />
     <meta name="twitter:description" content="${escapedDescription}" />
-    ${article.image ? `<meta name="twitter:image" content="${article.image}" />` : ''}
-    ${article.image ? `<meta name="twitter:image:alt" content="${escapedTitle}" />` : ''}
+    <meta name="twitter:image" content="${article.image || OG_IMAGE}" />
+    <meta name="twitter:image:alt" content="${article.image ? escapedTitle : escapeHtml(SITE)}" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="${article.url}" />
@@ -329,7 +354,7 @@ export function generateJsonLd(article: ArticleSSRData): string {
     headline: article.title,
     description: article.description,
     url: article.url,
-    image: article.image || undefined,
+    image: article.image || OG_IMAGE,
     datePublished: safeISOString(article.publishedAt),
     dateModified: safeISOString(article.updatedAt) || safeISOString(article.publishedAt),
     mainEntityOfPage: {

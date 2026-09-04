@@ -591,7 +591,7 @@ function NewsletterBox() {
   return (
     <div className="bd-card p-5">
       <h2 className="bd-section-title mb-1.5">{publication.newsletter.name}</h2>
-      <p className="text-xs text-muted-foreground leading-relaxed mb-4">{publication.newsletter.description}</p>
+      <p className="text-xs text-muted-foreground leading-relaxed mb-4">{t("newsletter.dailyDescription")}</p>
       <NewsletterSignup variant="inline" source="homepage-rail" />
     </div>
   );

@@ -640,11 +640,11 @@ export default function Article() {
                 <span className="text-sm font-bold">{publication.newsletter.name}</span>
               </div>
               <p className="text-xs sm:text-sm text-white/75 leading-relaxed mb-3 sm:mb-4">
-                {publication.newsletter.description}
+                {t("newsletter.dailyDescription")}
               </p>
               <Link href="/newsletter">
                 <Button className="w-full bg-white text-black hover:bg-white/90 font-medium rounded-full text-sm h-9 sm:h-10">
-                  Subscribe →
+                  {t("newsletter.subscribe")} →
                 </Button>
               </Link>
             </div>

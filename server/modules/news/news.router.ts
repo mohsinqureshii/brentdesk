@@ -311,9 +311,13 @@ export const newsRouter = router({
         }
       }
 
-      // Increment view count
+      // Increment view count. `updatedAt` is ON UPDATE CURRENT_TIMESTAMP,
+      // so a plain increment re-stamped the article on every page view and
+      // the dateModified in its structured data churned with its traffic —
+      // pinning the column to itself keeps the edit date an edit date. The
+      // increment is done in SQL so concurrent views do not lose counts.
       await db.update(articles)
-        .set({ viewCount: (article.viewCount || 0) + 1 })
+        .set({ viewCount: sql`${articles.viewCount} + 1`, updatedAt: sql`${articles.updatedAt}` } as any)
         .where(eq(articles.id, article.id));
 
       // Get related data - include full author info for author section
@@ -429,11 +433,19 @@ export const newsRouter = router({
       // article was reported in.
       const localized = await localizeArticle(ctx.locale, article);
 
+      // The section labels are the category's own rows, so they take the
+      // same overlay as the masthead — without it the Arabic article page
+      // wore an English "CONSTRUCTION" chip over an Arabic headline.
+      const localizedCats = await localizeRows(ctx.locale, "category", cats as any[]);
+      const localizedPrimary = primaryCategory
+        ? (await localizeRows(ctx.locale, "category", [primaryCategory]))[0]
+        : primaryCategory;
+
       return {
         ...localized,
         author: author[0] || null,
-        categories: cats,
-        primaryCategory,
+        categories: localizedCats,
+        primaryCategory: localizedPrimary,
         // coverageCountries: ordered list with primary first.
         // UI renders these as flag badges next to the article title.
         coverageCountries,

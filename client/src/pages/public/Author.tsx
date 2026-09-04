@@ -367,7 +367,7 @@ const Author = () => {
                 The top industrial, infrastructure and energy stories from Saudi Arabia, the GCC and MENA — in your inbox every morning.
               </p>
               <Button className="w-full bg-white text-black hover:bg-white/90 font-medium rounded-full">
-                Subscribe →
+                {t("newsletter.subscribe")} →
               </Button>
             </div>
           </aside>

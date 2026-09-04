@@ -7,8 +7,18 @@ import { vi } from 'vitest';
 vi.mock('../services/slug.service', () => ({
   slugService: {
     getRedirect: async (path: string) =>
-      path === '/construction/old-merged-article' ? { toPath: '/construction/kept-article', statusCode: 301 } : null,
+      path === '/construction/old-merged-article' ? { toPath: '/construction/kept-article', statusCode: 301 }
+      : path === '/ar/construction/old-merged-article' ? { toPath: '/ar/construction/kept-article', statusCode: 301 }
+      : null,
   },
+}));
+// Two languages configured, so /ar/... is a language-prefixed path that the
+// canonicalising rules must leave alone — but never before the redirect lookup.
+vi.mock('../services/translation.service', () => ({
+  listLocales: async () => [
+    { code: 'en', isDefault: true, isActive: true },
+    { code: 'ar', isDefault: false, isActive: true },
+  ],
 }));
 import seoMiddleware from './seoMiddleware';
 
@@ -221,6 +231,15 @@ describe('redirects table', () => {
     const res = await fetch(base + '/construction/old-merged-article?utm=x', { redirect: 'manual' });
     expect(res.status).toBe(301);
     expect(res.headers.get('location')).toBe('/construction/kept-article?utm=x');
+  });
+
+  // The language pass-through used to run first and hand every /ar/ path to
+  // the SSR layer, so a merged Arabic article's old URL was a 404 while the
+  // English one redirected. Both languages record a row; both must answer.
+  it('answers a language-prefixed merged URL with a 301 to its own language', async () => {
+    const r = await get('/ar/construction/old-merged-article');
+    expect(r.status).toBe(301);
+    expect(r.headers.location).toBe('/ar/construction/kept-article');
   });
 
   it('leaves an unknown path alone', async () => {

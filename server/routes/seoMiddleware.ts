@@ -31,7 +31,31 @@ const SITE = publication.name;
 const router = Router();
 
 // ============================================================
-// 0. LANGUAGE-PREFIXED URLs PASS THROUGH UNTOUCHED
+// 0. OPERATOR-MANAGED REDIRECTS (redirects table)
+// A merged or renamed article keeps its old URL alive as a 301. The
+// table existed and the admin could write to it, but nothing consulted
+// it on a request, so every redirect ever saved there was inert.
+// ============================================================
+// A merged or renamed article records BOTH its English and its language-
+// prefixed old URL here (/ar/construction/old-slug), so this lookup has to
+// run before the language pass-through below hands prefixed paths straight
+// to the SSR layer — which is what left every Arabic redirect a 404.
+router.use(async (req: Request, res: Response, next: NextFunction) => {
+  if (req.method !== "GET" && req.method !== "HEAD") return next();
+  const path = req.path;
+  if (path === "/" || path.startsWith("/api/") || path.includes(".")) return next();
+  try {
+    const hit = await slugService.getRedirect(path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path);
+    if (hit && hit.toPath && hit.toPath !== path) {
+      const query = req.url.slice(req.path.length);
+      return res.redirect(hit.statusCode === 302 ? 302 : 301, hit.toPath + query);
+    }
+  } catch { /* a lookup failure must never take the page down */ }
+  next();
+});
+
+// ============================================================
+// 0b. LANGUAGE-PREFIXED URLs PASS THROUGH UNTOUCHED
 // ------------------------------------------------------------
 // A language is a path prefix: /ar/automation/big-5-opens. Every
 // canonicalising rule below reads a path positionally, so without this
@@ -61,26 +85,6 @@ router.use(async (req: Request, _res: Response, next: NextFunction) => {
   next();
 });
 
-
-// ============================================================
-// 0. OPERATOR-MANAGED REDIRECTS (redirects table)
-// A merged or renamed article keeps its old URL alive as a 301. The
-// table existed and the admin could write to it, but nothing consulted
-// it on a request, so every redirect ever saved there was inert.
-// ============================================================
-router.use(async (req: Request, res: Response, next: NextFunction) => {
-  if (req.method !== "GET" && req.method !== "HEAD") return next();
-  const path = req.path;
-  if (path === "/" || path.startsWith("/api/") || path.includes(".")) return next();
-  try {
-    const hit = await slugService.getRedirect(path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path);
-    if (hit && hit.toPath && hit.toPath !== path) {
-      const query = req.url.slice(req.path.length);
-      return res.redirect(hit.statusCode === 302 ? 302 : 301, hit.toPath + query);
-    }
-  } catch { /* a lookup failure must never take the page down */ }
-  next();
-});
 
 // ============================================================
 // 1. OLD WORDPRESS URLs → 410 Gone

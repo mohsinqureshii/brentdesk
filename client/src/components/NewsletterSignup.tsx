@@ -116,7 +116,7 @@ export function NewsletterSignup({
       <div className={className}>
         <h3 className="font-semibold mb-2">{t("newsletter.stayUpdated")}</h3>
         <p className="text-sm text-muted-foreground mb-4">
-          {publication.newsletter.description}
+          {t("newsletter.dailyDescription")}
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
           <Input
