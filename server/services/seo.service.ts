@@ -697,9 +697,33 @@ export class SeoService {
         }).from(categories);
         const categoryMap = new Map(allCategories.map(c => [c.id, c.slug]));
 
+        // Resolve operator-managed slug changes before emitting URLs. These
+        // redirects run ahead of SSR, so their source paths must not remain in
+        // the sitemap even when the article row itself has no canonicalUrl.
+        let redirectMap = new Map<string, string>();
+        try {
+          const activeRedirects = await db.select({
+            fromPath: redirects.fromPath,
+            toPath: redirects.toPath,
+          }).from(redirects).where(eq(redirects.isActive, 1));
+          redirectMap = new Map(activeRedirects.map(r => [r.fromPath, r.toPath]));
+        } catch {
+          // A missing legacy redirects table must not take down all sitemaps.
+        }
+        const resolveRedirect = (path: string): string => {
+          const visited = new Set<string>();
+          let current = path;
+          while (redirectMap.has(current) && !visited.has(current) && visited.size < 10) {
+            visited.add(current);
+            current = redirectMap.get(current)!;
+          }
+          return current;
+        };
+
         urls = articleList.flatMap((a: any) => {
           const categorySlug = a.primaryCategoryId ? categoryMap.get(a.primaryCategoryId) || 'news' : 'news';
-          let canonical = `${this.baseUrl}/${categorySlug}/${a.slug}`;
+          const generatedPath = `/${categorySlug}/${a.slug}`;
+          let canonical = `${this.baseUrl}${resolveRedirect(generatedPath)}`;
           if (a.canonicalUrl) {
             try {
               const candidate = new URL(a.canonicalUrl, this.baseUrl);
