@@ -133,7 +133,7 @@ const jsonLdGenerators: Record<string, (entity: Record<string, unknown>, baseUrl
       "name": publication.name,
       "logo": {
         "@type": "ImageObject",
-        "url": `${baseUrl}/logo.png`
+        "url": `${baseUrl}${publication.assets.icon512}`
       }
     },
     "mainEntityOfPage": {
@@ -678,6 +678,7 @@ export class SeoService {
         const articleList = await db
           .select({
             slug: articles.slug,
+            canonicalUrl: articles.canonicalUrl,
             title: articles.title,
             excerpt: articles.excerpt,
             updatedAt: articles.updatedAt,
@@ -696,8 +697,18 @@ export class SeoService {
         }).from(categories);
         const categoryMap = new Map(allCategories.map(c => [c.id, c.slug]));
 
-        urls = articleList.map((a: any) => {
+        urls = articleList.flatMap((a: any) => {
           const categorySlug = a.primaryCategoryId ? categoryMap.get(a.primaryCategoryId) || 'news' : 'news';
+          let canonical = `${this.baseUrl}/${categorySlug}/${a.slug}`;
+          if (a.canonicalUrl) {
+            try {
+              const candidate = new URL(a.canonicalUrl, this.baseUrl);
+              if (candidate.origin !== new URL(this.baseUrl).origin) return [];
+              canonical = `${candidate.origin}${candidate.pathname}`.replace(/\/$/, "");
+            } catch {
+              return [];
+            }
+          }
           const images = a.mediaUrl
             ? [{
                 loc: a.mediaUrl as string,
@@ -705,13 +716,14 @@ export class SeoService {
                 caption: a.mediaAlt || a.excerpt || null,
               }]
             : undefined;
-          return {
-            loc: `${this.baseUrl}/${categorySlug}/${a.slug}`,
+          return [{
+            loc: canonical,
             lastmod: toDateStr(a.updatedAt),
             priority: "0.8",
             images,
-          };
+          }];
         });
+        urls = Array.from(new Map(urls.map(entry => [entry.loc, entry])).values());
         break;
 
       case "jobs":
@@ -1292,14 +1304,42 @@ Crawl-delay: 1
 
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /api/trpc/
+Disallow: /api/oauth/
+Disallow: /dashboard/
+Disallow: /go/
+Disallow: /login
+Disallow: /signin
+Disallow: /signup
+Disallow: /claim/
+Disallow: /profile
+Disallow: /account
+Disallow: /settings
+Disallow: /search
 Crawl-delay: 0
 
 User-agent: Googlebot-News
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /signin
+Disallow: /signup
+Disallow: /profile
+Disallow: /search
 Crawl-delay: 0
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /signin
+Disallow: /signup
+Disallow: /profile
 Crawl-delay: 0
 `;
   }

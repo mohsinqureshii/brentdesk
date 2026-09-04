@@ -72,12 +72,8 @@ export async function editionMiddleware(req: Request, res: Response, next: NextF
     // overwriting (e.g., Vary: Accept-Encoding set by compression).
     // Accept-Language joins it because an un-prefixed URL can be served in
     // the visitor's browser language.
-    const existingVary = res.getHeader("Vary");
-    const additions = ["Cookie", "Accept-Language"];
-    const merged = existingVary
-      ? `${existingVary}, ${additions.join(", ")}`
-      : additions.join(", ");
-    res.setHeader("Vary", merged);
+    res.vary("Cookie");
+    res.vary("Accept-Language");
   } catch (err) {
     // Never let an edition lookup failure break the request.
     console.error("[edition] resolution failed:", err);
