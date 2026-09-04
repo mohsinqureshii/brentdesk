@@ -13,6 +13,7 @@ import { eq, and, isNotNull } from "drizzle-orm";
 import { getDb } from "../db";
 import { articles, categories, articleCategories } from "../../drizzle/schema";
 import { workflowService } from "../services/workflow.service";
+import { getBaseUrl } from "../../shared/publication";
 
 // List of known non-article routes to skip
 const SKIP_PREFIXES = [
@@ -108,7 +109,8 @@ export async function articleRedirectMiddleware(req: Request, res: Response, nex
       id: articles.id,
       slug: articles.slug,
       primaryCategoryId: articles.primaryCategoryId,
-      publishedAt: articles.publishedAt
+      publishedAt: articles.publishedAt,
+      canonicalUrl: articles.canonicalUrl,
     })
       .from(articles)
       .where(and(
@@ -152,7 +154,15 @@ export async function articleRedirectMiddleware(req: Request, res: Response, nex
       primaryCategorySlug = 'news';
     }
     
-    const correctUrl = `/${primaryCategorySlug}/${article.slug}`;
+    let correctUrl = `/${primaryCategorySlug}/${article.slug}`;
+    if (article.canonicalUrl) {
+      try {
+        const candidate = new URL(article.canonicalUrl, getBaseUrl());
+        if (candidate.origin === new URL(getBaseUrl()).origin) {
+          correctUrl = candidate.pathname;
+        }
+      } catch { /* use the generated canonical */ }
+    }
 
     // 3-segment URLs are NEVER canonical — even if the first or second
     // segment matches the primary category, the canonical form is the
@@ -163,7 +173,7 @@ export async function articleRedirectMiddleware(req: Request, res: Response, nex
     }
 
     // 2-segment: redirect only when the URL category disagrees with primary
-    if (category !== primaryCategorySlug) {
+    if (path !== correctUrl) {
       console.log(`[SEO] 301 Redirect: ${path} -> ${correctUrl}`);
       return res.redirect(301, correctUrl);
     }
