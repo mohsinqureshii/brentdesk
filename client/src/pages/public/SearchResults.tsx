@@ -258,18 +258,18 @@ export default function SearchResults() {
                     <Link
                       key={article.id}
                       href={getArticleUrl(article)}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                      className="flex gap-4 p-4 hover:bg-muted/60 transition-colors group"
                     >
-                      {article.featuredImage ? (
+                      {/* A story with no art gets none, as everywhere else
+                          on the site — a column of identical placeholder
+                          frames is noise, not a picture. */}
+                      {article.featuredImage && (
                         <img
                           src={article.featuredImage}
-                          alt={article.title}
-                          className="h-20 w-28 rounded-lg object-cover shrink-0"
+                          alt=""
+                          loading="lazy"
+                          className="h-20 w-28 object-cover shrink-0"
                         />
-                      ) : (
-                        <div className="h-20 w-28 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-                          <Newspaper className="h-8 w-8 text-blue-300" />
-                        </div>
                       )}
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
@@ -310,7 +310,7 @@ export default function SearchResults() {
                     <Link
                       key={job.id}
                       href={`/jobs/${job.slug || job.id}`}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                      className="flex gap-4 p-4 hover:bg-muted/60 transition-colors group"
                     >
                       {job.companyLogo ? (
                         <img
@@ -360,7 +360,7 @@ export default function SearchResults() {
                     <Link
                       key={company.id}
                       href={`/companies/${company.slug || company.id}`}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                      className="flex gap-4 p-4 hover:bg-muted/60 transition-colors group"
                     >
                       {company.logo ? (
                         <img
@@ -405,7 +405,7 @@ export default function SearchResults() {
                     <Link
                       key={person.id}
                       href={`/people/${person.slug || person.id}`}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                      className="flex gap-4 p-4 hover:bg-muted/60 transition-colors group"
                     >
                       {person.avatar ? (
                         <img
@@ -444,7 +444,7 @@ export default function SearchResults() {
                     <Link
                       key={event.id}
                       href={`/events/${event.slug || event.id}`}
-                      className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                      className="flex gap-4 p-4 hover:bg-muted/60 transition-colors group"
                     >
                       {event.featuredImage ? (
                         <img

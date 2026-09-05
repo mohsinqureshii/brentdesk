@@ -1145,6 +1145,18 @@ export default function Jobs() {
       />
       <Header />
 
+      {/* Index pages carry a masthead like every other section of the
+          paper, rather than opening straight onto a search box. */}
+      <header className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-5 border-b-2 border-foreground">
+        <div className="flex items-center gap-3">
+          <span className="w-1.5 h-8 sm:h-10 shrink-0 bg-primary" aria-hidden />
+          <h1 className="bd-lede text-[1.75rem] sm:text-[2.5rem] text-foreground">{t("job.pageTitle")}</h1>
+        </div>
+        <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-3xl leading-relaxed">
+          {t("job.pageSubtitle", { site: publication.name })}
+        </p>
+      </header>
+
       <JobsListing />
 
       <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-4">

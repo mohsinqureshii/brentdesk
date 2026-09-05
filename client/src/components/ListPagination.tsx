@@ -177,10 +177,12 @@ export function PageInfo({
   const endItem = Math.min(currentPage * itemsPerPage, totalItems);
 
   return (
-    <p className={cn("text-sm text-muted-foreground", className)}>
-      {t("list.showing")}<span className="font-medium">{startItem}</span> to{" "}
-      <span className="font-medium">{endItem}</span> of{" "}
-      <span className="font-medium">{totalItems}</span> results
+    /* One interpolated string rather than four fragments: the words
+       between the numbers were English literals, so an Arabic reader saw
+       "عرض 1 to 20 of 125 results", and the first fragment had no trailing
+       space, which is why it read "Showing1". */
+    <p className={cn("text-sm text-muted-foreground tabular-nums", className)}>
+      {t("list.showingRange", { start: startItem, end: endItem, total: totalItems })}
     </p>
   );
 }

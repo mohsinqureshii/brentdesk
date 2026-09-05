@@ -19,6 +19,9 @@ import { fmtDate } from "@/lib/dates";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { useT } from "@/lib/i18n";
 
+// Re-exported so pages take the rule and the components from one place.
+export { sectionHref } from "@shared/sectionUrl";
+
 // ------------------------------------------------------------------
 // Shape of a story as every list endpoint returns it
 // ------------------------------------------------------------------

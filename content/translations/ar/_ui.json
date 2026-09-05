@@ -1561,6 +1561,8 @@
     "list.trendingIn": "الأكثر قراءة في {category}",
     "newsletter.beatDigest": "نشرة {category}",
     "newsletter.beatDigestBody": "أبرز موضوعات {category} خلال الأسبوع في رسالة واحدة.",
-    "author.latestFrom": "أحدث ما كتبه {name}"
+    "author.latestFrom": "أحدث ما كتبه {name}",
+    "job.pageSubtitle": "وظائف في الهندسة والإنشاءات والطاقة والخدمات اللوجستية والتشغيل في الأسواق التي تغطيها {site}.",
+    "list.showingRange": "عرض {start}–{end} من أصل {total}"
   }
 }

@@ -36,6 +36,7 @@ import {
   SectionHead,
   StoryCard,
   StoryRow,
+  sectionHref,
   type Story,
   formatTimeAgo,
   newsDate,
@@ -56,19 +57,6 @@ interface HomepageSection {
   sortOrder?: number | null;
   isActive?: number | boolean | null;
   position?: string | null;
-}
-
-/**
- * Where a section's "view all" goes.
- *
- * An explicit viewMoreUrl set by an editor wins. Otherwise the section's
- * own category is the answer — the bare slug is the canonical category
- * URL — and only a section with no beat at all falls back to /news.
- */
-function sectionHref(section: HomepageSection): string {
-  if (section.viewMoreUrl) return section.viewMoreUrl;
-  if (section.categorySlug) return `/${section.categorySlug}`;
-  return "/news";
 }
 
 // ------------------------------------------------------------------

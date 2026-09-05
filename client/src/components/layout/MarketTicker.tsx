@@ -100,7 +100,14 @@ export function MarketTicker({ headline, headlineHref }: { headline?: string; he
             )}
           </div>
         )}
-        <div className={`flex items-center gap-5 overflow-x-auto scrollbar-hide ${lede ? "shrink-0 max-w-[60%]" : "flex-1"}`}>
+        {/* On a phone the quotes are hidden rather than squeezed: sharing
+            the bar left the headline four characters wide, which told the
+            reader nothing. The quotes are one tap away on the markets rail. */}
+        <div
+          className={`hidden sm:flex items-center gap-5 overflow-x-auto scrollbar-hide ${
+            lede ? "shrink-0 max-w-[55%]" : "flex-1"
+          }`}
+        >
           {quotes.map((q) => (
             <QuoteItem key={q.label} quote={q} />
           ))}
