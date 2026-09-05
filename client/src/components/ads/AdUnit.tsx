@@ -218,12 +218,15 @@ export function AdUnit({
         </div>
       )}
 
-      {/* Reserved space while the slot loads (prevents layout shift). Once
-          the slot resolves the box goes: an unfilled slot must cost no
-          height, or a feed with in-line slots renders visible holes. */}
+      {/* Reserved space while the slot loads, so a filled slot does not
+          shove the page down when its creative arrives. Drawn as nothing
+          rather than a tinted box: most slots resolve to empty, and a
+          grey rectangle that appears and then vanishes reads as a broken
+          image. Once the slot resolves the reservation goes entirely — an
+          unfilled slot costs no height at all. */}
       {!adData && (
         <div
-          className="bg-muted/20"
+          aria-hidden
           style={{ width: "100%", maxWidth: dims.width, height: dims.height }}
         />
       )}

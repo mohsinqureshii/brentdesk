@@ -177,10 +177,13 @@ async function runStartupMigrations(): Promise<void> {
 
 /**
  * Reconcile the additive migration tail (every journal entry after the
- * 0000 baseline) on a live, non-empty database. Tail migrations must only
- * create tables or add columns/keys — re-checked per file at runtime as a
- * hard safety invariant (any DROP TABLE/COLUMN is refused). Missing
- * objects break entire modules when the code deploys ahead of the schema.
+ * 0000 baseline) on a live, non-empty database. Missing objects break
+ * entire modules when the code deploys ahead of the schema.
+ *
+ * Tail migrations may create tables, add columns and keys, and correct
+ * data that a deploy depends on — never remove anything. That last part
+ * is re-checked per file at runtime as a hard safety invariant: any
+ * DROP TABLE/COLUMN is refused, whatever the journal says.
  */
 const ADDITIVE_TAIL_FROM_IDX = 1;
 

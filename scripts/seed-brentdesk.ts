@@ -363,9 +363,15 @@ async function seedAdSlots(db: SeedDb) {
 }
 
 // ------------------------------------------------------------------
-// House ads — real self-promotional creatives so every ad slot renders
-// a clearly-labeled ADVERTISEMENT during development and before direct
-// campaigns are sold. Served at the lowest priority by the ad engine.
+// House ads — the publisher's own promotion, seeded PAUSED.
+//
+// They exist so an operator who wants to fill unsold inventory with a
+// newsletter or advertise-with-us card can switch one on in Admin →
+// Advertising without writing it from scratch. They do not run by
+// default: a reader should see an ad only when someone bought the space,
+// and an unsold slot should collapse so the network can take it the
+// moment an account is connected. Served at the lowest priority either
+// way — direct campaign, then Google, then these.
 // ------------------------------------------------------------------
 async function seedHouseAds(db: SeedDb) {
   const existing = await db.select({ id: adCampaigns.id }).from(adCampaigns).where(eq(adCampaigns.name, "BrentDesk House")).limit(1);
@@ -378,7 +384,7 @@ async function seedHouseAds(db: SeedDb) {
     campaignType: "house",
     objective: "awareness",
     pricingModel: "flat",
-    status: "active",
+    status: "paused",
   });
   const [campaign] = await db.select({ id: adCampaigns.id }).from(adCampaigns).where(eq(adCampaigns.name, "BrentDesk House")).limit(1);
   const creatives = [
@@ -416,7 +422,7 @@ async function seedHouseAds(db: SeedDb) {
       status: "approved",
     });
   }
-  console.log("[seed] house ads: campaign + 3 native creatives added");
+  console.log("[seed] house ads: campaign + 3 native creatives added, paused");
 }
 
 // ------------------------------------------------------------------

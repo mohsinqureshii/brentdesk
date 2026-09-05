@@ -434,97 +434,117 @@ export default function Article() {
       {/*
         The masthead of the piece.
 
-        Set on paper and ranged left, the way a trade paper sets a story:
-        beat, headline, standfirst, byline, rule. The ink treatment is
+        Split when the story has art: the headline block on one side, the
+        picture on the other, so the two carry the top of the page
+        together instead of the image pushing the words below the fold.
+        Without art the block simply takes the full measure — which is
+        most of this archive today, and the reason the split cannot be
+        the only shape.
+
+        Set on paper and ranged left either way. The ink treatment is
         reserved for the front-page lead, where it does the work a
         masthead photograph would; on a page someone is going to read for
         five minutes it only costs contrast.
       */}
       <header className={`${containerClass} pt-8 sm:pt-10 pb-6`}>
-        <div className="max-w-[52rem]">
-          <Link
-            href={`/${primaryCategorySlug}`}
-            className="bd-kicker hover:underline underline-offset-4"
-          >
-            {category}
-          </Link>
-          <h1 className="bd-lede mt-3 text-[1.875rem] sm:text-[2.5rem] lg:text-[3rem] text-foreground">
-            {article.title}
-          </h1>
-          {article.excerpt && (
-            <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[46rem]">
-              {article.excerpt}
-            </p>
-          )}
+        <div
+          className={
+            article.featuredImageUrl
+              ? "grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-6 items-center"
+              : ""
+          }
+        >
+          <div className={article.featuredImageUrl ? "lg:col-span-6 order-2 lg:order-1" : "max-w-[52rem]"}>
+            <Link
+              href={`/${primaryCategorySlug}`}
+              className="bd-kicker hover:underline underline-offset-4"
+            >
+              {category}
+            </Link>
+            <h1
+              className={`bd-lede mt-3 text-foreground ${
+                article.featuredImageUrl
+                  ? "text-[1.75rem] sm:text-[2.25rem] lg:text-[2.5rem]"
+                  : "text-[1.875rem] sm:text-[2.5rem] lg:text-[3rem]"
+              }`}
+            >
+              {article.title}
+            </h1>
+            {article.excerpt && (
+              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[46rem]">
+                {article.excerpt}
+              </p>
+            )}
 
-          <div className="mt-6 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-2 text-[0.8125rem] text-muted-foreground">
-              {article.author?.username || article.author?.id ? (
-                <Link
-                  href={`/author/${article.author?.username || article.author?.id}`}
-                  className="bd-display font-bold text-foreground hover:text-primary"
-                >
-                  {authorName}
-                </Link>
-              ) : (
-                <span className="bd-display font-bold text-foreground">{authorName}</span>
-              )}
-              <span aria-hidden>·</span>
-              {/*
-                The byline shows when the news happened, not when BrentDesk
-                published the piece. For an archive assembled after the fact
-                those differ, and the news date is what a reader is looking
-                for. The publication record stays truthful: JSON-LD
-                datePublished and og:publishedTime above both use
-                article.publishedAt.
-              */}
-              <time
-                dateTime={(() => {
-                  const d = (article as any).eventDate ?? article.publishedAt;
-                  return d ? new Date(d).toISOString() : undefined;
-                })()}
-              >
-                {formatDate((article as any).eventDate ?? article.publishedAt)}
-              </time>
-              {article.updatedAt &&
-                article.publishedAt &&
-                new Date(article.updatedAt).getTime() - new Date(article.publishedAt).getTime() > 86_400_000 && (
-                  <>
-                    <span aria-hidden>·</span>
-                    <span>
-                      {t("article.updated")}{" "}
-                      <time dateTime={new Date(article.updatedAt).toISOString()}>
-                        {formatDate(article.updatedAt)}
-                      </time>
-                    </span>
-                  </>
+            <div className="mt-6 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 text-[0.8125rem] text-muted-foreground">
+                {article.author?.username || article.author?.id ? (
+                  <Link
+                    href={`/author/${article.author?.username || article.author?.id}`}
+                    className="bd-display font-bold text-foreground hover:text-primary"
+                  >
+                    {authorName}
+                  </Link>
+                ) : (
+                  <span className="bd-display font-bold text-foreground">{authorName}</span>
                 )}
-            </div>
-
-            <div className="flex items-center gap-0.5">
-              {[Facebook, Twitter, Linkedin, Mail, Link2].map((Icon, i) => (
-                <Button
-                  key={i}
-                  variant="ghost"
-                  size="icon"
-                  className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-muted"
+                <span aria-hidden>·</span>
+                {/*
+                  The byline shows when the news happened, not when BrentDesk
+                  published the piece. For an archive assembled after the fact
+                  those differ, and the news date is what a reader is looking
+                  for. The publication record stays truthful: JSON-LD
+                  datePublished and og:publishedTime above both use
+                  article.publishedAt.
+                */}
+                <time
+                  dateTime={(() => {
+                    const d = (article as any).eventDate ?? article.publishedAt;
+                    return d ? new Date(d).toISOString() : undefined;
+                  })()}
                 >
-                  <Icon className="h-4 w-4" aria-hidden />
-                </Button>
-              ))}
+                  {formatDate((article as any).eventDate ?? article.publishedAt)}
+                </time>
+                {article.updatedAt &&
+                  article.publishedAt &&
+                  new Date(article.updatedAt).getTime() - new Date(article.publishedAt).getTime() > 86_400_000 && (
+                    <>
+                      <span aria-hidden>·</span>
+                      <span>
+                        {t("article.updated")}{" "}
+                        <time dateTime={new Date(article.updatedAt).toISOString()}>
+                          {formatDate(article.updatedAt)}
+                        </time>
+                      </span>
+                    </>
+                  )}
+              </div>
+
+              <div className="flex items-center gap-0.5">
+                {[Facebook, Twitter, Linkedin, Mail, Link2].map((Icon, i) => (
+                  <Button
+                    key={i}
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-muted"
+                  >
+                    <Icon className="h-4 w-4" aria-hidden />
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {article.featuredImageUrl && (
-          <figure className="mt-7">
-            <img
-              src={article.featuredImageUrl}
-              alt={article.title}
-              className="w-full max-h-[520px] object-cover"
-            />
-          </figure>
-        )}
+          {article.featuredImageUrl && (
+            <figure className="lg:col-span-6 order-1 lg:order-2">
+              <img
+                src={article.featuredImageUrl}
+                alt={article.title}
+                className="w-full aspect-[4/3] object-cover"
+              />
+            </figure>
+          )}
+        </div>
       </header>
 
       {/* Leaderboard Ad - Below Hero */}

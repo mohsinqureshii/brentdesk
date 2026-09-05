@@ -1,0 +1,12 @@
+-- House ads stop filling unsold inventory.
+--
+-- The house campaign was seeded active, so every slot on the site
+-- rendered a BrentDesk newsletter or advertise-with-us card under an
+-- ADVERTISEMENT label. That is the publisher advertising to its own
+-- readers in space no one bought, and it also stands in the way of the
+-- ad network: a slot that always has a house creative in it never
+-- reports as unfilled.
+--
+-- Pausing rather than deleting: the creatives stay in the admin, and an
+-- operator who wants house fill can switch the campaign back to active.
+UPDATE `ad_campaigns` SET `status` = 'paused' WHERE `campaignType` = 'house';
