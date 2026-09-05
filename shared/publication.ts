@@ -37,6 +37,13 @@ export const publication = {
 
   tagline: "Industry, infrastructure and the physical economy",
   /**
+   * Title-case form of the tagline, used in page titles and social cards
+   * where the sentence-case masthead line reads as a typo. Kept beside the
+   * tagline so the server-rendered title and the one React sets after
+   * hydration cannot drift apart.
+   */
+  seoTagline: "Industry, Infrastructure & the Physical Economy",
+  /**
    * One-paragraph editorial description used for meta descriptions,
    * organization schema, and the footer.
    */

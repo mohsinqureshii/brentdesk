@@ -90,11 +90,9 @@ const SCHEDULE_HORIZON = new Date(Date.now() + 7 * 86400 * 1000).toISOString().s
  * insists every number in the original brief exists, which is right for a
  * commission that was never written and wrong for one that was merged into
  * a later article: the merge is recorded in content/redirects.json and the
- * old URL answers with a 301.
+ * old URL answers with a 301. Empty since the merged articles were restored.
  */
-const RETIRED_COMMISSIONS = new Map<number, string>([
-  [35, "merged into 270 (Round 10 exploration licences); redirect in content/redirects.json"],
-]);
+const RETIRED_COMMISSIONS = new Map<number, string>([]);
 
 interface Issue { file: string; level: "error" | "warn"; message: string }
 const issues: Issue[] = [];

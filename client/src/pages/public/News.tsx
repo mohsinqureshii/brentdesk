@@ -644,7 +644,7 @@ export default function News() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${publication.name} | ${publication.tagline}`}
+        title={`${publication.name} | ${publication.seoTagline}`}
         description={publication.description}
         canonical={`${publication.siteUrl}/`}
         ogImage={publication.assets.ogImage}

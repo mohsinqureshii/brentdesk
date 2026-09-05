@@ -390,7 +390,7 @@ export default function Events() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`Events — ${publication.name}`}
+        title={`Industry Events | ${publication.name}`}
         description="Industry events across Saudi Arabia, the GCC and MENA: conferences, expos, forums and live coverage of what's happening right now."
       />
       <Header />

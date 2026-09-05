@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "House — Advertise",
+    "locale": "ar",
+    "entityType": "ad_creative",
+    "translator": "claude-opus-5",
+    "fields": {
+      "nativeHeadline": "اصل إلى من يبنون المنطقة",
+      "nativeDescription": "ضع علامتك أمام صنّاع القرار في الإنشاءات والطاقة والبنية التحتية والخدمات اللوجستية.",
+      "nativeCta": "أعلن معنا"
+    }
+  },
+  {
+    "slug": "House — Newsletter",
+    "locale": "ar",
+    "entityType": "ad_creative",
+    "translator": "claude-opus-5",
+    "fields": {
+      "nativeHeadline": "نشرة برنت ديسك اليومية",
+      "nativeDescription": "أهم أخبار الصناعة والبنية التحتية والطاقة من السعودية والخليج والشرق الأوسط في بريدك كل صباح.",
+      "nativeCta": "اشترك"
+    }
+  },
+  {
+    "slug": "House — Events",
+    "locale": "ar",
+    "entityType": "ad_creative",
+    "translator": "claude-opus-5",
+    "fields": {
+      "nativeHeadline": "حيث يلتقي القطاع",
+      "nativeDescription": "مؤتمرات ومعارض ومنتديات في السعودية والخليج والشرق الأوسط.",
+      "nativeCta": "تصفّح الفعاليات"
+    }
+  }
+]

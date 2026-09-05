@@ -1,0 +1,71 @@
+[
+  {
+    "commission": 1147,
+    "headline": "Notes from four days on the floor at Big 5 Construct Saudi",
+    "slug": "big-5-construct-saudi-2026-floor-notebook-four-days",
+    "previousSlugs": [
+      "25-things-learned-big-5-construct-saudi-2026"
+    ],
+    "deck": "A day-by-day record of what was said in the halls, from a localisation schedule that now carries dates to a workforce problem nobody was selling a fix for.",
+    "excerpt": "Four days at Big 5 Construct Saudi produced more usable information than a quarter of reading, because a thousand exhibitors and several thousand buyers were answering each other's questions in public. This is the notebook, kept day by day: localisation on Sunday, technology and awards on Monday, compliance on Tuesday, operations on Wednesday, and the question the show left behind.",
+    "content": "<p>Four days at Big 5 Construct Saudi produce more usable information than a quarter of reading, mostly because a thousand exhibitors and several thousand buyers answer each other's questions in public. What follows is the notebook, kept day by day rather than sorted into an argument, because the order in which things were said is part of what they mean.</p><p>Sunday was localisation, and it was the organising question of the supply side from the first hour. It now carries dates: the <a href=\"/manufacturing/localization-saudi-manufacturing-big-5-construct-saudi-2026\">Local Content and Government Procurement Authority</a> requires a minimum local content percentage in an enterprise-level Local Content Certificate to benefit from the mandatory list of national products, covering 233 products from 1 August this year and extending to split air conditioners, water pumps, water valves and copper wires on 1 August 2027. International manufacturers had changed their question accordingly, from how to sell into Saudi Arabia to who to partner with and what will be required of them, and the Saudi intermediary, whether a technical distributor such as Alyamitech in Dammam or a venture such as Haier and Aljabr Saudi Electronics Company, kept coming up as the market-entry decision that matters most. Saudi manufacturers, for their part, rejected the framing that makes them the cheaper substitute: their argument was lead time, support in the same time zone, compliance built in and capacity a buyer can inspect.</p><p>The evidence for that argument was on the Sunday floor. Kimmco-Isover, the Alghanim Industries and Saint-Gobain Isover venture, runs a stone wool plant at Yanbu that localised insulation before policy required it, because freight economics made importing it absurd. Al Yamamah Steel Industries, with more than 1.5 million tonnes a year of reinforcing steel capacity, now makes wind towers at a Yanbu plant rated at 50,000 tonnes a year. Fadras Group manufactures expansion joint systems in Riyadh and describes itself as the Kingdom's only local producer of them, and Construction Products Holding Company runs nine subsidiaries and two industrial complexes covering precast, ready-mix, steel structures, cables and electromechanical work. The pattern, components nobody discusses and vertical integration as the Saudi answer to fragmentation, was set by lunchtime.</p><p>Monday was technology, and the finding was what contractors did not ask about. Nobody asked about artificial intelligence; they asked about breakdowns, rework, manpower dependency, quality, safety, energy and lifecycle cost, and treated everything else as a means to one of those, <a href=\"/construction/what-saudi-contractors-actually-need-big-5-2026\">which is what Saudi contractors actually need</a>. The pitch that worked named a task, a cycle time and a reference project; the pitch that failed named a category. Robotics had become concrete: DaFang AI's wall-finishing machines plaster, sand and spray to 3.3 and six metres, and with purpose-built machines priced in the hundreds of thousands of dollars the natural first buyers are specialist subcontractors with repeatable scopes. The most striking thing in the concrete hall was <a href=\"https://www.brickeye.com/concrete-monitoring\">Brickeye's in-pour sensors</a>, which report internal temperature, differential and maturity continuously, and the payback is schedule: striking formwork against measured strength rather than a calendar rule wins a day on every repeating floor plate. Monday closed with the Impact Trail awards, and Prime Middle East Trading Company's sustainability innovation prize for Honeywell's Solstice range was a reminder that refrigerant selection is a compliance decision with a twenty-year tail.</p><p>Tuesday was compliance. Certification has moved from marketing into specification: <a href=\"/utilities/eurovent-desert-certification-saudi-hvac-big-5-2026\">Eurovent Certita Certification</a> tests at 35C and 46C, requires operability at 52C and publishes a part-load seasonal efficiency figure rather than a single design point. Conformity assessment is now a gate rather than a formality, with Riyadh-based bodies such as Fahes issuing product conformity certificates through SABER. Code compliance has become a permitting problem: the 2024 Saudi Building Code has been mandatory since 30 June 2025, an occupancy certificate is required before a building's electrical supply is fully activated, and the Saudi Building Code Center was constituted as a standalone body under the Ministry of Municipalities and Housing by Council of Ministers decision in March 2025. Cooling, meanwhile, had stopped being building services and become infrastructure, with single assets carrying utility-scale plant such as the district cooling installation rated above 35,000 tons of refrigeration serving Riyadh's Information Technology and Communications Complex.</p><p>Wednesday was operations. The questions in the facilities management hall were about asset registers, condition monitoring, work-order systems, energy management and fire and life safety compliance, not manpower and cleaning. Integration is the commercial model: Al-Futtaim Contracting has launched combined facilities management and fire and life safety operations in the Kingdom, and outsourced work already accounts for close to 60% of the Saudi market on Mordor Intelligence's estimate. Equipment manufacturers were moving downstream into service, spares and monitoring because the operating phase is where the durable margin sits once a decade of Saudi assets reaches handover. Two things from earlier days resurfaced on the last one: modular construction does not remove complexity but moves it earlier, into design freeze, factory scheduling and logistics, and the contractors most enthusiastic about it were the ones who had already been burned by that; and the physical show still earns its place, because a buyer comparing two products side by side, opening an enclosure and asking who holds spares in Dammam is doing something no catalogue replicates.</p><p>The question the show left behind was people. Sensors need technicians who act on alarms, robots need supervisors who can deploy them, integrated contracts need managers who can enforce response times, and nobody was selling a solution to that. It is the constraint under every other note in this book, and it is where <a href=\"/construction/saudi-construction-next-twelve-months-after-big-5-2026\">the argument about the next twelve months</a> begins.</p>",
+    "author": "Mo Qureshi",
+    "primaryCategory": "construction",
+    "categories": [
+      "construction",
+      "facilities-management",
+      "manufacturing",
+      "supply-chain",
+      "industrial-technology"
+    ],
+    "tags": [
+      "Big 5 Construct Saudi",
+      "Localisation",
+      "Construction Technology",
+      "Facilities Management",
+      "Saudi Arabia"
+    ],
+    "companies": [
+      "Local Content and Government Procurement Authority",
+      "Kimmco-Isover",
+      "Al Yamamah Steel Industries",
+      "Fadras Group",
+      "Construction Products Holding Company",
+      "DaFang AI",
+      "Brickeye",
+      "Eurovent Certita Certification",
+      "Fahes",
+      "Prime Middle East Trading Company",
+      "Al-Futtaim Contracting",
+      "Alyamitech",
+      "Haier"
+    ],
+    "people": [],
+    "primarySourceUrl": "https://www.big5constructsaudi.com/",
+    "primarySourceName": "Big 5 Construct Saudi",
+    "secondarySourceUrls": [
+      "https://www.spa.gov.sa/en/N2514218",
+      "https://www.spa.gov.sa/en/N2418153",
+      "https://www.eurovent-certification.com/en/cms/event/big-5-construct-saudi-2026",
+      "https://meconstructionnews.com/68912/al-futtaim-contracting-launches-fm-fls-operations-in-ksa",
+      "https://www.brickeye.com/concrete-monitoring"
+    ],
+    "seoTitle": "Notes from four days at Big 5 Construct Saudi",
+    "seoDescription": "A day-by-day notebook from Big 5 Construct Saudi 2026: local content deadlines, finishing robots, concrete sensors, desert certification and the workforce gap.",
+    "articleType": "opinion",
+    "researchConfidence": "B",
+    "country": "Saudi Arabia",
+    "imageReviewRequired": true,
+    "replacementOf": null,
+    "replacementReason": "Restored at the publisher's instruction after being merged into the twelve-months analysis; rebuilt as a day-by-day notebook and moved off the listicle slug.",
+    "informationCutoff": "2026-09-02",
+    "eventDate": "2026-09-02",
+    "internalLinks": [
+      "localization-saudi-manufacturing-big-5-construct-saudi-2026",
+      "what-saudi-contractors-actually-need-big-5-2026",
+      "eurovent-desert-certification-saudi-hvac-big-5-2026",
+      "saudi-construction-next-twelve-months-after-big-5-2026"
+    ],
+    "wordCount": 929
+  }
+]

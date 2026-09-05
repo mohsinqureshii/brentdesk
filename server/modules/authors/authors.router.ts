@@ -8,6 +8,7 @@ import { eq, and, desc, sql, or, isNotNull } from "drizzle-orm";
 import { router, publicProcedure } from "../../_core/trpc";
 import { getDb } from "../../db";
 import { newsRecencyDesc } from "../../_core/articleOrder";
+import { localizeRows, localizeCategoryLabels } from "../../services/translation.service";
 import { 
   users,
   articles,
@@ -25,7 +26,7 @@ export const authorsRouter = router({
     .input(z.object({
       username: z.string(),
     }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       const db = await getDb();
       if (!db) throw new Error("Database not available");
 
@@ -119,10 +120,16 @@ export const authorsRouter = router({
           )
         );
 
+      // The byline's title and biography are editorial copy a reader meets
+      // on every author page, so they take the same overlay as an article;
+      // the topic labels are category rows and take the category overlay.
+      const [localizedAuthor] = await localizeRows(ctx.locale, "user", [author]);
+      const localizedTopics = await localizeCategoryLabels(ctx.locale, authorCategories);
+
       return {
-        ...author,
+        ...localizedAuthor,
         displayName: author.publicName || author.nickname || author.name,
-        topics: authorCategories.map(c => ({
+        topics: localizedTopics.map(c => ({
           id: c.categoryId,
           name: c.categoryName,
           slug: c.categorySlug,

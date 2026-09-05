@@ -48,6 +48,21 @@ function seededSlugs(arrayName: string): Set<string> {
 }
 const SEEDED_CATEGORIES = seededSlugs("NEWS_CATEGORIES");
 const SEEDED_SECTIONS = seededSlugs("SECTIONS");
+/** Bylines and house creatives are keyed by username and creative name. */
+function seededValues(arrayName: string, key: string): Set<string> {
+  const seed = readFileSync(path.join(ROOT, "..", "scripts", "seed-brentdesk.ts"), "utf8");
+  const block = new RegExp(`const ${arrayName}[^=]*=\\s*\\[([\\s\\S]*?)\\n\\s*\\];`).exec(seed);
+  const out = new Set<string>();
+  if (!block) return out;
+  for (const m of block[1].matchAll(new RegExp(`${key}:\\s*"([^"]+)"`, "g"))) out.add(m[1]);
+  return out;
+}
+const SEEDED_AUTHORS = seededValues("AUTHORS", "username");
+const SEEDED_CREATIVES = seededValues("creatives", "name");
+const FURNITURE_FIELDS: Record<string, string[]> = {
+  user: ["jobTitle", "authorBio"],
+  ad_creative: ["nativeHeadline", "nativeDescription", "nativeCta"],
+};
 let furnitureTranslated = 0;
 
 interface Issue { file: string; level: "error" | "warn"; message: string }
@@ -124,6 +139,20 @@ for (const { file, t } of entries) {
   // matters is that the slug is one the seed actually creates (a typo here
   // fails silently at ingest, leaving the heading in English forever) and
   // that the name was translated.
+  // Bylines and house advertisements: several translated fields each, keyed
+  // by the username or creative name the seed writes.
+  if (t.entityType === "user" || t.entityType === "ad_creative") {
+    const known = t.entityType === "user" ? SEEDED_AUTHORS : SEEDED_CREATIVES;
+    if (!known.has(t.slug)) err(file, `${t.entityType} "${t.slug}" is not seeded — nothing will match it`);
+    for (const field of FURNITURE_FIELDS[t.entityType]) {
+      const v = (t.fields as Record<string, string>)[field];
+      if (v && script && !script.test(v)) warn(file, `${t.slug}: ${field} has no ${locale} script`);
+    }
+    if (!Object.values(t.fields).some(v => v && String(v).trim())) err(file, `${t.slug}: no translated fields`);
+    furnitureTranslated++;
+    continue;
+  }
+
   if (t.entityType === "category" || t.entityType === "homepage_section") {
     const known = t.entityType === "category" ? SEEDED_CATEGORIES : SEEDED_SECTIONS;
     if (!known.has(t.slug)) {

@@ -7,7 +7,7 @@ const OG_IMAGE = `${BASE}${publication.assets.ogImage}`;
 import { getDb } from "../db";
 import { articles, categories, articleCategories, users, media, tags, articleTags, companies, investors, people, events, jobs, accelerators , eventLivePosts } from "../../drizzle/schema";
 import { eq, and, desc, isNotNull, count, sql } from "drizzle-orm";
-import { localizeArticle, localizeArticles, localizeCategoryLabels } from "./translation.service";
+import { localizeArticle, localizeArticles, localizeCategoryLabels, localizeRows } from "./translation.service";
 
 /**
  * Safely convert a string or Date timestamp to ISO string
@@ -1426,7 +1426,10 @@ interface AuthorSSRData {
   articleCount: number;
 }
 
-export async function getAuthorForSSR(idOrUsername: string): Promise<AuthorSSRData | null> {
+export async function getAuthorForSSR(
+  idOrUsername: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<AuthorSSRData | null> {
   const db = await getDb();
   if (!db) return null;
 
@@ -1463,13 +1466,16 @@ export async function getAuthorForSSR(idOrUsername: string): Promise<AuthorSSRDa
     .where(and(eq(articles.authorId, author.id), isNotNull(articles.publishedAt))) as any;
 
   const slug = author.username || `${author.id}`;
+  // Title and biography are editorial copy; serve them in the page's
+  // language like the article overlay does.
+  const [a] = await localizeRows(locale, "user", [author as any]);
   return {
     id: author.id,
     name: author.publicName || author.name || SITE,
     username: author.username,
     publicName: author.publicName,
-    jobTitle: author.jobTitle,
-    authorBio: author.authorBio,
+    jobTitle: (a as any).jobTitle ?? author.jobTitle,
+    authorBio: (a as any).authorBio ?? author.authorBio,
     bio: author.bio,
     avatar: author.avatar,
     twitterHandle: author.twitterHandle,

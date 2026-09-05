@@ -24,7 +24,7 @@ import {
   articles, articleTags, articleCompanies, articlePeople, articleCategories,
   articleRelatedEntities,
   tags, categories, companies, people, users, countries, events,
-  contentTranslations, homepageSections, redirects, settings,
+  contentTranslations, homepageSections, redirects, settings, adCreatives,
 } from "../drizzle/schema";
 import { toDbDate } from "../server/_core/dbValues";
 
@@ -164,12 +164,53 @@ const AUTHOR_USERNAMES: Record<string, string> = {
   "BrentDesk Staff": "brentdesk-staff",
 };
 
+/** The byline profiles as the newsroom wrote them. Mirrors the seed, which
+ *  the boot no longer runs on a complete database; the ingest sees every
+ *  byline on every deploy and refreshes a profile the seed wrote earlier.
+ *  A profile an editor has changed by hand is left alone. */
+const AUTHOR_PROFILES: Record<string, { jobTitle: string | null; authorBio: string }> = {
+  "Mo Qureshi": {
+    jobTitle: "Editor",
+    authorBio: "Mo Qureshi edits BrentDesk and reports on Saudi Arabia and the wider Gulf, with a focus on construction, manufacturing, facilities management and the supply chains behind the Kingdom's industrial programme. Mo writes the publication's analysis and opinion columns and led its coverage of Big 5 Construct Saudi.",
+  },
+  "Jakson Gudawela": {
+    jobTitle: "Industry Correspondent",
+    authorBio: "Jakson Gudawela is BrentDesk's industry correspondent, covering manufacturing, mining and metals, oil and gas, ports and logistics. Jakson's reporting spans Saudi Arabia, the UAE, Oman, Kuwait and Egypt, and draws on official statistics, company statements and regulatory filings.",
+  },
+  "BrentDesk Research": {
+    jobTitle: "Research Desk",
+    authorBio: "BrentDesk Research is the publication's data desk. It compiles figures from official statistics, company filings and industry bodies into reference reports on construction, manufacturing and the industrial supply chain across Saudi Arabia and the Gulf.",
+  },
+  "Mo Qureshi + BrentDesk Staff": {
+    jobTitle: null,
+    authorBio: "A joint byline for pieces reported by Mo Qureshi with additional reporting from the BrentDesk newsroom.",
+  },
+  "BrentDesk Staff": {
+    jobTitle: null,
+    authorBio: "BrentDesk Staff is the byline for reporting produced by the BrentDesk newsroom from official announcements, company statements and public records, edited to the publication's standards.",
+  },
+};
+/** Bios the seed wrote before the newsroom's own were available. */
+const SEEDED_BIOS = new Set([
+  "Mo covers Saudi Arabia and the wider GCC for BrentDesk, with a focus on construction, infrastructure, energy and industrial strategy.",
+  "Jakson Gudawela reports on manufacturing, oil and gas, mining, logistics and industrial technology for BrentDesk.",
+  "Data-led research and market analysis from the BrentDesk research desk.",
+  "Reported by Mo Qureshi with the BrentDesk newsroom.",
+  "Reporting from the BrentDesk newsroom.",
+]);
+
 async function resolveAuthor(db: Db, name: string): Promise<number> {
   const [row] = await db
-    .select({ id: users.id, username: users.username })
+    .select({ id: users.id, username: users.username, authorBio: users.authorBio, jobTitle: users.jobTitle })
     .from(users)
     .where(eq(users.publicName, name))
     .limit(1);
+  const profile = AUTHOR_PROFILES[name];
+  if (row && profile && (!row.authorBio || SEEDED_BIOS.has(row.authorBio)) && row.authorBio !== profile.authorBio) {
+    await db.update(users)
+      .set({ authorBio: profile.authorBio, jobTitle: row.jobTitle ?? profile.jobTitle } as any)
+      .where(eq(users.id, row.id));
+  }
   if (row && !row.username && AUTHOR_USERNAMES[name]) {
     const [taken] = await db.select({ id: users.id }).from(users)
       .where(eq(users.username, AUTHOR_USERNAMES[name])).limit(1);
@@ -263,16 +304,23 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
       title: articles.title, excerpt: articles.excerpt, content: articles.content,
       seoTitle: articles.seoTitle, seoDescription: articles.seoDescription,
       eventDate: articles.eventDate, sourceUrl: articles.sourceUrl,
+      publishedAt: articles.publishedAt,
     }).from(articles).where(eq(articles.id, existingId)).limit(1);
-    const same = cur && (["slug","title","excerpt","content","seoTitle","seoDescription","sourceUrl"] as const)
+    // A row the previous release retired has no publication date. Shipping
+    // its file again is a republication, not an edit, so it needs one.
+    const restoring = !!cur && cur.publishedAt == null;
+    const same = !restoring && cur && (["slug","title","excerpt","content","seoTitle","seoDescription","sourceUrl"] as const)
       .every(k => (cur as any)[k] === (values as any)[k])
       && String(cur.eventDate ?? "").slice(0, 10) === String(values.eventDate ?? "").slice(0, 10);
     if (!same) {
       // An edit is not a publication. Re-ingesting a corrected article must
       // keep the date it was first published — an audit that touched every
       // headline used to re-date the whole archive to the day it deployed.
+      // A restored article is the exception: it has no date to keep.
       const { publishedAt: _keep, ...edits } = values;
-      await db.update(articles).set(edits as any).where(eq(articles.id, existingId));
+      await db.update(articles)
+        .set((restoring ? values : edits) as any)
+        .where(eq(articles.id, existingId));
     }
     articleId = existingId;
     // Rebuild joins so a re-run reflects the current input exactly.
@@ -467,9 +515,13 @@ export function publishableArticleCount(): number {
  */
 /** Translatable site furniture, by the entityType a translation file declares.
  *  Each entry needs a table with `id`, `slug` and `name`. */
-const FURNITURE: Record<string, { entityType: string; table: any }> = {
+const FURNITURE: Record<string, { entityType: string; table: any; key?: string }> = {
   category: { entityType: "category", table: categories },
   homepage_section: { entityType: "homepage_section", table: homepageSections },
+  // Bylines, keyed by the username their author page lives under.
+  user: { entityType: "user", table: users, key: "username" },
+  // House advertisements, keyed by the creative's name in the seed.
+  ad_creative: { entityType: "ad_creative", table: adCreatives, key: "name" },
 };
 
 async function ingestTranslations(db: Db): Promise<{ written: number; missing: string[] }> {
@@ -514,10 +566,11 @@ async function ingestTranslations(db: Db): Promise<{ written: number; missing: s
     // masthead. Keyed by slug, because ids differ per environment.
     const furniture = FURNITURE[(t as any).entityType as string];
     if (furniture) {
+      const keyColumn = furniture.table[furniture.key ?? "slug"];
       const [ent] = await db
-        .select({ id: furniture.table.id, name: furniture.table.name })
+        .select()
         .from(furniture.table)
-        .where(eq(furniture.table.slug, t.slug))
+        .where(eq(keyColumn, t.slug))
         .limit(1);
       if (!ent) { missing.push(`${(t as any).entityType}:${t.slug}`); continue; }
       for (const [field, value] of Object.entries(t.fields)) {
@@ -582,22 +635,31 @@ async function ingestTranslations(db: Db): Promise<{ written: number; missing: s
  * it with a 301 instead of a 404. Upsert on fromPath, so re-running is
  * safe and an edited target replaces the old one.
  */
+/** One rule from content/redirects.json. `active: false` retires the rule. */
+interface RedirectRule { from: string; to: string; why?: string; active?: boolean }
+
 async function ingestRedirects(db: Db): Promise<number> {
   const file = bundledFile("redirects.json");
   if (!file) return 0;
-  let rows: { from: string; to: string }[] = [];
+  let rows: RedirectRule[] = [];
   try { rows = JSON.parse(readFileSync(file, "utf8")).redirects ?? []; } catch { return 0; }
   let n = 0;
   for (const r of rows) {
     if (!r.from || !r.to || r.from === r.to) continue;
-    const [existing] = await db.select({ id: redirects.id, toPath: redirects.toPath })
+    const [existing] = await db.select({ id: redirects.id, toPath: redirects.toPath, isActive: redirects.isActive })
       .from(redirects).where(eq(redirects.fromPath, r.from)).limit(1);
+    // An article restored at its own URL keeps its redirect on file, marked
+    // inactive, so the rule that once pointed the URL away is switched off
+    // rather than forgotten — and turning it back on is one flag.
+    const active = r.active === false ? 0 : 1;
     if (existing) {
-      if (existing.toPath !== r.to) await db.update(redirects).set({ toPath: r.to, statusCode: 301, isActive: 1 } as any).where(eq(redirects.id, existing.id));
-    } else {
+      if (existing.toPath !== r.to || existing.isActive !== active) {
+        await db.update(redirects).set({ toPath: r.to, statusCode: 301, isActive: active } as any).where(eq(redirects.id, existing.id));
+      }
+    } else if (active) {
       await db.insert(redirects).values({ fromPath: r.from, toPath: r.to, statusCode: 301, isActive: 1 } as any);
     }
-    n++;
+    if (active) n++;
   }
   return n;
 }
@@ -618,7 +680,7 @@ async function ingestRedirects(db: Db): Promise<number> {
 async function retireRedirectedArticles(db: Db, live: Set<string>): Promise<number> {
   const file = bundledFile("redirects.json");
   if (!file) return 0;
-  let rows: { from: string; to: string }[] = [];
+  let rows: RedirectRule[] = [];
   try { rows = JSON.parse(readFileSync(file, "utf8")).redirects ?? []; } catch { return 0; }
   const { workflowService } = await import("../server/services/workflow.service");
   const archived = await workflowService.getStatusBySlug("editorial", "archived");
@@ -626,6 +688,7 @@ async function retireRedirectedArticles(db: Db, live: Set<string>): Promise<numb
   if (!archived || !published) return 0;
   let n = 0;
   for (const r of rows) {
+    if (r.active === false) continue;
     const slug = String(r.from ?? "").split("/").filter(Boolean).pop();
     if (!slug || live.has(slug)) continue;
     const [row] = await db.select({ id: articles.id, statusId: articles.statusId })

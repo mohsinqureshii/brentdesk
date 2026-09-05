@@ -28,7 +28,7 @@ export const staticPagesSEO: Record<string, StaticPageSEO> = {
   // CORE PAGES
   // ============================================================
   "/": {
-    title: `${NAME} | Industry, Infrastructure & the Physical Economy`,
+    title: `${NAME} | ${publication.seoTagline}`,
     description: publication.description,
     image: DEFAULT_IMAGE,
     keywords: publication.keywords,
@@ -231,7 +231,7 @@ export function generateStaticPageMetaTags(url: string): string {
     // Fallback for unknown pages - return noindex to prevent thin content indexing
     // NOTE: Known category pages should be handled by SSR before reaching here
     return `
-      <title>${escapeHtml(NAME)} | ${escapeHtml(publication.tagline)}</title>
+      <title>${escapeHtml(NAME)} | ${escapeHtml(publication.seoTagline)}</title>
       <meta name="description" content="${escapeHtml(publication.description)}" />
       <meta name="robots" content="noindex, follow" />
       <link rel="canonical" href="${BASE_URL}${cleanPath}" />

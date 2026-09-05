@@ -12,7 +12,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`About ${publication.name} - ${publication.tagline}`}
+        title={`About | ${publication.name}`}
         description={publication.description}
         canonical={`${publication.siteUrl}/about`}
         keywords={publication.keywords}

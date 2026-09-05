@@ -86,7 +86,7 @@ const Advertise = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`Advertise with ${publication.name} - Reach the Industrial Economy`}
+        title={`Advertise | ${publication.name}`}
         description={`Partner with ${publication.name} to reach decision-makers across construction, energy, infrastructure, manufacturing and logistics in Saudi Arabia, the GCC and MENA.`}
         canonical={`${publication.siteUrl}/advertise`}
       />

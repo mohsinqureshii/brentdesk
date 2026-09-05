@@ -219,7 +219,7 @@ function buildWebPageJsonLd(canonicalUrl: string): string {
 
 interface EntitySSRConfig {
   prefix: string;
-  getFn: (idOrSlug: string) => Promise<any>;
+  getFn: (idOrSlug: string, locale?: { code: string; isDefault: boolean }) => Promise<any>;
   metaFn: (data: any) => string;
   jsonLdFn: (data: any) => string;
   noscriptFn: (data: any) => string;
@@ -304,7 +304,10 @@ const entitySSRConfigs: EntitySSRConfig[] = [
 /**
  * Try SSR for entity detail pages: /companies/:id, /investors/:id, etc.
  */
-async function tryEntitySSR(url: string, template: string): Promise<{ html: string; status: number } | null> {
+async function tryEntitySSR(
+  url: string, template: string,
+  locale?: { code: string; isDefault: boolean },
+): Promise<{ html: string; status: number } | null> {
   for (const config of entitySSRConfigs) {
     if (!url.startsWith(config.prefix)) continue;
     
@@ -312,7 +315,7 @@ async function tryEntitySSR(url: string, template: string): Promise<{ html: stri
     if (!idOrSlug || idOrSlug.includes('/')) continue; // Skip sub-paths like /companies/123/edit
     
     try {
-      const data = await config.getFn(idOrSlug);
+      const data = await config.getFn(idOrSlug, locale);
       if (data) {
         const metaTags = config.metaFn(data);
         const jsonLd = config.jsonLdFn(data);
@@ -722,7 +725,7 @@ async function routeSSR(
   if (aliasResult) return aliasResult;
 
   // 1. Entity detail pages (highest priority - exact prefix match)
-  const entityResult = await tryEntitySSR(url, template);
+  const entityResult = await tryEntitySSR(url, template, locale);
   if (entityResult) return entityResult;
   
   // 2. Tag pages

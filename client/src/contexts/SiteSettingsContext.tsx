@@ -60,11 +60,15 @@ export function SiteSettingsProvider({ children }: { children: ReactNode }) {
   // Apply site title dynamically
   useEffect(() => {
     if (settings.site_title && !isLoading) {
-      // Only update if we're on the homepage or no specific page title is set
+      // Rename, don't replace. This used to overwrite any title starting
+      // with the masthead, which turned the server-rendered homepage title
+      // ("BrentDesk | Industry, Infrastructure & the Physical Economy")
+      // into a bare "BrentDesk" the moment React hydrated. An operator who
+      // renames the publication in settings still sees the new name on
+      // every page; everyone else keeps the title the server rendered.
       const currentTitle = document.title;
-      if (currentTitle.startsWith(`${publication.name} |`) ||
-          currentTitle === publication.name) {
-        document.title = settings.site_title;
+      if (settings.site_title !== publication.name && currentTitle.includes(publication.name)) {
+        document.title = currentTitle.split(publication.name).join(settings.site_title);
       }
     }
   }, [settings.site_title, isLoading]);

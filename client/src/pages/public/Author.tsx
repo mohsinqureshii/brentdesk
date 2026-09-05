@@ -148,7 +148,7 @@ const Author = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title={`${displayName} | ${publication.name}`}
+        title={`${displayName}${author.jobTitle ? ` — ${author.jobTitle}` : ""} | ${publication.name}`}
         description={String(authorBio).slice(0, 160)}
         canonical={authorCanonical}
         ogImage={author.avatar || undefined}

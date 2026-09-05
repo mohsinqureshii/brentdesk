@@ -21,11 +21,28 @@ import { eq, and, asc, desc, sql, gte, lte, isNull, or } from "drizzle-orm";
 import { TRPCError } from "@trpc/server";
 import { logAudit } from "./rbac.router";
 import { toDbDate } from "../_core/dbValues";
+import { localizeRows } from "../services/translation.service";
 
 // Last successful adsense response per slot — served when a transient
 // DB failure would otherwise blank every ad on the page. Revenue slots
 // must degrade to "yesterday's config", not to nothing.
 const lastKnownAdsense = new Map<string, unknown>();
+
+/**
+ * A house creative's headline, blurb and button are editorial copy; serve
+ * them in the reader's language like the masthead and category labels.
+ * A creative with no translation returns unchanged.
+ */
+async function localizeAdCreative<T extends { id: number }>(
+  locale: { code: string; isDefault: boolean } | undefined, creative: T,
+): Promise<T> {
+  try {
+    const [c] = await localizeRows(locale, "ad_creative", [creative]);
+    return c ?? creative;
+  } catch {
+    return creative;
+  }
+}
 
 export const advertisingRouter = router({
   // ============================================================
@@ -779,7 +796,7 @@ export const advertisingRouter = router({
       category: z.string().optional(),
       sessionId: z.string().optional(),
     }))
-    .query(async ({ input }) => {
+    .query(async ({ input, ctx }) => {
       try {
       const database = await getDb();
       if (!database) return { type: 'empty' as const, slotKey: input.slotKey };
@@ -848,6 +865,7 @@ export const advertisingRouter = router({
             .limit(1);
 
           if (creative) {
+            const c = await localizeAdCreative(ctx.locale, creative);
             return {
               type: 'direct' as const,
               slotKey: input.slotKey,
@@ -856,10 +874,10 @@ export const advertisingRouter = router({
               creativeId: creative.id,
               format: creative.format,
               fileUrl: creative.fileUrl,
-              nativeHeadline: creative.nativeHeadline,
-              nativeDescription: creative.nativeDescription,
+              nativeHeadline: c.nativeHeadline,
+              nativeDescription: c.nativeDescription,
               clickUrl: creative.clickUrl,
-              nativeCta: creative.nativeCta,
+              nativeCta: c.nativeCta,
               dimensions: creative.dimensions || slot.dimensions,
               isPremium: !!slot.isPremium,
             };
@@ -891,6 +909,7 @@ export const advertisingRouter = router({
             : undefined;
 
           if (creative) {
+            const c = await localizeAdCreative(ctx.locale, creative);
             return {
               type: 'house' as const,
               slotKey: input.slotKey,
@@ -899,10 +918,10 @@ export const advertisingRouter = router({
               creativeId: creative.id,
               format: creative.format,
               fileUrl: creative.fileUrl,
-              nativeHeadline: creative.nativeHeadline,
-              nativeDescription: creative.nativeDescription,
+              nativeHeadline: c.nativeHeadline,
+              nativeDescription: c.nativeDescription,
               clickUrl: creative.clickUrl,
-              nativeCta: creative.nativeCta,
+              nativeCta: c.nativeCta,
               dimensions: creative.dimensions || slot.dimensions,
               isPremium: 0,
             };

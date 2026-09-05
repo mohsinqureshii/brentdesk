@@ -39,9 +39,13 @@ export function SEO({
   const siteName = settings.site_title || publication.name;
 
   useEffect(() => {
-    // Update document title
+    // Update document title. Several pages pass a title that already
+    // carries the masthead ("Companies | BrentDesk"), which produced
+    // "Companies | BrentDesk | BrentDesk" in the browser tab once React
+    // hydrated over a correct server-rendered title. Append only when the
+    // page has not named the publication itself.
     if (title) {
-      document.title = `${title} | ${siteName}`;
+      document.title = title.includes(siteName) ? title : `${title} | ${siteName}`;
     }
 
     // Helper to set or remove meta tag
