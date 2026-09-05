@@ -70,7 +70,7 @@ const ENTITY_TYPES: { value: EntityType; label: string; icon: typeof Building2; 
   { value: "person", label: "Person", icon: User, color: "text-violet-600", bgColor: "bg-violet-100" },
   { value: "accelerator", label: "Accelerator", icon: Rocket, color: "text-purple-600", bgColor: "bg-purple-100" },
   { value: "event", label: "Event", icon: Calendar, color: "text-orange-600", bgColor: "bg-orange-100" },
-  { value: "investor", label: "Investor", icon: TrendingUp, color: "text-emerald-600", bgColor: "bg-emerald-100" },
+  { value: "investor", label: "Investor", icon: TrendingUp, color: "text-primary", bgColor: "bg-primary" },
 ];
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bgColor: string; icon: typeof CheckCircle }> = {
@@ -253,14 +253,14 @@ export default function ClaimedProfiles() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-foreground flex items-center gap-3">
-              <ShieldCheck className="h-7 w-7 text-emerald-600" />
+              <ShieldCheck className="h-7 w-7 text-primary" />
               Claimed Profiles
             </h1>
             <p className="text-muted-foreground mt-1">
               Manage your claimed companies, people, accelerators, events, and investor profiles
             </p>
           </div>
-          <Button onClick={() => { resetClaimForm(); setShowClaimDialog(true); }} className="gap-2 shrink-0 bg-emerald-600 hover:bg-emerald-700">
+          <Button onClick={() => { resetClaimForm(); setShowClaimDialog(true); }} className="gap-2 shrink-0 bg-primary hover:bg-primary/90">
             <Plus className="h-4 w-4" />
             Claim a Profile
           </Button>
@@ -348,7 +348,7 @@ export default function ClaimedProfiles() {
                   : "No claims match this filter."}
               </p>
               {statusFilter === "all" && (
-                <Button onClick={() => { resetClaimForm(); setShowClaimDialog(true); }} className="gap-2 bg-emerald-600 hover:bg-emerald-700">
+                <Button onClick={() => { resetClaimForm(); setShowClaimDialog(true); }} className="gap-2 bg-primary hover:bg-primary/90">
                   <Plus className="h-4 w-4" />
                   Claim Your First Profile
                 </Button>
@@ -483,7 +483,7 @@ export default function ClaimedProfiles() {
         <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-emerald-600" />
+              <ShieldCheck className="h-5 w-5 text-primary" />
               Claim a Profile
             </DialogTitle>
             <DialogDescription>
@@ -633,7 +633,7 @@ export default function ClaimedProfiles() {
             <Button
               onClick={handleClaim}
               disabled={!selectedEntityId || !claimReason.trim() || claimMutation.isPending}
-              className="bg-emerald-600 hover:bg-emerald-700"
+              className="bg-primary hover:bg-primary/90"
             >
               {claimMutation.isPending ? (
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />

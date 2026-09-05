@@ -53,7 +53,7 @@ import { toast } from "sonner";
 
 function StatusBadge({ slug, name }: { slug: string; name: string }) {
   const variants: Record<string, string> = {
-    published: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
+    published: "bg-primary/100/10 text-primary border-primary",
     draft: "bg-slate-500/10 text-slate-600 border-slate-500/20",
     submitted: "bg-blue-500/10 text-blue-600 border-blue-500/20",
     under_review: "bg-amber-500/10 text-amber-600 border-amber-500/20",
@@ -93,7 +93,7 @@ const ENTITY_TYPE_CONFIG: Record<string, { icon: typeof Building2; color: string
   person: { icon: Users, color: "text-violet-600", bgColor: "bg-violet-100 dark:bg-violet-900/30", label: "Person" },
   accelerator: { icon: Rocket, color: "text-purple-600", bgColor: "bg-purple-100 dark:bg-purple-900/30", label: "Accelerator" },
   event: { icon: Calendar, color: "text-orange-600", bgColor: "bg-orange-100 dark:bg-orange-900/30", label: "Event" },
-  investor: { icon: TrendingUp, color: "text-emerald-600", bgColor: "bg-emerald-100 dark:bg-emerald-900/30", label: "Investor" },
+  investor: { icon: TrendingUp, color: "text-primary", bgColor: "bg-primary dark:bg-primary", label: "Investor" },
 };
 
 // ============================================================
@@ -323,8 +323,8 @@ export default function MyContent() {
       label: "Jobs",
       icon: Briefcase,
       count: stats?.jobs || 0,
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-500/10",
+      color: "text-primary",
+      bgColor: "bg-primary/100/10",
       createPath: "/dashboard/my-content/job/new",
       detailPath: "/jobs",
       editPath: "/dashboard/my-content/job",
@@ -460,8 +460,8 @@ export default function MyContent() {
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                  <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                <div className="h-10 w-10 rounded-lg bg-primary dark:bg-primary flex items-center justify-center">
+                  <ShieldCheck className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{claimedLoading ? "—" : approvedClaims.length}</p>
@@ -545,7 +545,7 @@ export default function MyContent() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-semibold flex items-center gap-2">
-                    <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                    <ShieldCheck className="h-5 w-5 text-primary" />
                     Claimed Profiles
                   </h2>
                   <Button
@@ -577,7 +577,7 @@ export default function MyContent() {
                                 <Badge variant="outline" className={`text-[10px] px-1.5 py-0 ${typeInfo?.bgColor || ""} ${typeInfo?.color || ""} border-0`}>
                                   {typeInfo?.label || profile.entityType}
                                 </Badge>
-                                <span className="text-[10px] text-emerald-600 flex items-center gap-0.5">
+                                <span className="text-[10px] text-primary flex items-center gap-0.5">
                                   <CheckCircle2 className="h-3 w-3" /> Verified
                                 </span>
                               </div>
@@ -720,7 +720,7 @@ export default function MyContent() {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-lg font-semibold flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                  <ShieldCheck className="h-5 w-5 text-primary" />
                   Claimed Profiles
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
@@ -728,7 +728,7 @@ export default function MyContent() {
                 </p>
               </div>
               <Link href="/claimed-profiles">
-                <Button className="gap-2 bg-emerald-600 hover:bg-emerald-700">
+                <Button className="gap-2 bg-primary hover:bg-primary/90">
                   <Plus className="h-4 w-4" />
                   Claim a Profile
                 </Button>
@@ -750,7 +750,7 @@ export default function MyContent() {
                     Claim a company, person, accelerator, event, or investor profile to manage it and post content.
                   </p>
                   <Link href="/claimed-profiles">
-                    <Button className="gap-2 bg-emerald-600 hover:bg-emerald-700">
+                    <Button className="gap-2 bg-primary hover:bg-primary/90">
                       <Plus className="h-4 w-4" />
                       Claim Your First Profile
                     </Button>

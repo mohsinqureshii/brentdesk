@@ -242,8 +242,8 @@ export default function EventSubmit() {
         <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <Card className="text-center">
             <CardContent className="pt-10 pb-10">
-              <div className="mx-auto w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center mb-5">
-                <CheckCircle2 className="w-7 h-7 text-emerald-500" />
+              <div className="mx-auto w-14 h-14 rounded-full bg-primary/100/10 flex items-center justify-center mb-5">
+                <CheckCircle2 className="w-7 h-7 text-primary" />
               </div>
               <h1 className="text-3xl font-bold mb-3">{t("event.submitThanks")}</h1>
               <p className="text-muted-foreground mb-2 max-w-lg mx-auto">

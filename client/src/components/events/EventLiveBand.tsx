@@ -189,12 +189,12 @@ export default function EventLiveBand({
                 now,
               );
               return rel ? (
-                <p className="mt-1 text-sm font-semibold text-emerald-400">{rel}</p>
+                <p className="mt-1 text-sm font-semibold text-primary">{rel}</p>
               ) : null;
             })()}
             <Link
               href={`/events/${event.slug}/live`}
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:underline"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
             >
               {t("events.viewAllLiveSessions")}
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

@@ -118,7 +118,7 @@ const Sitemap = () => {
         </div>
 
         {/* Dynamic Pages Note */}
-        <div className="mt-16 p-6 bg-muted/50 rounded-xl border border-border">
+        <div className="mt-16 p-6 bg-muted/50 rounded-sm border border-border">
           <h3 className="text-lg font-semibold text-foreground mb-3">{t("sitemap.dynamicPages")}</h3>
           <p className="text-muted-foreground mb-4">
             {t("sitemap.dynamicPagesIntro", { site: publication.name })}

@@ -218,10 +218,12 @@ export function AdUnit({
         </div>
       )}
 
-      {/* Reserved space while the slot loads (prevents layout shift) */}
+      {/* Reserved space while the slot loads (prevents layout shift). Once
+          the slot resolves the box goes: an unfilled slot must cost no
+          height, or a feed with in-line slots renders visible holes. */}
       {!adData && (
         <div
-          className="bg-muted/20 rounded"
+          className="bg-muted/20"
           style={{ width: "100%", maxWidth: dims.width, height: dims.height }}
         />
       )}

@@ -27,10 +27,10 @@ export function CompanyCard({
 }: CompanyCardProps) {
   const t = useT();
   return (
-    <div className="group rounded-xl border border-border bg-card p-5 shadow-card hover:shadow-elevated transition-all duration-200 hover:-translate-y-0.5">
+    <div className="group rounded-sm border border-border bg-card p-5 shadow-card hover:shadow-elevated transition-all duration-200 hover:-translate-y-0.5">
       <div className="flex items-start gap-4">
         {/* Logo */}
-        <div className="h-14 w-14 rounded-xl bg-muted flex items-center justify-center shrink-0 overflow-hidden">
+        <div className="h-14 w-14 rounded-sm bg-muted flex items-center justify-center shrink-0 overflow-hidden">
           {logoUrl ? (
             <img src={logoUrl} alt={name} className="h-full w-full object-cover" />
           ) : (

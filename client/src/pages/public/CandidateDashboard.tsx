@@ -226,7 +226,7 @@ function StatCard({
   tone?: "good" | "warn";
 }) {
   const valueClass =
-    tone === "good" ? "text-emerald-600" : tone === "warn" ? "text-amber-600" : "";
+    tone === "good" ? "text-primary" : tone === "warn" ? "text-amber-600" : "";
   return (
     <Link href={href}>
       <Card className="hover:bg-muted/30 transition-colors cursor-pointer">

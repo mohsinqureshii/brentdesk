@@ -280,10 +280,10 @@ export function EventBookmarkButton({
       }
       title={saved ? t("article.saved") : t("events.saveEvent")}
       disabled={isPending}
-      className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-zinc-700 shadow-sm ring-1 ring-black/5 transition-colors hover:bg-white hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:opacity-60 ${className}`}
+      className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-zinc-700 shadow-sm ring-1 ring-black/5 transition-colors hover:bg-white hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-60 ${className}`}
     >
       <Bookmark
-        className={`h-4 w-4 ${saved ? "fill-emerald-600 text-emerald-600" : ""}`}
+        className={`h-4 w-4 ${saved ? "fill-primary text-primary" : ""}`}
       />
     </button>
   );
@@ -311,14 +311,14 @@ export function EventSaveButton({
       aria-pressed={saved}
       disabled={isPending}
       title={saved ? t("events.savedToBookmarks") : t("events.saveThisEvent")}
-      className={`inline-flex h-12 items-center justify-center gap-2 rounded-lg border px-6 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:opacity-60 ${
+      className={`inline-flex h-12 items-center justify-center gap-2 rounded-lg border px-6 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-60 ${
         saved
-          ? "border-emerald-600 bg-emerald-600/10 text-emerald-700 dark:text-emerald-400"
-          : "border-[var(--border)] text-foreground hover:border-emerald-600/50 hover:text-emerald-700 dark:hover:text-emerald-400"
+          ? "border-primary bg-primary/10 text-primary"
+          : "border-[var(--border)] text-foreground hover:border-primary/50 hover:text-primary dark:hover:text-primary"
       } ${className}`}
     >
       <Bookmark
-        className={`h-4 w-4 ${saved ? "fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400" : ""}`}
+        className={`h-4 w-4 ${saved ? "fill-primary text-primary dark:fill-primary dark:text-primary" : ""}`}
         aria-hidden="true"
       />
       {saved ? t("article.saved") : t("events.saveEvent")}
@@ -420,7 +420,7 @@ export function EventCard({
           <span
             className={`absolute bottom-2.5 right-2.5 z-10 inline-flex items-center rounded-full px-2 py-1 text-[10px] font-bold uppercase tracking-wide shadow-sm ${
               price.tone === "free"
-                ? "bg-emerald-600 text-white"
+                ? "bg-primary text-white"
                 : "bg-white/95 text-zinc-900"
             }`}
           >
@@ -446,12 +446,12 @@ export function EventCard({
             className={`line-clamp-2 min-h-[2.6rem] text-[15px] font-bold leading-snug tracking-tight transition-colors ${
               isPast
                 ? "text-muted-foreground group-hover:text-foreground"
-                : "text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-400"
+                : "text-foreground group-hover:text-primary dark:group-hover:text-primary"
             }`}
           >
             <Link
               href={`/events/${event.slug}`}
-              className="after:absolute after:inset-0 after:rounded-2xl after:content-[''] focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-emerald-500"
+              className="after:absolute after:inset-0 after:rounded-2xl after:content-[''] focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-primary"
             >
               {event.title}
             </Link>
@@ -540,7 +540,7 @@ export function LiveEventCard({ event }: { event: LiveCardEvent }) {
       href={`/events/${event.slug}/live`}
       className="group relative w-[280px] shrink-0 snap-start focus-visible:outline-none sm:w-[320px] lg:w-[calc((100%-3.75rem)/4)]"
     >
-      <article className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-950 shadow-sm ring-1 ring-black/5 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-focus-visible:ring-2 group-focus-visible:ring-emerald-500">
+      <article className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-950 shadow-sm ring-1 ring-black/5 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-focus-visible:ring-2 group-focus-visible:ring-primary">
         <div className="absolute inset-0">
           <EventMedia
             event={event}
@@ -574,7 +574,7 @@ export function LiveEventCard({ event }: { event: LiveCardEvent }) {
             <MapPin className="h-3.5 w-3.5 shrink-0" />
             <span className="truncate">{location}</span>
           </p>
-          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-zinc-900 shadow-sm transition-colors group-hover:bg-emerald-500 group-hover:text-white">
+          <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-zinc-900 shadow-sm transition-colors group-hover:bg-primary/100 group-hover:text-white">
             {t("events.watchLive")}
             <span aria-hidden="true">→</span>
           </span>
@@ -606,7 +606,7 @@ export function TrendingEventRow({
 
   return (
     <div className="group relative flex items-start gap-3">
-      <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[11px] font-bold tabular-nums text-emerald-700 ring-1 ring-emerald-600/20 dark:bg-emerald-500/10 dark:text-emerald-300 dark:ring-emerald-400/25">
+      <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold tabular-nums text-primary ring-1 ring-primary/20 dark:bg-primary/100/10 dark:text-primary dark:ring-primary/25">
         {rank}
       </span>
 
@@ -618,7 +618,7 @@ export function TrendingEventRow({
       />
 
       <div className="min-w-0 flex-1">
-        <h4 className="line-clamp-2 text-[13px] font-bold leading-snug transition-colors group-hover:text-emerald-700 dark:group-hover:text-emerald-400">
+        <h4 className="line-clamp-2 text-[13px] font-bold leading-snug transition-colors group-hover:text-primary dark:group-hover:text-primary">
           <Link
             href={`/events/${event.slug}`}
             className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:underline"

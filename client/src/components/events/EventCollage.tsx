@@ -108,7 +108,7 @@ function CollageTile({
           ? t("events.playVideoN", { n: index + 1, total })
           : t("events.viewLarger", { name: slide.alt })
       }
-      className={`group relative overflow-hidden rounded-xl border border-[var(--border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${className}`}
+      className={`group relative overflow-hidden rounded-xl border border-[var(--border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${className}`}
     >
       <div className={inner}>
         {slide.kind === "image" ? (
@@ -246,7 +246,7 @@ export function EventPhotoStrip({
 
   return (
     <section aria-label={t("events.eventPhotos")}>
-      <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+      <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
         {t("events.photos")}
       </h2>
       <div className="-mx-1 mt-4 flex snap-x gap-3 overflow-x-auto px-1 pb-2">
@@ -255,7 +255,7 @@ export function EventPhotoStrip({
             key={slide.key}
             type="button"
             onClick={() => setLightbox(slide)}
-            className="group shrink-0 snap-start text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            className="group shrink-0 snap-start text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={
               slide.kind === "video"
                 ? t("events.playVideoN", { n: i + 1, total: slides.length })

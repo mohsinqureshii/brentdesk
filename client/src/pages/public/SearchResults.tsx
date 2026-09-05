@@ -39,7 +39,7 @@ import { useDebounce } from "@/hooks/useDebounce";
 const typeConfig = {
   all: { icon: Search, labelKey: "common.all", color: "bg-gray-100 text-gray-700" },
   article: { icon: Newspaper, labelKey: "common.articles", color: "bg-blue-100 text-blue-700" },
-  job: { icon: Briefcase, labelKey: "nav.jobs", color: "bg-emerald-100 text-emerald-700" },
+  job: { icon: Briefcase, labelKey: "nav.jobs", color: "bg-primary text-primary" },
   company: { icon: Building2, labelKey: "nav.companies", color: "bg-purple-100 text-purple-700" },
   person: { icon: Users, labelKey: "nav.people", color: "bg-orange-100 text-orange-700" },
   event: { icon: Calendar, labelKey: "nav.events", color: "bg-pink-100 text-pink-700" },
@@ -193,16 +193,16 @@ export default function SearchResults() {
                 <button
                   key={type}
                   onClick={() => setActiveType(type)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-[0.75rem] font-bold uppercase tracking-[0.06em] transition-colors ${
                     isActive
-                      ? "bg-emerald-600 text-white"
+                      ? "bg-primary text-white"
                       : "bg-white text-gray-600 hover:bg-gray-100 border"
                   }`}
                 >
                   <Icon className="h-3.5 w-3.5" />
                   {t(config.labelKey)}
                   {debouncedQuery && count > 0 && (
-                    <span className={`text-xs ${isActive ? "text-emerald-100" : "text-gray-400"}`}>
+                    <span className={`text-xs ${isActive ? "text-primary" : "text-gray-400"}`}>
                       ({count})
                     </span>
                   )}
@@ -272,7 +272,7 @@ export default function SearchResults() {
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors line-clamp-2">
+                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                           {article.title}
                         </h3>
                         {article.excerpt && (
@@ -319,12 +319,12 @@ export default function SearchResults() {
                           className="h-14 w-14 rounded-lg object-cover shrink-0"
                         />
                       ) : (
-                        <div className="h-14 w-14 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0">
-                          <Briefcase className="h-6 w-6 text-emerald-300" />
+                        <div className="h-14 w-14 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          <Briefcase className="h-6 w-6 text-primary" />
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
+                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                           {job.title}
                         </h3>
                         <p className="text-sm text-muted-foreground">{job.companyName}</p>
@@ -374,7 +374,7 @@ export default function SearchResults() {
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
+                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                           {company.name}
                         </h3>
                         <p className="text-sm text-muted-foreground">{company.industry}</p>
@@ -419,7 +419,7 @@ export default function SearchResults() {
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
+                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                           {person.name}
                         </h3>
                         <p className="text-sm text-muted-foreground">{person.title}</p>
@@ -458,7 +458,7 @@ export default function SearchResults() {
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground group-hover:text-emerald-600 transition-colors">
+                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                           {event.title}
                         </h3>
                         <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
@@ -511,12 +511,12 @@ function ResultSection({
     <section>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Icon className="h-5 w-5 text-emerald-600" />
+          <Icon className="h-5 w-5 text-primary" />
           <h2 className="text-lg font-semibold">{title}</h2>
           <span className="text-sm text-muted-foreground">({count})</span>
         </div>
         {showViewAll && (
-          <Button variant="ghost" size="sm" onClick={onViewAll} className="text-emerald-600 hover:text-emerald-700">
+          <Button variant="ghost" size="sm" onClick={onViewAll} className="text-primary hover:text-primary">
             {t("common.viewAll")}<ArrowRight className="h-4 w-4 ml-1" />
           </Button>
         )}

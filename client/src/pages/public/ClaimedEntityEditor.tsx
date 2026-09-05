@@ -36,7 +36,7 @@ type EntityType = "company" | "person" | "investor" | "event" | "accelerator";
 const entityConfig: Record<EntityType, {
   label: string; icon: any; color: string; bgColor: string;
 }> = {
-  company: { label: "Company", icon: Building2, color: "text-emerald-600", bgColor: "bg-emerald-500/10" },
+  company: { label: "Company", icon: Building2, color: "text-primary", bgColor: "bg-primary/100/10" },
   person: { label: "Person", icon: Users, color: "text-purple-600", bgColor: "bg-purple-500/10" },
   investor: { label: "Investor", icon: TrendingUp, color: "text-amber-600", bgColor: "bg-amber-500/10" },
   event: { label: "Event", icon: Calendar, color: "text-rose-600", bgColor: "bg-rose-500/10" },
@@ -534,15 +534,15 @@ export default function ClaimedEntityEditor() {
             <p className="text-sm text-muted-foreground">Update your {config.label.toLowerCase()} profile details</p>
           </div>
         </div>
-        <Badge variant="outline" className="text-emerald-600 border-emerald-500/30 bg-emerald-500/10">
+        <Badge variant="outline" className="text-primary border-primary bg-primary/100/10">
           <ShieldCheck className="w-3 h-3 mr-1" /> Claimed & Verified
         </Badge>
       </div>
 
       {saved && (
-        <div className="flex items-center gap-2 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 mb-6">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-          <span className="text-sm text-emerald-600 font-medium">Changes saved successfully!</span>
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-primary/100/10 border border-primary mb-6">
+          <CheckCircle2 className="w-4 h-4 text-primary" />
+          <span className="text-sm text-primary font-medium">Changes saved successfully!</span>
         </div>
       )}
 

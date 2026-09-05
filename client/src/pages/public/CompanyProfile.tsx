@@ -254,7 +254,7 @@ export default function CompanyProfile() {
           <div className="flex flex-col md:flex-row gap-5 md:gap-6 items-start">
             {/* Logo */}
             <div className="relative shrink-0 z-10">
-              <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-card bg-white dark:bg-card w-28 h-28 sm:w-36 sm:h-36">
+              <div className="rounded-sm overflow-hidden  border-4 border-white dark:border-card bg-white dark:bg-card w-28 h-28 sm:w-36 sm:h-36">
                 {company.logo ? (
                   <img src={company.logo} alt={company.name} className="w-full h-full object-contain p-3" />
                 ) : (
@@ -478,13 +478,13 @@ export default function CompanyProfile() {
                 {/* Overview Stats */}
                 <div className="grid grid-cols-2 gap-3">
                   {company.employeeCount && (
-                    <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
+                    <div className="rounded-sm bg-white dark:bg-card border border-border p-4 text-center">
                       <Users className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
                       <div className="text-lg font-bold text-foreground">{company.employeeCount}</div>
                       <div className="text-[11px] text-muted-foreground">{t("company.employees")}</div>
                     </div>
                   )}
-                  <div className="rounded-xl bg-white dark:bg-card border border-border p-4 text-center">
+                  <div className="rounded-sm bg-white dark:bg-card border border-border p-4 text-center">
                     <Eye className="h-5 w-5 mx-auto mb-1.5 text-muted-foreground" />
                     <div className="text-lg font-bold text-foreground">{fmtNumber((company.viewCount || 0))}</div>
                     <div className="text-[11px] text-muted-foreground">{t("company.profileViews")}</div>
@@ -880,7 +880,7 @@ export default function CompanyProfile() {
                       </h2>
                       <div className="grid sm:grid-cols-2 gap-3">
                         {keyPeople.map((person, i) => (
-                          <div key={i} className="flex items-center gap-3 p-3 rounded-xl border border-border hover:bg-muted/30 transition-colors">
+                          <div key={i} className="flex items-center gap-3 p-3 rounded-sm border border-border hover:bg-muted/30 transition-colors">
                             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 flex items-center justify-center shrink-0">
                               <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{person.name.charAt(0)}</span>
                             </div>
@@ -914,7 +914,7 @@ export default function CompanyProfile() {
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {teamMembers.map((member: any) => (
                           <Link key={member.id} href={`/people/${member.slug}`}>
-                            <div className="flex items-center gap-3 p-3 rounded-xl border border-border hover:bg-muted/30 transition-colors cursor-pointer">
+                            <div className="flex items-center gap-3 p-3 rounded-sm border border-border hover:bg-muted/30 transition-colors cursor-pointer">
                               {member.avatar ? (
                                 <img src={member.avatar} alt={member.name} className="w-10 h-10 rounded-full object-cover shrink-0" />
                               ) : (
@@ -1081,7 +1081,7 @@ export default function CompanyProfile() {
                           <div className="space-y-2">
                             {caseStudies.map((cs, i) => (
                               <a key={i} href={cs.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-2.5 rounded-lg border border-border hover:bg-muted/30 transition-colors">
-                                <GraduationCap className="h-4 w-4 text-emerald-500 shrink-0" />
+                                <GraduationCap className="h-4 w-4 text-primary shrink-0" />
                                 <div className="flex-1 min-w-0">
                                   <div className="text-sm font-medium text-foreground truncate">{cs.title}</div>
                                   {cs.client && <p className="text-xs text-muted-foreground">{t("company.clientLabel", { name: cs.client })}</p>}
@@ -1110,7 +1110,7 @@ export default function CompanyProfile() {
                   <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all ${
-                        profileStrength >= 80 ? "bg-emerald-500" :
+                        profileStrength >= 80 ? "bg-primary/100" :
                         profileStrength >= 50 ? "bg-amber-500" :
                         "bg-red-500"
                       }`}

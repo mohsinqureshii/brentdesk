@@ -79,7 +79,7 @@ function FactRow({
   return (
     <div className="flex items-start gap-3 py-3 first:pt-0 last:pb-0">
       <Icon
-        className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
         aria-hidden="true"
       />
       <div className="min-w-0">
@@ -130,7 +130,7 @@ function KeyFacts({ event }: { event: EventRow }) {
             href={directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+            className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline dark:text-primary"
           >
             {t("events.getDirections")}{" "}
             <ArrowRight className="h-3 w-3" aria-hidden="true" />
@@ -147,7 +147,7 @@ function KeyFacts({ event }: { event: EventRow }) {
           href={website}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="inline-flex items-center gap-1 break-all text-emerald-700 hover:underline dark:text-emerald-400"
+          className="inline-flex items-center gap-1 break-all text-primary hover:underline dark:text-primary"
         >
           {website.replace(/^https?:\/\//, "").replace(/\/$/, "")}
           <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
@@ -163,7 +163,7 @@ function KeyFacts({ event }: { event: EventRow }) {
           href={event.registrationUrl}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="inline-flex items-center gap-1 text-emerald-700 hover:underline dark:text-emerald-400"
+          className="inline-flex items-center gap-1 text-primary hover:underline dark:text-primary"
         >
           {t("events.registerOnOrganiserSite")}
           <ExternalLink className="h-3 w-3 shrink-0" aria-hidden="true" />
@@ -193,7 +193,7 @@ function Organiser({ event }: { event: EventRow }) {
   return (
     <RailCard title={t("events.organiser")}>
       <div className="flex items-start gap-3">
-        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Building2 className="h-4 w-4" aria-hidden="true" />
         </span>
         <div className="min-w-0">
@@ -208,7 +208,7 @@ function Organiser({ event }: { event: EventRow }) {
               href={event.organizerWebsite}
               target="_blank"
               rel="noopener noreferrer nofollow"
-              className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+              className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline dark:text-primary"
             >
               {t("events.visitOrganiser")}{" "}
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
@@ -243,7 +243,7 @@ function MoreEvents({ currentId }: { currentId: number }) {
       action={
         <Link
           href="/events"
-          className="text-[11px] font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+          className="text-[11px] font-semibold text-primary hover:underline dark:text-primary"
         >
           {t("events.allEvents")}
         </Link>
@@ -273,7 +273,7 @@ function MoreEvents({ currentId }: { currentId: number }) {
                 )}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="line-clamp-2 block text-sm font-semibold leading-snug text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-400">
+                <span className="line-clamp-2 block text-sm font-semibold leading-snug text-foreground group-hover:text-primary dark:group-hover:text-primary">
                   {e.title}
                 </span>
                 {e.startDate && (

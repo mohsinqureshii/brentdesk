@@ -147,7 +147,7 @@ export default function PersonDetail() {
               <div className="flex items-end gap-4 sm:gap-6 mb-4">
                 {/* Avatar */}
                 <div className="relative shrink-0">
-                  <div className="h-24 w-24 sm:h-32 sm:w-32 rounded-2xl bg-white dark:bg-card border-4 border-white dark:border-card shadow-lg overflow-hidden">
+                  <div className="h-24 w-24 sm:h-32 sm:w-32 rounded-sm bg-white dark:bg-card border-4 border-white dark:border-card  overflow-hidden">
                     <AvatarWithFallback src={p.avatar} alt={p.name} name={p.name} size="xl" className="h-full w-full" />
                   </div>
                   {p.isVerified ? (
@@ -576,7 +576,7 @@ export default function PersonDetail() {
                       <div className="space-y-3">
                         {companiesFounded.map((cf: any, i: number) => (
                           <div key={i} className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/30 transition-colors">
-                            <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center shrink-0">
+                            <div className="w-12 h-12 rounded-sm bg-muted flex items-center justify-center shrink-0">
                               <Building2 className="h-6 w-6 text-muted-foreground" />
                             </div>
                             <div className="flex-1 min-w-0">

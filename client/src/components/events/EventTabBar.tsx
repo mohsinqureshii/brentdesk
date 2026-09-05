@@ -106,9 +106,9 @@ export default function EventTabBar({
               aria-controls={tabPanelId(tab.id)}
               tabIndex={selected ? 0 : -1}
               onClick={() => onChange(tab.id)}
-              className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 px-3 py-4 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 sm:px-5 ${
+              className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 px-3 py-4 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:px-5 ${
                 selected
-                  ? "border-emerald-600 text-emerald-700 dark:border-emerald-400 dark:text-emerald-400"
+                  ? "border-primary text-primary dark:border-primary dark:text-primary"
                   : "border-transparent text-muted-foreground hover:border-[var(--border)] hover:text-foreground"
               }`}
             >

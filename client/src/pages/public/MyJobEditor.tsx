@@ -253,7 +253,7 @@ export default function MyJobEditor() {
 
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-md">
+          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-teal-600 flex items-center justify-center shadow-md">
             <Briefcase className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -282,15 +282,15 @@ export default function MyJobEditor() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all text-sm font-medium ${
                     isActive
-                      ? "bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 shadow-sm"
+                      ? "bg-primary/100/10 text-primary border border-primary shadow-sm"
                       : "hover:bg-muted/60 text-muted-foreground"
                   }`}
                 >
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
                     isComplete
-                      ? "bg-emerald-500 text-white"
+                      ? "bg-primary/100 text-white"
                       : isActive
-                        ? "bg-emerald-500/20 text-emerald-600"
+                        ? "bg-primary/100/20 text-primary"
                         : "bg-muted text-muted-foreground"
                   }`}>
                     {isComplete ? (
@@ -308,7 +308,7 @@ export default function MyJobEditor() {
                       {tab.id === "requirements" && (form.skills ? form.skills.substring(0, 30) : "Skills & how to apply")}
                     </span>
                   </div>
-                  {isActive && <ChevronRight className="w-4 h-4 shrink-0 text-emerald-500" />}
+                  {isActive && <ChevronRight className="w-4 h-4 shrink-0 text-primary" />}
                 </button>
               );
             })}
@@ -318,7 +318,7 @@ export default function MyJobEditor() {
               <Button
                 type="submit"
                 disabled={saving || !form.title.trim() || !selectedCompany}
-                className="w-full gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-md"
+                className="w-full gap-2 bg-gradient-to-r from-primary to-teal-600 hover:from-primary hover:to-teal-700 shadow-md"
                 size="lg"
               >
                 {saving ? (
@@ -337,14 +337,14 @@ export default function MyJobEditor() {
               <Card className="shadow-sm">
                 <CardHeader className="border-b bg-muted/30">
                   <div className="flex items-center gap-2">
-                    <Building2 className="w-4 h-4 text-emerald-600" />
+                    <Building2 className="w-4 h-4 text-primary" />
                     <CardTitle className="text-base font-[Poppins]">Posting Company</CardTitle>
                   </div>
                   <CardDescription>Select which of your companies this job is for</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
                   {availableCompanies.length === 1 ? (
-                    <div className="flex items-center gap-4 p-5 rounded-xl bg-gradient-to-r from-emerald-500/5 to-teal-500/5 border border-emerald-500/20">
+                    <div className="flex items-center gap-4 p-5 rounded-xl bg-gradient-to-r from-primary to-teal-500/5 border border-primary">
                       <div className="w-14 h-14 rounded-xl bg-white border shadow-sm flex items-center justify-center overflow-hidden shrink-0">
                         {selectedCompany?.logo ? (
                           <img src={selectedCompany.logo} alt="" className="w-full h-full object-cover" />
@@ -361,7 +361,7 @@ export default function MyJobEditor() {
                         )}
                       </div>
                       {selectedCompany?.isClaimed && (
-                        <Badge variant="outline" className="text-emerald-600 border-emerald-500/30 bg-emerald-500/10 shrink-0 px-3 py-1">
+                        <Badge variant="outline" className="text-primary border-primary bg-primary/100/10 shrink-0 px-3 py-1">
                           <ShieldCheck className="w-3.5 h-3.5 mr-1.5" /> Verified
                         </Badge>
                       )}
@@ -379,7 +379,7 @@ export default function MyJobEditor() {
                               <span className="flex items-center gap-2">
                                 {c.name}
                                 {!!c.isClaimed && (
-                                  <Badge variant="outline" className="text-emerald-600 border-emerald-500/30 text-[10px] px-1 py-0">
+                                  <Badge variant="outline" className="text-primary border-primary text-[10px] px-1 py-0">
                                     Verified
                                   </Badge>
                                 )}
@@ -422,7 +422,7 @@ export default function MyJobEditor() {
               <Card className="shadow-sm">
                 <CardHeader className="border-b bg-muted/30">
                   <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-emerald-600" />
+                    <FileText className="w-4 h-4 text-primary" />
                     <CardTitle className="text-base font-[Poppins]">Job Details</CardTitle>
                   </div>
                   <CardDescription>Core information about the position</CardDescription>
@@ -523,7 +523,7 @@ export default function MyJobEditor() {
               <Card className="shadow-sm">
                 <CardHeader className="border-b bg-muted/30">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-emerald-600" />
+                    <DollarSign className="w-4 h-4 text-primary" />
                     <CardTitle className="text-base font-[Poppins]">Compensation</CardTitle>
                   </div>
                   <CardDescription>Salary range and benefits (optional but recommended)</CardDescription>
@@ -603,7 +603,7 @@ export default function MyJobEditor() {
               <Card className="shadow-sm">
                 <CardHeader className="border-b bg-muted/30">
                   <div className="flex items-center gap-2">
-                    <Settings2 className="w-4 h-4 text-emerald-600" />
+                    <Settings2 className="w-4 h-4 text-primary" />
                     <CardTitle className="text-base font-[Poppins]">Requirements & Application</CardTitle>
                   </div>
                   <CardDescription>Skills, requirements, and how candidates should apply</CardDescription>
@@ -676,7 +676,7 @@ export default function MyJobEditor() {
                       <Button
                         type="submit"
                         disabled={saving || !form.title.trim() || !selectedCompany}
-                        className="gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-md px-6"
+                        className="gap-2 bg-gradient-to-r from-primary to-teal-600 hover:from-primary hover:to-teal-700 shadow-md px-6"
                         size="lg"
                       >
                         {saving ? (
@@ -696,7 +696,7 @@ export default function MyJobEditor() {
               <Button
                 type="submit"
                 disabled={saving || !form.title.trim() || !selectedCompany}
-                className="w-full gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-md"
+                className="w-full gap-2 bg-gradient-to-r from-primary to-teal-600 hover:from-primary hover:to-teal-700 shadow-md"
                 size="lg"
               >
                 {saving ? (

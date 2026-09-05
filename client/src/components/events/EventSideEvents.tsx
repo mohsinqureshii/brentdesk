@@ -98,7 +98,7 @@ const TYPE_TONE: Record<string, string> = {
   workshop:
     "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/25",
   networking:
-    "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25",
+    "bg-primary/100/10 text-primary border-primary",
   party: "bg-pink-500/10 text-pink-700 dark:text-pink-400 border-pink-500/25",
   dinner:
     "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25",
@@ -139,7 +139,7 @@ function SideEventCard({ item }: { item: SideEventRow }) {
               variant="outline"
               className={
                 item.isFree
-                  ? "border-emerald-500/25 bg-emerald-500/10 text-[11px] text-emerald-700 dark:text-emerald-400"
+                  ? "border-primary bg-primary/100/10 text-[11px] text-primary"
                   : "text-[11px]"
               }
             >
@@ -387,8 +387,8 @@ function HostSideEventDialog({ eventId }: { eventId: number }) {
       <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
         {submitted ? (
           <div className="py-6 text-center">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10">
-              <CheckCircle2 className="h-7 w-7 text-emerald-600 dark:text-emerald-400" />
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/100/10">
+              <CheckCircle2 className="h-7 w-7 text-primary" />
             </div>
             <h3 className="text-xl font-semibold">
               {t("sideEvent.submittedTitle")}

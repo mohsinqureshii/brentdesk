@@ -172,7 +172,7 @@ const Contact = () => {
             </a>.
           </p>
 
-          <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+          <div className="bg-card rounded-sm border border-border p-6 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>

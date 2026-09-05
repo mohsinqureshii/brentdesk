@@ -361,7 +361,7 @@ export default function EventGalleryBlock({
         {heroInner}
 
         {event.isFeatured ? (
-          <span className="pointer-events-none absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm">
+          <span className="pointer-events-none absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white shadow-sm">
             <Star className="h-3 w-3" fill="currentColor" aria-hidden="true" />
             {t("list.featured")}
           </span>
@@ -408,7 +408,7 @@ export default function EventGalleryBlock({
               type="button"
               onClick={() => scrollStrip(-1)}
               aria-label={t("events.scrollThumbsLeft")}
-              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -440,9 +440,9 @@ export default function EventGalleryBlock({
                         })
                   }
                   aria-current={isActive ? "true" : undefined}
-                  className={`relative aspect-[16/10] shrink-0 grow-0 basis-[calc((100%-1rem)/3)] overflow-hidden rounded-lg bg-muted transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 sm:basis-[calc((100%-2rem)/5)] ${
+                  className={`relative aspect-[16/10] shrink-0 grow-0 basis-[calc((100%-1rem)/3)] overflow-hidden rounded-lg bg-muted transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:basis-[calc((100%-2rem)/5)] ${
                     isActive
-                      ? "ring-2 ring-emerald-600 ring-offset-2 ring-offset-background"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-background"
                       : "opacity-80 ring-1 ring-[var(--border)] hover:opacity-100"
                   }`}
                 >
@@ -474,7 +474,7 @@ export default function EventGalleryBlock({
               type="button"
               onClick={() => scrollStrip(1)}
               aria-label={t("events.scrollThumbsRight")}
-              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </button>

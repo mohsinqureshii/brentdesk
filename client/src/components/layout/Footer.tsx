@@ -4,6 +4,7 @@ import { Linkedin, Instagram, Youtube, Mail } from "lucide-react";
 import { publication } from "@shared/publication";
 import { Wordmark, useWordmark } from "@/components/layout/Header";
 import { useT } from "@/lib/i18n";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import type { UiKey } from "@shared/uiStrings";
 
 /** X (Twitter) glyph — lucide has no current X logo. */
@@ -71,18 +72,24 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-card border-t border-border mt-12">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          {/* Brand column */}
-          <div className="md:col-span-4">
+    /*
+      The footer is where the masthead is set at size. Ink, so the page
+      ends on the publication's own ground rather than trailing off into
+      more white, with the wordmark large enough to read as a masthead and
+      the newsletter beside it — the one thing a reader who got this far
+      is most likely to want.
+    */
+    <footer className="bd-ink mt-14">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/12">
+          <div className="lg:col-span-5">
             <Link href="/" aria-label={t("nav.siteHome", { site: publication.name })}>
-              <Wordmark className="text-foreground text-2xl" />
+              <Wordmark className="text-white text-[2.5rem] sm:text-[3.25rem]" />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground max-w-sm">
+            <p className="mt-5 text-sm leading-relaxed text-white/60 max-w-md">
               {t("footer.description", { site: publication.name })}
             </p>
-            <div className="mt-5 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-2">
               {socialLinks.map(({ label, href, Icon }) => (
                 <a
                   key={href}
@@ -90,7 +97,7 @@ export function Footer() {
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="h-9 w-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
+                  className="h-9 w-9 border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -98,62 +105,75 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
-          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <nav aria-label={publication.name}>
-              {/* The heading is the brand itself, so it takes the mark for
-                  the language being read. `uppercase` leaves the English
-                  identical to the literal it replaced; Arabic has no case,
-                  so it simply reads as the Arabic name. */}
-              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                {brand}
-              </h3>
-              <ul className="space-y-2.5">
-                {publicationLinks.map((link) => (
-                  <li key={link.key}>
-                    <Link href={link.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                      {t(link.key)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <div className="lg:col-span-4 grid grid-cols-2 gap-8">
             <nav aria-label={t("footer.categories")}>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
+              <h3 className="bd-display text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-white/45 mb-4">
                 {t("footer.categories")}
               </h3>
               <ul className="space-y-2.5">
                 {editorialLinks.map((link) => (
                   <li key={link.key}>
-                    <Link href={link.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">
+                    <Link href={link.href} className="text-[0.8125rem] text-white/80 hover:text-white transition-colors">
                       {t(link.key)}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
-            <nav aria-label={t("footer.company")}>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                {t("footer.company")}
-              </h3>
-              <ul className="space-y-2.5">
-                {companyLinks.map((link) => (
-                  <li key={link.key}>
-                    <Link href={link.href} className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                      {t(link.key)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <div className="space-y-8">
+              <nav aria-label={publication.name}>
+                {/* The heading is the brand itself, so it takes the mark for
+                    the language being read. `uppercase` leaves the English
+                    identical to the literal it replaced; Arabic has no case,
+                    so it simply reads as the Arabic name. */}
+                <h3 className="bd-display text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-white/45 mb-4">
+                  {brand}
+                </h3>
+                <ul className="space-y-2.5">
+                  {publicationLinks.map((link) => (
+                    <li key={link.key}>
+                      <Link href={link.href} className="text-[0.8125rem] text-white/80 hover:text-white transition-colors">
+                        {t(link.key)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <nav aria-label={t("footer.company")}>
+                <h3 className="bd-display text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-white/45 mb-4">
+                  {t("footer.company")}
+                </h3>
+                <ul className="space-y-2.5">
+                  {companyLinks.map((link) => (
+                    <li key={link.key}>
+                      <Link href={link.href} className="text-[0.8125rem] text-white/80 hover:text-white transition-colors">
+                        {t(link.key)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3">
+            <h3 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
+              {publication.newsletter.name}
+            </h3>
+            <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/60">
+              {t("newsletter.dailyDescription")}
+            </p>
+            <div className="mt-4">
+              <NewsletterSignup variant="inline" source="site-footer" />
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">
+        <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="text-[0.6875rem] text-white/45">
             © {new Date().getFullYear()} {publication.legalName}. {t("footer.allRightsReserved")}
           </p>
-          <p className="text-xs text-muted-foreground">{t("footer.tagline")}</p>
+          <p className="text-[0.6875rem] text-white/45">{t("footer.tagline")}</p>
         </div>
       </div>
     </footer>

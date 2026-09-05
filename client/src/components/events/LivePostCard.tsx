@@ -208,7 +208,7 @@ export default function LivePostCard({
     type === "breaking"
       ? "border-l-4 border-l-red-500"
       : type === "funding"
-      ? "border-l-4 border-l-emerald-500"
+      ? "border-l-4 border-l-primary"
       : type === "quote"
       ? "border-l-4 border-l-blue-500"
       : "";
@@ -286,11 +286,11 @@ export default function LivePostCard({
 
         {type === "funding" && (
           <div className="flex items-start gap-3">
-            <div className="h-10 w-10 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+            <div className="h-10 w-10 rounded-full bg-primary/100/10 text-primary flex items-center justify-center shrink-0">
               <DollarSign className="h-5 w-5" />
             </div>
             <div className="min-w-0">
-              <div className="text-[10px] uppercase tracking-wider text-emerald-600 font-semibold">
+              <div className="text-[10px] uppercase tracking-wider text-primary font-semibold">
                 {t("live.fundingAnnounced")}
               </div>
               <div className={`font-bold leading-tight ${large ? "text-2xl" : "text-lg"}`}>

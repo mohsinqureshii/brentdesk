@@ -106,8 +106,8 @@ export function EventRsvpButtons({
         variant={going ? "default" : "outline"}
         className={`${height} gap-2 rounded-lg px-6 text-sm font-semibold ${
           going
-            ? "bg-emerald-600 text-white hover:bg-emerald-700"
-            : "border-[var(--border)] text-foreground hover:border-emerald-600/50 hover:text-emerald-700 dark:hover:text-emerald-400"
+            ? "bg-primary text-white hover:bg-primary/90"
+            : "border-[var(--border)] text-foreground hover:border-primary/50 hover:text-primary dark:hover:text-primary"
         }`}
       >
         {going ? (
@@ -125,8 +125,8 @@ export function EventRsvpButtons({
         variant="outline"
         className={`${height} gap-2 rounded-lg px-5 text-sm font-semibold ${
           interested
-            ? "border-emerald-600 text-emerald-700 dark:text-emerald-400"
-            : "border-[var(--border)] text-foreground hover:border-emerald-600/50 hover:text-emerald-700 dark:hover:text-emerald-400"
+            ? "border-primary text-primary"
+            : "border-[var(--border)] text-foreground hover:border-primary/50 hover:text-primary dark:hover:text-primary"
         }`}
       >
         {interested ? (

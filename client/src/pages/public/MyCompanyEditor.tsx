@@ -306,7 +306,7 @@ export default function MyCompanyEditor() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 border-b-2 border-emerald-500"
+                    ? "bg-primary/10 dark:bg-primary text-primary border-b-2 border-primary"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >

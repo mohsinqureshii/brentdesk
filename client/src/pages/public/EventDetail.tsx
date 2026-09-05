@@ -1,5 +1,5 @@
 /**
- * Event Detail page — v4 rebuild (full-width, sectioned, emerald accent).
+ * Event Detail page — v4 rebuild (full-width, sectioned).
  * ======================================================================
  *
  * The sticky right rail is gone. The page now reads top-to-bottom as a
@@ -285,9 +285,9 @@ function EventDetailSkeleton() {
           </div>
         </div>
         <div className="grid h-[26rem] grid-cols-2 grid-rows-2 gap-3 sm:h-[30rem] lg:h-[34rem]">
-          <Skeleton className="row-span-2 h-full w-full rounded-2xl" />
-          <Skeleton className="h-full w-full rounded-2xl" />
-          <Skeleton className="h-full w-full rounded-2xl" />
+          <Skeleton className="row-span-2 h-full w-full rounded-sm" />
+          <Skeleton className="h-full w-full rounded-sm" />
+          <Skeleton className="h-full w-full rounded-sm" />
         </div>
       </div>
 
@@ -713,7 +713,7 @@ function EventPageLayout({
                 : t("event.liveCoverageMany", { n: livePosts.length })}
             </span>
             <Link href={`/events/${event.slug}/live`} className="ml-auto shrink-0">
-              <Button size="sm" className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700">
+              <Button size="sm" className="gap-1 bg-primary text-white hover:bg-primary/90">
                 {t("event.followLive")} <ArrowRight className="h-3.5 w-3.5" />
               </Button>
             </Link>
@@ -881,7 +881,7 @@ function MobileTicketBar({
       {externalProvider && externalUrl ? (
         <Button
           size="sm"
-          className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700"
+          className="gap-1 bg-primary text-white hover:bg-primary/90"
           onClick={handleExternalClick}
         >
           <Ticket className="h-4 w-4" aria-hidden="true" /> {t("event.tabTickets")}
@@ -889,7 +889,7 @@ function MobileTicketBar({
       ) : isInternal ? (
         <Button
           size="sm"
-          className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700"
+          className="gap-1 bg-primary text-white hover:bg-primary/90"
           onClick={() => {
             onSelectTab("tickets");
             onOpenCheckout();
@@ -899,7 +899,7 @@ function MobileTicketBar({
         </Button>
       ) : (
         <a href={externalUrl} target="_blank" rel="noopener noreferrer">
-          <Button size="sm" className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700">
+          <Button size="sm" className="gap-1 bg-primary text-white hover:bg-primary/90">
             <Ticket className="h-4 w-4" aria-hidden="true" /> {t("event.tabTickets")}
           </Button>
         </a>
@@ -1039,14 +1039,14 @@ function EventEditorialBlocks({
     <>
     {event.whatToExpect && (
       <section>
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {t("event.whatToExpect")}
         </h2>
         {expectItems ? (
           <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {expectItems.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
+                <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Check className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <div className="min-w-0">
@@ -1073,14 +1073,14 @@ function EventEditorialBlocks({
 
     {leftoverHighlights.length > 0 && (
       <section>
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {t("event.highlights")}
         </h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {leftoverHighlights.map((h: any) => (
             <article
               key={h.id}
-              className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-card p-6"
+              className="flex h-full flex-col rounded-sm border border-[var(--border)] bg-card p-6"
             >
               <h3 className="text-base font-bold leading-snug text-foreground">
                 {h.title}
@@ -1102,7 +1102,7 @@ function EventEditorialBlocks({
     {Array.isArray((event as any).targetAudience) &&
       (event as any).targetAudience.length > 0 && (
         <section>
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
             {t("event.whoShouldAttend")}
           </h2>
           <div className="mt-6 flex flex-wrap gap-2">
@@ -1151,7 +1151,7 @@ function MostAnticipated({ currentId }: { currentId: number }) {
     <section aria-label={t("event.mostAnticipatedEvents")}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <div>
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
             {t("events.mostAnticipated")}
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -1160,7 +1160,7 @@ function MostAnticipated({ currentId }: { currentId: number }) {
         </div>
         <Link
           href="/events"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary dark:hover:text-primary"
         >
           {t("events.viewAll")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -1184,7 +1184,7 @@ function MostAnticipated({ currentId }: { currentId: number }) {
 function HostYourEventBand() {
   const t = useT();
   return (
-    <section className="flex flex-col gap-6 rounded-2xl border border-emerald-600/25 bg-emerald-50/60 px-7 py-8 dark:bg-emerald-500/[0.07] sm:flex-row sm:items-center sm:justify-between lg:px-10">
+    <section className="flex flex-col gap-6 rounded-sm border border-primary bg-muted px-7 py-8 dark:bg-primary/100/[0.07] sm:flex-row sm:items-center sm:justify-between lg:px-10">
       <div className="min-w-0">
         <h2 className="text-xl font-bold tracking-tight text-foreground lg:text-2xl">
           {t("event.hostYourEventOn", { site: publication.name })}
@@ -1194,7 +1194,7 @@ function HostYourEventBand() {
         </p>
       </div>
       <Link href="/events/submit" className="shrink-0">
-        <Button className="h-11 gap-1.5 rounded-lg bg-emerald-600 px-6 text-sm font-semibold text-white hover:bg-emerald-700">
+        <Button className="h-11 gap-1.5 rounded-lg bg-primary px-6 text-sm font-semibold text-white hover:bg-primary/90">
           {t("events.submit")} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Button>
       </Link>
@@ -1330,7 +1330,7 @@ function SpeakerAvatar({
   }
   return (
     <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-full bg-emerald-600/10 font-bold text-emerald-700 dark:text-emerald-400 ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center rounded-full bg-primary/10 font-bold text-primary ${className}`}
       aria-hidden="true"
     >
       {initialsOf(speaker.name)}
@@ -1368,7 +1368,7 @@ function SpeakersPanel({
           <article
             key={s.id}
             id={`speaker-${s.id}`}
-            className="group relative flex h-full flex-col scroll-mt-32 rounded-2xl border border-[var(--border)] bg-card p-5 transition-shadow hover:shadow-md"
+            className="group relative flex h-full flex-col scroll-mt-32 rounded-sm border border-[var(--border)] bg-card p-5 transition-shadow hover:shadow-md"
           >
             {/* Share sits absolute so a long role can use the full width
                 and every card keeps the same header height. */}
@@ -1382,7 +1382,7 @@ function SpeakersPanel({
               {s.personSlug ? (
                 <Link
                   href={`/people/${s.personSlug}`}
-                  className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-400"
+                  className="hover:text-primary hover:underline dark:hover:text-primary"
                 >
                   {s.name}
                 </Link>
@@ -1419,7 +1419,7 @@ function SpeakersPanel({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={t("person.onLinkedin", { name: s.name })}
-                    className="hover:text-emerald-700 dark:hover:text-emerald-400"
+                    className="hover:text-primary dark:hover:text-primary"
                   >
                     <Linkedin className="h-4 w-4" />
                   </a>
@@ -1430,7 +1430,7 @@ function SpeakersPanel({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={t("person.onTwitter", { name: s.name })}
-                    className="hover:text-emerald-700 dark:hover:text-emerald-400"
+                    className="hover:text-primary dark:hover:text-primary"
                   >
                     <Twitter className="h-4 w-4" />
                   </a>
@@ -1441,7 +1441,7 @@ function SpeakersPanel({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={t("person.website", { name: s.name })}
-                    className="hover:text-emerald-700 dark:hover:text-emerald-400"
+                    className="hover:text-primary dark:hover:text-primary"
                   >
                     <Globe className="h-4 w-4" />
                   </a>
@@ -1449,7 +1449,7 @@ function SpeakersPanel({
                 {s.personSlug && (
                   <Link
                     href={`/people/${s.personSlug}`}
-                    className="ml-auto text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+                    className="ml-auto text-xs font-semibold text-primary hover:underline dark:text-primary"
                   >
                     {t("nav.profile")}
                   </Link>
@@ -1474,7 +1474,7 @@ function SpeakerShareTrigger({ event, speaker }: { event: EventRow; speaker: any
       <DialogTrigger asChild>
         <button
           type="button"
-          className="-m-1 shrink-0 p-1 text-muted-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
+          className="-m-1 shrink-0 p-1 text-muted-foreground hover:text-primary dark:hover:text-primary"
           aria-label={t("event.shareX", { name: speaker.name })}
           title={t("article.share")}
         >
@@ -1534,7 +1534,7 @@ function SessionShareTrigger({
       <DialogTrigger asChild>
         <button
           type="button"
-          className="-m-1 shrink-0 p-1 text-muted-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
+          className="-m-1 shrink-0 p-1 text-muted-foreground hover:text-primary dark:hover:text-primary"
           aria-label={t("event.shareX", { name: session.title })}
           title={t("event.shareThisSession")}
         >
@@ -1583,8 +1583,8 @@ function TicketsPanel({
   if (isLoading && tickets.length === 0) {
     return (
       <div className="grid gap-4 md:grid-cols-2">
-        <Skeleton className="h-52 w-full rounded-xl" />
-        <Skeleton className="h-52 w-full rounded-xl" />
+        <Skeleton className="h-52 w-full rounded-sm" />
+        <Skeleton className="h-52 w-full rounded-sm" />
       </div>
     );
   }
@@ -1599,9 +1599,9 @@ function TicketsPanel({
       );
     }
     return (
-      <div className="rounded-2xl border border-[var(--border)] bg-card p-6">
+      <div className="rounded-sm border border-[var(--border)] bg-card p-6">
         <div className="flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <Ticket className="h-5 w-5" aria-hidden="true" />
           </span>
           <div>
@@ -1620,7 +1620,7 @@ function TicketsPanel({
         {externalUrl && externalProvider ? (
           <div className="mt-4">
             <Button
-              className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700"
+              className="gap-2 bg-primary text-white hover:bg-primary/90"
               onClick={handleExternalClick}
             >
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -1635,7 +1635,7 @@ function TicketsPanel({
             rel="noopener noreferrer"
             className="mt-4 inline-block"
           >
-            <Button className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700">
+            <Button className="gap-2 bg-primary text-white hover:bg-primary/90">
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
               {event.isFree ? t("event.register") : t("event.buyTickets")}
             </Button>
@@ -1650,10 +1650,10 @@ function TicketsPanel({
       {tickets.map((tier: TicketRow) => (
         <article
           key={tier.id}
-          className={`rounded-2xl border bg-card p-5 ${
+          className={`rounded-sm border bg-card p-5 ${
             tier.soldOut
               ? "border-[var(--border)] opacity-60"
-              : "border-emerald-600/30"
+              : "border-primary"
           }`}
         >
           <div className="flex items-baseline justify-between gap-2">
@@ -1684,7 +1684,7 @@ function TicketsPanel({
             )}
           </div>
           <Button
-            className="mt-4 w-full bg-emerald-600 text-white hover:bg-emerald-700"
+            className="mt-4 w-full bg-primary text-white hover:bg-primary/90"
             disabled={!!tier.soldOut}
             onClick={() => {
               if (provider === "internal") {
@@ -1737,8 +1737,8 @@ function VenuePanel({ event }: { event: EventRow }) {
         )}
 
         {!embeddable && directionsUrl ? (
-          <div className="mt-6 flex flex-wrap items-center gap-4 rounded-2xl border border-[var(--border)] bg-card p-5">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
+          <div className="mt-6 flex flex-wrap items-center gap-4 rounded-sm border border-[var(--border)] bg-card p-5">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <MapPin className="h-6 w-6" aria-hidden="true" />
             </span>
             <div className="min-w-0 flex-1">
@@ -1759,7 +1759,7 @@ function VenuePanel({ event }: { event: EventRow }) {
             rel="noopener noreferrer"
             className="mt-6 inline-block"
           >
-            <Button className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700">
+            <Button className="gap-2 bg-primary text-white hover:bg-primary/90">
               <Navigation className="h-4 w-4" aria-hidden="true" /> {t("event.getDirections")}
             </Button>
           </a>
@@ -1772,12 +1772,12 @@ function VenuePanel({ event }: { event: EventRow }) {
             src={event.venueImage}
             alt={name ? `${name}` : t("event.tabVenue")}
             loading="lazy"
-            className="aspect-[16/9] w-full rounded-2xl object-cover ring-1 ring-[var(--border)]"
+            className="aspect-[16/9] w-full rounded-sm object-cover ring-1 ring-[var(--border)]"
           />
         )}
 
         {embeddable ? (
-          <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--border)]">
+          <div className="aspect-[16/9] w-full overflow-hidden rounded-sm border border-[var(--border)]">
             <iframe
               src={event.venueMapUrl}
               title={t("event.mapOf", {
@@ -1831,7 +1831,7 @@ function LivePanel({ event, posts }: { event: EventRow; posts: any[] }) {
         </div>
 
         {posts.length === 0 ? (
-          <p className="rounded-2xl border border-[var(--border)] bg-card p-8 text-center text-sm text-muted-foreground">
+          <p className="rounded-sm border border-[var(--border)] bg-card p-8 text-center text-sm text-muted-foreground">
             {t("event.liveFeedEmpty")}
           </p>
         ) : (
@@ -1861,8 +1861,8 @@ function findCurrentSession(schedule: any[]): any | null {
 function NowHappeningCard({ session }: { session: any }) {
   const t = useT();
   return (
-    <div className="rounded-2xl border border-emerald-600/30 bg-emerald-50/60 p-5 dark:bg-emerald-500/[0.07]">
-      <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+    <div className="rounded-sm border border-primary bg-muted p-5 dark:bg-primary/100/[0.07]">
+      <div className="mb-2 text-xs font-semibold uppercase tracking-wider text-primary">
         {t("event.nowHappening")}
       </div>
       <h3 className="text-xl font-bold">{session.title}</h3>
@@ -1913,15 +1913,15 @@ function LivePostCard({ post }: { post: any }) {
 
   if (type === "funding") {
     return (
-      <Card className="border-l-4 border-l-emerald-500">
+      <Card className="border-l-4 border-l-primary">
         <CardContent className="p-4">
           {Header}
           <div className="mt-1 flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/100/10 text-primary">
               <DollarSign className="h-5 w-5" />
             </div>
             <div className="min-w-0">
-              <div className="text-xs font-semibold uppercase text-emerald-600">
+              <div className="text-xs font-semibold uppercase text-primary">
                 {t("event.justAnnounced")}
               </div>
               <div className="text-lg font-bold leading-tight">
@@ -2183,7 +2183,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-2xl border border-[var(--border)] bg-card p-4 text-center"
+                className="rounded-sm border border-[var(--border)] bg-card p-4 text-center"
               >
                 <dd className="text-2xl font-bold tabular-nums text-foreground">
                   {fmtNumber(s.value)}
@@ -2196,9 +2196,9 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
       )}
 
       {(event as any).recapArticleId && (
-        <section className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-emerald-600/30 bg-emerald-50/60 p-6 dark:bg-emerald-500/[0.07]">
+        <section className="flex flex-wrap items-center justify-between gap-4 rounded-sm border border-primary bg-muted p-6 dark:bg-primary/100/[0.07]">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+            <div className="text-xs font-semibold uppercase tracking-wider text-primary">
               {t("event.tabRecap")}
             </div>
             <h2 className="mt-1 text-xl font-bold">
@@ -2206,7 +2206,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
             </h2>
           </div>
           <Link href={`/news/${(event as any).recapArticleSlug || ""}`}>
-            <Button className="gap-2 bg-emerald-600 text-white hover:bg-emerald-700">
+            <Button className="gap-2 bg-primary text-white hover:bg-primary/90">
               {t("event.readRecap")} <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </Link>
@@ -2299,7 +2299,7 @@ function RecapPanel({ event, posts }: { event: EventRow; posts: any[] }) {
           </p>
         )}
 
-      <section className="rounded-2xl border border-[var(--border)] bg-muted/30 p-6 text-center">
+      <section className="rounded-sm border border-[var(--border)] bg-muted/30 p-6 text-center">
         <h2 className="text-lg font-bold">{t("event.goingNextYear")}</h2>
         <p className="mt-1.5 text-sm text-muted-foreground">
           {t("event.findNextEdition", { site: publication.name })}

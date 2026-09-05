@@ -50,7 +50,7 @@ const SESSION_TYPE_STYLES: Record<string, string> = {
   workshop:
     "border-violet-500/30 bg-violet-500/10 text-violet-700 dark:text-violet-400",
   networking:
-    "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
+    "border-primary bg-primary/100/10 text-primary",
   break: "border-[var(--border)] bg-muted text-muted-foreground",
   other: "border-[var(--border)] bg-muted text-muted-foreground",
 };
@@ -119,7 +119,7 @@ function VenueCard({
         )}
       </div>
 
-      <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+      <h3 className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-primary">
         {t("events.aboutVenue")}
       </h3>
       <p className="mt-3 text-2xl font-bold tracking-tight text-foreground">
@@ -131,7 +131,7 @@ function VenueCard({
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline dark:text-primary"
         >
           {t("events.getDirections")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -193,7 +193,7 @@ export default function EventAgendaPreview({
     return (
       <section className="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="min-w-0">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
             {t("events.agenda")}
           </h2>
           <p className="mt-5 text-sm text-muted-foreground">
@@ -218,7 +218,7 @@ export default function EventAgendaPreview({
     <section className="grid gap-10 lg:grid-cols-2 lg:gap-16">
       {/* ---------------------------------------------------- agenda */}
       <div className="min-w-0">
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {t("events.agenda")}
         </h2>
 
@@ -235,8 +235,8 @@ export default function EventAgendaPreview({
                   aria-pressed={isActive}
                   className={`shrink-0 rounded-xl border px-4 py-2.5 text-left transition ${
                     isActive
-                      ? "border-emerald-600 bg-emerald-600 text-white"
-                      : "border-[var(--border)] hover:border-emerald-600/40 hover:bg-muted"
+                      ? "border-primary bg-primary text-white"
+                      : "border-[var(--border)] hover:border-primary/40 hover:bg-muted"
                   }`}
                 >
                   <div className="text-sm font-bold leading-tight">
@@ -273,7 +273,7 @@ export default function EventAgendaPreview({
 
               {s.isFeatured ? (
                 <Star
-                  className="mt-0.5 h-4 w-4 shrink-0 fill-emerald-600 text-emerald-600 dark:fill-emerald-400 dark:text-emerald-400"
+                  className="mt-0.5 h-4 w-4 shrink-0 fill-primary text-primary dark:fill-primary dark:text-primary"
                   aria-label={t("events.featuredSession")}
                 />
               ) : (
@@ -300,7 +300,7 @@ export default function EventAgendaPreview({
         <button
           type="button"
           onClick={onOpenAgenda}
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline dark:text-primary"
         >
           {t("events.viewFullAgenda")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

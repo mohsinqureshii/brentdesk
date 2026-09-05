@@ -63,7 +63,7 @@ const SESSION_TYPE_STYLES: Record<string, string> = {
   workshop:
     "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/25",
   networking:
-    "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25",
+    "bg-primary/100/10 text-primary border-primary",
   break: "bg-muted text-muted-foreground border-border",
   other: "bg-muted text-muted-foreground border-border",
 };

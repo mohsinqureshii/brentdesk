@@ -5,10 +5,10 @@
  * Speakers tab. Cards link to `/people/{personSlug}` when the speaker
  * has been linked to a real profile.
  *
- * The small emerald line under each card is the title of the session
+ * The small accent line under each card is the title of the session
  * this speaker is actually on, resolved from `events.getSchedule`.
  * There is no "topic" column on the speaker record, so a speaker with
- * no scheduled session simply has no emerald line — nothing is
+ * no scheduled session simply has no accent line — nothing is
  * invented to fill it.
  */
 
@@ -44,7 +44,7 @@ function Portrait({ speaker }: { speaker: Speaker }) {
   }
   return (
     <span
-      className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600/20 via-emerald-600/10 to-transparent text-4xl font-black text-emerald-700 ring-1 ring-[var(--border)] dark:text-emerald-400"
+      className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-emerald-600/10 to-transparent text-4xl font-black text-primary ring-1 ring-[var(--border)] dark:text-primary"
       aria-hidden="true"
     >
       {initialsOf(speaker.name)}
@@ -90,13 +90,13 @@ export default function EventFeaturedSpeakers({
   return (
     <section aria-label={t("events.featuredSpeakers")}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {t("events.featuredSpeakers")}
         </h2>
         <button
           type="button"
           onClick={onViewAll}
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary dark:hover:text-primary"
         >
           {t("events.viewAllSpeakers")}
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -124,7 +124,7 @@ export default function EventFeaturedSpeakers({
                 </p>
               )}
               {topic && (
-                <p className="mt-2 line-clamp-2 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                <p className="mt-2 line-clamp-2 text-xs font-semibold text-primary">
                   {topic}
                 </p>
               )}
@@ -152,9 +152,9 @@ export default function EventFeaturedSpeakers({
             <button
               type="button"
               onClick={onViewAll}
-              className="flex aspect-[4/5] w-full flex-col items-start justify-end rounded-2xl border border-dashed border-[var(--border)] bg-muted/30 p-5 text-left transition-colors hover:border-emerald-600/50 hover:bg-emerald-600/5"
+              className="flex aspect-[4/5] w-full flex-col items-start justify-end rounded-2xl border border-dashed border-[var(--border)] bg-muted/30 p-5 text-left transition-colors hover:border-primary/50 hover:bg-primary/90"
             >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-emerald-600/40 text-emerald-700 dark:text-emerald-400">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary text-primary">
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </span>
               <span className="mt-4 text-2xl font-black leading-none text-foreground">

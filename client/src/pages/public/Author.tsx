@@ -4,6 +4,8 @@ import { fmtDate } from "@/lib/dates";
 import { Link, useParams } from "wouter";
 import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { RailBlock, RankedList, SectionHead, StoryRow } from "@/components/editorial";
 import Footer from "@/components/layout/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Twitter, Mail, Linkedin, TrendingUp, Loader2 } from "lucide-react";
@@ -11,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { trpc } from "@/lib/trpc";
 import { getArticleUrl } from "@/lib/articleUrl";
-import { LeaderboardAd, MobileStickyAd } from "@/components/ads/AdUnit";
+import { LeaderboardAd, SidebarAd, MobileStickyAd } from "@/components/ads/AdUnit";
 import { SEO } from "@/components/SEO";
 
 const formatDate = (date: Date | string | null) => {
@@ -27,19 +29,6 @@ const formatDate = (date: Date | string | null) => {
   
   return fmtDate(d, { month: 'short', day: 'numeric', year: 'numeric' });
 };
-
-// Helper to get placeholder image
-function getPlaceholderImage(index: number): string {
-  const images = [
-    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&auto=format&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&auto=format&fit=crop&q=80",
-  ];
-  return images[index % images.length];
-}
 
 const ARTICLES_PER_PAGE = 20;
 
@@ -108,7 +97,7 @@ const Author = () => {
       <div className="min-h-screen bg-background overflow-x-hidden">
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
-          <Loader2 className="h-8 w-8 animate-spin text-[#0a0]" />
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
         </div>
         <Footer />
       </div>
@@ -240,53 +229,21 @@ const Author = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Main Content - Article List */}
           <div className="flex-1 min-w-0">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 pb-2 border-b-2 border-[#0a0] inline-block">
-              Latest from {firstName}
-            </h2>
-            
+            <SectionHead title={t("author.latestFrom", { name: firstName })} />
+
             {/* Article List */}
             {isLoadingArticles && !hasLoadedInitial ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-6 w-6 animate-spin text-[#0a0]" />
+                <Loader2 className="h-6 w-6 animate-spin text-primary" aria-hidden />
               </div>
             ) : displayedArticles.length > 0 ? (
               <>
-                <div className="divide-y divide-border">
-                  {displayedArticles.map((article, idx) => (
-                    <Link 
-                      key={article.id}
-                      href={getArticleUrl({ slug: article.slug, categories: article.category ? [article.category] : [] })}
-                      className="group flex gap-4 sm:gap-6 py-5 first:pt-0"
-                    >
-                      {/* Article Image */}
-                      <div className="w-[140px] sm:w-[180px] lg:w-[200px] flex-shrink-0">
-                        <div className="aspect-[16/10] rounded-lg overflow-hidden bg-muted">
-                          <img 
-                            src={article.featuredImageUrl || getPlaceholderImage(idx)}
-                            alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      </div>
-                      
-                      {/* Article Content */}
-                      <div className="flex-1 min-w-0 flex flex-col justify-center">
-                        {article.category && (
-                          <span className="text-[#0a0] text-xs font-semibold uppercase tracking-wider">
-                            {article.category.name}
-                          </span>
-                        )}
-                        <h3 className="font-bold text-foreground text-base sm:text-lg lg:text-xl leading-snug group-hover:text-[#0a0] transition-colors mt-1 mb-2 line-clamp-2">
-                          {article.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {displayName} · {formatDate(article.publishedAt)}
-                        </p>
-                      </div>
-                    </Link>
+                <div className="bd-list">
+                  {displayedArticles.map((article) => (
+                    <StoryRow key={article.id} article={article as any} />
                   ))}
                 </div>
-                
+
                 {/* Load More Button */}
                 {hasMore && (
                   <div className="mt-8 text-center">
@@ -295,7 +252,7 @@ const Author = () => {
                       variant="outline"
                       size="lg"
                       disabled={isFetching}
-                      className="px-8 border-[#0a0] text-[#0a0] hover:bd-ink hover:text-white"
+                      className="px-8 border-foreground text-foreground hover:bg-foreground hover:text-background rounded-none"
                     >
                       {isFetching ? (
                         <>
@@ -303,7 +260,7 @@ const Author = () => {
                           {t("state.loading")}
                         </>
                       ) : (
-                        "Load More Articles"
+                        t("list.loadMore")
                       )}
                     </Button>
                   </div>
@@ -321,55 +278,29 @@ const Author = () => {
             )}
           </div>
 
-          {/* Sidebar */}
+          {/* The rail */}
           <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-6">
-            {/* Ad Placeholder */}
-            <div className="bg-muted rounded-xl p-6 text-center">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{t("common.advertisement")}</p>
-              <div className="bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg aspect-[4/3] flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">{t("common.adSpace")}</span>
-              </div>
-            </div>
+            {/* A real slot, not a mock. This carried a drawn "ad space"
+                panel that no advertiser had ever bought. */}
+            <SidebarAd slotKey="author-sidebar" />
 
-            {/* Most Popular */}
             {mostPopular.length > 0 && (
-              <div className="bg-card border border-border rounded-xl p-5">
-                <div className="flex items-center gap-2 mb-5">
-                  <TrendingUp className="h-5 w-5 text-[#0a0]" />
-                  <h3 className="font-bold text-lg text-foreground">{t("list.mostRead")}</h3>
-                </div>
-                <div className="space-y-4">
-                  {mostPopular.map((item, idx) => (
-                    <Link 
-                      key={item.id} 
-                      href={getArticleUrl({ slug: item.slug, categories: item.categories || [] })} 
-                      className="group flex gap-3"
-                    >
-                      <span className="text-2xl font-bold text-muted-foreground/50 group-hover:text-[#0a0] transition-colors">
-                        {idx + 1}
-                      </span>
-                      <p className="text-sm text-foreground group-hover:text-[#0a0] transition-colors leading-snug flex-1">
-                        {item.title}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <RailBlock title={t("list.mostRead")} href="/news">
+                <RankedList articles={mostPopular as any} />
+              </RailBlock>
             )}
 
-            {/* Newsletter CTA */}
-            <div className="bd-ink rounded-xl p-5 text-white">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="font-bold text-lg">BD</span>
-                <span className="text-sm opacity-90">{publication.newsletter.name}</span>
-              </div>
-              <p className="text-sm opacity-90 leading-relaxed mb-4">
-                The top industrial, infrastructure and energy stories from Saudi Arabia, the GCC and MENA — in your inbox every morning.
+            <section className="bd-ink p-5">
+              <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
+                {publication.newsletter.name}
+              </h2>
+              <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">
+                {t("newsletter.dailyDescription")}
               </p>
-              <Button className="w-full bg-white text-black hover:bg-white/90 font-medium rounded-full">
-                {t("newsletter.subscribe")} →
-              </Button>
-            </div>
+              <div className="mt-4">
+                <NewsletterSignup variant="inline" source="author-rail" />
+              </div>
+            </section>
           </aside>
         </div>
       </section>

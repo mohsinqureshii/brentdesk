@@ -352,7 +352,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
         {/* Action buttons */}
         <div className="flex items-center gap-2 mt-3">
           <Link href={`/companies/${companySlug}`}>
-            <Button variant="outline" size="sm" className="rounded-full gap-1.5 text-xs h-7 border-blue-200 text-blue-700 hover:bg-blue-50">
+            <Button variant="outline" size="sm" className="rounded-none gap-1.5 text-xs h-7 border-primary/30 text-primary hover:bg-primary/5">
               <Building2 className="h-3 w-3" /> {t("company.viewProfile")}
             </Button>
           </Link>
@@ -364,10 +364,10 @@ function CompanyInsights({ job }: { job: JobItem }) {
               contentSlug={companyData.slug}
               variant="button"
               size="sm"
-              className="rounded-full h-7 text-xs"
+              className="rounded-none h-7 text-xs"
             />
           )}
-          <Button variant="outline" size="sm" className="rounded-full gap-1.5 text-xs h-7 border-green-200 text-green-700 hover:bg-green-50 ml-auto">
+          <Button variant="outline" size="sm" className="rounded-none gap-1.5 text-xs h-7 border-border text-foreground hover:bg-muted ms-auto">
             <UserPlus className="h-3 w-3" />{' '}{t("common.follow")}
           </Button>
         </div>
@@ -412,7 +412,7 @@ function CompanyInsights({ job }: { job: JobItem }) {
           <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">{t("company.techStack")}</p>
           <div className="flex flex-wrap gap-1">
             {(companyData.techStack as string[]).slice(0, 8).map((tech) => (
-              <Badge key={tech} variant="secondary" className="text-[10px] rounded-full px-2 py-0.5">{tech}</Badge>
+              <Badge key={tech} variant="secondary" className="text-[10px] rounded-none px-2 py-0.5">{tech}</Badge>
             ))}
           </div>
         </div>
@@ -568,7 +568,7 @@ function JobDetailPanel({
                 </Link>
                 {" · "}
                 <span>{job.location || t("job.remote")}</span>
-                {(job.isRemote || job.remoteType === "fully_remote") && <span className="text-emerald-600"> ({t("job.remote")})</span>}
+                {(job.isRemote || job.remoteType === "fully_remote") && <span className="text-primary"> ({t("job.remote")})</span>}
               </p>
             </div>
             <Button variant="ghost" size="icon" className="lg:hidden shrink-0" onClick={onClose}>
@@ -626,7 +626,7 @@ function JobDetailPanel({
               </Badge>
             )}
             {salary && (
-              <Badge variant="secondary" className="rounded-full text-xs font-normal gap-1 bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <Badge variant="secondary" className="rounded-full text-xs font-normal gap-1 bg-primary/10 text-primary border border-primary">
                 {salary}
               </Badge>
             )}
@@ -945,7 +945,7 @@ function TopFilterBar({
               </Badge>
             )}
             {filters.salaryMin && (
-              <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-emerald-100 text-emerald-700 border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("salaryMin", undefined)}>
+              <Badge className="text-[10px] gap-1 h-5 cursor-pointer bg-primary text-primary border-0 hover:bg-red-100 hover:text-red-700 rounded-full" onClick={() => onFilterChange("salaryMin", undefined)}>
                 ${(filters.salaryMin / 1000).toFixed(0)}k+ <X className="h-2.5 w-2.5" />
               </Badge>
             )}

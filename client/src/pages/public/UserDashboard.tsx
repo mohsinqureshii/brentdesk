@@ -658,7 +658,7 @@ export default function UserDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle className="flex items-center gap-2">
-                    <Bookmark className="h-5 w-5 text-emerald-600" />
+                    <Bookmark className="h-5 w-5 text-primary" />
                     Saved Items
                   </CardTitle>
                   <CardDescription>Articles, jobs, and events you've bookmarked for later</CardDescription>

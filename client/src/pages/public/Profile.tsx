@@ -215,7 +215,7 @@ export default function Profile() {
           <Button
             onClick={handleSave}
             disabled={updateProfile.isPending}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white gap-2"
+            className="bg-primary/100 hover:bg-primary/90 text-white gap-2"
           >
             {updateProfile.isPending ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -227,7 +227,7 @@ export default function Profile() {
         </div>
 
         {/* Progress Card */}
-        <Card className="mb-8 border-emerald-200 bg-emerald-50/50 dark:bg-emerald-950/20 dark:border-emerald-900/30">
+        <Card className="mb-8 border-primary bg-primary/10/50 dark:bg-primary dark:border-primary">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-3">
               <div>
@@ -236,11 +236,11 @@ export default function Profile() {
                   {t("profile.sectionsCompleted", { done: completedFields, total: profileFields.length })}
                 </p>
               </div>
-              <div className="text-2xl font-bold text-emerald-600">{completionPercent}%</div>
+              <div className="text-2xl font-bold text-primary">{completionPercent}%</div>
             </div>
             <div className="h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
               <div
-                className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                className="h-full bg-primary/100 rounded-full transition-all duration-500"
                 style={{ width: `${completionPercent}%` }}
               />
             </div>
@@ -366,12 +366,12 @@ export default function Profile() {
                   <Badge
                     key={interest}
                     variant="secondary"
-                    className="rounded-full pl-3 pr-1.5 py-1.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400"
+                    className="rounded-full pl-3 pr-1.5 py-1.5 bg-primary text-primary dark:bg-primary dark:text-primary"
                   >
                     {interest}
                     <button
                       onClick={() => removeInterest(interest)}
-                      className="ml-1.5 h-4 w-4 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-800 flex items-center justify-center"
+                      className="ml-1.5 h-4 w-4 rounded-full hover:bg-primary/90 dark:hover:bg-primary/90 flex items-center justify-center"
                     >
                       <X className="h-3 w-3" />
                     </button>
@@ -610,10 +610,10 @@ export default function Profile() {
             <CardContent>
               {profile?.cvUrl ? (
                 <div className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <FileText className="h-10 w-10 text-emerald-500" />
+                  <FileText className="h-10 w-10 text-primary" />
                   <div className="flex-1">
                     <p className="font-medium text-foreground">{t("profile.resumeUploaded")}</p>
-                    <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-emerald-600 hover:underline">
+                    <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
                       {t("profile.viewResume")}
                     </a>
                   </div>
@@ -645,7 +645,7 @@ export default function Profile() {
             <Button
               onClick={handleSave}
               disabled={updateProfile.isPending}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white gap-2"
+              className="bg-primary/100 hover:bg-primary/90 text-white gap-2"
               size="lg"
             >
               {updateProfile.isPending ? (

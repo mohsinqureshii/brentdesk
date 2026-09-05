@@ -95,7 +95,7 @@ export default function Companies() {
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
               <Badge className="bg-primary text-white border-0 mb-4">{t("directory.companies")}</Badge>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
+              <h1 className="bd-lede text-[1.75rem] sm:text-[2.5rem] mb-3">
                 {t("directory.companiesSubtitle")}
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">

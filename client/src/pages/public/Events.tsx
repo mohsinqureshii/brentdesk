@@ -571,26 +571,26 @@ function SearchHero({
   const spotlight = spotlightPool[slide] ?? null;
 
   return (
-    <section className="border-b border-[var(--border)] bg-gradient-to-b from-muted/40 to-background">
+    <section className="border-b border-[var(--border)] bg-background">
       <div className={`${CONTAINER} grid grid-cols-1 items-center gap-10 py-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:py-12`}>
         {/* Left: promise, search, topics */}
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-400">
+          <p className="bd-eyebrow text-primary">
             {publication.name} {t("nav.events")}
           </p>
-          <h1 className="mt-3 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
+          <h1 className="bd-lede mt-3 text-[2rem] sm:text-[2.75rem] text-foreground">
             {t("events.discover")}
             <br />
             {t("events.connectPeople")}
             <br />
-            {t("events.shapeThe")}<span className="text-emerald-600 dark:text-emerald-400">{t("events.future")}</span>
+            {t("events.shapeThe")}<span className="text-primary">{t("events.future")}</span>
           </h1>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             {t("events.heroBlurb")}
           </p>
 
           <form
-            className="mt-6 flex max-w-md items-center gap-2 rounded-full border border-[var(--border)] bg-background p-1.5 shadow-sm focus-within:ring-2 focus-within:ring-emerald-600/30"
+            className="mt-6 flex max-w-md items-center gap-2 border border-border bg-background p-1.5 focus-within:ring-2 focus-within:ring-primary/30"
             onSubmit={(e) => {
               e.preventDefault();
               updateFilter("search", draft.trim());
@@ -604,7 +604,7 @@ function SearchHero({
               aria-label={t("events.search")}
               className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
             />
-            <Button type="submit" className="shrink-0 rounded-full bg-emerald-600 px-5 hover:bg-emerald-700">
+            <Button type="submit" className="shrink-0 rounded-none bg-primary px-5 hover:bg-primary/90">
               {t("nav.search")}
             </Button>
           </form>
@@ -616,10 +616,10 @@ function SearchHero({
                 key={topic.query}
                 type="button"
                 onClick={() => updateFilter("search", topic.query)}
-                className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                className={`border px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.06em] transition-colors ${
                   filters.search.toLowerCase() === topic.query.toLowerCase()
-                    ? "border-emerald-600 bg-emerald-600 text-white"
-                    : "border-[var(--border)] text-muted-foreground hover:border-emerald-600/40 hover:text-foreground"
+                    ? "border-primary bg-primary text-white"
+                    : "border-[var(--border)] text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 }`}
               >
                 {t(topic.labelKey)}
@@ -650,7 +650,7 @@ function SearchHero({
         {/* Right: spotlight */}
         <div>
           {spotlightLoading ? (
-            <Skeleton className="aspect-[4/3] w-full rounded-2xl lg:aspect-[16/11]" />
+            <Skeleton className="aspect-[4/3] w-full rounded-sm lg:aspect-[16/11]" />
           ) : spotlight ? (
             <div
               onMouseEnter={() => setPaused(true)}
@@ -668,7 +668,7 @@ function SearchHero({
                       aria-current={i === slide}
                       className={`h-1.5 rounded-full transition-all ${
                         i === slide
-                          ? "w-7 bg-emerald-600"
+                          ? "w-7 bg-primary"
                           : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
                       }`}
                     />
@@ -677,7 +677,7 @@ function SearchHero({
               )}
             </div>
           ) : (
-            <div className="flex aspect-[16/11] items-center justify-center rounded-2xl border border-dashed border-[var(--border)] text-sm text-muted-foreground">
+            <div className="flex aspect-[16/11] items-center justify-center rounded-sm border border-dashed border-[var(--border)] text-sm text-muted-foreground">
               {t("state.noUpcomingEventsShort")}
             </div>
           )}
@@ -692,11 +692,11 @@ function SpotlightCard({ event }: { event: SpotlightEvent }) {
   const location = formatLocation(t, event.city, event.country, event.format);
   return (
     <Link href={`/events/${event.slug}`} className="group block">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl lg:aspect-[16/11]">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm lg:aspect-[16/11]">
         <EventMedia event={event as any} variant="hero" className="absolute inset-0 h-full w-full" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-          <span className="inline-flex rounded-full bg-emerald-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+          <span className="inline-flex bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
             {t("list.featured")}
           </span>
           <h2 className="mt-3 line-clamp-2 text-2xl font-bold leading-tight text-white sm:text-3xl">
@@ -713,7 +713,7 @@ function SpotlightCard({ event }: { event: SpotlightEvent }) {
               {formatLongDateRange(t, event.startDate, event.endDate)}
             </span>
           </div>
-          <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-neutral-900 transition-transform group-hover:translate-x-0.5">
+          <span className="mt-5 inline-flex items-center gap-2 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-900 transition-transform group-hover:translate-x-0.5">
             {t("common.viewDetails")}<ArrowRight className="h-4 w-4" aria-hidden />
           </span>
         </div>
@@ -766,10 +766,10 @@ function TypeTabs({
                 role="tab"
                 aria-selected={active}
                 onClick={() => updateFilter("type", tab.value)}
-                className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
+                className={`shrink-0 border px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-[0.06em] transition-colors ${
                   active
-                    ? "border-emerald-600 bg-emerald-600 text-white"
-                    : "border-[var(--border)] text-muted-foreground hover:border-emerald-600/40 hover:text-foreground"
+                    ? "border-primary bg-primary text-white"
+                    : "border-[var(--border)] text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 }`}
               >
                 {t(tab.labelKey)}
@@ -819,10 +819,10 @@ function TrendingPanel({
   if (!q.isLoading && items.length === 0) return null;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-card">
+    <div className="overflow-hidden rounded-sm border border-[var(--border)] bg-card">
       <div className="border-b border-[var(--border)] bg-muted/40 px-4 py-3">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-700 dark:text-emerald-400">
+          <span className="inline-flex h-6 w-6 items-center justify-center bg-primary/10 text-primary">
             <TrendingUp className="h-3.5 w-3.5" aria-hidden />
           </span>
           <h2 className="text-sm font-bold tracking-tight text-foreground">
@@ -850,7 +850,7 @@ function TrendingPanel({
 
       <Link
         href="/events"
-        className="flex items-center justify-between border-t border-[var(--border)] px-4 py-2.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50/60 dark:text-emerald-400 dark:hover:bg-emerald-500/10"
+        className="flex items-center justify-between border-t border-[var(--border)] px-4 py-2.5 text-xs font-semibold text-primary transition-colors hover:bg-muted dark:text-primary dark:hover:bg-primary/100/10"
       >
         {t("events.viewAll")}<ArrowRight className="h-3.5 w-3.5" aria-hidden />
       </Link>
@@ -881,7 +881,7 @@ function RelatedArticlesPanel() {
     a.primaryCategory?.slug ? `/${a.primaryCategory.slug}/${a.slug}` : `/news/${a.slug}`;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-card">
+    <div className="overflow-hidden rounded-sm border border-[var(--border)] bg-card">
       <div className="border-b border-[var(--border)] bg-muted/40 px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-blue-600/10 text-blue-700 dark:text-blue-400">
@@ -971,9 +971,9 @@ function SectorChip({
       value={value ?? ""}
       onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}
       aria-label={t("filter.bySector")}
-      className={`h-9 shrink-0 rounded-full border px-3 text-sm ${
+      className={`h-9 shrink-0 border px-3 text-sm ${
         value
-          ? "border-emerald-600 bg-emerald-50 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
+          ? "border-primary bg-primary/10 text-primary dark:bg-primary/100/10 dark:text-primary"
           : "border-border bg-background text-muted-foreground"
       }`}
     >
@@ -1180,7 +1180,7 @@ function Masthead({
               )}
             </div>
             <Link href="/events/submit">
-              <Button size="lg" className="gap-2 rounded-full">
+              <Button size="lg" className="gap-2 rounded-none">
                 <Plus className="h-4 w-4" />
                 {t("events.submit")}
               </Button>
@@ -1239,7 +1239,7 @@ function Spotlight({
   if (loading) {
     return (
       <div className={`${CONTAINER} pt-8`}>
-        <Skeleton className="h-[420px] w-full rounded-3xl lg:h-[480px]" />
+        <Skeleton className="h-[420px] w-full rounded-sm lg:h-[480px]" />
       </div>
     );
   }
@@ -1249,7 +1249,7 @@ function Spotlight({
   if (!event) {
     return (
       <div className={`${CONTAINER} pt-8`}>
-        <div className="rounded-3xl border border-dashed border-border px-8 py-14 text-center">
+        <div className="rounded-sm border border-dashed border-border px-8 py-14 text-center">
           <CalendarDays className="mx-auto h-8 w-8 text-muted-foreground" />
           <h2 className="mt-4 text-xl font-semibold">
             {t("state.noUpcomingEvents")}
@@ -1273,7 +1273,7 @@ function Spotlight({
   return (
     <div className={`${CONTAINER} pt-8`}>
       <Link href={`/events/${event.slug}`} className="group block">
-        <article className="relative min-h-[440px] overflow-hidden rounded-3xl bg-zinc-950 shadow-lg ring-1 ring-black/5 transition-shadow duration-300 hover:shadow-2xl lg:min-h-[520px]">
+        <article className="relative min-h-[440px] overflow-hidden rounded-sm bg-zinc-950  ring-1 ring-black/5 transition-shadow duration-300 hover:shadow-2xl lg:min-h-[520px]">
           {/* Media fills the slab — generated tile when there's no photo,
               which is the common case. The absolute positioning lives on
               a wrapper, not on EventMedia's own className: EventMedia's
@@ -1295,10 +1295,10 @@ function Spotlight({
 
           <div className="relative flex min-h-[440px] flex-col justify-end p-6 text-white sm:p-10 lg:min-h-[520px] lg:p-14">
             <div className="mb-5 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-sm">
+              <span className="bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-sm">
                 {t("list.spotlight")}
               </span>
-              <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-sm">
+              <span className="bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] backdrop-blur-sm">
                 {typeLabelFor(event.type)}
               </span>
               {formatLabel && (
@@ -1344,7 +1344,7 @@ function Spotlight({
                   straight to registration. */}
               <Button
                 size="lg"
-                className="gap-2 rounded-full bg-white text-black shadow-lg hover:bg-white/90"
+                className="gap-2 rounded-full bg-white text-black  hover:bg-white/90"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -1452,7 +1452,7 @@ function FilterBar({
               <button
                 type="button"
                 onClick={() => updateFilter("search", "")}
-                className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-emerald-600/40 bg-emerald-50 px-3 text-sm font-medium text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
+                className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-primary bg-primary/10 px-3 text-sm font-medium text-primary dark:bg-primary/100/10 dark:text-primary"
                 aria-label={t("events.clearSearchFor", { query: filters.search })}
               >
                 <Search className="h-3.5 w-3.5" aria-hidden />
@@ -1714,7 +1714,7 @@ function EmptyState({
 }) {
   const t = useT();
   return (
-    <div className="rounded-3xl border border-dashed border-border px-6 py-20 text-center">
+    <div className="rounded-sm border border-dashed border-border px-6 py-20 text-center">
       <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-muted">
         <CalendarDays className="h-7 w-7 text-muted-foreground" />
       </div>
@@ -1748,7 +1748,7 @@ function EmptyState({
 function PastEventsTeaser({ onShowPast }: { onShowPast: () => void }) {
   const t = useT();
   return (
-    <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-muted/40 px-6 py-6 sm:flex-row">
+    <div className="flex flex-col items-center justify-between gap-4 rounded-sm border border-border bg-muted/40 px-6 py-6 sm:flex-row">
       <div>
         <h3 className="text-base font-semibold">{t("events.pastPrompt")}</h3>
         <p className="mt-1 text-sm text-muted-foreground">
@@ -1791,7 +1791,7 @@ function SubmitBand() {
             </p>
           </div>
           <Link href="/events/submit" className="shrink-0">
-            <Button size="lg" className="gap-2 rounded-full">
+            <Button size="lg" className="gap-2 rounded-none">
               <Plus className="h-4 w-4" />
               {t("events.submitYours")}
             </Button>

@@ -109,7 +109,7 @@ export default function EventHeroSection({
   const shortDescription = stripHtml(event.shortDescription || "");
 
   const secondaryAction =
-    "inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-400";
+    "inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary dark:hover:text-primary";
 
   return (
     <section className={`${CONTAINER} overflow-hidden pt-6 lg:pt-10`}>
@@ -147,7 +147,7 @@ export default function EventHeroSection({
           </h1>
 
           {event.tagline && (
-            <p className="mt-3 text-xl font-bold leading-snug text-emerald-700 dark:text-emerald-400 lg:text-2xl">
+            <p className="mt-3 text-xl font-bold leading-snug text-primary lg:text-2xl">
               {event.tagline}
             </p>
           )}
@@ -162,7 +162,7 @@ export default function EventHeroSection({
           <div className="mt-6 flex flex-wrap gap-x-10 gap-y-5">
             <div className="flex items-start gap-3">
               <Calendar
-                className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400"
+                className="mt-0.5 h-5 w-5 shrink-0 text-primary"
                 aria-hidden="true"
               />
               <div className="min-w-0">
@@ -179,7 +179,7 @@ export default function EventHeroSection({
 
             <div className="flex items-start gap-3">
               <MapPin
-                className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400"
+                className="mt-0.5 h-5 w-5 shrink-0 text-primary"
                 aria-hidden="true"
               />
               <div className="min-w-0">
@@ -199,7 +199,7 @@ export default function EventHeroSection({
           {sectors.length > 0 && (
             <div className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <Tag
-                className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                className="h-4 w-4 shrink-0 text-primary"
                 aria-hidden="true"
               />
               <span className="min-w-0">
@@ -221,7 +221,7 @@ export default function EventHeroSection({
                   <>
                     <Button
                       size="lg"
-                      className="h-12 gap-2 rounded-lg bg-emerald-600 px-8 text-sm font-semibold text-white hover:bg-emerald-700"
+                      className="h-12 gap-2 rounded-lg bg-primary px-8 text-sm font-semibold text-white hover:bg-primary/90"
                       onClick={handleExternalClick}
                     >
                       <Ticket className="h-4 w-4" aria-hidden="true" />{" "}
@@ -232,7 +232,7 @@ export default function EventHeroSection({
                 ) : isInternal ? (
                   <Button
                     size="lg"
-                    className="h-12 gap-2 rounded-lg bg-emerald-600 px-8 text-sm font-semibold text-white hover:bg-emerald-700"
+                    className="h-12 gap-2 rounded-lg bg-primary px-8 text-sm font-semibold text-white hover:bg-primary/90"
                     onClick={() => {
                       onSelectTab("tickets");
                       onOpenCheckout();
@@ -245,7 +245,7 @@ export default function EventHeroSection({
                   <a href={legacyUrl} target="_blank" rel="noopener noreferrer">
                     <Button
                       size="lg"
-                      className="h-12 gap-2 rounded-lg bg-emerald-600 px-8 text-sm font-semibold text-white hover:bg-emerald-700"
+                      className="h-12 gap-2 rounded-lg bg-primary px-8 text-sm font-semibold text-white hover:bg-primary/90"
                     >
                       <Ticket className="h-4 w-4" aria-hidden="true" />{" "}
                       {t("events.getTickets")}

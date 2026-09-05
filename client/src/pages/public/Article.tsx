@@ -13,6 +13,7 @@ import { Clock, Share2, Bookmark, MessageCircle, ThumbsUp, Twitter, Linkedin, Fa
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { RailBlock, RankedList } from "@/components/editorial";
 import { useT } from "@/lib/i18n";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
@@ -173,7 +174,7 @@ const RelatedArticlesCarousel = ({ articles }: { articles: RelatedArticle[] }) =
             href={getArticleUrl(article)}
             className="group flex-shrink-0 w-[260px] sm:w-[280px] lg:w-[300px]"
           >
-            <article className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+            <article className="bd-card overflow-hidden transition-colors hover:border-foreground/30">
               {article.featuredImageUrl && (
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
@@ -332,14 +333,11 @@ export default function Article() {
     return relatedEntitiesData;
   }, [relatedEntitiesData]);
 
-  const mostPopular = useMemo(() => {
-    if (!popularData?.items) return [];
-    return popularData.items.slice(0, 5).map(a => ({
-      id: a.id,
-      title: a.title,
-      slug: a.slug,
-    }));
-  }, [popularData]);
+  // Carried whole rather than picked apart: the rail needs the dates to
+  // show when each story ran, and the category to build its canonical URL.
+  // Reducing each row to id/title/slug is what made the rail read
+  // "Recently" against every entry and link through /article/ redirects.
+  const mostPopular = useMemo(() => popularData?.items?.slice(0, 5) ?? [], [popularData]);
 
   if (isLoading) {
     return (
@@ -433,98 +431,102 @@ export default function Article() {
       
       <Header />
       
-      {/* Split Hero Section - Full Width */}
-      <div className="w-full overflow-hidden">
-        <div className="flex flex-col lg:flex-row min-h-[300px] sm:min-h-[380px] lg:min-h-[480px]">
-          {/* Left - Image (50% width) — only when the article has real art */}
-          {article.featuredImageUrl && (
-            <div className="w-full lg:w-1/2 h-[280px] sm:h-[320px] lg:h-auto relative overflow-hidden">
-              <img
-                src={article.featuredImageUrl}
-                alt={article.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+      {/*
+        The masthead of the piece.
+
+        Set on paper and ranged left, the way a trade paper sets a story:
+        beat, headline, standfirst, byline, rule. The ink treatment is
+        reserved for the front-page lead, where it does the work a
+        masthead photograph would; on a page someone is going to read for
+        five minutes it only costs contrast.
+      */}
+      <header className={`${containerClass} pt-8 sm:pt-10 pb-6`}>
+        <div className="max-w-[52rem]">
+          <Link
+            href={`/${primaryCategorySlug}`}
+            className="bd-kicker hover:underline underline-offset-4"
+          >
+            {category}
+          </Link>
+          <h1 className="bd-lede mt-3 text-[1.875rem] sm:text-[2.5rem] lg:text-[3rem] text-foreground">
+            {article.title}
+          </h1>
+          {article.excerpt && (
+            <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-[46rem]">
+              {article.excerpt}
+            </p>
           )}
-          
-          {/* Right - Content on ink background (full width when no image) */}
-          <div className={`w-full ${article.featuredImageUrl ? "lg:w-1/2" : ""} bd-ink flex items-center`}>
-            <div className={`w-full ${article.featuredImageUrl ? "max-w-[700px]" : "max-w-[900px] mx-auto"} px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12`}>
-              {/* Category & Social Row */}
-              <div className="flex items-center justify-between mb-6 lg:mb-8">
-                <Badge className="bg-transparent border border-white/40 text-white hover:bg-white/10 text-xs uppercase tracking-widest font-medium px-3 py-1">
-                  {category}
-                </Badge>
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white/70 hover:text-white hover:bg-white/10">
-                    <Facebook className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white/70 hover:text-white hover:bg-white/10">
-                    <Twitter className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white/70 hover:text-white hover:bg-white/10">
-                    <Linkedin className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white/70 hover:text-white hover:bg-white/10">
-                    <Mail className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white/70 hover:text-white hover:bg-white/10">
-                    <Link2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-              
-              {/* Title */}
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[44px] font-bold text-white leading-[1.15] mb-6 lg:mb-8">
-                {article.title}
-              </h1>
-              
-              {/* Author & Meta */}
-              <div className="flex flex-wrap items-center gap-2 text-white/80 text-sm sm:text-base">
-                {article.author?.username || article.author?.id ? (
-                  <Link
-                    href={`/author/${article.author?.username || article.author?.id}`}
-                    className="font-medium text-white hover:underline"
-                  >
-                    {authorName}
-                  </Link>
-                ) : (
-                  <span className="font-medium text-white">{authorName}</span>
-                )}
-                <span className="text-white/50">·</span>
-                {/*
-                  The byline shows when the news happened, not when BrentDesk
-                  published the piece. For an archive assembled after the fact
-                  those differ, and the news date is what a reader is looking
-                  for. The publication record stays truthful: JSON-LD
-                  datePublished and og:publishedTime above both use
-                  article.publishedAt.
-                */}
-                <time dateTime={(() => {
+
+          <div className="mt-6 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-2 text-[0.8125rem] text-muted-foreground">
+              {article.author?.username || article.author?.id ? (
+                <Link
+                  href={`/author/${article.author?.username || article.author?.id}`}
+                  className="bd-display font-bold text-foreground hover:text-primary"
+                >
+                  {authorName}
+                </Link>
+              ) : (
+                <span className="bd-display font-bold text-foreground">{authorName}</span>
+              )}
+              <span aria-hidden>·</span>
+              {/*
+                The byline shows when the news happened, not when BrentDesk
+                published the piece. For an archive assembled after the fact
+                those differ, and the news date is what a reader is looking
+                for. The publication record stays truthful: JSON-LD
+                datePublished and og:publishedTime above both use
+                article.publishedAt.
+              */}
+              <time
+                dateTime={(() => {
                   const d = (article as any).eventDate ?? article.publishedAt;
                   return d ? new Date(d).toISOString() : undefined;
-                })()}>
-                  {formatDate((article as any).eventDate ?? article.publishedAt)}
-                </time>
-                {article.updatedAt &&
-                  article.publishedAt &&
-                  new Date(article.updatedAt).getTime() - new Date(article.publishedAt).getTime() > 86_400_000 && (
-                    <>
-                      <span className="text-white/50">·</span>
-                      <span className="text-white/70 text-xs sm:text-sm">
-                        Updated{" "}
-                        <time dateTime={new Date(article.updatedAt).toISOString()}>
-                          {formatDate(article.updatedAt)}
-                        </time>
-                      </span>
-                    </>
-                  )}
-              </div>
+                })()}
+              >
+                {formatDate((article as any).eventDate ?? article.publishedAt)}
+              </time>
+              {article.updatedAt &&
+                article.publishedAt &&
+                new Date(article.updatedAt).getTime() - new Date(article.publishedAt).getTime() > 86_400_000 && (
+                  <>
+                    <span aria-hidden>·</span>
+                    <span>
+                      {t("article.updated")}{" "}
+                      <time dateTime={new Date(article.updatedAt).toISOString()}>
+                        {formatDate(article.updatedAt)}
+                      </time>
+                    </span>
+                  </>
+                )}
+            </div>
+
+            <div className="flex items-center gap-0.5">
+              {[Facebook, Twitter, Linkedin, Mail, Link2].map((Icon, i) => (
+                <Button
+                  key={i}
+                  variant="ghost"
+                  size="icon"
+                  className="h-8 w-8 text-muted-foreground hover:text-primary hover:bg-muted"
+                >
+                  <Icon className="h-4 w-4" aria-hidden />
+                </Button>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-      
+
+        {article.featuredImageUrl && (
+          <figure className="mt-7">
+            <img
+              src={article.featuredImageUrl}
+              alt={article.title}
+              className="w-full max-h-[520px] object-cover"
+            />
+          </figure>
+        )}
+      </header>
+
       {/* Leaderboard Ad - Below Hero */}
       <div className={`${containerClass} pt-4 sm:pt-6`}>
         <LeaderboardAd slotKey="article-leaderboard" category="article" className="hidden sm:block" />
@@ -540,13 +542,6 @@ export default function Article() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-6">
           {/* Main Content - Takes remaining space */}
           <div className="flex-1 min-w-0">
-            {/* Excerpt */}
-            {article.excerpt && (
-              <p className="text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                {article.excerpt}
-              </p>
-            )}
-
             {/* Article Content - Split with mid-article ad */}
             <ArticleContentWithAds content={article.content || ""} />
 
@@ -559,7 +554,7 @@ export default function Article() {
                 <span className="text-xs sm:text-sm font-medium text-foreground mr-2">{t("article.topics")}</span>
                 {articleTagsList.map((tag) => (
                   <Link key={tag.id || tag.name} href={`/tag/${tag.slug || tag.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                    <Badge variant="outline" className="rounded-full hover:bg-muted transition-colors text-xs">
+                    <Badge variant="outline" className="rounded-none hover:bg-muted transition-colors text-[0.6875rem] uppercase tracking-[0.06em] font-bold">
                       {tag.name}
                     </Badge>
                   </Link>
@@ -571,16 +566,16 @@ export default function Article() {
             <div className="flex items-center justify-between mb-6 sm:mb-8">
               <div className="flex items-center gap-2 sm:gap-3">
                 <span className="text-xs sm:text-sm text-muted-foreground">{t("article.share")}</span>
-                <Button variant="outline" size="sm" className="rounded-full h-8 w-8 sm:h-9 sm:w-9 p-0">
+                <Button variant="outline" size="sm" className="rounded-none h-8 w-8 sm:h-9 sm:w-9 p-0">
                   <Twitter className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </Button>
-                <Button variant="outline" size="sm" className="rounded-full h-8 w-8 sm:h-9 sm:w-9 p-0">
+                <Button variant="outline" size="sm" className="rounded-none h-8 w-8 sm:h-9 sm:w-9 p-0">
                   <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </Button>
-                <Button variant="outline" size="sm" className="rounded-full h-8 w-8 sm:h-9 sm:w-9 p-0">
+                <Button variant="outline" size="sm" className="rounded-none h-8 w-8 sm:h-9 sm:w-9 p-0">
                   <Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </Button>
-                <Button variant="outline" size="sm" className="rounded-full h-8 w-8 sm:h-9 sm:w-9 p-0">
+                <Button variant="outline" size="sm" className="rounded-none h-8 w-8 sm:h-9 sm:w-9 p-0">
                   <Link2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </Button>
               </div>
@@ -631,64 +626,32 @@ export default function Article() {
             </div>
           </div>
 
-          {/* Sidebar - Fixed Width */}
-          <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-5 sm:space-y-6">
-            {/* Newsletter CTA */}
-            <div className="bd-ink rounded-xl p-4 sm:p-5 text-white">
-              <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                <Mail className="h-4 w-4 text-white/80" />
-                <span className="text-sm font-bold">{publication.newsletter.name}</span>
-              </div>
-              <p className="text-xs sm:text-sm text-white/75 leading-relaxed mb-3 sm:mb-4">
+          {/* The rail */}
+          <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-6">
+            <section className="bd-ink p-5">
+              <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
+                {publication.newsletter.name}
+              </h2>
+              <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">
                 {t("newsletter.dailyDescription")}
               </p>
-              <Link href="/newsletter">
-                <Button className="w-full bg-white text-black hover:bg-white/90 font-medium rounded-full text-sm h-9 sm:h-10">
-                  {t("newsletter.subscribe")} →
-                </Button>
-              </Link>
-            </div>
+              <div className="mt-4">
+                <NewsletterSignup variant="inline" source="article-rail" />
+              </div>
+            </section>
 
             {/* Company Snapshots */}
             {article && 'id' in article && article.id && (
               <ArticleCompanySnapshots articleId={article.id} />
             )}
 
-            {/* Most Popular */}
             {mostPopular.length > 0 && (
-              <div className="bg-card border border-border rounded-xl p-4 sm:p-5">
-                <div className="flex items-center gap-2 mb-4 sm:mb-5">
-                  <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                  <h3 className="font-bold text-base sm:text-lg text-foreground">{t("list.mostRead")}</h3>
-                </div>
-                <div className="space-y-3 sm:space-y-4">
-                  {mostPopular.map((item, idx) => (
-                    <Link key={item.id} href={`/article/${item.slug}`} className="group flex gap-2 sm:gap-3">
-                      <span className="text-xl sm:text-2xl font-bold text-muted-foreground/50 group-hover:text-primary transition-colors">
-                        {idx + 1}
-                      </span>
-                      <p className="text-xs sm:text-sm text-foreground group-hover:text-primary transition-colors leading-snug flex-1">
-                        {item.title}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <RailBlock title={t("list.mostRead")} href="/news">
+                <RankedList articles={mostPopular as any} />
+              </RailBlock>
             )}
 
-            {/* Newsletter signup (wired) */}
-            <div className="bg-card border border-border rounded-xl p-4 sm:p-5">
-              <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                <h3 className="font-bold text-sm sm:text-base text-foreground">{publication.newsletter.name}</h3>
-              </div>
-              <NewsletterSignup variant="inline" source="article-rail" />
-            </div>
-
-            {/* Sidebar Ad - Top */}
             <SidebarAd slotKey="article-sidebar" category="article" />
-
-            {/* Sidebar Ad - Bottom (post-content) */}
             <SidebarAd slotKey="article-post-content" category="article" />
           </aside>
         </div>
@@ -702,7 +665,7 @@ export default function Article() {
                 <Link
                   key={`${entity.type}-${entity.id}`}
                   href={`/${entity.type === 'person' ? 'people' : entity.type === 'company' ? 'companies' : 'events'}/${entity.slug}`}
-                  className="group flex flex-col items-center text-center p-4 bg-card border border-border rounded-xl hover:shadow-lg transition-all duration-300"
+                  className="group flex flex-col items-center text-center p-4 bd-card transition-colors hover:border-foreground/30"
                 >
                   <div className="w-16 h-16 rounded-full overflow-hidden bg-muted mb-3">
                     {entity.image ? (

@@ -109,10 +109,10 @@ export function CompanySnapshot({ companyId, companyName }: CompanySnapshotProps
             <img
               src={company.logo}
               alt={company.name}
-              className="h-12 w-12 rounded-lg object-cover border border-border"
+              className="h-12 w-12 object-cover border border-border"
             />
           ) : (
-            <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+            <div className="h-12 w-12 bg-primary/10 flex items-center justify-center">
               <Building2 className="h-6 w-6 text-primary" />
             </div>
           )}

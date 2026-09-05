@@ -65,7 +65,7 @@ export function CompanyCardHybrid({
       <div className="group flex items-start gap-4 sm:gap-5 py-5 px-1 hover:bg-muted/30 transition-colors rounded-lg cursor-pointer">
         {/* Logo */}
         <div className="shrink-0">
-          <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-xl bg-white dark:bg-card flex items-center justify-center overflow-hidden border border-border shadow-sm">
+          <div className="h-14 w-14 sm:h-16 sm:w-16 rounded-sm bg-white dark:bg-card flex items-center justify-center overflow-hidden border border-border shadow-sm">
             {logoUrl ? (
               <img src={logoUrl} alt={name} className="h-full w-full object-contain p-1.5" />
             ) : (

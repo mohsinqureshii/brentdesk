@@ -53,7 +53,7 @@ const TYPE_META: Record<string, { icon: LucideIcon; label: UiKey; tone: string }
   article: { icon: Newspaper, label: "events.coverageArticle", tone: "text-blue-600 dark:text-blue-400" },
   video: { icon: PlayCircle, label: "events.coverageVideo", tone: "text-red-600 dark:text-red-400" },
   photos: { icon: Images, label: "events.photos", tone: "text-violet-600 dark:text-violet-400" },
-  report: { icon: FileText, label: "events.coverageReport", tone: "text-emerald-600 dark:text-emerald-400" },
+  report: { icon: FileText, label: "events.coverageReport", tone: "text-primary" },
   press_release: {
     icon: Megaphone,
     label: "events.coveragePressRelease",

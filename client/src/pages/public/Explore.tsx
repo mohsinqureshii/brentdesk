@@ -57,8 +57,8 @@ export default function Explore() {
                 const Icon = item.icon;
                 return (
                   <Link key={item.href} href={item.href}>
-                    <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-accent/50 transition-colors cursor-pointer group">
-                      <div className={`flex items-center justify-center w-10 h-10 rounded-xl ${item.color}`}>
+                    <div className="flex items-center gap-3 p-3 rounded-sm hover:bg-accent/50 transition-colors cursor-pointer group">
+                      <div className={`flex items-center justify-center w-10 h-10 rounded-sm ${item.color}`}>
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="flex-1 min-w-0">

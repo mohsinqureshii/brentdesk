@@ -135,7 +135,7 @@ function PersonListItem({ person }: { person: PersonData }) {
         {/* Tags */}
         <div className="flex flex-wrap items-center gap-2 mt-3">
           {person.title && (
-            <Badge className={`${tagColors[person.accentColor]} hover:opacity-80 border-0 rounded-full px-3 py-1 text-xs font-medium`}>
+            <Badge className={`${tagColors[person.accentColor]} hover:opacity-80 border-0 rounded-none px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.06em]`}>
               {roleBadgeLabel[classifyRole(person.title)]}
             </Badge>
           )}
@@ -232,7 +232,7 @@ export default function People() {
           <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div className="max-w-3xl">
               <Badge className="bg-primary text-white border-0 mb-4">{t("directory.people")}</Badge>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
+              <h1 className="bd-lede text-[1.75rem] sm:text-[2.5rem] mb-3">
                 {t("directory.peopleTagline")}
               </h1>
               <p className="text-background/70 text-sm sm:text-base mb-4 max-w-2xl">

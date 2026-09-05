@@ -1555,6 +1555,12 @@
     "time.justNow": "الآن",
     "events.dateTbd": "التاريخ لاحقاً",
     "events.online": "عن بُعد",
-    "events.locationTbd": "الموقع لاحقاً"
+    "events.locationTbd": "الموقع لاحقاً",
+    "list.articlesCount": "{n} مقالاً",
+    "list.sortBy": "الترتيب حسب",
+    "list.trendingIn": "الأكثر قراءة في {category}",
+    "newsletter.beatDigest": "نشرة {category}",
+    "newsletter.beatDigestBody": "أبرز موضوعات {category} خلال الأسبوع في رسالة واحدة.",
+    "author.latestFrom": "أحدث ما كتبه {name}"
   }
 }

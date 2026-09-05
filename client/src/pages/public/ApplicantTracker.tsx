@@ -65,7 +65,7 @@ import {
 const STATUS_CONFIG: Record<string, { label: string; color: string; bgColor: string; icon: any }> = {
   new: { label: "New", color: "text-blue-700", bgColor: "bg-blue-50 border-blue-200", icon: Users },
   reviewed: { label: "Reviewed", color: "text-amber-700", bgColor: "bg-amber-50 border-amber-200", icon: Eye },
-  shortlisted: { label: "Shortlisted", color: "text-emerald-700", bgColor: "bg-emerald-50 border-emerald-200", icon: CheckCircle2 },
+  shortlisted: { label: "Shortlisted", color: "text-primary", bgColor: "bg-primary/10 border-primary", icon: CheckCircle2 },
   interview: { label: "Interview", color: "text-purple-700", bgColor: "bg-purple-50 border-purple-200", icon: Calendar },
   offered: { label: "Offered", color: "text-indigo-700", bgColor: "bg-indigo-50 border-indigo-200", icon: FileText },
   hired: { label: "Hired", color: "text-green-700", bgColor: "bg-green-50 border-green-200", icon: UserCheck },
@@ -310,7 +310,7 @@ export default function ApplicantTracker() {
               { key: "all", label: "Total", count: stats.total, color: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200" },
               { key: "new", label: "New", count: stats.new, color: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300" },
               { key: "reviewed", label: "Reviewed", count: stats.reviewed, color: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300" },
-              { key: "shortlisted", label: "Shortlisted", count: stats.shortlisted, color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300" },
+              { key: "shortlisted", label: "Shortlisted", count: stats.shortlisted, color: "bg-primary text-primary dark:bg-primary dark:text-primary" },
               { key: "interview", label: "Interview", count: stats.interview, color: "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300" },
               { key: "offered", label: "Offered", count: stats.offered, color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300" },
               { key: "hired", label: "Hired", count: stats.hired, color: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300" },

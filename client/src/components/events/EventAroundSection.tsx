@@ -102,14 +102,14 @@ export default function EventAroundSection({
   return (
     <section aria-label={t("events.aroundEvent", { title: event.title })}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {t("events.aroundEvent", { title: event.title })}
         </h2>
         {exploreTab && (
           <button
             type="button"
             onClick={() => onSelectTab(exploreTab, true)}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary dark:hover:text-primary"
           >
             {t("events.exploreAll")}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -163,7 +163,7 @@ export default function EventAroundSection({
                 <button
                   type="button"
                   onClick={() => onSelectTab(card.tab as string, true)}
-                  className="group relative block h-40 w-full overflow-hidden rounded-xl border border-[var(--border)] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 lg:h-44"
+                  className="group relative block h-40 w-full overflow-hidden rounded-xl border border-[var(--border)] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:h-44"
                 >
                   {inner}
                 </button>

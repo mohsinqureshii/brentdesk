@@ -2,7 +2,7 @@
  * EventOverviewSplit — the overview section of the event page.
  *
  *   OVERVIEW
- *   Editorial headline with its final clause in emerald
+ *   Editorial headline with its final clause in the house accent
  *   description, clamped to five lines · Read more ↓
  *   ┌────────────┬────────────┬────────────┐
  *   │ 👥 200K+   │ 🎤 10      │ 🚀 600     │
@@ -172,7 +172,7 @@ function StatsGrid({ stats }: { stats: Stat[] }) {
             ].join(" ")}
           >
             <Icon
-              className="mx-auto h-7 w-7 text-emerald-600 dark:text-emerald-400"
+              className="mx-auto h-7 w-7 text-primary"
               strokeWidth={1.5}
               aria-hidden="true"
             />
@@ -228,14 +228,14 @@ export default function EventOverviewSplit({
 
   return (
     <section>
-      <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+      <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
         {t("events.overview")}
       </h2>
 
       {headlineSource && (
         <p className="mt-5 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-foreground lg:text-4xl">
           {head && <span>{head} </span>}
-          <span className="text-emerald-700 dark:text-emerald-400">{tail}</span>
+          <span className="text-primary">{tail}</span>
         </p>
       )}
 
@@ -252,7 +252,7 @@ export default function EventOverviewSplit({
             onClick={() => setExpanded((v) => !v)}
             aria-expanded={expanded}
             aria-controls={`event-${event.id}-description`}
-            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline dark:text-primary"
           >
             {expanded ? t("article.readLess") : t("article.readMore")}
             <ChevronDown

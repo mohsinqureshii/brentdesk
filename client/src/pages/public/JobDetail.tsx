@@ -336,7 +336,7 @@ export default function JobDetail() {
               <Badge className="absolute -top-2 left-1/2 -translate-x-1/2 z-10 bg-blue-500 text-white hover:bg-blue-500 border-0 text-xs font-semibold px-3 py-0.5 rounded-full shadow-sm">
                 {roleLabel}
               </Badge>
-              <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-background bg-white dark:bg-card">
+              <div className="rounded-sm overflow-hidden  border-4 border-background bg-white dark:bg-card">
                 {job.companyLogo ? (
                   <img src={job.companyLogo} alt={job.companyName} className="h-28 w-28 sm:h-36 sm:w-36 object-contain p-3" />
                 ) : (
@@ -386,7 +386,7 @@ export default function JobDetail() {
 
               <div className="flex flex-wrap gap-2">
                 {isRemote && (
-                  <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border-0 rounded-full text-xs">
+                  <Badge className="bg-primary text-primary dark:bg-primary dark:text-primary border-0 rounded-full text-xs">
                     <Laptop className="h-3 w-3 mr-1" />
                     {job.remoteType === "hybrid" ? t("job.hybrid") : t("job.remote")}
                   </Badge>
@@ -408,8 +408,8 @@ export default function JobDetail() {
             {/* Action Sidebar (desktop) */}
             <div className="hidden lg:flex flex-col gap-3 w-[240px] shrink-0">
               {hasApplied ? (
-                <div className="text-center p-4 rounded-xl border border-emerald-200 dark:border-emerald-800/30 bg-emerald-50 dark:bg-emerald-950/20">
-                  <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 mb-1">
+                <div className="text-center p-4 rounded-sm border border-primary dark:border-primary bg-primary/10 dark:bg-primary">
+                  <div className="flex items-center justify-center gap-2 text-primary mb-1">
                     <CheckCircle className="h-5 w-5" />
                     <span className="font-semibold text-sm">{t("job.applied")}</span>
                   </div>
@@ -455,8 +455,8 @@ export default function JobDetail() {
       <div className="lg:hidden border-b border-border bg-background">
         <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 py-4 flex flex-wrap gap-3">
           {hasApplied ? (
-            <div className="flex-1 text-center p-3 rounded-xl border border-emerald-200 bg-emerald-50 dark:bg-emerald-950/20 dark:border-emerald-800/30">
-              <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400">
+            <div className="flex-1 text-center p-3 rounded-sm border border-primary bg-primary/10 dark:bg-primary dark:border-primary">
+              <div className="flex items-center justify-center gap-2 text-primary">
                 <CheckCircle className="h-4 w-4" />
                 <span className="font-semibold text-sm">{t("job.applied")}</span>
               </div>
@@ -502,27 +502,27 @@ export default function JobDetail() {
                 {t("job.overview")}
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-200/50 dark:border-blue-800/30 p-4 text-center">
+                <div className="rounded-sm bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-200/50 dark:border-blue-800/30 p-4 text-center">
                   <Briefcase className="h-6 w-6 mx-auto mb-2 text-blue-600 dark:text-blue-400" />
                   <div className="text-sm font-bold text-foreground">{roleLabel}</div>
                   <div className="text-xs text-muted-foreground mt-0.5">{t("job.type")}</div>
                 </div>
                 {seniority && (
-                  <div className="rounded-xl bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20 border border-purple-200/50 dark:border-purple-800/30 p-4 text-center">
+                  <div className="rounded-sm bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20 border border-purple-200/50 dark:border-purple-800/30 p-4 text-center">
                     <GraduationCap className="h-6 w-6 mx-auto mb-2 text-purple-600 dark:text-purple-400" />
                     <div className="text-sm font-bold text-foreground">{seniority}</div>
                     <div className="text-xs text-muted-foreground mt-0.5">{t("job.seniority")}</div>
                   </div>
                 )}
                 {salary && (
-                  <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 border border-emerald-200/50 dark:border-emerald-800/30 p-4 text-center">
-                    <DollarSign className="h-6 w-6 mx-auto mb-2 text-emerald-600 dark:text-emerald-400" />
+                  <div className="rounded-sm bg-gradient-to-br from-primary to-green-50 dark:from-primary dark:to-green-950/20 border border-primary dark:border-primary p-4 text-center">
+                    <DollarSign className="h-6 w-6 mx-auto mb-2 text-primary" />
                     <div className="text-sm font-bold text-foreground">{salary}</div>
                     <div className="text-xs text-muted-foreground mt-0.5">{t("job.salary")}</div>
                   </div>
                 )}
                 {(job as any).applicationCount > 0 && (
-                  <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border border-amber-200/50 dark:border-amber-800/30 p-4 text-center">
+                  <div className="rounded-sm bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border border-amber-200/50 dark:border-amber-800/30 p-4 text-center">
                     <Users className="h-6 w-6 mx-auto mb-2 text-amber-600 dark:text-amber-400" />
                     <div className="text-2xl font-bold text-foreground">{(job as any).applicationCount}</div>
                     <div className="text-xs text-muted-foreground mt-0.5">{t("job.applicants")}</div>
@@ -618,7 +618,7 @@ export default function JobDetail() {
                       <div>
                         <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">{t("job.workStyle")}</div>
                         <div className="flex flex-wrap gap-1.5">
-                          <Badge className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border-0 rounded-full text-xs">
+                          <Badge className="bg-primary text-primary dark:bg-primary dark:text-primary border-0 rounded-full text-xs">
                             {job.remoteType === "hybrid" ? t("job.hybrid") : t("job.remote")}
                           </Badge>
                         </div>
@@ -701,7 +701,7 @@ export default function JobDetail() {
             <Card className="border border-border">
               <CardContent className="p-5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="w-12 h-12 rounded-sm bg-muted flex items-center justify-center overflow-hidden shrink-0">
                     {job.companyLogo ? (
                       <img src={job.companyLogo} alt={job.companyName} className="w-full h-full object-contain p-1" />
                     ) : (

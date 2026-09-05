@@ -608,7 +608,7 @@ function ConsentRow({
         )}
       </div>
       {consentedAt ? (
-        <Badge variant="outline" className="bg-emerald-50 text-emerald-800">
+        <Badge variant="outline" className="bg-primary/10 text-primary">
           Granted
         </Badge>
       ) : (

@@ -326,29 +326,40 @@ export function HeadlineRow({
       <Link href={getArticleUrl(article)} className="group block">
         <h3 className="bd-headline text-[0.8125rem] text-foreground line-clamp-3">{article.title}</h3>
       </Link>
-      {showTime && <div className="bd-meta mt-1">{formatTimeAgo(t, newsDate(article))}</div>}
+      {showTime && newsDate(article) && (
+        <div className="bd-meta mt-1">{formatTimeAgo(t, newsDate(article))}</div>
+      )}
     </div>
   );
 }
 
-/** Numbered list — most read, editor's picks. */
+/**
+ * Numbered list — most read, editor's picks.
+ *
+ * A row with no date shows no date. The alternative, a stamp reading
+ * "Recently" against every entry, tells the reader something the data
+ * does not actually say.
+ */
 export function RankedList({ articles }: { articles: Story[] }) {
   const t = useT();
   return (
     <ol className="bd-list">
-      {articles.map((a, i) => (
-        <li key={a.id} className="flex gap-3 py-3">
-          <span className="bd-display text-[0.9375rem] font-bold text-primary/45 w-5 shrink-0 tabular-nums pt-px">
-            {i + 1}
-          </span>
-          <div className="min-w-0">
-            <Link href={getArticleUrl(a)} className="group">
-              <h3 className="bd-headline text-[0.8125rem] text-foreground line-clamp-3">{a.title}</h3>
-            </Link>
-            <div className="bd-meta mt-1">{formatTimeAgo(t, newsDate(a))}</div>
-          </div>
-        </li>
-      ))}
+      {articles.map((a, i) => {
+        const when = newsDate(a);
+        return (
+          <li key={a.id} className="flex gap-3 py-3">
+            <span className="bd-display text-[0.9375rem] font-bold text-primary/45 w-5 shrink-0 tabular-nums pt-px">
+              {i + 1}
+            </span>
+            <div className="min-w-0">
+              <Link href={getArticleUrl(a)} className="group">
+                <h3 className="bd-headline text-[0.8125rem] text-foreground line-clamp-3">{a.title}</h3>
+              </Link>
+              {when && <div className="bd-meta mt-1">{formatTimeAgo(t, when)}</div>}
+            </div>
+          </li>
+        );
+      })}
     </ol>
   );
 }

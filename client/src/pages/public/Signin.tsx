@@ -16,7 +16,7 @@ import { useT } from "@/lib/i18n";
  *
  * Left:   white panel with the auth form. No SSO yet — email/password only,
  *         Google/Microsoft slots pre-stubbed for later if/when you wire them.
- * Right:  black-to-emerald branded panel with the wordmark, the
+ * Right:  branded ink panel with the wordmark, the
  *         reader/founder/jobseeker value prop, and the "Don't have an
  *         account? Sign up" CTA. Collapses to nothing on phones — the panel
  *         is decorative on desktop, the form has its own sign-up link inline.
@@ -124,7 +124,7 @@ export default function Signin() {
                 </Label>
                 <Link
                   href="/forgot-password"
-                  className="text-xs font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
+                  className="text-xs font-medium text-primary hover:text-primary hover:underline"
                 >
                   {t("auth.forgotPassword")}
                 </Link>
@@ -166,7 +166,7 @@ export default function Signin() {
             <Button
               type="submit"
               disabled={loginMutation.isPending}
-              className="w-full h-12 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-base font-semibold"
+              className="w-full h-12 rounded-lg bg-primary hover:bg-primary/90 text-white text-base font-semibold"
             >
               {loginMutation.isPending ? (
                 <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> {t("auth.signingIn")}</>
@@ -179,7 +179,7 @@ export default function Signin() {
           {/* Sign up link (visible on mobile too, where the right panel is hidden) */}
           <p className="text-center text-sm text-zinc-600 mt-8">
             {t("auth.newTo", { site: publication.name })}{" "}
-            <Link href="/signup" className="font-semibold text-emerald-700 hover:text-emerald-800 hover:underline">
+            <Link href="/signup" className="font-semibold text-primary hover:text-primary hover:underline">
               {t("auth.createFreeAccount")}
             </Link>
           </p>
@@ -196,7 +196,7 @@ export default function Signin() {
       {/* ================================================================
           RIGHT — branded panel (decorative on desktop only)
           ================================================================ */}
-      <div className="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-black via-zinc-900 to-emerald-900">
+      <div className="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-black via-zinc-900 to-primary">
         <div
           className="absolute inset-0 opacity-40 blur-3xl"
           style={{
@@ -223,7 +223,7 @@ export default function Signin() {
           {/* Middle — value prop tailored to readers, founders, jobseekers */}
           <div className="max-w-sm space-y-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-emerald-300/80 mb-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-4">
                 {t("auth.panelEyebrow")}
               </p>
               <h2 className="text-3xl xl:text-4xl font-bold leading-tight mb-4">
@@ -236,15 +236,15 @@ export default function Signin() {
 
             <ul className="space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
-                <span className="mt-2 inline-block w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
+                <span className="mt-2 inline-block w-1 h-1 rounded-full bg-primary shrink-0" />
                 <span><strong className="text-white">{t("auth.benefitFeed")}</strong> — {t("auth.benefitFeedBody")}</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-2 inline-block w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
+                <span className="mt-2 inline-block w-1 h-1 rounded-full bg-primary shrink-0" />
                 <span><strong className="text-white">{t("auth.benefitBoard")}</strong> — {t("auth.benefitBoardBody")}</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-2 inline-block w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
+                <span className="mt-2 inline-block w-1 h-1 rounded-full bg-primary shrink-0" />
                 <span><strong className="text-white">{t("auth.benefitFounders")}</strong> — {t("auth.benefitFoundersBody")}</span>
               </li>
             </ul>

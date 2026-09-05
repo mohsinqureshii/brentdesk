@@ -58,7 +58,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
 
   return (
     <div
-      className={`rounded-2xl border border-emerald-600/25 bg-emerald-50/60 p-7 dark:bg-emerald-500/[0.07] lg:p-9 ${
+      className={`rounded-2xl border border-primary bg-muted p-7 dark:bg-primary/100/[0.07] lg:p-9 ${
         wide
           ? "grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-center lg:gap-14"
           : ""
@@ -66,7 +66,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
     >
       <div className="min-w-0">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
             {t("events.stayInTheLoop")}
           </h2>
           {goingCount > 0 && !wide && (
@@ -104,8 +104,8 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
       <div
         className={
           wide
-            ? "min-w-0 border-t border-emerald-600/20 pt-6 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0"
-            : "mt-7 border-t border-emerald-600/20 pt-6"
+            ? "min-w-0 border-t border-primary pt-6 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0"
+            : "mt-7 border-t border-primary pt-6"
         }
       >
         {wide && (
@@ -140,7 +140,7 @@ function FollowCard({ event, wide }: { event: EventRow; wide: boolean }) {
             <Button
               type="submit"
               disabled={subscribe.isPending}
-              className="h-11 shrink-0 bg-emerald-600 px-5 text-white hover:bg-emerald-700"
+              className="h-11 shrink-0 bg-primary px-5 text-white hover:bg-primary/90"
             >
               {subscribe.isPending ? "…" : t("newsletter.subscribe")}
             </Button>
@@ -167,13 +167,13 @@ function CoverageColumn({ event }: { event: EventRow }) {
   return (
     <div className="min-w-0">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
           {t("events.publicationCoverage", { site: publication.name })}
         </h2>
         {articles.length > shown.length && (
           <Link
             href={`/search?q=${encodeURIComponent(event.title)}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-emerald-700 dark:hover:text-emerald-400"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary dark:hover:text-primary"
           >
             {t("events.viewAllCoverage")}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -209,11 +209,11 @@ function CoverageColumn({ event }: { event: EventRow }) {
               </span>
               <span className="min-w-0 flex-1">
                 {a.categoryName && (
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-400">
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
                     {a.categoryName}
                   </span>
                 )}
-                <span className="mt-1 block font-semibold leading-snug text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-400">
+                <span className="mt-1 block font-semibold leading-snug text-foreground group-hover:text-primary dark:group-hover:text-primary">
                   {a.title}
                 </span>
                 {a.publishedAt && (
