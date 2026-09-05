@@ -1332,6 +1332,41 @@ Disallow: /settings
 Disallow: /search
 Crawl-delay: 0
 
+# Google's ad crawlers get their own groups on purpose.
+#
+# AdsBot-Google ignores the wildcard group entirely — it obeys only a
+# group naming it — so without this it crawls everything including the
+# admin. Mediapartners-Google is the AdSense crawler: it reads a page to
+# decide which ads belong on it, so a page it cannot fetch gets generic,
+# low-value ads or none at all. Neither of them should ever reach the
+# account areas.
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /profile
+Disallow: /account
+Disallow: /settings
+
+User-agent: AdsBot-Google
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /profile
+Disallow: /account
+Disallow: /settings
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /profile
+Disallow: /account
+Disallow: /settings
+
 User-agent: Googlebot-News
 Allow: /
 Disallow: /admin/

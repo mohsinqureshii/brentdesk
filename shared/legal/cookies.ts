@@ -98,7 +98,7 @@ export const cookiePolicy: LocalizedDocument = {
               "Google AdSense / DoubleClick",
               "Third-party cookies",
               "Advertising",
-              "Set by Google to select and measure advertisements. Only loaded once advertising is enabled on the site and you have consented.",
+              "Set by Google to select and measure advertisements. Google's tag is present on every page so the site can be verified, but it starts in Consent Mode with storage and personalisation denied and makes no ad request at all: no advertising cookie is set until you allow advertising above.",
               "Set by Google",
             ],
           ],
@@ -112,6 +112,9 @@ export const cookiePolicy: LocalizedDocument = {
         "Third parties",
         p(
           "Advertising and video embeds are the only places a third party can set a cookie through {site}. Where we serve advertising through Google, Google acts as an independent controller for the data it collects; its practices are described in Google's own privacy and advertising notices, and you can adjust what Google shows you through Google's Ad Settings.",
+        ),
+        p(
+          "Google's advertising tag is loaded on every page, because the site has to be verifiable as ours. It is loaded in a held state: Google Consent Mode is set to deny advertising storage, user data and personalisation, and ad requests are paused outright. Both are released only when you allow advertising here — and withdrawing that consent re-applies them without a reload.",
         ),
         p(
           "We do not sell your personal information, and we do not share it with advertisers for their own marketing.",
@@ -229,7 +232,7 @@ export const cookiePolicy: LocalizedDocument = {
               "Google AdSense / DoubleClick",
               "ملفات طرف ثالث",
               "إعلاني",
-              "تضبطها Google لاختيار الإعلانات وقياسها. لا تُحمّل إلا بعد تفعيل الإعلانات على الموقع وموافقتك.",
+              "تضبطها Google لاختيار الإعلانات وقياسها. ووسم Google موجود في كل صفحة ليتسنى التحقق من الموقع، غير أنه يبدأ في «وضع الموافقة» مع منع التخزين والتخصيص، ولا يرسل أي طلب إعلاني إطلاقاً: فلا يُضبط أي ملف إعلاني قبل أن تسمح بالإعلانات أعلاه.",
               "تحدّدها Google",
             ],
           ],
@@ -243,6 +246,9 @@ export const cookiePolicy: LocalizedDocument = {
         "الأطراف الأخرى",
         p(
           "الإعلانات ومقاطع الفيديو المضمّنة هي المواضع الوحيدة التي يمكن فيها لطرف ثالث أن يضبط ملف ارتباط عبر {site}. وحين نعرض الإعلانات من خلال Google فإنها تتصرف بوصفها مراقباً مستقلاً للبيانات التي تجمعها، ووفق ما توضّحه إشعاراتها الخاصة بالخصوصية والإعلان، ويمكنك ضبط ما تعرضه عليك عبر إعدادات الإعلانات لدى Google.",
+        ),
+        p(
+          "ويُحمَّل وسم Google الإعلاني في كل صفحة لأن الموقع يجب أن يكون قابلاً للتحقق من نسبته إلينا. لكنه يُحمَّل موقوفاً: إذ يُضبط «وضع الموافقة» لدى Google على منع التخزين الإعلاني وبيانات المستخدم والتخصيص، وتُوقَف طلبات الإعلانات كلياً. ولا يُرفع الأمران إلا حين تسمح بالإعلانات هنا — وسحب الموافقة يعيد فرضهما دون إعادة تحميل الصفحة.",
         ),
         p("نحن لا نبيع بياناتك الشخصية، ولا نشاركها مع المعلنين لأغراض تسويقهم الخاصة."),
       ),

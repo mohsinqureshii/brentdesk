@@ -337,9 +337,19 @@ export function Header() {
               <Link href="/" className="flex items-center shrink-0" aria-label={`${publication.name} home`}>
                 {/* The descriptor stack needs about 120px beside the word.
                     A phone masthead does not have it, so below `sm` the
-                    mark goes on alone rather than being squeezed. */}
-                <Logo variant="mark" className="text-foreground text-[24px] sm:hidden" />
-                <Logo variant="full" className="text-foreground text-[26px] hidden sm:inline-flex" />
+                    mark goes on alone rather than being squeezed.
+
+                    The breakpoint lives on a wrapper, not on <Logo>. The
+                    component sets its own `inline-flex`, and a `hidden`
+                    passed in alongside it is two display utilities on one
+                    element — the component's won, both marks rendered,
+                    and a phone masthead carried the logo twice. */}
+                <span className="sm:hidden">
+                  <Logo variant="mark" className="text-foreground text-[24px]" />
+                </span>
+                <span className="hidden sm:block">
+                  <Logo variant="full" className="text-foreground text-[26px]" />
+                </span>
               </Link>
             </div>
 

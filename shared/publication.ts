@@ -111,6 +111,27 @@ export const publication = {
       "Arabia, the GCC and MENA in your inbox every morning.",
   },
 
+  /**
+   * Google AdSense.
+   *
+   * The publisher ID is a public identifier, not a secret: it is printed
+   * in ads.txt, in the verification meta tag and in the ad tag on every
+   * page, so it belongs in the brand config rather than in an env var.
+   * Keeping it here is what lets the three things Google asks for —
+   * ads.txt, the meta tag and the ad tag — be derived from one value
+   * instead of typed out three times and drifting.
+   *
+   * Whether ads actually *serve* is a separate, operational decision and
+   * still lives in the database (Admin → Advertising → AdSense): this
+   * only says who the publisher is.
+   */
+  adsense: {
+    /** With the ca- prefix, as Google's own snippets write it. */
+    publisherId: "ca-pub-2487563355490273",
+    /** The line Google requires in ads.txt to authorise its exchange. */
+    adsTxtLine: "google.com, pub-2487563355490273, DIRECT, f08c47fec0942fa0",
+  },
+
   /** Bot/user-agent identities for outbound crawlers. */
   bots: {
     seoAudit: "BrentDeskSEOBot/1.0 (+https://brentdesk.com/about)",

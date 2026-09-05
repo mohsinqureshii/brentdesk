@@ -57,6 +57,44 @@
     <meta name="theme-color" content="#0b0d12" />
     <meta name="msapplication-TileColor" content="#0b0d12" />
 
+    <!--
+      Google AdSense.
+
+      Three things, all carrying the same publisher ID, all mirrored from
+      publication.adsense in shared/publication.ts (see the note at the
+      top of this file: this shell cannot import TypeScript, and
+      server/adsenseReadiness.test.ts fails if the two drift apart).
+
+      1. The verification meta tag. Static, present on every page, and
+         the reason verification does not depend on a script running.
+      2. Consent Mode defaults, set BEFORE the tag loads. Everything
+         starts denied, so Google stores nothing and personalises
+         nothing until the reader says otherwise — which is exactly what
+         our cookie policy promises. CookieConsentBanner sends the
+         `update` when they choose.
+      3. `pauseAdRequests`, also before the tag. The library loads (so
+         AdSense can verify the site and Auto ads are wired), but it asks
+         for no ad until something un-pauses it — which AdSenseScript
+         does only when the desk has switched AdSense on AND the reader
+         has consented to advertising. Nothing is requested by default.
+    -->
+    <meta name="google-adsense-account" content="ca-pub-2487563355490273" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      (window.adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
+    </script>
+    <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2487563355490273"
+            crossorigin="anonymous"></script>
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />

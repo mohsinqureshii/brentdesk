@@ -11,15 +11,24 @@
 import { Router } from "express";
 import { getDb } from "../db";
 import { adsenseSettings } from "../../drizzle/schema";
+import { publication } from "../../shared/publication";
 
 const router = Router();
 
-// Fallback publisher line comes from env; with no publisher configured we
-// serve an empty (comment-only) ads.txt, which is valid and simply means
-// no programmatic seller is authorized yet.
-const DEFAULT_ADS_TXT = process.env.ADSENSE_PUBLISHER_ID
+/**
+ * The line served when nothing overrides it.
+ *
+ * It used to be "# No authorized sellers configured" unless an env var
+ * was set, which meant a fresh deployment served an ads.txt that told
+ * Google nobody was authorised to sell this inventory — the exact
+ * condition AdSense reports as "Earnings at risk". The publisher line is
+ * a public identifier and lives in the brand config, so the default is
+ * now the real one; the env var and the database row still override it,
+ * in that order of increasing specificity.
+ */
+export const DEFAULT_ADS_TXT = process.env.ADSENSE_PUBLISHER_ID
   ? `google.com, ${process.env.ADSENSE_PUBLISHER_ID}, DIRECT, f08c47fec0942fa0`
-  : "# No authorized sellers configured";
+  : publication.adsense.adsTxtLine;
 
 // Cache ads.txt content for 5 minutes to reduce DB hits. On DB errors
 // we serve the last cached value (or the default) — never an error page.
@@ -82,10 +91,23 @@ router.get("/api/adsense-config", async (_req, res) => {
   } catch (err) {
     console.error("[adsense-config] Error:", (err as Error).message);
   }
+  // No row in the database yet.
+  //
+  // The publisher ID is still known — it is in the brand config, which
+  // is a deliberate act: nobody commits their AdSense publisher ID
+  // unless they intend to sell inventory. So the default is on rather
+  // than off. The alternative was a site that passed Google's review and
+  // then served nothing, because serving depended on a switch in an
+  // admin screen nobody had been told to visit.
+  //
+  // Nothing about this bypasses the reader: the tag is loaded paused and
+  // in denied Consent Mode, and AdSenseScript releases it only once the
+  // reader has agreed to advertising. Once a row exists it wins outright
+  // — including its kill switch.
   res.json({
-    publisherId: null,
-    autoAdsEnabled: false,
-    adsenseEnabled: false,
+    publisherId: publication.adsense.publisherId,
+    autoAdsEnabled: true,
+    adsenseEnabled: true,
     globalKillSwitch: false,
   });
 });

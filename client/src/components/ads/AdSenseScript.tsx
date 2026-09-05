@@ -1,17 +1,32 @@
 /**
- * Site-wide AdSense loader for Auto Ads.
+ * The AdSense gate.
  *
- * Two different things load the AdSense library. A slot rendered by
- * <AdUnit> loads it on demand for that unit; Auto Ads — where Google
- * decides placement itself — needs the tag present on the page whether or
- * not a manual slot is in view. That is what this mounts.
+ * The library itself is loaded from index.html, because that is what
+ * Google's onboarding checks for and what Auto ads needs on every page.
+ * What index.html cannot know is whether this particular reader has
+ * agreed to advertising, or whether the desk has actually switched
+ * AdSense on — so it loads the library with `pauseAdRequests = 1` and
+ * Consent Mode set to denied, and nothing is requested until this
+ * component lifts both.
  *
- * Everything is off until an operator turns it on in
- * Admin → Advertising → AdSense, so a site with no ad account ships no
- * third-party script at all. The kill switch beats both.
+ * Two conditions, both required:
+ *
+ *   The desk has enabled AdSense and has not thrown the kill switch.
+ *   Read from /api/adsense-config, which is the database.
+ *
+ *   The reader has consented to advertising cookies. Our cookie policy
+ *   says advertising cookies are off until they are switched on, and a
+ *   policy that says that while the tag fills the page with them is
+ *   worse than having no policy. Consent Mode carries the answer to
+ *   Google either way, so a reader who declines still sees the site,
+ *   just without personalised advertising or ad cookies.
+ *
+ * It listens for a change of mind: accepting from the banner un-pauses
+ * without a reload, and withdrawing consent re-pauses and tells Google.
  */
 
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { getCookieConsent } from "@/components/CookieConsentBanner";
 
 interface AdsenseConfig {
   publisherId: string | null;
@@ -20,40 +35,72 @@ interface AdsenseConfig {
   globalKillSwitch: boolean;
 }
 
-const SCRIPT_ID = "adsbygoogle-auto";
+const CONSENT_EVENT = "ts:cookie-consent-changed";
+
+/** Tell Google what this reader allows. Safe before the tag has loaded —
+ *  the command queue is created in index.html. */
+function updateConsent(granted: boolean): void {
+  const gtag = (window as any).gtag;
+  if (typeof gtag !== "function") return;
+  const value = granted ? "granted" : "denied";
+  gtag("consent", "update", {
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
+  });
+}
+
+function setPaused(paused: boolean): void {
+  const queue = ((window as any).adsbygoogle = (window as any).adsbygoogle || []);
+  queue.pauseAdRequests = paused ? 1 : 0;
+}
 
 export function AdSenseScript() {
+  const [config, setConfig] = useState<AdsenseConfig | null>(null);
+  const consentRef = useRef<boolean>(false);
+
+  const apply = useCallback((cfg: AdsenseConfig | null, marketing: boolean) => {
+    const deskAllows =
+      !!cfg && cfg.adsenseEnabled && !cfg.globalKillSwitch && !!cfg.publisherId;
+    updateConsent(marketing);
+    // Paused unless BOTH are true. The default in index.html is paused,
+    // so a failure anywhere in here leaves ads off rather than on.
+    setPaused(!(deskAllows && marketing));
+  }, []);
+
   useEffect(() => {
     let cancelled = false;
+    consentRef.current = !!getCookieConsent()?.marketing;
 
     // A failure here must never take a page down with it: no ads is a
     // revenue problem, a thrown error is an outage.
     fetch("/api/adsense-config")
       .then((r) => (r.ok ? r.json() : null))
-      .then((config: AdsenseConfig | null) => {
-        if (cancelled || !config) return;
-        if (config.globalKillSwitch || !config.autoAdsEnabled) return;
-        if (!config.adsenseEnabled || !config.publisherId) return;
-        if (document.getElementById(SCRIPT_ID)) return;
-
-        const client = config.publisherId.startsWith("ca-")
-          ? config.publisherId
-          : `ca-${config.publisherId}`;
-        const script = document.createElement("script");
-        script.id = SCRIPT_ID;
-        script.async = true;
-        script.crossOrigin = "anonymous";
-        script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(client)}`;
-        document.head.appendChild(script);
+      .then((cfg: AdsenseConfig | null) => {
+        if (cancelled) return;
+        setConfig(cfg);
+        apply(cfg, consentRef.current);
       })
       .catch(() => {
-        /* no ad account reachable — the page is unaffected */
+        /* no ad account reachable — the page is unaffected, ads stay paused */
       });
 
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [apply]);
+
+  // The reader changing their mind takes effect immediately, in both
+  // directions, without a reload.
+  useEffect(() => {
+    const onConsent = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { marketing?: boolean } | undefined;
+      consentRef.current = !!detail?.marketing;
+      apply(config, consentRef.current);
+    };
+    window.addEventListener(CONSENT_EVENT, onConsent as EventListener);
+    return () => window.removeEventListener(CONSENT_EVENT, onConsent as EventListener);
+  }, [apply, config]);
 
   return null;
 }
