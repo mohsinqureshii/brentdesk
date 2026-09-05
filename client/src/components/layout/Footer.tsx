@@ -2,7 +2,8 @@ import type { ComponentType } from "react";
 import { Link } from "wouter";
 import { Linkedin, Instagram, Youtube, Mail } from "lucide-react";
 import { publication } from "@shared/publication";
-import { Wordmark, useWordmark } from "@/components/layout/Header";
+import { useWordmark } from "@/components/layout/Header";
+import { Logo } from "@/components/layout/Logo";
 import { useT } from "@/lib/i18n";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import type { UiKey } from "@shared/uiStrings";
@@ -84,7 +85,7 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/12">
           <div className="lg:col-span-5">
             <Link href="/" aria-label={t("nav.siteHome", { site: publication.name })}>
-              <Wordmark className="text-white text-[2.5rem] sm:text-[3.25rem]" />
+              <Logo variant="full" className="text-white text-[2.25rem] sm:text-[2.75rem]" />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-white/60 max-w-md">
               {t("footer.description", { site: publication.name })}

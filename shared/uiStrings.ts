@@ -231,6 +231,12 @@ export const UI_STRINGS = {
   "filter.clear": "Clear",
   "filter.clearAll": "Clear all filters",
   "filter.clearFilters": "Clear filters",
+  // --- the rail. Blocks that build the sidebar, in shared/rails.tsx.
+  "rail.upcomingEvents": "Upcoming events",
+  "rail.openRoles": "Open roles",
+  "rail.companies": "Companies we track",
+  "rail.aboutDesk": "About the desk",
+  "rail.moreOnThisBeat": "More on this beat",
   "list.browseCategories": "Browse categories",
   "list.browseTags": "Browse tags",
   "list.moreFromNewsroom": "More from the newsroom",
@@ -640,6 +646,8 @@ export const UI_STRINGS = {
   "contact.workEmailNote": "If you're able, we prefer to connect through your work email.",
   // --- cookies
   "cookies.acceptAll": "Accept all",
+  "cookies.alwaysOn": "Always on",
+  "cookies.cookiePolicy": "Cookie policy",
   "cookies.analytics": "Analytics",
   "cookies.analyticsHelp": "Help us understand how visitors use the site so we can improve it.",
   "cookies.body": "We use cookies to make {site} work and to understand how you use it. Read our",

@@ -77,7 +77,7 @@ export function renderLayout(opts: LayoutOptions): string {
           <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;border:1px solid #e4e4e7;">
             <tr>
               <td style="padding:24px 24px 8px 24px;">
-                <p style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.01em;color:#18181b;">${publication.wordmark.replace(/\.$/, "")}<span style="color:#a1a1aa;">.</span></p>
+                <p style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.01em;color:#18181b;">${publication.wordmark}</p>
                 <p style="margin:4px 0 0 0;font-size:12px;color:#71717a;text-transform:uppercase;letter-spacing:0.08em;">${tenant}</p>
               </td>
             </tr>

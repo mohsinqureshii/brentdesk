@@ -29,13 +29,26 @@ import { Languages, Check, ChevronDown } from "lucide-react";
 import { LOCALE_COOKIE, stripLocale, withLocale } from "@/lib/locale";
 import { useT } from "@/lib/i18n";
 
+/**
+ * Which surface the control is sitting on.
+ *
+ * This used to be hardcoded white-on-transparent, from when the masthead
+ * was black. The masthead is paper now, and a white control on white paper
+ * is a control nobody can see — which is exactly how the Arabic switch went
+ * missing without anything actually breaking. Naming the surface makes that
+ * a choice at the call site rather than an assumption in here.
+ */
+export type SwitcherTone = "paper" | "ink";
+
 export interface LanguageSwitcherProps {
   /** Compact mode for tight headers — the code only, no native name. */
   compact?: boolean;
+  /** The surface underneath: white paper (default) or the dark panels. */
+  tone?: SwitcherTone;
   className?: string;
 }
 
-export function LanguageSwitcher({ compact = false, className = "" }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ compact = false, tone = "paper", className = "" }: LanguageSwitcherProps) {
   const localesQuery = trpc.locales.list.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const currentQuery = trpc.locales.current.useQuery(undefined, { staleTime: 5 * 60 * 1000 });
   const [open, setOpen] = useState(false);
@@ -67,27 +80,35 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
   // more and it goes back to a dropdown, because a segmented control stops
   // fitting.
   if (list.length === 2) {
+    const frame = tone === "ink" ? "border-white/25" : "border-foreground/25";
     return (
       <div
-        className={`flex items-center rounded-full border border-white/30 overflow-hidden ${className}`}
+        className={`flex items-center border ${frame} ${className}`}
         role="group"
         aria-label={t("nav.language")}
       >
         {list.map((l) => {
           const isActive = active.code === l.code;
+          const on =
+            tone === "ink" ? "bg-white text-[#0b0d12]" : "bg-foreground text-background";
+          const off =
+            tone === "ink"
+              ? "text-white/65 hover:text-white hover:bg-white/10"
+              : "text-foreground/55 hover:text-foreground hover:bg-muted";
           return (
             <button
               key={l.code}
               type="button"
               onClick={() => !isActive && switchTo(l.code, l.isDefault)}
               aria-current={isActive ? "true" : undefined}
+              // The two-letter code is the whole label, so the accessible
+              // name has to carry what it means — "AR" read aloud is not a
+              // language, "Read this page in العربية" is.
+              aria-label={isActive ? l.nativeName : `${t("nav.readThisPageIn")} ${l.nativeName}`}
               lang={l.code}
-              dir={l.direction}
               title={l.nativeName}
-              className={`px-2.5 py-1 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                isActive
-                  ? "bg-white text-black"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+              className={`bd-display px-2 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.08em] leading-none transition-colors ${
+                isActive ? on : off
               }`}
             >
               {l.code}
@@ -104,8 +125,10 @@ export function LanguageSwitcher({ compact = false, className = "" }: LanguageSw
         <Button
           variant="ghost"
           size="sm"
-          className={`gap-1.5 px-2 ${className}`}
-          aria-label={`Language: ${active.name}. Change language`}
+          className={`gap-1.5 px-2 rounded-none ${
+            tone === "ink" ? "text-white hover:bg-white/10" : "text-foreground hover:bg-muted"
+          } ${className}`}
+          aria-label={`${t("nav.language")}: ${active.name}`}
         >
           <Languages className="h-4 w-4 opacity-80" />
           {!compact && (

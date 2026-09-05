@@ -327,7 +327,7 @@ function buildPDFHTML(input: PDFGenerationInput): string {
   <!-- Cover Page -->
   <div class="cover-page">
     ${input.coverImageUrl ? '<div class="cover-image"></div>' : ""}
-    <div class="cover-logo">${publication.wordmark.replace(/\.$/, "")}<span>.</span></div>
+    <div class="cover-logo">${publication.wordmark}</div>
     ${input.category ? `<div class="cover-category">${escapeHtml(input.category)}</div>` : ""}
     <div class="cover-title">${escapeHtml(input.title)}</div>
     ${input.subtitle ? `<div class="cover-subtitle">${escapeHtml(input.subtitle)}</div>` : ""}

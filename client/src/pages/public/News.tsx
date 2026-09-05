@@ -16,7 +16,7 @@
 
 import React from "react";
 import { Link } from "wouter";
-import { Briefcase, Building2, Calendar, Loader2, MapPin } from "lucide-react";
+import { Building2, Calendar, Loader2, MapPin } from "lucide-react";
 import { fmtDate } from "@/lib/dates";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -26,13 +26,10 @@ import { trpc } from "@/lib/trpc";
 import { useEdition } from "@/hooks/useEdition";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { SidebarAd, LeaderboardAd, InContentAd, MobileStickyAd } from "@/components/ads/AdUnit";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { publication } from "@shared/publication";
 import { useT } from "@/lib/i18n";
 import {
   HeadlineRow,
-  RailBlock,
-  RankedList,
   SectionHead,
   StoryCard,
   StoryRow,
@@ -42,6 +39,19 @@ import {
   newsDate,
   readTime,
 } from "@/components/editorial";
+import {
+  AboutDeskRail,
+  BeatsRail,
+  CompaniesRail,
+  EditorPicksRail,
+  EventsRail,
+  JobsRail,
+  LatestRail,
+  MostReadRail,
+  NewsletterRail,
+  Rail,
+  TopicsRail,
+} from "@/components/editorial/rails";
 
 interface HomepageSection {
   id: number;
@@ -267,12 +277,29 @@ function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 ) : (
-                  <div className="h-full w-full bd-ink flex items-center justify-center">
-                    <Calendar className="h-6 w-6 text-white/30" aria-hidden />
+                  // No photograph, so the date becomes the picture. The
+                  // old fallback was an ink rectangle with a grey icon in
+                  // the middle of it — five of them in a row read as five
+                  // failed image loads.
+                  <div className="h-full w-full bd-ink flex flex-col items-center justify-center text-center px-3">
+                    {d ? (
+                      <>
+                        <span className="bd-display text-[2.75rem] font-extrabold leading-none text-white">
+                          {d.getDate()}
+                        </span>
+                        <span className="bd-display mt-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-white/70">
+                          {fmtDate(d, { month: "short", year: "numeric" })}
+                        </span>
+                      </>
+                    ) : (
+                      <Calendar className="h-6 w-6 text-white/30" aria-hidden />
+                    )}
                   </div>
                 )}
-                {d && (
-                  <div className="absolute top-0 left-0 bg-primary text-white px-2 py-1 text-center leading-none">
+                {/* The corner stamp belongs on a photograph. Without one
+                    the date is already the whole frame. */}
+                {d && event.featuredImage && (
+                  <div className="absolute top-0 start-0 bg-primary text-white px-2 py-1 text-center leading-none">
                     <div className="bd-display text-[0.9375rem] font-bold">{d.getDate()}</div>
                     <div className="text-[8px] font-bold uppercase tracking-[0.1em] mt-0.5">
                       {fmtDate(d, { month: "short" })}
@@ -295,10 +322,23 @@ function EventsBand({ editionCountryId }: { editionCountryId?: number }) {
   );
 }
 
+/**
+ * The companies strip.
+ *
+ * `isFeatured` is an editor's flag, and on a register of 125 companies
+ * nobody had set it — so a band that was meant to close the page simply
+ * did not render, and the space under the beats went blank. Featured
+ * still leads when the desk has chosen some; otherwise the strip shows
+ * the register, which is the honest version of the same band.
+ */
 function FeaturedCompanies() {
   const t = useT();
   const { data } = trpc.companies.list.useQuery({ isFeatured: true, limit: 8 });
-  const companies = data?.items ?? [];
+  const { data: register } = trpc.companies.list.useQuery(
+    { limit: 8 },
+    { enabled: !!data && (data.items?.length ?? 0) === 0 },
+  );
+  const companies = (data?.items?.length ? data.items : (register?.items ?? [])) as any[];
   if (!companies.length) return null;
   return (
     <section aria-label={t("list.featuredCompanies")}>
@@ -328,104 +368,36 @@ function FeaturedCompanies() {
   );
 }
 
-// ------------------------------------------------------------------
-// Rail
-// ------------------------------------------------------------------
-
-function MostReadRail({ section }: { section: HomepageSection }) {
-  const t = useT();
-  const { data: mostRead = [] } = trpc.news.getMostRead.useQuery({
-    limit: section.articleCount || 5,
-    days: 30,
-  });
-  if (!mostRead.length) return null;
-  return (
-    <RailBlock title={section.name || t("list.mostRead")} accent={section.accentColor}>
-      <RankedList articles={mostRead as Story[]} />
-    </RailBlock>
-  );
-}
-
 /**
- * Editor's picks — the articles an editor flagged. Nothing flagged means
- * no block: an empty rail is better than a rail filled with whatever was
- * most recent and called a pick.
+ * The closing band.
+ *
+ * The beat bands each show a handful off their own beat, which leaves
+ * most of a 288-story archive unrepresented on the front page. This is
+ * the rest of it, newest first — a proper end to the page rather than
+ * whatever the last beat happened to be, and the block that now occupies
+ * the run of white the mid-page banner used to sit in.
  */
-function EditorPicksRail() {
+function MoreFromNewsroom() {
   const t = useT();
-  const { data } = trpc.news.list.useQuery({ isFeatured: true, limit: 5, status: "published" });
-  const picks = (data?.items ?? []) as Story[];
-  if (!picks.length) return null;
+  // The second page rather than the first: everything above this point
+  // is drawing from the newest stories, and a band that repeated them
+  // would read as a bug. Page two starts well past the lead.
+  const { data } = trpc.news.list.useQuery({
+    page: 2,
+    limit: 8,
+    status: "published",
+    sortBy: "publishedAt",
+    sortOrder: "desc",
+  });
+  const items = (data?.items ?? []) as Story[];
+  if (items.length < 4) return null;
   return (
-    <RailBlock title={t("list.editorPicks")} href="/news">
-      <div className="bd-list">
-        {picks.map((a) => (
-          <HeadlineRow key={a.id} article={a} />
+    <section aria-label={t("list.moreFromNewsroom")}>
+      <SectionHead title={t("list.moreFromNewsroom")} href="/news" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+        {items.map((a) => (
+          <StoryCard key={a.id} article={a} />
         ))}
-      </div>
-    </RailBlock>
-  );
-}
-
-function JobsRail({ section, editionCountryId }: { section: HomepageSection; editionCountryId?: number }) {
-  const { data } = trpc.jobs.list.useQuery({ editionCountryId });
-  const jobs = (data?.items ?? []).slice(0, section.articleCount || 5);
-  if (!jobs.length) return null;
-  return (
-    <RailBlock title={section.name} href="/jobs">
-      <ul className="bd-list">
-        {jobs.map((job: any) => (
-          <li key={job.id}>
-            <Link href={`/jobs/${job.slug || job.id}`} className="group flex gap-3 py-3">
-              <Briefcase className="h-4 w-4 mt-0.5 shrink-0 text-muted-foreground/50" aria-hidden />
-              <div className="min-w-0">
-                <div className="bd-headline text-[0.8125rem] text-foreground line-clamp-2">{job.title}</div>
-                <div className="bd-meta mt-1 truncate">
-                  {[job.companyName, job.location].filter(Boolean).join(" · ")}
-                </div>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </RailBlock>
-  );
-}
-
-function EventsRail({ section, editionCountryId }: { section: HomepageSection; editionCountryId?: number }) {
-  const { data } = trpc.events.list.useQuery({ editionCountryId });
-  const events = (data?.items ?? []).slice(0, section.articleCount || 4);
-  if (!events.length) return null;
-  return (
-    <RailBlock title={section.name} href="/events">
-      <ul className="bd-list">
-        {events.map((event: any) => (
-          <li key={event.id}>
-            <Link href={`/events/${event.slug || event.id}`} className="group block py-3">
-              <div className="bd-headline text-[0.8125rem] text-foreground line-clamp-2">{event.title}</div>
-              <div className="bd-meta mt-1">
-                {event.startDate && fmtDate(new Date(event.startDate), { month: "short", day: "numeric" })}
-                {(event.city || event.country) &&
-                  ` · ${[event.city, event.country].filter(Boolean).join(", ")}`}
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </RailBlock>
-  );
-}
-
-function NewsletterRail() {
-  const t = useT();
-  return (
-    <section className="bd-ink p-5">
-      <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.1em] text-white">
-        {publication.newsletter?.name ?? t("nav.newsletter")}
-      </h2>
-      <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">{t("newsletter.dailyDescription")}</p>
-      <div className="mt-4">
-        <NewsletterSignup variant="inline" />
       </div>
     </section>
   );
@@ -451,6 +423,11 @@ export default function News() {
   const inBrief = mainSections.find((s) => s.sectionType === "in_brief");
   const beats = mainSections.filter((s) => s.sectionType === "category");
   const heroSection = mainSections.find((s) => s.sectionType === "hero");
+
+  /** Did the desk already place this kind of block in the rail? Used so
+   *  the standing blocks below fill in around the CMS rather than
+   *  printing "Most read" twice. */
+  const railHas = (type: string) => railSections.some((s) => s.sectionType === type);
 
   if (sectionsLoading) {
     return (
@@ -492,36 +469,66 @@ export default function News() {
                 {i === 3 && <InContentAd slotKey="home-in-feed-2" />}
               </React.Fragment>
             ))}
+            {/* Inside the main column, not below the grid: the rail now
+                runs longer than the beats do, and a closing band placed
+                under the grid would have left the bottom third of the
+                main column white while the rail carried on beside it. */}
+            <MoreFromNewsroom />
           </div>
 
-          <aside className="xl:col-span-4 space-y-6 min-w-0" aria-label={t("list.sidebar")}>
+          {/* The rail.
+              First the blocks the desk arranged in the CMS, in their
+              order. Then the standing blocks, which is what stops the
+              column ending a screen and a half into a five-screen page:
+              the newsroom always has latest headlines, beats, topics and
+              a newsletter, so there is always more rail to draw. Any
+              block the CMS already placed is not repeated. */}
+          <Rail className="xl:col-span-4">
             <SidebarAd slotKey="home-sidebar-top" />
-            {railSections.map((section, i) => (
+
+            {railSections.map((section) => (
               <React.Fragment key={section.id}>
-                {section.sectionType === "trending" && <MostReadRail section={section} />}
+                {section.sectionType === "trending" && (
+                  <MostReadRail
+                    title={section.name}
+                    accent={section.accentColor}
+                    limit={section.articleCount || 5}
+                  />
+                )}
                 {section.sectionType === "sidebar_jobs" && (
-                  <JobsRail section={section} editionCountryId={editionCountryId ?? undefined} />
+                  <JobsRail
+                    title={section.name}
+                    limit={section.articleCount || 5}
+                    editionCountryId={editionCountryId ?? undefined}
+                  />
                 )}
                 {section.sectionType === "sidebar_events" && (
-                  <EventsRail section={section} editionCountryId={editionCountryId ?? undefined} />
-                )}
-                {i === 0 && (
-                  <>
-                    <EditorPicksRail />
-                    <SidebarAd slotKey="home-sidebar-mid" />
-                    <NewsletterRail />
-                  </>
+                  <EventsRail
+                    title={section.name}
+                    limit={section.articleCount || 4}
+                    editionCountryId={editionCountryId ?? undefined}
+                  />
                 )}
               </React.Fragment>
             ))}
-            {railSections.length === 0 && (
-              <>
-                <EditorPicksRail />
-                <NewsletterRail />
-              </>
+
+            {!railHas("trending") && <MostReadRail />}
+            <EditorPicksRail />
+            <NewsletterRail source="home-rail" />
+            <SidebarAd slotKey="home-sidebar-mid" />
+            <LatestRail limit={6} />
+            {!railHas("sidebar_events") && (
+              <EventsRail editionCountryId={editionCountryId ?? undefined} />
             )}
+            <BeatsRail />
+            {!railHas("sidebar_jobs") && (
+              <JobsRail editionCountryId={editionCountryId ?? undefined} />
+            )}
+            <CompaniesRail />
+            <TopicsRail />
+            <AboutDeskRail />
             <SidebarAd slotKey="home-sidebar-bottom" />
-          </aside>
+          </Rail>
         </div>
 
         <div className="mt-12 space-y-12">

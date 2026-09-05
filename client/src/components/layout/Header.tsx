@@ -23,6 +23,7 @@ import type { UiKey } from "@shared/uiStrings";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
 import { MarketTicker } from "@/components/layout/MarketTicker";
+import { Logo } from "@/components/layout/Logo";
 import { trpc } from "@/lib/trpc";
 
 // Nav entries carry a translation key rather than a label. The href stays
@@ -79,38 +80,14 @@ export function useWordmark(): string {
 }
 
 /**
- * Text wordmark — crisp at every size, no image dependency.
+ * The wordmark, kept as a named export because half the site imports it
+ * from here. It is now a thin wrapper over <Logo>, which owns the mark.
  *
- * Renders the mark for the language being read: `brentdesk.` in English,
- * `برنت ديسك.` in Arabic. The locale comes from the URL, so a hard load of
- * /ar paints the Arabic mark rather than swapping to it a moment later.
- *
- * The trailing dot is a separate span so it keeps the accent colour. It is
- * a neutral character, so in Arabic the bidi algorithm puts it at the left
- * end of the mark — the end of the word on a right-to-left line, which is
- * where it belongs.
+ * `Wordmark` renders the word and its rule; the descriptor stack is the
+ * `full` variant, used where there is width for it — see <Logo>.
  */
 export function Wordmark({ className = "" }: { className?: string }) {
-  const locale = useLocale();
-  const localized = publication.wordmarksByLocale[locale];
-  const mark = localized ?? publication.wordmark;
-
-  return (
-    <span
-      // The Latin display face is drawn tight; Arabic is not, and negative
-      // tracking crowds the joins, so the Arabic mark goes without it.
-      className={`font-extrabold leading-none select-none ${localized ? "" : "tracking-tight"} ${className}`}
-      // Named only for the Latin mark. An inline family beats even the
-      // unlayered rule that delivers STC Forward, and Google Sans ships no
-      // Arabic — naming it here would drop the Arabic mark to whatever the
-      // browser falls back to, which on Windows is Tahoma. Leaving it unset
-      // lets the mark inherit the page's own face.
-      style={localized ? undefined : { fontFamily: "var(--font-display)" }}
-    >
-      {mark.replace(/\.$/, "")}
-      <span className="text-primary">.</span>
-    </span>
-  );
+  return <Logo variant="mark" className={className} />;
 }
 
 /**
@@ -211,7 +188,7 @@ export function Header() {
                       >
                         <X className="h-6 w-6" />
                       </button>
-                      <Wordmark className="text-white text-2xl" />
+                      <Logo variant="full" className="text-white text-[20px]" />
                       <Link
                         href={isAuthenticated ? "/profile" : "/signin"}
                         onClick={() => setMobileMenuOpen(false)}
@@ -304,6 +281,15 @@ export function Header() {
 
                     {/* Bottom Actions */}
                     <div className="px-4 py-6 border-t border-white/10 space-y-3">
+                      {/* The masthead switch is a 30px target beside two
+                          others on a phone. Here it is the width of the
+                          drawer, under a heading that says what it is. */}
+                      <div className="flex items-center justify-between gap-3 pb-3">
+                        <span className="text-xs font-medium text-white/40 uppercase tracking-wider">
+                          {t("nav.language")}
+                        </span>
+                        <LanguageSwitcher tone="ink" />
+                      </div>
                       {isAuthenticated ? (
                         <Button
                           onClick={() => {
@@ -337,7 +323,11 @@ export function Header() {
                 </SheetContent>
               </Sheet>
               <Link href="/" className="flex items-center shrink-0" aria-label={`${publication.name} home`}>
-                <Wordmark className="text-foreground text-[26px]" />
+                {/* The descriptor stack needs about 120px beside the word.
+                    A phone masthead does not have it, so below `sm` the
+                    mark goes on alone rather than being squeezed. */}
+                <Logo variant="mark" className="text-foreground text-[24px] sm:hidden" />
+                <Logo variant="full" className="text-foreground text-[26px] hidden sm:inline-flex" />
               </Link>
             </div>
 
@@ -361,8 +351,10 @@ export function Header() {
             {/* Right Section */}
             <div className="flex items-center gap-2">
               {/* Renders nothing until a second language is configured, so
-                  a single-language site carries no dead control. */}
-              <LanguageSwitcher className="text-foreground hover:bg-muted" />
+                  a single-language site carries no dead control. Paper tone:
+                  the masthead is white, and the control used to be drawn in
+                  white on it, which is why the Arabic switch was invisible. */}
+              <LanguageSwitcher />
 
               <Button
                 variant="ghost"

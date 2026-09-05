@@ -30,6 +30,15 @@ import {
   StoryRow,
   type Story,
 } from "@/components/editorial";
+import {
+  AboutDeskRail,
+  BeatsRail,
+  EventsRail,
+  LatestRail,
+  NewsletterRail,
+  Rail,
+  TopicsRail,
+} from "@/components/editorial/rails";
 
 /**
  * The colour a beat is set in. Category rows carry no colour of their
@@ -238,55 +247,27 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
               />
             </div>
 
-            <aside className="space-y-6 min-w-0 lg:sticky lg:top-28" aria-label={t("list.sidebar")}>
+            {/* The rail. A beat page can run twenty stories deep, so the
+                column carries the beat's own trending list first, then
+                the standing blocks — which are what keep it going now
+                that the two ad slots in it resolve to nothing. */}
+            <Rail>
               <SidebarAd slotKey="category-sidebar" />
 
               <RailBlock title={t("list.trendingIn", { category: category.name })} accent={accent}>
                 <RankedList articles={articles.slice(0, 5)} />
               </RailBlock>
 
-              {!!allCategories?.length && (
-                <RailBlock title={t("list.browseCategories")}>
-                  <ul className="bd-list">
-                    {allCategories
-                      .filter((c) => c.articleCount > 0)
-                      .slice(0, 10)
-                      .map((cat) => {
-                        const active = cat.slug === categorySlug || cat.slug === parentCategorySlug;
-                        return (
-                          <li key={cat.id}>
-                            {/* The bare slug is the canonical category URL —
-                                /category/<slug> only exists to 301 to it. */}
-                            <Link
-                              href={`/${cat.slug}`}
-                              className={`flex items-center justify-between gap-3 py-2.5 text-[0.8125rem] font-semibold transition-colors ${
-                                active ? "text-primary" : "text-foreground hover:text-primary"
-                              }`}
-                            >
-                              <span className="truncate">{cat.name}</span>
-                              <span className="bd-meta tabular-nums">{cat.articleCount}</span>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                  </ul>
-                </RailBlock>
-              )}
-
-              <section className="bd-ink p-5">
-                <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
-                  {t("newsletter.beatDigest", { category: category.name })}
-                </h2>
-                <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">
-                  {t("newsletter.beatDigestBody", { category: category.name })}
-                </p>
-                <div className="mt-4">
-                  <NewsletterSignup variant="inline" />
-                </div>
-              </section>
+              <NewsletterRail source="category-rail" />
 
               <SidebarAd slotKey="category-sidebar-bottom" />
-            </aside>
+
+              <LatestRail limit={6} />
+              <BeatsRail activeSlug={categorySlug} />
+              <EventsRail />
+              <TopicsRail />
+              <AboutDeskRail />
+            </Rail>
           </div>
         )}
       </main>

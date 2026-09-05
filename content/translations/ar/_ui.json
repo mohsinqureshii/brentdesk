@@ -1563,6 +1563,13 @@
     "newsletter.beatDigestBody": "أبرز موضوعات {category} خلال الأسبوع في رسالة واحدة.",
     "author.latestFrom": "أحدث ما كتبه {name}",
     "job.pageSubtitle": "وظائف في الهندسة والإنشاءات والطاقة والخدمات اللوجستية والتشغيل في الأسواق التي تغطيها {site}.",
-    "list.showingRange": "عرض {start}–{end} من أصل {total}"
+    "list.showingRange": "عرض {start}–{end} من أصل {total}",
+    "rail.upcomingEvents": "فعاليات قادمة",
+    "rail.openRoles": "وظائف شاغرة",
+    "rail.companies": "شركات نتابعها",
+    "rail.aboutDesk": "عن المنصة",
+    "rail.moreOnThisBeat": "المزيد في هذا القطاع",
+    "cookies.alwaysOn": "مفعّل دائماً",
+    "cookies.cookiePolicy": "سياسة ملفات الارتباط"
   }
 }

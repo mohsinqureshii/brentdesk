@@ -52,6 +52,12 @@ interface AdUnitProps {
   lazy?: boolean;
   /** Page category for targeting */
   category?: string;
+  /**
+   * Called once the slot resolves, with whether anything will be drawn.
+   * Wrappers that draw chrome around a slot — the mobile sticky bar — use
+   * it so their border and spacer do not survive an unfilled slot.
+   */
+  onResolved?: (filled: boolean) => void;
 }
 
 export function AdUnit({
@@ -60,6 +66,7 @@ export function AdUnit({
   className = "",
   lazy = true,
   category,
+  onResolved,
 }: AdUnitProps) {
   const t = useT();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -96,6 +103,13 @@ export function AdUnit({
     },
     { enabled: isVisible, staleTime: 60_000, refetchOnWindowFocus: false }
   );
+
+  // Report the outcome upward. `empty` is a resolution too — it is the
+  // one the wrappers care about most.
+  useEffect(() => {
+    if (!adData || !onResolved) return;
+    onResolved(adData.type !== "empty");
+  }, [adData, onResolved]);
 
   // Track impression mutation
   const trackImpressionMut = trpc.admin.advertising.trackImpression.useMutation();
@@ -218,18 +232,14 @@ export function AdUnit({
         </div>
       )}
 
-      {/* Reserved space while the slot loads, so a filled slot does not
-          shove the page down when its creative arrives. Drawn as nothing
-          rather than a tinted box: most slots resolve to empty, and a
-          grey rectangle that appears and then vanishes reads as a broken
-          image. Once the slot resolves the reservation goes entirely — an
-          unfilled slot costs no height at all. */}
-      {!adData && (
-        <div
-          aria-hidden
-          style={{ width: "100%", maxWidth: dims.width, height: dims.height }}
-        />
-      )}
+      {/* The lazy observer needs an element to watch before the query is
+          allowed to run, so the container above always renders. What it
+          does NOT do any more is reserve the creative's height while the
+          slot resolves: with no direct campaign booked and AdSense not
+          yet live, nearly every slot resolves to empty, and reserving
+          250px per slot meant the page was mostly holes with editorial
+          strung between them. A slot that fills pushes the page down by
+          its own height once; a slot that does not costs nothing at all. */}
 
       {/* Direct or House Ad */}
       {adData && (adData.type === "direct" || adData.type === "house") && (
@@ -496,26 +506,50 @@ export function FooterAd({ slotKey, className }: { slotKey: string; className?: 
   return <AdUnit slotKey={slotKey} variant="footer" className={className} />;
 }
 
+/**
+ * The sticky bar at the foot of a phone screen.
+ *
+ * The bar, its border, its dismiss button and the 64px spacer that keeps
+ * the footer clear of it are all chrome around one slot. They used to
+ * render unconditionally, so an unsold slot left a bordered empty strip
+ * pinned across the bottom of every page and a band of blank space above
+ * the footer. Now the chrome waits for the slot: `onResolved` reports
+ * whether anything is actually going to be drawn, and until that says
+ * yes the component occupies no space at all.
+ */
 export function MobileStickyAd({ slotKey }: { slotKey: string }) {
   const t = useT();
   const [dismissed, setDismissed] = useState(false);
-  
+  const [filled, setFilled] = useState(false);
+
   if (dismissed) return null;
-  
+
   return (
     <>
-      {/* Spacer to prevent content from being hidden behind sticky ad */}
-      <div className="h-16 md:hidden" />
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 backdrop-blur-sm border-t border-border">
-        <button
-          onClick={() => setDismissed(true)}
-          className="absolute -top-6 right-2 bg-background/90 border border-border rounded-t-md px-2 py-0.5 text-[10px] text-muted-foreground hover:text-foreground transition-colors"
-          aria-label={t("common.closeAd")}
-        >
-          ✕
-        </button>
-        <div className="flex justify-center py-1">
-          <AdUnit slotKey={slotKey} variant="mobile-sticky" lazy={false} />
+      {/* Spacer, so the sticky bar never covers the end of the page —
+          but only once there is a bar to clear. */}
+      {filled && <div className="h-16 md:hidden" />}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 md:hidden ${
+          filled ? "bg-background/95 backdrop-blur-sm border-t border-border" : ""
+        }`}
+      >
+        {filled && (
+          <button
+            onClick={() => setDismissed(true)}
+            className="absolute -top-6 end-2 bg-background/90 border border-border rounded-t-md px-2 py-0.5 text-[10px] text-muted-foreground hover:text-foreground transition-colors"
+            aria-label={t("common.closeAd")}
+          >
+            ✕
+          </button>
+        )}
+        <div className={`flex justify-center ${filled ? "py-1" : ""}`}>
+          <AdUnit
+            slotKey={slotKey}
+            variant="mobile-sticky"
+            lazy={false}
+            onResolved={setFilled}
+          />
         </div>
       </div>
     </>

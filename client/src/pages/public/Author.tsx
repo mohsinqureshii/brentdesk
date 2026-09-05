@@ -6,6 +6,14 @@ import { publication } from "@shared/publication";
 import { Header } from "@/components/layout/Header";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { RailBlock, RankedList, SectionHead, StoryRow } from "@/components/editorial";
+import {
+  AboutDeskRail,
+  BeatsRail,
+  LatestRail,
+  NewsletterRail,
+  Rail,
+  TopicsRail,
+} from "@/components/editorial/rails";
 import Footer from "@/components/layout/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Twitter, Mail, Linkedin, TrendingUp, Loader2 } from "lucide-react";
@@ -279,7 +287,7 @@ const Author = () => {
           </div>
 
           {/* The rail */}
-          <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-6">
+          <Rail className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0">
             {/* A real slot, not a mock. This carried a drawn "ad space"
                 panel that no advertiser had ever bought. */}
             <SidebarAd slotKey="author-sidebar" />
@@ -290,18 +298,12 @@ const Author = () => {
               </RailBlock>
             )}
 
-            <section className="bd-ink p-5">
-              <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
-                {publication.newsletter.name}
-              </h2>
-              <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">
-                {t("newsletter.dailyDescription")}
-              </p>
-              <div className="mt-4">
-                <NewsletterSignup variant="inline" source="author-rail" />
-              </div>
-            </section>
-          </aside>
+            <NewsletterRail source="author-rail" />
+            <LatestRail limit={6} />
+            <BeatsRail />
+            <TopicsRail />
+            <AboutDeskRail />
+          </Rail>
         </div>
       </section>
 

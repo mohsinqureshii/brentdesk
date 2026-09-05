@@ -14,6 +14,15 @@ import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { RailBlock, RankedList } from "@/components/editorial";
+import {
+  AboutDeskRail,
+  BeatsRail,
+  EventsRail,
+  LatestRail,
+  NewsletterRail,
+  Rail,
+  TopicsRail,
+} from "@/components/editorial/rails";
 import { useT } from "@/lib/i18n";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
@@ -375,6 +384,8 @@ export default function Article() {
 
   // Generate canonical URL using primary category
   const primaryCategorySlug = (article as any).primaryCategory?.slug || article.categories?.[0]?.slug;
+  const primaryCategoryId: number | undefined =
+    (article as any).primaryCategory?.id ?? (article as any).categories?.[0]?.id ?? undefined;
   const canonicalUrl = primaryCategorySlug 
     ? `${publication.siteUrl}/${primaryCategorySlug}/${article.slug}`
     : `${publication.siteUrl}/article/${article.slug}`;
@@ -646,19 +657,17 @@ export default function Article() {
             </div>
           </div>
 
-          {/* The rail */}
-          <aside className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 space-y-6">
-            <section className="bd-ink p-5">
-              <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
-                {publication.newsletter.name}
-              </h2>
-              <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">
-                {t("newsletter.dailyDescription")}
-              </p>
-              <div className="mt-4">
-                <NewsletterSignup variant="inline" source="article-rail" />
-              </div>
-            </section>
+          {/* The rail.
+              An article runs long, and this column used to be four
+              blocks — two of which were ad slots that now resolve to
+              nothing — beside two thousand words. What follows is built
+              so it cannot run out: the story's own beat, then the wire,
+              the beats, the topics and who is writing this. Every block
+              hides itself when it has nothing, and enough of them can
+              never be empty that the column reaches the foot of the
+              piece. */}
+          <Rail className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0">
+            <NewsletterRail source="article-rail" />
 
             {/* Company Snapshots */}
             {article && 'id' in article && article.id && (
@@ -672,8 +681,29 @@ export default function Article() {
             )}
 
             <SidebarAd slotKey="article-sidebar" category="article" />
+
+            {/* More off the beat the reader is already on, before the
+                wider newsroom — the likeliest next click. The article
+                carries its beats as `categories`, primary first; there
+                is no flat categoryId on this payload. */}
+            {primaryCategoryId ? (
+              <LatestRail
+                title={t("rail.moreOnThisBeat")}
+                categoryId={primaryCategoryId}
+                exclude={article.id}
+                limit={5}
+              />
+            ) : null}
+
+            <LatestRail limit={6} exclude={article.id} />
+
             <SidebarAd slotKey="article-post-content" category="article" />
-          </aside>
+
+            <BeatsRail activeSlug={primaryCategorySlug} />
+            <EventsRail />
+            <TopicsRail />
+            <AboutDeskRail />
+          </Rail>
         </div>
 
         {/* Related Entities Section */}

@@ -12,8 +12,13 @@
 export const publication = {
   /** Display name used in titles, bylines, and structured data. */
   name: "BrentDesk",
-  /** Lowercase wordmark rendered in the header/footer. */
-  wordmark: "brentdesk.",
+  /**
+   * The wordmark as plain text, for the places that cannot draw the
+   * lockup — email, generated PDFs, alt text. The drawn mark sets
+   * `Brent` heavy against `Desk` light; in text that distinction has
+   * nowhere to go, so it is simply the word. See client Logo.tsx.
+   */
+  wordmark: "BrentDesk",
   /**
    * The wordmark in languages that do not use the Latin alphabet, keyed by
    * locale code. A locale absent from this map keeps `wordmark` above.
@@ -26,7 +31,7 @@ export const publication = {
    * plain map makes the first paint the right one.
    */
   wordmarksByLocale: {
-    ar: "برنت ديسك.",
+    ar: "برنت ديسك",
   } as Record<string, string | undefined>,
   /** Legal entity used in copyright lines and terms. */
   legalName: "BrentDesk Media",

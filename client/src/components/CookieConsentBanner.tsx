@@ -1,11 +1,29 @@
-import { useEffect, useState, useCallback } from "react";
+/**
+ * Cookie consent.
+ *
+ * Two states, one component.
+ *
+ *   The bar. A slim strip of ink across the foot of the window: one line
+ *   of copy, three plain buttons, no card, no shadow, no rounded corners
+ *   floating over the middle of the page. It is the first thing a new
+ *   reader sees, so it is drawn in the publication's own type rather
+ *   than in generic dialog furniture, and it is deliberately short —
+ *   the detail lives on the cookie policy, which is linked.
+ *
+ *   The panel. Opened from "Customise", or from the footer link at any
+ *   later date. A real modal: it takes focus, closes on Escape, and
+ *   dims the page behind it, because a reader changing their mind about
+ *   tracking should not have to hunt for a switch in a strip.
+ *
+ * Rejecting is exactly as easy as accepting — same size, same weight,
+ * same row — which is both the decent way to ask and what GDPR/ePrivacy
+ * guidance requires. Nothing is stored until the reader chooses.
+ */
+
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Link } from "wouter";
 import { publication } from "@shared/publication";
 import { useT } from "@/lib/i18n";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { X } from "lucide-react";
 
 const STORAGE_KEY = "ts_cookie_consent";
@@ -46,12 +64,51 @@ export function getCookieConsent(): CookieConsent | null {
   }
 }
 
+/** One switch in the preferences panel, drawn rather than imported: the
+ *  shadcn Switch is styled for a white form, and this panel is ink. */
+function Toggle({
+  id,
+  checked,
+  disabled,
+  onChange,
+  label,
+}: {
+  id: string;
+  checked: boolean;
+  disabled?: boolean;
+  onChange?: (v: boolean) => void;
+  label: string;
+}) {
+  return (
+    <button
+      id={id}
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      aria-label={label}
+      disabled={disabled}
+      onClick={() => onChange?.(!checked)}
+      className={`relative h-5 w-9 shrink-0 transition-colors ${
+        checked ? "bg-primary" : "bg-white/25"
+      } ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:opacity-90"}`}
+    >
+      <span
+        aria-hidden
+        className={`absolute top-0.5 h-4 w-4 bg-white transition-[inset-inline-start] ${
+          checked ? "start-[1.125rem]" : "start-0.5"
+        }`}
+      />
+    </button>
+  );
+}
+
 export function CookieConsentBanner() {
   const t = useT();
   const [visible, setVisible] = useState(false);
   const [customizing, setCustomizing] = useState(false);
   const [analytics, setAnalytics] = useState(false);
   const [marketing, setMarketing] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Initial visibility: show only if no prior consent stored.
   useEffect(() => {
@@ -75,6 +132,24 @@ export function CookieConsentBanner() {
       window.removeEventListener(SHOW_EVENT, handleOpen as EventListener);
     };
   }, []);
+
+  // The panel is modal, so Escape closes it back to the bar — or closes
+  // the whole thing if the reader had already chosen once.
+  useEffect(() => {
+    if (!customizing) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (getCookieConsent()) {
+        setVisible(false);
+        setCustomizing(false);
+      } else {
+        setCustomizing(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    panelRef.current?.focus();
+    return () => window.removeEventListener("keydown", onKey);
+  }, [customizing]);
 
   const persist = useCallback((choices: { analytics: boolean; marketing: boolean }) => {
     const payload: CookieConsent = {
@@ -111,116 +186,184 @@ export function CookieConsentBanner() {
 
   if (!visible) return null;
 
+  // Same button, three uses. Reject and accept are the same size and the
+  // same weight; only the colour differs, and only so the primary action
+  // is findable — not so the other one is hard to find.
+  const btn =
+    "bd-display h-10 px-5 text-[0.75rem] font-bold uppercase tracking-[0.08em] transition-colors whitespace-nowrap";
+
+  if (!customizing) {
+    return (
+      <div
+        className="fixed inset-x-0 bottom-0 z-[60] bd-ink border-t-2 border-primary"
+        role="region"
+        aria-label={t("cookies.consent")}
+      >
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-8">
+          <div className="min-w-0 flex-1">
+            <p className="bd-display text-[0.8125rem] font-bold uppercase tracking-[0.1em] text-white">
+              {t("cookies.title")}
+            </p>
+            <p className="mt-1.5 text-[0.8125rem] leading-relaxed text-white/70">
+              {t("cookies.body", { site: publication.name })}{" "}
+              <Link href="/cookies" className="text-white underline underline-offset-2 hover:text-primary">
+                {t("cookies.cookiePolicy")}
+              </Link>
+              {" · "}
+              <Link href="/privacy" className="text-white underline underline-offset-2 hover:text-primary">
+                {t("footer.privacyPolicy")}
+              </Link>
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={handleRejectAll}
+              className={`${btn} border border-white/30 text-white hover:bg-white/10`}
+            >
+              {t("cookies.rejectAll")}
+            </button>
+            <button
+              type="button"
+              onClick={() => setCustomizing(true)}
+              className={`${btn} border border-white/30 text-white hover:bg-white/10`}
+            >
+              {t("cookies.customize")}
+            </button>
+            <button
+              type="button"
+              onClick={handleAcceptAll}
+              className={`${btn} bg-primary text-white hover:bg-primary/85`}
+            >
+              {t("cookies.acceptAll")}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const categories: {
+    id: string;
+    label: string;
+    help: string;
+    checked: boolean;
+    onChange?: (v: boolean) => void;
+    locked?: boolean;
+  }[] = [
+    {
+      id: "cookie-essential",
+      label: t("cookies.essential"),
+      help: t("cookies.essentialHelp"),
+      checked: true,
+      locked: true,
+    },
+    {
+      id: "cookie-analytics",
+      label: t("cookies.analytics"),
+      help: t("cookies.analyticsHelp"),
+      checked: analytics,
+      onChange: setAnalytics,
+    },
+    {
+      id: "cookie-marketing",
+      label: t("cookies.marketing"),
+      help: t("cookies.marketingHelp"),
+      checked: marketing,
+      onChange: setMarketing,
+    },
+  ];
+
   return (
-    <div
-      className="fixed inset-x-0 bottom-0 z-50 px-3 pb-3 sm:px-6 sm:pb-6 pointer-events-none"
-      role="region"
-      aria-label={t("cookies.consent")}
-    >
-      <Card className="pointer-events-auto mx-auto max-w-4xl p-4 sm:p-6 shadow-lg border-border">
-        {!customizing ? (
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex-1 text-sm text-foreground">
-              <p className="font-medium mb-1">{t("cookies.title")}</p>
-              <p className="text-muted-foreground">
-                {t("cookies.body", { site: publication.name })}{" "}
-                <Link href="/privacy" className="underline hover:text-foreground">
-                  {t("footer.privacyPolicy")}
-                </Link>
-                .
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:shrink-0">
-              <Button variant="ghost" size="sm" onClick={handleRejectAll}>
-                {t("cookies.rejectAll")}
-              </Button>
-              <Button variant="outline" size="sm" onClick={() => setCustomizing(true)}>
-                {t("cookies.customize")}
-              </Button>
-              <Button size="sm" onClick={handleAcceptAll}>
-                {t("cookies.acceptAll")}
-              </Button>
-            </div>
+    <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center">
+      <div
+        className="absolute inset-0 bg-black/60"
+        onClick={() => (getCookieConsent() ? setVisible(false) : setCustomizing(false))}
+        aria-hidden
+      />
+      <div
+        ref={panelRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t("cookies.preferences")}
+        className="relative w-full sm:max-w-lg bd-ink border-t-2 sm:border-2 border-primary max-h-[85vh] overflow-y-auto outline-none"
+      >
+        <div className="flex items-start justify-between gap-4 p-5 pb-3">
+          <div>
+            <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.1em] text-white">
+              {t("cookies.preferences")}
+            </h2>
+            <p className="mt-1.5 text-[0.8125rem] leading-relaxed text-white/65">
+              {t("cookies.preferencesHelp")}
+            </p>
           </div>
-        ) : (
-          <div className="flex flex-col gap-4">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <p className="font-medium text-sm">{t("cookies.preferences")}</p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {t("cookies.preferencesHelp")}
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setCustomizing(false)}
-                aria-label={t("cookies.closePanel")}
-                className="text-muted-foreground hover:text-foreground"
+          <button
+            type="button"
+            onClick={() => (getCookieConsent() ? setVisible(false) : setCustomizing(false))}
+            aria-label={t("cookies.closePanel")}
+            className="shrink-0 text-white/60 hover:text-white transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <div className="px-5">
+          <ul className="border-t border-white/15">
+            {categories.map((c) => (
+              <li
+                key={c.id}
+                className="flex items-start justify-between gap-4 py-4 border-b border-white/15"
               >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-start justify-between gap-4 rounded-md border border-border p-3">
-                <div className="flex-1">
-                  <Label htmlFor="cookie-essential" className="text-sm font-medium">
-                    {t("cookies.essential")}
-                  </Label>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {t("cookies.essentialHelp")}
-                  </p>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="bd-display text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-white">
+                      {c.label}
+                    </span>
+                    {c.locked && (
+                      <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-white/45">
+                        {t("cookies.alwaysOn")}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-1 text-[0.8125rem] leading-relaxed text-white/60">{c.help}</p>
                 </div>
-                <Switch id="cookie-essential" checked={true} disabled aria-readonly />
-              </div>
-
-              <div className="flex items-start justify-between gap-4 rounded-md border border-border p-3">
-                <div className="flex-1">
-                  <Label htmlFor="cookie-analytics" className="text-sm font-medium">
-                    {t("cookies.analytics")}
-                  </Label>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {t("cookies.analyticsHelp")}
-                  </p>
-                </div>
-                <Switch
-                  id="cookie-analytics"
-                  checked={analytics}
-                  onCheckedChange={setAnalytics}
+                <Toggle
+                  id={c.id}
+                  label={c.label}
+                  checked={c.checked}
+                  disabled={c.locked}
+                  onChange={c.onChange}
                 />
-              </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-              <div className="flex items-start justify-between gap-4 rounded-md border border-border p-3">
-                <div className="flex-1">
-                  <Label htmlFor="cookie-marketing" className="text-sm font-medium">
-                    {t("cookies.marketing")}
-                  </Label>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {t("cookies.marketingHelp")}
-                  </p>
-                </div>
-                <Switch
-                  id="cookie-marketing"
-                  checked={marketing}
-                  onCheckedChange={setMarketing}
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">
-              <Button variant="ghost" size="sm" onClick={handleRejectAll}>
-                {t("cookies.rejectAll")}
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleSave}>
-                {t("cookies.savePreferences")}
-              </Button>
-              <Button size="sm" onClick={handleAcceptAll}>
-                {t("cookies.acceptAll")}
-              </Button>
-            </div>
-          </div>
-        )}
-      </Card>
+        <div className="p-5 flex flex-col sm:flex-row gap-2 sm:justify-end">
+          <button
+            type="button"
+            onClick={handleRejectAll}
+            className={`${btn} border border-white/30 text-white hover:bg-white/10`}
+          >
+            {t("cookies.rejectAll")}
+          </button>
+          <button
+            type="button"
+            onClick={handleSave}
+            className={`${btn} border border-white/30 text-white hover:bg-white/10`}
+          >
+            {t("cookies.savePreferences")}
+          </button>
+          <button
+            type="button"
+            onClick={handleAcceptAll}
+            className={`${btn} bg-primary text-white hover:bg-primary/85`}
+          >
+            {t("cookies.acceptAll")}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

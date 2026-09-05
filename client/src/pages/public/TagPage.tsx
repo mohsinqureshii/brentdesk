@@ -21,6 +21,15 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { SidebarAd, LeaderboardAd, MobileStickyAd } from "@/components/ads/AdUnit";
 import { trpc } from "@/lib/trpc";
 import { RailBlock, RankedList, StoryCard, StoryRow, type Story } from "@/components/editorial";
+import {
+  AboutDeskRail,
+  BeatsRail,
+  EventsRail,
+  LatestRail,
+  NewsletterRail,
+  Rail,
+  TopicsRail,
+} from "@/components/editorial/rails";
 
 /** What kind of thing a tag is, in the reader's words. */
 function formatTagType(tagType: string | null): string {
@@ -164,45 +173,25 @@ export default function TagPage() {
               />
             </div>
 
-            <aside className="space-y-6 min-w-0 lg:sticky lg:top-28" aria-label={t("list.sidebar")}>
+            {/* The rail. A topic cuts across beats, so the browse blocks
+                below are more use here than anywhere: a reader who came
+                for "Local Content" is often looking for the next topic,
+                not the next story. */}
+            <Rail>
               <SidebarAd slotKey="tag-sidebar" />
 
               <RailBlock title={t("list.mostRead")}>
                 <RankedList articles={articles.slice(0, 5)} />
               </RailBlock>
 
-              {!!allTags?.length && (
-                <RailBlock title={t("list.popularTags")}>
-                  <div className="flex flex-wrap gap-x-4 gap-y-2 pt-3">
-                    {allTags
-                      .filter((x) => x.articleCount > 0 && x.slug !== tagSlug)
-                      .slice(0, 16)
-                      .map((x) => (
-                        <Link
-                          key={x.id}
-                          href={`/tag/${x.slug}`}
-                          className="bd-display text-[0.75rem] font-bold uppercase tracking-[0.06em] text-foreground/65 hover:text-primary transition-colors"
-                        >
-                          {x.name}
-                          <span className="ms-1 text-muted-foreground/70 tabular-nums">{x.articleCount}</span>
-                        </Link>
-                      ))}
-                  </div>
-                </RailBlock>
-              )}
+              <NewsletterRail source="tag-rail" />
 
-              <section className="bd-ink p-5">
-                <h2 className="bd-display text-[0.9375rem] font-bold uppercase tracking-[0.08em] text-white">
-                  {publication.newsletter.name}
-                </h2>
-                <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/65">
-                  {t("newsletter.dailyDescription")}
-                </p>
-                <div className="mt-4">
-                  <NewsletterSignup variant="inline" source="tag-rail" />
-                </div>
-              </section>
-            </aside>
+              <TopicsRail activeSlug={tagSlug} />
+              <LatestRail limit={6} />
+              <BeatsRail />
+              <EventsRail />
+              <AboutDeskRail />
+            </Rail>
           </div>
         )}
       </main>
