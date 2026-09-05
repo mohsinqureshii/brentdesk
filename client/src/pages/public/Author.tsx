@@ -7,12 +7,10 @@ import { Header } from "@/components/layout/Header";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { RailBlock, RankedList, SectionHead, StoryRow } from "@/components/editorial";
 import {
-  AboutDeskRail,
-  BeatsRail,
+  ExploreBand,
   LatestRail,
   NewsletterRail,
   Rail,
-  TopicsRail,
 } from "@/components/editorial/rails";
 import Footer from "@/components/layout/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -300,11 +298,10 @@ const Author = () => {
 
             <NewsletterRail source="author-rail" />
             <LatestRail limit={6} />
-            <BeatsRail />
-            <TopicsRail />
-            <AboutDeskRail />
           </Rail>
         </div>
+
+        <ExploreBand className="mt-10 lg:mt-14" />
       </section>
 
       <Footer />

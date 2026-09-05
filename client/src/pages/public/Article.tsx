@@ -15,13 +15,10 @@ import { publication } from "@shared/publication";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { RailBlock, RankedList } from "@/components/editorial";
 import {
-  AboutDeskRail,
-  BeatsRail,
-  EventsRail,
+  ExploreBand,
   LatestRail,
   NewsletterRail,
   Rail,
-  TopicsRail,
 } from "@/components/editorial/rails";
 import { useT } from "@/lib/i18n";
 import { getArticleUrl } from "@/lib/articleUrl";
@@ -665,7 +662,13 @@ export default function Article() {
               the beats, the topics and who is writing this. Every block
               hides itself when it has nothing, and enough of them can
               never be empty that the column reaches the foot of the
-              piece. */}
+              piece.
+
+              Long enough to reach the foot of a piece, and no longer: a
+              rail that outruns the article trades a hole under the rail
+              for a hole under the article. The browse blocks that used
+              to sit here run full width below instead — see
+              <ExploreBand>, at the bottom of this page. */}
           <Rail className="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0">
             <NewsletterRail source="article-rail" />
 
@@ -698,11 +701,6 @@ export default function Article() {
             <LatestRail limit={6} exclude={article.id} />
 
             <SidebarAd slotKey="article-post-content" category="article" />
-
-            <BeatsRail activeSlug={primaryCategorySlug} />
-            <EventsRail />
-            <TopicsRail />
-            <AboutDeskRail />
           </Rail>
         </div>
 
@@ -754,6 +752,10 @@ export default function Article() {
             <RelatedArticlesCarousel articles={relatedArticles} />
           </section>
         )}
+
+        {/* The browse blocks that came out of the rail. A reader who has
+            reached the foot of a piece is looking for the next beat. */}
+        <ExploreBand activeCategorySlug={primaryCategorySlug} className="mt-10 lg:mt-14" />
       </main>
       <Footer />
 

@@ -31,13 +31,11 @@ import {
   type Story,
 } from "@/components/editorial";
 import {
-  AboutDeskRail,
-  BeatsRail,
   EventsRail,
+  ExploreBand,
   LatestRail,
   NewsletterRail,
   Rail,
-  TopicsRail,
 } from "@/components/editorial/rails";
 
 /**
@@ -247,10 +245,13 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
               />
             </div>
 
-            {/* The rail. A beat page can run twenty stories deep, so the
-                column carries the beat's own trending list first, then
-                the standing blocks — which are what keep it going now
-                that the two ad slots in it resolve to nothing. */}
+            {/* The rail. The beat's own trending list first, then the
+                standing blocks that keep it going now the two ad slots
+                in it resolve to nothing — but only as far down as the
+                stories go. The browse blocks run full width below
+                instead, where a reader who reached the pagination is
+                looking for the next beat rather than for a narrow strip
+                of links beside white paper. */}
             <Rail>
               <SidebarAd slotKey="category-sidebar" />
 
@@ -263,13 +264,12 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
               <SidebarAd slotKey="category-sidebar-bottom" />
 
               <LatestRail limit={6} />
-              <BeatsRail activeSlug={categorySlug} />
               <EventsRail />
-              <TopicsRail />
-              <AboutDeskRail />
             </Rail>
           </div>
         )}
+
+        <ExploreBand activeCategorySlug={categorySlug} className="mt-10 lg:mt-14 mb-4" />
       </main>
 
       <Footer />

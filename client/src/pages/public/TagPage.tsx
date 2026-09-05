@@ -22,13 +22,11 @@ import { SidebarAd, LeaderboardAd, MobileStickyAd } from "@/components/ads/AdUni
 import { trpc } from "@/lib/trpc";
 import { RailBlock, RankedList, StoryCard, StoryRow, type Story } from "@/components/editorial";
 import {
-  AboutDeskRail,
-  BeatsRail,
   EventsRail,
+  ExploreBand,
   LatestRail,
   NewsletterRail,
   Rail,
-  TopicsRail,
 } from "@/components/editorial/rails";
 
 /** What kind of thing a tag is, in the reader's words. */
@@ -186,14 +184,13 @@ export default function TagPage() {
 
               <NewsletterRail source="tag-rail" />
 
-              <TopicsRail activeSlug={tagSlug} />
               <LatestRail limit={6} />
-              <BeatsRail />
               <EventsRail />
-              <AboutDeskRail />
             </Rail>
           </div>
         )}
+
+        <ExploreBand activeTagSlug={tagSlug} className="mt-10 lg:mt-14 mb-4" />
       </main>
 
       <Footer />

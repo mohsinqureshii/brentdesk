@@ -374,3 +374,45 @@ export function AboutDeskRail() {
     </RailBlock>
   );
 }
+
+// ------------------------------------------------------------------
+// The band under the page
+// ------------------------------------------------------------------
+
+/**
+ * Where the rail stops.
+ *
+ * A rail can be too long as easily as too short. On a beat page the
+ * stories end at the pagination and the rail carried on for another
+ * fifteen hundred pixels, which trades a hole under the rail for a hole
+ * under the stories — the same complaint, mirrored.
+ *
+ * So the browse blocks come out of the rail on those pages and run full
+ * width beneath both columns. They are better placed here anyway: a
+ * reader who has reached the foot of a page is done with this beat and
+ * is looking for the next one, and three columns of links is what that
+ * reader wants rather than a narrow strip of them beside white paper.
+ */
+export function ExploreBand({
+  activeCategorySlug,
+  activeTagSlug,
+  className = "",
+}: {
+  activeCategorySlug?: string;
+  activeTagSlug?: string;
+  className?: string;
+}) {
+  const t = useT();
+  return (
+    <section
+      className={`border-t-2 border-foreground pt-6 ${className}`}
+      aria-label={t("sitemap.forReaders")}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+        <BeatsRail activeSlug={activeCategorySlug} />
+        <TopicsRail activeSlug={activeTagSlug} />
+        <AboutDeskRail />
+      </div>
+    </section>
+  );
+}
