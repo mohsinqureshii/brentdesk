@@ -280,6 +280,30 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
+  app.disable("x-powered-by");
+  app.set("trust proxy", 1);
+  app.use((_req, res, next) => {
+    res.set({
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "Permissions-Policy": "camera=(), microphone=(self), geolocation=(self), payment=(self)",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+      "Content-Security-Policy": [
+        "default-src 'self'", "base-uri 'self'", "object-src 'none'",
+        "frame-ancestors 'none'", "form-action 'self' https:",
+        "script-src 'self' 'unsafe-inline' https:",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+        "font-src 'self' data: https://fonts.gstatic.com",
+        "img-src 'self' data: blob: https:", "media-src 'self' blob: https:",
+        "connect-src 'self' https: wss:", "frame-src 'self' https:",
+        "worker-src 'self' blob:", "upgrade-insecure-requests",
+      ].join("; "),
+    });
+    next();
+  });
+
   // ----------------------------------------------------------------
   // Stripe webhook — MUST come before express.json() so the raw body
   // is preserved for signature verification. Mounting the route with

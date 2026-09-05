@@ -1645,7 +1645,7 @@ export async function getArticleCanonicalUrl(articleSlug: string): Promise<strin
   if (!db) return null;
   
   const result = await db
-    .select({ catSlug: categories.slug, slug: articles.slug })
+    .select({ catSlug: categories.slug, slug: articles.slug, canonicalUrl: articles.canonicalUrl })
     .from(articles)
     .leftJoin(categories, eq(categories.id, articles.primaryCategoryId))
     .where(and(eq(articles.slug, articleSlug), isNotNull(articles.publishedAt)))
@@ -1654,6 +1654,14 @@ export async function getArticleCanonicalUrl(articleSlug: string): Promise<strin
   
   if (!result) return null;
   
+  if (result.canonicalUrl) {
+    try {
+      const candidate = new URL(result.canonicalUrl, BASE);
+      if (candidate.origin === new URL(BASE).origin) {
+        return `${candidate.origin}${candidate.pathname}`.replace(/\/$/, '');
+      }
+    } catch { /* use the generated canonical below */ }
+  }
   const catSlug = result.catSlug || 'news';
   return `${BASE}/${catSlug}/${articleSlug}`;
 }

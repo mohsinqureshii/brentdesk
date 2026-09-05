@@ -132,7 +132,7 @@ export function SEO({
 
     // Twitter Card tags
     setMeta('twitter:card', ogImage ? 'summary_large_image' : 'summary');
-    setMeta('twitter:site', '@techaborad');
+    setMeta('twitter:site', publication.xHandle);
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
     setMeta('twitter:image', ogImage);

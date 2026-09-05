@@ -58,11 +58,27 @@ const DEFAULT_OG_IMAGE = `${BASE_URL}${publication.assets.ogImage}`;
 const skipPrefixPaths = [
   '/api/', '/admin/', '/login', '/signup', '/signin',
   '/profile', '/account', '/settings', '/dashboard',
-  '/sitemap', '/robots', '/favicon', '/assets', '/fonts', '/images',
+  '/robots', '/favicon', '/assets', '/fonts', '/images',
   '/src/', '/@', '/rss', '/feed', '/subscribe', '/homepage',
   '/404', '/claimed-profiles', '/go/',
   '/legacy-storage/', // retired asset mount path — kept in the skip list so stale URLs 404 fast
 ];
+
+export const privateNoindexPrefixes = [
+  '/admin', '/login', '/signin', '/signup', '/forgot-password',
+  '/reset-password', '/verify-email', '/profile', '/profile-mobile',
+  '/account', '/settings', '/dashboard', '/me', '/assess/',
+  '/claimed-profiles', '/live-console', '/events/submit',
+  '/search-mobile', '/explore',
+];
+
+export function isPrivateNoindexPath(url: string): boolean {
+  const path = url.split('?')[0].split('#')[0];
+  return privateNoindexPrefixes.some(prefix =>
+    prefix.endsWith('/') ? path.startsWith(prefix) : path === prefix || path.startsWith(`${prefix}/`)
+  ) || /^\/events\/[^/]+\/tickets\/success$/.test(path)
+    || /^\/jobs\/[^/]+\/applicants$/.test(path);
+}
 
 // Static-asset extensions must NEVER reach the SSR pipeline. A missing
 // image used to fall through to runSSR, firing 4-6 DB queries per dead
@@ -105,7 +121,7 @@ export const knownStaticPages = new Set([
   // Core pages
   '/', '/news', '/jobs', '/companies', '/people',
   '/events', '/about', '/contact', '/advertise', '/newsletter',
-  '/terms', '/privacy',
+  '/terms', '/privacy', '/sitemap',
   // Search page - should be noindex but still a real page (handled separately)
   '/search',
   // Parent category pages (all 34 parent categories)
@@ -803,6 +819,10 @@ export function serveStatic(app: Express) {
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
     console.log(`[SSR] serveStatic middleware handling URL: ${url}`);
+
+    if (isPrivateNoindexPath(url)) {
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+    }
     
     // Static assets that reached this point don't exist on disk
     // (express.static already had first shot) — 404 immediately rather
