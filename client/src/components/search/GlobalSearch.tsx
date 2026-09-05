@@ -23,6 +23,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useDebounce } from "@/hooks/useDebounce";
+import { getArticleUrl } from "@/lib/articleUrl";
 
 interface GlobalSearchProps {
   isOpen: boolean;
@@ -34,6 +35,11 @@ interface SearchResult {
   type: "article" | "job" | "company" | "person" | "event";
   title: string;
   subtitle?: string;
+  /** Where this result actually lives, when the type's default path is
+   *  not it. An article's canonical URL is /<beat>/<slug>; /article/<slug>
+   *  still resolves but only by redirecting, so every click through the
+   *  overlay was costing a round trip. */
+  href?: string;
   slug: string;
   image?: string | null;
 }
@@ -69,8 +75,12 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Fetch results from multiple endpoints
-  const { data: articlesData, isLoading: articlesLoading } = trpc.news.list.useQuery(
-    { search: debouncedQuery, limit: 3 },
+  // The overlay uses the same ranked search as /search, so the three
+  // results it shows are the three best ones rather than the three most
+  // recent that happen to contain the string — and so a query typed in
+  // Arabic finds Arabic articles here too.
+  const { data: articlesData, isLoading: articlesLoading } = trpc.news.search.useQuery(
+    { query: debouncedQuery, limit: 3 },
     { enabled: debouncedQuery.length >= 2 }
   );
   
@@ -105,9 +115,12 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
       id: item.id,
       type: "article",
       title: item.title,
-      subtitle: item.excerpt || undefined,
+      // The passage carrying the match, not the standfirst — in a
+      // three-row overlay it is the only line that distinguishes them.
+      subtitle: item.snippet?.text || item.excerpt || undefined,
       slug: item.slug,
-      image: null, // Articles don't have image in list response
+      href: getArticleUrl(item),
+      image: item.featuredImageUrl ?? null,
     }));
   }
   
@@ -178,7 +191,7 @@ export function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
 
   const handleResultClick = (result: SearchResult) => {
     const config = typeConfig[result.type];
-    setLocation(`${config.path}/${result.slug}`);
+    setLocation(result.href ?? `${config.path}/${result.slug}`);
     onClose();
     setQuery("");
   };

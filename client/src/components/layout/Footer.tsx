@@ -4,6 +4,7 @@ import { Linkedin, Instagram, Youtube, Mail } from "lucide-react";
 import { publication } from "@shared/publication";
 import { useWordmark } from "@/components/layout/Header";
 import { Logo } from "@/components/layout/Logo";
+import { triggerCookiePreferences } from "@/components/CookieConsentBanner";
 import { useT } from "@/lib/i18n";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import type { UiKey } from "@shared/uiStrings";
@@ -50,6 +51,7 @@ const companyLinks: FooterLink[] = [
   { key: "nav.events", href: "/events" },
   { key: "footer.termsOfService", href: "/terms" },
   { key: "footer.privacyPolicy", href: "/privacy" },
+  { key: "cookies.cookiePolicy", href: "/cookies" },
   { key: "footer.sitemap", href: "/sitemap" },
 ];
 
@@ -174,7 +176,19 @@ export function Footer() {
           <p className="text-[0.6875rem] text-white/45">
             © {new Date().getFullYear()} {publication.legalName}. {t("footer.allRightsReserved")}
           </p>
-          <p className="text-[0.6875rem] text-white/45">{t("footer.tagline")}</p>
+          <div className="flex items-center gap-4">
+            {/* The cookie policy tells readers their choices are here, so
+                they have to be here — and it has to be a control, not a
+                link to a page that explains where the control is. */}
+            <button
+              type="button"
+              onClick={triggerCookiePreferences}
+              className="text-[0.6875rem] text-white/60 hover:text-white transition-colors underline underline-offset-2"
+            >
+              {t("cookies.preferences")}
+            </button>
+            <p className="text-[0.6875rem] text-white/45">{t("footer.tagline")}</p>
+          </div>
         </div>
       </div>
     </footer>

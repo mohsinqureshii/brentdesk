@@ -103,14 +103,16 @@ export const staticPagesSEO: Record<string, StaticPageSEO> = {
     description: publication.newsletter.description,
   },
   "/terms": {
-    title: `Terms of Service | ${NAME}`,
-    description: `Terms of service for ${NAME}.`,
-    robots: "noindex, follow",
+    title: `Terms of Use | ${NAME}`,
+    description: `The agreement between you and ${publication.legalName} when you use ${publication.domain} — what our reporting is and is not, what you may do with it, and the rights we reserve.`,
   },
   "/privacy": {
     title: `Privacy Policy | ${NAME}`,
-    description: `Privacy policy for ${NAME}.`,
-    robots: "noindex, follow",
+    description: `What ${NAME} collects, why, who sees it, and the rights you have over it under Saudi Arabia's PDPL, the GDPR and California law.`,
+  },
+  "/cookies": {
+    title: `Cookie Policy | ${NAME}`,
+    description: `Every cookie ${NAME} sets, by name, purpose and lifetime — and how to change what you allow.`,
   },
 
   // ============================================================

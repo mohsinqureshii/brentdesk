@@ -121,7 +121,7 @@ export const knownStaticPages = new Set([
   // Core pages
   '/', '/news', '/jobs', '/companies', '/people',
   '/events', '/about', '/contact', '/advertise', '/newsletter',
-  '/terms', '/privacy', '/sitemap',
+  '/terms', '/privacy', '/cookies', '/sitemap',
   // Search page - should be noindex but still a real page (handled separately)
   '/search',
   // Parent category pages (all 34 parent categories)

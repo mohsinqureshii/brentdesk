@@ -12,6 +12,7 @@
 
 import { Router } from "express";
 import { seoService } from "../services/seo.service";
+import { getBaseUrl } from "../../shared/publication";
 
 const router = Router();
 
@@ -282,6 +283,46 @@ router.get("/jobs-feed.xml", async (req, res) => {
   } catch (error) {
     logSitemapError("jobs-rss", error);
     res.status(500).send("Error generating jobs RSS feed");
+  }
+});
+
+/**
+ * The sitemap manifest — /api/sitemaps
+ *
+ * Everything a publisher needs to submit this site to Search Console, in
+ * one JSON document: which sitemaps exist, what each one covers, how many
+ * URLs are in it and where the index lives. The XML is already public, so
+ * the manifest describing it is public too — it exposes nothing the
+ * crawler cannot read directly.
+ *
+ * It powers the /sitemap page, which is where a human goes to copy those
+ * URLs. Cached for five minutes, which is the interval the scheduler
+ * regenerates the files on anyway.
+ */
+router.get("/api/sitemaps", async (_req, res) => {
+  try {
+    const stats = await seoService.getSitemapStats();
+    const base = getBaseUrl();
+    res.set("Cache-Control", "public, max-age=300, s-maxage=300");
+    res.json({
+      index: `${base}/sitemap.xml`,
+      robots: `${base}/robots.txt`,
+      feeds: [
+        { name: "rss", url: `${base}/rss.xml` },
+        { name: "jobs", url: `${base}/jobs-feed.xml` },
+      ],
+      totalUrls: stats.totalUrls,
+      lastRegenerated: stats.lastRegenerated,
+      // A sitemap with nothing in it is not something to submit, so the
+      // manifest reports what is actually there rather than every route
+      // that could exist one day.
+      sitemaps: stats.sitemaps
+        .filter((s) => s.urlCount > 0)
+        .map((s) => ({ ...s, url: `${base}${s.path}` })),
+    });
+  } catch (error) {
+    logSitemapError("manifest", error);
+    res.status(500).json({ error: "Could not build the sitemap manifest" });
   }
 });
 

@@ -432,6 +432,34 @@ function mapAttendanceMode(format: string): string {
 // SEO SERVICE CLASS
 // ============================================================
 
+/**
+ * The public pages that go in sitemap-pages.xml.
+ *
+ * Module scope rather than inline in the generator, because the stats
+ * endpoint has to report how many there are and used to do it with a
+ * hardcoded 12 — which was wrong the moment a page was added, and wrong
+ * silently. One list, counted rather than remembered.
+ *
+ * Deliberately excluded: /login, /signup, /profile, /account, /search,
+ * and everything under /admin and /dashboard.
+ */
+export const STATIC_SITEMAP_PAGES: { path: string; priority: string }[] = [
+  { path: "/", priority: "1.0" },
+  { path: "/news", priority: "0.9" },
+  { path: "/jobs", priority: "0.8" },
+  { path: "/companies", priority: "0.8" },
+  { path: "/people", priority: "0.7" },
+  { path: "/events", priority: "0.7" },
+  { path: "/about", priority: "0.5" },
+  { path: "/contact", priority: "0.5" },
+  { path: "/advertise", priority: "0.4" },
+  { path: "/newsletter", priority: "0.4" },
+  { path: "/terms", priority: "0.3" },
+  { path: "/privacy", priority: "0.3" },
+  { path: "/cookies", priority: "0.3" },
+  { path: "/sitemap", priority: "0.3" },
+];
+
 export class SeoService {
   private baseUrl: string;
 
@@ -997,22 +1025,7 @@ export class SeoService {
         break;
 
       case "pages":
-        // Static pages sitemap - ONLY public pages, NO authenticated/admin pages
-        const staticPages = [
-          { path: "/", priority: "1.0" },
-          { path: "/news", priority: "0.9" },
-          { path: "/jobs", priority: "0.8" },
-          { path: "/companies", priority: "0.8" },
-          { path: "/people", priority: "0.7" },
-          { path: "/events", priority: "0.7" },
-          { path: "/about", priority: "0.5" },
-          { path: "/contact", priority: "0.5" },
-          { path: "/advertise", priority: "0.4" },
-          { path: "/newsletter", priority: "0.4" },
-          { path: "/terms", priority: "0.3" },
-          { path: "/privacy", priority: "0.3" },
-          // NOTE: /login, /signup, /profile, /account, /admin/*, /dashboard/* are intentionally excluded
-        ];
+        const staticPages = STATIC_SITEMAP_PAGES;
         const todayStr = new Date().toISOString().split('T')[0];
         urls = staticPages.map(p => ({
           loc: `${this.baseUrl}${p.path}`,
@@ -1536,8 +1549,15 @@ Crawl-delay: 0
       return pubDate && pubDate >= cutoffDate;
     }).length;
 
-    // Static pages count - matches the actual list in generateSitemap("pages")
-    const staticPagesCount = 12;
+    // Tags, authors and images have routes and appear in the index, so
+    // they belong in the stats too — leaving them out made the /sitemap
+    // page look like it was hiding three sitemaps.
+    const locs = (xml: string) => (xml.match(/<loc>/g) || []).length;
+    const [tagXml, authorXml, imageXml] = await Promise.all([
+      this.generateSitemap("tags").catch(() => ""),
+      this.generateSitemap("authors").catch(() => ""),
+      this.generateSitemap("images").catch(() => ""),
+    ]);
 
     const sitemaps = [
       { name: "articles", description: "All articles (full archive)", urlCount: Number(articleCount?.count) || 0, path: "/sitemap-articles.xml" },
@@ -1547,7 +1567,10 @@ Crawl-delay: 0
       { name: "companies", description: "Company profiles", urlCount: Number(companyCount?.count) || 0, path: "/sitemap-companies.xml" },
       { name: "events", description: "Events", urlCount: Number(eventCount?.count) || 0, path: "/sitemap-events.xml" },
       { name: "categories", description: "Category pages", urlCount: Number(categoryCount?.count) || 0, path: "/sitemap-categories.xml" },
-      { name: "pages", description: "Static pages", urlCount: staticPagesCount, path: "/sitemap-pages.xml" }
+      { name: "tags", description: "Topic pages", urlCount: locs(tagXml), path: "/sitemap-tags.xml" },
+      { name: "authors", description: "Author pages", urlCount: locs(authorXml), path: "/sitemap-authors.xml" },
+      { name: "images", description: "Article images", urlCount: locs(imageXml), path: "/sitemap-images.xml" },
+      { name: "pages", description: "Static pages", urlCount: STATIC_SITEMAP_PAGES.length, path: "/sitemap-pages.xml" }
     ];
 
     const totalUrls = sitemaps.reduce((sum, s) => sum + s.urlCount, 0);

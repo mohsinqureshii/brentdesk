@@ -144,6 +144,16 @@ async function flushSitemaps() {
 }
 
 function scheduleSitemapRegen(entityType: PublishedEntityType) {
+  // The reader's search runs off an in-memory index of the archive. A
+  // story that has just been published is exactly the one somebody is
+  // about to search for, and waiting out the index's five-minute TTL
+  // would leave it unfindable for those five minutes. Dropping the
+  // index here costs one rebuild on the next search.
+  if (entityType === "article") {
+    import("./search.service")
+      .then((m) => m.invalidateSearchIndex())
+      .catch((err) => console.error("[PublishHooks] search index invalidation:", err));
+  }
   for (const m of ENTITY_TO_SITEMAPS[entityType] || []) dirty.add(m);
   if (flushTimer) return;
   flushTimer = setTimeout(() => {

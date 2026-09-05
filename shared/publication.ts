@@ -73,6 +73,15 @@ export const publication = {
     media: "media@brentdesk.com",
     advertising: "advertise@brentdesk.com",
     noreply: "noreply@brentdesk.com",
+    /**
+     * The two addresses the legal pages publish. A privacy notice has to
+     * name a route for a subject-access request, and a terms page has to
+     * name one for licensing and takedown — a shared "hello" mailbox is
+     * not either of those, because both carry statutory clocks.
+     * These must exist as real, monitored mailboxes before launch.
+     */
+    privacy: "privacy@brentdesk.com",
+    legal: "legal@brentdesk.com",
   },
 
   social: {
@@ -110,6 +119,14 @@ export const publication = {
     imageSearch: "BrentDesk/1.0 (https://brentdesk.com)",
     eventCoverage: "Mozilla/5.0 (compatible; BrentDeskCoverageBot/1.0)",
   },
+
+  /**
+   * Where the publisher is. Deliberately a city and a country and not a
+   * street: the registered address belongs on the commercial register
+   * and in counsel-reviewed text, not guessed at here. The legal pages
+   * print this, so widening it later widens them.
+   */
+  city: "Riyadh, Saudi Arabia",
 
   /**
    * Physical mailing address required by CAN-SPAM in email footers.

@@ -21,7 +21,7 @@ const SKIP_PREFIXES = [
   '/companies', '/accelerators', '/resources', '/research', '/news',
   '/sitemap', '/robots', '/rss', '/feed', '/login',
   '/signup', '/profile', '/settings', '/search', '/calculators',
-  '/about', '/contact', '/privacy', '/terms', '/404', '/assets',
+  '/about', '/contact', '/privacy', '/terms', '/cookies', '/404', '/assets',
   '/fonts', '/@', '/src', '/node_modules', '/_'
 ];
 

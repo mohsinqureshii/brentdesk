@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { useDebounce } from "@/hooks/useDebounce";
+import { SnippetText } from "@/components/search/SnippetText";
 
 // Content type configuration
 const typeConfig = {
@@ -76,22 +77,39 @@ export default function SearchResults() {
   const [activeType, setActiveType] = useState<ContentType>(initialType);
   const debouncedQuery = useDebounce(searchInput, 300);
   
-  // Update URL when search changes
+  // Keep the address bar in step with what is being searched, so the URL
+  // can be shared and the back button works.
+  //
+  // Only the query string is rewritten. Writing a whole path here — it
+  // used to write `/search?…` — dropped the language prefix on every
+  // keystroke: an Arabic reader on /ar/search was moved to /search,
+  // wouter's locale base then matched nothing, and the page rendered
+  // blank with no error anywhere. The pathname is already right; the
+  // only thing this effect has to change is what follows the "?".
   useEffect(() => {
-    if (debouncedQuery) {
-      const params = new URLSearchParams();
-      params.set("q", debouncedQuery);
-      if (activeType !== "all") params.set("type", activeType);
-      window.history.replaceState(null, "", `/search?${params.toString()}`);
-    }
+    if (!debouncedQuery) return;
+    const params = new URLSearchParams();
+    params.set("q", debouncedQuery);
+    if (activeType !== "all") params.set("type", activeType);
+    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
   }, [debouncedQuery, activeType]);
 
   // Fetch results for each type
   const shouldFetch = (type: string) => debouncedQuery.length >= 2 && (activeType === "all" || activeType === type);
   
-  const { data: articlesData, isLoading: articlesLoading } = trpc.news.list.useQuery(
-    { search: debouncedQuery, limit: activeType === "article" ? 20 : 5, page: 1 },
+  // Articles go through the search endpoint rather than the list filter:
+  // it reads the language the reader is in — the Arabic bodies live in
+  // content_translations, which the list filter never looked at — ranks
+  // by how well a story matches rather than by date, and returns the
+  // passage the match sits in.
+  const { data: articlesData, isLoading: articlesLoading } = trpc.news.search.useQuery(
+    { query: debouncedQuery, limit: activeType === "article" ? 20 : 5, page: 1 },
     { enabled: shouldFetch("article") }
+  );
+
+  const { data: suggestions } = trpc.news.searchSuggestions.useQuery(
+    { query: debouncedQuery },
+    { enabled: debouncedQuery.length >= 2 },
   );
   
   const { data: jobsData, isLoading: jobsLoading } = trpc.jobs.list.useQuery(
@@ -151,21 +169,25 @@ export default function SearchResults() {
       <div className="bg-gradient-to-b from-gray-50 to-white border-b">
         <div className="container max-w-5xl py-8">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+            {/* Logical, not physical: in Arabic the magnifier belongs at
+                the start of the field and the clear button at the end,
+                which `left`/`right` put the wrong way round. */}
+            <Search className="absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="search"
               placeholder={t("search.placeholder")}
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              className="h-14 pl-12 pr-12 text-lg"
+              className="h-14 ps-12 pe-12 text-lg"
               autoFocus
             />
             {searchInput && (
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-2 top-1/2 -translate-y-1/2"
+                className="absolute end-2 top-1/2 -translate-y-1/2"
                 onClick={() => setSearchInput("")}
+                aria-label={t("filter.clear")}
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -244,6 +266,23 @@ export default function SearchResults() {
           </div>
         ) : (
           <div className="space-y-10">
+            {/* The beats the query names. A search for "logistics" wants
+                the beat page as much as it wants ten stories off it. */}
+            {!!suggestions?.length && (
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span className="bd-eyebrow">{t("search.suggestedBeats")}</span>
+                {suggestions.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="bd-display text-[0.75rem] font-bold uppercase tracking-[0.06em] text-primary hover:underline"
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
             {/* Articles */}
             {(activeType === "all" || activeType === "article") && articlesData?.items && articlesData.items.length > 0 && (
               <ResultSection
@@ -263,9 +302,9 @@ export default function SearchResults() {
                       {/* A story with no art gets none, as everywhere else
                           on the site — a column of identical placeholder
                           frames is noise, not a picture. */}
-                      {article.featuredImage && (
+                      {article.featuredImageUrl && (
                         <img
-                          src={article.featuredImage}
+                          src={article.featuredImageUrl}
                           alt=""
                           loading="lazy"
                           className="h-20 w-28 object-cover shrink-0"
@@ -275,17 +314,26 @@ export default function SearchResults() {
                         <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                           {article.title}
                         </h3>
-                        {article.excerpt && (
-                          <p className="text-sm text-muted-foreground line-clamp-1 mt-1">{article.excerpt}</p>
-                        )}
+                        {/* The passage the match is in, not the standfirst:
+                            a row of identical opening lines does not tell a
+                            reader which result actually answers them. */}
+                        <SnippetText
+                          snippet={article.snippet}
+                          className="text-sm text-muted-foreground line-clamp-2 mt-1 leading-relaxed"
+                        />
                         <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground">
-                          {article.categories?.[0] && (
-                            <Badge variant="secondary" className="text-xs">{article.categories[0].name}</Badge>
+                          {article.categoryName && (
+                            <Badge variant="secondary" className="text-xs">{article.categoryName}</Badge>
                           )}
-                          {article.publishedAt && (
+                          {(article.eventDate || article.publishedAt) && (
                             <span className="flex items-center gap-1">
                               <Clock className="h-3 w-3" />
-                              {formatTimeAgo(article.publishedAt, t)}
+                              {formatTimeAgo(article.eventDate || article.publishedAt, t)}
+                            </span>
+                          )}
+                          {article.matchedIn === "title" && (
+                            <span className="uppercase tracking-[0.08em] text-primary/80 font-semibold text-[10px]">
+                              {t("search.matchedInTitle")}
                             </span>
                           )}
                         </div>

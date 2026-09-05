@@ -24,10 +24,11 @@ import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 
-// The one deliberate case: the wordmark names the Latin display face for
-// the Latin mark and deliberately names nothing for the Arabic one, which
-// is a decision only reachable in JavaScript.
-const ALLOWED = ["client/src/components/layout/Header.tsx"];
+// The one deliberate case: the mark names the Latin display face for the
+// Latin lockup and deliberately names nothing for the Arabic one, which
+// is a decision only reachable in JavaScript. It moved out of Header.tsx
+// and into Logo.tsx when the wordmark became a lockup.
+const ALLOWED = ["client/src/components/layout/Logo.tsx"];
 
 function gitGrep(pattern: string): string[] {
   try {

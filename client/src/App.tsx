@@ -33,8 +33,7 @@ const Contact = lazy(() => import("./pages/public/Contact"));
 const Advertise = lazy(() => import("./pages/public/Advertise"));
 const Newsletter = lazy(() => import("./pages/public/Newsletter"));
 const SearchResults = lazy(() => import("./pages/public/SearchResults"));
-const Privacy = lazy(() => import("./pages/public/Privacy"));
-const Terms = lazy(() => import("./pages/public/Terms"));
+const Legal = lazy(() => import("./pages/public/Legal"));
 const Sitemap = lazy(() => import("./pages/public/Sitemap"));
 const UserDashboard = lazy(() => import("./pages/public/UserDashboard"));
 const Profile = lazy(() => import("./pages/public/Profile"));
@@ -243,8 +242,11 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/advertise" component={Advertise} />
         <Route path="/newsletter" component={Newsletter} />
-        <Route path="/privacy" component={Privacy} />
-        <Route path="/terms" component={Terms} />
+        {/* The three legal documents are one component over data in
+            shared/legal, so a fourth is a data change, not a route. */}
+        <Route path="/privacy">{() => <Legal slug="privacy" />}</Route>
+        <Route path="/terms">{() => <Legal slug="terms" />}</Route>
+        <Route path="/cookies">{() => <Legal slug="cookies" />}</Route>
         <Route path="/sitemap" component={Sitemap} />
         
         {/* Admin routes - requireAdmin blocks non-admin users */}

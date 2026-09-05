@@ -7,6 +7,7 @@ import { z } from "zod";
 import { eq, and, or, desc, asc, like, inArray, isNotNull, sql, gte } from "drizzle-orm";
 import { router, publicProcedure, protectedProcedure } from "../../_core/trpc";
 import { localizeArticle, localizeArticles, localizeRows } from "../../services/translation.service";
+import { searchArticles, searchArticlesViaDb, searchSuggestions } from "../../services/search.service";
 import { getDb } from "../../db";
 import { 
   articles, 
@@ -263,6 +264,59 @@ export const newsRouter = router({
         page,
         totalPages: Math.ceil(total / limit),
       };
+    }),
+
+  /**
+   * Search the archive.
+   *
+   * A real search rather than a filter: it reads the language the reader
+   * is in — Arabic bodies live in content_translations, which `list`'s
+   * old `search` filter never looked at — ranks by where and how well a
+   * story matches rather than by date, and returns the passage the match
+   * sits in so the reader can see why a result is a result.
+   *
+   * `list({ search })` still exists and still works; it is the right
+   * tool for the admin's filtered tables, where "contains this string"
+   * is exactly what is wanted. This is the reader's search.
+   */
+  search: publicProcedure
+    .input(z.object({
+      query: z.string().min(1).max(200),
+      page: z.number().min(1).default(1),
+      limit: z.number().min(1).max(50).default(20),
+    }))
+    .query(async ({ input, ctx }) => {
+      const locale = ctx.locale?.code || "en";
+      const result = await searchArticles({
+        query: input.query,
+        locale,
+        page: input.page,
+        limit: input.limit,
+      });
+
+      // The index declines to hold an archive past its size limit. That
+      // is not an error and must not be an empty results page, so fall
+      // back to the database filter — worse ranking, still results.
+      if (!result.indexed) {
+        return await searchArticlesViaDb({
+          query: input.query,
+          locale,
+          page: input.page,
+          limit: input.limit,
+        });
+      }
+      return result;
+    }),
+
+  /** Terms adjacent to the query — the beats and topics it names. */
+  searchSuggestions: publicProcedure
+    .input(z.object({ query: z.string().min(1).max(200), limit: z.number().min(1).max(10).default(5) }))
+    .query(async ({ input, ctx }) => {
+      return searchSuggestions({
+        query: input.query,
+        locale: ctx.locale?.code || "en",
+        limit: input.limit,
+      });
     }),
 
   /**

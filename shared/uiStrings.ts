@@ -1205,9 +1205,11 @@ export const UI_STRINGS = {
   "job.yearsExperience": "Years of Experience",
   "job.yearsExperiencePlaceholder": "e.g. 5",
   // --- legal
-  "legal.placeholderNotice": "Placeholder — to be reviewed by legal counsel",
-  "legal.reviewRequired": "This is placeholder content. Final legal review required before public launch.",
-  "legal.reviewRequiredBody": "Nothing on this page is legal advice. Each section is a working draft and will be replaced with counsel-reviewed text prior to launch.",
+  // The legal pages. The documents themselves live in shared/legal, in
+  // both languages; these are the few labels around them.
+  "legal.contents": "Contents",
+  "legal.related": "Related",
+  "legal.notAdvice": "This page states how {legalName} operates. It is not legal advice, and it does not create rights beyond those the applicable law already gives you.",
   "legal.terms": "Terms",
   // --- live
   "live.breaking": "BREAKING",
@@ -1452,6 +1454,8 @@ export const UI_STRINGS = {
   "search.typeJob": "Job",
   "search.typePerson": "Person",
   "search.upcomingEvents": "Upcoming Events",
+  "search.matchedInTitle": "In the headline",
+  "search.suggestedBeats": "Try these sections",
   // --- share
   "share.copy": "Copy",
   "share.copyFailed": "Couldn't copy automatically",
@@ -1505,6 +1509,19 @@ export const UI_STRINGS = {
   "sideEvent.typeWorkshop": "Workshop",
   "sideEvent.venuePlaceholder": "Where is it happening?",
   // --- sitemap
+  "sitemap.allSitemaps": "Every sitemap",
+  "sitemap.copied": "Copied",
+  "sitemap.copy": "Copy",
+  "sitemap.feedsAndRobots": "Feeds and robots",
+  "sitemap.forReaders": "For readers",
+  "sitemap.forSearchEngines": "For search engines",
+  "sitemap.forSearchEnginesBody": "Everything a crawler needs to index {site}, in one place. Every URL below is public and live; paste the index into Google Search Console or Bing Webmaster Tools and the rest follows from it. Both languages are covered — each entry carries its English and Arabic address as hreflang alternates.",
+  "sitemap.indexIsEnough": "Submitting the index is enough. Search engines read it and fetch every sitemap listed in it; there is no need to add them one by one.",
+  "sitemap.manifestUnavailable": "The sitemap list could not be loaded. The sitemaps themselves are still served at /sitemap.xml.",
+  "sitemap.regeneratedNote": "Rebuilt automatically every few minutes, and again whenever a story is published, so counts here match what a crawler is served right now.",
+  "sitemap.submitThis": "Submit this one",
+  "sitemap.sitemapIndex": "Sitemap index",
+  "sitemap.urlCount": "{n} URLs",
   "sitemap.aboutDesc": "Learn about {site}",
   "sitemap.advertiseDesc": "Advertising opportunities",
   "sitemap.authorPages": "Author Pages",
@@ -1515,7 +1532,7 @@ export const UI_STRINGS = {
   "sitemap.dynamicPagesIntro": "In addition to the pages listed above, {site} has dynamic content pages including:",
   "sitemap.eventDetails": "Event Details",
   "sitemap.eventsDesc": "Upcoming tech events",
-  "sitemap.intro": "A complete overview of all pages and sections on {site}.",
+  "sitemap.intro": "Every section of {site}, and the machine-readable sitemaps behind them.",
   "sitemap.jobDetails": "Job Details",
   "sitemap.jobsDesc": "Browse tech job opportunities",
   "sitemap.legal": "Legal",
