@@ -95,6 +95,7 @@ const TalentInterviewFeedback = lazy(() => import("./pages/admin/TalentInterview
 const TalentReports = lazy(() => import("./pages/admin/TalentReports"));
 const TalentJobsList = lazy(() => import("./pages/admin/TalentJobsList"));
 import CookieConsentBanner from "./components/CookieConsentBanner";
+import { AdSenseScript } from "./components/ads/AdSenseScript";
 const SystemHealth = lazy(() => import("./pages/admin/SystemHealth"));
 const CandidateDashboard = lazy(() => import("./pages/public/CandidateDashboard"));
 const FundingTracker = lazy(() => import("./pages/admin/FundingTracker"));
@@ -416,6 +417,7 @@ function App() {
             <Router />
             <MobileBottomNav />
             <CookieConsentBanner />
+            <AdSenseScript />
           </LocaleProvider>
         </TooltipProvider>
       </ThemeProvider>

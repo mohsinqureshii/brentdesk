@@ -2,12 +2,18 @@ import { Link } from "wouter";
 import { useT } from "@/lib/i18n";
 import { fmtDateTime } from "@/lib/dates";
 import { trpc } from "@/lib/trpc";
+import { getArticleUrl } from "@/lib/articleUrl";
 
 /**
- * Market ticker strip under the header: LATEST headline on the left,
- * commodity/index quotes on the right. Quotes come from the stocks
- * service (live when a data provider is configured) and fall back to a
- * clearly-static reference set so the layout never collapses.
+ * The strip that runs above the masthead on every page: the latest
+ * headline on the left, commodity and index quotes on the right. Quotes
+ * come from the stocks service (live when a data provider is configured)
+ * and fall back to a clearly-static reference set so the layout never
+ * collapses.
+ *
+ * The headline can be handed in by a page that has already fetched it;
+ * otherwise the strip asks for it itself, which is what lets the header
+ * carry the ticker site-wide without every page passing it down.
  */
 
 interface TickerQuote {
@@ -60,6 +66,13 @@ export function MarketTicker({ headline, headlineHref }: { headline?: string; he
     { categoryId: "markets" },
     { staleTime: 5 * 60 * 1000, retry: false },
   );
+  const { data: latestData } = trpc.news.list.useQuery(
+    { limit: 1, status: "published", sortBy: "publishedAt", sortOrder: "desc" },
+    { enabled: !headline, staleTime: 5 * 60 * 1000 },
+  );
+  const latest = latestData?.items?.[0];
+  const lede = headline ?? latest?.title;
+  const ledeHref = headlineHref ?? (latest ? getArticleUrl(latest as any) : undefined);
 
   const quotes: TickerQuote[] =
     liveQuotes && liveQuotes.length > 0
@@ -71,23 +84,23 @@ export function MarketTicker({ headline, headlineHref }: { headline?: string; he
       : FALLBACK_QUOTES;
 
   return (
-    <div className="bd-ink border-b border-white/10">
+    <div className="bd-ink">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center gap-4 overflow-hidden">
-        {headline && (
+        {lede && (
           <div className="flex items-center gap-2.5 min-w-0 flex-1">
             <span className="bg-white text-black text-[10px] font-extrabold tracking-widest uppercase px-2 py-0.5 rounded-sm shrink-0">
               {t("list.latest")}
             </span>
-            {headlineHref ? (
-              <Link href={headlineHref} className="text-xs text-white/85 hover:text-white truncate">
-                {headline}
+            {ledeHref ? (
+              <Link href={ledeHref} className="text-xs text-white/85 hover:text-white truncate">
+                {lede}
               </Link>
             ) : (
-              <span className="text-xs text-white/85 truncate">{headline}</span>
+              <span className="text-xs text-white/85 truncate">{lede}</span>
             )}
           </div>
         )}
-        <div className={`flex items-center gap-5 overflow-x-auto scrollbar-hide ${headline ? "shrink-0 max-w-[60%]" : "flex-1"}`}>
+        <div className={`flex items-center gap-5 overflow-x-auto scrollbar-hide ${lede ? "shrink-0 max-w-[60%]" : "flex-1"}`}>
           {quotes.map((q) => (
             <QuoteItem key={q.label} quote={q} />
           ))}

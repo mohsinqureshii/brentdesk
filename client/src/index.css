@@ -49,7 +49,7 @@
    subtree is what actually delivers the face; it is unlayered, so it wins
    over both Tailwind's utilities and the component layer. */
 [lang="ar"], [dir="rtl"], .font-arabic {
-  font-family: "STC Forward", "Google Sans Text", ui-sans-serif, system-ui, sans-serif;
+  font-family: "STC Forward", "Atyp Text", "Atyp Display", "Google Sans Text", ui-sans-serif, system-ui, sans-serif;
 }
 [lang="ar"] *:not(code):not(pre):not(kbd):not(samp),
 [dir="rtl"] *:not(code):not(pre):not(kbd):not(samp),
@@ -66,9 +66,81 @@
   letter-spacing: 0;
 }
 
+/* ============================================================
+   ATYP DISPLAY — the publication face
+   ------------------------------------------------------------
+   Licensed from Suitcase Type Foundry, so the files cannot be
+   fetched from a CDN or a package: they are self-hosted, and the
+   licence is the publisher's. Drop the woff2 files into
+   client/public/fonts/ under exactly these names and the whole
+   site changes face — nothing else to edit:
+
+     atyp-display-regular.woff2    400
+     atyp-display-medium.woff2     500
+     atyp-display-semibold.woff2   600
+     atyp-display-bold.woff2       700
+
+   If the text cut (Atyp Text / Atyp BL) is licensed too, add it as
+   atyp-text-*.woff2 and body copy picks it up on its own — the
+   stacks below already prefer it for running text and leave the
+   display cut to headlines, which is what each is drawn for.
+
+   Until the files land the browser falls through to Google Sans,
+   the face the site shipped with, so nothing is unstyled meanwhile.
+   ============================================================ */
+@font-face {
+  font-family: "Atyp Display";
+  src: url("/fonts/atyp-display-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atyp Display";
+  src: url("/fonts/atyp-display-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atyp Display";
+  src: url("/fonts/atyp-display-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atyp Display";
+  src: url("/fonts/atyp-display-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atyp Text";
+  src: url("/fonts/atyp-text-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atyp Text";
+  src: url("/fonts/atyp-text-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atyp Text";
+  src: url("/fonts/atyp-text-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
-  --font-sans: 'Google Sans Text', 'Google Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: 'Google Sans', 'Google Sans Text', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Atyp Text', 'Atyp Display', 'Google Sans Text', 'Google Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Atyp Display', 'Google Sans', 'Google Sans Text', ui-sans-serif, system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -117,7 +189,7 @@
   --chart-3: var(--color-blue-600);
   --chart-4: var(--color-blue-700);
   --chart-5: var(--color-blue-800);
-  --radius: 0.375rem;
+  --radius: 0.25rem;
   --background: oklch(0.975 0.002 247.8); /* #f5f6f8 page ground */
   --foreground: oklch(0.205 0.02 261);
   --card: oklch(1 0 0);
@@ -319,49 +391,86 @@
   
   /* ============================================
      BRENTDESK EDITORIAL DESIGN SYSTEM
+     --------------------------------------------
+     A trade paper, not an app. The page is built from rules and
+     columns rather than floating rounded cards: hairline dividers
+     separate stories, section heads are set as uppercase rails with
+     the accent of their beat, and the only radius on the page is
+     small enough to read as a printed corner rather than a widget.
      ============================================ */
 
-  /* Ink surfaces: header, ticker, hero, dark ad bands */
+  /* Ink surfaces: ticker, footer, hero overlays */
   .bd-ink {
     background-color: #0b0d12;
     color: #ffffff;
   }
 
-  /* Category kicker: small caps label above headlines */
+  /* Category kicker: small caps label above a headline. Takes the beat
+     colour through --bd-accent so a section can tint its own stories. */
   .bd-kicker {
+    font-family: var(--font-display);
     font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--primary);
+    letter-spacing: 0.09em;
+    line-height: 1.2;
+    color: var(--bd-accent, var(--primary));
   }
 
-  /* Section header: accent bar + bold title */
+  /* Neutral eyebrow: the same size and rhythm as a kicker without the
+     beat colour — used for "Advertisement", rail titles, timestamps. */
+  .bd-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted-foreground);
+  }
+
+  /* Section head: accent tab, uppercase title, hairline running to the
+     view-all link. The rule is what makes a page of sections read as one
+     paper rather than a stack of unrelated boxes. */
+  .bd-section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--foreground);
+    padding-bottom: 0.5rem;
+  }
   .bd-section-title {
     display: flex;
     align-items: center;
-    gap: 0.625rem;
+    gap: 0.5rem;
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.045em;
+    line-height: 1.1;
+    color: var(--foreground);
+    min-width: 0;
   }
   .bd-section-title::before {
     content: "";
     display: block;
-    width: 4px;
-    height: 1.25rem;
-    border-radius: 2px;
+    width: 0.5rem;
+    height: 1rem;
     background: var(--bd-accent, var(--primary));
     flex-shrink: 0;
   }
 
-  /* Editorial card: white surface, thin border, small radius */
+  /* Editorial surface: hairline, near-square corners, no shadow. */
   .bd-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 0.625rem;
+    border-radius: 0.125rem;
+  }
+
+  /* A column of stories divided by hairlines rather than boxed. */
+  .bd-list > * + * {
+    border-top: 1px solid var(--border);
   }
 
   /* The display face as a class rather than an inline style. This matters
@@ -373,20 +482,50 @@
     font-family: var(--font-display);
   }
 
-  /* Headline link hover */
+  /* Headlines. Tight tracking and leading is what makes a dense page
+     scannable; the hover colour is the only decoration a link gets. */
   .bd-headline {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
+    letter-spacing: -0.017em;
+    line-height: 1.22;
+    text-wrap: balance;
   }
   a:hover .bd-headline, a.bd-headline:hover {
     color: var(--primary);
   }
 
+  /* Lead headline: the one story on the page allowed to shout. */
+  .bd-lede {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.028em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  /* Meta line under a headline: time, read length, byline. */
+  .bd-meta {
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Ad frame: a labelled hairline well so a slot reads as bought space
+     and reserves its height before the network fills it. */
+  .bd-ad-label {
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: color-mix(in oklab, var(--muted-foreground) 65%, transparent);
+  }
+
   /* Market ticker figures */
-  .bd-quote-up { color: #22c55e; }
-  .bd-quote-down { color: #ef4444; }
+  .bd-quote-up { color: #17803d; }
+  .bd-quote-down { color: #dc2626; }
 
   /* Hide scrollbar but allow scrolling */
   .scrollbar-hide {

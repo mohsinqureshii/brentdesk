@@ -44,6 +44,22 @@ async function localizeAdCreative<T extends { id: number }>(
   }
 }
 
+/**
+ * Whether Google can actually fill this slot.
+ *
+ * Three things have to be true, and the third is the one that is easy to
+ * forget: an AdSense unit needs its own ad unit id, so a slot that has
+ * never been given one renders an empty <ins> no matter how correctly the
+ * account is configured. Such a slot falls through to a house creative
+ * instead of showing the reader nothing.
+ */
+export function canServeAdsense(
+  settings: { adsenseEnabled?: number | boolean | null; publisherId?: string | null } | undefined,
+  slot: { adsenseSlotId?: string | null },
+): boolean {
+  return !!settings?.adsenseEnabled && !!settings?.publisherId && !!slot.adsenseSlotId;
+}
+
 export const advertisingRouter = router({
   // ============================================================
   // AD SLOTS
@@ -885,7 +901,30 @@ export const advertisingRouter = router({
         }
       }
 
-      // Priority 2: House ads
+      // Priority 2: Google.
+      //
+      // Sold space beats unsold space: a house creative is promotion the
+      // publisher pays for, so it may not pre-empt a network that pays the
+      // publisher. Google only takes the slot where it is actually able to
+      // fill it — enabled, with a publisher id, and with an ad unit id on
+      // this slot. A slot Google cannot serve falls through to house below
+      // rather than rendering nothing.
+      if (canServeAdsense(settings, slot)) {
+        const adsenseResult = {
+          type: 'adsense' as const,
+          slotKey: input.slotKey,
+          slotId: slot.id,
+          publisherId: settings.publisherId,
+          adsenseSlotId: slot.adsenseSlotId,
+          dimensions: slot.dimensions,
+          isPremium: !!slot.isPremium,
+        };
+        lastKnownAdsense.set(input.slotKey, adsenseResult);
+        return adsenseResult;
+      }
+
+      // Priority 3: House ads — the publisher's own promotion, filling
+      // only what neither a direct advertiser nor Google took.
       for (const campaign of campaigns) {
         if (campaign.campaignType !== 'house') continue;
         const targetSlots = campaign.targetSlots ? JSON.parse(campaign.targetSlots as string) : null;
@@ -927,21 +966,6 @@ export const advertisingRouter = router({
             };
           }
         }
-      }
-
-      // Priority 3: AdSense fallback
-      if (settings?.adsenseEnabled && settings?.publisherId) {
-        const adsenseResult = {
-          type: 'adsense' as const,
-          slotKey: input.slotKey,
-          slotId: slot.id,
-          publisherId: settings.publisherId,
-          adsenseSlotId: slot.adsenseSlotId,
-          dimensions: slot.dimensions,
-          isPremium: !!slot.isPremium,
-        };
-        lastKnownAdsense.set(input.slotKey, adsenseResult);
-        return adsenseResult;
       }
 
       // Priority 4: Empty

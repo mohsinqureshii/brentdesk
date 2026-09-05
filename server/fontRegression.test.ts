@@ -52,7 +52,7 @@ describe("font regression", () => {
   it("the Arabic stack leads with STC Forward and falls through to the Latin face", () => {
     const onDisk = readFileSync(path.join(ROOT, "client/src/index.css"), "utf8");
     expect(onDisk).toContain(
-      '[lang="ar"], [dir="rtl"], .font-arabic {\n  font-family: "STC Forward", "Google Sans Text"',
+      '[lang="ar"], [dir="rtl"], .font-arabic {\n  font-family: "STC Forward", "Atyp Text", "Atyp Display"',
     );
     // The rule only works unlayered — inside @layer it loses to utilities.
     const idx = onDisk.indexOf('[lang="ar"], [dir="rtl"], .font-arabic');

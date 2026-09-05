@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import { canServeAdsense } from "./admin/advertising.router";
 
 /**
  * Advertising Module Tests
@@ -66,13 +67,28 @@ describe("Advertising Module", () => {
   });
 
   describe("Ad Serving Priority Logic", () => {
-    it("should follow the correct priority order: Direct > House > AdSense > Empty", () => {
-      const priorities = ["direct", "house", "adsense", "empty"];
-      
-      // Verify priority order
-      expect(priorities.indexOf("direct")).toBeLessThan(priorities.indexOf("house"));
-      expect(priorities.indexOf("house")).toBeLessThan(priorities.indexOf("adsense"));
-      expect(priorities.indexOf("adsense")).toBeLessThan(priorities.indexOf("empty"));
+    /**
+     * Sold space beats unsold space. A house creative is promotion the
+     * publisher pays for, so it may not pre-empt a network that pays the
+     * publisher — house ads fill what neither a direct advertiser nor
+     * Google took.
+     */
+    it("serves a house creative only after direct and Google have passed", () => {
+      const order = ["direct", "adsense", "house", "empty"];
+      expect(order.indexOf("adsense")).toBeLessThan(order.indexOf("house"));
+      expect(order.indexOf("direct")).toBeLessThan(order.indexOf("adsense"));
+      expect(order.indexOf("house")).toBeLessThan(order.indexOf("empty"));
+    });
+
+    it("gives Google the slot only when the account and the ad unit are both configured", () => {
+      const account = { adsenseEnabled: 1, publisherId: "pub-1234567890123456" };
+      expect(canServeAdsense(account, { adsenseSlotId: "1234567890" })).toBe(true);
+      // An enabled account with no ad unit on this slot renders an empty
+      // <ins>; the slot has to fall through to house fill instead.
+      expect(canServeAdsense(account, { adsenseSlotId: null })).toBe(false);
+      expect(canServeAdsense({ adsenseEnabled: 0, publisherId: "pub-1" }, { adsenseSlotId: "1" })).toBe(false);
+      expect(canServeAdsense({ adsenseEnabled: 1, publisherId: null }, { adsenseSlotId: "1" })).toBe(false);
+      expect(canServeAdsense(undefined, { adsenseSlotId: "1" })).toBe(false);
     });
 
     it("should return correct ad type structure for direct ads", () => {

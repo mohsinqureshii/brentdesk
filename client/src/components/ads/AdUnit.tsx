@@ -1,7 +1,10 @@
 /**
  * AdUnit — Production-ready ad component
  * 
- * Rendering priority: Direct Campaign → House Ad → Google AdSense → Empty (hidden)
+ * Rendering priority: Direct Campaign → Google AdSense → House Ad → Empty
+ * (hidden). Sold space beats unsold: a house creative is promotion the
+ * publisher pays for, so it fills only what neither a direct advertiser
+ * nor Google took. The server decides this — see getAdForSlotV2.
  * Features:
  * - IAB-compliant viewability tracking (IntersectionObserver: 50%+ visible for 1s+)
  * - Impression & click tracking via tRPC

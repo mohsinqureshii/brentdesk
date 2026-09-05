@@ -22,6 +22,8 @@ import { useDirection, useLocale } from "@/components/LocaleProvider";
 import type { UiKey } from "@shared/uiStrings";
 import { Input } from "@/components/ui/input";
 import { publication } from "@shared/publication";
+import { MarketTicker } from "@/components/layout/MarketTicker";
+import { trpc } from "@/lib/trpc";
 
 // Nav entries carry a translation key rather than a label. The href stays
 // English because the route does — wouter's locale base turns /companies into
@@ -111,6 +113,46 @@ export function Wordmark({ className = "" }: { className?: string }) {
   );
 }
 
+/**
+ * The beats, in the masthead.
+ *
+ * Categories come from the newsroom rather than a hardcoded list, so a
+ * beat added in the admin appears here without a deploy. The bare slug
+ * is the canonical category URL.
+ */
+function BeatNav() {
+  const [location] = useLocation();
+  const { data: categories } = trpc.news.getAllCategoriesWithCounts.useQuery(undefined, {
+    staleTime: 5 * 60 * 1000,
+  });
+  const beats = ((categories ?? []) as any[]).filter((c) => !c.parentId && c.isActive !== 0);
+  if (!beats.length) return null;
+  return (
+    <nav
+      aria-label="Sections"
+      className="hidden lg:block w-full border-b border-border bg-card"
+    >
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-6 h-10 overflow-x-auto scrollbar-hide">
+        {beats.map((c: any) => {
+          const href = `/${c.slug}`;
+          const active = location === href || location.startsWith(`${href}/`);
+          return (
+            <Link
+              key={c.slug}
+              href={href}
+              className={`bd-display shrink-0 text-[0.6875rem] font-bold uppercase tracking-[0.11em] transition-colors ${
+                active ? "text-primary" : "text-foreground/60 hover:text-foreground"
+              }`}
+            >
+              {c.name}
+            </Link>
+          );
+        })}
+      </div>
+    </nav>
+  );
+}
+
 export function Header() {
   const [location] = useLocation();
   const [searchOpen, setSearchOpen] = useState(false);
@@ -121,15 +163,19 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bd-ink">
+      {/* The market strip runs above the masthead on every page, which is
+          where a reader of a trade paper looks for it — and it is the only
+          ink on an otherwise white top, so the masthead reads as paper. */}
+      <MarketTicker />
+      <header className="sticky top-0 z-50 w-full bg-card">
         {/* Main Navigation Row */}
-        <div className="w-full border-b border-white/10">
+        <div className="w-full border-b border-border">
           {/* The masthead mirrors with the page. The brand — menu button and
               wordmark as one group — leads the reading direction, so it sits
               at the left in English and at the right in Arabic: where a
               reader of either language looks first, and on a phone where
               their thumb already is. The controls take the far end. */}
-          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex h-[60px] items-center justify-between gap-4">
             {/* Brand — the menu button and the wordmark travel together, so
                 mirroring the bar keeps them beside each other rather than
                 throwing them to opposite ends. */}
@@ -137,7 +183,7 @@ export function Header() {
               {/* Menu button — grouped with the wordmark, not the controls. */}
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" aria-label={t("nav.menu")} className="lg:hidden h-10 w-10 -ms-2 text-white hover:bg-white/10">
+                  <Button variant="ghost" size="icon" aria-label={t("nav.menu")} className="lg:hidden h-10 w-10 -ms-2 text-foreground hover:bg-muted">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
@@ -291,7 +337,7 @@ export function Header() {
                 </SheetContent>
               </Sheet>
               <Link href="/" className="flex items-center shrink-0" aria-label={`${publication.name} home`}>
-                <Wordmark className="text-white text-[26px]" />
+                <Wordmark className="text-foreground text-[26px]" />
               </Link>
             </div>
 
@@ -301,10 +347,10 @@ export function Header() {
                 <Link
                   key={item.key}
                   href={item.href}
-                  className={`text-[15px] font-semibold px-4 py-2 rounded-md transition-colors ${
+                  className={`bd-display text-[0.8125rem] font-bold uppercase tracking-[0.07em] px-3.5 py-2 transition-colors ${
                     (item.href === "/" ? location === "/" : location.startsWith(item.href))
-                      ? "text-white"
-                      : "text-white/75 hover:text-white"
+                      ? "text-primary"
+                      : "text-foreground/75 hover:text-primary"
                   }`}
                 >
                   {t(item.key)}
@@ -316,14 +362,14 @@ export function Header() {
             <div className="flex items-center gap-2">
               {/* Renders nothing until a second language is configured, so
                   a single-language site carries no dead control. */}
-              <LanguageSwitcher className="text-white hover:bg-white/10" />
+              <LanguageSwitcher className="text-foreground hover:bg-muted" />
 
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setSearchOpen(true)}
                 aria-label={t("nav.search")}
-                className="text-white h-10 w-10 hover:bg-white/10"
+                className="text-foreground h-10 w-10 hover:bg-muted"
               >
                 <Search className="h-5 w-5" />
               </Button>
@@ -333,7 +379,7 @@ export function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="outline"
-                      className="hidden md:flex h-9 px-4 text-sm font-semibold border-white/40 text-white bg-transparent hover:bg-white hover:text-black rounded-full transition-colors gap-2"
+                      className="hidden md:flex h-9 px-4 text-sm font-semibold border-border text-foreground bg-transparent hover:bg-foreground hover:text-background rounded-none transition-colors gap-2"
                     >
                       <User className="h-4 w-4" />
                       {user?.name || t("nav.account")}
@@ -370,7 +416,7 @@ export function Header() {
                 </DropdownMenu>
               ) : (
                 <Link href="/signin">
-                  <Button className="hidden md:flex h-9 px-5 text-sm font-semibold bg-white text-black hover:bg-white/90 rounded-full">
+                  <Button className="hidden md:flex h-9 px-5 text-[0.8125rem] font-bold uppercase tracking-[0.06em] bg-foreground text-background hover:bg-primary rounded-none">
                     {t("nav.signIn")}
                   </Button>
                 </Link>
@@ -378,6 +424,10 @@ export function Header() {
             </div>
           </div>
         </div>
+
+        {/* Beat row: the sections themselves, always one click away. On a
+            phone the masthead menu carries them instead. */}
+        <BeatNav />
       </header>
 
       {/* Global Search Overlay */}
