@@ -186,7 +186,7 @@ export default function JobDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <Header />
         <div className="flex items-center justify-center h-[60vh]">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -198,7 +198,7 @@ export default function JobDetail() {
 
   if (error || !job) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <SEO title={t("state.jobNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
@@ -242,7 +242,7 @@ export default function JobDetail() {
   const salaryMaxNum = typeof job.salaryMax === "string" ? parseInt(job.salaryMax) : job.salaryMax;
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={t("job.seoTitle", { title: job.title, company: job.companyName })}
         description={`${t("job.seoDescription", { title: job.title, company: job.companyName })} ${job.location ? t("job.seoLocation", { location: job.location }) : ""} ${salary ? t("job.seoSalary", { salary }) : ""} ${t("job.seoApplyNow", { site: publication.name })}`}

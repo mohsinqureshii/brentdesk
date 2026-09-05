@@ -168,7 +168,7 @@ export default function Sitemap() {
   const topics = ((tags ?? []) as any[]).filter((x) => x.articleCount > 0).slice(0, 40);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={t("footer.sitemap")}
         description={t("sitemap.intro", { site: publication.name })}

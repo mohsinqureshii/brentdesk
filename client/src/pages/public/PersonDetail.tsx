@@ -50,7 +50,7 @@ export default function PersonDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <Header />
         <div className="flex items-center justify-center h-[60vh]">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -63,7 +63,7 @@ export default function PersonDetail() {
 
   if (error || !person) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <SEO title={t("state.personNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] gap-4">
@@ -114,7 +114,7 @@ export default function PersonDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={p.seo?.title || p.name}
         description={p.seo?.description}

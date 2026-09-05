@@ -141,7 +141,7 @@ export default function Legal({ slug }: { slug: LegalSlug }) {
   const updated = new Date(doc.updated);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={doc.title}
         description={doc.standfirst}

@@ -204,7 +204,7 @@ export default function UserDashboard() {
   const stats = browsingStats || { articlesRead: 0, jobsViewed: 0, eventsViewed: 0, companiesViewed: 0, totalViews: 0, topCategories: [] };
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <Header />
       
       <main className="w-full max-w-[1400px] mx-auto px-6 lg:px-8 py-8 space-y-8">

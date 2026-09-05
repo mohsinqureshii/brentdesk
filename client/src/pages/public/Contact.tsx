@@ -95,7 +95,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={`Contact | ${publication.name}`}
         description={`Get in touch with ${publication.name}. Send us news tips, press releases, event listings, advertising requests, or general feedback.`}

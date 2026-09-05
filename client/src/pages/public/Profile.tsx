@@ -194,7 +194,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <Header />
 
       <main className="w-full max-w-[900px] mx-auto px-6 lg:px-8 py-8">

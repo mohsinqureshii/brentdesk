@@ -105,7 +105,7 @@ export default function TagPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={tag.name}
         description={tag.description || `${tag.name} coverage from ${publication.name}.`}

@@ -421,7 +421,7 @@ function EventDetailContent({ event, mode }: { event: EventRow; mode: EventMode 
     { name: event.title, url: eventUrl },
   ];
 
-  // No overflow clipping on this shell: `overflow-x-hidden` here turns it
+  // No overflow clipping on this shell: `overflow-x-clip` here turns it
   // into the scroll container for everything inside, which silently
   // disables `position: sticky` on the sidebar. The one thing that needs
   // clipping — the hero banner's bleed past the right margin — clips

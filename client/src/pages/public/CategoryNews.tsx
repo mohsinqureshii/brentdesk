@@ -131,7 +131,7 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
   }
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={category.name}
         description={category.description || `Latest ${category.name} news and updates from ${publication.name}.`}

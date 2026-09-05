@@ -347,7 +347,7 @@ export default function Article() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <Header />
         <div className="flex items-center justify-center h-[60vh]">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -359,7 +359,7 @@ export default function Article() {
 
   if (error || !article) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <SEO title={t("state.articleNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center h-[60vh] text-center px-4">
@@ -388,7 +388,7 @@ export default function Article() {
     : `${publication.siteUrl}/article/${article.slug}`;
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={article.seoTitle || article.title}
         description={article.seoDescription || article.excerpt || undefined}

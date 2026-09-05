@@ -84,7 +84,7 @@ const Advertise = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={`Advertise | ${publication.name}`}
         description={`Partner with ${publication.name} to reach decision-makers across construction, energy, infrastructure, manufacturing and logistics in Saudi Arabia, the GCC and MENA.`}

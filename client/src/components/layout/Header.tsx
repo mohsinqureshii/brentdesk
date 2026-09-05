@@ -144,6 +144,18 @@ export function Header() {
           where a reader of a trade paper looks for it — and it is the only
           ink on an otherwise white top, so the masthead reads as paper. */}
       <MarketTicker />
+      {/* The masthead stays put once the market strip has scrolled past
+          it, so the sections and the search are one click away from
+          anywhere on a five-screen page.
+
+          `sticky` here is only half the story: it sticks to the nearest
+          scrolling ancestor, and ANY ancestor with `overflow-x-hidden`
+          becomes one — the browser resolves the other axis to `auto` —
+          at which point the header sticks to a container exactly as tall
+          as its own content and scrolls away with the page. That is why
+          html and body use `overflow-x: clip` in index.css, and why the
+          public page wrappers do too. See server/stickyHeader.test.ts,
+          which fails if `overflow-x-hidden` comes back on a page. */}
       <header className="sticky top-0 z-50 w-full bg-card">
         {/* Main Navigation Row */}
         <div className="w-full border-b border-border">

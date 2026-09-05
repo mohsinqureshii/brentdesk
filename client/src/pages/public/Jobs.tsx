@@ -1134,7 +1134,7 @@ export default function Jobs() {
   const t = useT();
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={`${t("job.pageTitle")} | ${publication.name}`}
         description={t("job.pageDescription")}

@@ -100,7 +100,7 @@ const Author = () => {
 
   if (isLoadingAuthor) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -112,7 +112,7 @@ const Author = () => {
 
   if (!author) {
     return (
-      <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="min-h-screen bg-background overflow-x-clip">
         <SEO title={t("state.authorNotFound")} noindex />
         <Header />
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
@@ -141,7 +141,7 @@ const Author = () => {
   const authorBio = (author as any).authorBio || (author as any).bio || `Articles and analysis by ${displayName} on ${publication.name}.`;
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={`${displayName}${author.jobTitle ? ` — ${author.jobTitle}` : ""} | ${publication.name}`}
         description={String(authorBio).slice(0, 160)}

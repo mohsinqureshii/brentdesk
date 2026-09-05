@@ -10,7 +10,7 @@ import { useT } from "@/lib/i18n";
 export default function About() {
   const t = useT();
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-clip">
       <SEO
         title={`About | ${publication.name}`}
         description={publication.description}
