@@ -1,0 +1,42 @@
+[
+ {
+  "commission": 1220,
+  "headline": "AI for energy has a hall at Gastech, and a narrow set of jobs it actually does",
+  "slug": "ai-for-energy-lng-operations",
+  "deck": "Predicting when a compressor will fail and optimising a train's setpoints are real applications. Most of the rest is a dashboard.",
+  "excerpt": "Artificial intelligence sits in Gastech's declared scope alongside gas, hydrogen and shipping. In an operating LNG plant the useful applications are narrow, specific and already earning their keep, which is why they are worth separating from the rest.",
+  "content": "<p>Artificial intelligence appears in Gastech's declared scope alongside natural gas, LNG, hydrogen, climate technologies, electrification and shipping. In a process plant the term covers a wide range of things, and only some of them change how the plant runs.</p><p>Three applications have established themselves, and they share a characteristic: each replaces a judgement that was previously made from incomplete data on a fixed schedule.</p><p>The first is condition monitoring on rotating equipment. A large LNG train depends on refrigeration compressor strings whose failure stops production. Vibration, temperature and performance data from those machines, analysed against historical failure patterns, can indicate degradation weeks before a conventional threshold alarm would. The value is not the prediction itself but the planning window it creates: a bearing changed during a scheduled window costs a fraction of one changed after a trip.</p><p>The second is process optimisation. An LNG train has many interacting setpoints, and the combination that maximises throughput at a given ambient temperature and feed composition is not obvious and changes constantly. Models trained on plant history can propose operating points a human operator would not reach by adjustment, and the gains, while small in percentage terms, are large in absolute terms on a plant producing millions of tonnes a year.</p><p>The third is corrosion and integrity modelling, which is the static equipment counterpart to the first. Continuous data from installed sensors, correlated with process conditions, produces a degradation model rather than a measurement, which is what allows inspection effort to be targeted at the equipment that needs it.</p><p>What these have in common is that they are narrow, they are validated against outcomes the plant can measure, and they sit inside an existing engineering discipline rather than replacing it. The engineer still decides; the model changes what the engineer knows when deciding.</p><p>The applications that have travelled less well are the general-purpose ones — the dashboards, the assistants, the platforms that promise to integrate everything. Those tend to founder on data quality, on the fact that process historians were never designed to be queried this way, and on the gap between a demonstration and a system an operator will trust with a live plant.</p><p>The demand side of this has a physical consequence that the Gulf is currently living. Models of this kind are trained on compute, and the compute is being built in the same countries as the plants: Saudi Arabia has announced several hundred megawatts of data centre capacity in the past fortnight alone. The digital layer over the region's energy industry is arriving with a construction programme attached.</p><p>Gastech runs at BITEC Bangkok from 14 to 17 September.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "industrial-ai",
+  "tags": [
+   "Industrial AI",
+   "Condition Monitoring",
+   "LNG",
+   "Gastech",
+   "Process Optimisation"
+  ],
+  "companies": [
+   "Gastech"
+  ],
+  "people": [],
+  "eventDate": "2026-09-15",
+  "informationCutoff": "2026-09-15",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before Gastech opens in Bangkok on 14 September. It works from the published programme and verified project data, and makes no claim about anything said at the event.",
+  "primarySourceUrl": "https://www.gastechevent.com/conferences/agenda-2026/",
+  "primarySourceName": "Gastech",
+  "secondarySourceUrls": [
+   "https://www.gastechevent.com/exhibition/",
+   "https://www.lngindustry.com/special-reports/27082026/gastech-2026-brings-global-energy-leaders-to-bangkok-as-asia-drives-the-next-wave-of-demand/",
+   "https://www.gastechevent.com/conferences/agenda-2026/"
+  ],
+  "seoTitle": "AI for energy and the narrow set of jobs it does",
+  "seoDescription": "In an operating LNG plant, AI earns its keep on condition monitoring, process optimisation and integrity modelling. Gastech gives the subject a hall.",
+  "articleType": "report",
+  "wordCount": 470,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

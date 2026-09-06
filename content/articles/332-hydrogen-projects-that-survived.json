@@ -1,0 +1,42 @@
+[
+ {
+  "commission": 1219,
+  "headline": "Hydrogen returns to Gastech with a shorter list and a harder question",
+  "slug": "hydrogen-projects-that-survived",
+  "deck": "The projects still standing have an offtaker, a power source and a port. Most of the announcements from three years ago had one of the three.",
+  "excerpt": "Hydrogen is one of Gastech's declared themes alongside natural gas, LNG and climate technologies. The projects presented this year are a much smaller set than the pipeline announced at the peak, and the survivors share a specific structure.",
+  "content": "<p>Hydrogen sits in Gastech's declared scope alongside natural gas, LNG, climate technologies, electrification and artificial intelligence in energy. It arrives in Bangkok in a different condition to the one it was in when the current wave of announcements began.</p><p>The pattern of the past three years has been consolidation. A very large pipeline of announced projects has thinned considerably, and the ones that remain tend to share three features that the ones that fell away did not.</p><p>The first is a committed offtaker. Hydrogen has no established commodity market with reference pricing and liquid trade, which means a producer cannot build first and sell later. Steel, ammonia and refining all have reference prices a lender can underwrite against; hydrogen does not. Without a buyer signed at a price that covers the cost of production, a project cannot be financed, and a great many announcements were made without one.</p><p>The second is a firm, cheap power source. Electrolytic hydrogen is essentially a way of converting electricity into a storable molecule, at an efficiency loss. The cost of the hydrogen is dominated by the cost of the electricity and by the utilisation of the electrolyser, which means intermittent renewable supply alone produces expensive hydrogen from an underused asset. Projects that survived generally have very high capacity factor renewables, storage, or a grid connection that firms the supply.</p><p>The third is a route to market. Hydrogen is difficult to move: liquefaction is energy-intensive and cryogenically demanding, pipelines require dedicated infrastructure, and the practical alternative for long distances has been conversion to ammonia, which is a mature trade with existing terminals and ships. Ammonia introduces its own conversion losses and its own handling requirements, and whether the end user wants ammonia or hydrogen determines whether reconversion is needed at the far end.</p><p>The Gulf's position against those three tests is comparatively strong on the second and third and weaker on the first. Solar resource with high capacity factors, existing ammonia export infrastructure and port capacity are real advantages. The buyer question is the same one everyone faces, and it is being settled slowly in Japan, South Korea and the European Union rather than quickly anywhere. Until a buyer signs, a low production cost is a claim rather than a business, and the region's advantage on inputs does not convert into a final investment decision.</p><p>What a Bangkok edition adds is proximity to the most likely Asian offtake. The economies discussing hydrogen and ammonia co-firing in power generation at scale are in this region, and the contracting conversations that decide which projects proceed happen at events like this one rather than in ministries.</p><p>Gastech's programme runs to more than 800 speakers across 200 sessions and 18 specialised programmes, at BITEC Bangkok from 14 to 17 September.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "energy",
+  "tags": [
+   "Hydrogen",
+   "Ammonia",
+   "Gastech",
+   "Energy Transition",
+   "Offtake"
+  ],
+  "companies": [
+   "Gastech"
+  ],
+  "people": [],
+  "eventDate": "2026-09-15",
+  "informationCutoff": "2026-09-15",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before Gastech opens in Bangkok on 14 September. It works from the published programme and verified project data, and makes no claim about anything said at the event.",
+  "primarySourceUrl": "https://www.gastechevent.com/conferences/agenda-2026/",
+  "primarySourceName": "Gastech",
+  "secondarySourceUrls": [
+   "https://www.gastechevent.com/exhibition/",
+   "https://www.lngindustry.com/special-reports/27082026/gastech-2026-brings-global-energy-leaders-to-bangkok-as-asia-drives-the-next-wave-of-demand/",
+   "https://www.gastechevent.com/conferences/agenda-2026/"
+  ],
+  "seoTitle": "Hydrogen returns to Gastech with a shorter list",
+  "seoDescription": "Hydrogen projects still standing share three features: a committed offtaker, firm cheap power and a route to market. The Gulf scores on two of three.",
+  "articleType": "report",
+  "wordCount": 500,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

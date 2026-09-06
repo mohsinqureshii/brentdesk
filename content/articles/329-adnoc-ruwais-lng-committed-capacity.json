@@ -1,0 +1,45 @@
+[
+ {
+  "commission": 1216,
+  "headline": "Ruwais LNG passes 90 per cent committed two years before it starts up",
+  "slug": "adnoc-ruwais-lng-committed-capacity",
+  "deck": "Two trains at 4.8 million tonnes each, running on clean power, with the offtake largely placed before commissioning.",
+  "excerpt": "ADNOC's Ruwais LNG project will more than double the company's liquefaction capacity when it starts commercial operations in 2028. Long-term commitments have passed 90 per cent of its 9.6 million tonne capacity, with a 15-year agreement signed with Japan's INPEX.",
+  "content": "<p>Ruwais LNG is the United Arab Emirates' entry into the next cycle of liquefaction capacity, and it arrives at Gastech with an unusually settled commercial position.</p><p>The project comprises two trains of 4.8 million tonnes a year, for a total of 9.6 million tonnes, and will more than double ADNOC's LNG production capacity from around 6 million tonnes to roughly 15 million. Commercial operations are scheduled for 2028.</p><p>As of July, <a href=\"https://www.adnoc.ae/en/news-and-media/press-releases/2026/adnoc-signs-15-year-sales-and-purchase-agreement-with-inpex-for-ruwais-lng-project\">long-term commitments had passed 90 per cent of capacity</a>, with close to 23 per cent committed to Japanese customers following a 15-year sales and purchase agreement with INPEX. ADNOC and XRG target 47 million tonnes a year of combined marketable LNG by 2035.</p><p>Selling out a plant before it is commissioned is the objective of every liquefaction developer and is achieved less often than the sector's announcements suggest. It matters because of how these projects are financed: a plant with long-term offtake at known terms supports debt on terms a merchant plant cannot get, and the cost of capital on a multi-billion dollar facility is a large share of the delivered cost of the gas.</p><p>The distinctive engineering claim is the power supply. Ruwais is designed to run on clean power, which ADNOC says will make it the first LNG export facility in the Middle East and Africa to do so and among the lowest carbon-intensity plants of its kind.</p><p>The significance of that is specific rather than rhetorical. Liquefaction is enormously energy-intensive: refrigeration compressors driving the gas down to minus 162 degrees are the dominant load, and in a conventional plant they are driven by gas turbines burning part of the feed. Electrifying that duty and supplying it from a low-carbon grid removes most of the facility's direct combustion emissions and changes its carbon intensity per tonne shipped.</p><p>It also changes the plant's engineering. Electric drive means very large motors and variable speed drives in place of turbines, a substantial high-voltage electrical system in place of a fuel gas network, and a dependency on grid reliability that a self-powered plant does not carry. That is an electrical infrastructure project sitting inside a process plant, and it lands on the same equipment supply chain — transformers, switchgear, drives — that Gulf utilities are already competing for.</p><p>The buyer profile matters for the region's positioning. Carbon intensity is becoming a contract variable in European and increasingly Asian LNG purchasing, and a plant that can document a lower figure per tonne has a commercial argument as well as an environmental one.</p><p>Gastech runs in Bangkok from 14 to 17 September, with more than 800 speakers across 200 conference sessions.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "oil-gas",
+  "tags": [
+   "LNG",
+   "ADNOC",
+   "Ruwais",
+   "Electrification",
+   "Gastech"
+  ],
+  "companies": [
+   "ADNOC",
+   "XRG",
+   "INPEX"
+  ],
+  "people": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-14",
+  "informationCutoff": "2026-09-14",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before Gastech opens in Bangkok on 14 September. It works from the published programme and independently verified project data, and makes no claim about anything said or announced at the event.",
+  "primarySourceUrl": "https://www.adnoc.ae/en/news-and-media/press-releases/2026/adnoc-signs-15-year-sales-and-purchase-agreement-with-inpex-for-ruwais-lng-project",
+  "primarySourceName": "ADNOC",
+  "secondarySourceUrls": [
+   "https://www.energyconnects.com/news/gas-lng/2026/july/adnoc-signs-15-year-ruwais-lng-supply-deal-with-japans-inpex/",
+   "https://megaproject.com/news/oilandgas/ruwais-lng-commitments-top-90-capacity-with-new-inpex-deal",
+   "https://www.blackridgeresearch.com/project-profiles/ruwais-lng-project-liquified-natural-gas-adnoc-abu-dhabi-united-arab-emirates-uae"
+  ],
+  "seoTitle": "Ruwais LNG passes 90 per cent committed before startup",
+  "seoDescription": "ADNOC's Ruwais LNG, two trains totalling 9.6 mtpa on clean power, has long-term commitments above 90 per cent ahead of 2028 commercial operations.",
+  "articleType": "report",
+  "wordCount": 500,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1217,
+  "headline": "Saudi Arabia arrives at Gastech as a gas producer aiming inward",
+  "slug": "saudi-gas-strategy-domestic-first",
+  "deck": "Jafurah and Tanajib are sized to displace liquids in domestic power and feed petrochemicals, not to fill export cargoes.",
+  "excerpt": "Aramco is targeting an 80 per cent increase in sales gas capacity by 2030 against 2021 levels, built on Jafurah and processed through Tanajib. Unlike Qatar and the Emirates, the Kingdom's gas expansion is aimed first at its own economy.",
+  "content": "<p>Gastech opens in Bangkok with the Gulf's three largest gas positions pointing in different directions, and Saudi Arabia's is the one aimed inward.</p><p>Aramco has <a href=\"https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target\">set a target of increasing sales gas production capacity by around 80 per cent by 2030</a> against 2021 levels. The centrepiece is Jafurah, the largest liquids-rich unconventional gas development in the Middle East, estimated to hold 229 trillion standard cubic feet of raw gas and 75 billion barrels of condensate and liquids. By 2030 it is expected to deliver up to 2 billion standard cubic feet a day of sales gas, 420 million cubic feet a day of ethane and around 630,000 barrels a day of liquids. The Tanajib gas plant has been in service since December 2025 and is expected to reach 2.6 billion cubic feet a day of raw gas processing capacity this year.</p><p>Those are large numbers, and almost none of them are pointed at an LNG tanker.</p><p>The strategic logic is domestic substitution. Saudi Arabia has historically burned a meaningful volume of liquid fuels in power generation and desalination, particularly at summer peak. Every unit of gas that displaces crude or fuel oil in that duty frees a barrel for export or refining at a much higher realised value, and does so at lower emissions intensity. The arithmetic favours domestic use over liquefaction for as long as that substitution remains incomplete.</p><p>The second claim on the gas is petrochemical. Ethane is the feedstock advantage that underpins Saudi cracker economics, and 420 million cubic feet a day of it is a material addition to a domestic industry competing with United States producers who have their own cheap ethane.</p><p>That is a different position to Qatar's, which is expanding North Field capacity from 77 to 142 million tonnes a year of LNG for export, and different again from the Emirates', where Ruwais LNG adds 9.6 million tonnes a year with commitments already above 90 per cent.</p><p>The Kingdom has not ruled out the export market — Aramco has made investments in international LNG — but the domestic programme is where the capital and the engineering are going, and it is why the Saudi presence at a gas conference reads as a buyer of technology and an operator of plant rather than as a seller of cargoes.</p><p>For the industrial supply chain the implication is concrete. Domestic gas expansion means processing trains, compression, pipelines, slug catchers and the fabrication yards that build them, all inside the Kingdom, which is a different order book to the one an export project generates.</p><p>Gastech runs at BITEC Bangkok from 14 to 17 September.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "oil-gas",
+  "tags": [
+   "Natural Gas",
+   "Aramco",
+   "Jafurah",
+   "Gastech",
+   "Petrochemicals"
+  ],
+  "companies": [
+   "Saudi Aramco"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-14",
+  "informationCutoff": "2026-09-14",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before Gastech opens in Bangkok on 14 September. It works from the published programme and verified project data, and makes no claim about anything said at the event.",
+  "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target",
+  "primarySourceName": "Aramco",
+  "secondarySourceUrls": [
+   "https://www.worldoil.com/news/2026/2/26/aramco-starts-up-jafurah-eyes-80-gas-capacity-growth-by-2030/",
+   "https://www.rigzone.com/news/aramco_starts_gas_production_at_jafurah-27-feb-2026-183085-article/",
+   "https://www.gastechevent.com/"
+  ],
+  "seoTitle": "Saudi Arabia arrives at Gastech aiming its gas inward",
+  "seoDescription": "Aramco targets an 80 per cent rise in sales gas capacity by 2030 via Jafurah and Tanajib, aimed at domestic substitution rather than LNG export.",
+  "articleType": "report",
+  "wordCount": 480,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
