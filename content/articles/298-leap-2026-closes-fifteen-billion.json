@@ -1,0 +1,45 @@
+[
+ {
+  "commission": 1185,
+  "headline": "LEAP closes on nearly $15bn and moves back to April for 2027",
+  "slug": "leap-2026-closes-fifteen-billion",
+  "deck": "The fifth edition's final day was carried by manufacturing and venture capital rather than by the headline data centre commitments that opened it.",
+  "excerpt": "LEAP 2026 has ended after four days in Riyadh with investments, launches and agreements approaching $15bn. The closing day added $857m across cloud infrastructure, data centre component manufacturing and venture funding, and the 2027 edition returns to April.",
+  "content": "<p>LEAP has closed its fifth edition at the Riyadh Exhibition and Convention Centre in Malham after four days, with investments, launches and agreements <a href=\"https://english.aawsat.com/business/5314518-leap-2026-concludes-nearly-15-billion-investments-agreements-2027-edition-set\">approaching $15bn</a> across artificial intelligence infrastructure, data centres, cloud computing, technology manufacturing and venture capital. The 2027 edition returns to April, ending the experiment of running the show at the end of August.</p><p>The shape of the week is more informative than the total. The largest single commitments came early: Al Moammar Information Systems put $1.2bn against expanding its data centre estate to 192 megawatts of total operational capacity, and NHC Innovation set out an $880m development at Khuzam Digital Valley targeting 65MW by 2033, part of a group of announcements worth more than $2.5bn.</p><p>The closing day was smaller and, for the industrial reader, more interesting. It added <a href=\"https://economymiddleeast.com/news/leap-2026-secures-857-million-in-tech-and-manufacturing-investments-on-day-three/\">$857m across cloud infrastructure, data centre component manufacturing and venture funding</a>. Within that, Alfanar committed $150m to manufacturing data centre components in the Kingdom, and venture capital accounted for close to $293m across eleven deals — nine investment rounds totalling $126.15m, plus a new fund launch and the expansion of an existing one worth a combined $166.7m between them.</p><p>Amazon Web Services confirmed its first Saudi cloud region remains on track to launch in December, backed by investment the company has put at more than $5.3bn.</p><p>Read as an industrial story rather than a technology one, the week produced three distinct kinds of commitment, and they carry very different implications for the physical economy.</p><p>The first is capacity: megawatts announced by operators, which converts within a year or two into demand for land, grid connections, substations, cooling plant, generators and construction packages. The second is manufacturing: Alfanar's component investment, and Hewlett Packard Enterprise's disclosure that its Saudi Made servers are built on a line at Alfanar's Riyadh plant running at 700 units a month. That is the strand that changes what the Kingdom makes rather than what it buys. The third is capital formation: the funds and rounds, which mostly finance software companies whose demands on the physical world are limited to the racks they rent.</p><p>Only the first two land on contractors and factories, and the second is by far the smaller number.</p><p>The power side of the build-out was contracted during the show as well, with less attention. Saudi Energy signed three agreements to support the digital infrastructure of data and artificial intelligence centres, the first of them between National Grid SA and Humain covering electricity supply to the artificial intelligence data centres project in Riyadh. For campuses of the scale being announced, the connection date rather than the construction programme usually sets the schedule.</p><p>The move back to April for 2027 restores the show's usual position in the calendar. This year's date placed it in the same week as Big 5 Construct Saudi at Riyadh Front, eleven kilometres away, and the Saudi Industrial Expo — an unusual concentration of the Kingdom's digital and physical industry events in a single week that will not repeat next year.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "data-centers",
+  "tags": [
+   "LEAP 2026",
+   "Riyadh",
+   "Data Centres",
+   "Investment",
+   "Technology Manufacturing"
+  ],
+  "companies": [
+   "Al Moammar Information Systems",
+   "NHC Innovation",
+   "Alfanar",
+   "Amazon Web Services",
+   "Hewlett Packard Enterprise"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://english.aawsat.com/business/5314518-leap-2026-concludes-nearly-15-billion-investments-agreements-2027-edition-set",
+  "primarySourceName": "Asharq Al-Awsat",
+  "secondarySourceUrls": [
+   "https://economymiddleeast.com/news/leap-2026-secures-857-million-in-tech-and-manufacturing-investments-on-day-three/",
+   "https://www.spa.gov.sa/en/N2666590",
+   "https://www.arabianbusiness.com/business/technology/saudi-arabia-tech-investment-ai-data-centre-leap-2026"
+  ],
+  "seoTitle": "LEAP 2026 closes on nearly $15bn, returns to April",
+  "seoDescription": "LEAP 2026 ended in Riyadh with close to $15bn in investments and agreements, a closing day worth $857m, and the 2027 edition moving back to April.",
+  "articleType": "news",
+  "wordCount": 590,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

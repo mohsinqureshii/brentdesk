@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1154,
+  "headline": "Kortech's Al Khobar scope is the coordination problem Big 5 spent four days describing",
+  "slug": "kortech-seven-al-khobar-mep-coordination",
+  "deck": "One MEP contract covering an aquarium, a cinema, a family entertainment centre and an observation wheel is a services job in name and an interface-management job in practice.",
+  "excerpt": "Hassan Allam Holding has said its subsidiary Kortech will execute, test and commission the mechanical, electrical and plumbing works at Saudi Entertainment Ventures' Al Khobar Entertainment Complex. The scope spans an aquarium, a cinema, a black box and an observation wheel, and the deliverable is as much coordination as installation.",
+  "content": "<p>Hassan Allam Holding has announced that its subsidiary Kortech has been awarded the execution, testing and commissioning of the mechanical, electrical and plumbing works at the Al Khobar Entertainment Complex, the Eastern Province destination being developed by Saudi Entertainment Ventures, which trades as SEVEN.</p><p>The scope, as <a href=\"https://tradearabia.com/News/467501/Hassan-Allam-unit-wins-Al-Khobar-leisure-complex-contract\">set out by the contractor</a>, covers the entertainment complex itself along with an underground car park, a cinema, a family entertainment centre, an aquarium, a black box venue and an observation wheel, plus external works and a number of specialised attractions. Within that footprint the package takes in heating, ventilation and air conditioning, plumbing and drainage, fire protection, power and lighting, building management system interfaces, and coordination with the security, ICT, audiovisual and attraction systems.</p><p>Read as a list it is a large services package. Read against the four days that had just finished at Big 5 Construct Saudi eleven hundred kilometres away in Riyadh, it is something more specific: a worked example of the argument the show's HVACR and facilities management programme kept returning to, which is that the difficult part of building services in Saudi Arabia has stopped being installation and become the management of interfaces between systems that were designed separately.</p><p>Consider what sits inside this one scope. An aquarium is a life support system with continuous filtration, temperature control and water quality monitoring that cannot be taken offline the way an office chiller can. A cinema and a black box venue are acoustically sensitive, which constrains where air can move and how fast. A family entertainment centre carries occupancy loads that swing hard across a day. An observation wheel is a mechanical attraction with its own control and safety systems that nonetheless needs power, and needs to talk to the building's fire strategy. An underground car park has ventilation and smoke control obligations of its own. These are not variations on one system. They are different engineering problems sharing a plant room, a building management system and a commissioning programme.</p><p>The Big 5 sessions on coordination between HVACR design, installation and facilities management were describing exactly this condition, and the recurring point across those conversations was that the interfaces are where programme is lost. A duct is quick. Agreeing whose control system owns a damper, and proving it works in an integrated test, is not.</p><p>That is why the wording of the award repays attention. Kortech's scope is written as execution, testing and commissioning, and it names building management system interfaces and coordination with security, ICT, audiovisual and attraction systems as scope items rather than as assumptions. On projects where those interfaces sit in the gaps between packages, they surface late, during integrated testing, when there is no float left to absorb them. Putting them inside one contractor's scope does not make the coordination easier, but it does make it somebody's contractual obligation.</p><p>It also points at the phase after handover. A building whose services are commissioned as an integrated set, with the interfaces documented because a contract required them to be, is a materially different asset to operate than one where the same systems were signed off individually. That was the other thread running through Big 5's facilities management programme: the operator inherits the coordination decisions made during installation, and inherits them for decades.</p><p>Hassan Allam Holding is an Egyptian group with an established Saudi presence, and Kortech is its specialist services arm. The award adds to a run of Eastern Province work as SEVEN builds out its entertainment portfolio across the Kingdom. The value has not been disclosed.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "construction",
+  "tags": [
+   "MEP",
+   "Saudi Entertainment Ventures",
+   "Eastern Province",
+   "Building Services",
+   "Commissioning"
+  ],
+  "companies": [
+   "Hassan Allam Holding",
+   "Kortech",
+   "Saudi Entertainment Ventures"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-04",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://tradearabia.com/News/467501/Hassan-Allam-unit-wins-Al-Khobar-leisure-complex-contract",
+  "primarySourceName": "TradeArabia",
+  "secondarySourceUrls": [
+   "https://www.constructionweeksaudi.com/awards/hassan-allam-kortech-seven-al-khobar-mep-contract",
+   "https://www.mepmiddleeast.com/news/contract-mep-works-saudi-khobar-complex",
+   "https://gulfconstructiononline.com/ArticleTA/467501"
+  ],
+  "seoTitle": "Kortech wins MEP works at SEVEN's Al Khobar complex",
+  "seoDescription": "Hassan Allam's Kortech will execute, test and commission MEP works across SEVEN's Al Khobar Entertainment Complex, including an aquarium and observation wheel.",
+  "articleType": "report",
+  "wordCount": 690,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

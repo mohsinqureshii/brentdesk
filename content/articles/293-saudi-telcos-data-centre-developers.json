@@ -1,0 +1,44 @@
+[
+ {
+  "commission": 1180,
+  "headline": "Saudi Arabia's telecoms operators are becoming its data centre developers",
+  "slug": "saudi-telcos-data-centre-developers",
+  "deck": "stc is building AI-ready capacity starting at 250MW through center3 while Zain KSA has signed DataVolt to co-develop facilities. The carriers own the two inputs a compute campus cannot do without.",
+  "excerpt": "At LEAP 2026 stc set out AI-ready data centre capacity starting at 250 megawatts through its center3 subsidiary, and Zain KSA signed a memorandum with DataVolt to co-develop facilities across the Kingdom. Both moves take operators further from selling connectivity and closer to owning the buildings.",
+  "content": "<p>Two of Saudi Arabia's telecommunications operators used LEAP 2026 to set out positions in data centre development, and between them they describe how the carrier business is changing shape as compute demand arrives.</p><p>Through its center3 subsidiary, stc said it is <a href=\"https://www.zawya.com/en/press-release/companies-news/stc-group-concludes-leap-2026-participation-with-strategic-partnerships-478054\">developing artificial intelligence ready capacity starting at 250 megawatts</a>, while continuing to extend a connectivity footprint that spans subsea cables, terrestrial networks and satellite. The group also partnered with DataVolt during the show to strengthen carrier-neutral connectivity for data centre customers, adding network diversity for facilities it does not itself own.</p><p>Zain KSA took a different route to a similar place, <a href=\"https://www.spa.gov.sa/en/N2665857\">signing a memorandum of understanding with DataVolt</a> to co-develop facilities across the Kingdom, combining the operator's network infrastructure and digital services with DataVolt's experience developing and operating high-performance data centres.</p><p>The logic is not complicated, and it is not new to the industry globally. A data centre needs three things that are hard to assemble: power at transmission scale, fibre in more than one direction, and land in the right relationship to both. A telecommunications operator already owns the second, has decades of experience negotiating the third, and has an existing estate of exchanges and switching sites that sit at the intersection. Carriers have been converting that position into colocation businesses in other markets for twenty years. What is new in Saudi Arabia is the scale at which it is now worth doing.</p><p>Two hundred and fifty megawatts as a starting point is the number that shows the change. Carrier-owned facilities have historically been sized around network requirements: a few megawatts here, a switching centre there, capacity built to serve the operator's own traffic and let out at the margin. Capacity that begins at 250MW is not a network facility with tenants. It is an infrastructure business, financed and built as one, and it puts center3 in the same procurement conversations as any other large developer, competing for the same transformers, chillers, generators and electrical contractors.</p><p>The connectivity point stc made alongside its capacity announcement is the more subtle half of the strategy. A campus is worth more if it is carrier-neutral, meaning tenants can buy transit from more than one network without moving racks. An operator that both builds capacity and offers neutral connectivity into other people's capacity is positioned on both sides: it can sell space in its own facilities and sell transit into competitors', and the second business grows whether or not the first wins the tenant.</p><p>For Zain KSA the memorandum is an earlier-stage commitment, and the distinction matters. A memorandum sets out an intention to co-develop; it does not name sites, capacity or capital. What it does establish is the shape of the partnership, with the operator contributing network and market position and DataVolt contributing development and operating capability. DataVolt has been active across several Saudi data centre programmes and now appears on both sides of the carrier market, partnered with stc on connectivity and with Zain KSA on development.</p><p>The downstream effect is on the order book rather than the airwaves. Every megawatt of announced capacity, whoever announces it, resolves into the same physical demand: substations, medium-voltage switchgear, uninterruptible power supplies, chillers or liquid cooling plant, containment, structured cabling and the civil works underneath all of it. Operators entering development add another set of buyers to a market where the constraint is already equipment lead times and grid connection dates rather than capital.</p><p>Neither company has published site locations, phasing or delivery dates. Those are the disclosures that will show whether the capacity figures announced this week are programmes under way or positions being staked.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "data-centers",
+  "tags": [
+   "Data Centres",
+   "Telecoms",
+   "LEAP 2026",
+   "Digital Infrastructure",
+   "Saudi Arabia"
+  ],
+  "companies": [
+   "stc",
+   "center3",
+   "Zain KSA",
+   "DataVolt"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.spa.gov.sa/en/N2665857",
+  "primarySourceName": "Saudi Press Agency",
+  "secondarySourceUrls": [
+   "https://www.zawya.com/en/press-release/companies-news/stc-group-concludes-leap-2026-participation-with-strategic-partnerships-478054",
+   "https://www.telecomreview.com/articles/telecom-operators/30072-zain-ksa-partners-with-datavolt-to-scale-saudi-arabias-ai-ready-data-centers/",
+   "https://www.telecomreview.com/articles/telecom-operators/30130-stc-group-puts-saudi-arabias-ai-ambitions-into-action-at-leap-2026/"
+  ],
+  "seoTitle": "Saudi telecoms operators move into data centre development",
+  "seoDescription": "stc is building AI-ready capacity from 250MW through center3, and Zain KSA has signed DataVolt to co-develop data centres across Saudi Arabia.",
+  "articleType": "report",
+  "wordCount": 660,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

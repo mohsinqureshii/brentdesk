@@ -1,0 +1,47 @@
+[
+ {
+  "commission": 1184,
+  "headline": "National Water Company contracts nine sewage plants out for fifteen years",
+  "slug": "nwc-ltom-nine-sewage-treatment-plants",
+  "deck": "Armada and Zhangzhou United Waters take on rehabilitation, operation and maintenance of plants treating more than 337,000 cubic metres a day across four regions.",
+  "excerpt": "A consortium of Armada and Zhangzhou United Waters has won a SAR 1.3bn long-term operation and maintenance contract from the National Water Company covering nine sewage treatment plants in four Saudi regions. The fifteen-year term is the tenth award under the utility's LTOM programme.",
+  "content": "<p>The National Water Company has awarded a SAR 1.3bn, roughly $348m, long-term operation and maintenance contract covering nine sewage treatment plants to a consortium of the Saudi firm Armada and China's Zhangzhou United Waters.</p><p>The fifteen-year contract covers rehabilitation, operation and maintenance of plants at Unaizah, Al-Bukairiyah, Al-Muznib and Al-Ras in Qassim, at Hail 1, Hail 2 and Baqa'a in Hail, and at Sakaka and Turaif in the north, with a combined design treatment capacity of more than 337,000 cubic metres a day. It was <a href=\"https://tradearabia.com/News/467504/Saudi-Chinese-consortium-wins-$348m-sewage-plants-maintenance-deal\">signed at the company's Riyadh headquarters</a> by National Water Company chief executive Dr Fuad Al Shikhmubarak with Armada executive director Jamaan Al Jamaan and Zhangzhou United Waters chief executive Liu Meng, and is the tenth contract under the utility's long-term operation and maintenance programme.</p><p>The structure is the interesting part. A conventional operations and maintenance contract runs three to five years and buys a service against an existing asset. A fifteen-year term with rehabilitation inside the scope buys something different: the contractor takes on plants in the condition they are in, brings them to a required standard, and then lives with the consequences of how it did that work for the remainder of the term.</p><p>That alignment is the point of the model. A contractor on a short term has every reason to defer capital-intensive repairs past the end of its contract; a contractor holding the asset for fifteen years pays for its own deferrals. Applied across nine plants in four regions, it also lets the operator standardise. Common equipment, common spares holdings, shared mobile maintenance crews and one condition-monitoring regime across a portfolio are economics a single-plant contract cannot reach.</p><p>Sewage treatment is where the water sector's operating burden concentrates. The process runs continuously, the influent quality varies, and the equipment — pumps, blowers, screens, clarifier drives, dosing systems, sludge handling — is mechanically hard-used in a corrosive environment. Plants in the interior add heat and, in several of these locations, distance from the nearest specialist workshop. Rehabilitation on an operating plant is harder again than building new, because the process cannot be stopped while it happens.</p><p>The 337,000 cubic metres a day figure is design capacity rather than current throughput, and the gap between those two numbers is often where a rehabilitation contract earns its value. A plant running below its design capacity because equipment is out of service is a capacity problem that looks like an asset problem.</p><p>For the wider market, the tenth LTOM award establishes that this is a programme rather than a series of one-off procurements. Long-dated operating contracts create a category of work that behaves differently from construction: revenue is predictable across a decade and a half, headcount is stable, and the competitive advantage lies in maintenance systems, spares logistics and technical staff rather than in mobilisation capability. Contractors that can demonstrate a maintenance track record are competing for a different order book to the one being fought over on construction packages.</p><p>The involvement of a Chinese water operator alongside a Saudi partner also reflects where the technical depth in large-scale municipal wastewater operations currently sits, and how the Kingdom's utilities are structuring access to it.</p><p>The company has not published the phasing of the rehabilitation works or the performance standards attached to the operating term.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "water",
+  "tags": [
+   "Wastewater",
+   "National Water Company",
+   "Operations and Maintenance",
+   "Saudi Arabia",
+   "Utilities"
+  ],
+  "companies": [
+   "National Water Company",
+   "Armada",
+   "Zhangzhou United Waters"
+  ],
+  "people": [
+   "Fuad Al Shikhmubarak",
+   "Jamaan Al Jamaan",
+   "Liu Meng"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-04",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://tradearabia.com/News/467504/Saudi-Chinese-consortium-wins-$348m-sewage-plants-maintenance-deal",
+  "primarySourceName": "TradeArabia",
+  "secondarySourceUrls": [
+   "https://smartwatermagazine.com/news/smart-water-magazine/saudi-arabias-nwc-taps-saudi-chinese-partnership-for-348-million-wastewater-treatment-contract",
+   "https://guest.meed.com/nwc-confirms-347m-sewage-treatment-plant-deal/",
+   "https://www.gdnonline.com/Details/1405219"
+  ],
+  "seoTitle": "NWC awards 15-year deal on nine sewage treatment plants",
+  "seoDescription": "Armada and Zhangzhou United Waters won a SAR 1.3bn 15-year contract to rehabilitate, operate and maintain nine Saudi sewage plants treating 337,000 cu m a day.",
+  "articleType": "news",
+  "wordCount": 600,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

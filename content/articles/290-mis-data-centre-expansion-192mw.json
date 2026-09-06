@@ -1,0 +1,44 @@
+[
+ {
+  "commission": 1177,
+  "headline": "Al Moammar commits $1.2bn to take its data centre capacity to 192MW",
+  "slug": "mis-data-centre-expansion-192mw",
+  "deck": "The Riyadh IT group's investment was the largest single commitment disclosed at LEAP 2026, and it is a build-out of operating capacity rather than a plan to study one.",
+  "excerpt": "Al Moammar Information Systems announced a $1.2bn investment to expand its Saudi data centres and lift total operational capacity to 192 megawatts. The commitment led a group of announcements worth more than $2.5bn covering data centres, cloud services, technology localisation and research.",
+  "content": "<p>Al Moammar Information Systems has committed $1.2bn to expanding its data centre estate in Saudi Arabia, taking the company's total operational capacity to 192 megawatts. The investment was <a href=\"https://www.spa.gov.sa/en/N2666590\">announced at LEAP 2026 in Riyadh</a> and was the largest single commitment in a group of announcements worth more than $2.5bn spanning data centres, cloud services, technology localisation and research and development.</p><p>The company, known in the market as MIS, was founded in 1979 and is headquartered in Riyadh. It has operated for most of that history as an information technology consultancy and managed services provider, and has moved over recent years into operating data centres in its own right. The expansion announced this week is a substantial change of scale for that side of the business.</p><p>Megawatts, not square metres, are the unit that matters in this market. A data centre's capacity is set by the electrical load it can take and the heat it can reject, and floor area follows from those constraints rather than defining them. A 192MW estate is a large position by the standards of the Saudi market as it stands today, and it is capacity the company says it will operate rather than capacity it is exploring.</p><p>That distinction is worth holding onto, because the same company has recent form on both sides of it. In July MIS <a href=\"https://www.saudigulfprojects.com/2026/07/al-moammar-information-systems-signs-mou-to-develop-three-data-centers-with-combined-capacity-of-48-mw/\">signed a memorandum of understanding to develop three data centres</a> with a combined capacity of 48MW. A memorandum is an intention to work together; the announcement made this week is an investment figure attached to a capacity target. The two are different commitments, and the second is the firmer.</p><p>What the number implies physically is considerable. Capacity on this scale requires grid connections at transmission voltage rather than distribution voltage, substations and switchgear procured on lead times measured in quarters, cooling plant sized for Saudi ambient temperatures, and buildings whose structure is designed around rack loads and cable routes rather than around occupancy. It is closer to commissioning an industrial facility than to fitting out an office, and the constraint that usually binds first is the connection date, not the construction programme.</p><p>The rest of the LEAP announcements point the same way. NHC Innovation set out an $880m data centre development at Khuzam Digital Valley targeting 65MW by 2033. Through its center3 subsidiary, stc has said it is developing artificial intelligence ready capacity starting at 250MW. Amazon Web Services confirmed that its first Saudi cloud region remains on track for December 2026, backed by investment the company has put at more than $5.3bn.</p><p>Taken together the announcements describe a build-out that is being financed and contracted in parallel rather than in sequence, by operators with different starting points: a systems integrator moving into infrastructure, a housing developer's innovation arm creating an estate, a telecommunications group extending from connectivity into compute, and a hyperscaler establishing a region.</p><p>MIS has not published a phasing schedule or named the sites the $1.2bn will be spent on, and the 192MW figure is a total operational capacity rather than an addition to what exists today. Both are the details that will determine when the money reaches contractors, and neither was disclosed this week.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "data-centers",
+  "tags": [
+   "Data Centres",
+   "LEAP 2026",
+   "Saudi Arabia",
+   "Digital Infrastructure",
+   "Investment"
+  ],
+  "companies": [
+   "Al Moammar Information Systems",
+   "NHC Innovation",
+   "stc",
+   "Amazon Web Services"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-01",
+  "informationCutoff": "2026-09-05",
+  "primarySourceUrl": "https://www.spa.gov.sa/en/N2666590",
+  "primarySourceName": "Saudi Press Agency",
+  "secondarySourceUrls": [
+   "https://www.arabianbusiness.com/business/technology/saudi-arabia-tech-investment-ai-data-centre-leap-2026",
+   "https://economymiddleeast.com/news/saudi-arabia-secures-over-2-5-billion-data-center-technology-investments-leap-2026/",
+   "https://www.saudigulfprojects.com/2026/07/al-moammar-information-systems-signs-mou-to-develop-three-data-centers-with-combined-capacity-of-48-mw/"
+  ],
+  "seoTitle": "Al Moammar to invest $1.2bn, lifting capacity to 192MW",
+  "seoDescription": "Al Moammar Information Systems will invest $1.2bn to expand its Saudi data centres to 192MW of total operational capacity, announced at LEAP 2026.",
+  "articleType": "news",
+  "wordCount": 600,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

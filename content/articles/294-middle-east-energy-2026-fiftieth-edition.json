@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1181,
+  "headline": "Middle East Energy closes its fiftieth edition with buyers holding $98bn of live projects",
+  "slug": "middle-east-energy-2026-fiftieth-edition",
+  "deck": "The Dubai show moved from spring to September for its half-century edition and drew more than 1,900 companies from over 150 countries.",
+  "excerpt": "Middle East Energy closed in Dubai after three days, marking its fiftieth edition with more than 1,900 energy companies from over 150 countries and around 35,000 industry professionals. Buyers in the show's Energy Club carried more than $98bn of live projects between them.",
+  "content": "<p>Middle East Energy has closed at the Dubai World Trade Centre after three days, ending the fiftieth edition of a show that has tracked the region's power sector since it began as Middle East Electricity. The event <a href=\"https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit\">brought together more than 1,900 energy companies</a> from over 150 countries and around 35,000 industry professionals.</p><p>The half-century edition also moved in the calendar, running from 1 to 3 September rather than in its customary spring slot. The 2027 edition returns to May.</p><p>The most concrete measure of the week was not attendance but purchasing power. Buyers taking part in the show's Energy Club held more than $98bn of live energy projects across the Middle East, Africa and South Asia between them, which the organisers described as the largest buying group assembled across the show's fifty years.</p><p>Three exhibitions ran alongside the main floor — The Battery Show Middle East, Intersolar Middle East and Energy Storage Middle East — and the co-location says something about how the regional market has changed. A show that began as an electrical equipment fair now devotes a substantial share of its floor to storage, and storage is the component that determines how much of the region's contracted solar capacity is usable after sunset.</p><p>On the main floor the equipment on display was resolutely physical: high-efficiency transformers, switchgear, mobile substations, voltage regulation equipment and the testing apparatus that goes with them. Exhibitors reported technical interest concentrated on transformer testing methods — winding resistance, turns ratio, insulation resistance, tan delta and oil testing among them — which is the kind of conversation that happens when utilities are commissioning new assets in volume and worrying about the condition of existing ones.</p><p>The programme returned repeatedly to the same structural problem. Electricity demand across the Gulf is rising on three fronts at once: population and building stock, industrial expansion, and the digital load arriving with data centres and artificial intelligence. Each of those has a different profile and a different geography, and all of them land on the same transmission networks and the same equipment supply chains.</p><p>Regional projects discussed during the week gave the theme specific form. The GCC Interconnection Authority's direct link between Oman and the regional grid runs to roughly 530km of 400kV transmission lines. In Dubai, DEWA is investing AED 7bn in a smart grid programme running to 2035, covering digital technologies, automation and data-driven systems intended to improve network reliability and integrate renewable generation.</p><p>The conference discussion, according to the organisers, turned increasingly from planning towards execution and cross-border cooperation — the practical question of converting announced programmes into commissioned assets. That is a supply chain question as much as a policy one. Large power transformers, extra-high-voltage switchgear and the specialist contractors who install them are in demand simultaneously in the Gulf, Europe, North America and Asia, and lead times reflect it.</p><p>The timing of this year's edition put it in the same week as Big 5 Construct Saudi and LEAP in Riyadh, where operators announced data centre capacity measured in hundreds of megawatts. The equipment that will connect that capacity was on display in Dubai three days later, which is a reasonable summary of how the two halves of the same build-out are currently sequenced.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "power",
+  "tags": [
+   "Middle East Energy",
+   "Dubai",
+   "Grid Equipment",
+   "Energy Storage",
+   "Transmission"
+  ],
+  "companies": [
+   "Middle East Energy",
+   "DEWA",
+   "GCC Interconnection Authority"
+  ],
+  "people": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+  "primarySourceName": "Technical Review Middle East",
+  "secondarySourceUrls": [
+   "https://www.zawya.com/en/press-release/events-conferences/over-1500-global-energy-companies-confirm-for-the-50th-edition-of-middle-east-energy-in-dubai-this-september-459958",
+   "https://www.zawya.com/en/press-release/companies-news/middle-east-energy-2026-france-backs-the-gulfs-drive-for-smarter-more-resilient-power-grids-469545",
+   "https://www.middleeast-energy.com/en/home.html"
+  ],
+  "seoTitle": "Middle East Energy closes 50th edition in Dubai",
+  "seoDescription": "Middle East Energy's fiftieth edition drew over 1,900 companies from 150 countries to Dubai, with Energy Club buyers holding $98bn of live projects.",
+  "articleType": "news",
+  "wordCount": 610,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

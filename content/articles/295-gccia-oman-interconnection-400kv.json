@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1182,
+  "headline": "The Gulf's grid is being extended to Oman, and the works are under way",
+  "slug": "gccia-oman-interconnection-400kv",
+  "deck": "Two 400kV circuits running about 530km from Al Sila in the UAE to Ibri will connect the Sultanate directly to the regional network with up to 1,600MW of transfer capacity.",
+  "excerpt": "The GCC Interconnection Authority is building a direct link between Oman and the regional grid: roughly 530km of 400kV transmission line from Al Sila in the UAE to Ibri, two new substations and a compensator station, giving up to 1,600 megawatts of transfer capacity by late 2027.",
+  "content": "<p>Regional grid interconnection is one of those infrastructure categories that attracts less attention than the generation it serves, and does more to determine what that generation is worth. The Gulf's example is under construction now, and it was among the projects discussed at Middle East Energy in Dubai this week.</p><p>The GCC Interconnection Authority is building a direct connection between the Sultanate of Oman's network and the regional grid. The scheme comprises two 400 kilovolt transmission circuits extending around 530 kilometres, linking the Al Sila substation in the United Arab Emirates with the Ibri substation in Oman, together with two new 400kV substations at Ibri and Al Baynounah and a compensator station to support stability and transfer capacity. Total capacity is up to 1,600 megawatts. The cost is put at around $700m and <a href=\"https://www.meed.com/gccia-starts-700m-oman-power-grid-interconnection\">work began in February</a>, with completion expected in late 2027.</p><p>Oman has been part of the GCC interconnection since the network's earlier phases, but by an indirect route. A dedicated 400kV double circuit changes the character of the connection from a contingency link into a working transfer path, and 1,600MW is enough capacity to matter commercially rather than only in an emergency.</p><p>What an interconnector does economically is worth stating plainly, because it is easy to mistake it for redundancy. Peak demand across the Gulf is driven overwhelmingly by cooling, and cooling peaks are shaped by geography and time of day. Where two systems peak at slightly different hours, or where one has surplus generation while the other is at maximum output, a transfer path lets one carry the other and avoids both having to build plant sized for their own worst hour. The reserve margin each system must hold falls. Over a network's life that is a larger saving than the line costs.</p><p>The value rises again as renewable capacity grows. Solar output is correlated across a region but not identical, and wind resource in Oman's interior behaves differently from solar in the Emirates. Capacity that can move between systems is capacity that can be used rather than curtailed, and curtailment is the quiet cost of building generation faster than the network that carries it. The Gulf is currently doing exactly that: contracted solar and wind capacity across the region is growing faster than transmission.</p><p>The physical scope is a substantial construction programme in its own right. Five hundred and thirty kilometres of 400kV double circuit means towers, foundations and stringing across desert terrain, with the logistics that implies for access roads, laydown and camps. The two 400kV substations are heavy electrical projects with long-lead transformers and switchgear. The compensator station is specialist equipment procured from a small number of suppliers worldwide. All of it competes for the same manufacturing slots as every other transmission project under way globally.</p><p>Financing has come through Gulf partnerships, including the Qatar Fund for Development and Sohar International Bank.</p><p>Set against the demand picture the region is describing for itself, the timing is tight rather than early. Data centre capacity announced in Saudi Arabia in the past week alone runs to several hundred megawatts of new load, and comparable programmes are under way in the Emirates. A link completing in late 2027 will arrive into a market whose demand profile is being reshaped by loads that did not exist when the scheme was planned — loads that, unlike air conditioning, run flat through the night and do not care what season it is.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "utilities",
+  "tags": [
+   "Grid Interconnection",
+   "Transmission",
+   "Oman",
+   "GCC",
+   "Power Networks"
+  ],
+  "companies": [
+   "GCC Interconnection Authority",
+   "Qatar Fund for Development",
+   "Sohar International Bank"
+  ],
+  "people": [],
+  "country": "Oman",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://gccia.com.sa/gccia-grid/projects-under-construction-2/",
+  "primarySourceName": "GCC Interconnection Authority",
+  "secondarySourceUrls": [
+   "https://www.meed.com/gccia-starts-700m-oman-power-grid-interconnection",
+   "https://www.agbi.com/construction/2026/02/work-starts-on-700m-uae-oman-power-link-project/",
+   "https://www.enerdata.net/publications/daily-energy-news/oman-launches-16-gw-power-interconnection-gcc-regional-grid.html"
+  ],
+  "seoTitle": "Gulf grid link to Oman: 530km of 400kV under construction",
+  "seoDescription": "The GCCIA is building two 400kV circuits over about 530km from Al Sila to Ibri, giving Oman up to 1,600MW of direct transfer capacity by late 2027.",
+  "articleType": "report",
+  "wordCount": 660,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

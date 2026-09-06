@@ -1,0 +1,44 @@
+[
+ {
+  "commission": 1178,
+  "headline": "A housing developer's innovation arm is building Riyadh an estate for compute",
+  "slug": "nhc-innovation-khuzam-digital-valley",
+  "deck": "NHC Innovation's $880m Khuzam Digital Valley is a real estate product aimed at data centre tenants, and it has signed two anchors before the capacity exists.",
+  "excerpt": "NHC Innovation announced an $880m data centre development at Khuzam Digital Valley, a site of nearly 200,000 square metres targeting 65 megawatts by 2033. NAVER Innovation and BytePlus have been signed as initial anchor clients.",
+  "content": "<p>NHC Innovation has announced the development of data centres at Khuzam Digital Valley in Riyadh at a value of SAR 3.3bn, around $880m, on a site of nearly 200,000 square metres. The company has set a target of 65 megawatts by 2033 and has signed NAVER Innovation and BytePlus as its initial anchor clients.</p><p>The development was <a href=\"https://www.spa.gov.sa/en/N2666590\">disclosed at LEAP 2026</a>, alongside a group of commitments worth more than $2.5bn covering data centres, cloud services and technology localisation.</p><p>What distinguishes this one from the others announced during the week is the kind of company making it. NHC Innovation sits within the National Housing Company group, an organisation whose core business is delivering residential communities at volume. Khuzam Digital Valley is described as offering integrated real estate solutions to meet demand for data centres and digital infrastructure, which is a precise description of what it is: an estate, serviced and zoned for a particular kind of tenant, rather than a facility the developer will operate itself.</p><p>That model is familiar from industrial development and unfamiliar in this sector. An industrial city provides land, power, water, roads and a regulatory wrapper, and lets tenants build to their own specifications inside it. Applied to compute, the proposition is similar and the constraint is sharper, because the scarce input is not land but grid capacity. A site that can offer a firm connection at a known date is offering the thing the market is short of, and 200,000 square metres of it in Riyadh is a meaningful parcel.</p><p>Khuzam Digital Valley was <a href=\"https://www.argaam.com/en/article/articledetail/id/1875290\">launched at the Real Estate Future Forum</a>, and the announcement made this week attaches capital and capacity to the concept.</p><p>The two anchor clients are worth noting for what they suggest about demand. NAVER Innovation is the Saudi vehicle of the South Korean internet group, which has been building a presence in the Kingdom across cloud and digital services. BytePlus is the enterprise technology arm of ByteDance. Neither is a hyperscaler in the sense of Amazon Web Services or Microsoft, and that is the point: the market for Saudi capacity is not only the three or four largest cloud providers but a wider set of platform companies that need capacity in the region without wanting to build and run it themselves.</p><p>Signing anchors before capacity exists is also how this kind of development is financed. An estate with committed tenants is a different proposition to a speculative one, and the presence of two named clients at announcement suggests the leasing conversation ran ahead of the construction one.</p><p>The 2033 date on the 65MW target deserves attention. Seven years is a long horizon in a market where operators are quoting connection dates within two, and it implies phased delivery across several tranches rather than a single build. That is the conventional structure for an estate, where each phase is built against demand that has already been contracted, and it is a more conservative posture than the headline value alone implies.</p><p>The company has not published the phasing, the identity of the contractors, or how the site's power will be delivered. Those are the details that determine when a development of this kind converts into orders for civil works, electrical equipment and cooling plant.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "data-centers",
+  "tags": [
+   "Data Centres",
+   "Riyadh",
+   "Real Estate",
+   "LEAP 2026",
+   "Digital Infrastructure"
+  ],
+  "companies": [
+   "NHC Innovation",
+   "National Housing Company",
+   "NAVER Innovation",
+   "BytePlus"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-02",
+  "informationCutoff": "2026-09-05",
+  "primarySourceUrl": "https://www.spa.gov.sa/en/N2666590",
+  "primarySourceName": "Saudi Press Agency",
+  "secondarySourceUrls": [
+   "https://economymiddleeast.com/news/leap-2026-secures-857-million-in-tech-and-manufacturing-investments-on-day-three/",
+   "https://www.argaam.com/en/article/articledetail/id/1875290",
+   "https://economymiddleeast.com/news/saudi-arabia-secures-over-2-5-billion-data-center-technology-investments-leap-2026/"
+  ],
+  "seoTitle": "NHC Innovation backs Khuzam Digital Valley with $880m",
+  "seoDescription": "NHC Innovation is investing $880m in data centres at Khuzam Digital Valley, targeting 65MW by 2033 with NAVER Innovation and BytePlus as anchor clients.",
+  "articleType": "news",
+  "wordCount": 600,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

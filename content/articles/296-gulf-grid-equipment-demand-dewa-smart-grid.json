@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1183,
+  "headline": "Gulf utilities are digitising networks they are simultaneously trying to build",
+  "slug": "gulf-grid-equipment-demand-dewa-smart-grid",
+  "deck": "DEWA is committing AED 7bn to smart grid work through 2035. The harder constraint sitting behind every such programme is the manufacturing slot for a large power transformer.",
+  "excerpt": "Dubai Electricity and Water Authority is investing AED 7bn in a smart grid programme running to 2035. Across the region, network operators are pursuing automation and digitalisation at the same time as physical expansion, and both compete for the same constrained equipment supply chain.",
+  "content": "<p>The exhibition floor at Middle East Energy in Dubai this week was a fair summary of what Gulf network operators are buying: transformers, switchgear, mobile substations, voltage regulation equipment, storage systems and the instruments used to test them. It was also a summary of what they cannot get quickly.</p><p>The programmes are substantial. Dubai Electricity and Water Authority is <a href=\"https://www.zawya.com/en/press-release/companies-news/middle-east-energy-2026-france-backs-the-gulfs-drive-for-smarter-more-resilient-power-grids-469545\">investing AED 7bn in its smart grid programme</a> through 2035, deploying digital technologies, automation and data-driven systems to improve network reliability and efficiency and to integrate renewable generation. Regionally, the GCC Interconnection Authority is building roughly 530km of 400kV line to connect Oman directly to the shared network. Buyers in the show's Energy Club held more than $98bn of live projects across the Middle East, Africa and South Asia.</p><p>Two different kinds of work are described by those numbers, and they are often discussed as though they were alternatives. They are not. Digitalisation is what an operator does to extract more capability from the network it has: sensors on feeders, automated switching that isolates a fault and restores supply without a truck roll, condition monitoring that tells an engineer which transformer is degrading before it fails, and forecasting that lets variable generation be dispatched with less spinning reserve behind it. Physical expansion is what an operator does when there is no more capability to extract. Every utility in the Gulf is doing both, because demand is rising faster than either alone can accommodate.</p><p>The constraint binding both is the same, and it is a manufacturing constraint rather than a financial one. A large power transformer is a bespoke product built to order in a small number of factories worldwide, and grid investment has risen simultaneously across Europe, North America, Asia and the Gulf. When every network is reinforcing at once, the queue for a manufacturing slot becomes the schedule. Extra-high-voltage switchgear, phase-shifting equipment and static compensators sit in the same position. So, increasingly, does the specialist labour that installs and commissions them.</p><p>That is why the testing equipment on the Dubai floor drew the technical crowd it did. Winding resistance, turns ratio, insulation resistance, tan delta and oil analysis are the diagnostics that tell an operator whether an existing transformer has years left in it. Where replacement units are three years out, the economics of extending an asset's life change sharply, and condition monitoring stops being good practice and becomes capacity planning.</p><p>The demand side is not standing still while the supply side catches up. Cooling load continues to set the regional peak. Industrial programmes across Saudi Arabia and the Emirates are adding process load with different profiles. And data centres are adding something the Gulf's networks have not had to serve before: large blocks of demand that are flat around the clock, insensitive to season, and concentrated at single points rather than distributed across a city. A campus drawing a few hundred megawatts at one connection is a transmission planning problem, not a distribution one, and it is a problem whose solution begins with a transformer order.</p><p>The organisers reported that conference discussion turned steadily from planning towards execution and cross-border cooperation. The interconnection projects are one expression of that: capacity shared between systems is capacity neither has to build twice. Digitalisation is another, and the cheapest, because it defers steel rather than ordering it.</p><p>Neither closes the gap on its own. What the week in Dubai displayed was a regional utility sector buying both at the same time, and competing globally for the equipment to do it.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "utilities",
+  "tags": [
+   "Smart Grid",
+   "Transformers",
+   "DEWA",
+   "Grid Investment",
+   "Supply Chain"
+  ],
+  "companies": [
+   "DEWA",
+   "GCC Interconnection Authority",
+   "Middle East Energy"
+  ],
+  "people": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/companies-news/middle-east-energy-2026-france-backs-the-gulfs-drive-for-smarter-more-resilient-power-grids-469545",
+  "primarySourceName": "Zawya",
+  "secondarySourceUrls": [
+   "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+   "https://gccia.com.sa/gccia-grid/projects-under-construction-2/",
+   "https://www.hvtesters.com/wrindu-completes-successful-participation-in-middle-east-energy-2026-in-dubai/"
+  ],
+  "seoTitle": "DEWA puts AED 7bn into smart grid work through 2035",
+  "seoDescription": "Gulf utilities are digitising and expanding networks at once, and both compete for transformers and switchgear on lengthening global lead times.",
+  "articleType": "report",
+  "wordCount": 640,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

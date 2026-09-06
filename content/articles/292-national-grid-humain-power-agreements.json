@@ -1,0 +1,45 @@
+[
+ {
+  "commission": 1179,
+  "headline": "The megawatts announced at LEAP have to be delivered by a wire, and that contract was signed too",
+  "slug": "national-grid-humain-power-agreements",
+  "deck": "Saudi Energy signed three agreements covering power for data and AI centres, the first between National Grid SA and Humain for the Riyadh project. It is the least discussed announcement of the week and the one the others depend on.",
+  "excerpt": "Saudi Energy signed three agreements at LEAP 2026 to support the digital infrastructure of data and artificial intelligence centres. The first, between National Grid SA and Humain, covers electricity supply to the AI data centres project in Riyadh and the electrical infrastructure behind it.",
+  "content": "<p>Among the announcements at LEAP 2026, the ones that travelled were denominated in dollars. Al Moammar Information Systems put $1.2bn against 192 megawatts of data centre capacity. NHC Innovation put $880m against an estate at Khuzam Digital Valley. Through center3, stc said it was developing capacity starting at 250MW. The week closed with agreements and investments across artificial intelligence and technology approaching $15bn.</p><p>The announcement that determines whether any of it arrives on schedule was denominated in kilovolts. Saudi Energy <a href=\"https://english.aawsat.com/business/5313726-leap-2026-saudi-energy-signs-deals-support-digital-infrastructure-data-ai-centers\">signed three agreements during the show</a> to support the digital infrastructure of data and artificial intelligence centres in the Kingdom and to meet their growing energy requirements. The first was signed by National Grid SA with Humain, and covers the provision of electricity to the artificial intelligence data centres project in Riyadh, supporting the project's electrical infrastructure and its future energy needs.</p><p>Power is the sequencing constraint in this industry, and it is a constraint of a particular shape. A developer can buy land quickly, procure a building in eighteen months and take delivery of servers on a lead time measured in weeks. None of that produces a running data centre without a connection at the right voltage, at the right capacity, on a date the transmission operator can commit to. Where the connection is the long pole, the connection date becomes the project date, and everything else is scheduled backwards from it.</p><p>The scale involved makes the point. A single 250MW campus draws roughly what a mid-sized Saudi city draws. It is a transmission-level load, not a distribution-level one, which means bulk supply points, extra-high-voltage substations, transformers and switchgear on international order books, and reinforcement of the network upstream of the site rather than only at it. The equipment concerned — large power transformers above all — is procured on lead times that have lengthened globally as grid investment has risen everywhere at once, which is precisely what the exhibition floor at Middle East Energy in Dubai was displaying in the same week.</p><p>Signing a supply agreement ahead of construction is how a developer converts an uncertainty into a schedule. It fixes what capacity will be available and when, which allows the rest of the programme to be planned against something firm, and it gives the network operator the demand signal it needs to plan reinforcement rather than react to it. For a project the size of Humain's Riyadh campus, the agreement is a precondition of the build rather than an accompaniment to it.</p><p>It also explains the pattern in the week's other announcements. Operators are contracting power, land and anchor tenants in parallel with construction rather than after it, because the long lead items are no longer the building. NHC Innovation signed two anchor clients before its capacity exists. Amazon Web Services confirmed its first Saudi cloud region remains on track for December 2026. Humain has been tendering infrastructure works for its Riyadh campus, a package that is civil and electrical work at industrial-estate scale.</p><p>The physical implication for the supply chain is straightforward. Demand created by announcements at a technology show lands, within a year or two, on manufacturers of transformers, switchgear, busbar, cable, chillers and pumps, and on the contractors who install them. That is a different order book to the one the compute figures describe, it is longer-dated, and it is largely the same order book the Gulf's power utilities are already competing for.</p><p>Saudi Energy did not publish the capacity covered by the three agreements or the dates attached to them. What the signing establishes is that the electrical half of the build-out is being contracted alongside the digital half rather than behind it.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "power",
+  "tags": [
+   "Grid Connection",
+   "Data Centres",
+   "LEAP 2026",
+   "Transmission",
+   "Humain"
+  ],
+  "companies": [
+   "Saudi Energy",
+   "National Grid SA",
+   "Humain",
+   "stc",
+   "Amazon Web Services"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-02",
+  "informationCutoff": "2026-09-05",
+  "primarySourceUrl": "https://english.aawsat.com/business/5313726-leap-2026-saudi-energy-signs-deals-support-digital-infrastructure-data-ai-centers",
+  "primarySourceName": "Asharq Al-Awsat",
+  "secondarySourceUrls": [
+   "https://www.spa.gov.sa/en/N2666590",
+   "https://english.aawsat.com/business/5314518-leap-2026-concludes-nearly-15-billion-investments-agreements-2027-edition-set",
+   "https://www.arabianbusiness.com/business/technology/saudi-arabia-tech-investment-ai-data-centre-leap-2026"
+  ],
+  "seoTitle": "National Grid SA signs power deal for Humain's Riyadh AI site",
+  "seoDescription": "Saudi Energy signed three agreements at LEAP 2026 covering power for data and AI centres, the first between National Grid SA and Humain in Riyadh.",
+  "articleType": "report",
+  "wordCount": 700,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

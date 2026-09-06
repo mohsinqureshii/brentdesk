@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1176,
+  "headline": "Saudi server assembly has a line rate: 700 a month at Alfanar's Riyadh plant",
+  "slug": "alfanar-hpe-saudi-server-manufacturing",
+  "deck": "Hewlett Packard Enterprise put a production number against its Saudi Made servers at LEAP, and Alfanar committed $150m to manufacturing data centre components in the Kingdom.",
+  "excerpt": "HPE said at LEAP 2026 that its next-generation Saudi Made servers are built at Alfanar's Riyadh facility, which runs at 700 units a month and is designed to scale. Alfanar separately announced a $150m investment in manufacturing data centre components locally, moving the localisation argument from assembly towards the parts themselves.",
+  "content": "<p>Localisation claims in technology hardware are usually made in percentages and rarely in units. At LEAP 2026 in Riyadh, Hewlett Packard Enterprise put a production figure against its Saudi manufacturing: the next generation of its Saudi Made servers, covering the HPE ProLiant Compute DL360 and DL380 Gen12, is <a href=\"https://www.hpe.com/us/en/newsroom/press-release/2026/09/leap-2026-hpe-advances-saudi-made-strategy-with-expanded-portfolio-and-new-initiatives-to-accelerate-saudi-innovation.html\">built at Alfanar's facility in Riyadh</a>, which the company said now operates at a capacity of 700 servers a month and is designed for rapid scaling.</p><p>Seven hundred a month is roughly 8,400 a year. Set against the compute capacity announced elsewhere at the same show, it is a modest number, and the useful thing about it is that it is a number at all. A line rate is a claim that can be checked, planned against and increased. It also establishes what the facility is: a working production line inside a Saudi manufacturer's plant, not a badging arrangement.</p><p>Alfanar is not a technology company by origin. It is one of the Kingdom's larger electrical products manufacturers, with a construction and energy business alongside the factories, and its equipment already sits in Saudi substations and switchrooms. That industrial base is the reason the arrangement works: a company that already runs regulated manufacturing lines for electrical assemblies has the quality systems, the trained operators and the supply chain discipline that server assembly demands, and did not have to build them from nothing.</p><p>The second announcement is the more consequential one for the physical economy. Alfanar committed <a href=\"https://economymiddleeast.com/news/leap-2026-secures-857-million-in-tech-and-manufacturing-investments-on-day-three/\">$150m to manufacturing data centre components</a> in the Kingdom, aimed at increasing the domestic supply of the equipment data centres consume and raising local content in advanced technology manufacturing.</p><p>The distinction between the two matters. Assembling a server means taking boards, chassis, drives, memory and processors — almost all imported — and putting them together to a specification. The value added locally is real but thin, and the supply chain exposure is unchanged. Manufacturing components is a different position on the same chain: racks, power distribution units, busbar, containment, cooling equipment and the electrical apparatus that surrounds the compute are heavy, bulky, expensive to ship and well within the reach of a manufacturer that already makes electrical products. They are also, by weight and by cost, most of what a data centre physically is.</p><p>That is the segment Saudi industrial policy has been aiming at across sectors, and it is the segment where Alfanar's existing business gives it something to build on rather than something to acquire.</p><p>HPE wrapped both strands into a programme it called Saudi Made, Developed, Deployed, run with Intel and the Ministry of Communications and Information Technology, covering the development, validation and commercialisation of artificial intelligence and digital transformation applications on locally produced infrastructure. The company also said it would establish a Saudi Innovation Centre at its new Riyadh offices, in collaboration with Intel, to work with startups and national talent.</p><p>Alfanar's own data centre ambitions run wider than component supply. The group's development arm has <a href=\"https://alfanarprojects.com/en-us/newsroom/alfanar-global-development-unveils-one-billion-four-hundred-million-usd-investment-to-build-four-data-centers-in-ksa/\">set out a $1.4bn programme to build four data centres</a> in the Kingdom, which puts the company on both sides of the equipment transaction: making components and operating facilities that consume them.</p><p>The test for the manufacturing side is the same one every localisation programme faces once the announcement is made. A line rate of 700 servers a month has to be met, then raised, against demand that is being created faster than factories can be commissioned. The component investment has to produce parts that data centre developers specify on merit rather than on origin. Neither is settled by an announcement, and both are now measurable.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Localisation",
+   "Data Centres",
+   "Saudi Made",
+   "Electrical Equipment",
+   "LEAP 2026"
+  ],
+  "companies": [
+   "Alfanar",
+   "Hewlett Packard Enterprise",
+   "Intel"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.hpe.com/us/en/newsroom/press-release/2026/09/leap-2026-hpe-advances-saudi-made-strategy-with-expanded-portfolio-and-new-initiatives-to-accelerate-saudi-innovation.html",
+  "primarySourceName": "Hewlett Packard Enterprise",
+  "secondarySourceUrls": [
+   "https://economymiddleeast.com/news/leap-2026-secures-857-million-in-tech-and-manufacturing-investments-on-day-three/",
+   "https://alfanarprojects.com/en-us/newsroom/alfanar-global-development-unveils-one-billion-four-hundred-million-usd-investment-to-build-four-data-centers-in-ksa/",
+   "https://arabianreseller.com/2026/09/02/leap-2026-hpe-expands-saudi-made-strategy-with-new-ai-production-and-innovation-initiatives/"
+  ],
+  "seoTitle": "Alfanar builds HPE servers at 700 a month in Riyadh",
+  "seoDescription": "HPE's Saudi Made servers run at 700 units a month at Alfanar's Riyadh plant, and Alfanar committed $150m to making data centre components locally.",
+  "articleType": "report",
+  "wordCount": 720,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

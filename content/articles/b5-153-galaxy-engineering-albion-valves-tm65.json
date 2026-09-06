@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1153,
+  "headline": "Embodied carbon accounting reaches the valve, and Albion has put a number on it",
+  "slug": "galaxy-engineering-albion-valves-embodied-carbon",
+  "deck": "Galaxy Engineering showed Albion Valves' cast-iron range on the Big 5 Impact Trail with embodied carbon quantified under CIBSE TM65, a methodology built for products that have no environmental product declaration.",
+  "excerpt": "Most embodied carbon work in Saudi construction has been about concrete and steel, where the tonnages are obvious. Galaxy Engineering used the Big 5 Impact Trail to show Albion Valves' cast-iron range with a carbon figure attached to each product, calculated under the CIBSE TM65 methodology for building services equipment.",
+  "content": "<p>The embodied carbon conversation in Saudi construction has so far been a conversation about concrete and steel. Those are the materials that arrive by the thousand tonnes, the ones a quantity surveyor can already count, and the ones where a specification change moves a project's carbon number by a visible margin. Building services equipment has sat outside it, not because the equipment does not matter but because almost none of it carried a number anyone could use.</p><p>Galaxy Engineering took a step against that at Big 5 Construct Saudi, showing <a href=\"https://galaxy-engineering.com/valves-and-accessories/\">Albion Valves</a>' cast-iron range on the show's Impact Trail with embodied carbon quantified for each product. The figures are calculated under CIBSE TM65, and the distinction matters more than it sounds.</p><p>TM65 exists because the standard route to a carbon figure does not work for most mechanical and electrical products. An environmental product declaration is a verified, audited document, expensive to produce and viable for a manufacturer selling a small number of high-volume lines. A valve manufacturer with hundreds of sizes, materials and pressure ratings across a catalogue cannot economically declare each one. TM65 is the Chartered Institution of Building Services Engineers' answer: a structured estimate that works from the bill of materials, the manufacturing energy and the transport, and produces a figure in kilograms of carbon dioxide equivalent that an engineer can put into a model. It is explicitly an approximation, and it is meant to be used where the alternative is a blank.</p><p>Albion published its <a href=\"https://www.albionvalvesuk.com/2024/12/18/introducing-albions-embodied-carbon-lifecycle-assessment/\">embodied carbon lifecycle assessment</a> across its cast iron and ductile iron valve ranges using the mid-level TM65 method, giving each product a single figure covering the energy and materials needed to manufacture, transport and use it. The company has also been putting photovoltaic capacity on its own site and working towards ISO 50001 energy management accreditation, which is the supply-side half of the same argument.</p><p>Why this lands in Riyadh rather than staying a European compliance story is a question of volume. A large Saudi mixed-use development runs tens of thousands of isolation, commissioning and control valves through its chilled water, heating and plumbing systems. Individually they are small. Collectively they are a category that has never appeared in a carbon model because no one could put a defensible number against it, and the honest position for a design team was to leave the line blank rather than guess.</p><p>That is beginning to change on the buyer's side. Saudi developers running large portfolios have moved from asking whether a product is sustainable to asking what the number is, who calculated it and by which method — the same shift visible across the Big 5 floor in questions about certification, tested performance and lifecycle cost. A TM65 figure is not an EPD and does not claim to be. What it does is convert a blank into something a specifier can defend, and it establishes the method a buyer can then ask a competitor to match.</p><p>Albion has supplied isolation and commissioning valves into Saudi projects including KAP2A, so the range is not new to the market. What is new is the accounting attached to it. For contractors working to developer sustainability targets on giga-project packages, the useful part is not the headline figure on any single valve but the fact that a mechanical package can now be assembled from components that each carry one, calculated consistently.</p><p>The wider pattern at the show was the same in several sectors: measurement arriving in product categories that had previously been sold on price, availability and pressure rating alone. Concrete has been through it. Insulation and refrigerants are going through it. Valves are a late entrant, and a large one by unit count.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "engineering",
+  "tags": [
+   "Embodied Carbon",
+   "Building Services",
+   "Big 5 Construct Saudi",
+   "Valves",
+   "Specification"
+  ],
+  "companies": [
+   "Galaxy Engineering",
+   "Albion Valves",
+   "CIBSE"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-02",
+  "informationCutoff": "2026-09-05",
+  "primarySourceUrl": "https://www.albionvalvesuk.com/2024/12/18/introducing-albions-embodied-carbon-lifecycle-assessment/",
+  "primarySourceName": "Albion Valves",
+  "secondarySourceUrls": [
+   "https://www.facebook.com/big5saudi/posts/discover-galaxy-engineering-on-big-5-impact-trail-featuring-albion-valves-cast-i/1046631001416533/",
+   "https://webcontent.albionvalvesuk.com/Technical/LCA.pdf",
+   "https://galaxy-engineering.com/valves-and-accessories/"
+  ],
+  "seoTitle": "Albion puts a TM65 carbon figure on its cast-iron valves",
+  "seoDescription": "Galaxy Engineering showed Albion Valves' cast-iron range at Big 5 Construct Saudi with embodied carbon quantified under the CIBSE TM65 methodology.",
+  "articleType": "report",
+  "wordCount": 690,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
