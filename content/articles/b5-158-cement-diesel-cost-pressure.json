@@ -1,0 +1,39 @@
+[
+ {
+  "commission": 1303,
+  "headline": "Saudi cement producers absorb a 35 per cent rise in fuel costs",
+  "slug": "cement-diesel-cost-pressure",
+  "deck": "Cement is the most energy-intensive product in the construction supply chain, and its fuel bill moved this year.",
+  "excerpt": "Following energy price adjustments in 2026, Saudi cement producers are reported to face a roughly 35 per cent increase in diesel and heavy fuel oil costs, with expectations that retail prices will rise. It is the clearest cost signal in the materials chain.",
+  "content": "<p>Of all the products in a construction supply chain, cement is the one whose economics are set by energy. A rotary kiln heats raw meal to around 1,450 degrees Celsius, and the fuel to do that, together with the electricity for grinding, dominates the cost of a tonne of clinker.</p><p>That is why the fuel cost position matters more here than in any other materials category. Following energy price adjustments in 2026, Saudi cement producers are <a href=\"https://www.msamer.com/en/blog/construction-material-prices-saudi-2026\">reported to be facing a rise of around 35 per cent in diesel and heavy fuel oil costs</a>, with expectations in the sector that retail prices will follow.</p><p>The mechanics of that pass-through are worth understanding, because they are not automatic.</p><p>Cement is a regional commodity. It is heavy, low in value per tonne and expensive to move overland, which means a plant serves a catchment defined by trucking distance rather than a national market. Within that catchment, whether a producer can pass a cost increase through depends on local competition and on the utilisation of nearby plants. Where capacity is tight, the increase passes through quickly. Where several plants are competing below capacity, it does not, and the cost lands on producer margins instead.</p><p>Saudi cement capacity has historically been ample relative to demand, which slows the pass-through. Contractors on fixed-price contracts signed before the adjustment carry the exposure in the interim.</p><p>The second-order effects are the ones worth watching from a construction desk. Persistent fuel cost pressure changes what a producer invests in. Waste heat recovery, alternative fuels, grinding efficiency and clinker substitution all become more attractive when energy is the dominant cost line, and each of those is a capital project with a payback that shortens as fuel prices rise. Clinker substitution in particular — replacing a share of clinker with supplementary materials — reduces both the fuel bill and the carbon intensity of the product, and it is the lever most cement industries have pulled first.</p><p>For buyers, the specification consequence is real. Blended cements behave differently from ordinary Portland cement in setting time, early strength gain and durability, and a contractor pouring reinforced concrete at 30 to 60 MPa compressive strength against a programme needs to know which it is getting.</p><p>The materials conversation at Big 5 Construct Saudi last week was framed around performance and lifecycle rather than price, and this is the cost pressure sitting underneath it. A producer with a rising fuel bill has a strong commercial reason to sell a technically differentiated product rather than compete tonne for tonne, and buyers with programmes to protect have a reason to listen.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Cement",
+   "Energy Costs",
+   "Building Materials",
+   "Saudi Arabia",
+   "Concrete"
+  ],
+  "companies": [],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-05",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.msamer.com/en/blog/construction-material-prices-saudi-2026",
+  "primarySourceName": "Msamer",
+  "secondarySourceUrls": [
+   "https://saudimarketresearchconsulting.com/insights/article/saudi-construction-market-outlook-2026-tough-choices-amid-rising-costs-and-a-leaner-pipeline",
+   "https://www.mordorintelligence.com/industry-reports/construction-sector-in-the-kingdom-of-saudi-arabia-industry",
+   "https://www.imarcgroup.com/saudi-arabia-construction-market"
+  ],
+  "seoTitle": "Saudi cement absorbs a 35pc rise in fuel costs",
+  "seoDescription": "Saudi cement producers face a roughly 35 per cent rise in diesel and heavy fuel oil costs after 2026 energy price adjustments, with prices expected to follow.",
+  "articleType": "report",
+  "wordCount": 510,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

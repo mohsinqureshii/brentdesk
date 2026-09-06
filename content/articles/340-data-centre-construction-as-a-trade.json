@@ -1,0 +1,46 @@
+[
+ {
+  "commission": 1227,
+  "headline": "Data centre construction is becoming a distinct trade in Saudi Arabia",
+  "slug": "data-centre-construction-as-a-trade",
+  "deck": "The buildings are simple. The mechanical and electrical fit-out, and the commissioning that proves it, are not, and the contractor population that can do it is small.",
+  "excerpt": "Several hundred megawatts of Saudi data centre capacity has been announced in a fortnight. Building it requires a contracting discipline that sits between industrial plant and commercial property, and the Kingdom has relatively few firms that have done it.",
+  "content": "<p>The Global AI Summit opens in Riyadh this week on top of a fortnight in which several hundred megawatts of new Saudi data centre capacity was announced. Someone has to build it, and the question of who is less settled than the capacity figures suggest.</p><p>A data centre is an awkward asset for the construction industry because it does not belong to an established category. Structurally it is undemanding: a large single-storey or low-rise shed with high floor loading and generous clear height. A general contractor can put up the shell without difficulty.</p><p>The difficulty is everything inside it. The mechanical and electrical content of a data centre routinely exceeds half the construction cost, and in high-density facilities considerably more. That content is not the fit-out of an office building at larger scale. It is closer to a small power station bolted to a refrigeration plant, with redundancy requirements that mean much of it is duplicated and switchable while live.</p><p>The electrical scope alone covers a substation, medium-voltage distribution, transformers, uninterruptible power supplies sized to the full information technology load, standby generation with paralleling switchgear and fuel systems, busbar to every rack row, and a control system that makes transfer decisions in milliseconds. The mechanical scope covers chillers or liquid cooling plant, pumps, pipework, containment and the controls that hold rack inlet temperature within a band while the load moves.</p><p>Then there is commissioning, which is where projects of this type fail. Proving that a facility rides through a grid disturbance, transfers to standby, and holds temperature under full thermal load requires structured testing across all systems together — integrated systems testing — and it takes weeks that cannot be compressed. A client accepts the building only when that testing passes, so a schedule that leaves no time for it is a schedule that will slip.</p><p>The population of contractors who have done that in the Gulf is not large. Some arrive from industrial and process work, where the electrical discipline and the commissioning culture are familiar. Some arrive from commercial building and have to learn both. International specialists who have built hyperscale facilities elsewhere are competing for the same work, usually in joint venture with a local partner.</p><p>That shortage is a constraint on delivery in the same way transformer lead times are, and it is less visible. A campus with a firm grid connection date and no contractor capable of commissioning it is not a campus.</p><p>Humain has been tendering infrastructure works for a large Riyadh campus, and the announcements of the past two weeks — Al Moammar heading for 192 megawatts, NHC Innovation's estate at Khuzam Digital Valley, stc's capacity through center3 — imply concurrent programmes competing for the same specialist resource.</p><p>The summit runs at the King Abdulaziz International Conference Centre from 15 to 17 September.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "construction",
+  "tags": [
+   "Data Centres",
+   "Construction",
+   "Commissioning",
+   "Contractors",
+   "Saudi Arabia"
+  ],
+  "companies": [
+   "Humain",
+   "Al Moammar Information Systems",
+   "NHC Innovation",
+   "stc"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-15",
+  "informationCutoff": "2026-09-15",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before the Global AI Summit opens in Riyadh on 15 September. It works from published announcements and verified data, and makes no claim about anything said at the event.",
+  "primarySourceUrl": "https://www.spa.gov.sa/en/N2666590",
+  "primarySourceName": "Saudi Press Agency",
+  "secondarySourceUrls": [
+   "https://www.spa.gov.sa/en/N2442987",
+   "https://vision2030.ai/analysis/humain-ai-infrastructure/",
+   "https://www.arabnews.com/node/2622473/saudi-arabia"
+  ],
+  "seoTitle": "Data centre construction becomes its own trade in Saudi",
+  "seoDescription": "Data centre shells are simple; the electrical and mechanical fit-out and integrated systems testing are not, and few Gulf contractors have done it.",
+  "articleType": "report",
+  "wordCount": 530,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
