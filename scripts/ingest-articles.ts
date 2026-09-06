@@ -252,7 +252,37 @@ function normalizeType(t: string | undefined): "news" | "opinion" | "press_relea
   return "report";
 }
 
-export async function ingest(db: Db, input: ArticleInput, publishedStatusId: number) {
+/**
+ * A commission dated ahead of today, and the status row that holds it.
+ *
+ * Passing this makes the article land as a scheduled row rather than a
+ * published one: the scheduler service, which sweeps every minute, moves it
+ * to published the moment `scheduledAt` passes. Nothing has to deploy on the
+ * day for the article to appear.
+ */
+type Hold = { statusId: number; at: string };
+
+/**
+ * Whether a commission is still waiting for its date.
+ *
+ * True only while BOTH hold: the file is flagged SCHEDULED, and its eventDate
+ * is still ahead of today. On the day itself `eventDate > today` is false, so
+ * the article publishes normally — a scheduled row already released by the
+ * scheduler is simply re-ingested as the published article it now is.
+ */
+export function isHeld(
+  item: { status?: string; eventDate: string },
+  today: string,
+): boolean {
+  return item.status === "SCHEDULED" && item.eventDate > today;
+}
+
+export async function ingest(
+  db: Db,
+  input: ArticleInput,
+  publishedStatusId: number,
+  hold: Hold | null = null,
+) {
   const authorId = await resolveAuthor(db, input.author);
 
   const categoryId = await idFor(db, categories, categories.slug, input.primaryCategory);
@@ -269,12 +299,15 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
     excerpt: input.excerpt,
     content: input.content,
     authorId,
-    statusId: publishedStatusId,
+    statusId: hold ? hold.statusId : publishedStatusId,
     primaryCategoryId: categoryId,
     coverageCountryId: countryId,
     // Truthful: BrentDesk publishes these now. The historical date of the
-    // development itself lives in eventDate.
-    publishedAt: now,
+    // development itself lives in eventDate. A held commission has not been
+    // published at all yet, so it carries no publication date until the
+    // scheduler gives it one.
+    publishedAt: hold ? null : now,
+    scheduledAt: hold ? toDbDate(new Date(`${hold.at}T00:00:00Z`)) : null,
     eventDate: input.eventDate,
     sourceUrl: input.primarySourceUrl,
     sourceName: input.primarySourceName,
@@ -308,7 +341,12 @@ export async function ingest(db: Db, input: ArticleInput, publishedStatusId: num
     }).from(articles).where(eq(articles.id, existingId)).limit(1);
     // A row the previous release retired has no publication date. Shipping
     // its file again is a republication, not an edit, so it needs one.
-    const restoring = !!cur && cur.publishedAt == null;
+    //
+    // A held commission also has no publication date, and must not be read
+    // as retired: it is waiting for its date, not returning from the dead.
+    // Without this guard every boot would rewrite all 35 held rows and bump
+    // their dateModified for nothing.
+    const restoring = !!cur && cur.publishedAt == null && !hold;
     const same = !restoring && cur && (["slug","title","excerpt","content","seoTitle","seoDescription","sourceUrl"] as const)
       .every(k => (cur as any)[k] === (values as any)[k])
       && String(cur.eventDate ?? "").slice(0, 10) === String(values.eventDate ?? "").slice(0, 10);
@@ -485,16 +523,25 @@ export function publishableTranslationCount(): number {
   }
 }
 
+/**
+ * How many article rows the build expects the database to hold.
+ *
+ * Every commission in the archive lands as a row, including one dated ahead
+ * of today — that one lands scheduled rather than published, and the
+ * scheduler releases it on the day. So this is the whole archive.
+ *
+ * It used to subtract the future-dated files, because those were kept out of
+ * the database entirely. That made the expected count move with the calendar
+ * rather than with the build, which is what made releasing a scheduled
+ * article depend on a deploy happening after its date.
+ */
 export function publishableArticleCount(): number {
   try {
     const file = archiveSources()[0];
     if (!file) return 0;
     const parsed = JSON.parse(readFileSync(file, "utf8"));
     const batch: ArticleInput[] = Array.isArray(parsed) ? parsed : [parsed];
-    const today = new Date().toISOString().slice(0, 10);
-    return batch.filter(
-      a => !((a as any).status === "SCHEDULED" && a.eventDate > today),
-    ).length;
+    return batch.length;
   } catch {
     return 0;
   }
@@ -785,6 +832,14 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
     }
     if (!published) throw new Error("could not resolve the published editorial status");
 
+    // The status a commission dated ahead of today lands in. Optional: if it
+    // cannot be resolved the ingest falls back to keeping those files out of
+    // the database, which is what it did before the scheduler carried them.
+    const scheduled = await workflowService.getStatusBySlug("editorial", "scheduled");
+    if (!scheduled) {
+      console.warn("[ingest] no scheduled editorial status — future-dated commissions will be held out of the database instead");
+    }
+
     let created = 0, updated = 0, held = 0;
     const missing = new Set<string>();
     const seen: ArticleInput[] = [];
@@ -795,13 +850,22 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
       const batch: ArticleInput[] = Array.isArray(parsed) ? parsed : [parsed];
       for (const item of batch) {
         // A commission dated ahead of today is written but not yet news. It
-        // ships in the archive file so the next deploy after its date picks
-        // it up, and stays out of the database until then rather than being
-        // published under a date that has not happened.
+        // lands as a scheduled row rather than a published one, so it is
+        // never readable under a date that has not happened, and the
+        // scheduler service releases it on the day without waiting for a
+        // deploy. Falls back to holding it out of the database entirely if
+        // the scheduled status cannot be resolved.
         shipped.add(item.slug);
-        if ((item as any).status === "SCHEDULED" && item.eventDate > today) { held++; continue; }
-        seen.push(item);
-        const r = await ingest(db, item, published.id);
+        const holding = isHeld(item as any, today);
+        if (holding && !scheduled) { held++; continue; }
+        const hold: Hold | null =
+          holding && scheduled ? { statusId: scheduled.id, at: item.eventDate } : null;
+        if (hold) held++;
+        // Held rows stay out of the related-article graph until they are
+        // actually published, so no live article links to one that has not
+        // appeared yet. They join the graph on the next ingest after release.
+        if (!hold) seen.push(item);
+        const r = await ingest(db, item, published.id, hold);
         r.created ? created++ : updated++;
         r.missing.forEach(m => missing.add(m));
       }
