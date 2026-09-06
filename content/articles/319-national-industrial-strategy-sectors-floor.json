@@ -1,0 +1,42 @@
+[
+ {
+  "commission": 1206,
+  "headline": "Seven sectors, one exhibition floor: reading the industrial strategy off a hall plan",
+  "slug": "national-industrial-strategy-sectors-floor",
+  "deck": "Aerospace, agriculture, automotive, construction, pharmaceuticals, logistics and manufacturing. Which of those had depth on the floor is a fair progress report.",
+  "excerpt": "The Saudi Industrial Expo organised itself around seven sectors that closely track the National Industrial Strategy. An exhibition hall is an imperfect but honest measure of which of them has an actual supplier base behind it.",
+  "content": "<p>The Saudi Industrial Expo at Riyadh Front declared seven sectors: aerospace, agriculture, automotive, construction, pharmaceuticals, logistics and manufacturing. The list closely tracks the priority sectors of the National Industrial Strategy, which is unsurprising for a show pitched at buyers who have been directed to source domestically.</p><p>The useful thing about a hall plan is that it cannot flatter as easily as a policy document. A sector with a deep supplier base fills stands. A sector that exists mainly as an ambition fills a corner, and does so with distributors of imported product rather than manufacturers.</p><p>The sectors divide fairly clearly on that test, and the division has less to do with policy attention than with how much capital a given industry needs before it can produce anything.</p><p>Construction materials and general manufacturing are the deep end. Cement, steel, cable, pipe, precast, fittings and fabricated products have been made in the Kingdom for decades, the plants are amortised, and there is a genuine domestic supplier population competing on price and delivery. A buyer at that end of the hall has real choices.</p><p>Logistics is deep in services and thin in equipment. There are substantial Saudi operators, and there is almost no domestic manufacture of the handling equipment they use — forklifts, racking systems, conveyors and automation come from Europe, Japan and China through distributors. That is the pattern across most of the Gulf and it is not obviously about to change.</p><p>Automotive is in transition and visible as such. Vehicle assembly has been established, and the component supply base that makes assembly economically meaningful is being built now rather than being in place. A components industry is a long project: it requires tier-two and tier-three suppliers, tooling capability, metrology and quality systems, none of which arrive with the assembly plant.</p><p>Pharmaceuticals and aerospace are the capital-intensive, regulation-heavy end. Both require certification regimes that take years to establish and qualify against, and in both the barrier is not the machine but the approval. A pharmaceutical line without regulatory qualification produces nothing sellable; an aerospace part without airworthiness approval is scrap.</p><p>Agriculture sits apart, driven by food security policy and by water constraints that shape what can be grown and processed domestically rather than by ordinary industrial economics.</p><p>Read together, the floor describes an industrial base that is strong where the product is heavy and the process is mature, and still assembling itself where the product is precise and the barrier is certification. That is the normal sequence for an industrialising economy and it is the sequence the strategy is trying to accelerate.</p><p>The estate behind it runs to 39 industrial cities and more than 9,000 facilities under the Saudi Authority for Industrial Cities and Technology Zones, with cumulative investment above SAR 463bn.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Industrial Strategy",
+   "Manufacturing",
+   "Localisation",
+   "Saudi Arabia",
+   "Supply Chain"
+  ],
+  "companies": [
+   "Saudi Industrial Expo",
+   "MODON"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-01",
+  "informationCutoff": "2026-09-05",
+  "primarySourceUrl": "https://www.saudiindustrialexpo.com/",
+  "primarySourceName": "Saudi Industrial Expo",
+  "secondarySourceUrls": [
+   "https://exhibitors.saudiindustrialexpo.com/saudi-industrial-expo-2026/Exhibitors",
+   "https://modon.gov.sa/en/Pages/default.aspx",
+   "https://www.saudiindustrialexpo.com/why-visit/?eid=38429"
+  ],
+  "seoTitle": "Reading Saudi industrial strategy off an exhibition floor",
+  "seoDescription": "Seven sectors filled the Saudi Industrial Expo. Which had depth on the floor is a fair measure of where the Kingdom's supplier base actually exists.",
+  "articleType": "report",
+  "wordCount": 540,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

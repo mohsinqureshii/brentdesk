@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1210,
+  "headline": "Risk-based inspection is how a plant decides whether a vessel runs to the next turnaround",
+  "slug": "risk-based-inspection-run-or-shutdown",
+  "deck": "Inspecting everything on the same cycle wastes effort on equipment that does not need it and misses the equipment that does.",
+  "excerpt": "With turnarounds three to five years apart and unplanned outages costed at figures that can exceed $100,000 an hour, the decision about which equipment to open and when is the most consequential judgement a plant integrity team makes.",
+  "content": "<p>A process plant contains thousands of items of static equipment, and it can only be opened for internal inspection when it is shut down. Turnarounds on refinery units typically come round every three to five years. Between them, the integrity team has to decide which equipment it is confident about and which it is not, and it has to be right.</p><p>The cost of being wrong in one direction is an unplanned outage, and at refinery scale those are costed at figures that can exceed $100,000 an hour. The cost of being wrong in the other direction is subtler: opening and inspecting equipment that did not need it consumes turnaround time, which is the scarcest resource on the critical path, and every day added to a shutdown is a day of lost production.</p><p>Risk-based inspection is the discipline that arbitrates. Rather than inspecting every item on a fixed calendar, it ranks equipment by the probability of a failure mode developing and the consequence if it does, and allocates inspection effort accordingly. A vessel in clean, non-corrosive service at moderate temperature moves down the list. A vessel in sour service with known corrosion mechanisms, sitting where a release would matter, moves up.</p><p>The approach is decades old in principle and has become considerably more useful in practice, because the inputs have improved. Corrosion monitoring has moved from periodic manual thickness readings to permanently installed sensors reporting continuously. Process data that was previously trapped in a control system is now available for correlation, which means a corrosion rate can be linked to the operating conditions that drove it rather than inferred from two measurements years apart.</p><p>That shift changes what the integrity engineer is doing. The task moves from measuring wall thickness to modelling degradation and predicting when a limit will be reached, which is a different skill and a different set of tools. It also changes what the plant buys: the value migrates from the inspection visit towards the monitoring system and the analysis behind it.</p><p>There is a commercial consequence visible in how the region's operators are contracting. Integrated operators in the Middle East have been unbundling long-term framework agreements, sourcing vibration monitoring and corrosion analytics from digital specialists while keeping mechanical turnaround execution with established contractors. Condition-based monitoring is being awarded separately from catalyst handling and vessel inspection scopes.</p><p>That unbundling favours a different kind of supplier. A contractor with scaffolding, rope access teams and certified inspectors competes on mobilisation and cost. A specialist selling continuous corrosion analytics competes on the quality of its models and the credibility of its predictions, and it is selling into the same budget.</p><p>STATIC Arabia runs at Dhahran Expo from 8 to 10 September with more than 240 technical presentations across 54 sessions.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "engineering",
+  "tags": [
+   "Inspection",
+   "Plant Integrity",
+   "Turnarounds",
+   "Corrosion",
+   "Maintenance"
+  ],
+  "companies": [
+   "STATIC Arabia"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-09",
+  "informationCutoff": "2026-09-09",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before the relevant day of STATIC Arabia, which runs 8-10 September at Dhahran Expo. It works from the published programme and independently verified industry data, and reports nothing from the event.",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "secondarySourceUrls": [
+   "https://www.intertek.com/blog/2026/03-25-best-practices-for-planning-a-refinery-turnaround/",
+   "https://staticarabia.com/why-visit/",
+   "https://markwideresearch.com/oil-and-gas-refinery-maintenance-services-market"
+  ],
+  "seoTitle": "Risk-based inspection decides what gets opened, and when",
+  "seoDescription": "With turnarounds three to five years apart and outages costed above $100,000 an hour, risk-based inspection decides which equipment a plant opens.",
+  "articleType": "report",
+  "wordCount": 510,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
