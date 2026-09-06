@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1190,
+  "headline": "Intersolar Middle East puts the solar equipment chain beside the grid that has to take it",
+  "slug": "intersolar-middle-east-solar-supply-chain",
+  "deck": "Co-locating the solar, storage and battery shows with Middle East Energy is an accurate description of how Gulf procurement now works.",
+  "excerpt": "Intersolar Middle East ran alongside Middle East Energy at Dubai World Trade Centre, with ees and The Battery Show Middle East, across more than 1,500 exhibitors and 18 halls. Putting modules, storage and grid equipment under one roof matches how the region is now buying them.",
+  "content": "<p>Intersolar Middle East ran at Dubai World Trade Centre from 1 to 3 September <a href=\"https://www.pv-magazine.com/press-releases/middle-east-energy-2026-and-co-located-intersolar-middle-east-to-be-held-in-september-at-dwtc/\">alongside Middle East Energy</a>, together with ees, the electrical energy storage exhibition, and The Battery Show Middle East. Organisers put the combined event at more than 1,500 exhibitors across 18 halls and more than 35,000 visitors.</p><p>The co-location is the story. For most of the period in which Gulf solar scaled, modules were bought in one conversation and grid equipment in another. A developer won a tender, procured panels and inverters against a levelised cost, and the network operator dealt separately with what arrived. That separation worked while renewable capacity was a small share of the system and the grid could absorb it without much thought about when it generated.</p><p>It works less well now. The region has contracted renewable capacity at a rate that makes the timing of generation, rather than its cost, the binding question. A solar plant that produces at midday into a system whose peak is at seven in the evening is a plant whose output has to be moved in time or curtailed, and moving it in time means storage. Storage in turn is a grid asset as much as a generation one: where it sits on the network determines whether it relieves congestion or adds to it.</p><p>Buying those three things — modules, storage and the switchgear, transformers and control systems that connect them — in the same procurement cycle is the practical consequence. Putting the three exhibitions in adjacent halls is a reasonable reflection of that, and it is a change from a decade ago, when the solar show and the electrical show addressed different buyers.</p><p>What was on the floor followed the same logic. Alongside the modules and inverters sat the equipment that decides whether a renewable megawatt is usable: battery systems, power conversion, voltage regulation, and the transformers and switchgear that connect all of it. The main Middle East Energy floor carried high-efficiency transformers, advanced switchgear and mobile substations, and the diagnostic instruments used to assess assets already in service.</p><p>The demand backdrop was in the room in a literal sense. Buyers taking part in the show's Energy Club held more than $98bn of live energy projects across the Middle East, Africa and South Asia between them, which the organisers described as the largest such group in the show's fifty years.</p><p>For manufacturers, the shift in what is being bought together is also a shift in what has to be warranted together. A developer procuring a solar plant with storage attached is procuring a system whose performance depends on how the parts interact across a daily cycle, and performance guarantees written against a module or a cell in isolation answer a narrower question than the buyer is now asking.</p><p>Middle East Energy and its co-located shows return to Dubai in May 2027, moving back from the September slot used for this edition.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "renewables",
+  "tags": [
+   "Solar",
+   "Energy Storage",
+   "Middle East Energy",
+   "Dubai",
+   "Grid Equipment"
+  ],
+  "companies": [
+   "Intersolar Middle East",
+   "Middle East Energy",
+   "The Battery Show Middle East"
+  ],
+  "people": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.pv-magazine.com/press-releases/middle-east-energy-2026-and-co-located-intersolar-middle-east-to-be-held-in-september-at-dwtc/",
+  "primarySourceName": "pv magazine",
+  "secondarySourceUrls": [
+   "https://www.energy-storage.news/industry-updates/middle-east-energy-and-intersolar-middle-east-2026-to-be-held-in-september/",
+   "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+   "https://www.intersolar.ae/home"
+  ],
+  "seoTitle": "Intersolar Middle East runs beside the grid equipment show",
+  "seoDescription": "Intersolar Middle East, ees and The Battery Show ran with Middle East Energy across 18 halls, matching how the Gulf now procures solar, storage and grid kit.",
+  "articleType": "report",
+  "wordCount": 570,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

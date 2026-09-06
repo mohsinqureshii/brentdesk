@@ -1,0 +1,45 @@
+[
+ {
+  "commission": 1191,
+  "headline": "Critical power moves up the Middle East Energy floor as data centre load arrives",
+  "slug": "critical-power-data-centre-backup-mee",
+  "deck": "Uninterruptible supplies and standby generation were a niche within the electrical trade. The Gulf's compute build-out has made them a category.",
+  "excerpt": "Middle East Energy's floor covered generation, transmission, distribution, clean energy, storage, digitalisation and critical power. The last of those has grown fastest, because a data centre campus is a critical power project with computers in it.",
+  "content": "<p>Middle East Energy describes its scope as the full power value chain, from generation, transmission and distribution through to clean energy, storage, digitalisation and critical power. The last item on that list has been the quiet growth category, and the reason is sitting in Riyadh.</p><p>Critical power is the trade's term for the equipment that keeps a load running when the grid does not: uninterruptible power supplies, standby generation, automatic transfer switching, and the distribution and monitoring around them. It has always been a real business, serving hospitals, airports, broadcast, process plants and anywhere an outage does physical damage rather than inconvenience. It has not until recently been a volume business at industrial scale in this region.</p><p>Data centres change that arithmetic. A campus drawing a few hundred megawatts needs its entire load ridden through a grid disturbance and then transferred to standby generation without the computers noticing. That requirement produces a plant list an order of magnitude larger than a conventional building's: banks of uninterruptible supplies sized to the full IT load, generator sets in the tens of megawatts with fuel storage to match, paralleling switchgear, and a control system that has to make the transfer decision in milliseconds and be provably correct.</p><p>The scale being announced in Saudi Arabia makes the point. Al Moammar Information Systems is heading for 192 megawatts of operational capacity. stc is developing capacity through center3 starting at 250 megawatts. Humain has a site scaling to 250 megawatts. Each of those numbers is an information technology load, and each carries a critical power plant sized against it.</p><p>Standby generation raises a second question that the Gulf answers differently from other markets. Diesel generator sets remain the default for data centre backup worldwide, and a large campus holds days of fuel on site. That is a fuel logistics problem, a permitting problem and an emissions problem simultaneously, and it sits awkwardly beside the sustainability commitments the same developers make. Alternatives exist — batteries sized for longer ride-through, gas engines, fuel cells — and none has displaced the diesel set at scale.</p><p>The equipment supply position is the familiar one. Large uninterruptible power supplies, medium-voltage switchgear and multi-megawatt generator sets come from a limited number of manufacturers, and demand for all three has risen simultaneously in every market building data centres. Lead times reflect that, and a campus whose commissioning date depends on a generator delivery is a campus scheduled around a factory queue.</p><p>It is also a localisation opportunity of the kind Saudi manufacturers have been describing. Switchgear assemblies, distribution boards, containment and busbar are within reach of an established electrical manufacturer, which is the segment Alfanar has said it will address with its $150m data centre component investment. The rotating and power electronics content is harder and further away.</p><p>Middle East Energy returns to Dubai in May 2027.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "power",
+  "tags": [
+   "Critical Power",
+   "Data Centres",
+   "Middle East Energy",
+   "Standby Generation",
+   "Switchgear"
+  ],
+  "companies": [
+   "Middle East Energy",
+   "Al Moammar Information Systems",
+   "stc",
+   "Humain",
+   "Alfanar"
+  ],
+  "people": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-03",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.middleeast-energy.com/en/home.html",
+  "primarySourceName": "Middle East Energy",
+  "secondarySourceUrls": [
+   "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+   "https://www.spa.gov.sa/en/N2666590",
+   "https://www.zawya.com/en/press-release/events-conferences/over-1500-global-energy-companies-confirm-for-the-50th-edition-of-middle-east-energy-in-dubai-this-september-459958"
+  ],
+  "seoTitle": "Critical power grows as Gulf data centre load arrives",
+  "seoDescription": "Uninterruptible supplies and standby generation have become a volume category in the Gulf, because a data centre campus is a critical power project.",
+  "articleType": "report",
+  "wordCount": 540,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

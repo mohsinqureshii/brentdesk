@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1193,
+  "headline": "European suppliers position for Gulf grid work as national pavilions grow at Middle East Energy",
+  "slug": "european-suppliers-gulf-grid-resilience",
+  "deck": "A national pavilion at a trade show is a fair proxy for where an export agency thinks the next decade of orders sits.",
+  "excerpt": "France used Middle East Energy 2026 to put its grid technology exporters in front of Gulf utilities, in a week when the region's transmission and distribution spending was the show's dominant theme.",
+  "content": "<p>National pavilions are the least glamorous feature of a trade exhibition and among the more informative. They are assembled by export agencies making a judgement about where a country's manufacturers can win work, and they are booked a year ahead. Their size is a forecast.</p><p>At Middle East Energy 2026 in Dubai, France <a href=\"https://www.zawya.com/en/press-release/companies-news/middle-east-energy-2026-france-backs-the-gulfs-drive-for-smarter-more-resilient-power-grids-469545\">brought a contingent aimed squarely at the Gulf's grid modernisation programmes</a>, in a week when transmission, distribution and network resilience were the show's dominant themes rather than a subplot to generation.</p><p>The judgement behind that is easy to follow. Gulf utilities are running two capital programmes at once. Dubai Electricity and Water Authority is putting AED 7bn into smart grid work through 2035. The GCC Interconnection Authority is building roughly 530km of 400kV line to connect Oman directly to the regional network at up to 1,600 megawatts. Saudi Arabia is contracting power supply agreements for data centre campuses whose loads are measured in hundreds of megawatts. Buyers in the show's Energy Club held more than $98bn of live projects between them across the Middle East, Africa and South Asia.</p><p>European electrical manufacturing has a specific position in that market. The high end of transmission equipment — extra-high-voltage switchgear, large power transformers, static compensators, protection and control systems — remains concentrated in a small number of European, Japanese and Korean manufacturers, with Chinese suppliers taking a growing share at the distribution end and moving upward. For grid equipment where reliability over decades is the product, incumbency and reference lists matter more than they do in most industrial categories.</p><p>The constraint on all of them is the same, and it is not demand. Grid investment has risen simultaneously in Europe, North America, Asia and the Gulf, and the manufacturing capacity for large transformers and EHV switchgear has not expanded to match. Order books stretch out, and a utility's programme schedule becomes a function of a factory slot in another continent. That is the environment in which an export agency organises a pavilion: not to create demand, which exists, but to compete for a place in a queue that buyers are increasingly anxious about.</p><p>It is also the environment in which localisation arguments gain traction. A Gulf utility facing multi-year lead times has an obvious interest in manufacturing capacity closer to home, and the region's industrial policies have been pushing in that direction for years. What has been harder is the top of the range: distribution transformers, switchboards and cable are within reach of regional manufacturers, while the largest transmission equipment is not, and the gap between those two is where the schedule risk concentrates.</p><p>The conference programme, according to the organisers, turned steadily from planning towards execution and cross-border cooperation — which is the polite formulation of the same problem.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "power",
+  "tags": [
+   "Grid Equipment",
+   "Middle East Energy",
+   "Exports",
+   "Transmission",
+   "Supply Chain"
+  ],
+  "companies": [
+   "Middle East Energy",
+   "DEWA",
+   "GCC Interconnection Authority"
+  ],
+  "people": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-02",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/companies-news/middle-east-energy-2026-france-backs-the-gulfs-drive-for-smarter-more-resilient-power-grids-469545",
+  "primarySourceName": "Zawya",
+  "secondarySourceUrls": [
+   "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+   "https://gccia.com.sa/gccia-grid/projects-under-construction-2/",
+   "https://www.zawya.com/en/press-release/events-conferences/over-1500-global-energy-companies-confirm-for-the-50th-edition-of-middle-east-energy-in-dubai-this-september-459958"
+  ],
+  "seoTitle": "European suppliers chase Gulf grid work in Dubai",
+  "seoDescription": "France put its grid technology exporters before Gulf utilities at Middle East Energy 2026, as transmission and network resilience dominated the show.",
+  "articleType": "report",
+  "wordCount": 520,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
