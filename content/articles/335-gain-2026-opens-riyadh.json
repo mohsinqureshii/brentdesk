@@ -1,0 +1,47 @@
+[
+ {
+  "commission": 1222,
+  "headline": "The Global AI Summit returns to Riyadh for a fourth edition",
+  "slug": "gain-2026-opens-riyadh",
+  "deck": "SDAIA convenes it with Humain at the King Abdulaziz International Conference Centre, two weeks after LEAP put $15bn of announcements on the table.",
+  "excerpt": "The fourth Global AI Summit opens in Riyadh on 15 September, organised by the Saudi Data and Artificial Intelligence Authority in partnership with Humain, under royal patronage, drawing participants from more than 70 countries.",
+  "content": "<p>The Global AI Summit opens at the King Abdulaziz International Conference Centre in Riyadh on 15 September and runs to the 17th. The fourth edition is <a href=\"https://www.spa.gov.sa/en/N2442987\">organised by the Saudi Data and Artificial Intelligence Authority</a> in partnership with Humain, under the patronage of Crown Prince Mohammed bin Salman, and gathers participants from more than 70 countries.</p><p>Previous editions were held in 2020, 2022 and 2024, which makes this the first to convene since Saudi Arabia's artificial intelligence programme acquired a physical footprint.</p><p>That is the change worth tracking from an industrial perspective. The earlier summits were policy events: national strategies, ethics frameworks, cross-border governance, the machinery of a country deciding what it wanted to do. Between then and now the Kingdom has been building. LEAP closed in Riyadh on 3 September with investments and agreements approaching $15bn, most of it in data centre capacity, cloud infrastructure and the electrical supply agreements underneath them.</p><p>The summit therefore arrives with a set of concrete commitments behind it rather than in front of it. Al Moammar Information Systems is heading for 192 megawatts of operational capacity. NHC Innovation has committed $880m to an estate at Khuzam Digital Valley. Humain has capacity contracted with Together AI on a site scaling to 250 megawatts, and has partnered with NVIDIA on a very large GPU deployment. Amazon Web Services is due to open its first Saudi region in December, with an AI zone alongside it.</p><p>The programme's declared themes run to trustworthy artificial intelligence, generative models, national strategies, and applications across health, finance, energy and cities, with vendors showing sovereign artificial intelligence, Arabic language models, computer vision and industry solutions for regulated sectors. The full speaker list and detailed agenda had not been published at the time of writing, which is normal for an event of this kind and leaves the substance to be judged on the week itself.</p><p>For this publication the questions are narrower. Whether the compute being built has industrial applications with measurable returns, or remains a national capability in search of them. Whether the power to run it can be delivered on the schedule the announcements assume. And whether the manufacturing layer — the components, the servers, the electrical equipment — grows alongside the capacity or is imported wholesale.</p><p>None of those are the questions a summit stage is designed to answer, but the answers determine whether the last fortnight's announcements become an industry. The precedent worth remembering is that national technology programmes are usually judged not on the capacity they install but on what the rest of the economy does with it, and that verdict takes years rather than a conference.</p><p>The summit runs until 17 September.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "industrial-ai",
+  "tags": [
+   "Global AI Summit",
+   "SDAIA",
+   "Riyadh",
+   "Artificial Intelligence",
+   "Data Centres"
+  ],
+  "companies": [
+   "SDAIA",
+   "Humain",
+   "Al Moammar Information Systems",
+   "NHC Innovation",
+   "Amazon Web Services"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-15",
+  "informationCutoff": "2026-09-15",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before the Global AI Summit opens in Riyadh on 15 September. It works from the published programme, SDAIA's announcements and verified infrastructure data, and makes no claim about anything said at the event.",
+  "primarySourceUrl": "https://www.spa.gov.sa/en/N2442987",
+  "primarySourceName": "Saudi Press Agency",
+  "secondarySourceUrls": [
+   "https://www.spa.gov.sa/en/N2442987",
+   "https://www.arabnews.com/node/2622473/saudi-arabia",
+   "https://www.spa.gov.sa/en/N2527043"
+  ],
+  "seoTitle": "Global AI Summit returns to Riyadh for a fourth edition",
+  "seoDescription": "The fourth Global AI Summit opens in Riyadh on 15 September, organised by SDAIA with Humain under royal patronage, with over 70 countries represented.",
+  "articleType": "news",
+  "wordCount": 500,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

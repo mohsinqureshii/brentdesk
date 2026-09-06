@@ -1,0 +1,46 @@
+[
+ {
+  "commission": 1221,
+  "headline": "Gulf operators go to Gastech to buy, not only to sell",
+  "slug": "gastech-gulf-technology-buyers",
+  "deck": "A thousand exhibitors are selling compression, cryogenics, valves, instrumentation and inspection to the companies building the region's gas plants.",
+  "excerpt": "Coverage of Gastech follows the cargoes. The larger transaction for the Gulf's industrial base is the other one: the equipment and services its national oil companies procure from the thousand exhibitors on the floor.",
+  "content": "<p>Gastech coverage follows the sales agreements, because those are the announcements. The exhibition itself is a procurement event, and for the Gulf's industrial economy that is the more consequential half.</p><p>More than 1,000 exhibitors are expected at BITEC, and the great majority of them sell equipment and services rather than gas: compression packages, cryogenic heat exchangers, valves and actuators, instrumentation, metering, analysers, pumps, flare systems, inspection technology, materials, engineering software and the specialist contracting that installs all of it.</p><p>The buyers of that equipment include every national oil company in the Gulf, and their programmes are large. Aramco is pursuing an 80 per cent increase in sales gas capacity by 2030 against 2021 levels, built around Jafurah and the Tanajib processing plant. QatarEnergy is taking North Field capacity from 77 to 142 million tonnes a year. ADNOC is building Ruwais LNG at 9.6 million tonnes a year for 2028 operations. Each of those is a multi-year procurement programme across dozens of equipment categories.</p><p>What makes the buying side interesting rather than routine is the localisation requirement attached to it. Aramco confirmed in February 2026 that its in-Kingdom total value add programme had crossed a 70 per cent local content target, with a new ambition of 75 per cent by 2030. That changes the conversation at a stand: an international manufacturer is not only selling a product but negotiating how much of it can be made, assembled or serviced inside the customer's country.</p><p>The categories divide predictably. Heavy fabricated equipment — vessels, tanks, structural steel, piping spools — is substantially localised already, and Zamil Steel's delivery of two 1,750-tonne slug catchers for Fadhili Package 4 shows how far the top of that range now reaches. Rotating equipment, control systems, specialist alloys and cryogenic technology remain imported, because the engineering base and the volumes do not support domestic production.</p><p>The services layer sits between the two and is where most of the movement is. Inspection, commissioning, maintenance, engineering design and integration can be localised without a factory, and they capture a substantial share of a project's spend over its life. A plant costs more to run for thirty years than it costs to build, and the firms holding the maintenance and inspection contracts collect against that longer number rather than against the capital budget.</p><p>That is the negotiation happening quietly on an exhibition floor that the market reports as a gas conference. It is also why Gulf delegations at Gastech are large and technical rather than purely commercial.</p><p>Gastech runs at BITEC Bangkok from 14 to 17 September, with more than 800 speakers across 200 sessions.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "epc",
+  "tags": [
+   "Procurement",
+   "Localisation",
+   "Gastech",
+   "Oil and Gas",
+   "Equipment"
+  ],
+  "companies": [
+   "Gastech",
+   "Saudi Aramco",
+   "QatarEnergy",
+   "ADNOC",
+   "Zamil Steel"
+  ],
+  "people": [],
+  "eventDate": "2026-09-14",
+  "informationCutoff": "2026-09-14",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before Gastech opens on 14 September. It analyses the published exhibitor scope and verified national programmes, and reports nothing from the event.",
+  "primarySourceUrl": "https://www.gastechevent.com/exhibition/",
+  "primarySourceName": "Gastech",
+  "secondarySourceUrls": [
+   "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program",
+   "https://www.gastechevent.com/",
+   "https://tradearabia.com/News/466173/Zamil-Steel-delivers-thickest-Made-in-Saudi-pressure-vessels-for-Aramco-project"
+  ],
+  "seoTitle": "Gulf operators go to Gastech to buy, not only to sell",
+  "seoDescription": "A thousand exhibitors at Gastech sell equipment to Gulf national oil companies whose programmes carry local content requirements attached.",
+  "articleType": "report",
+  "wordCount": 500,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

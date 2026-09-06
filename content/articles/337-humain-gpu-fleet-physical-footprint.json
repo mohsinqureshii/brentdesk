@@ -1,0 +1,47 @@
+[
+ {
+  "commission": 1224,
+  "headline": "Humain's GPU order is a building programme before it is a computing one",
+  "slug": "humain-gpu-fleet-physical-footprint",
+  "deck": "A deployment on the scale Humain has described with NVIDIA has to be housed, powered and cooled before a single model is trained on it.",
+  "excerpt": "Humain has partnered with NVIDIA on a very large accelerator deployment, positioning it among the company's largest customers outside the United States. Everything about that order is physical before it is computational.",
+  "content": "<p>The Global AI Summit opens in Riyadh this week with Humain as SDAIA's partner in convening it, and with an equipment order behind it that is better understood as construction than as procurement of computers.</p><p>Humain has <a href=\"https://vision2030.ai/analysis/humain-ai-infrastructure/\">partnered with NVIDIA on a deployment reported in the hundreds of thousands of accelerators</a>, including GB300 parts and Quantum-X800 networking, which places the company among NVIDIA's largest customers outside the United States. At LEAP it added capacity with Together AI on a site scaling to 250 megawatts, and has been expanding with AMD and Cisco.</p><p>Translate that into a building and the numbers change character.</p><p>Accelerators of this generation are dense. A rack filled with them draws tens of kilowatts, against the two to five kilowatts a conventional server rack drew a decade ago. That single change cascades through the whole design. The floor has to carry more weight per square metre. The electrical distribution has to deliver more current to each cabinet, which means busbar rather than flexible cords, and more copper everywhere. The heat has to leave the building, and above a certain density it cannot leave in air at any reasonable fan power, which is why liquid distribution to the rack has become standard in new specifications rather than exotic.</p><p>Networking at this scale is its own civil problem. High-bandwidth interconnect between accelerators is distance-sensitive, which constrains how far apart racks can sit and therefore how the hall is laid out. The building's shape follows the network topology rather than the other way round.</p><p>Then there is the replacement cycle. Accelerators are superseded every few years; the building lasts thirty. A campus specified around one generation has to accept the next, whose power and cooling requirements are not yet published. The practical answer is over-provisioning — larger coolant loops, spare riser capacity, electrical headroom — which looks wasteful on commissioning and is the difference between a facility that can be refreshed and one that has to be rebuilt.</p><p>The construction market is where this lands. Data centre construction at Humain's stated scale means multiple concurrent sites, each with civil works, a substation, mechanical and electrical fit-out and a commissioning programme, staffed by contractors who mostly learned the discipline on other building types. It is a specialist trade with a shallow bench in this region, and the bench is being built at the same time as the buildings. Commissioning is the part that catches inexperienced teams: proving that a facility transfers to standby generation without dropping the load, and that the cooling holds under full thermal load, takes weeks of testing that cannot be compressed and cannot be done earlier.</p><p>The summit runs at the King Abdulaziz International Conference Centre from 15 to 17 September.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "data-centers",
+  "tags": [
+   "Data Centres",
+   "Humain",
+   "NVIDIA",
+   "Liquid Cooling",
+   "Construction"
+  ],
+  "companies": [
+   "Humain",
+   "NVIDIA",
+   "Together AI",
+   "AMD",
+   "Cisco"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-15",
+  "informationCutoff": "2026-09-15",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before the Global AI Summit opens in Riyadh on 15 September. It works from published announcements and verified infrastructure data, and makes no claim about anything said at the event.",
+  "primarySourceUrl": "https://vision2030.ai/analysis/humain-ai-infrastructure/",
+  "primarySourceName": "Vision2030.ai",
+  "secondarySourceUrls": [
+   "https://www.spa.gov.sa/en/N2442987",
+   "https://vision2030.ai/analysis/humain-ai-infrastructure/",
+   "https://www.arabnews.com/node/2622473/saudi-arabia"
+  ],
+  "seoTitle": "Humain's GPU order is a building programme first",
+  "seoDescription": "Humain's accelerator deployment with NVIDIA has to be housed, powered and cooled before anything runs on it, which makes it a construction programme.",
+  "articleType": "report",
+  "wordCount": 520,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
