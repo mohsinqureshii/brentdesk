@@ -1,0 +1,39 @@
+[
+ {
+  "commission": 1307,
+  "headline": "The 38-day medical and visa cycle is a schedule risk contractors price badly",
+  "slug": "mobilisation-visa-schedule-risk",
+  "deck": "Recruitment pipelines have a tail, and a project mobilised on the median rather than the ninetieth percentile arrives short.",
+  "excerpt": "The median medical and visa cycle for construction recruitment into Saudi Arabia has been reported at 38 days, with the ninetieth-percentile case at 56. Contractors are advised to over-recruit by 10 to 12 per cent to absorb medical failures without losing programme.",
+  "content": "<p>Underneath every discussion of Saudi construction capacity sits a logistics problem that has nothing to do with materials.</p><p>Around 85 per cent of blue-collar construction labour in the Kingdom is expatriate, which means the workforce for a project does not exist locally and has to be recruited, cleared and moved before it can start. That process has a duration, and the duration has a distribution.</p><p>The median medical and visa cycle has been <a href=\"https://www.mahadmanpowers.co.in/research/saudi-arabia-construction-workforce-report-2026/\">reported at 38 days, with the ninetieth-percentile case running to 56 days</a>. Contractors are advised to over-recruit candidates by 10 to 12 per cent to absorb medical failures without schedule slippage.</p><p>Both halves of that are worth dwelling on, because they are the kind of detail that decides whether a programme holds.</p><p>The first is the gap between the median and the tail. A planner who mobilises on 38 days is planning for the middle of the distribution, and roughly one candidate in ten will take considerably longer. On a mobilisation of five hundred workers that is fifty people arriving weeks after the trade was due to start, which on a critical path is not a staffing inconvenience but a delay.</p><p>The second is attrition. Medical failures are a normal feature of the process rather than an exception, and a recruitment campaign sized exactly to the requirement will deliver less than the requirement. Over-recruiting by a tenth is the correction, and it costs money in recruitment fees for workers who never arrive.</p><p>These are the numbers that sit under the productivity and automation conversation at Big 5 Construct Saudi. When labour has to be recruited internationally on a two-month cycle with a 10 per cent shortfall built in, and when wage inflation is running at 8 to 13 per cent structurally, the case for equipment that removes labour hours does not need to be argued in the abstract.</p><p>It also explains why contractors ask suppliers about manpower dependency directly. A machine that requires three operators and a maintenance technician is not obviously better than the manual method it replaces if all four have to be recruited on the same cycle.</p><p>The mitigation on the labour side is planning rather than technology: recruiting earlier, maintaining pipelines between projects rather than demobilising fully, and building relationships with recruitment agencies in source countries that hold candidates ready.</p><p>None of that removes the constraint. It moves it earlier in the programme, which is where a contractor has float to absorb it.</p><p>There is a quality dimension the timing figures do not capture. A trade recruited in a hurry against a slipping mobilisation date is recruited less selectively, and skill shortfalls surface on site as rework rather than as an absence. Rework is the most expensive form of delay because it consumes the material, the labour and the programme twice, and it is the reason experienced contractors treat mobilisation lead time as a quality control measure rather than a scheduling one.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "construction",
+  "tags": [
+   "Labour",
+   "Mobilisation",
+   "Programme Risk",
+   "Saudi Construction",
+   "Workforce"
+  ],
+  "companies": [],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-05",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.mahadmanpowers.co.in/research/saudi-arabia-construction-workforce-report-2026/",
+  "primarySourceName": "Mahad Manpower Research",
+  "secondarySourceUrls": [
+   "https://saudimarketresearchconsulting.com/insights/article/saudi-construction-market-outlook-2026-tough-choices-amid-rising-costs-and-a-leaner-pipeline",
+   "https://www.mordorintelligence.com/industry-reports/construction-sector-in-the-kingdom-of-saudi-arabia-industry",
+   "https://www.imarcgroup.com/saudi-arabia-construction-market"
+  ],
+  "seoTitle": "A 38-day visa cycle is a schedule risk priced badly",
+  "seoDescription": "The median medical and visa cycle for Saudi construction recruitment is 38 days with a 56-day tail, and contractors are advised to over-recruit by 10 to 12 per cent.",
+  "articleType": "report",
+  "wordCount": 480,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
