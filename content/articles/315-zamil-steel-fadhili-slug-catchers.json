@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1202,
+  "headline": "Zamil Steel ships two 1,750-tonne slug catchers for Fadhili, made in Saudi Arabia",
+  "slug": "zamil-steel-fadhili-slug-catchers",
+  "deck": "Each vessel runs 44 metres long at 7,925mm diameter with walls 196mm thick, clad in Alloy 825. Nothing of these dimensions had been fabricated in the Kingdom before.",
+  "excerpt": "Zamil Steel has delivered two gas slug catcher and separator units for Package 4 of Saudi Aramco's Fadhili Gas Increment Project, working with Samsung E&A. At roughly 1,750 tonnes each, they are the first vessels of these specifications built in Saudi Arabia.",
+  "content": "<p>Ahead of STATIC Arabia opening in Al Khobar, the most useful benchmark for where Saudi heavy fabrication has reached is a pair of vessels that left a yard in the Eastern Province earlier this year.</p><p>Zamil Steel <a href=\"https://tradearabia.com/News/466173/Zamil-Steel-delivers-thickest-Made-in-Saudi-pressure-vessels-for-Aramco-project\">delivered two gas slug catcher and separator units</a> for Package 4 of Saudi Aramco's Fadhili Gas Increment Project, contracted through Samsung E&A. Each unit measures 44 metres in length and 7,925mm in diameter, and weighs approximately 1,750 tonnes. The walls are exceptionally thick and internally clad with corrosion-resistant Alloy 825, at a total thickness of 196mm plus 3.2mm of cladding. The company describes them as the first of their kind manufactured in Saudi Arabia to those specifications.</p><p>Some translation is useful. A slug catcher sits at the point where a multiphase pipeline arrives at a processing plant. Gas and liquid do not travel through a long pipeline as a uniform mixture; liquid accumulates and arrives in slugs, and equipment downstream cannot absorb that. The slug catcher takes the surge, separates the phases and feeds the plant at a rate it can handle. It is a large, heavy, unglamorous vessel whose failure stops the plant.</p><p>The engineering difficulty is in the wall. A pressure vessel operating in sour service at high pressure needs thickness for strength and a corrosion-resistant internal layer because the process fluid would attack carbon steel. Cladding a 196mm wall with Alloy 825 and then rolling, welding and heat-treating the result at 44 metres in length is a fabrication problem measured in welding procedure qualifications, preheat control, post-weld heat treatment cycles and non-destructive examination coverage. Zamil Steel said it developed specialised fabrication solutions to manage the weights and wall thicknesses involved.</p><p>Why this matters beyond the company is that heavy static equipment has been one of the persistent gaps in Gulf industrial localisation. Fabricating tanks and lighter vessels domestically has been routine for years. The thick-walled, clad, large-diameter end of the range has tended to be imported from established fabricators in Asia and Europe, because the capability is expensive to build and only pays if the order flow is continuous.</p><p>Aramco has been pushing against that gap for a decade through its in-Kingdom total value add programme, which the company confirmed in February 2026 had crossed its 70 per cent local content target and now aims at 75 per cent by 2030. Industrial zones at Jubail, Yanbu and Ras Al Khair host fabrication yards with heavy lifting, automated welding and non-destructive testing facilities built for exactly this class of work.</p><p>The equipment category is the subject of the exhibition opening in Al Khobar this week. STATIC Arabia runs at Dhahran Expo from 8 to 10 September, covering pressure vessels, heat exchangers, tanks and pipelines across the oil, gas, petrochemical, power and desalination sectors.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Pressure Vessels",
+   "Localisation",
+   "Aramco",
+   "Fabrication",
+   "Static Equipment"
+  ],
+  "companies": [
+   "Zamil Steel",
+   "Saudi Aramco",
+   "Samsung E&A"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://tradearabia.com/News/466173/Zamil-Steel-delivers-thickest-Made-in-Saudi-pressure-vessels-for-Aramco-project",
+  "primarySourceName": "TradeArabia",
+  "secondarySourceUrls": [
+   "https://www.zawya.com/en/projects/zamil-steel-delivers-thickest-made-in-saudi-pressure-vessels-for-aramco-project-420986",
+   "https://news.mesteel.com/zamil-steel-delivers-heavy-pressure-vessels-for-fadhili-gas-project/",
+   "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program"
+  ],
+  "seoTitle": "Zamil Steel ships 1,750-tonne slug catchers for Fadhili",
+  "seoDescription": "Zamil Steel delivered two 44m gas slug catchers weighing about 1,750 tonnes each for Aramco's Fadhili project, the first of these specifications made in Saudi Arabia.",
+  "articleType": "report",
+  "wordCount": 560,
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
