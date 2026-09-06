@@ -1,0 +1,44 @@
+[
+ {
+  "commission": 1240,
+  "headline": "Desalination is a pressure vessel business that happens to make water",
+  "slug": "desalination-static-equipment",
+  "deck": "Power and desalination is one of the three sectors STATIC Arabia addresses, and the equipment problem there is corrosion at every surface.",
+  "excerpt": "Power and desalination sits alongside oil and gas and manufacturing among the sectors covered at STATIC Arabia. A desalination plant is largely an assembly of static equipment operating in the most aggressive corrosion environment in industry.",
+  "content": "<p>Among the sectors STATIC Arabia addresses in Al Khobar this week, power and desalination is the one whose equipment problem is least appreciated outside the industry.</p><p>A reverse osmosis desalination plant is, physically, a very large arrangement of static equipment. Intake structures, screening, pretreatment vessels, cartridge filters, high-pressure pumps feeding membrane pressure vessels, energy recovery devices, post-treatment vessels, chemical dosing systems and storage tanks. The membranes do the separation; everything around them is piping, vessels and tanks operating at pressure.</p><p>Thermal plants, which still account for a substantial share of Gulf capacity, are even more clearly a static equipment business: evaporator shells, tube bundles, condensers, deaerators and heat exchangers of substantial size.</p><p>What makes the sector distinctive is the environment. Seawater is the working fluid, and seawater with dissolved oxygen at elevated temperature is one of the most corrosive process streams in industry. Every wetted surface is a materials selection problem, and the answers are expensive: duplex and super duplex stainless steels, titanium in some heat exchange duties, and specialist coatings elsewhere.</p><p>Materials selection in this setting is a whole-life decision that is frequently made on capital cost. A vessel specified in a cheaper alloy will work, and will then require inspection, repair and eventual replacement on a cycle that a better specification would have avoided. In a plant contracted on a build-operate-transfer basis, whoever holds the operating years cares about that far more than whoever holds the construction contract.</p><p>Scaling is the other mechanism, and it is a thermal and chemical problem rather than a corrosion one. Deposits on membrane and heat transfer surfaces reduce performance continuously, and managing them is a chemistry and monitoring discipline that determines a plant's energy consumption per cubic metre far more than the headline design figure does.</p><p>The Gulf relevance is scale. The region operates a large share of the world's installed desalination capacity, and Saudi Arabia is adding more, both to serve population growth and to support industrial demand. Every increment is an order for vessels, exchangers, tanks and high-alloy pipework.</p><p>That is also where the localisation argument lands. Fabricating vessels and tanks in duplex stainless is within the capability of established Gulf yards, and it is exactly the kind of work Aramco's local content programme, which crossed 70 per cent in February 2026 and now targets 75 per cent by 2030, has been pushing towards domestic suppliers across sectors.</p><p>The energy link closes the loop. Desalination is electricity-intensive, and its load sits on the same networks now being asked to serve data centres and industrial expansion. A plant's specific energy consumption is therefore a grid question as well as a water one.</p><p>STATIC Arabia runs at Dhahran Expo from 8 to 10 September with more than 240 technical presentations across 54 sessions.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "water",
+  "tags": [
+   "Desalination",
+   "Pressure Vessels",
+   "Corrosion",
+   "Materials",
+   "Static Equipment"
+  ],
+  "companies": [
+   "STATIC Arabia",
+   "Saudi Aramco"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-10",
+  "informationCutoff": "2026-09-10",
+  "status": "SCHEDULED",
+  "scheduledReason": "Written before the final day of STATIC Arabia on 10 September. It works from the published programme and industry practice, and reports nothing from the event.",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "secondarySourceUrls": [
+   "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program",
+   "https://staticarabia.com/why-visit/",
+   "https://www.tradefairdates.com/STATIC-ARABIA-M3962/Dammam.html"
+  ],
+  "seoTitle": "Desalination is a pressure vessel business",
+  "seoDescription": "A desalination plant is largely static equipment working in the most corrosive process environment in industry, which makes materials selection a whole-life decision.",
+  "articleType": "report",
+  "wordCount": 510,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
