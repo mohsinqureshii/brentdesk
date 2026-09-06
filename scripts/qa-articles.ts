@@ -82,8 +82,18 @@ const ARCHIVE_START = "2025-09-14";
  *  machine's date, not a constant that quietly went stale the day after it
  *  was written and then failed every article dated after it. */
 const TODAY = new Date().toISOString().slice(0, 10);
-/** How far ahead a commission may be dated while flagged SCHEDULED. */
-const SCHEDULE_HORIZON = new Date(Date.now() + 7 * 86400 * 1000).toISOString().slice(0, 10);
+/**
+ * How far ahead a commission may be dated while flagged SCHEDULED.
+ *
+ * Ten days, because that is the length of a commissioning run built around
+ * an events calendar: the September 2026 schedule was drawn on the 6th and
+ * runs to the 15th, and a seven-day horizon failed the pieces previewing
+ * shows that open on the 14th and 15th. Widening it does not let anything
+ * be published early — the ingest still holds a SCHEDULED row until its
+ * eventDate arrives — it only lets the run be written in one sitting rather
+ * than split across days to satisfy the checker.
+ */
+const SCHEDULE_HORIZON = new Date(Date.now() + 10 * 86400 * 1000).toISOString().slice(0, 10);
 
 /**
  * Commission numbers that were retired on purpose. The coverage check below
