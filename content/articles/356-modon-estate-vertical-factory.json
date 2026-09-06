@@ -1,0 +1,41 @@
+[
+ {
+  "commission": 1243,
+  "headline": "MODON's 39 industrial cities hold 9,000 facilities and a land question",
+  "slug": "modon-estate-vertical-factory",
+  "deck": "An estate of more than 220 million square metres has room. What it has less of is serviced space in the places manufacturers want to be.",
+  "excerpt": "The Saudi Authority for Industrial Cities and Technology Zones oversees 39 industrial cities hosting more than 9,000 facilities with cumulative investment above SAR 463bn. The constraint on that estate is not total area but serviced capacity where demand is.",
+  "content": "<p>Behind every localisation commitment made at the Riyadh shows this month sits a question that is rarely asked in public: where does the factory go.</p><p>The answer for most manufacturers is an industrial city. The Saudi Authority for Industrial Cities and Technology Zones, MODON, <a href=\"https://modon.gov.sa/en/Pages/default.aspx\">oversees 39 industrial cities hosting more than 9,000 industrial, logistics and investment facilities</a>, with cumulative investment exceeding SAR 463bn across a developed area of more than 220 million square metres.</p><p>Those are large numbers and they do not settle the question, because industrial land is not fungible. A manufacturer needs land in a specific relationship to three things: its customers, its inputs and its workforce.</p><p>A producer of building materials wants to be near the construction demand, because the product is heavy and freight is a large share of delivered cost. A supplier to the petrochemical industry wants to be at Jubail or Yanbu, next to the feedstock and the customers. A component manufacturer supplying an assembly plant wants to be near that plant, because just-in-time delivery over long distances is not just-in-time.</p><p>Serviced capacity in the right place is therefore a much smaller number than the total estate. Power connections, water, effluent treatment, road access and gas where the process needs it all have to be present, and providing them is a development programme rather than a land allocation.</p><p>The authority has been addressing part of the problem with product rather than land. Its multi-storey factory in the First Industrial City in Dammam, described as the first of its kind in the region, runs to eight floors over more than 7,500 square metres and contains 78 industrial units ranging from 156 to 251 square metres, aimed at small and medium enterprises.</p><p>Vertical industrial development is unusual and it is a specific answer to a specific problem. Light manufacturing — assembly, packaging, electronics, some food processing — does not need ground-floor loading or heavy foundations, and stacking it uses serviced land several times more efficiently. It does not work for anything with heavy machinery, large material flows or process hazards, which is most of what an industrial city contains.</p><p>Ready-built units address the other half of the constraint, which is time. A manufacturer that has to buy land, design a building, procure a contractor and construct is eighteen months from production. One that leases a completed unit is not.</p><p>That distinction matters as the localisation commitments made this month move from announcement to execution. The gap between deciding to manufacture in the Kingdom and producing anything is filled with exactly these decisions, and the estate that can shorten it captures the investment.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Industrial Cities",
+   "MODON",
+   "Localisation",
+   "Industrial Land",
+   "Saudi Arabia"
+  ],
+  "companies": [
+   "MODON"
+  ],
+  "people": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://modon.gov.sa/en/Pages/default.aspx",
+  "primarySourceName": "MODON",
+  "secondarySourceUrls": [
+   "https://finance.yahoo.com/news/saudi-modon-strengthens-industrial-leadership-132400958.html",
+   "https://english.aawsat.com/home/article/3922466/modon-establishes-50-ready-made-factories-help-small-enterprises",
+   "https://www.saudiindustrialexpo.com/"
+  ],
+  "seoTitle": "MODON's 39 cities hold 9,000 facilities and a land question",
+  "seoDescription": "MODON oversees 39 industrial cities with more than 9,000 facilities over 220 million sq m, but serviced capacity where demand is, is the real constraint.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

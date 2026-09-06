@@ -1,0 +1,40 @@
+[
+ {
+  "commission": 1250,
+  "headline": "The Gulf is about to inherit a very large maintenance economy",
+  "slug": "gulf-maintenance-economy",
+  "deck": "Everything built in the past decade has to be operated for the next three, and that order book behaves nothing like construction.",
+  "excerpt": "A decade of construction across the Gulf has created an asset base that now needs operating, maintaining and eventually renewing. The contracts that do that are longer, steadier and won on entirely different capabilities from the ones that built it.",
+  "content": "<p>The most reliable prediction that can be made about the Gulf's physical economy is that everything built in the past decade will need operating for the next three, and that the industry doing it will look different from the one that built it.</p><p>The handover wave is arithmetic rather than forecast. Giga-project hospitality and residential assets, industrial cities, desalination capacity, transport infrastructure, data centres and the commercial and entertainment developments now completing in the Eastern Province all move from construction to operation on a schedule already fixed by their contract dates.</p><p>What that produces is an order book with entirely different characteristics.</p><p>Construction revenue is lumpy, project-based and won on price and mobilisation capability. Operations revenue is recurring, contracted over years, and won on maintenance systems, spares logistics, technical staff and demonstrated reliability. The National Water Company's fifteen-year contract covering rehabilitation, operation and maintenance of nine sewage treatment plants is the shape of it: SAR 1.3bn across a decade and a half, with the contractor carrying the consequences of its own decisions for the duration.</p><p>The Saudi plant maintenance market has been growing at around 6.8 per cent a year, and the industrial side of it is already substantial: refining capacity above three million barrels a day, turned around every three to five years, with unplanned outages costed at figures that can exceed $100,000 an hour.</p><p>The building side is less mature and larger by asset count. Facilities management in the region has historically been a manpower business — cleaning, security, basic maintenance, priced per head. The assets now coming into operation cannot be run that way. A building with a building management system, chillers under variable load, fire and life safety systems and metered energy requires asset management, planned preventive maintenance, condition monitoring and work-order systems, which is a different capability and a different margin.</p><p>Three things determine who captures it.</p><p>The first is data. An operator that inherits a properly commissioned building with documented interfaces starts from a position an operator inheriting a poorly commissioned one does not, and much of the region's recent stock falls into the second category.</p><p>The second is spares. An installed base scattered across a large country needs parts within reach, which is a logistics investment, and it is the same argument that makes local distribution valuable in equipment sales.</p><p>The third is people. Maintenance technicians with system-level competence are scarcer than the equipment they maintain, and training them takes years that the handover schedule does not allow.</p><p>That is why the facilities management content at the Riyadh shows this month was less about cleaning contracts and more about asset management, preventive and predictive maintenance, building management systems and operational intelligence. The market is repositioning ahead of the wave rather than after it.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "facilities-management",
+  "tags": [
+   "Facilities Management",
+   "Maintenance",
+   "Operations",
+   "Asset Management",
+   "Gulf"
+  ],
+  "companies": [
+   "National Water Company"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.big5constructsaudi.com/",
+  "primarySourceName": "Big 5 Construct Saudi",
+  "secondarySourceUrls": [
+   "https://tradearabia.com/News/467504/Saudi-Chinese-consortium-wins-$348m-sewage-plants-maintenance-deal",
+   "https://markwideresearch.com/oil-and-gas-refinery-maintenance-services-market",
+   "https://staticarabia.com/"
+  ],
+  "seoTitle": "The Gulf is about to inherit a large maintenance economy",
+  "seoDescription": "A decade of Gulf construction has created an asset base that now needs operating, and those contracts are won on entirely different capabilities.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

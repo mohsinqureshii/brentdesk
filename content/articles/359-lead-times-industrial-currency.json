@@ -1,0 +1,38 @@
+[
+ {
+  "commission": 1246,
+  "headline": "Lead time has replaced price as the currency of industrial planning",
+  "slug": "lead-times-industrial-currency",
+  "deck": "When a transformer takes years and a chiller takes quarters, the schedule is set by a factory queue in another country.",
+  "excerpt": "Across construction, power, logistics and process industry, the constraint most often cited in the Gulf this month was not cost but delivery. Lead times have become the variable that projects are planned around, and it changes what buyers value.",
+  "content": "<p>A theme ran under three separate exhibitions in the Gulf this month, and none of them was organised around it.</p><p>At Big 5 Construct Saudi it appeared as the localisation argument. At Middle East Energy in Dubai it appeared as transformer and switchgear availability. At STATIC Arabia in Al Khobar it appeared as the reason integrity monitoring has displaced replacement as the first response to a degraded vessel.</p><p>The theme is lead time, and it has quietly become the binding variable in industrial planning across the region.</p><p>The cause is not regional. Grid investment, data centre construction, industrial expansion and defence procurement have risen simultaneously across Europe, North America, Asia and the Gulf, and the manufacturing capacity for the heavy electrical and mechanical equipment all of them consume has not expanded to match. Large power transformers, extra-high-voltage switchgear, multi-megawatt generator sets, large chillers and specialist alloy vessels are all built to order in a limited number of factories.</p><p>When those queues lengthen, several things change at once.</p><p>The first is that the project schedule stops being a construction question. A campus with a firm grid connection date is scheduled backwards from that date, and the contractor's productivity determines only whether the site is ready in time, not when the facility opens.</p><p>The second is that procurement moves earlier and becomes strategic. Buying the long-lead items before the design is complete is risky, because the specification may change; not buying them is riskier, because the slot is gone. Contractors who signed framework agreements early have paid materially less than those who waited.</p><p>The third is that the value of holding stock rises. Inventory is expensive and unfashionable, and in a long-lead-time environment a distributor with material on the ground in the Kingdom is offering something a lower price cannot match.</p><p>That last point is the strongest commercial argument behind localisation, and it is a supply chain argument rather than a policy one. A component made locally is not merely cheaper to freight; it is available on a timescale an imported one is not, and availability is what a schedule is made of.</p><p>It also reframes what happened at the shows. Buyers asking about spare parts, local stock, after-sales support and delivery performance were not asking soft questions about service. They were asking the only question that matters when a factory queue in another continent sets the completion date.</p><p>The condition is not permanent. Manufacturing capacity does expand when demand persists, and several equipment categories have new capacity under construction. Until it arrives, lead time remains the currency.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "supply-chain",
+  "tags": [
+   "Lead Times",
+   "Procurement",
+   "Supply Chain",
+   "Localisation",
+   "Equipment"
+  ],
+  "companies": [],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+  "primarySourceName": "Technical Review Middle East",
+  "secondarySourceUrls": [
+   "https://www.big5constructsaudi.com/",
+   "https://staticarabia.com/",
+   "https://www.zawya.com/en/press-release/companies-news/middle-east-energy-2026-france-backs-the-gulfs-drive-for-smarter-more-resilient-power-grids-469545"
+  ],
+  "seoTitle": "Lead time has replaced price as the planning currency",
+  "seoDescription": "Across Gulf construction, power and process industry the binding constraint is delivery rather than cost, which is the strongest argument behind localisation.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

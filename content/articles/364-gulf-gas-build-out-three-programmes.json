@@ -1,0 +1,43 @@
+[
+ {
+  "commission": 1251,
+  "headline": "Three Gulf gas programmes are building at once, and they compete for the same contractors",
+  "slug": "gulf-gas-build-out-three-programmes",
+  "deck": "Qatar to 142 million tonnes, Ruwais at 9.6 million, Jafurah at 2 billion cubic feet a day. Different destinations, one supply chain.",
+  "excerpt": "Qatar's North Field expansion, the Emirates' Ruwais LNG and Saudi Arabia's Jafurah development are proceeding in the same period with different commercial logics. What they share is a contractor and equipment market that cannot serve all three at once without strain.",
+  "content": "<p>Gastech opens in Bangkok this week with the Gulf's three largest gas programmes all under construction at the same time, aimed at different markets and drawing on the same delivery capacity.</p><p>Qatar is expanding North Field liquefaction from 77 million tonnes a year to 142 million by 2030, across three phases, with the first train's startup reported as moving to early 2027. The Emirates is building Ruwais LNG at 9.6 million tonnes a year for commercial operations in 2028, with long-term commitments already above 90 per cent of capacity. Saudi Arabia has begun producing from Jafurah, aiming at up to 2 billion standard cubic feet a day of sales gas by 2030, with the Tanajib plant expected to reach 2.6 billion cubic feet a day of raw gas processing capacity.</p><p>The commercial logics differ completely. Qatar is expanding an export position from a very low-cost resource. The Emirates is entering the export market with a plant designed to run on clean power and sold out before commissioning. Saudi Arabia is producing gas for domestic substitution and petrochemical feedstock rather than for cargoes.</p><p>The delivery problem is common to all three.</p><p>Each requires the same categories of scarce input: process engineering capacity, modular fabrication yards, cryogenic and rotating equipment from a small supplier base, specialist welding and inspection labour, and commissioning teams who have done this before. There are not many contractors in the world who can execute an LNG train or a large gas processing complex, and the ones who can are working on several at once.</p><p>Add Abu Dhabi's Bab Gas Cap development, targeting 1.5 billion cubic feet a day with ADNOC at 60 per cent alongside six partners, and the concurrency increases again.</p><p>The consequences show up as schedule rather than cost. Contractors bidding several large programmes in the same period price for the resource constraint, and the projects that slip are the ones that lose the competition for people rather than for money.</p><p>The localisation dimension follows from that. Aramco's in-Kingdom total value add programme crossed 70 per cent local content in February 2026 and now targets 75 per cent by 2030, and the heavy fabricated equipment these programmes consume is exactly the category where regional capability has advanced most. Zamil Steel's delivery of two 1,750-tonne slug catchers for Fadhili, at 44 metres with 196mm walls clad in Alloy 825, is the current benchmark for what the Gulf can now build rather than import.</p><p>What it cannot yet build is the rotating and cryogenic content, and that remains the part of the programme most exposed to an international queue.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "oil-gas",
+  "tags": [
+   "LNG",
+   "Gas Processing",
+   "Qatar",
+   "ADNOC",
+   "Aramco"
+  ],
+  "companies": [
+   "QatarEnergy",
+   "ADNOC",
+   "Saudi Aramco",
+   "Zamil Steel"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramcos-gas-strategy-builds-momentum-with-major-progress-towards-growth-target",
+  "primarySourceName": "Aramco",
+  "secondarySourceUrls": [
+   "https://www.adnoc.ae/en/news-and-media/press-releases/2026/adnoc-signs-15-year-sales-and-purchase-agreement-with-inpex-for-ruwais-lng-project",
+   "https://www.offshore-technology.com/news/qatarenergy-north-field-expansion/",
+   "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program"
+  ],
+  "seoTitle": "Three Gulf gas programmes build at once for one supply chain",
+  "seoDescription": "Qatar's North Field, Ruwais LNG and Jafurah are proceeding together with different commercial logics and a shared contractor and equipment constraint.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
