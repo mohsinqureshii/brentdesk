@@ -1,0 +1,42 @@
+[
+ {
+  "commission": 1257,
+  "headline": "Fire and life safety is becoming a systems business in the Gulf",
+  "slug": "fire-protection-life-safety-gulf",
+  "deck": "Detection, suppression, smoke control and evacuation now have to work as one interlocked system, and proving it is the hard part.",
+  "excerpt": "As Gulf buildings become more complex, fire protection has moved from a set of installed products to an interlocked system whose behaviour has to be demonstrated. That shift shows up in the specification and in the commissioning programme.",
+  "content": "<p>Fire protection used to be a schedule of products: detectors, alarm panels, sprinklers, hydrants, extinguishers, signage. Each was specified, installed and inspected on its own terms, and compliance was largely a matter of having the right items in the right places.</p><p>In the buildings the Gulf is now completing, that is no longer how it works.</p><p>A modern fire strategy is a set of interlocked behaviours. A detector operating in one zone should close dampers, start smoke extract, release held-open doors, recall lifts, stage an evacuation and signal the building management system, in a sequence that depends on where the detection occurred and what else is happening at the time. Suppression may be water, mist, gas or foam depending on the risk, and each interacts differently with ventilation.</p><p>That is a systems engineering problem, and it is why fire content increasingly appears alongside controls and building management rather than as a standalone trade.</p><p>Several features of Gulf projects sharpen it. Buildings are large and often mixed-use, which means multiple fire strategies coexisting under one roof — a car park, a cinema, a retail mall and a hotel have different requirements and share smoke control routes. Attraction-based developments add categories with no standard answer: an aquarium, an indoor theme park, an observation wheel.</p><p>Kortech's scope at the Al Khobar Entertainment Complex, which covers fire protection alongside heating, ventilation and air conditioning, power and lighting, and coordination with security, ICT, audiovisual and attraction systems, is an example of the whole problem sitting inside one contract rather than being distributed across several.</p><p>Water efficiency has become a live consideration too. Water-mist systems, which use substantially less water than conventional sprinklers for equivalent protection, drew interest at Big 5 Construct Saudi for exactly that reason, and in a desalination-dependent region the argument is stronger than it is elsewhere.</p><p>The verification problem is what makes this hard. A sprinkler head can be inspected. An interlocked cause-and-effect matrix across hundreds of devices and several systems can only be verified by testing it, scenario by scenario, with all systems live. That is integrated systems testing, it takes weeks, and it sits at the end of a programme where float has usually been consumed.</p><p>For the operator the consequence runs for the asset's life. Fire systems require periodic testing, and a system whose cause-and-effect logic was never properly documented at handover is a system nobody can maintain with confidence.</p><p>The regulatory frame is the Saudi Building Code, which was among the declared topics of the Big 5 conference programme this year. Codes describe outcomes rather than products, and a strategy that satisfies the code on paper still has to be demonstrated in the building, which is where the gap between design intent and installed reality tends to appear.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "engineering",
+  "tags": [
+   "Fire Protection",
+   "Life Safety",
+   "Building Systems",
+   "Commissioning",
+   "Gulf"
+  ],
+  "companies": [
+   "Kortech",
+   "Saudi Entertainment Ventures"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.big5constructsaudi.com/",
+  "primarySourceName": "Big 5 Construct Saudi",
+  "secondarySourceUrls": [
+   "https://tradearabia.com/News/467501/Hassan-Allam-unit-wins-Al-Khobar-leisure-complex-contract",
+   "https://www.constructionweeksaudi.com/awards/hassan-allam-kortech-seven-al-khobar-mep-contract",
+   "https://www.mordorintelligence.com/industry-reports/construction-sector-in-the-kingdom-of-saudi-arabia-industry"
+  ],
+  "seoTitle": "Fire and life safety becomes a systems business",
+  "seoDescription": "Detection, suppression, smoke control and evacuation must work as one interlocked system in Gulf buildings, and proving it is integrated systems testing.",
+  "articleType": "report",
+  "wordCount": 460,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "country": "Saudi Arabia"
+ }
+]

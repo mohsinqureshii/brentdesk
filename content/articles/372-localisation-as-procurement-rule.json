@@ -1,0 +1,41 @@
+[
+ {
+  "commission": 1259,
+  "headline": "Localisation stopped being a slogan when it entered the tender documents",
+  "slug": "localisation-as-procurement-rule",
+  "deck": "A local content requirement written into an evaluation is a different instrument from a policy ambition, and suppliers respond to it differently.",
+  "excerpt": "Across the Gulf, local content has moved from stated policy into procurement mechanics: qualification criteria, evaluation weightings and contractual commitments. That transition is what changed supplier behaviour, and it happened before the exhibitions reflected it.",
+  "content": "<p>Localisation has been a stated objective across the Gulf for a decade, and for most of that period it was a policy ambition that suppliers acknowledged and did not act on.</p><p>What changed is where it now sits. Local content requirements have moved into the procurement mechanics: prequalification criteria, tender evaluation weightings, contractual commitments with measurement and reporting attached, and in some cases penalties.</p><p>Aramco's in-Kingdom total value add programme is the clearest example. The company confirmed in February 2026 that it had crossed a 70 per cent local content target, with a new ambition of 75 per cent by 2030 and more than 200,000 direct and indirect jobs attributed to the programme. Those are outcomes of a measurement system rather than of encouragement.</p><p>A supplier facing a weighted evaluation behaves differently from one facing a preference. It calculates what proportion of its offer can be localised, what that costs, and whether the evaluation gain outweighs it. That is an ordinary commercial calculation, and it produces ordinary commercial responses: local assembly, local distribution, local service centres, joint ventures with domestic partners, and in a smaller number of cases actual manufacture.</p><p>The pattern of what gets localised follows directly from that arithmetic, and it explains why the results are uneven.</p><p>Heavy, bulky, freight-intensive products localise readily, because domestic production has an independent cost advantage and the local content credit is a bonus. Pressure vessels, tanks, structural steel, cable, pipe and increasingly electrical assemblies all fall here.</p><p>Products with high engineering content and global-scale economics do not, because no evaluation weighting is large enough to overcome the cost of building a design capability for one market. Rotating equipment, cryogenics and large transformers sit in this category.</p><p>The service layer localises easily and is often undercounted. Distribution, spares holdings, integration, commissioning and maintenance can all be domiciled without a factory, and they represent a large share of an asset's lifetime spend.</p><p>What this month's exhibitions showed is a supplier base that has completed that calculation. The localisation message across the Big 5 floor was not aspirational; exhibitors were describing branch networks, local stock, technical support and manufacturing commitments because those are what the evaluations reward.</p><p>The residual question is whether the measurement captures what matters. A percentage of contract value spent domestically counts assembly and distribution alongside manufacture, and treats them as equivalent. They are not: one can be relocated in a year and the other cannot. A programme aiming at industrial capability rather than at a number has to distinguish between them, and the published figures do not.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Localisation",
+   "Procurement",
+   "Local Content",
+   "Industrial Policy",
+   "Gulf"
+  ],
+  "companies": [
+   "Saudi Aramco"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program",
+  "primarySourceName": "Aramco",
+  "secondarySourceUrls": [
+   "https://www.big5constructsaudi.com/",
+   "https://www.spa.gov.sa/en/N2666590",
+   "https://www.mordorintelligence.com/industry-reports/construction-sector-in-the-kingdom-of-saudi-arabia-industry"
+  ],
+  "seoTitle": "Localisation stopped being a slogan in the tender documents",
+  "seoDescription": "Local content has moved from policy into prequalification, evaluation weightings and contracts, which is what changed how Gulf suppliers actually behave.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "country": "Saudi Arabia"
+ }
+]

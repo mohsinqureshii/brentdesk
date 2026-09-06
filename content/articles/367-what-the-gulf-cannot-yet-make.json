@@ -1,0 +1,41 @@
+[
+ {
+  "commission": 1254,
+  "headline": "The list of what the Gulf still cannot make is short and expensive",
+  "slug": "what-the-gulf-cannot-yet-make",
+  "deck": "Heavy fabrication has been localised. Rotating equipment, cryogenics, large transformers and semiconductors have not, and each is a different kind of barrier.",
+  "excerpt": "After a decade of localisation programmes, the categories the Gulf still imports have a common feature: each requires either a global-scale market, a deep engineering base or both. Naming them precisely is more useful than the aggregate percentage.",
+  "content": "<p>Localisation in the Gulf is usually discussed as a percentage. Aramco's in-Kingdom total value add programme crossed 70 per cent local content in February 2026 and now targets 75 per cent by 2030. Those are useful management numbers and they say nothing about what is actually in the remaining share.</p><p>The categories that remain imported have a common feature. Each requires either a market larger than the region can provide on its own, an engineering base that takes decades to build, or both.</p><p>Heavy fabrication is no longer on the list. Pressure vessels, tanks, structural steel, piping spools and increasingly complex clad equipment are made in the Gulf, and Zamil Steel's delivery of two 1,750-tonne slug catchers for Fadhili — 44 metres long, 196mm walls, Alloy 825 cladding — marks how far the top of that range now reaches.</p><p>Rotating equipment is still on it. Large compressors, turbines and pumps are designed and manufactured by a small number of firms globally, and their advantage is accumulated aerodynamic and rotordynamic engineering rather than fabrication capability. A regional manufacturer can assemble, package and service them; designing them is a different proposition.</p><p>Cryogenic technology is on it for the same reason, with the added constraint that the market is small and highly specialised. The equipment inside an LNG train — main cryogenic heat exchangers above all — comes from a handful of suppliers worldwide.</p><p>Large power transformers and extra-high-voltage switchgear are on it, and this is the category where the consequence is currently sharpest. Every Gulf grid programme depends on equipment built to order in factories on other continents, at lead times that have lengthened as investment rose everywhere at once. Distribution transformers, switchboards, busbar and cable have been localised; the transmission end has not.</p><p>Semiconductors are on it and will remain so. Nothing announced this year suggested otherwise, and the capital intensity and ecosystem requirements of fabrication put it in a different category from everything else here.</p><p>Industrial machinery — machine tools, packaging lines, process equipment — is on it because the domestic market is spread across too many equipment types to support a manufacturer in each.</p><p>What that list has in common is that none of the barriers is capital. The Gulf can fund any of these. The barriers are market size, accumulated engineering and the depth of a supplier ecosystem, and those take time rather than money.</p><p>Which is why the localisation that has worked has concentrated on the service layer: distribution, spares, integration, commissioning and maintenance. That captures a large share of an equipment's lifetime value without requiring the design capability, and it is where the movement in the region's remaining percentage is most likely to come from.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "manufacturing",
+  "tags": [
+   "Localisation",
+   "Supply Chain",
+   "Manufacturing",
+   "Equipment",
+   "Gulf"
+  ],
+  "companies": [
+   "Saudi Aramco",
+   "Zamil Steel"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.aramco.com/en/news-media/news/2026/aramco-achieves-70-local-content-target-through-flagship-iktva-program",
+  "primarySourceName": "Aramco",
+  "secondarySourceUrls": [
+   "https://tradearabia.com/News/466173/Zamil-Steel-delivers-thickest-Made-in-Saudi-pressure-vessels-for-Aramco-project",
+   "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+   "https://www.big5constructsaudi.com/"
+  ],
+  "seoTitle": "What the Gulf still cannot make is short and expensive",
+  "seoDescription": "Heavy fabrication has been localised; rotating equipment, cryogenics, large transformers and semiconductors have not, and none of the barriers is capital.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

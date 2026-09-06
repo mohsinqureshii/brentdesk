@@ -1,0 +1,44 @@
+[
+ {
+  "commission": 1256,
+  "headline": "Industrial cities and logistics zones now compete for the same tenants",
+  "slug": "estates-and-zones-compete",
+  "deck": "A manufacturer choosing between MODON land and a customs-privileged logistics zone is weighing utilities against trade treatment.",
+  "excerpt": "Lenovo building a factory inside Riyadh's logistics zone rather than an industrial city is a small fact with a structural implication: two estate models designed for different purposes are now bidding for the same investment.",
+  "content": "<p>Saudi industrial policy has historically kept two estate models cleanly separate, and the boundary between them has started to blur.</p><p>Industrial cities under the Saudi Authority for Industrial Cities and Technology Zones provide land, power, water, effluent treatment, roads and a regulatory wrapper for manufacturing. The authority oversees 39 of them, hosting more than 9,000 industrial, logistics and investment facilities with cumulative investment above SAR 463bn across more than 220 million square metres.</p><p>Logistics zones provide something different: customs treatment, tax arrangements and connectivity for goods in motion. The Special Integrated Logistics Zone next to King Khalid International Airport in Riyadh covers more than 32 million square feet and was designed around transit — storage, consolidation, relabelling and re-export.</p><p>Then Lenovo broke ground on a manufacturing facility inside the logistics zone, on a 200,000 square metre site, in partnership with Alat.</p><p>A factory in a logistics zone is a choice, and the reasoning behind it is worth setting out because more manufacturers will face it.</p><p>What a logistics zone offers a manufacturer is customs treatment on imported components and proximity to air freight for finished goods. For a product with high value density, short market shelf life and imported inputs — electronics being the clearest case — those advantages can outweigh cheaper land and heavier utilities elsewhere.</p><p>What an industrial city offers is the opposite profile: lower land cost, heavier power and water connections, effluent handling, and neighbours in the same industry. For anything with significant process load, waste streams or heavy material flows, there is no contest.</p><p>The competition therefore only exists at one end of the spectrum: light, high-value manufacturing with imported inputs and time-sensitive output. That is a narrow band, and it happens to include several of the categories Saudi industrial policy is most actively pursuing.</p><p>The practical consequence for investors is that the estate decision is now a real decision rather than a default. It requires comparing customs and tax treatment against utility cost and availability, and weighing freight economics for both inputs and outputs.</p><p>For the estates themselves it introduces a competitive dynamic that did not previously exist between two arms of the same national programme. Both are being expanded — 39 industrial cities on one side, a national target of 59 logistics zones by 2030 across more than 100 million square metres on the other — and both need tenants.</p><p>The useful question for either is not how much land it holds but how much serviced, connected capacity it can offer in the places manufacturers actually want to be.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "infrastructure",
+  "tags": [
+   "Industrial Cities",
+   "Logistics Zones",
+   "MODON",
+   "SILZ",
+   "Investment"
+  ],
+  "companies": [
+   "MODON",
+   "Special Integrated Logistics Zone Company",
+   "Lenovo",
+   "Alat"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://modon.gov.sa/en/Pages/default.aspx",
+  "primarySourceName": "MODON",
+  "secondarySourceUrls": [
+   "https://silz.com.sa/en",
+   "https://silz.com.sa/en/news/Special-Integrated-Logistics-Zone-Company-SILZ-Announces-Groundbreaking-of-Lenovos-New-Manufacturing-Facility-at-Riyadh-Integrated",
+   "https://www.trade.gov/country-commercial-guides/saudi-arabia-transport-and-logistics-services-sector"
+  ],
+  "seoTitle": "Industrial cities and logistics zones compete for tenants",
+  "seoDescription": "A manufacturer choosing between MODON land and a customs-privileged logistics zone is weighing utilities against trade treatment, and Lenovo chose the zone.",
+  "articleType": "report",
+  "wordCount": 480,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "country": "Saudi Arabia"
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "commission": 1262,
+  "headline": "September 2026 in the Gulf, counted",
+  "slug": "september-2026-in-numbers",
+  "deck": "Ten events, four countries, and a set of figures that describe the physical economy more precisely than the announcements around them.",
+  "excerpt": "A fortnight of Gulf and MENA industry events produced a large volume of narrative and a smaller set of numbers worth keeping. These are the ones that will still matter in a year.",
+  "content": "<p>Between 30 August and 17 September the Gulf and its neighbours run ten industry events across four countries. Most of what they produce is narrative. A smaller set of figures is worth retaining, and they describe the physical economy more precisely than the announcements around them.</p><p>Start with construction. The Saudi market is put at around $142.30bn in 2026, growing near 3.6 per cent in real terms. Residential is about 42.5 per cent of it and is the most fragmented segment; in industrial and in energy and utilities the top five contractors hold roughly 45 to 55 per cent of revenue. Wage inflation runs 8 to 13 per cent year on year and is described as structural, with expatriates at around 85 per cent of blue-collar labour, a median 38-day medical and visa cycle, and productivity per worker up around 3 per cent through mechanisation. Cement producers face a rise near 35 per cent in diesel and heavy fuel oil costs.</p><p>Then compute. LEAP closed on investments and agreements approaching $15bn. Al Moammar committed $1.2bn towards 192 megawatts of operational capacity. NHC Innovation committed $880m at Khuzam Digital Valley towards 65 megawatts by 2033. Humain contracted 55 megawatts with Together AI on a site scaling to 250. AWS and Humain committed $5bn jointly to an AI zone. Alfanar committed $150m to manufacturing data centre components, and HPE's Saudi Made servers run at 700 units a month on an Alfanar line. Against all of that, Saudi data centre load stood near 467 megawatts in the first quarter.</p><p>Then power. Middle East Energy's fiftieth edition drew more than 1,900 companies from over 150 countries, with Energy Club buyers holding more than $98bn of live projects. DEWA is investing AED 7bn in smart grid work through 2035. The GCC Interconnection Authority is building roughly 530km of 400kV line to Oman for up to 1,600 megawatts at around $700m, completing late 2027.</p><p>Then gas. Qatar goes from 77 to 142 million tonnes a year by 2030. Ruwais LNG adds 9.6 million tonnes for 2028 with commitments above 90 per cent. Jafurah targets 2 billion cubic feet a day of sales gas with 420 million of ethane and 630,000 barrels a day of liquids. Bab Gas Cap targets 1.5 billion cubic feet a day.</p><p>Then logistics. The national strategy targets 59 logistics zones by 2030 across more than 100 million square metres, aiming at 10 per cent of gross domestic product. Third-party warehousing is put at $3.74bn in 2026 rising to $4.94bn by 2031. Cold chain throughput is modelled at 17.2 million tonnes by 2031 against 13.6 million in 2025.</p><p>And the regional total: GCC project awards of $59.4bn in the second quarter, with Saudi Arabia at $30bn and oil and gas the only sector growing sequentially.</p><p>Held together, those figures describe an economy building faster than its cost base allows, buying equipment on queues it does not control, and beginning to make some of it.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "infrastructure",
+  "tags": [
+   "Market Data",
+   "Gulf",
+   "Construction",
+   "Data Centres",
+   "Energy"
+  ],
+  "companies": [],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.mordorintelligence.com/industry-reports/construction-sector-in-the-kingdom-of-saudi-arabia-industry",
+  "primarySourceName": "Mordor Intelligence",
+  "secondarySourceUrls": [
+   "https://www.spa.gov.sa/en/N2666590",
+   "https://technicalreviewmiddleeast.com/events/eventnews/middle-east-energy-concludes-landmark-dubai-summit",
+   "https://english.aawsat.com/business/5314518-leap-2026-concludes-nearly-15-billion-investments-agreements-2027-edition-set"
+  ],
+  "seoTitle": "September 2026 in the Gulf, counted",
+  "seoDescription": "The figures worth keeping from a fortnight of Gulf industry events: construction at $142.30bn, LEAP at $15bn, GCC awards at $59.4bn and the constraints underneath.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]

@@ -1,0 +1,41 @@
+[
+ {
+  "commission": 1253,
+  "headline": "The empty return leg is an argument for building factories inland",
+  "slug": "freight-imbalance-inland-manufacturing",
+  "deck": "Saudi freight moves from ports to construction sites and comes back with nothing, and that cost sits in the delivered price of everything.",
+  "excerpt": "Materials and imported goods move inland from Saudi ports with far less moving back. Empty running is a structural cost the whole logistics system carries, and inland manufacturing is one of the few things that changes it.",
+  "content": "<p>Saudi Arabia's freight flows have a shape that shows up in every delivered price and is rarely discussed as a problem in its own right.</p><p>Goods move inland. Imported materials, equipment and consumer goods arrive at Jeddah Islamic Port on the Red Sea and at the Eastern Province ports on the Gulf, and travel to Riyadh, to industrial cities and to construction sites across the interior. Comparatively little travels the other way.</p><p>That imbalance is a feature of an economy that is building and consuming rather than exporting manufactured goods, and it has a direct cost. A truck earns only while it is loaded and moving. When the return leg runs empty, the cost of that leg is recovered in the price of the outbound one, and it therefore sits inside the delivered price of every tonne of steel, cement and equipment that reaches a project site.</p><p>The scale is not marginal. Road freight cost is a meaningful component of delivered materials prices in a country of this size, and it compounds with the wage and fuel pressures the construction sector is already carrying.</p><p>The obvious mitigations are operational and partial. Better load matching between operators reduces empty running at the margin, and third-party logistics operators are structurally better at it than dedicated fleets because they see more flows. Backhaul contracts, where a carrier commits to a return load at a discount, redistribute the cost rather than removing it.</p><p>The structural mitigation is different, and it is one of the quieter arguments for industrial localisation. A factory in an inland industrial city that ships finished product back towards a port or towards another market gives the return trip something to carry. It converts a one-way flow into a two-way one, and it improves the economics of every operator serving that corridor rather than just the manufacturer's own.</p><p>The Saudi Authority for Industrial Cities and Technology Zones oversees 39 industrial cities with more than 9,000 facilities, distributed across the country rather than concentrated at the coast, which is the geography that makes this possible.</p><p>The national logistics programme approaches the same problem from the network side, targeting 59 logistics zones by 2030 across more than 100 million square metres, with dual-coast access. Zones consolidate flows, and consolidated flows are easier to balance than scattered ones.</p><p>Neither fixes it alone. An economy that imports more than it exports by volume will always run more loaded kilometres inbound, and the question is only how much of the return capacity can be used. Every tonne that moves outbound from an inland plant is a tonne that does not travel as air.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "logistics",
+  "tags": [
+   "Freight",
+   "Empty Running",
+   "Localisation",
+   "Logistics Zones",
+   "Saudi Arabia"
+  ],
+  "companies": [
+   "MODON"
+  ],
+  "people": [],
+  "eventDate": "2026-09-06",
+  "informationCutoff": "2026-09-06",
+  "primarySourceUrl": "https://www.trade.gov/country-commercial-guides/saudi-arabia-transport-and-logistics-services-sector",
+  "primarySourceName": "International Trade Administration",
+  "secondarySourceUrls": [
+   "https://modon.gov.sa/en/Pages/default.aspx",
+   "https://www.saudilogisticsexpo.com/",
+   "https://www.mordorintelligence.com/industry-reports/construction-sector-in-the-kingdom-of-saudi-arabia-industry"
+  ],
+  "seoTitle": "The empty return leg argues for building factories inland",
+  "seoDescription": "Saudi freight runs loaded inbound and empty outbound, a structural cost inside every delivered price that inland manufacturing is one of the few things to change.",
+  "articleType": "report",
+  "wordCount": 490,
+  "researchConfidence": "B",
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "country": "Saudi Arabia"
+ }
+]
