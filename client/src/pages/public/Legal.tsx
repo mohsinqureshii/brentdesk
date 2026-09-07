@@ -19,18 +19,24 @@ import { Link } from "wouter";
 import { publication } from "@shared/publication";
 import { getLegalDocument, LEGAL_SLUGS, type LegalBlock, type LegalSlug } from "@shared/legal";
 import { SEO } from "@/components/SEO";
+import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { fmtDate } from "@/lib/dates";
 import { useT } from "@/lib/i18n";
 import { useLocale } from "@/components/LocaleProvider";
 import { triggerCookiePreferences } from "@/components/CookieConsentBanner";
+import type { UiKey } from "@shared/uiStrings";
 
-const TITLE_KEY = {
+const TITLE_KEY: Record<LegalSlug, UiKey> = {
   privacy: "footer.privacyPolicy",
   terms: "footer.termsOfService",
   cookies: "cookies.cookiePolicy",
-} as const;
+  editorial: "footer.editorialStandards",
+  copyright: "footer.copyright",
+  disclaimer: "footer.disclaimer",
+};
 
 /** A bulleted item written as "Term — the rest of it" gets the term set
  *  in the display face. Legal lists are almost all defined terms, and
@@ -147,11 +153,31 @@ export default function Legal({ slug }: { slug: LegalSlug }) {
         description={doc.standfirst}
         canonical={`${publication.siteUrl}/${slug}`}
       />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: t("sitemap.legal"), url: `${publication.siteUrl}/terms` },
+          { name: doc.title, url: `${publication.siteUrl}/${slug}` },
+        ]}
+      />
       <Header />
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
         <header className="pb-6 border-b-2 border-foreground">
-          <p className="bd-eyebrow">{t("sitemap.legal")}</p>
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">{t("nav.home")}</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{doc.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <h1 className="bd-lede mt-2 text-[1.75rem] sm:text-[2.5rem] text-foreground">{doc.title}</h1>
           <p className="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-muted-foreground">
             {doc.standfirst}

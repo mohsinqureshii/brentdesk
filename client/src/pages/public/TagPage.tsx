@@ -13,6 +13,15 @@ import { Loader2, Tag as TagIcon } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
 import { SEO } from "@/components/SEO";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -111,10 +120,34 @@ export default function TagPage() {
         description={tag.description || `${tag.name} coverage from ${publication.name}.`}
         canonical={`${publication.siteUrl}${canonicalPath}`}
       />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: tag.name, url: `${publication.siteUrl}${canonicalPath}` },
+        ]}
+      />
       <Header />
 
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="pt-8 pb-5 border-b-2 border-foreground">
+        {/* Visual Breadcrumbs */}
+        <div className="pt-4 pb-2">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">{t("nav.home")}</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{tag.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+
+        <header className="pt-4 pb-5 border-b-2 border-foreground">
           <p className="bd-eyebrow">{formatTagType(tag.tagType)}</p>
           <h1 className="bd-lede mt-2 text-[1.75rem] sm:text-[2.5rem] text-foreground">{tag.name}</h1>
           {tag.description && (

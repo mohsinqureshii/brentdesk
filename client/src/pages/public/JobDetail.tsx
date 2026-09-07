@@ -10,6 +10,14 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { LeaderboardAd, MobileStickyAd, SidebarAd } from "@/components/ads/AdUnit";
 import { useAuth } from "@/_core/hooks/useAuth";
 import {
@@ -317,18 +325,47 @@ export default function JobDetail() {
           };
         })()}
       />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: t("nav.jobs"), url: `${publication.siteUrl}/jobs` },
+          { name: job.title, url: `${publication.siteUrl}/jobs/${job.slug}` },
+        ]}
+      />
       <Header />
 
       {/* Hero Section */}
       <div className="bg-gradient-to-b from-muted/80 to-background border-b border-border">
         <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <Link
-            href="/jobs"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <span className="text-sm font-medium">{t("state.backToJobs")}</span>
-          </Link>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/">{t("nav.home")}</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/jobs">{t("nav.jobs")}</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{job.title}</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+            <Link
+              href="/jobs"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              <span>{t("state.backToJobs")}</span>
+            </Link>
+          </div>
 
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
             {/* Company Logo */}

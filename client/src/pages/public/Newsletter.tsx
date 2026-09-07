@@ -1,10 +1,39 @@
 import { useState } from "react";
-import { Mail, Zap, TrendingUp, Users, CheckCircle, ArrowRight, Loader2 } from "lucide-react";
+import { Link } from "wouter";
+import {
+  Mail,
+  Zap,
+  TrendingUp,
+  Users,
+  CheckCircle2,
+  ArrowRight,
+  Loader2,
+  Building2,
+  Briefcase,
+  Calendar,
+  ShieldCheck,
+  Sparkles,
+  Clock,
+  ExternalLink,
+  ChevronRight,
+  Sliders,
+  Check,
+  Lock,
+} from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { LeaderboardAd, MobileStickyAd } from "@/components/ads/AdUnit";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { JsonLd } from "@/components/JsonLd";
+import { SEO } from "@/components/SEO";
 import { useToast } from "@/hooks/use-toast";
 import { trpc } from "@/lib/trpc";
 import { publication } from "@shared/publication";
@@ -14,7 +43,11 @@ const Newsletter = () => {
   const t = useT();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
-  const [selectedNewsletters, setSelectedNewsletters] = useState<string[]>(["daily-brief"]);
+  const [selectedNewsletters, setSelectedNewsletters] = useState<string[]>([
+    "daily-brief",
+    "projects-weekly",
+    "energy-brief",
+  ]);
 
   const subscribe = trpc.submissions.newsletter.useMutation({
     onSuccess: (data) => {
@@ -40,234 +73,477 @@ const Newsletter = () => {
     },
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!email.trim()) {
+      toast({ title: t("newsletter.needEmail"), variant: "destructive" });
+      return;
+    }
     subscribe.mutate({
       email: email.trim().toLowerCase(),
-      newsletters: selectedNewsletters,
+      newsletters: selectedNewsletters.length > 0 ? selectedNewsletters : ["daily-brief"],
       source: typeof window !== "undefined" ? window.location.pathname : undefined,
     });
   };
 
   const toggleNewsletter = (id: string) => {
-    setSelectedNewsletters(prev =>
-      prev.includes(id) ? prev.filter(n => n !== id) : [...prev, id]
+    setSelectedNewsletters((prev) =>
+      prev.includes(id) ? prev.filter((n) => n !== id) : [...prev, id]
     );
   };
 
   const newsletters = [
     {
       id: "daily-brief",
+      badge: "FLAGSHIP",
+      icon: Mail,
       name: publication.newsletter.name,
       frequency: t("newsletter.everyMorning"),
       description: publication.newsletter.description,
+      topics: ["Macro & Policy", "Tender Awards", "Executive Briefing"],
     },
     {
       id: "projects-weekly",
+      badge: "CAPEX & TENDERS",
+      icon: Building2,
       name: t("newsletter.projectsWeekly"),
       frequency: t("newsletter.weekly"),
       description: t("newsletter.projectsDetail"),
+      topics: ["Giga-Projects", "EPC Contracts", "Procurement"],
     },
     {
       id: "energy-brief",
+      badge: "OIL & TRANSITION",
+      icon: Zap,
       name: t("newsletter.energyBrief"),
       frequency: t("newsletter.weekly"),
       description: t("newsletter.energyDetail"),
+      topics: ["Upstream & Refining", "Renewables", "Hydrogen & Power"],
     },
     {
       id: "jobs-alerts",
+      badge: "CAREERS",
+      icon: Briefcase,
       name: t("newsletter.jobAlerts"),
       frequency: t("newsletter.asPosted"),
       description: t("newsletter.jobsDetail"),
+      topics: ["Executive Roles", "Senior Engineering", "Operations"],
     },
     {
       id: "event-updates",
+      badge: "SUMMITS",
+      icon: Calendar,
       name: t("newsletter.eventUpdates"),
       frequency: t("newsletter.monthly"),
       description: t("newsletter.eventsDetail"),
-    }
+      topics: ["Industry Summits", "Trade Delegations", "Webinars"],
+    },
   ];
 
-  const benefits = [
-    t("newsletter.byOurNewsroom"),
-    t("newsletter.noSpam"),
-    t("newsletter.unsubscribeAnytimeShort"),
-    t("newsletter.freeToRead"),
+  const newsroomGuarantees = [
+    {
+      icon: ShieldCheck,
+      title: t("newsletter.benefitHuman"),
+      description: t("newsletter.benefitHumanDesc"),
+    },
+    {
+      icon: Lock,
+      title: t("newsletter.benefitNoSpam"),
+      description: t("newsletter.benefitNoSpamDesc"),
+    },
+    {
+      icon: Sliders,
+      title: t("newsletter.benefitOneClick"),
+      description: t("newsletter.benefitOneClickDesc"),
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-clip">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <SEO
+        title={`${publication.newsletter.name} | ${t("newsletter.heroTitle")}`}
+        description={`${publication.newsletter.description} ${t("newsletter.heroBody")}`}
+        canonical={`${publication.siteUrl}/newsletter`}
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: publication.newsletter.name, url: `${publication.siteUrl}/newsletter` },
+        ]}
+      />
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative py-20 bg-[#0b0d12]">
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-gray-200 mb-6">
-              <Mail className="w-4 h-4" />
-              <span className="text-sm font-medium">{publication.newsletter.name}</span>
+      {/* Visual Breadcrumb Bar */}
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">{t("nav.home")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{publication.newsletter.name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
+      <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        {/* Editorial Hero Section */}
+        <section className="pt-4 pb-14 border-b border-border">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Copy & Form */}
+            <div className="lg:col-span-7">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="bd-eyebrow text-primary tracking-widest font-bold">
+                  {t("newsletter.heroEyebrow")}
+                </span>
+                <span className="text-muted-foreground/40 text-xs">/</span>
+                <span className="text-xs font-semibold text-muted-foreground">
+                  {t("newsletter.everyMorning")} · 06:30 AST
+                </span>
+              </div>
+
+              <h1 className="bd-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4">
+                {t("newsletter.heroHeadline")}
+              </h1>
+
+              <p className="bd-lede text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-8">
+                {t("newsletter.heroSubtitle")}
+              </p>
+
+              {/* High-Impact Subscription Dispatch Box */}
+              <div className="p-6 sm:p-7 rounded-xl border border-border/80 bg-card shadow-sm mb-6">
+                <form onSubmit={handleSubscribe} className="space-y-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-1">
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                      <Input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={t("newsletter.emailPlaceholder")}
+                        required
+                        className="pl-10 h-12 bg-background border-border text-foreground placeholder:text-muted-foreground text-sm rounded-lg focus-visible:ring-primary"
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={subscribe.isPending}
+                      className="h-12 px-7 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide rounded-lg flex items-center justify-center gap-2 shrink-0 transition-colors"
+                    >
+                      {subscribe.isPending ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>{t("common.subscribing")}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>{t("newsletter.subscribe")}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                  <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                    {t("newsletter.consent")}{" "}
+                    <span className="inline-flex items-center gap-1 font-medium text-foreground">
+                      <ShieldCheck className="w-3 h-3 text-primary inline" />
+                      {t("newsletter.noSpam")} · {t("newsletter.unsubscribeAnytimeShort")}
+                    </span>
+                  </p>
+                </form>
+              </div>
+
+              {/* Trust & Frequency Strip */}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                  {t("newsletter.byOurNewsroom")}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                  {t("newsletter.freeToRead")}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                  {t("newsletter.unsubscribeAnytimeShort")}
+                </span>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {t("newsletter.heroTitle")}
-            </h1>
-            <p className="text-lg text-gray-300 mb-8">
-              {publication.newsletter.description} {t("newsletter.heroBody")}
-            </p>
 
-            {/* Quick Subscribe Form */}
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t("newsletter.enterEmail")}
-                required
-                className="flex-1 bg-white text-gray-900 border-white/20 placeholder:text-gray-500"
-              />
-              <Button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-                disabled={subscribe.isPending}
-              >
-                {subscribe.isPending ? (
-                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("common.subscribing")}</>
-                ) : (
-                  <>{t("newsletter.subscribe")} <ArrowRight className="w-4 h-4 ml-2" /></>
-                )}
-              </Button>
-            </form>
-
-            {/* Benefits */}
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2 text-sm text-gray-300">
-                  <CheckCircle className="w-4 h-4 text-blue-500" />
-                  {benefit}
+            {/* Right Interactive Mockup Snapshot */}
+            <div className="lg:col-span-5">
+              <div className="rounded-xl border border-border/90 bg-card overflow-hidden shadow-lg">
+                {/* Email Client Header */}
+                <div className="bg-muted/70 px-4 py-3 border-b border-border flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-widest">
+                    Pre-Market Dispatch
+                  </span>
+                  <div className="w-6" />
                 </div>
-              ))}
+
+                {/* Email Content Preview */}
+                <div className="p-5 sm:p-6 space-y-4 text-xs">
+                  {/* Masthead */}
+                  <div className="border-b border-border pb-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-bold tracking-tight text-sm text-foreground font-mono">
+                        {publication.name.toUpperCase()} INTELLIGENCE
+                      </span>
+                      <span className="text-[10px] font-mono text-primary font-bold">
+                        AST 06:30
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-muted-foreground">
+                      Issue #482 · Saudi Arabia & GCC Industrial Brief
+                    </p>
+                  </div>
+
+                  {/* Market Snapshot Ticker Strip */}
+                  <div className="grid grid-cols-3 gap-2 py-2 px-3 rounded bg-muted/50 border border-border/50 text-[11px] font-mono">
+                    <div>
+                      <span className="text-muted-foreground block text-[10px]">BRENT</span>
+                      <span className="font-bold text-foreground">$82.40</span>{" "}
+                      <span className="text-emerald-500 text-[10px]">+1.2%</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground block text-[10px]">TASI</span>
+                      <span className="font-bold text-foreground">12,450</span>{" "}
+                      <span className="text-emerald-500 text-[10px]">+0.4%</span>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground block text-[10px]">REBAR</span>
+                      <span className="font-bold text-foreground">$680/t</span>{" "}
+                      <span className="text-muted-foreground text-[10px]">steady</span>
+                    </div>
+                  </div>
+
+                  {/* Top Story */}
+                  <div className="space-y-1.5 pt-1">
+                    <div className="flex items-center gap-1.5">
+                      <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary uppercase tracking-wide">
+                        {t("list.topStory")}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground">Riyadh Infra</span>
+                    </div>
+                    <h3 className="font-bold text-sm text-foreground leading-snug">
+                      {t("newsletter.sampleHeadline")}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-[11px]">
+                      {t("newsletter.sampleLede")}
+                    </p>
+                  </div>
+
+                  {/* Secondary Highlights */}
+                  <div className="pt-2 border-t border-border/60 space-y-2">
+                    <div className="p-2.5 rounded-lg bg-background/80 border border-border/60 flex items-start gap-2.5">
+                      <Zap className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-medium text-foreground text-[11px]">
+                          {t("newsletter.sampleEnergy")}
+                        </p>
+                        <p className="text-muted-foreground text-[10px]">
+                          {t("newsletter.sampleEnergySub")}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-2.5 rounded-lg bg-background/80 border border-border/60 flex items-start gap-2.5">
+                      <Users className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-medium text-foreground text-[11px]">
+                          {t("newsletter.samplePeople")}
+                        </p>
+                        <p className="text-muted-foreground text-[10px]">
+                          {t("newsletter.samplePeopleSub")}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Newsletter Options */}
-      <section className="py-16">
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">{t("newsletter.selectLists")}</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+        {/* Curated Briefings Section */}
+        <section className="py-14 border-b border-border">
+          <div className="max-w-3xl mb-10">
+            <span className="bd-eyebrow text-primary tracking-widest font-bold">
+              {t("newsletter.selectLists")}
+            </span>
+            <h2 className="bd-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground mt-1 mb-3">
+              {t("newsletter.browse")}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               {t("newsletter.selectListsBody")}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {newsletters.map((newsletter) => {
               const isSelected = selectedNewsletters.includes(newsletter.id);
+              const Icon = newsletter.icon;
 
               return (
                 <div
                   key={newsletter.id}
                   onClick={() => toggleNewsletter(newsletter.id)}
-                  className={`p-6 rounded-lg bg-card border cursor-pointer transition-all duration-300 ${
-                    isSelected ? "border-blue-600/50" : "border-border hover:border-muted-foreground/50"
+                  className={`group relative p-6 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
+                    isSelected
+                      ? "border-primary bg-primary/[0.03] shadow-sm"
+                      : "border-border/80 bg-card hover:border-primary/40"
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-xs font-medium">
-                      {newsletter.frequency}
+                  <div>
+                    {/* Top Row: Badge, Frequency & Checkbox */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border">
+                        {newsletter.badge}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-muted-foreground font-medium">
+                          {newsletter.frequency}
+                        </span>
+                        <div
+                          className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
+                            isSelected
+                              ? "bg-primary border-primary text-primary-foreground"
+                              : "border-muted-foreground/30 group-hover:border-primary/60"
+                          }`}
+                        >
+                          {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                        </div>
+                      </div>
                     </div>
-                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                      isSelected ? "border-blue-600/50 bg-blue-600/10" : "border-muted-foreground/30"
-                    }`}>
-                      {isSelected && <CheckCircle className="w-4 h-4 text-blue-600" />}
+
+                    {/* Icon + Title */}
+                    <div className="flex items-center gap-3 mb-2.5">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <h3 className="font-bold text-base text-foreground leading-tight">
+                        {newsletter.name}
+                      </h3>
                     </div>
+
+                    {/* Description */}
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                      {newsletter.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{newsletter.name}</h3>
-                  <p className="text-muted-foreground text-sm">{newsletter.description}</p>
+
+                  {/* Topic Tags */}
+                  <div className="pt-3 border-t border-border/50 flex flex-wrap gap-1.5">
+                    {newsletter.topics.map((topic, i) => (
+                      <span
+                        key={i}
+                        className="text-[10px] px-2 py-0.5 rounded bg-muted/60 text-muted-foreground"
+                      >
+                        {topic}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Subscribe Button */}
-          <div className="text-center mt-8">
+          {/* Quick Selection Summary & Action Bar */}
+          <div className="mt-8 p-5 sm:p-6 rounded-xl border border-border/80 bg-card flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3 text-sm text-foreground">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              <p className="font-medium">
+                {t("newsletter.preferencesSavedBody", { n: selectedNewsletters.length })}
+              </p>
+            </div>
             <Button
               onClick={() => {
-                toast({
-                  title: t("newsletter.preferencesSaved"),
-                  description: t("newsletter.preferencesSavedBody", { n: selectedNewsletters.length }),
-                });
+                if (!email) {
+                  const inputEl = document.querySelector('input[type="email"]') as HTMLInputElement;
+                  inputEl?.focus();
+                  inputEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+                } else {
+                  handleSubscribe({ preventDefault: () => {} } as React.FormEvent);
+                }
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
               disabled={selectedNewsletters.length === 0}
+              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 py-2.5 text-xs tracking-wide rounded-lg flex items-center justify-center gap-2"
             >
-              {t("newsletter.subscribeToCount", { n: selectedNewsletters.length })}
+              <span>{t("newsletter.subscribeToCount", { n: selectedNewsletters.length })}</span>
+              <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Sample Newsletter */}
-      <section className="py-16 bg-card">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">{t("newsletter.whatToExpect")}</h2>
-            <p className="text-muted-foreground">
-              {t("newsletter.sampleIntro", { name: publication.newsletter.name })}
-            </p>
+        {/* The BrentDesk Newsroom Standard (Trust & Commitments) */}
+        <section className="py-14 border-b border-border">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="bd-eyebrow text-primary tracking-widest font-bold">
+              EDITORIAL INTEGRITY
+            </span>
+            <h2 className="bd-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground mt-1 mb-3">
+              {t("newsletter.benefitsTitle")}
+            </h2>
           </div>
 
-          <div className="p-8 rounded-lg bg-background border border-border">
-            <div className="flex items-center gap-4 mb-6 pb-6 border-b border-border">
-              <div className="w-12 h-12 rounded-lg bg-[#0b0d12] flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">B</span>
-              </div>
-              <div>
-                <h4 className="font-bold text-foreground">{publication.newsletter.name}</h4>
-                <p className="text-sm text-muted-foreground">{t("newsletter.morningBriefing")}</p>
-              </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {newsroomGuarantees.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="p-6 rounded-xl border border-border/80 bg-card space-y-3"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-base text-foreground">{item.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Enterprise & Commercial Partnerships CTA Strip */}
+        <section className="pt-14">
+          <div className="rounded-xl border border-border/80 bg-muted/40 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-1 text-center md:text-left">
+              <h3 className="font-bold text-lg text-foreground">
+                Corporate & Bureau Subscriptions
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground max-w-xl leading-relaxed">
+                Looking to equip your entire procurement, engineering, or executive team with custom briefing distributions and API feeds?
+              </p>
             </div>
-
-            <div className="space-y-6">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <Zap className="w-4 h-4 text-blue-600" />
-                  <span className="text-xs font-medium text-blue-600 uppercase">{t("list.topStory")}</span>
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {t("newsletter.sampleHeadline")}
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  {t("newsletter.sampleLede")}
-                </p>
-              </div>
-
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
-                  <TrendingUp className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <h4 className="font-medium text-foreground text-sm">{t("newsletter.sampleEnergy")}</h4>
-                    <p className="text-xs text-muted-foreground">{t("newsletter.sampleEnergySub")}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30">
-                  <Users className="w-5 h-5 text-blue-600" />
-                  <div>
-                    <h4 className="font-medium text-foreground text-sm">{t("newsletter.samplePeople")}</h4>
-                    <p className="text-xs text-muted-foreground">{t("newsletter.samplePeopleSub")}</p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <Button asChild variant="outline" className="border-border text-foreground text-xs font-semibold px-4 py-2">
+                <Link href="/advertise">{t("footer.advertise")}</Link>
+              </Button>
+              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-semibold px-4 py-2">
+                <Link href="/contact">{t("footer.contactUs")}</Link>
+              </Button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
-      <MobileStickyAd slotKey="mobile-sticky-bottom" />
     </div>
   );
 };
 
 export default Newsletter;
+

@@ -4,7 +4,7 @@ import { useParams } from "wouter";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Header } from "@/components/layout/Header";
 import { SEO } from "@/components/SEO";
-import { JsonLd, type ArticleSchema, type BreadcrumbItem } from "@/components/JsonLd";
+import { JsonLd, type ArticleSchema, type BreadcrumbItem as SchemaBreadcrumbItem } from "@/components/JsonLd";
 import Footer from "@/components/layout/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,14 @@ import { ArticleCompanySnapshots } from "@/components/CompanySnapshot";
 import { useBrowsingTracker } from "@/hooks/useBrowsingTracker";
 import { SidebarAd, InContentAd, LeaderboardAd, MobileStickyAd, AdUnit } from "@/components/ads/AdUnit";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 // Shared container class matching header
 const containerClass = "w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8";
@@ -434,7 +442,7 @@ export default function Article() {
           { name: 'Home', url: publication.siteUrl },
           { name: category, url: `${publication.siteUrl}/${primaryCategorySlug}` },
           { name: article.title, url: canonicalUrl },
-        ] as BreadcrumbItem[]}
+        ] as SchemaBreadcrumbItem[]}
       />
       
       <Header />
@@ -463,12 +471,26 @@ export default function Article() {
           }
         >
           <div className={article.featuredImageUrl ? "lg:col-span-6 order-2 lg:order-1" : "max-w-[52rem]"}>
-            <Link
-              href={`/${primaryCategorySlug}`}
-              className="bd-kicker hover:underline underline-offset-4"
-            >
-              {category}
-            </Link>
+            <Breadcrumb className="mb-3">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/" className="hover:text-foreground">{t("nav.home")}</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link
+                      href={`/${primaryCategorySlug}`}
+                      className="bd-kicker hover:underline underline-offset-4"
+                    >
+                      {category}
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <h1
               className={`bd-lede mt-3 text-foreground ${
                 article.featuredImageUrl

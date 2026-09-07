@@ -16,6 +16,15 @@ import { Loader2 } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { publication } from "@shared/publication";
 import { SEO } from "@/components/SEO";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -137,11 +146,42 @@ export default function CategoryNews({ overrideParentSlug, overrideChildSlug }: 
         description={category.description || `Latest ${category.name} news and updates from ${publication.name}.`}
         canonical={`${publication.siteUrl}${canonicalPath}`}
       />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: t("nav.news"), url: `${publication.siteUrl}/news` },
+          { name: category.name, url: `${publication.siteUrl}${canonicalPath}` },
+        ]}
+      />
       <Header />
 
       <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Visual Breadcrumbs */}
+        <div className="pt-4 pb-2">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">{t("nav.home")}</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/news">{t("nav.news")}</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{category.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+
         {/* Beat masthead */}
-        <header className="pt-8 pb-5 border-b-2 border-foreground">
+        <header className="pt-4 pb-5 border-b-2 border-foreground">
           <div className="flex items-center gap-3">
             <span
               className="w-1.5 h-8 sm:h-10 shrink-0"

@@ -377,7 +377,9 @@ export function generateJsonLd(article: ArticleSSRData): string {
       url: BASE,
       logo: {
         '@type': 'ImageObject',
-        url: OG_IMAGE,
+        url: `${BASE}${publication.assets.icon512}`,
+        width: 512,
+        height: 512,
       },
     },
     articleSection: article.category?.name,
