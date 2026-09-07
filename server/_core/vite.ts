@@ -7,7 +7,7 @@
  * devDependencies and are absent from production installs.
  */
 
-import { Express } from "express";
+import express, { Express } from "express";
 import { type Server } from "http";
 import path from "path";
 import fs from "fs";
@@ -35,6 +35,9 @@ export async function setupVite(app: Express, server: Server) {
     server: serverOptions,
     appType: "custom",
   });
+
+  const publicDir = path.resolve(import.meta.dirname, "../../client/public");
+  app.use(express.static(publicDir));
 
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {

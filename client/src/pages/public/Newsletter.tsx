@@ -101,6 +101,12 @@ const Newsletter = () => {
       frequency: t("newsletter.everyMorning"),
       description: publication.newsletter.description,
       topics: ["Macro & Policy", "Tender Awards", "Executive Briefing"],
+      topBorder: "border-t-4 border-t-blue-600",
+      activeBorder: "border-blue-500 shadow-blue-500/10",
+      accentBg: "bg-blue-500/10",
+      accentText: "text-blue-600 dark:text-blue-400",
+      badgeClass: "bg-blue-100 text-blue-800 dark:bg-blue-950/70 dark:text-blue-300 border-blue-200 dark:border-blue-900/60",
+      checkboxBg: "bg-blue-600 border-blue-600 text-white",
     },
     {
       id: "projects-weekly",
@@ -110,6 +116,12 @@ const Newsletter = () => {
       frequency: t("newsletter.weekly"),
       description: t("newsletter.projectsDetail"),
       topics: ["Giga-Projects", "EPC Contracts", "Procurement"],
+      topBorder: "border-t-4 border-t-amber-600",
+      activeBorder: "border-amber-500 shadow-amber-500/10",
+      accentBg: "bg-amber-500/10",
+      accentText: "text-amber-600 dark:text-amber-400",
+      badgeClass: "bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-300 border-amber-200 dark:border-amber-900/60",
+      checkboxBg: "bg-amber-600 border-amber-600 text-white",
     },
     {
       id: "energy-brief",
@@ -119,6 +131,12 @@ const Newsletter = () => {
       frequency: t("newsletter.weekly"),
       description: t("newsletter.energyDetail"),
       topics: ["Upstream & Refining", "Renewables", "Hydrogen & Power"],
+      topBorder: "border-t-4 border-t-emerald-600",
+      activeBorder: "border-emerald-500 shadow-emerald-500/10",
+      accentBg: "bg-emerald-500/10",
+      accentText: "text-emerald-600 dark:text-emerald-400",
+      badgeClass: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60",
+      checkboxBg: "bg-emerald-600 border-emerald-600 text-white",
     },
     {
       id: "jobs-alerts",
@@ -128,6 +146,12 @@ const Newsletter = () => {
       frequency: t("newsletter.asPosted"),
       description: t("newsletter.jobsDetail"),
       topics: ["Executive Roles", "Senior Engineering", "Operations"],
+      topBorder: "border-t-4 border-t-purple-600",
+      activeBorder: "border-purple-500 shadow-purple-500/10",
+      accentBg: "bg-purple-500/10",
+      accentText: "text-purple-600 dark:text-purple-400",
+      badgeClass: "bg-purple-100 text-purple-800 dark:bg-purple-950/70 dark:text-purple-300 border-purple-200 dark:border-purple-900/60",
+      checkboxBg: "bg-purple-600 border-purple-600 text-white",
     },
     {
       id: "event-updates",
@@ -137,6 +161,12 @@ const Newsletter = () => {
       frequency: t("newsletter.monthly"),
       description: t("newsletter.eventsDetail"),
       topics: ["Industry Summits", "Trade Delegations", "Webinars"],
+      topBorder: "border-t-4 border-t-rose-600",
+      activeBorder: "border-rose-500 shadow-rose-500/10",
+      accentBg: "bg-rose-500/10",
+      accentText: "text-rose-600 dark:text-rose-400",
+      badgeClass: "bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300 border-rose-200 dark:border-rose-900/60",
+      checkboxBg: "bg-rose-600 border-rose-600 text-white",
     },
   ];
 
@@ -145,16 +175,22 @@ const Newsletter = () => {
       icon: ShieldCheck,
       title: t("newsletter.benefitHuman"),
       description: t("newsletter.benefitHumanDesc"),
+      topBorder: "border-t-2 border-t-blue-500",
+      iconBg: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
     },
     {
       icon: Lock,
       title: t("newsletter.benefitNoSpam"),
       description: t("newsletter.benefitNoSpamDesc"),
+      topBorder: "border-t-2 border-t-emerald-500",
+      iconBg: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
     },
     {
       icon: Sliders,
       title: t("newsletter.benefitOneClick"),
       description: t("newsletter.benefitOneClickDesc"),
+      topBorder: "border-t-2 border-t-violet-500",
+      iconBg: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
     },
   ];
 
@@ -216,60 +252,63 @@ const Newsletter = () => {
               </p>
 
               {/* High-Impact Subscription Dispatch Box */}
-              <div className="p-6 sm:p-7 rounded-xl border border-border/80 bg-card shadow-sm mb-6">
-                <form onSubmit={handleSubscribe} className="space-y-3">
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="relative flex-1">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                      <Input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder={t("newsletter.emailPlaceholder")}
-                        required
-                        className="pl-10 h-12 bg-background border-border text-foreground placeholder:text-muted-foreground text-sm rounded-lg focus-visible:ring-primary"
-                      />
+              <div className="relative rounded-xl border border-border/80 bg-card shadow-lg overflow-hidden mb-6">
+                <div className="h-1.5 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500" />
+                <div className="p-6 sm:p-7">
+                  <form onSubmit={handleSubscribe} className="space-y-3">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="relative flex-1">
+                        <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder={t("newsletter.emailPlaceholder")}
+                          required
+                          className="pl-10 h-12 bg-background border-border text-foreground placeholder:text-muted-foreground text-sm rounded-lg focus-visible:ring-primary shadow-sm"
+                        />
+                      </div>
+                      <Button
+                        type="submit"
+                        disabled={subscribe.isPending}
+                        className="h-12 px-7 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:via-indigo-700 hover:to-blue-800 text-white font-semibold tracking-wide rounded-lg flex items-center justify-center gap-2 shrink-0 shadow-md shadow-blue-500/20 transition-all hover:shadow-lg"
+                      >
+                        {subscribe.isPending ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            <span>{t("common.subscribing")}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>{t("newsletter.subscribe")}</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </Button>
                     </div>
-                    <Button
-                      type="submit"
-                      disabled={subscribe.isPending}
-                      className="h-12 px-7 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold tracking-wide rounded-lg flex items-center justify-center gap-2 shrink-0 transition-colors"
-                    >
-                      {subscribe.isPending ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          <span>{t("common.subscribing")}</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>{t("newsletter.subscribe")}</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                  <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                    {t("newsletter.consent")}{" "}
-                    <span className="inline-flex items-center gap-1 font-medium text-foreground">
-                      <ShieldCheck className="w-3 h-3 text-primary inline" />
-                      {t("newsletter.noSpam")} · {t("newsletter.unsubscribeAnytimeShort")}
-                    </span>
-                  </p>
-                </form>
+                    <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                      {t("newsletter.consent")}{" "}
+                      <span className="inline-flex items-center gap-1 font-medium text-foreground">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 inline" />
+                        {t("newsletter.noSpam")} · {t("newsletter.unsubscribeAnytimeShort")}
+                      </span>
+                    </p>
+                  </form>
+                </div>
               </div>
 
               {/* Trust & Frequency Strip */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-500/10 text-blue-700 dark:text-blue-300 text-xs font-semibold border border-blue-200/60 dark:border-blue-900/50">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                   {t("newsletter.byOurNewsroom")}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-semibold border border-emerald-200/60 dark:border-emerald-900/50">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   {t("newsletter.freeToRead")}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-semibold border border-amber-200/60 dark:border-amber-900/50">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                   {t("newsletter.unsubscribeAnytimeShort")}
                 </span>
               </div>
@@ -277,15 +316,15 @@ const Newsletter = () => {
 
             {/* Right Interactive Mockup Snapshot */}
             <div className="lg:col-span-5">
-              <div className="rounded-xl border border-border/90 bg-card overflow-hidden shadow-lg">
+              <div className="rounded-xl border border-border/90 bg-card overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
                 {/* Email Client Header */}
                 <div className="bg-muted/70 px-4 py-3 border-b border-border flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-sm" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-sm" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm" />
                   </div>
-                  <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-widest">
+                  <span className="text-[11px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/50">
                     Pre-Market Dispatch
                   </span>
                   <div className="w-6" />
@@ -299,7 +338,7 @@ const Newsletter = () => {
                       <span className="font-bold tracking-tight text-sm text-foreground font-mono">
                         {publication.name.toUpperCase()} INTELLIGENCE
                       </span>
-                      <span className="text-[10px] font-mono text-primary font-bold">
+                      <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 font-bold px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 border border-blue-200/50 dark:border-blue-800/40">
                         AST 06:30
                       </span>
                     </div>
@@ -309,33 +348,39 @@ const Newsletter = () => {
                   </div>
 
                   {/* Market Snapshot Ticker Strip */}
-                  <div className="grid grid-cols-3 gap-2 py-2 px-3 rounded bg-muted/50 border border-border/50 text-[11px] font-mono">
-                    <div>
+                  <div className="grid grid-cols-3 gap-2 py-2 px-3 rounded-lg bg-card border border-border/70 shadow-sm text-[11px] font-mono">
+                    <div className="space-y-0.5">
                       <span className="text-muted-foreground block text-[10px]">BRENT</span>
-                      <span className="font-bold text-foreground">$82.40</span>{" "}
-                      <span className="text-emerald-500 text-[10px]">+1.2%</span>
+                      <div className="flex items-center gap-1">
+                        <span className="font-bold text-foreground">$82.40</span>
+                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1 py-0.2 rounded">+1.2%</span>
+                      </div>
                     </div>
-                    <div>
+                    <div className="space-y-0.5">
                       <span className="text-muted-foreground block text-[10px]">TASI</span>
-                      <span className="font-bold text-foreground">12,450</span>{" "}
-                      <span className="text-emerald-500 text-[10px]">+0.4%</span>
+                      <div className="flex items-center gap-1">
+                        <span className="font-bold text-foreground">12,450</span>
+                        <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1 py-0.2 rounded">+0.4%</span>
+                      </div>
                     </div>
-                    <div>
+                    <div className="space-y-0.5">
                       <span className="text-muted-foreground block text-[10px]">REBAR</span>
-                      <span className="font-bold text-foreground">$680/t</span>{" "}
-                      <span className="text-muted-foreground text-[10px]">steady</span>
+                      <div className="flex items-center gap-1">
+                        <span className="font-bold text-foreground">$680/t</span>
+                        <span className="text-[10px] font-medium text-muted-foreground bg-muted px-1 py-0.2 rounded">steady</span>
+                      </div>
                     </div>
                   </div>
 
                   {/* Top Story */}
                   <div className="space-y-1.5 pt-1">
                     <div className="flex items-center gap-1.5">
-                      <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary uppercase tracking-wide">
+                      <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white uppercase tracking-wider shadow-sm">
                         {t("list.topStory")}
                       </span>
-                      <span className="text-[10px] text-muted-foreground">Riyadh Infra</span>
+                      <span className="text-[10px] font-semibold text-muted-foreground">Riyadh Infra</span>
                     </div>
-                    <h3 className="font-bold text-sm text-foreground leading-snug">
+                    <h3 className="font-bold text-sm text-foreground leading-snug hover:text-primary transition-colors cursor-pointer">
                       {t("newsletter.sampleHeadline")}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
@@ -345,10 +390,12 @@ const Newsletter = () => {
 
                   {/* Secondary Highlights */}
                   <div className="pt-2 border-t border-border/60 space-y-2">
-                    <div className="p-2.5 rounded-lg bg-background/80 border border-border/60 flex items-start gap-2.5">
-                      <Zap className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <div className="p-2.5 rounded-lg bg-amber-500/[0.04] border border-amber-500/20 flex items-start gap-2.5">
+                      <div className="w-6 h-6 rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <Zap className="w-3.5 h-3.5" />
+                      </div>
                       <div>
-                        <p className="font-medium text-foreground text-[11px]">
+                        <p className="font-semibold text-foreground text-[11px]">
                           {t("newsletter.sampleEnergy")}
                         </p>
                         <p className="text-muted-foreground text-[10px]">
@@ -357,10 +404,12 @@ const Newsletter = () => {
                       </div>
                     </div>
 
-                    <div className="p-2.5 rounded-lg bg-background/80 border border-border/60 flex items-start gap-2.5">
-                      <Users className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <div className="p-2.5 rounded-lg bg-violet-500/[0.04] border border-violet-500/20 flex items-start gap-2.5">
+                      <div className="w-6 h-6 rounded-md bg-violet-500/15 text-violet-600 dark:text-violet-400 flex items-center justify-center shrink-0 mt-0.5">
+                        <Users className="w-3.5 h-3.5" />
+                      </div>
                       <div>
-                        <p className="font-medium text-foreground text-[11px]">
+                        <p className="font-semibold text-foreground text-[11px]">
                           {t("newsletter.samplePeople")}
                         </p>
                         <p className="text-muted-foreground text-[10px]">
@@ -398,16 +447,16 @@ const Newsletter = () => {
                 <div
                   key={newsletter.id}
                   onClick={() => toggleNewsletter(newsletter.id)}
-                  className={`group relative p-6 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
+                  className={`group relative p-6 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg ${
                     isSelected
-                      ? "border-primary bg-primary/[0.03] shadow-sm"
-                      : "border-border/80 bg-card hover:border-primary/40"
+                      ? `${newsletter.activeBorder} ${newsletter.topBorder} bg-card ring-1 ring-primary/20 shadow-md`
+                      : `border-border/80 ${newsletter.topBorder} bg-card hover:border-primary/40`
                   }`}
                 >
                   <div>
                     {/* Top Row: Badge, Frequency & Checkbox */}
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border">
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border ${newsletter.badgeClass}`}>
                         {newsletter.badge}
                       </span>
                       <div className="flex items-center gap-2">
@@ -415,10 +464,10 @@ const Newsletter = () => {
                           {newsletter.frequency}
                         </span>
                         <div
-                          className={`w-5 h-5 rounded flex items-center justify-center border transition-colors ${
+                          className={`w-5 h-5 rounded flex items-center justify-center border transition-all ${
                             isSelected
-                              ? "bg-primary border-primary text-primary-foreground"
-                              : "border-muted-foreground/30 group-hover:border-primary/60"
+                              ? newsletter.checkboxBg
+                              : "border-muted-foreground/30 group-hover:border-primary/60 bg-background"
                           }`}
                         >
                           {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -428,10 +477,10 @@ const Newsletter = () => {
 
                     {/* Icon + Title */}
                     <div className="flex items-center gap-3 mb-2.5">
-                      <div className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                      <div className={`w-9 h-9 rounded-lg ${newsletter.accentBg} ${newsletter.accentText} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}>
                         <Icon className="w-4 h-4" />
                       </div>
-                      <h3 className="font-bold text-base text-foreground leading-tight">
+                      <h3 className="font-bold text-base text-foreground leading-tight group-hover:text-primary transition-colors">
                         {newsletter.name}
                       </h3>
                     </div>
@@ -447,7 +496,7 @@ const Newsletter = () => {
                     {newsletter.topics.map((topic, i) => (
                       <span
                         key={i}
-                        className="text-[10px] px-2 py-0.5 rounded bg-muted/60 text-muted-foreground"
+                        className="text-[10px] px-2 py-0.5 rounded bg-muted/70 text-muted-foreground font-medium border border-border/40"
                       >
                         {topic}
                       </span>
@@ -459,9 +508,9 @@ const Newsletter = () => {
           </div>
 
           {/* Quick Selection Summary & Action Bar */}
-          <div className="mt-8 p-5 sm:p-6 rounded-xl border border-border/80 bg-card flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-8 p-5 sm:p-6 rounded-xl border border-border/80 bg-gradient-to-r from-card via-card to-primary/[0.03] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3 text-sm text-foreground">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <p className="font-medium">
                 {t("newsletter.preferencesSavedBody", { n: selectedNewsletters.length })}
               </p>
@@ -477,7 +526,7 @@ const Newsletter = () => {
                 }
               }}
               disabled={selectedNewsletters.length === 0}
-              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 py-2.5 text-xs tracking-wide rounded-lg flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:via-indigo-700 hover:to-blue-800 text-white font-semibold px-6 py-2.5 text-xs tracking-wide rounded-lg flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 hover:shadow-lg transition-all"
             >
               <span>{t("newsletter.subscribeToCount", { n: selectedNewsletters.length })}</span>
               <ArrowRight className="w-4 h-4" />
@@ -502,9 +551,9 @@ const Newsletter = () => {
               return (
                 <div
                   key={index}
-                  className="p-6 rounded-xl border border-border/80 bg-card space-y-3"
+                  className={`p-6 rounded-xl border border-border/80 ${item.topBorder} bg-card space-y-3 hover:-translate-y-1 hover:shadow-lg transition-all duration-200`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                  <div className={`w-10 h-10 rounded-lg ${item.iconBg} flex items-center justify-center`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-base text-foreground">{item.title}</h3>
@@ -519,7 +568,8 @@ const Newsletter = () => {
 
         {/* Enterprise & Commercial Partnerships CTA Strip */}
         <section className="pt-14">
-          <div className="rounded-xl border border-border/80 bg-muted/40 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="relative rounded-xl border border-border/80 bg-gradient-to-r from-blue-600/[0.04] via-card to-amber-500/[0.04] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-amber-500" />
             <div className="space-y-1 text-center md:text-left">
               <h3 className="font-bold text-lg text-foreground">
                 Corporate & Bureau Subscriptions
@@ -529,10 +579,10 @@ const Newsletter = () => {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <Button asChild variant="outline" className="border-border text-foreground text-xs font-semibold px-4 py-2">
+              <Button asChild variant="outline" className="border-border text-foreground hover:bg-muted text-xs font-semibold px-4 py-2">
                 <Link href="/advertise">{t("footer.advertise")}</Link>
               </Button>
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-semibold px-4 py-2">
+              <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-semibold px-5 py-2 shadow-sm">
                 <Link href="/contact">{t("footer.contactUs")}</Link>
               </Button>
             </div>

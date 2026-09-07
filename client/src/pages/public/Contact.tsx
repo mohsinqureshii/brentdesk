@@ -93,6 +93,9 @@ const Contact = () => {
       email: publication.emails.media,
       note: t("contact.newsTipsNote"),
       badge: "Encrypted & Confidential",
+      borderTop: "border-t-rose-600",
+      iconBox: "bg-rose-600 text-white shadow-md shadow-rose-500/25",
+      badgeClass: "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20",
     },
     {
       icon: Newspaper,
@@ -101,6 +104,9 @@ const Contact = () => {
       email: publication.emails.media,
       note: t("contact.pressReleasesNote"),
       badge: "Press Office",
+      borderTop: "border-t-blue-600",
+      iconBox: "bg-blue-600 text-white shadow-md shadow-blue-500/25",
+      badgeClass: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
     },
     {
       icon: Megaphone,
@@ -111,6 +117,9 @@ const Contact = () => {
       suffix: t("contact.advertisingSuffix"),
       email: publication.emails.advertising,
       badge: "Commercial Desk",
+      borderTop: "border-t-indigo-600",
+      iconBox: "bg-indigo-600 text-white shadow-md shadow-indigo-500/25",
+      badgeClass: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20",
     },
     {
       icon: Calendar,
@@ -120,6 +129,9 @@ const Contact = () => {
       linkHref: "/events",
       linkText: t("nav.events"),
       badge: "Events & Summits",
+      borderTop: "border-t-emerald-600",
+      iconBox: "bg-emerald-600 text-white shadow-md shadow-emerald-500/25",
+      badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
     },
     {
       icon: Scale,
@@ -129,6 +141,9 @@ const Contact = () => {
       linkHref: "/editorial",
       linkText: t("footer.editorialStandards"),
       badge: "Within 24h Review",
+      borderTop: "border-t-amber-600",
+      iconBox: "bg-amber-600 text-white shadow-md shadow-amber-500/25",
+      badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
     },
     {
       icon: FileText,
@@ -138,6 +153,9 @@ const Contact = () => {
       linkHref: "/copyright",
       linkText: t("footer.copyright"),
       badge: "Corporate & Syndication",
+      borderTop: "border-t-purple-600",
+      iconBox: "bg-purple-600 text-white shadow-md shadow-purple-500/25",
+      badgeClass: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
     },
   ];
 
@@ -221,15 +239,15 @@ const Contact = () => {
             {contactDesks.map((desk, idx) => (
               <div
                 key={idx}
-                className="bd-card p-5 sm:p-6 flex flex-col justify-between hover:border-primary/40 transition-colors"
+                className={`group rounded-xl border border-border/80 bg-card p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border-t-4 ${desk.borderTop}`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-9 h-9 rounded-sm bg-primary/10 text-primary flex items-center justify-center">
-                      <desk.icon className="w-4 h-4" />
+                    <div className={`w-10 h-10 rounded-xl ${desk.iconBox} flex items-center justify-center`}>
+                      <desk.icon className="w-5 h-5" />
                     </div>
                     {desk.badge && (
-                      <span className="bd-eyebrow px-2 py-0.5 rounded-sm bg-muted text-foreground/80 border border-border text-[10px]">
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${desk.badgeClass}`}>
                         {desk.badge}
                       </span>
                     )}
@@ -239,7 +257,7 @@ const Contact = () => {
                     {desk.title}
                   </h3>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
                     {desk.description}
                   </p>
                 </div>
@@ -297,132 +315,140 @@ const Contact = () => {
                 </p>
               </div>
 
-              <div className="bd-card p-6 sm:p-8 bg-card">
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
-                        {t("form.firstName")} <span className="text-destructive">*</span>
-                      </label>
-                      <Input
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        placeholder={t("form.firstNamePlaceholder")}
-                        required
-                        className="bg-background border-border rounded-sm h-10 text-sm"
-                      />
+              <div className="rounded-xl border border-border/80 bg-card shadow-md overflow-hidden border-t-4 border-t-primary">
+                <div className="bg-gradient-to-r from-primary/10 via-primary/[0.03] to-transparent p-5 sm:p-6 border-b border-border/70">
+                  <h3 className="font-bold text-base text-foreground mb-0.5">Confidential Dispatch Channel</h3>
+                  <p className="text-xs text-muted-foreground">Direct intake securely monitored by our executive editorial team.</p>
+                </div>
+                <div className="p-6 sm:p-8">
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.firstName")} <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          value={formData.firstName}
+                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                          placeholder={t("form.firstNamePlaceholder")}
+                          required
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.lastName")} <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          value={formData.lastName}
+                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                          placeholder={t("form.lastNamePlaceholder")}
+                          required
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
-                        {t("form.lastName")} <span className="text-destructive">*</span>
-                      </label>
-                      <Input
-                        value={formData.lastName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        placeholder={t("form.lastNamePlaceholder")}
-                        required
-                        className="bg-background border-border rounded-sm h-10 text-sm"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.email")} <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder={t("contact.emailPlaceholder")}
+                          required
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                        <p className="text-[11px] text-muted-foreground mt-1">
+                          {t("contact.workEmailNote")}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.companyName")}
+                        </label>
+                        <Input
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          placeholder={t("contact.companyPlaceholder")}
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                      </div>
+                    </div>
+
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
-                        {t("form.email")} <span className="text-destructive">*</span>
+                        {t("contact.enquiryAbout")} <span className="text-destructive">*</span>
                       </label>
-                      <Input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder={t("contact.emailPlaceholder")}
+                      <Select
+                        value={formData.enquiryType}
+                        onValueChange={(val) => setFormData({ ...formData, enquiryType: val })}
+                      >
+                        <SelectTrigger className="bg-background border-border rounded-sm h-10 text-sm">
+                          <SelectValue placeholder={t("form.pleaseSelect")} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="News Tips">{t("contact.newsTips")}</SelectItem>
+                          <SelectItem value="Press Releases & Announcements">{t("contact.pressReleases")}</SelectItem>
+                          <SelectItem value="Advertising & Sponsorships">{t("contact.advertising")}</SelectItem>
+                          <SelectItem value="Events & Listings">{t("contact.eventsListings")}</SelectItem>
+                          <SelectItem value="Corrections & Feedback">{t("contact.corrections")}</SelectItem>
+                          <SelectItem value="Partnership Inquiry">{t("contact.partnership")}</SelectItem>
+                          <SelectItem value="Other">{t("common.other")}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                        {t("form.message")} <span className="text-destructive">*</span>
+                      </label>
+                      <Textarea
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder={t("contact.messagePlaceholder")}
+                        rows={5}
                         required
-                        className="bg-background border-border rounded-sm h-10 text-sm"
+                        className="bg-background border-border rounded-sm text-sm"
                       />
-                      <p className="text-[11px] text-muted-foreground mt-1">
-                        {t("contact.workEmailNote")}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
+                      <p className="text-xs text-muted-foreground max-w-md">
+                        Submissions are encrypted in transit and routed according to our privacy policy.
                       </p>
+                      <Button
+                        type="submit"
+                        disabled={submit.isPending}
+                        className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:opacity-95 text-white font-bold px-7 py-2.5 rounded-lg shadow-md shadow-blue-500/25 transition-all"
+                      >
+                        {submit.isPending ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("form.sending")}
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4 mr-2" /> {t("form.submit")}
+                          </>
+                        )}
+                      </Button>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
-                        {t("form.companyName")}
-                      </label>
-                      <Input
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder={t("contact.companyPlaceholder")}
-                        className="bg-background border-border rounded-sm h-10 text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
-                      {t("contact.enquiryAbout")} <span className="text-destructive">*</span>
-                    </label>
-                    <Select
-                      value={formData.enquiryType}
-                      onValueChange={(val) => setFormData({ ...formData, enquiryType: val })}
-                    >
-                      <SelectTrigger className="bg-background border-border rounded-sm h-10 text-sm">
-                        <SelectValue placeholder={t("form.pleaseSelect")} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="News Tips">{t("contact.newsTips")}</SelectItem>
-                        <SelectItem value="Press Releases & Announcements">{t("contact.pressReleases")}</SelectItem>
-                        <SelectItem value="Advertising & Sponsorships">{t("contact.advertising")}</SelectItem>
-                        <SelectItem value="Events & Listings">{t("contact.eventsListings")}</SelectItem>
-                        <SelectItem value="Corrections & Feedback">{t("contact.corrections")}</SelectItem>
-                        <SelectItem value="Partnership Inquiry">{t("contact.partnership")}</SelectItem>
-                        <SelectItem value="Other">{t("common.other")}</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
-                      {t("form.message")} <span className="text-destructive">*</span>
-                    </label>
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={t("contact.messagePlaceholder")}
-                      rows={5}
-                      required
-                      className="bg-background border-border rounded-sm text-sm"
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
-                    <p className="text-xs text-muted-foreground max-w-md">
-                      Submissions are encrypted in transit and routed according to our privacy policy.
-                    </p>
-                    <Button
-                      type="submit"
-                      disabled={submit.isPending}
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-2 rounded-sm"
-                    >
-                      {submit.isPending ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("form.sending")}
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4 mr-2" /> {t("form.submit")}
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
 
             {/* Right Column: Newsroom Operations & Bureau Info */}
             <div className="lg:col-span-5 xl:col-span-4 space-y-6">
               {/* Bureau Location Card */}
-              <div className="bd-card p-6 bg-card">
-                <div className="flex items-center gap-2 mb-3">
-                  <Building2 className="w-4 h-4 text-primary" />
+              <div className="rounded-xl border border-border/80 p-6 bg-card shadow-sm border-t-4 border-t-blue-600">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                    <Building2 className="w-4 h-4" />
+                  </div>
                   <h3 className="bd-headline text-base font-bold text-foreground">
                     {t("contact.hqLocation")}
                   </h3>
@@ -431,7 +457,7 @@ const Contact = () => {
                   {publication.legalName}
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {publication.city}
+                  {publication.city} (King Fahd Road / Olaya Financial District)
                 </p>
                 <div className="text-xs text-muted-foreground border-t border-border pt-3 space-y-2">
                   <p><span className="font-semibold text-foreground">Regional Bureaus:</span> Riyadh, Dubai, Abu Dhabi, Doha</p>
@@ -440,9 +466,11 @@ const Contact = () => {
               </div>
 
               {/* Newsroom Hours */}
-              <div className="bd-card p-6 bg-card">
-                <div className="flex items-center gap-2 mb-3">
-                  <Clock className="w-4 h-4 text-primary" />
+              <div className="rounded-xl p-6 bg-gradient-to-br from-amber-500/[0.06] to-card border border-amber-500/30 border-l-4 border-l-amber-600 shadow-sm">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                    <Clock className="w-4 h-4" />
+                  </div>
                   <h3 className="bd-headline text-base font-bold text-foreground">
                     {t("contact.marketHours")}
                   </h3>
@@ -453,9 +481,9 @@ const Contact = () => {
               </div>
 
               {/* Source Protection Notice */}
-              <div className="bd-card p-6 bg-muted/40 border-primary/20">
+              <div className="rounded-xl p-6 bg-gradient-to-br from-emerald-500/[0.06] to-card border border-emerald-500/30 border-l-4 border-l-emerald-600 shadow-sm">
                 <div className="flex items-center gap-2 mb-2">
-                  <ShieldCheck className="w-4 h-4 text-primary" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <h3 className="bd-headline text-sm font-bold text-foreground">
                     {t("contact.sourceProtection")}
                   </h3>
@@ -465,7 +493,7 @@ const Contact = () => {
                 </p>
                 <Link
                   href="/editorial"
-                  className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
                 >
                   {t("footer.editorialStandards")}
                   <ArrowRight className="w-3 h-3" />
@@ -473,14 +501,14 @@ const Contact = () => {
               </div>
 
               {/* Social Channels Strip */}
-              <div className="bd-card p-5 bg-card">
+              <div className="rounded-xl border border-border/80 p-5 bg-card shadow-sm">
                 <h4 className="bd-eyebrow text-foreground mb-3">Official Communication Channels</h4>
                 <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
                   <a
                     href={publication.social.x}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 rounded-sm bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                    className="px-3.5 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground transition-colors border border-border"
                     aria-label="X / Twitter"
                   >
                     X (@brentdesk)
@@ -489,7 +517,7 @@ const Contact = () => {
                     href={publication.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 rounded-sm bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                    className="px-3.5 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground transition-colors border border-border"
                     aria-label="LinkedIn"
                   >
                     LinkedIn

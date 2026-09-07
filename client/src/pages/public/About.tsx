@@ -4,7 +4,7 @@ import { SEO } from "@/components/SEO";
 import {
   Mail,
   Shield,
-  CheckCircle,
+  CheckCircle2,
   FileText,
   Scale,
   Users,
@@ -16,6 +16,13 @@ import {
   Layers,
   ChevronRight,
   ExternalLink,
+  Zap,
+  Factory,
+  Compass,
+  Coins,
+  MapPin,
+  Sparkles,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -35,15 +42,78 @@ export default function About() {
   const t = useT();
 
   const keySectors = [
-    { name: "Construction", slug: "construction", count: "Mega-projects & EPC" },
-    { name: "Infrastructure", slug: "infrastructure", count: "Transport & Civil" },
-    { name: "Energy", slug: "energy", count: "Power & Transition" },
-    { name: "Oil & Gas", slug: "oil-gas", count: "Upstream & Downstream" },
-    { name: "Manufacturing", slug: "manufacturing", count: "Heavy Industry" },
-    { name: "Logistics", slug: "logistics", count: "Ports & Supply Chain" },
-    { name: "Transportation", slug: "transportation", count: "Rail & Aviation" },
-    { name: "Mining", slug: "mining", count: "Metals & Minerals" },
-    { name: "Utilities", slug: "utilities", count: "Water & Desalination" },
+    {
+      name: "Construction",
+      slug: "construction",
+      count: "Mega-projects & EPC",
+      icon: Building2,
+      color: "text-amber-600 dark:text-amber-400",
+      bg: "bg-amber-500/10 border-amber-500/20 group-hover:border-amber-500/50 group-hover:bg-amber-500/15",
+    },
+    {
+      name: "Infrastructure",
+      slug: "infrastructure",
+      count: "Transport & Civil",
+      icon: Compass,
+      color: "text-blue-600 dark:text-blue-400",
+      bg: "bg-blue-500/10 border-blue-500/20 group-hover:border-blue-500/50 group-hover:bg-blue-500/15",
+    },
+    {
+      name: "Energy",
+      slug: "energy",
+      count: "Power & Transition",
+      icon: Zap,
+      color: "text-emerald-600 dark:text-emerald-400",
+      bg: "bg-emerald-500/10 border-emerald-500/20 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/15",
+    },
+    {
+      name: "Oil & Gas",
+      slug: "oil-gas",
+      count: "Upstream & Downstream",
+      icon: TrendingUp,
+      color: "text-orange-600 dark:text-orange-400",
+      bg: "bg-orange-500/10 border-orange-500/20 group-hover:border-orange-500/50 group-hover:bg-orange-500/15",
+    },
+    {
+      name: "Manufacturing",
+      slug: "manufacturing",
+      count: "Heavy Industry",
+      icon: Factory,
+      color: "text-indigo-600 dark:text-indigo-400",
+      bg: "bg-indigo-500/10 border-indigo-500/20 group-hover:border-indigo-500/50 group-hover:bg-indigo-500/15",
+    },
+    {
+      name: "Logistics",
+      slug: "logistics",
+      count: "Ports & Supply Chain",
+      icon: Layers,
+      color: "text-teal-600 dark:text-teal-400",
+      bg: "bg-teal-500/10 border-teal-500/20 group-hover:border-teal-500/50 group-hover:bg-teal-500/15",
+    },
+    {
+      name: "Transportation",
+      slug: "transportation",
+      count: "Rail & Aviation",
+      icon: Globe,
+      color: "text-sky-600 dark:text-sky-400",
+      bg: "bg-sky-500/10 border-sky-500/20 group-hover:border-sky-500/50 group-hover:bg-sky-500/15",
+    },
+    {
+      name: "Mining",
+      slug: "mining",
+      count: "Metals & Minerals",
+      icon: Coins,
+      color: "text-purple-600 dark:text-purple-400",
+      bg: "bg-purple-500/10 border-purple-500/20 group-hover:border-purple-500/50 group-hover:bg-purple-500/15",
+    },
+    {
+      name: "Utilities",
+      slug: "utilities",
+      count: "Water & Desalination",
+      icon: Shield,
+      color: "text-cyan-600 dark:text-cyan-400",
+      bg: "bg-cyan-500/10 border-cyan-500/20 group-hover:border-cyan-500/50 group-hover:bg-cyan-500/15",
+    },
   ];
 
   const standardsPillars = [
@@ -51,21 +121,29 @@ export default function About() {
       icon: Shield,
       title: t("about.independence"),
       description: t("about.independenceBody"),
+      border: "border-l-4 border-l-blue-600",
+      iconBox: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20",
     },
     {
-      icon: CheckCircle,
+      icon: CheckCircle2,
       title: t("about.accuracy"),
       description: t("about.accuracyBody"),
+      border: "border-l-4 border-l-emerald-600",
+      iconBox: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20",
     },
     {
       icon: TrendingUp,
       title: t("about.depth"),
       description: t("about.depthBody"),
+      border: "border-l-4 border-l-amber-600",
+      iconBox: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20",
     },
     {
       icon: Scale,
       title: t("about.fairness"),
       description: t("about.fairnessBody"),
+      border: "border-l-4 border-l-purple-600",
+      iconBox: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20",
     },
   ];
 
@@ -120,7 +198,7 @@ export default function About() {
         {/* Editorial Masthead Hero */}
         <section className="pt-4 pb-12 border-b border-border">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="bd-eyebrow text-primary tracking-widest font-bold">
+            <span className="bd-eyebrow px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 tracking-widest font-bold text-xs">
               EDITORIAL CHARTER & MISSION
             </span>
             <span className="text-muted-foreground/40 text-xs">/</span>
@@ -139,29 +217,64 @@ export default function About() {
             <p>{t("about.intro3", { site: publication.name })}</p>
           </div>
 
-          {/* Metric Bar (Bloomberg / FT style) */}
+          {/* Metric Bar (Vibrant Bloomberg / FT style with rich color & interactivity) */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-border">
-            <div className="bd-card p-5 bg-card">
-              <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1">9</div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="group rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/[0.08] to-card p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-t-4 border-t-blue-600">
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                  SECTORS
+                </span>
+              </div>
+              <div className="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400 mb-1">9</div>
+              <div className="text-xs font-bold text-foreground uppercase tracking-wider">
                 {t("about.statsBeats")}
               </div>
             </div>
-            <div className="bd-card p-5 bg-card">
-              <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1">EN · AR</div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+
+            <div className="group rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/[0.08] to-card p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-t-4 border-t-emerald-600">
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+                  <Globe className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  LANGUAGES
+                </span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-1">EN · AR</div>
+              <div className="text-xs font-bold text-foreground uppercase tracking-wider">
                 {t("about.statsBilingual")}
               </div>
             </div>
-            <div className="bd-card p-5 bg-card">
-              <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1">Riyadh</div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+
+            <div className="group rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/[0.08] to-card p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-t-4 border-t-amber-600">
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-9 h-9 rounded-lg bg-amber-600 text-white flex items-center justify-center shadow-md shadow-amber-500/25 group-hover:scale-105 transition-transform">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                  HEADQUARTERS
+                </span>
+              </div>
+              <div className="text-2xl sm:text-3xl font-black text-amber-600 dark:text-amber-400 mb-1">Riyadh</div>
+              <div className="text-xs font-bold text-foreground uppercase tracking-wider">
                 {t("about.statsRegional")}
               </div>
             </div>
-            <div className="bd-card p-5 bg-card">
-              <div className="text-2xl sm:text-3xl font-bold text-foreground mb-1">100%</div>
-              <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+
+            <div className="group rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/[0.08] to-card p-5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-t-4 border-t-purple-600">
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-9 h-9 rounded-lg bg-purple-600 text-white flex items-center justify-center shadow-md shadow-purple-500/25 group-hover:scale-105 transition-transform">
+                  <Shield className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                  CHARTER
+                </span>
+              </div>
+              <div className="text-3xl sm:text-4xl font-black text-purple-600 dark:text-purple-400 mb-1">100%</div>
+              <div className="text-xs font-bold text-foreground uppercase tracking-wider">
                 {t("about.statsIndependence")}
               </div>
             </div>
@@ -247,25 +360,31 @@ export default function About() {
                 <p>{t("about.cover3", { site: publication.name })}</p>
               </div>
 
-              {/* Taxonomy Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                {keySectors.map((sector) => (
-                  <Link
-                    key={sector.slug}
-                    href={`/${sector.slug}`}
-                    className="bd-card p-4 hover:border-primary/50 transition-colors group block"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-foreground text-sm group-hover:text-primary transition-colors">
+              {/* Taxonomy Cards with Rich Colors & Icons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 pt-2">
+                {keySectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <Link
+                      key={sector.slug}
+                      href={`/${sector.slug}`}
+                      className="group rounded-xl border border-border/80 bg-card p-4 hover:border-primary/60 hover:-translate-y-1 hover:shadow-md transition-all duration-300 block relative overflow-hidden"
+                    >
+                      <div className="flex items-center justify-between mb-2.5">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${sector.bg} ${sector.color} transition-colors`}>
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                      </div>
+                      <span className="font-bold text-foreground text-sm group-hover:text-primary transition-colors block mb-1">
                         {sector.name}
                       </span>
-                      <ChevronRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </div>
-                    <span className="text-[11px] text-muted-foreground block">
-                      {sector.count}
-                    </span>
-                  </Link>
-                ))}
+                      <span className="text-[11px] text-muted-foreground block">
+                        {sector.count}
+                      </span>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
 
@@ -280,14 +399,19 @@ export default function About() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {standardsPillars.map((pillar, idx) => (
-                  <div key={idx} className="bd-card p-5 bg-card">
-                    <div className="flex items-center gap-2 mb-2">
-                      <pillar.icon className="w-4 h-4 text-primary" />
+                  <div
+                    key={idx}
+                    className={`rounded-xl border border-border/80 bg-card p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${pillar.border}`}
+                  >
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${pillar.iconBox}`}>
+                        <pillar.icon className="w-4 h-4" />
+                      </div>
                       <h3 className="bd-headline text-base font-bold text-foreground">
                         {pillar.title}
                       </h3>
                     </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed pl-1">
                       {pillar.description}
                     </p>
                   </div>

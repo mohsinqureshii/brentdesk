@@ -59,23 +59,27 @@ async function loadActiveEditions(): Promise<EditionRow[]> {
   const db = await getDb();
   if (!db) return [];
 
-  const rows = await db
-    .select({
-      id: editions.id,
-      slug: editions.slug,
-      countryId: editions.countryId,
-      name: editions.name,
-      isInternational: editions.isInternational,
-      supportedLocales: editions.supportedLocales,
-      flagEmoji: editions.flagEmoji,
-      iso2: countries.iso2,
-    })
-    .from(editions)
-    .leftJoin(countries, eq(editions.countryId, countries.id))
-    .where(eq(editions.isActive, 1));
+  try {
+    const rows = await db
+      .select({
+        id: editions.id,
+        slug: editions.slug,
+        countryId: editions.countryId,
+        name: editions.name,
+        isInternational: editions.isInternational,
+        supportedLocales: editions.supportedLocales,
+        flagEmoji: editions.flagEmoji,
+        iso2: countries.iso2,
+      })
+      .from(editions)
+      .leftJoin(countries, eq(editions.countryId, countries.id))
+      .where(eq(editions.isActive, 1));
 
-  cache = { rows: rows as EditionRow[], ts: now };
-  return cache.rows;
+    cache = { rows: rows as EditionRow[], ts: now };
+    return cache.rows;
+  } catch {
+    return [];
+  }
 }
 
 export function invalidateEditionCache() {
