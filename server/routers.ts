@@ -290,23 +290,27 @@ export const appRouter = router({
   public: router({
     // Public site settings (cached, no auth required)
     siteSettings: publicProcedure.query(async () => {
-      const database = await getDb();
-      if (!database) return {};
+      try {
+        const database = await getDb();
+        if (!database) return {};
 
-      const settings = await database.select()
-        .from(seoSettings)
-        .where(eq(seoSettings.settingGroup, 'site'));
+        const settings = await database.select()
+          .from(seoSettings)
+          .where(eq(seoSettings.settingGroup, 'site'));
 
-      const settingsMap: Record<string, unknown> = {};
-      for (const s of settings) {
-        try {
-          settingsMap[s.settingKey] = JSON.parse(s.settingValue as string);
-        } catch {
-          settingsMap[s.settingKey] = s.settingValue;
+        const settingsMap: Record<string, unknown> = {};
+        for (const s of settings) {
+          try {
+            settingsMap[s.settingKey] = JSON.parse(s.settingValue as string);
+          } catch {
+            settingsMap[s.settingKey] = s.settingValue;
+          }
         }
-      }
 
-      return settingsMap;
+        return settingsMap;
+      } catch {
+        return {};
+      }
     }),
   }),
 

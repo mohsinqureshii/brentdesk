@@ -1,11 +1,39 @@
 import { useState } from "react";
-import { Mail, Send, Newspaper, Calendar, Megaphone, FileText, HelpCircle, Loader2 } from "lucide-react";
+import { Link } from "wouter";
+import {
+  Mail,
+  Send,
+  Newspaper,
+  Calendar,
+  Megaphone,
+  FileText,
+  HelpCircle,
+  Loader2,
+  ShieldCheck,
+  MapPin,
+  Clock,
+  ExternalLink,
+  ArrowRight,
+  Scale,
+  Building2,
+  CheckCircle,
+  MessageSquare,
+} from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { JsonLd } from "@/components/JsonLd";
 import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 import { trpc } from "@/lib/trpc";
@@ -21,7 +49,7 @@ const Contact = () => {
     email: "",
     company: "",
     enquiryType: "",
-    message: ""
+    message: "",
   });
 
   const submit = trpc.submissions.contact.useMutation({
@@ -57,214 +85,449 @@ const Contact = () => {
     });
   };
 
-  const contactCategories = [
+  const contactDesks = [
     {
-      icon: Newspaper,
+      icon: ShieldCheck,
       title: t("contact.newsTips"),
       description: t("contact.newsTipsBody"),
       email: publication.emails.media,
-      note: t("contact.newsTipsNote")
+      note: t("contact.newsTipsNote"),
+      badge: "Encrypted & Confidential",
+      borderTop: "border-t-rose-600",
+      iconBox: "bg-rose-600 text-white shadow-md shadow-rose-500/25",
+      badgeClass: "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20",
     },
     {
-      icon: FileText,
+      icon: Newspaper,
       title: t("contact.pressReleases"),
       description: t("contact.pressReleasesBody"),
       email: publication.emails.media,
-      note: t("contact.pressReleasesNote")
+      note: t("contact.pressReleasesNote"),
+      badge: "Press Office",
+      borderTop: "border-t-blue-600",
+      iconBox: "bg-blue-600 text-white shadow-md shadow-blue-500/25",
+      badgeClass: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
     },
     {
       icon: Megaphone,
       title: t("contact.advertising"),
       description: t("contact.advertisingBody"),
-      linkText: t("contact.advertisingLink"),
       linkHref: "/advertise",
-      suffix: t("contact.advertisingSuffix")
+      linkText: t("contact.advertisingLink"),
+      suffix: t("contact.advertisingSuffix"),
+      email: publication.emails.advertising,
+      badge: "Commercial Desk",
+      borderTop: "border-t-indigo-600",
+      iconBox: "bg-indigo-600 text-white shadow-md shadow-indigo-500/25",
+      badgeClass: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20",
     },
     {
       icon: Calendar,
       title: t("contact.eventsListings"),
       description: t("contact.eventsListingsBody"),
       email: publication.emails.hello,
+      linkHref: "/events",
+      linkText: t("nav.events"),
+      badge: "Events & Summits",
+      borderTop: "border-t-emerald-600",
+      iconBox: "bg-emerald-600 text-white shadow-md shadow-emerald-500/25",
+      badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
     },
     {
-      icon: HelpCircle,
+      icon: Scale,
       title: t("contact.corrections"),
       description: t("contact.correctionsBody"),
       email: publication.emails.hello,
-    }
+      linkHref: "/editorial",
+      linkText: t("footer.editorialStandards"),
+      badge: "Within 24h Review",
+      borderTop: "border-t-amber-600",
+      iconBox: "bg-amber-600 text-white shadow-md shadow-amber-500/25",
+      badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    },
+    {
+      icon: FileText,
+      title: t("contact.licensing"),
+      description: t("contact.licensingBody"),
+      email: publication.emails.legal,
+      linkHref: "/copyright",
+      linkText: t("footer.copyright"),
+      badge: "Corporate & Syndication",
+      borderTop: "border-t-purple-600",
+      iconBox: "bg-purple-600 text-white shadow-md shadow-purple-500/25",
+      badgeClass: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-clip">
+    <div className="min-h-screen bg-background overflow-x-clip text-foreground">
       <SEO
         title={`Contact | ${publication.name}`}
-        description={`Get in touch with ${publication.name}. Send us news tips, press releases, event listings, advertising requests, or general feedback.`}
+        description={`Get in touch with ${publication.name}. Newsroom tips, bureau directory, press releases, corporate advertising, event listings, and general inquiries.`}
         canonical={`${publication.siteUrl}/contact`}
+      />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: t("footer.contactUs"), url: `${publication.siteUrl}/contact` },
+        ]}
       />
       <Header />
 
-      {/* Hero Section */}
-      <section className="py-16 md:py-20 border-b border-border">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+      {/* Visual Breadcrumb Bar */}
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">{t("nav.home")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{t("footer.contactUs")}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
+      <main className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        {/* Editorial Masthead Hero */}
+        <section className="pt-4 pb-10 border-b border-border">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="bd-eyebrow text-primary tracking-widest font-bold">
+              {t("contact.heroEyebrow")}
+            </span>
+            <span className="text-muted-foreground/40 text-xs">/</span>
+            <span className="text-xs font-semibold text-muted-foreground">
+              {publication.city}
+            </span>
+          </div>
+
+          <h1 className="bd-lede text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
             {t("footer.contactUs")}
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl leading-relaxed mb-6">
             {t("contact.intro")}
           </p>
-        </div>
-      </section>
 
-      {/* Contact Categories */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="space-y-10">
-            {contactCategories.map((category, index) => (
-              <div key={index} className="pb-10 border-b border-border last:border-b-0 last:pb-0">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center flex-shrink-0 mt-1">
-                    <category.icon className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-foreground mb-3">{category.title}</h2>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {category.description}{" "}
-                      {category.email && (
-                        <a
-                          href={`mailto:${category.email}`}
-                          className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"
-                        >
-                          {category.email}
-                        </a>
-                      )}
-                      {category.linkText && (
-                        <a
-                          href={category.linkHref}
-                          className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium"
-                        >
-                          {category.linkText}
-                        </a>
-                      )}
-                      {category.suffix && ` ${category.suffix}`}
-                      {category.email && "."}
-                    </p>
-                    {category.note && (
-                      <p className="text-sm text-muted-foreground/80 mt-2 italic">
-                        {category.note}
-                      </p>
+          {/* Quick Metrics & Service Level Indicators */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
+              <CheckCircle className="w-3.5 h-3.5 text-primary" />
+              <span>{t("contact.slaNotice")}</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
+              <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+              <span>Confidential Tip Protection</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-muted text-xs font-medium text-foreground border border-border">
+              <MapPin className="w-3.5 h-3.5 text-primary" />
+              <span>Riyadh Central Bureau</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Newsroom Desks Directory Grid */}
+        <section className="pt-10 pb-12">
+          <div className="bd-section-head mb-6">
+            <h2 className="bd-section-title">Newsroom Desks & Inquiries</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {contactDesks.map((desk, idx) => (
+              <div
+                key={idx}
+                className={`group rounded-xl border border-border/80 bg-card p-6 flex flex-col justify-between shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 border-t-4 ${desk.borderTop}`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`w-10 h-10 rounded-xl ${desk.iconBox} flex items-center justify-center`}>
+                      <desk.icon className="w-5 h-5" />
+                    </div>
+                    {desk.badge && (
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${desk.badgeClass}`}>
+                        {desk.badge}
+                      </span>
                     )}
                   </div>
+
+                  <h3 className="bd-headline text-lg font-bold text-foreground mb-2">
+                    {desk.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4">
+                    {desk.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-border space-y-2 text-xs">
+                  {desk.email && (
+                    <div className="flex items-center gap-2">
+                      <span className="text-muted-foreground font-medium">Email:</span>
+                      <a
+                        href={`mailto:${desk.email}`}
+                        className="text-primary hover:underline font-semibold"
+                      >
+                        {desk.email}
+                      </a>
+                    </div>
+                  )}
+
+                  {desk.linkHref && desk.linkText && (
+                    <div className="flex items-center gap-1">
+                      <Link
+                        href={desk.linkHref}
+                        className="text-primary hover:underline font-semibold inline-flex items-center gap-1"
+                      >
+                        {desk.linkText}
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  )}
+
+                  {desk.note && (
+                    <p className="text-[11px] text-muted-foreground/90 italic pt-1">
+                      {desk.note}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* General Inquiry Form */}
-      <section className="py-12 md:py-16 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-3">{t("contact.otherInquiries")}</h2>
-          <p className="text-muted-foreground mb-8">
-            {t("contact.otherInquiriesBody")}{" "}
-            <a href={`mailto:${publication.emails.hello}`} className="text-blue-600 hover:text-blue-700 underline underline-offset-2 font-medium">
-              {publication.emails.hello}
-            </a>.
-          </p>
+        {/* Direct Dispatch & Operations Split Section */}
+        <section className="pt-6 border-t border-border">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Left Column: Direct Message Dispatch Form */}
+            <div className="lg:col-span-7 xl:col-span-8">
+              <div className="mb-6">
+                <span className="bd-eyebrow text-primary font-bold tracking-wider">
+                  Direct Dispatch
+                </span>
+                <h2 className="bd-headline text-2xl font-bold text-foreground mt-1 mb-2">
+                  {t("contact.directDispatch")}
+                </h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {t("contact.directDispatchBody")}
+                </p>
+              </div>
 
-          <div className="bg-card rounded-sm border border-border p-6 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">{t("form.firstName")} <span className="text-destructive">*</span></label>
-                  <Input
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder={t("form.firstNamePlaceholder")}
-                    required
-                    className="bg-background"
-                  />
+              <div className="rounded-xl border border-border/80 bg-card shadow-md overflow-hidden border-t-4 border-t-primary">
+                <div className="bg-gradient-to-r from-primary/10 via-primary/[0.03] to-transparent p-5 sm:p-6 border-b border-border/70">
+                  <h3 className="font-bold text-base text-foreground mb-0.5">Confidential Dispatch Channel</h3>
+                  <p className="text-xs text-muted-foreground">Direct intake securely monitored by our executive editorial team.</p>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">{t("form.lastName")} <span className="text-destructive">*</span></label>
-                  <Input
-                    value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder={t("form.lastNamePlaceholder")}
-                    required
-                    className="bg-background"
-                  />
+                <div className="p-6 sm:p-8">
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.firstName")} <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          value={formData.firstName}
+                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                          placeholder={t("form.firstNamePlaceholder")}
+                          required
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.lastName")} <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          value={formData.lastName}
+                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                          placeholder={t("form.lastNamePlaceholder")}
+                          required
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.email")} <span className="text-destructive">*</span>
+                        </label>
+                        <Input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder={t("contact.emailPlaceholder")}
+                          required
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                        <p className="text-[11px] text-muted-foreground mt-1">
+                          {t("contact.workEmailNote")}
+                        </p>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                          {t("form.companyName")}
+                        </label>
+                        <Input
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          placeholder={t("contact.companyPlaceholder")}
+                          className="bg-background border-border rounded-sm h-10 text-sm"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                        {t("contact.enquiryAbout")} <span className="text-destructive">*</span>
+                      </label>
+                      <Select
+                        value={formData.enquiryType}
+                        onValueChange={(val) => setFormData({ ...formData, enquiryType: val })}
+                      >
+                        <SelectTrigger className="bg-background border-border rounded-sm h-10 text-sm">
+                          <SelectValue placeholder={t("form.pleaseSelect")} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="News Tips">{t("contact.newsTips")}</SelectItem>
+                          <SelectItem value="Press Releases & Announcements">{t("contact.pressReleases")}</SelectItem>
+                          <SelectItem value="Advertising & Sponsorships">{t("contact.advertising")}</SelectItem>
+                          <SelectItem value="Events & Listings">{t("contact.eventsListings")}</SelectItem>
+                          <SelectItem value="Corrections & Feedback">{t("contact.corrections")}</SelectItem>
+                          <SelectItem value="Partnership Inquiry">{t("contact.partnership")}</SelectItem>
+                          <SelectItem value="Other">{t("common.other")}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-foreground mb-1.5">
+                        {t("form.message")} <span className="text-destructive">*</span>
+                      </label>
+                      <Textarea
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder={t("contact.messagePlaceholder")}
+                        rows={5}
+                        required
+                        className="bg-background border-border rounded-sm text-sm"
+                      />
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
+                      <p className="text-xs text-muted-foreground max-w-md">
+                        Submissions are encrypted in transit and routed according to our privacy policy.
+                      </p>
+                      <Button
+                        type="submit"
+                        disabled={submit.isPending}
+                        className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:opacity-95 text-white font-bold px-7 py-2.5 rounded-lg shadow-md shadow-blue-500/25 transition-all"
+                      >
+                        {submit.isPending ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("form.sending")}
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4 mr-2" /> {t("form.submit")}
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Newsroom Operations & Bureau Info */}
+            <div className="lg:col-span-5 xl:col-span-4 space-y-6">
+              {/* Bureau Location Card */}
+              <div className="rounded-xl border border-border/80 p-6 bg-card shadow-sm border-t-4 border-t-blue-600">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                    <Building2 className="w-4 h-4" />
+                  </div>
+                  <h3 className="bd-headline text-base font-bold text-foreground">
+                    {t("contact.hqLocation")}
+                  </h3>
+                </div>
+                <p className="text-sm font-semibold text-foreground mb-1">
+                  {publication.legalName}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  {publication.city} (King Fahd Road / Olaya Financial District)
+                </p>
+                <div className="text-xs text-muted-foreground border-t border-border pt-3 space-y-2">
+                  <p><span className="font-semibold text-foreground">Regional Bureaus:</span> Riyadh, Dubai, Abu Dhabi, Doha</p>
+                  <p><span className="font-semibold text-foreground">General Enquiries:</span> <a href={`mailto:${publication.emails.hello}`} className="text-primary hover:underline">{publication.emails.hello}</a></p>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">{t("form.email")} <span className="text-destructive">*</span></label>
-                <p className="text-xs text-muted-foreground mb-2">{t("contact.workEmailNote")}</p>
-                <Input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder={t("contact.emailPlaceholder")}
-                  required
-                  className="bg-background"
-                />
+              {/* Newsroom Hours */}
+              <div className="rounded-xl p-6 bg-gradient-to-br from-amber-500/[0.06] to-card border border-amber-500/30 border-l-4 border-l-amber-600 shadow-sm">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <h3 className="bd-headline text-base font-bold text-foreground">
+                    {t("contact.marketHours")}
+                  </h3>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {t("contact.marketHoursBody")}
+                </p>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">{t("form.companyName")}</label>
-                <Input
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder={t("contact.companyPlaceholder")}
-                  className="bg-background"
-                />
+              {/* Source Protection Notice */}
+              <div className="rounded-xl p-6 bg-gradient-to-br from-emerald-500/[0.06] to-card border border-emerald-500/30 border-l-4 border-l-emerald-600 shadow-sm">
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <h3 className="bd-headline text-sm font-bold text-foreground">
+                    {t("contact.sourceProtection")}
+                  </h3>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                  {t("contact.sourceProtectionBody")}
+                </p>
+                <Link
+                  href="/editorial"
+                  className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1"
+                >
+                  {t("footer.editorialStandards")}
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">{t("contact.enquiryAbout")} <span className="text-destructive">*</span></label>
-                <Select value={formData.enquiryType} onValueChange={(val) => setFormData({ ...formData, enquiryType: val })}>
-                  <SelectTrigger className="bg-background">
-                    <SelectValue placeholder={t("form.pleaseSelect")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="News Tips">{t("contact.newsTips")}</SelectItem>
-                    <SelectItem value="Press Releases & Announcements">{t("contact.pressReleases")}</SelectItem>
-                    <SelectItem value="Advertising & Sponsorships">{t("contact.advertising")}</SelectItem>
-                    <SelectItem value="Events & Listings">{t("contact.eventsListings")}</SelectItem>
-                    <SelectItem value="Corrections & Feedback">{t("contact.corrections")}</SelectItem>
-                    <SelectItem value="Partnership Inquiry">{t("contact.partnership")}</SelectItem>
-                    <SelectItem value="Other">{t("common.other")}</SelectItem>
-                  </SelectContent>
-                </Select>
+              {/* Social Channels Strip */}
+              <div className="rounded-xl border border-border/80 p-5 bg-card shadow-sm">
+                <h4 className="bd-eyebrow text-foreground mb-3">Official Communication Channels</h4>
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                  <a
+                    href={publication.social.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground transition-colors border border-border"
+                    aria-label="X / Twitter"
+                  >
+                    X (@brentdesk)
+                  </a>
+                  <a
+                    href={publication.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 rounded-lg bg-muted hover:bg-muted/80 text-foreground transition-colors border border-border"
+                    aria-label="LinkedIn"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
               </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">{t("form.message")} <span className="text-destructive">*</span></label>
-                <Textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder={t("contact.messagePlaceholder")}
-                  rows={5}
-                  required
-                  className="bg-background"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={submit.isPending}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
-              >
-                {submit.isPending ? (
-                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("form.sending")}</>
-                ) : (
-                  <><Send className="w-4 h-4 mr-2" /> {t("form.submit")}</>
-                )}
-              </Button>
-            </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

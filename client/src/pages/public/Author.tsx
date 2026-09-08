@@ -21,6 +21,15 @@ import { trpc } from "@/lib/trpc";
 import { getArticleUrl } from "@/lib/articleUrl";
 import { LeaderboardAd, SidebarAd, MobileStickyAd } from "@/components/ads/AdUnit";
 import { SEO } from "@/components/SEO";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const formatDate = (date: Date | string | null) => {
   if (!date) return "";
@@ -148,7 +157,31 @@ const Author = () => {
         canonical={authorCanonical}
         ogImage={author.avatar || undefined}
       />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: displayName, url: authorCanonical },
+        ]}
+      />
       <Header />
+
+      {/* Visual Breadcrumbs */}
+      <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 pt-4 pb-1">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">{t("nav.home")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{displayName}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
 
       {/* Hero Section - Full Width Green Background */}
       <section className="w-full bd-ink">

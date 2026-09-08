@@ -242,11 +242,13 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/advertise" component={Advertise} />
         <Route path="/newsletter" component={Newsletter} />
-        {/* The three legal documents are one component over data in
-            shared/legal, so a fourth is a data change, not a route. */}
+        {/* Legal and compliance documents rendered via Legal component */}
         <Route path="/privacy">{() => <Legal slug="privacy" />}</Route>
         <Route path="/terms">{() => <Legal slug="terms" />}</Route>
         <Route path="/cookies">{() => <Legal slug="cookies" />}</Route>
+        <Route path="/editorial">{() => <Legal slug="editorial" />}</Route>
+        <Route path="/copyright">{() => <Legal slug="copyright" />}</Route>
+        <Route path="/disclaimer">{() => <Legal slug="disclaimer" />}</Route>
         <Route path="/sitemap" component={Sitemap} />
         
         {/* Admin routes - requireAdmin blocks non-admin users */}

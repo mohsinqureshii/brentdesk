@@ -49,9 +49,12 @@ const companyLinks: FooterLink[] = [
   { key: "nav.companies", href: "/companies" },
   { key: "nav.people", href: "/people" },
   { key: "nav.events", href: "/events" },
+  { key: "footer.editorialStandards", href: "/editorial" },
   { key: "footer.termsOfService", href: "/terms" },
   { key: "footer.privacyPolicy", href: "/privacy" },
   { key: "cookies.cookiePolicy", href: "/cookies" },
+  { key: "footer.copyright", href: "/copyright" },
+  { key: "footer.disclaimer", href: "/disclaimer" },
   { key: "footer.sitemap", href: "/sitemap" },
 ];
 

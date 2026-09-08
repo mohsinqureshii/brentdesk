@@ -14,16 +14,22 @@ import { publication } from "../publication";
 import { cookiePolicy } from "./cookies";
 import { privacyPolicy } from "./privacy";
 import { termsOfUse } from "./terms";
+import { editorialPolicy } from "./editorial";
+import { copyrightPolicy } from "./copyright";
+import { legalDisclaimer } from "./disclaimer";
 import type { LegalBlock, LegalDocument, LegalLocale, LegalSection } from "./types";
 
 export * from "./types";
 
-export type LegalSlug = "privacy" | "terms" | "cookies";
+export type LegalSlug = "privacy" | "terms" | "cookies" | "editorial" | "copyright" | "disclaimer";
 
 const DOCUMENTS = {
   privacy: privacyPolicy,
   terms: termsOfUse,
   cookies: cookiePolicy,
+  editorial: editorialPolicy,
+  copyright: copyrightPolicy,
+  disclaimer: legalDisclaimer,
 } as const;
 
 /** Every value a document may refer to. Facts only — nothing here is
@@ -85,5 +91,5 @@ export function getLegalDocument(slug: LegalSlug, locale: string): LegalDocument
   };
 }
 
-/** The three documents, for footers, sitemaps and the legal index. */
-export const LEGAL_SLUGS: LegalSlug[] = ["privacy", "terms", "cookies"];
+/** The legal documents, for footers, sitemaps and the legal index. */
+export const LEGAL_SLUGS: LegalSlug[] = ["privacy", "terms", "cookies", "editorial", "copyright", "disclaimer"];

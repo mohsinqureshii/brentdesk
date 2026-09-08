@@ -29,6 +29,14 @@ import SEO from "@/components/SEO";
 import { AvatarWithFallback } from "@/components/ui/avatar-with-fallback";
 import { ClaimProfileButton } from "@/components/ClaimProfileButton";
 import SpeakingEngagements from "@/components/events/SpeakingEngagements";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default function PersonDetail() {
   const t = useT();
@@ -129,7 +137,38 @@ export default function PersonDetail() {
         image: p.avatar,
         url: `${window.location.origin}/people/${p.slug}`,
       } as any} />
-<Header />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: t("nav.people"), url: `${publication.siteUrl}/people` },
+          { name: p.name, url: `${publication.siteUrl}/people/${p.slug}` },
+        ]}
+      />
+      <Header />
+
+      {/* Visual Breadcrumbs */}
+      <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 pt-4 pb-1">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">{t("nav.home")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/people">{t("nav.people")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{p.name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
 
       {/* Inline Edit Banner for profile owners */}
       <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">

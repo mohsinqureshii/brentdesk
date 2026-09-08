@@ -31,6 +31,15 @@ const SITE = publication.name;
 const router = Router();
 
 // ============================================================
+// 0a. TDM RESERVATION HEADER (EU Directive 2019/790 Art. 4(3))
+// Machine-readable reservation of rights against text/data mining & AI training
+// ============================================================
+router.use((_req: Request, res: Response, next: NextFunction) => {
+  res.set("TDM-Reservation", "1");
+  next();
+});
+
+// ============================================================
 // 0. OPERATOR-MANAGED REDIRECTS (redirects table)
 // A merged or renamed article keeps its old URL alive as a 301. The
 // table existed and the admin could write to it, but nothing consulted

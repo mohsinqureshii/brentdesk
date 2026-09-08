@@ -552,7 +552,8 @@ export class SeoService {
 
   /**
    * Generate Google News sitemap (last 48 hours only)
-   * Per Google News requirements, only include articles from last 48 hours
+   * Per Google News requirements, only include articles from last 48 hours.
+   * Includes both English and Arabic translations for full regional coverage.
    */
   async generateGoogleNewsSitemap(): Promise<string> {
     const db = await getDb();
@@ -563,10 +564,11 @@ export class SeoService {
     cutoffDate.setHours(cutoffDate.getHours() - 48);
 
     const recentArticles = await db.select({
+      id: articles.id,
       slug: articles.slug,
       title: articles.title,
       publishedAt: articles.publishedAt,
-        eventDate: articles.eventDate,
+      eventDate: articles.eventDate,
       primaryCategoryId: articles.primaryCategoryId
     }).from(articles)
       .where(isNotNull(articles.publishedAt))
@@ -587,14 +589,48 @@ export class SeoService {
     
     const categoryMap = new Map(allCategories.map(c => [c.id, c.slug]));
 
-    const newsItems = filteredArticles.map(a => {
+    const newsItems: Array<{
+      loc: string;
+      title: string;
+      publicationDate: string;
+      language?: string;
+      publicationName?: string;
+    }> = [];
+
+    // English news items
+    for (const a of filteredArticles) {
       const categorySlug = a.primaryCategoryId ? categoryMap.get(a.primaryCategoryId) || 'news' : 'news';
-      return {
+      newsItems.push({
         loc: `${this.baseUrl}/${categorySlug}/${a.slug}`,
         title: a.title,
-        publicationDate: toISOStr(a.publishedAt as unknown as string)
-      };
-    });
+        publicationDate: toISOStr(a.publishedAt as unknown as string),
+        language: "en",
+        publicationName: publication.name,
+      });
+    }
+
+    // Arabic news items (if active and translations exist)
+    try {
+      const activeLocales = await listLocales({ activeOnly: true });
+      const hasArabic = activeLocales.some(l => l.code === "ar");
+      if (hasArabic && filteredArticles.length > 0) {
+        const { localizeArticles } = await import("./translation.service");
+        const arabicArticles = await localizeArticles({ code: "ar", isDefault: false }, filteredArticles);
+        const arWordmark = publication.wordmarksByLocale?.ar || publication.name;
+        for (const a of arabicArticles) {
+          const categorySlug = a.primaryCategoryId ? categoryMap.get(a.primaryCategoryId) || 'news' : 'news';
+          newsItems.push({
+            loc: `${this.baseUrl}/ar/${categorySlug}/${a.slug}`,
+            title: a.title,
+            publicationDate: toISOStr(a.publishedAt as unknown as string),
+            language: "ar",
+            publicationName: arWordmark,
+          });
+        }
+      }
+    } catch {
+      // If translations cannot be loaded, continue with English items
+    }
 
     return this.buildGoogleNewsSitemapXml(newsItems);
   }
@@ -602,14 +638,20 @@ export class SeoService {
   /**
    * Build Google News sitemap XML format
    */
-  private buildGoogleNewsSitemapXml(items: Array<{ loc: string; title: string; publicationDate: string }>): string {
+  private buildGoogleNewsSitemapXml(items: Array<{
+    loc: string;
+    title: string;
+    publicationDate: string;
+    language?: string;
+    publicationName?: string;
+  }>): string {
     const urlEntries = items.map(item => `
   <url>
     <loc>${this.escapeXml(item.loc)}</loc>
     <news:news>
       <news:publication>
-        <news:name>${publication.name}</news:name>
-        <news:language>en</news:language>
+        <news:name>${this.escapeXml(item.publicationName || publication.name)}</news:name>
+        <news:language>${item.language || "en"}</news:language>
       </news:publication>
       <news:publication_date>${item.publicationDate}</news:publication_date>
       <news:title><![CDATA[${item.title}]]></news:title>
@@ -1389,6 +1431,44 @@ Disallow: /signin
 Disallow: /signup
 Disallow: /profile
 Crawl-delay: 0
+
+# ------------------------------------------------------------
+# Text and Data Mining (TDM) Reservation — Directive (EU) 2019/790 Art. 4(3)
+# Rights reserved against text and data mining, machine learning training,
+# fine-tuning, grounding, and evaluation of generative AI systems.
+# ------------------------------------------------------------
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Cohere-ai
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
 `;
   }
 

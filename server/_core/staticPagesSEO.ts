@@ -114,6 +114,18 @@ export const staticPagesSEO: Record<string, StaticPageSEO> = {
     title: `Cookie Policy | ${NAME}`,
     description: `Every cookie ${NAME} sets, by name, purpose and lifetime — and how to change what you allow.`,
   },
+  "/editorial": {
+    title: `Editorial Standards & Corrections Policy | ${NAME}`,
+    description: `The journalistic principles, verification rules, AI disclosure, and formal corrections policy governing ${NAME}.`,
+  },
+  "/copyright": {
+    title: `Copyright, Licensing & Syndication | ${NAME}`,
+    description: `Intellectual property ownership, citation rules, commercial syndication, and copyright infringement notice for ${NAME}.`,
+  },
+  "/disclaimer": {
+    title: `Market Data & Legal Disclaimer | ${NAME}`,
+    description: `Legal disclaimers regarding industrial market data, procurement estimations, forward-looking project timelines, and absence of financial advice.`,
+  },
 
   // ============================================================
   // PARENT CATEGORY PAGES (industrial taxonomy)

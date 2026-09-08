@@ -54,8 +54,8 @@ function generateArticleMetaTags(article: any, category: any, author: any, media
       .replace(/'/g, '&#039;');
   };
 
-  const title = escapeHtml(article.title);
-  const description = escapeHtml(article.excerpt || article.title);
+  const title = escapeHtml(article.seoTitle || article.title);
+  const description = escapeHtml(article.seoDescription || article.excerpt || article.title);
   const authorName = escapeHtml(author?.name || publication.name);
 
   return `

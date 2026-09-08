@@ -11,6 +11,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
@@ -230,11 +238,42 @@ export default function CompanyProfile() {
           // numberOfEmployees not supported in schema
         }}
       />
+      <JsonLd
+        type="BreadcrumbList"
+        data={[
+          { name: t("nav.home"), url: publication.siteUrl },
+          { name: t("nav.companies"), url: `${publication.siteUrl}/companies` },
+          { name: company.name, url: `${publication.siteUrl}/companies/${company.slug}` },
+        ]}
+      />
       <Header />
 
+      {/* Visual Breadcrumbs */}
+      <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 pt-4 pb-1">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">{t("nav.home")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/companies">{t("nav.companies")}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{company.name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
       {/* Inline Edit Banner for profile owners */}
-      <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 mt-3">
-              </div>
+      <div className="w-full max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8 mt-1">
+      </div>
 
       {/* ═══════════════════════════════════════════════════════════════
           MODULE 1: HEADER PROFILE — Identity Layer (White Background)
