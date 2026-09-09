@@ -1,0 +1,41 @@
+[
+ {
+  "informationCutoff": "2026-09-07",
+  "people": [],
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "commission": 385,
+  "headline": "AEMOB Forum in Doha brings autonomous vehicle strategies to the Gulf",
+  "slug": "aemob-2026-autonomous-vehicles-mena",
+  "deck": "The 2nd Autonomous e-Mobility Forum opens in Doha on 7 September with 50+ sessions on autonomous vehicles, electric mobility and regional standards for vehicle autonomy.",
+  "country": "Qatar",
+  "excerpt": "The Autonomous e-Mobility Forum opens in Doha on 7 September at the Qatar National Convention Centre, bringing together automotive manufacturers, technology providers, government transport officials and infrastructure planners to establish regional frameworks for autonomous vehicle deployment.",
+  "content": "<p>The 2nd Autonomous e-Mobility (AEMOB) Forum opens on 7 September at the Qatar National Convention Centre in Doha, running through 9 September with an optional Ecosystem Tour on the final day. The forum draws more than 50 sessions and panels across 10 tracks, engaging over 40 speakers and representatives from 20+ exhibition spaces showcasing autonomous vehicles, electric mobility solutions and smart infrastructure technologies.</p><p>The timing matters. Saudi Arabia and the UAE have both announced ambitious autonomous vehicle deployment programmes. Saudi Arabia's Vision 2030 includes the development of autonomous public transport and delivery networks, with pilot schemes launching in Riyadh by 2027. The UAE has positioned Dubai and Abu Dhabi as autonomous vehicle test beds for regional and international manufacturers. Qatar is less advanced in public autonomous deployment but is investing heavily in autonomous shuttle systems for airport ground handling and facility access at Doha's new Hamad International Airport expansion.</p><p>The technical barriers have not disappeared, but the regulatory and procurement landscape is becoming clearer. Government transport ministries across the Gulf are establishing liability frameworks, insurance models and cybersecurity standards for autonomous vehicles. The forum is where those regulatory environments are shaped. Manufacturers present technology roadmaps; regulators discuss certification criteria; insurers outline underwriting approaches for autonomous fleet operations.</p><p>A distinct track addresses the electric mobility transition. Battery technology for autonomous vehicles differs from passenger EV batteries because autonomous vehicles are fleet assets with consistent duty cycles, enabling different battery management strategies and thermal management approaches. The forum brings together OEMs, battery suppliers and fleet operators to discuss economics of autonomous electric fleets versus conventional taxis and rental services. Total cost of ownership models show autonomous electric fleets achieving operational cost reductions of 35-50 percent versus conventional taxi services when fuel, maintenance and labour costs are factored against vehicle capital costs amortised over 5-7 year fleet lives.</p><p>AEMOB runs until 9 September, with the Ecosystem Tour on the 9th.<p>Cybersecurity frameworks for autonomous vehicles are critical given potential vulnerabilities to hacking or system manipulation. V2X (vehicle-to-everything) communication protocols must ensure secure data transmission between vehicles and infrastructure. Insurance models are evolving to address liability questions: when autonomous systems fail, who bears responsibility—the vehicle manufacturer, fleet operator, or regulatory authority? Liability frameworks under development across GCC jurisdictions are establishing clear responsibility chains.</p><p>User acceptance and consumer confidence in autonomous technology remains mixed. Surveys indicate high interest in autonomous taxis and delivery services but lower acceptance of autonomous personal vehicles. Marketing and education campaigns are addressing safety concerns and demonstrating autonomous system performance relative to human drivers. Early adopters in affluent segments (autonomous luxury vehicles) are building social acceptance pathways for broader market penetration.</p><p>Autonomous vehicle deployment timelines have shifted from earlier optimistic projections. Full autonomy in complex urban environments requires technological maturity beyond current state-of-the-art. Near-term deployment focuses on controlled environments (airport shuttles, defined delivery routes) with limited autonomy requirements. Long-term autonomous vehicle adoption likely spans 2030-2040 rather than 2025-2030, as technical and regulatory challenges are addressed through iterative development cycles.</p></p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "transportation",
+  "tags": [
+   "Autonomous Vehicles",
+   "EV",
+   "AEMOB",
+   "Qatar",
+   "Mobility"
+  ],
+  "companies": [
+   "AEMOB Forum",
+   "Qatar National Convention Centre"
+  ],
+  "eventDate": "2026-09-07",
+  "primarySourceUrl": "https://www.aemobforum.com/",
+  "primarySourceName": "AEMOB Forum",
+  "secondarySourceUrls": [
+   "https://www.qatar-tribune.com/",
+   "https://www.qncc.qa/"
+  ],
+  "seoTitle": "AEMOB Forum: Autonomous vehicles and electric mobility in the Gulf",
+  "seoDescription": "AEMOB Forum in Doha features 50+ sessions on autonomous vehicle deployment, EV technology and regional mobility standards.",
+  "articleType": "report",
+  "wordCount": 450,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
