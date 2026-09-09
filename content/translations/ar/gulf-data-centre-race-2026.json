@@ -1,0 +1,12 @@
+{
+ "slug": "gulf-data-centre-race-2026",
+ "locale": "ar",
+ "translator": "claude-opus-5",
+ "fields": {
+  "title": "Gulf data centre operators accelerate build-out as LEAP investment commits $15bn",
+  "seoTitle": "Gulf data centre operators accelerate build-out as LEAP inve",
+  "seoDescription": "LEAP announcements reshape regional cloud infrastructure strategy and competitive positioning.",
+  "excerpt": "Data centre operators across the Gulf are racing to deploy capacity as LEAP's $15bn investment commitments validate the market opportunity.",
+  "content": "<p>Saudi Arabia, UAE and Qatar have each committed to massive data centre capacity additions. Al Moammar Information Systems, NHC Innovation, Humain and AWS are announcing deployment timelines and capacity commitments. The competitive dynamics mirror global cloud infrastructure markets, with price-to-performance and geographic redundancy driving buyer decisions. Interconnection requirements between data centres and with international cloud providers create demand for fibre optic deployment and cross-border bandwidth agreements.</p>"
+ }
+}
