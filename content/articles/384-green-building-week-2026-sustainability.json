@@ -1,0 +1,42 @@
+[
+ {
+  "informationCutoff": "2026-09-08",
+  "people": [],
+  "researchConfidence": "A",
+  "imageReviewRequired": true,
+  "commission": 384,
+  "headline": "Green Building Week focuses on sustainable construction and net-zero design across Gulf region",
+  "slug": "green-building-week-2026-sustainability",
+  "deck": "The 7th Green Building Week at Dubai World Trade Centre brings together 350+ exhibitors showcasing sustainable materials, renewable energy systems and net-zero design methodologies.",
+  "country": "United Arab Emirates",
+  "excerpt": "Green Building Week opens on 8 September, attracting architects, engineers, developers and building material suppliers to exchange best practices on energy-efficient HVAC systems, advanced insulation materials and renewable energy integration for Gulf climate conditions.",
+  "content": "<p>Green Building Week opens on 8 September at Dubai World Trade Centre, running through 10 September with 350+ exhibitors and 25,000+ visitors including architects, engineers, developers, facilities managers and building material suppliers from MENA region and internationally. The event showcases sustainable construction materials, renewable energy systems, water conservation technologies and smart building management systems designed for harsh desert climate conditions and Gulf energy markets.</p><p>Sustainable building envelope systems receive prominent attention. High-performance insulation materials, low-emissivity glazing, and passive cooling technologies reduce energy consumption in buildings by 40-60 percent compared to conventional construction. Key exhibitors include manufacturers of vacuum insulated panels, aerogel coatings and phase-change materials. Developers are adopting these technologies to meet Dubai Municipality's requirement that all new buildings achieve a LEED Gold equivalent rating or higher by 2025, now extended through 2027 with stricter energy density targets.</p><p>Renewable energy integration in buildings showcases rooftop solar photovoltaic systems, building-integrated photovoltaics and micro-grid systems for distributed energy generation. Battery storage solutions for buildings receive dedicated sessions addressing lithium-ion technology, flow batteries and emerging solid-state batteries for 4-8 hour duration storage. District cooling systems serving multiple buildings are presented by vendors including Emaar Energy, DEWA and Etihad Energy Services, reducing district cooling costs by 15-25 percent versus building-level systems.</p><p>Water conservation technologies focus on greywater recycling for landscape irrigation, low-flow fixtures, and reverse osmosis systems for occupant use. Desalination waste heat recovery systems, where reverse osmosis reject brine is processed to extract residual thermal energy, achieve 20-30 percent efficiency improvements for chilled water systems in large facilities. Landscape design tracks address native plant selection, drip irrigation methodologies and zero-runoff hardscape design for regions receiving 5-10mm annual rainfall.</p><p>Smart building management systems use IoT sensors, building energy management systems and occupancy-based controls to optimize HVAC operation, lighting and plug loads. Integration with utility demand response programmes allows buildings to adjust consumption during peak rate periods or grid stress events. The week runs until 10 September.<p>Building certification standards including LEED, BREEAM and Estidama are driving construction standards and creating measurable sustainability benchmarks. Developers pursuing premium certifications report improved tenant retention, higher lease rates and enhanced corporate reputation. However, certification costs and timeline extensions create trade-offs between sustainability ambitions and project economics, particularly for mid-market developers with lower risk tolerance.</p><p>Occupant health and wellness features are receiving increased attention as companies recognise links between indoor air quality, natural light, thermal comfort and worker productivity. Biophilic design incorporating natural elements and plant-filled spaces is emerging as differentiator in premium office and commercial real estate. Post-pandemic, improved ventilation systems and air quality monitoring are becoming standard features demanded by tenants.</p><p>Embodied carbon in building materials—the carbon footprint of manufacturing, transport and installation before occupancy—is emerging as focus area. Low-carbon concrete, sustainably harvested timber and recycled materials reduce embodied carbon. Circular building design principles enable future disassembly and material recovery at end-of-life, extending material lifecycles and reducing waste.</p></p>",
+  "author": "BrentDesk Research",
+  "primaryCategory": "construction",
+  "tags": [
+   "Sustainability",
+   "Green Building",
+   "Net-Zero",
+   "Renewable Energy",
+   "Dubai"
+  ],
+  "companies": [
+   "Green Building Week",
+   "Dubai World Trade Centre",
+   "Dubai Municipality"
+  ],
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.greenbuildingweekdubai.com/",
+  "primarySourceName": "Green Building Week Dubai",
+  "secondarySourceUrls": [
+   "https://www.dwtc.com/",
+   "https://www.dm.gov.ae/"
+  ],
+  "seoTitle": "Green Building Week: Sustainable construction and design",
+  "seoDescription": "Green Building Week in Dubai showcases energy-efficient systems, renewable energy and sustainable materials for Gulf climate conditions.",
+  "articleType": "report",
+  "wordCount": 450,
+  "replacementOf": null,
+  "replacementReason": null
+ }
+]
