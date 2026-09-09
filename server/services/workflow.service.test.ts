@@ -19,7 +19,7 @@ describe("WorkflowService", () => {
 
   describe("DEFAULT_EDITORIAL_STATUSES", () => {
     it("should have correct number of statuses", () => {
-      expect(DEFAULT_EDITORIAL_STATUSES.length).toBe(10);
+      expect(DEFAULT_EDITORIAL_STATUSES.length).toBe(11);
     });
 
     it("should have draft as initial status", () => {
@@ -35,6 +35,14 @@ describe("WorkflowService", () => {
       // tinyint semantics: the service stores 1/0 rather than true/false.
       expect(publishedStatus?.isFinal).toBe(1);
       expect(publishedStatus?.isPublished).toBe(1);
+    });
+
+    it("should have a trash status for the admin delete flow", () => {
+      // The admin "Move to Trash" button sends statusSlug "trash"; without this
+      // row every delete path throws "Status not found".
+      const trashStatus = DEFAULT_EDITORIAL_STATUSES.find(s => s.slug === "trash");
+      expect(trashStatus).toBeDefined();
+      expect(trashStatus?.isPublished).toBeFalsy();
     });
 
     it("should have correct sort order", () => {

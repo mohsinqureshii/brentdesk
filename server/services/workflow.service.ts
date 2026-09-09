@@ -70,7 +70,8 @@ export const DEFAULT_EDITORIAL_STATUSES: WorkflowStatusInput[] = [
   { name: "Published", slug: "published", color: "#22C55E", sortOrder: 7, workflowType: "editorial", isFinal: 1, isPublished: 1 },
   { name: "Needs Changes", slug: "needs_changes", color: "#EF4444", sortOrder: 8, workflowType: "editorial" },
   { name: "Rejected", slug: "rejected", color: "#DC2626", sortOrder: 9, workflowType: "editorial", isFinal: 1 },
-  { name: "Archived", slug: "archived", color: "#9CA3AF", sortOrder: 10, workflowType: "editorial", isFinal: 1 }
+  { name: "Archived", slug: "archived", color: "#9CA3AF", sortOrder: 10, workflowType: "editorial", isFinal: 1 },
+  { name: "Trash", slug: "trash", color: "#78716C", sortOrder: 11, workflowType: "editorial", isFinal: 1 }
 ];
 
 export const DEFAULT_MODERATION_STATUSES: WorkflowStatusInput[] = [
@@ -92,19 +93,20 @@ export class WorkflowService {
     const db = await getDb();
     if (!db) throw new Error("Database not available");
 
-    // Check if already initialized
-    const existing = await db.select().from(workflowStatuses).limit(1);
+    const existing = await db.select().from(workflowStatuses);
+    const existingKeys = new Set(existing.map(s => `${s.workflowType}:${s.slug}`));
+
+    // Insert any status the database is missing. Statuses added to the defaults
+    // after a deployment has already seeded (e.g. "trash") land on the next boot.
+    const missing = [...DEFAULT_EDITORIAL_STATUSES, ...DEFAULT_MODERATION_STATUSES]
+      .filter(s => !existingKeys.has(`${s.workflowType}:${s.slug}`));
+
+    for (const status of missing) {
+      await db.insert(workflowStatuses).values({ ...status, isInitial: status.isInitial ? 1 : 0, isFinal: status.isFinal ? 1 : 0, isPublished: status.isPublished ? 1 : 0 } as any);
+    }
+
+    // Transitions are seeded once; re-inserting them would duplicate every row.
     if (existing.length > 0) return;
-
-    // Insert editorial statuses
-    for (const status of DEFAULT_EDITORIAL_STATUSES) {
-      await db.insert(workflowStatuses).values({ ...status, isInitial: status.isInitial ? 1 : 0, isFinal: status.isFinal ? 1 : 0, isPublished: status.isPublished ? 1 : 0 } as any);
-    }
-
-    // Insert moderation statuses
-    for (const status of DEFAULT_MODERATION_STATUSES) {
-      await db.insert(workflowStatuses).values({ ...status, isInitial: status.isInitial ? 1 : 0, isFinal: status.isFinal ? 1 : 0, isPublished: status.isPublished ? 1 : 0 } as any);
-    }
 
     // Get inserted statuses for transitions
     const allStatuses = await db.select().from(workflowStatuses);
