@@ -90,7 +90,7 @@ const Contact = () => {
       icon: ShieldCheck,
       title: t("contact.newsTips"),
       description: t("contact.newsTipsBody"),
-      email: publication.emails.media,
+      email: publication.emails.tips,
       note: t("contact.newsTipsNote"),
       badge: "Encrypted & Confidential",
       borderTop: "border-t-rose-600",
@@ -125,7 +125,7 @@ const Contact = () => {
       icon: Calendar,
       title: t("contact.eventsListings"),
       description: t("contact.eventsListingsBody"),
-      email: publication.emails.hello,
+      email: publication.emails.events,
       linkHref: "/events",
       linkText: t("nav.events"),
       badge: "Events & Summits",
@@ -137,7 +137,7 @@ const Contact = () => {
       icon: Scale,
       title: t("contact.corrections"),
       description: t("contact.correctionsBody"),
-      email: publication.emails.hello,
+      email: publication.emails.feedback,
       linkHref: "/editorial",
       linkText: t("footer.editorialStandards"),
       badge: "Within 24h Review",
@@ -461,7 +461,7 @@ const Contact = () => {
                 </p>
                 <div className="text-xs text-muted-foreground border-t border-border pt-3 space-y-2">
                   <p><span className="font-semibold text-foreground">Regional Bureaus:</span> Riyadh, Dubai, Abu Dhabi, Doha</p>
-                  <p><span className="font-semibold text-foreground">General Enquiries:</span> <a href={`mailto:${publication.emails.hello}`} className="text-primary hover:underline">{publication.emails.hello}</a></p>
+                  <p><span className="font-semibold text-foreground">General Enquiries:</span> <a href={`mailto:${publication.emails.connect}`} className="text-primary hover:underline">{publication.emails.connect}</a></p>
                 </div>
               </div>
 

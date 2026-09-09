@@ -26,6 +26,7 @@ import crypto from "node:crypto";
 
 const ADMIN_NOTIFY_EMAIL = process.env.ADMIN_NOTIFY_EMAIL || publication.emails.hello;
 const MEDIA_NOTIFY_EMAIL = process.env.MEDIA_NOTIFY_EMAIL || publication.emails.media;
+const CONTACT_NOTIFY_EMAIL = process.env.CONTACT_NOTIFY_EMAIL || publication.emails.connect;
 
 function hashIp(ip: string): string {
   return crypto.createHash("sha256").update(ip).digest("hex").slice(0, 16);
@@ -54,6 +55,7 @@ function notifyAdminAsync(opts: {
     subject: tpl.subject,
     html: tpl.html,
     text: tpl.text,
+    replyTo: opts.fromEmail,
     type: `admin_${opts.formType}_notification`,
     entityType: "form_submission",
     entityId: opts.submissionId,
@@ -155,7 +157,7 @@ export const submissionsRouter = router({
       const submissionId = (inserted as any)[0]?.insertId;
 
       notifyAdminAsync({
-        to: ADMIN_NOTIFY_EMAIL,
+        to: CONTACT_NOTIFY_EMAIL,
         formType: "contact",
         fromName: fullName,
         fromEmail: input.email,

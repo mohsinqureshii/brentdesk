@@ -30,7 +30,7 @@ const defaultSettings: SiteSettings = {
   google_analytics_id: "",
   site_logo: "",
   site_favicon: "",
-  contact_email: publication.emails.hello,
+  contact_email: publication.emails.connect,
   timezone: publication.timezone,
 };
 

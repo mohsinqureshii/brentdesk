@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { submissionsRouter } from "./submissions.router";
 import { getDb } from "../../db";
+import { emailService } from "../../services/email.service";
 
 vi.mock("../../db");
 vi.mock("../../services/email.service", () => ({
@@ -180,6 +181,46 @@ describe("Submissions Router", () => {
       });
 
       expect(result).toEqual({ success: true, submissionId: 2 });
+    });
+  });
+
+  describe("contact", () => {
+    it("should route contact form submissions to connect@brentdesk.com", async () => {
+      const mockDb = {
+        insert: vi.fn().mockReturnValue({
+          values: vi.fn().mockResolvedValue([{ insertId: 42 }]),
+        }),
+      };
+
+      vi.mocked(getDb).mockResolvedValue(mockDb as any);
+
+      const caller = submissionsRouter.createCaller({
+        req: {
+          headers: {
+            "x-forwarded-for": "192.168.1.1",
+            "user-agent": "Test Agent",
+          },
+          socket: { remoteAddress: "192.168.1.1" },
+        },
+        user: null,
+      } as any);
+
+      const result = await caller.contact({
+        firstName: "Sarah",
+        lastName: "Al-Mansoor",
+        email: "sarah@example.com",
+        company: "Riyadh Infra Corp",
+        enquiryType: "News Tips",
+        message: "We have an upcoming giga-project announcement in Riyadh.",
+      });
+
+      expect(result).toEqual({ success: true, submissionId: 42 });
+      expect(emailService.sendEmail).toHaveBeenCalledWith(
+        expect.objectContaining({
+          to: "connect@brentdesk.com",
+          replyTo: "sarah@example.com",
+        })
+      );
     });
   });
 });

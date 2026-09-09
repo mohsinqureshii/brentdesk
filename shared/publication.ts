@@ -69,6 +69,10 @@ export const publication = {
 
   emails: {
     hello: "hello@brentdesk.com",
+    connect: "connect@brentdesk.com",
+    tips: "tips@brentdesk.com",
+    events: "events@brentdesk.com",
+    feedback: "feedback@brentdesk.com",
     newsletter: "newsletter@brentdesk.com",
     media: "media@brentdesk.com",
     advertising: "advertise@brentdesk.com",
