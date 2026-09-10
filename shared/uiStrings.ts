@@ -155,6 +155,7 @@ export const UI_STRINGS = {
   "cat.industrial-technology": "Industrial Technology",
   "cat.mining": "Mining",
   "cat.utilities": "Utilities",
+  "cat.hospitality": "Hospitality",
 
   // -------------------------------------------------------- footer links
   "footer.categories": "Categories",

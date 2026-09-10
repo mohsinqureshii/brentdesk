@@ -175,7 +175,11 @@ manufacturing, mining, real-estate, transportation, utilities, engineering, epc,
 roads, telecom-infrastructure, water, oil-gas, power, renewables, chemicals,
 heavy-equipment, machinery, ports, supply-chain, warehousing,
 facilities-management, aviation, rail, metals, automation, data-centers,
-industrial-ai, robotics
+industrial-ai, robotics, hospitality, hotels, restaurants
+
+Hospitality is covered as physical economy: hotel and restaurant development
+pipelines, fit-out and contract furniture, operating equipment, kitchen plant
+and the supply chains behind them. Not menus, chef appointments or reviews.
 
 `country` must be a real country name ("Saudi Arabia", "United Arab Emirates",
 "Qatar", "Oman", "Kuwait", "Bahrain", "China", "India", "United States") or

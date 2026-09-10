@@ -33,6 +33,7 @@ const editorialLinks: FooterLink[] = [
   { key: "cat.manufacturing", href: "/manufacturing" },
   { key: "cat.logistics", href: "/logistics" },
   { key: "cat.real-estate", href: "/real-estate" },
+  { key: "cat.hospitality", href: "/hospitality" },
   { key: "cat.transportation", href: "/transportation" },
   { key: "cat.industrial-technology", href: "/industrial-technology" },
 ];

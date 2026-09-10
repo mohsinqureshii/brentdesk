@@ -50,6 +50,7 @@ const mobileNavSections: { key: UiKey; items: { key: UiKey; href: string; hasArr
       { key: "cat.manufacturing", href: "/manufacturing" },
       { key: "cat.logistics", href: "/logistics" },
       { key: "cat.real-estate", href: "/real-estate" },
+      { key: "cat.hospitality", href: "/hospitality" },
       { key: "cat.industrial-technology", href: "/industrial-technology" },
     ],
   },

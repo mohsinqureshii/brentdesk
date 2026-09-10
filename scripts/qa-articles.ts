@@ -25,7 +25,7 @@ const CATEGORIES = new Set([
   "epc", "roads", "telecom-infrastructure", "water", "oil-gas", "power", "renewables",
   "chemicals", "heavy-equipment", "machinery", "ports", "supply-chain", "warehousing",
   "facilities-management", "aviation", "rail", "metals", "automation", "data-centers",
-  "industrial-ai", "robotics",
+  "industrial-ai", "robotics", "hospitality", "hotels", "restaurants",
 ]);
 
 /** Structural tells of AI/PR/SEO prose the brief bans outright. */

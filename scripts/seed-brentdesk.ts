@@ -214,6 +214,14 @@ const NEWS_CATEGORIES: Array<{ name: string; slug: string; description: string; 
       { name: "Industrial AI", slug: "industrial-ai" },
     ],
   },
+  {
+    name: "Hospitality", slug: "hospitality",
+    description: "Hotel and restaurant development — pipelines, fit-out, operating equipment and the supply chains behind them.",
+    children: [
+      { name: "Hotels", slug: "hotels" },
+      { name: "Restaurants", slug: "restaurants" },
+    ],
+  },
 ];
 
 const JOBS_CATEGORIES = [

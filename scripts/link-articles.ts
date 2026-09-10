@@ -46,6 +46,7 @@ const PARENT: Record<string, string> = {
   chemicals: "manufacturing", "heavy-equipment": "manufacturing", machinery: "manufacturing",
   metals: "mining", "facilities-management": "real-estate",
   aviation: "transportation", rail: "transportation",
+  hotels: "hospitality", restaurants: "hospitality",
 };
 
 /**
@@ -57,6 +58,10 @@ const PARENT: Record<string, string> = {
  * hides it from four category pages a reader would have found it on.
  */
 const TAG_CATEGORY: Array<[RegExp, string]> = [
+  // Ahead of the generic construction and manufacturing rules: a hotel fit-out
+  // story reads as "contract furniture" to those and files under the wrong beat.
+  [/\b(hotel|hospitality|resort|room key|keys pipeline|guest room|hotel operator|fit-out)\b/i, "hotels"],
+  [/\b(restaurant|food service|foodservice|catering|commercial kitchen|barista|speciality coffee|specialty coffee)\b/i, "restaurants"],
   [/\b(refinery|refining|petrochemical|downstream|upstream|lng|crude|barrels|oilfield|gas plant)\b/i, "oil-gas"],
   [/\b(solar|wind|renewable|hydrogen|photovoltaic|pv plant)\b/i, "renewables"],
   [/\b(grid|transmission|substation|power plant|generation|megawatt|gigawatt|battery storage|ppa|electricity)\b/i, "power"],
@@ -96,7 +101,7 @@ const VALID = new Set([
   "epc", "roads", "telecom-infrastructure", "water", "oil-gas", "power", "renewables",
   "chemicals", "heavy-equipment", "machinery", "ports", "supply-chain", "warehousing",
   "facilities-management", "aviation", "rail", "metals", "automation", "data-centers",
-  "industrial-ai", "robotics",
+  "industrial-ai", "robotics", "hospitality", "hotels", "restaurants",
 ]);
 
 interface Article {
