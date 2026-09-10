@@ -675,6 +675,9 @@ export const newsRouter = router({
           isFlash: articles.isFlash,
           viewCount: articles.viewCount,
           publishedAt: articles.publishedAt,
+          // A scheduled row has no publication date yet — its date lives here,
+          // and the list has no way to show when it is due without it.
+          scheduledAt: articles.scheduledAt,
         eventDate: articles.eventDate,
           primaryCategoryId: articles.primaryCategoryId,
           createdAt: articles.createdAt,

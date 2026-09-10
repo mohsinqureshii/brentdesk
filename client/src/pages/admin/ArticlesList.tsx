@@ -838,10 +838,21 @@ export default function ArticlesList() {
                       </TableCell>
                       <TableCell className="text-[#697386] text-sm whitespace-nowrap">
                         {article.status === "scheduled" ? (
-                          <div className="flex items-center gap-1 text-orange-600">
-                            <Clock className="h-3 w-3" />
-                            <span>{formatDate(article.publishedAt)}</span>
-                          </div>
+                          // A scheduled article has no publishedAt yet, so show
+                          // the date it is due. A scheduled row with no date is
+                          // stuck — the release sweep only picks up dated rows —
+                          // so say that rather than showing an empty dash.
+                          article.scheduledAt ? (
+                            <div className="flex items-center gap-1 text-orange-600">
+                              <Clock className="h-3 w-3" />
+                              <span>{formatDate(article.scheduledAt)}</span>
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-1 text-red-600" title="Scheduled but no date set — this article will not publish until one is">
+                              <Clock className="h-3 w-3" />
+                              <span>No date set</span>
+                            </div>
+                          )
                         ) : (
                           formatDate(article.publishedAt)
                         )}
@@ -984,7 +995,11 @@ export default function ArticlesList() {
                           </Badge>
                         ))}
                         <span className="text-[#9BA3B0]">·</span>
-                        <span>{formatDate(article.publishedAt)}</span>
+                        <span className={article.status === "scheduled" ? "text-orange-600" : undefined}>
+                          {article.status === "scheduled"
+                            ? (article.scheduledAt ? `Due ${formatDate(article.scheduledAt)}` : "No date set")
+                            : formatDate(article.publishedAt)}
+                        </span>
                         {article.authorName && (
                           <>
                             <span className="text-[#9BA3B0]">·</span>
