@@ -1,0 +1,39 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1324,
+  "headline": "Riyadh's fulfilment squeeze is a building problem before it is a software problem",
+  "slug": "riyadh-ecommerce-fulfilment-capacity",
+  "deck": "E-commerce logistics in the Kingdom is projected to double by 2027, into a warehouse stock that was not designed for it.",
+  "country": "Saudi Arabia",
+  "excerpt": "The Saudi e-commerce logistics segment is projected to double by 2027, but the buildings available to absorb that growth were specified for pallet distribution.",
+  "content": "<p>The single figure most quoted at the Saudi Warehousing and Logistics Expo in Riyadh this week was the organiser's projection that the Kingdom's e-commerce logistics segment will double by 2027. Taken alone it reads as a demand forecast. Read against the available building stock, it is a specification problem.</p><p>Fulfilment for online retail imposes requirements that conventional distribution warehousing does not. The pick profile is the fundamental difference: a distribution centre serving retail stores handles a modest number of large orders, mostly full pallets or full cases, on a predictable schedule. A fulfilment centre serving consumers handles a very large number of very small orders, each a handful of items selected from across the whole inventory, against a cut-off that determines whether the customer receives it tomorrow.</p><p>That changes what the building has to be. Fulfilment needs more floor area given over to picking and less to bulk storage; it needs mezzanine capacity to multiply usable area within the same footprint; it needs substantially more dock doors relative to floor area, because outbound goes in many small vehicles rather than a few large ones; it needs power and data provision for automation the original specification never anticipated; and it needs parking and welfare facilities for a headcount several times that of a pallet operation.</p><p>Saudi Arabia's existing warehouse stock was largely not built for any of that. The buildings that exist were specified for ambient pallet distribution with wide aisles, generous clear height and relatively few doors — an efficient design for the job it was designed for and an awkward one to convert. Retrofitting is possible but rarely cheap: adding dock doors means cutting the envelope, adding mezzanine means checking the slab, and adding power means a substation conversation with the utility.</p><p>The result is a market where the constraint is not warehouse space in aggregate but the right kind of space in the right place. Riyadh's industrial space running near full, as this publication has reported, understates the position rather than overstating it, because a proportion of that occupied stock is occupied by tenants who would move if a suitable building existed.</p><p>Location compounds it. Fulfilment economics depend on the last mile, which means the building needs to sit close to the population it serves. Industrial land close to Riyadh's residential density is the scarcest and most expensive category there is, and it competes with uses that can pay more per square metre. That tension — between the cheap land where warehouses are easy to build and the expensive land where fulfilment needs them — is the structural issue behind the capacity question, and it was not resolved by anything shown on the exhibition floor.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "warehousing",
+  "tags": [
+   "Saudi Arabia",
+   "E-commerce",
+   "Fulfilment",
+   "Warehousing",
+   "Riyadh"
+  ],
+  "companies": [
+   "dmg events"
+  ],
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "seoTitle": "Riyadh's fulfilment squeeze is a building problem",
+  "seoDescription": "Saudi e-commerce logistics is projected to double by 2027, into warehouse stock specified for pallet distribution.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 447
+ }
+]

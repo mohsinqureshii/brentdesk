@@ -1,0 +1,49 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "commission": 1331,
+  "headline": "Assa Abloy, Oracle and Huawei on a hotel supplies floor tells you where the margin moved",
+  "slug": "hotel-technology-exhibitors-riyadh-2026",
+  "deck": "The Riyadh exhibitor list is weighted toward locking, systems and networks rather than furniture — the parts of a hotel that now carry recurring revenue.",
+  "country": "Saudi Arabia",
+  "excerpt": "The exhibitor list for Riyadh's hotel supplies show is unusually heavy on access control, property systems and networking vendors, a shift from the furniture and linen the category once meant.",
+  "content": "<p>The published exhibitor list for the Hotel and Hospitality Expo opening in Riyadh on 15 September is worth reading for what it is weighted toward. Alongside the furniture and textile suppliers a hotel supplies show has always carried, the list includes Assa Abloy Global Solutions, Oracle, Huawei, HPE Aruba, Legrand, Thales, Infor, NEC, Nomadix, Orbita, ids next, ProLogic First, Global Card Systems and Future Log.</p><p>That is a roster of access control, property management systems, networking and guest technology vendors, and its prominence marks a real shift in where a hotel's supplier relationships now sit. A bed is bought once. A property management system is licensed continuously, integrated with everything else the hotel runs, and is extremely difficult to change once staff are trained on it and years of guest data sit inside it. The same is true of a locking platform, which ties the physical hardware on every door to the software that issues credentials.</p><p>For the supplier that changes the shape of the business from a sale into an annuity, and it changes what winning a project is worth. It also raises the stakes of specification: a hotel choosing a locking or property system is making a decision it will live with across a refurbishment cycle, and switching costs are high enough that incumbents are rarely displaced except at a change of operator or brand.</p><p>The presence of Legrand and Thales points at the same trend from the infrastructure side — electrical and security systems that a decade ago would have been procured by the contractor as part of the building, and are now specified against operator standards as part of the guest-facing product.</p><p>The furniture and fit-out side of the list remains substantial and is notably international: Depa, Agglotech, Billiani, Frezza and Dieffebi and Kastel from Italy, Sandalyeci, 10DEKA, Towellers, GroupL and the UAE's Carter &amp; White and Artplus. Saudi suppliers on the list include Flexible Closets, IVAL Water, Sleep Nice, Arfad Industrial, Saudico and Integral Hotel Supplies. Abana Enterprises and BITS Arabia appear on the systems side.</p><p>The Ministry of Tourism is the cluster's strategic partner, with Riyadh Chamber of Commerce among the association partners. The Hotel and Hospitality Awards are announced on 17 September, the closing day.</p><p>The exhibitor names here are taken from the organiser's own published list. No advance product launch announcements had been made by any exhibitor, and the organiser's combined figures across the co-located shows — 200-plus exhibitors, 16,500 attendees, 20 countries and more than 100 speakers — are pre-show projections rather than counts.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "hotels",
+  "tags": [
+   "Saudi Arabia",
+   "Hotels",
+   "Hotel Technology",
+   "Access Control",
+   "Riyadh"
+  ],
+  "companies": [
+   "Assa Abloy",
+   "Oracle",
+   "Huawei",
+   "HPE Aruba",
+   "Legrand",
+   "Thales",
+   "Depa",
+   "Infor"
+  ],
+  "eventDate": "2026-09-15",
+  "primarySourceUrl": "https://www.thehotelshowsaudiarabia.com/exhibitor-list",
+  "primarySourceName": "Hotel & Hospitality Expo Saudi Arabia",
+  "secondarySourceUrls": [
+   "https://www.thehotelshowsaudiarabia.com/"
+  ],
+  "seoTitle": "Assa Abloy and Oracle on Riyadh's hotel supplies floor",
+  "seoDescription": "Riyadh's hotel exhibitor list is weighted toward locking, property systems and networking rather than furniture.",
+  "articleType": "report",
+  "researchConfidence": "A",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-15T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-15",
+  "wordCount": 423
+ }
+]

@@ -1,0 +1,37 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1320,
+  "headline": "Tanks and terminals got their own hall at STATIC Arabia, and the reason is regulatory",
+  "slug": "tank-terminal-integrity-gulf-storage",
+  "deck": "Above-ground storage is inspected on a different legal footing to process plant, which is why it separates out into its own discipline and its own exhibition.",
+  "country": "Saudi Arabia",
+  "excerpt": "Tanks, terminals and pipelines ran as a distinct exhibition within STATIC Arabia, reflecting a category inspected under different rules and on longer cycles than process plant.",
+  "content": "<p>One of the three co-located exhibitions at STATIC Arabia in Al Khobar this week was given over entirely to tanks, terminals and pipelines. Separating storage from process plant is a sensible piece of show design, because the two are inspected under different regimes, on different cycles, and by people with different qualifications.</p><p>Above-ground storage tanks are, structurally, simple objects: a floor, a shell, a roof. That simplicity is deceptive. The floor is the component that fails, it sits in contact with the ground where it cannot be seen, and inspecting it properly requires the tank to be emptied, cleaned, gas-freed and entered — an operation measured in weeks, during which the tank earns nothing and the capacity it held has to be found elsewhere.</p><p>The commercial consequence is that tank inspection intervals are long, and the decision to open a tank is taken reluctantly and late. Operators therefore lean heavily on techniques that defer entry: acoustic emission monitoring to indicate whether a floor is actively leaking, robotic in-service inspection where the product permits it, and cathodic protection surveys that infer the condition of the underside from electrical measurements rather than from direct examination.</p><p>Terminals add a dimension that process plant does not have, which is custody transfer. A terminal is a point where product changes ownership, and the measurement at that point carries direct financial consequence. Metering accuracy, proving procedures and the integrity of the loading systems are therefore inspected against commercial and legal standards, not just engineering ones. A tank that leaks is a safety and environmental problem; a meter that reads wrong is a commercial dispute with every counterparty since the last proving.</p><p>Pipelines carry the third regime again. They are long, buried, and cross land the operator frequently does not own, which makes their integrity management as much a right-of-way and surveillance problem as a metallurgical one. In-line inspection tools — pigs carrying magnetic flux or ultrasonic sensors — do the primary work, and the interpretation of what they return is a specialist trade in itself.</p><p>The Gulf's exposure across all three is growing rather than shrinking. Saudi Arabia's refining and petrochemical expansion adds tankage; the terminal capacity supporting export growth adds custody transfer points; and the gas expansion this publication has reported at Tanajib, Marjan and elsewhere adds pipeline mileage. Each of those is a permanent inspection obligation attached to a capital asset, and the obligation begins the day the asset is commissioned.</p><p>The material here is drawn from the exhibition's published structure and sponsor information. No reporting of the sessions themselves was available; the show generated no independent coverage in English or Arabic during its run, and any figures attached to it in circulation are organiser projections rather than counts.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "oil-gas",
+  "tags": [
+   "Tanks",
+   "Terminals",
+   "Pipelines",
+   "Asset Integrity",
+   "Gulf"
+  ],
+  "companies": [
+   "Aldrich International"
+  ],
+  "eventDate": "2026-09-10",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "secondarySourceUrls": [],
+  "seoTitle": "Tank and terminal integrity is its own discipline",
+  "seoDescription": "Tanks, terminals and pipelines ran as a separate exhibition at STATIC Arabia, reflecting three distinct inspection regimes.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 455
+ }
+]

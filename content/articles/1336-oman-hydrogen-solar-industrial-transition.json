@@ -1,0 +1,48 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "commission": 1336,
+  "headline": "Oman has $49bn of hydrogen commitments and a polysilicon plant. Now it needs the offtake.",
+  "slug": "oman-hydrogen-solar-industrial-transition",
+  "deck": "Eight awarded hydrogen projects across Duqm and Dhofar, a third auction round closed, and a $1.6bn Sohar plant producing — the supply side is well ahead of the demand side.",
+  "country": "Oman",
+  "excerpt": "Oman has awarded eight green hydrogen projects carrying more than $49bn of commitments and brought a $1.6bn polysilicon plant into production, but the buyers remain the open question.",
+  "content": "<p>Oman Climate Week opens in Muscat this week against an industrial transition that is further advanced than the Sultanate's size would suggest, and which now faces a question of demand rather than of supply.</p><p>The hydrogen programme is the larger commitment. Hydrom, the state body running Oman's land allocation for green hydrogen, has awarded eight projects across Duqm and Dhofar carrying total commitments in excess of $49bn, with a stated ambition of more than one million tonnes a year of production by 2030. A third auction round launched in April 2025 offering 300 square kilometres in Duqm, with bids closing at the end of January 2026 and awards expected during this year.</p><p>Land allocation and capital commitment are not the same as production, and the gap between them is where hydrogen projects worldwide have stalled. A green hydrogen development requires renewable generation, electrolysis capacity, and — for export — conversion to ammonia or another carrier plus the terminal to ship it. Each stage is financeable only against a buyer contracted to take the output at a price that covers it, and the buyers have been slower to commit than the developers. This publication has reported the counter-example at NEOM, where the green hydrogen plant nears completion with its entire output sold for thirty years; that offtake structure is what the Omani projects have to reproduce.</p><p>The solar supply chain has moved faster, because it sells into a market that already exists. United Solar's polysilicon plant at Sohar Free Zone completed a $1.6bn funding round including $50m from the International Finance Corporation and $260m from the Oman Investment Authority, produced its first polysilicon in early 2026, and targets 100,000 tonnes a year by the end of this year — enough to support around 40GW of module manufacturing. Oman Arab Bank's $200m participation was reported by this publication earlier.</p><p>That is a materially different proposition from hydrogen. Polysilicon is a commodity with an established global price and a large existing buyer base, and a plant producing it does not need a bespoke thirty-year contract to be bankable. It also positions Oman upstream of a supply chain currently concentrated in China, which is a strategic argument that European and American module manufacturers are increasingly willing to pay for.</p><p>The two programmes share an infrastructure dependency. Duqm and Sohar are both free zones built around port capacity, and both hydrogen export and polysilicon logistics run through them. Dr Abdullah Al Abri, vice president for sustainability at Sohar Port and Freezone, sits on the climate week's steering committee, as does Yousuf Al Rawahi, ESG lead at Sohar Aluminium — the smelter that is both a major consumer of the Sultanate's power and an obvious early customer for cleaner generation.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "renewables",
+  "tags": [
+   "Oman",
+   "Hydrogen",
+   "Solar",
+   "Duqm",
+   "Sohar"
+  ],
+  "companies": [
+   "Hydrom",
+   "United Solar",
+   "Sohar Port and Freezone",
+   "Sohar Aluminium",
+   "Oman Investment Authority",
+   "IFC"
+  ],
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://hydrom.om/PreviousRoundResults.aspx",
+  "primarySourceName": "Hydrom",
+  "secondarySourceUrls": [
+   "https://www.pv-magazine.com/2026/07/13/united-solar-completes-1-6-billion-raise-for-oman-polysilicon-factory/",
+   "https://omanclimateweek.com/"
+  ],
+  "seoTitle": "Oman's $49bn hydrogen commitments need buyers",
+  "seoDescription": "Oman has awarded eight hydrogen projects and brought a $1.6bn polysilicon plant online. Offtake is the open question.",
+  "articleType": "report",
+  "researchConfidence": "A",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 454
+ }
+]

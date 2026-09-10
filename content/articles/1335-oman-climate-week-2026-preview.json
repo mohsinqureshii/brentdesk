@@ -1,0 +1,48 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "commission": 1335,
+  "headline": "Petroleum Development Oman and OQ are paying for Oman's climate week, which is the interesting part",
+  "slug": "oman-climate-week-2026-preview",
+  "deck": "The sponsor list for Muscat's second climate week reads as a roll-call of the hydrocarbon and heavy industry the event exists to decarbonise.",
+  "country": "Oman",
+  "excerpt": "Oman Climate Week opens in Muscat on 14 September with Petroleum Development Oman, OQ, OMIFCO and Vale among its principal sponsors.",
+  "content": "<p>Oman Climate Week returns to the Oman Convention and Exhibition Centre from 14 to 16 September for its second edition, hosted by the Environment Authority and organised by the Arabian Research Bureau across halls 2 and 3. The programme runs five strands: a climate exhibition, a strategic conference, a scientific conference, a Women in Climate summit and an Ecothon.</p><p>The sponsor list is the most informative thing published about it. Muscat Municipality and Petroleum Development Oman hold main sponsorships, OQ is main sponsor for the conferences, with OMIFCO and Vale also at main tier, Dhofar Municipality at gold, Oman LNG backing the Ecothon and Bauer Nimr at silver. That is the country's oil and gas producer, its integrated energy group, its fertiliser joint venture, a global mining company and its LNG exporter underwriting a climate event.</p><p>This is not the contradiction it can appear. Oman's emissions are concentrated in exactly these companies, which means they are also where any credible reduction has to happen, and they are the only organisations in the country with balance sheets large enough to fund the transition at the scale required. A climate week funded by NGOs would be a conversation; one funded by PDO and OQ is a conversation with the parties who control the assets.</p><p>The strategic conference programme runs more than a dozen sessions across the three days, opening with a high-level ministerial panel on the road to COP31, an EU–GCC dialogue on the circular economy, and a session on Oman and MENA implementation of nationally determined contributions. The second day covers mobilising climate finance, a UNFCCC regional collaboration centre side event on Article 6 of the Paris Agreement, climate-smart cities and smart mobility. The third turns to climate heritage, nature-based solutions in drylands, securing water futures and clean air for health.</p><p>Article 6 is the session with the most direct commercial consequence for Gulf industry. It governs international carbon market mechanisms — the rules under which emissions reductions achieved in one country can be counted toward another's targets — and the Gulf's interest in it is direct, given both the region's own reduction obligations and its potential as a host for projects other parties would fund.</p><p>The steering committee runs to 27 names and is unusually institutional, including Dr Abdullah Al Amri, president of the Environment Authority; Wendy Werner, the World Bank's country manager for Oman; Dr Amgad Elmahdi of the Green Climate Fund; Radia Sedaoui of UN ESCWA; Maan Iskander, environmental protection director at Aramco; and Dr Abdullah Al Abri, vice president for sustainability at Sohar Port and Freezone.</p><p>Two sets of attendance figures are circulating in Omani press and they do not reconcile: one report gives 2,000-plus participants and 200-plus speakers, another 25,000-plus visitors and 100-plus exhibitors. Neither is the organiser's own published figure, and they should not be combined.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "energy",
+  "tags": [
+   "Oman",
+   "Climate",
+   "Energy Transition",
+   "Muscat",
+   "Carbon Markets"
+  ],
+  "companies": [
+   "Petroleum Development Oman",
+   "OQ",
+   "Oman LNG",
+   "OMIFCO",
+   "Vale",
+   "Environment Authority"
+  ],
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://omanclimateweek.com/",
+  "primarySourceName": "Oman Climate Week",
+  "secondarySourceUrls": [
+   "https://omanclimateweek.com/conference/",
+   "https://omanclimateweek.com/sc/"
+  ],
+  "seoTitle": "PDO and OQ underwrite Oman's climate week",
+  "seoDescription": "Oman Climate Week opens in Muscat with Petroleum Development Oman, OQ and Oman LNG among its principal sponsors.",
+  "articleType": "news",
+  "researchConfidence": "A",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 471
+ }
+]

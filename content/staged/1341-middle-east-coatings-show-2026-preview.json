@@ -1,0 +1,48 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "commission": 1341,
+  "headline": "The Middle East Coatings Show moved to Expo City, and its exhibitor list is already public",
+  "slug": "middle-east-coatings-show-2026-preview",
+  "deck": "350 exhibiting brands across 15,000 square metres, with a live directory carrying stand numbers — the opposite of how most shows this month have handled disclosure.",
+  "country": "United Arab Emirates",
+  "excerpt": "The Middle East Coatings Show opens at Dubai Exhibition Centre in Expo City on 28 September with more than 350 exhibiting brands and a published exhibitor directory.",
+  "content": "<p>The Middle East Coatings Show runs in the North Halls of the Dubai Exhibition Centre at Expo City from 28 to 30 September, rescheduled and relocated from its previous slot and venue. The organiser, dmg events, gives more than 350 exhibiting brands from over 24 countries across roughly 15,000 square metres, with more than 5,000 visitors expected.</p><p>Unlike most exhibitions in the region's September calendar, it has published a live exhibitor directory with stand allocations. Confirmed raw material and additive suppliers include ADDAPT Chemicals at NB31, Admark Polycoats at NB11, Akripol Kimya at NH89, Alliance Organics at ND79, Anhui Feiyan Pigment at NI131, Anadolu Mikronize at ND109 and 3M EMEA at NG101. BYK holds the gold sponsorship, with Tronox, Wacker Chemicals Middle East, Netzsch and Safic-Alcan Necarbo also exhibiting.</p><p>The composition of that list — pigments, resins, additives and dispersants rather than finished paint brands — identifies what the show is actually for. Coatings manufacturing in the Gulf is a formulation industry: producers buy binders, pigments and additives, and compete on formulation, technical service and distribution rather than on making the underlying chemistry. A show weighted toward raw material suppliers is a procurement event for regional formulators.</p><p>The Gulf's structural position in that supply chain is unusual. It has abundant petrochemical feedstock and a growing local resin capability, which should favour regional formulators, but the specialist additives that determine a coating's performance in this climate — ultraviolet stability, salt resistance, high-temperature cure — remain largely imported. That gap is the reason a show like this draws the exhibitors it does.</p><p>Protective and industrial coatings are the segment with most direct relevance to this publication's readership. Coating is the primary defence against corrosion on Gulf industrial assets, and the specification decision made at construction determines the maintenance interval for decades afterwards. It connects directly to the asset integrity questions raised at STATIC Arabia in Al Khobar this month: coating failure under insulation, at weld seams and at structural connections is where corrosion begins, and a coating chosen on installed cost rather than on service life transfers the expense to the inspection and maintenance budget.</p><p>ChemTalks is the show's knowledge programme, though its session titles and speakers sit behind the organiser's agenda platform and were not publicly listed. The venue change to Expo City is confirmed by trade press and by the organiser; anyone holding older documentation should check the hall as well as the date.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "chemicals",
+  "tags": [
+   "UAE",
+   "Coatings",
+   "Chemicals",
+   "Dubai",
+   "Corrosion"
+  ],
+  "companies": [
+   "dmg events",
+   "BYK",
+   "Tronox",
+   "Wacker",
+   "Netzsch",
+   "3M"
+  ],
+  "eventDate": "2026-09-28",
+  "primarySourceUrl": "https://www.middleeastcoatingsshow.com/",
+  "primarySourceName": "Middle East Coatings Show",
+  "secondarySourceUrls": [
+   "https://exhibitors.middleeastcoatingsshow.com/",
+   "https://www.pcimag.com/articles/114475-middle-east-coatings-show-rescheduled-to-september-2026-in-dubai"
+  ],
+  "seoTitle": "Middle East Coatings Show moves to Expo City",
+  "seoDescription": "The Middle East Coatings Show opens at Expo City with 350 exhibiting brands and a published exhibitor directory.",
+  "articleType": "news",
+  "researchConfidence": "A",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-28T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 404
+ }
+]

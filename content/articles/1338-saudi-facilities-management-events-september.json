@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "commission": 1338,
+  "headline": "Two Saudi facilities management events, two different cities, and a fortnight apart",
+  "slug": "saudi-facilities-management-events-september",
+  "deck": "IFM Expo ran in Dhahran last week for industrial FM; the Saudi Facility Management Association's Riyadh forum follows on 20 September. They are frequently confused.",
+  "country": "Saudi Arabia",
+  "excerpt": "Saudi Arabia hosted two distinct facilities management events this month — IFM Expo in Dhahran on 8-10 September and the SFMA forum in Riyadh from 20 September — which listings routinely conflate.",
+  "content": "<p>Two facilities management events sit in the Saudi calendar this month, in different cities, with different organisers and different audiences. They are routinely merged in event listings, and anyone planning attendance or exhibiting should be clear which is which.</p><p>IFM Expo ran at Dhahran Expo from 8 to 10 September, concluding last week. Its focus is industrial facilities management — the maintenance of plant, process facilities and industrial estates rather than of commercial or residential buildings. The Saudi Facility Management Association appears there as a supporting partner rather than as the organiser. Its Eastern Province location is not incidental: industrial FM in Saudi Arabia is concentrated where the industry is, around the hydrocarbon and petrochemical complex.</p><p>The Saudi Facility Management Association's own event is separate. Now in its third edition, it runs at the Riyadh International Convention and Exhibition Centre from 20 to 22 September, from 09:00 to 19:00, under the theme of smart facilities and smart cities, with declared topics covering digital twins, the internet of things and artificial intelligence in building operations. Daytime hours and a Riyadh venue point at a different audience — commercial property, government estate and the giga-project handover pipeline rather than industrial plant.</p><p>That distinction matters commercially because the two FM markets barely overlap. Industrial FM sells to operators whose buildings exist to house a process, where the maintenance obligation is driven by production uptime and safety case, and where the competing supplier is often an engineering contractor. Commercial and government FM sells to asset owners whose buildings are the asset, where the driver is occupancy cost, service quality and asset life, and where the competition is other FM providers. A supplier strong in one is not automatically credible in the other.</p><p>Saudi Arabia is generating demand in both simultaneously, which is unusual. The industrial side grows with the refining, petrochemical and mining capacity this publication has tracked. The commercial and institutional side grows with the handover wave from the construction programme — the point this publication has made repeatedly, that the largest Saudi construction opportunity may begin after handover rather than before it.</p><p>A caution on the Riyadh event's detail. The dates, venue and theme come from the association's own social channel; its website still advertises the 2025 edition, and no agenda, speaker list, exhibitor roster or sponsor list has been published with two weeks to go. For a third edition that is a thin disclosure record. Third-party analyst estimates of Saudi FM market size are in circulation but are not the association's own figures and are best avoided in that context.</p>",
+  "author": "BrentDesk Staff",
+  "primaryCategory": "facilities-management",
+  "tags": [
+   "Saudi Arabia",
+   "Facilities Management",
+   "Riyadh",
+   "Dhahran"
+  ],
+  "companies": [
+   "Saudi Facility Management Association",
+   "IFM Expo"
+  ],
+  "eventDate": "2026-09-20",
+  "primarySourceUrl": "https://x.com/sfmaorg/status/1990343331457519764",
+  "primarySourceName": "Saudi Facility Management Association",
+  "secondarySourceUrls": [
+   "https://ifmexpo.com/"
+  ],
+  "seoTitle": "Two Saudi FM events, two cities, a fortnight apart",
+  "seoDescription": "IFM Expo ran in Dhahran for industrial FM; the SFMA's Riyadh forum follows on 20 September. Listings routinely conflate them.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-20T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-20",
+  "wordCount": 429
+ }
+]

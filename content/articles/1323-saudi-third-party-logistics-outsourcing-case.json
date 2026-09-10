@@ -1,0 +1,41 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1323,
+  "headline": "Saudi manufacturers still run their own trucks. Third-party operators came to Riyadh to argue against it.",
+  "slug": "saudi-third-party-logistics-outsourcing-case",
+  "deck": "Contract logistics providers are selling into a market where owning the fleet is still the default, and the argument turns on utilisation rather than on cost per kilometre.",
+  "country": "Saudi Arabia",
+  "excerpt": "Third-party logistics operators exhibiting in Riyadh are pitching outsourcing to Saudi manufacturers who overwhelmingly still own their own distribution fleets.",
+  "content": "<p>Contract logistics operators were among the larger exhibitor categories at the Saudi Warehousing and Logistics Expo in Riyadh this week, including DHL Global Forwarding Saudi Arabia, which took part in the summit programme alongside the Ministry of Transport and Logistic Services and the Federation of Saudi Chambers. Their commercial problem in the Kingdom is straightforward to state: most Saudi manufacturers still run their own distribution, and think they are right to.</p><p>The in-house preference is not irrational. A manufacturer that owns its fleet controls its own service levels, is not exposed to a provider's other customers competing for capacity at peak, and keeps direct relationships with its retail customers rather than mediating them through a contractor. In a market where reliability has historically been the scarce commodity, control has real value.</p><p>The third-party argument does not usually win on cost per kilometre, because a well-run own-account fleet is competitive on that measure. It wins, when it wins, on utilisation. A manufacturer's fleet is sized for its own peak, which means it is underused for most of the year and inadequate for a few weeks of it — carrying idle assets in one season and hiring capacity at spot rates in another. A contract operator carrying several customers with non-coincident peaks can run the same vehicles harder and can absorb one customer's surge with another's slack.</p><p>That argument gets stronger as the customer base fragments. A manufacturer delivering full pallets to a handful of distribution centres has a simple transport problem well suited to an own fleet. The same manufacturer delivering mixed cases to hundreds of retail points, plus direct-to-consumer parcels through an e-commerce channel, has a fundamentally different problem that requires network density it cannot build alone. The growth of the e-commerce logistics segment, which the show's organiser expects to double by 2027, pushes manufacturers toward exactly that fragmentation.</p><p>Saudisation pushes in the same direction. A logistics operation is labour-intensive, and nationalisation requirements apply to a manufacturer's transport headcount as much as to its production headcount. Outsourcing moves that obligation to a provider whose core business is managing it, which is an argument that resonates with manufacturers whose competence is making things rather than employing drivers.</p><p>What has been missing is scale on the provider side, and this publication has reported the pieces assembling: Aramco's procurement venture ASMO building its first purpose-built hub, Mawani signing seven logistics-centre contracts worth close to SAR 1 billion at Jeddah. Those are the network assets a credible contract logistics offer needs behind it.</p><p>No outsourcing contracts were announced at the exhibition. The summit sessions covering warehousing, distribution and multimodal connectivity were reported by participating organisation rather than by named speaker, and no session content was published.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "logistics",
+  "tags": [
+   "Saudi Arabia",
+   "Third-Party Logistics",
+   "Outsourcing",
+   "Supply Chain"
+  ],
+  "companies": [
+   "DHL Global Forwarding",
+   "ASMO",
+   "Mawani",
+   "dmg events"
+  ],
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "seoTitle": "Saudi manufacturers still own their fleets. 3PLs disagree.",
+  "seoDescription": "Contract logistics operators in Riyadh are selling outsourcing into a Saudi market where in-house distribution remains the norm.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 452
+ }
+]

@@ -1,0 +1,41 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1318,
+  "headline": "STATIC Arabia splits its floor three ways, and the split says what the Gulf is worried about",
+  "slug": "static-arabia-2026-three-expos-asset-integrity",
+  "deck": "The Al Khobar show runs static equipment, metals and tubes, and tanks and terminals as separate expos under one roof — a structure that maps the ageing-asset problem rather than the equipment market.",
+  "country": "Saudi Arabia",
+  "excerpt": "STATIC Arabia's sixth edition closed in Al Khobar on 10 September, organised as three co-located expos covering static equipment maintenance, metals and tubes, and tanks, terminals and pipelines.",
+  "content": "<p>STATIC Arabia's sixth edition closed at Dhahran Expo in Al Khobar on 10 September, organised by Aldrich International as three co-located exhibitions rather than one: Static Equipment Engineering and Maintenance; Metals, Tubes and Nonmetallics; and Tanks, Terminals and Pipelines.</p><p>That division is worth reading closely, because it is not how equipment markets are usually segmented. A conventional industrial show is organised by who sells what — pumps here, valves there, instrumentation in the next hall. STATIC Arabia is organised by what fails, and by the discipline required to stop it failing. Static equipment is the plant that does not move: vessels, columns, exchangers, piping, tankage. It is the category that receives the least operational attention precisely because it has no rotating parts to monitor, and the category where failure is most consequential when it comes.</p><p>The Gulf's process industry has reached the point in its asset cycle where this matters commercially rather than theoretically. A great deal of Saudi and wider Gulf refining, petrochemical and power capacity was built between the late 1970s and the 1990s. Pressure vessels and piping of that vintage are not near end of life in any absolute sense — properly inspected and maintained, they run for decades more — but they are firmly into the period where inspection interval, not design margin, is what keeps them in service.</p><p>The exhibition's sponsor list points at the same thing. Samif, Emkan and Petro-V held platinum positions, with GTE and Zamil Steel at gold, Khidmah at diamond and SARCO co-hosting. That is a roster weighted toward fabrication, maintenance services and materials rather than toward instrumentation or automation vendors, which is a fair reflection of where the spend sits in this discipline: it goes on inspection labour, on replacement metal and on the shutdown window itself.</p><p>The executive committee is similarly operational. It includes Haitham Saleh AlNazha, vice president of RAK Technical; Ziyad Abulhamayel, chairman and chief executive of GCE Consulting Engineers; Dr Raida Al Alawi, president of the Bahrain Society of Engineers; Abdulmajeed Mohammed Alshehri, executive director of maintenance at the National Water Company; Mubarak Al-Mutairi, executive director of steel plants at Hadeed; and Professor Abdelsalam Al-Sarkhi of KFUPM. The presence of the water utility and the steel producer alongside the engineering consultancies is the useful detail — static equipment integrity is not an oil and gas problem, it is a heavy-industry problem, and the water and metals sectors carry the same ageing tankage and piping.</p><p>The detail here comes from the organiser's own published material. No independent reporting of the exhibition — no opening remarks, session content, exhibitor launch or attendance figure — had appeared in English or Arabic as the show closed, and the visitor counters on the organiser's site render as placeholder values. The frequently quoted figure of 5,000 professionals is a projection.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "oil-gas",
+  "tags": [
+   "Saudi Arabia",
+   "Asset Integrity",
+   "Maintenance",
+   "Petrochemicals",
+   "STATIC Arabia"
+  ],
+  "companies": [
+   "Aldrich International",
+   "Zamil Steel",
+   "Hadeed",
+   "National Water Company",
+   "KFUPM"
+  ],
+  "eventDate": "2026-09-10",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "secondarySourceUrls": [],
+  "seoTitle": "STATIC Arabia splits its floor three ways",
+  "seoDescription": "STATIC Arabia ran as three co-located expos in Al Khobar, a structure that maps the Gulf's ageing-asset problem.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 468
+ }
+]

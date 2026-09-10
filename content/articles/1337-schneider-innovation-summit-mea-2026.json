@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "commission": 1337,
+  "headline": "Schneider brings its chief executive to Abu Dhabi with twelve Saudi production lines to defend",
+  "slug": "schneider-innovation-summit-mea-2026",
+  "deck": "The company has promised to take Saudi manufacturing from twelve lines to thirty-two by 2030. Its MEA summit opens in Abu Dhabi on 15 September.",
+  "country": "United Arab Emirates",
+  "excerpt": "Schneider Electric's Middle East and Africa Innovation Summit opens at ADNEC on 15 September with chief executive Olivier Blum speaking, against a Saudi manufacturing commitment to nearly triple production lines by 2030.",
+  "content": "<p>Schneider Electric holds its Middle East and Africa Innovation Summit at ADNEC in Abu Dhabi on 15 and 16 September, under the theme of advancing energy technology to power intelligence and resilience. The named speakers are unusually senior for a regional corporate event: chief executive Olivier Blum, Manish Pant as executive vice president for international operations, Fredric Godemel for energy management, Pankaj Sharma for software and services, Hany Fouda for process automation, Walid Sheta as zone president for the region, Amel Chadli as Gulf cluster president, and Caspar Herzberg, chief executive of AVEVA.</p><p>Sending that group to Abu Dhabi is a statement about where the company expects growth, and the Saudi commitments behind it are specific enough to be measured. Schneider has said it will take its Saudi production from twelve lines to thirty-two by 2030, across three plants in Riyadh and Dammam totalling more than 35,000 square metres, with a 20,000 square metre facility at King Salman Energy Park building distributed control, emergency shutdown and compressor control systems. Reported investment exceeds $50m over five years, with a broader regional figure above €300m, and headcount above 700.</p><p>Those are checkable numbers with a date attached, which makes them more useful than most corporate commitments. This publication reported the tripling pledge when it was made; the summit is a reasonable occasion to ask what proportion of the twenty additional lines has been commissioned.</p><p>The commercial driver is not in doubt. Gulf electrical equipment demand is running ahead of supply for reasons that are structural rather than cyclical: grid expansion to connect new generation, industrial cities requiring distribution infrastructure, and data centre construction that consumes switchgear and power management at a rate the region has not seen before. Transformer and switchgear lead times globally have extended sharply, and a manufacturer with regional production has an advantage that a manufacturer shipping from Europe does not.</p><p>AVEVA's inclusion points at the other half of the proposition. Schneider's argument in industrial markets has increasingly been that the equipment and the software controlling it should come from one supplier — a case that is easier to make to a customer building a new facility than to one with an installed base of mixed vendors, and one that Gulf industrial buyers with large greenfield programmes are unusually well placed to accept.</p><p>The summit format is given as a visionary keynote, executive sessions and an innovation hub, with Forbes Middle East, Bain &amp; Company and Deloitte as partners. No session-level agenda has been published, and no product launches or regional announcements have been trailed in advance, so what the summit actually delivers beyond the speaker list is not yet known.</p>",
+  "author": "BrentDesk Research",
+  "primaryCategory": "power",
+  "tags": [
+   "Schneider Electric",
+   "Saudi Arabia",
+   "UAE",
+   "Manufacturing",
+   "Grid Equipment"
+  ],
+  "companies": [
+   "Schneider Electric",
+   "AVEVA",
+   "King Salman Energy Park"
+  ],
+  "eventDate": "2026-09-15",
+  "primarySourceUrl": "https://www.se.com/ae/en/about-us/events/local/innovation-summit-middle-east-and-africa-2026/",
+  "primarySourceName": "Schneider Electric",
+  "secondarySourceUrls": [
+   "https://natlawreview.com/press-releases/schneider-electric-commits-nearly-tripling-saudi-manufacturing-capacity",
+   "https://www.argaam.com/en/article/articledetail/id/1845584"
+  ],
+  "seoTitle": "Schneider's CEO in Abu Dhabi with Saudi lines to defend",
+  "seoDescription": "Schneider Electric's MEA summit opens at ADNEC against a commitment to take Saudi production from 12 lines to 32 by 2030.",
+  "articleType": "news",
+  "researchConfidence": "A",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-15T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-15",
+  "wordCount": 442
+ }
+]

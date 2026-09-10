@@ -1,0 +1,39 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1322,
+  "headline": "Saudi cold chain is the gap that grocery and pharma keep paying for",
+  "slug": "saudi-cold-chain-logistics-gap",
+  "deck": "Temperature-controlled capacity is the part of the Kingdom's logistics build-out that has lagged, and the cost shows up as shrinkage rather than as a line item.",
+  "country": "Saudi Arabia",
+  "excerpt": "Cold chain capacity remains the least-developed segment of Saudi logistics, and the cost of the shortfall is absorbed as product loss rather than appearing as a visible investment gap.",
+  "content": "<p>Temperature-controlled logistics was among the categories represented at the Saudi Warehousing and Logistics Expo in Riyadh this week, and it is the segment where the gap between the Kingdom's ambition and its installed capacity is widest.</p><p>Cold chain is structurally harder than ambient warehousing in ways that go beyond refrigeration. It is capital-intensive per square metre, because insulated construction, refrigeration plant and backup power cost multiples of a conventional shed. It is energy-intensive to run, in a climate that works against it for most of the year. And it is unforgiving of interruption: an ambient warehouse that loses power for six hours has an inconvenience, while a frozen store that loses power for six hours may have a total loss of stock and a regulatory notification.</p><p>The consequence is that cold capacity gets built later than ambient capacity and by fewer operators, and the Kingdom's build-out has followed that pattern. Ambient warehousing has expanded quickly, driven by e-commerce and distribution demand this publication has reported running Riyadh's industrial space near full. Temperature-controlled capacity has grown more slowly, and the segments that depend on it have absorbed the difference.</p><p>Two absorb most of it. Grocery and fresh food distribution carries the shortfall as shrinkage — product that spoils between farm or port and shelf, written off as a cost of doing business rather than identified as a logistics failure. Because the loss is distributed across thousands of small events rather than concentrated into one visible incident, it rarely builds the internal case for capital investment that a single large failure would.</p><p>Pharmaceutical distribution carries it as compliance risk instead, and that is the more consequential exposure. Temperature-sensitive medicines must be held within a validated range across the whole journey, with continuous monitoring and documented evidence. A break in that chain is not a quality question but a regulatory one: the product is unsaleable regardless of whether it is actually degraded. As Saudi pharmaceutical manufacturing and distribution expand, the validated cold chain has to expand with them or become the constraint on where product can be sold.</p><p>The demand case is strengthening from a third direction. The e-commerce logistics segment, which the show's organiser projects will double by 2027, increasingly includes grocery and prepared food delivery — the most demanding cold chain application there is, because it requires temperature control maintained down to the individual consignment on a vehicle in traffic.</p><p>No cold chain contracts or facility announcements were made at the exhibition. The category was present on the floor through equipment and service suppliers rather than through disclosed investment, and the capacity figures that would allow the gap to be sized precisely are not published.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "logistics",
+  "tags": [
+   "Saudi Arabia",
+   "Cold Chain",
+   "Logistics",
+   "Pharmaceuticals",
+   "Warehousing"
+  ],
+  "companies": [
+   "dmg events"
+  ],
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "seoTitle": "Saudi cold chain: the gap grocery and pharma absorb",
+  "seoDescription": "Temperature-controlled capacity lags Saudi Arabia's ambient warehousing build-out, and the shortfall shows up as shrinkage and compliance risk.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 444
+ }
+]

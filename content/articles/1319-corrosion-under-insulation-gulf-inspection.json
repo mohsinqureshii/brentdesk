@@ -1,0 +1,37 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1319,
+  "headline": "Corrosion under insulation is the Gulf's most expensive inspection problem because you cannot see it",
+  "slug": "corrosion-under-insulation-gulf-inspection",
+  "deck": "The failure mode that dominates static equipment maintenance in humid coastal plant is the one that gives no external warning until the lagging comes off.",
+  "country": "Saudi Arabia",
+  "excerpt": "Corrosion under insulation accounts for a disproportionate share of unplanned shutdowns in Gulf process plant, and its economics are set by the cost of looking rather than the cost of repair.",
+  "content": "<p>Of the failure modes that occupy static equipment engineers in the Gulf, corrosion under insulation is the one that consumes the largest share of inspection budget relative to the metal it actually destroys. It was among the disciplines covered by STATIC Arabia, the asset integrity exhibition that closed in Al Khobar this week, and it is worth explaining why a problem this well understood remains this expensive.</p><p>The mechanism is unremarkable. Insulation on pipework and vessels absorbs moisture — from humidity, from rain, from steam tracing leaks, from wash-down water. That moisture sits against the steel beneath, held there by the same lagging that is meant to protect it, and the metal corrodes in a warm, wet, oxygenated environment that is close to ideal for the purpose. Coastal plant in the eastern Gulf, running at the temperatures where the problem is most aggressive, has every condition the mechanism requires.</p><p>What makes it costly is not the corrosion but the detection. A corroding pipe under lagging gives no external sign. The insulation and cladding look identical whether the steel beneath is sound or nearly perforated, which means the only certain inspection method is to strip the covering, examine the surface and reinstate — expensive, slow, and destructive of insulation that was otherwise serviceable. Strip everything and the inspection cost exceeds the value of the metal being protected. Strip nothing and the first indication is a leak.</p><p>The industry's response has been to make the choice of where to look into an engineering discipline of its own. Risk-based inspection allocates attention by consequence and likelihood rather than by schedule, concentrating effort on the lines where a failure would be most damaging and the conditions most favourable to corrosion — insulation in poor condition, known moisture ingress points, the temperature bands where rates peak. Screening techniques that see through cladding, including pulsed eddy current and various radiographic methods, reduce the amount of stripping required by identifying which sections merit it.</p><p>None of this eliminates the underlying trade. It converts a binary choice between total inspection and total blindness into a graded one, which is a genuine advance, but the residual risk never reaches zero and the operator is always accepting some. That acceptance is why the discipline sits with senior engineers rather than with maintenance planners.</p><p>The commercial consequence for the Gulf is that inspection capability, not repair capability, is the constraint. Welding and replacing a corroded section is routine work available from many contractors. Knowing which section to open is a specialist service with a much shorter supplier list, and it is one of the capabilities that Gulf operators have been slowest to localise. This publication has reported the wider pattern in Saudi industrial localisation: the labour and fabrication end moves onshore readily, while the specialist technical services follow much later.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "oil-gas",
+  "tags": [
+   "Asset Integrity",
+   "Corrosion",
+   "Inspection",
+   "Maintenance",
+   "Gulf"
+  ],
+  "companies": [
+   "Aldrich International"
+  ],
+  "eventDate": "2026-09-10",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "secondarySourceUrls": [],
+  "seoTitle": "Corrosion under insulation: the Gulf's costly blind spot",
+  "seoDescription": "Corrosion under insulation dominates Gulf static equipment maintenance because detection, not repair, is the expensive part.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 469
+ }
+]

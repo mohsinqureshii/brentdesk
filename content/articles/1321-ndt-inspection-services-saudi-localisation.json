@@ -1,0 +1,39 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1321,
+  "headline": "Saudi Arabia can weld a replacement pipe. Knowing which pipe to open is the import.",
+  "slug": "ndt-inspection-services-saudi-localisation",
+  "deck": "Non-destructive testing is missing from the Kingdom's localisation target lists, and it is one of the capabilities the maintenance cycle depends on most.",
+  "country": "Saudi Arabia",
+  "excerpt": "Non-destructive testing capability rarely appears on Saudi localisation target lists, despite being the specialist service that governs whether plant runs or shuts down.",
+  "content": "<p>Saudi Arabia's local content programme has published extensive lists of what it wants made in the Kingdom. Aramco alone has identified more than 200 localisation opportunities across a dozen sectors, with an annual market it estimates at around $28bn, and the mandatory local content list has widened to more than 1,500 products. Non-destructive testing services do not feature prominently on any of them, and the omission is instructive.</p><p>NDT is the set of techniques that establish whether a piece of plant is fit to continue operating without taking it apart: ultrasonic thickness measurement, radiography, magnetic particle and dye penetrant inspection, eddy current, acoustic emission. It is the evidence base on which run-or-shutdown decisions rest. The disciplines were represented across STATIC Arabia, the asset integrity exhibition that closed in Al Khobar this week.</p><p>The reason it resists localisation is that it is a certification business rather than a manufacturing one. An NDT provider's value sits in accredited technicians whose qualifications are recognised internationally, in procedures audited against those standards, and in the legal weight its reports carry when an operator uses them to justify continued operation to a regulator or an insurer. None of that is created by building a facility. It is created by training people over years and then keeping them, which is a slower and less visible process than commissioning a plant, and it produces no ribbon-cutting.</p><p>The pattern this publication has documented repeatedly in Saudi industry applies here in an unusually pure form. Localisation moves fastest where the deliverable is a physical object with a stable specification and a repeat order book — valves, cable, structural steel, pipe. It moves slowest where the deliverable is a qualified judgement. Fabrication of a replacement spool is available from many Saudi contractors. The inspection that determines the spool is needed comes from a much shorter list, and a significant share of the senior technicians on it are expatriate.</p><p>That matters more as the asset base ages. A young plant is inspected to confirm it is fine; an older one is inspected to determine how much longer it has, which is a harder question requiring more experienced people. The Gulf's process industry is moving from the first regime into the second across a large installed base simultaneously.</p><p>The training pipeline exists in outline. KFUPM was represented on the exhibition's executive committee through Professor Abdelsalam Al-Sarkhi, and the Kingdom's technical institutes produce inspection technicians. The constraint is the step from qualified to experienced, which no institution can shortcut and which competing Gulf operators are bidding for simultaneously. Until that resolves, inspection capacity is a genuine constraint on turnaround scheduling, and it is one that does not appear in any localisation percentage.</p>",
+  "author": "Jakson Gudawela",
+  "primaryCategory": "supply-chain",
+  "tags": [
+   "Saudi Arabia",
+   "Localisation",
+   "Inspection",
+   "NDT",
+   "Asset Integrity"
+  ],
+  "companies": [
+   "Aramco",
+   "KFUPM",
+   "Aldrich International"
+  ],
+  "eventDate": "2026-09-10",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "secondarySourceUrls": [],
+  "seoTitle": "NDT is the Saudi localisation gap nobody lists",
+  "seoDescription": "Non-destructive testing is absent from Saudi localisation targets despite governing run-or-shutdown decisions across the Kingdom's plant.",
+  "articleType": "report",
+  "researchConfidence": "B",
+  "wordCount": 449
+ }
+]
