@@ -27,15 +27,16 @@ function flagged(flag: string | undefined): boolean | null {
  *  profiles it does not have yet. */
 export function shouldSeed(
   flag: string | undefined,
-  have: { countries: Count; companies: Count; events: Count; locales: Count },
-  target: { companies: number; events: number; locales: number },
+  have: { countries: Count; companies: Count; events: Count; locales: Count; categories?: Count },
+  target: { companies: number; events: number; locales: number; categories?: number },
 ): boolean {
   const forced = flagged(flag);
   if (forced !== null) return forced;
   if (have.countries === 0) return true;
   return (have.companies !== null && have.companies < target.companies)
       || (have.events !== null && have.events < target.events)
-      || (have.locales !== null && have.locales < target.locales);
+      || (have.locales !== null && have.locales < target.locales)
+      || (have.categories !== null && have.categories !== undefined && target.categories !== undefined && have.categories < target.categories);
 }
 
 /**

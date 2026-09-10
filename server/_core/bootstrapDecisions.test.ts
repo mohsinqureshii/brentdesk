@@ -38,10 +38,18 @@ describe("shouldSeed", () => {
     expect(shouldSeed(undefined, { ...complete, locales: 1 }, TARGET)).toBe(true);
   });
 
+  it("seeds when categories are missing from the database", () => {
+    expect(shouldSeed(undefined, { ...complete, categories: 44 }, { ...TARGET, categories: 47 })).toBe(true);
+  });
+
+  it("leaves complete categories alone", () => {
+    expect(shouldSeed(undefined, { ...complete, categories: 47 }, { ...TARGET, categories: 47 })).toBe(false);
+  });
+
   it("decides nothing on counts it could not read", () => {
     expect(shouldSeed(
       undefined,
-      { countries: null, companies: null, events: null, locales: null },
+      { countries: null, companies: null, events: null, locales: null, categories: null },
       TARGET,
     )).toBe(false);
   });
