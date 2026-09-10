@@ -129,7 +129,7 @@ export default function ArticlesList() {
   const initialCategory = urlParams.get("category") || "all";
   const initialDateFrom = urlParams.get("dateFrom") || "";
   const initialDateTo = urlParams.get("dateTo") || "";
-  const initialSortBy = (urlParams.get("sortBy") || "publishedAt") as "createdAt" | "publishedAt" | "updatedAt" | "title" | "viewCount" | "authorName" | "status";
+  const initialSortBy = (urlParams.get("sortBy") || "publishedAt") as "createdAt" | "publishedAt" | "scheduledAt" | "updatedAt" | "title" | "viewCount" | "authorName" | "status";
   const initialSortOrder = (urlParams.get("sortOrder") || "desc") as "asc" | "desc";
   const initialPageSize = parseInt(localStorage.getItem(PAGE_SIZE_KEY) || "25", 10);
 
@@ -139,7 +139,7 @@ export default function ArticlesList() {
   const [categoryFilter, setCategoryFilter] = useState<string>(initialCategory);
   const [dateFromFilter, setDateFromFilter] = useState<string>(initialDateFrom);
   const [dateToFilter, setDateToFilter] = useState<string>(initialDateTo);
-  const [sortBy, setSortBy] = useState<"createdAt" | "publishedAt" | "updatedAt" | "title" | "viewCount" | "authorName" | "status">(initialSortBy);
+  const [sortBy, setSortBy] = useState<"createdAt" | "publishedAt" | "scheduledAt" | "updatedAt" | "title" | "viewCount" | "authorName" | "status">(initialSortBy);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">(initialSortOrder);
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const [page, setPage] = useState(initialPage);
@@ -378,6 +378,23 @@ export default function ArticlesList() {
       month: "short",
       day: "numeric",
     });
+  };
+
+  const formatDateTime = (date: string | Date | null) => {
+    if (!date) return "—";
+    const d = new Date(date);
+    if (isNaN(d.getTime())) return "—";
+    const dateStr = d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+    const timeStr = d.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+    return `${dateStr} · ${timeStr}`;
   };
 
   const handleApplyFilters = () => {
@@ -749,7 +766,19 @@ export default function ArticlesList() {
                     {/* A scheduled article has no publication date until its slot
                         passes, so the two dates answer different questions and
                         both stay on screen. */}
-                    <TableHead className="w-[120px] whitespace-nowrap">Scheduled</TableHead>
+                    <TableHead className="w-[170px] whitespace-nowrap">
+                      <button
+                        onClick={() => handleSort("scheduledAt")}
+                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors"
+                      >
+                        Scheduled
+                        {sortBy === "scheduledAt" ? (
+                          sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
+                        ) : (
+                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                        )}
+                      </button>
+                    </TableHead>
                     <TableHead className="w-[80px] text-right whitespace-nowrap hidden xl:table-cell">
                       <button
                         onClick={() => handleSort("viewCount")}
@@ -849,19 +878,27 @@ export default function ArticlesList() {
                           // release sweep only picks up rows where scheduledAt
                           // is set. Say so rather than showing an empty dash.
                           article.scheduledAt ? (
-                            <div className="flex items-center gap-1 text-orange-600">
-                              <Clock className="h-3 w-3" />
-                              <span>{formatDate(article.scheduledAt)}</span>
+                            <div
+                              className="flex items-center gap-1.5 text-orange-600 font-medium"
+                              title={`Local: ${new Date(article.scheduledAt).toLocaleString()} | UTC: ${new Date(article.scheduledAt).toISOString().replace(".000Z", " UTC")}`}
+                            >
+                              <Clock className="h-3.5 w-3.5 shrink-0" />
+                              <span>{formatDateTime(article.scheduledAt)}</span>
                             </div>
                           ) : (
-                            <div className="flex items-center gap-1 text-red-600" title="Scheduled but no date set — this article will not publish until one is">
-                              <Clock className="h-3 w-3" />
+                            <div className="flex items-center gap-1.5 text-red-600" title="Scheduled but no date set — this article will not publish until one is">
+                              <Clock className="h-3.5 w-3.5 shrink-0" />
                               <span>No date set</span>
                             </div>
                           )
                         ) : article.scheduledAt ? (
                           // Released by the sweep: keep the slot it came from visible.
-                          <span className="text-[#9BA3B0]">{formatDate(article.scheduledAt)}</span>
+                          <span
+                            className="text-[#9BA3B0]"
+                            title={`Released slot: ${new Date(article.scheduledAt).toLocaleString()} (${new Date(article.scheduledAt).toISOString().replace(".000Z", " UTC")})`}
+                          >
+                            {formatDateTime(article.scheduledAt)}
+                          </span>
                         ) : (
                           "—"
                         )}
@@ -1006,7 +1043,7 @@ export default function ArticlesList() {
                         <span className="text-[#9BA3B0]">·</span>
                         <span className={article.status === "scheduled" ? "text-orange-600" : undefined}>
                           {article.status === "scheduled"
-                            ? (article.scheduledAt ? `Due ${formatDate(article.scheduledAt)}` : "No date set")
+                            ? (article.scheduledAt ? `Due ${formatDateTime(article.scheduledAt)}` : "No date set")
                             : formatDate(article.publishedAt)}
                         </span>
                         {article.authorName && (

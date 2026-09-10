@@ -126,7 +126,7 @@ const listArticlesSchema = z.object({
   // with the articleLocations fallback below for older articles that
   // never got coverageCountryId set.
   editionCountryId: z.number().optional(),
-  sortBy: z.enum(["createdAt", "publishedAt", "updatedAt", "title", "viewCount", "authorName", "status"]).default("publishedAt"),
+  sortBy: z.enum(["createdAt", "publishedAt", "scheduledAt", "updatedAt", "title", "viewCount", "authorName", "status"]).default("publishedAt"),
   sortOrder: z.enum(["asc", "desc"]).default("desc"),
 });
 
@@ -635,6 +635,9 @@ export const newsRouter = router({
       switch (sortBy) {
         case "publishedAt":
           orderByClause = sortFn(articles.publishedAt);
+          break;
+        case "scheduledAt":
+          orderByClause = sortFn(articles.scheduledAt);
           break;
         case "updatedAt":
           orderByClause = sortFn(articles.updatedAt);
