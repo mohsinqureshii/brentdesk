@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://exhibitors.middleeastcoatingsshow.com/"
+  ],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-28",
+  "primarySourceUrl": "https://www.middleeastcoatingsshow.com/",
+  "primarySourceName": "Middle East Coatings Show",
+  "commission": 1360,
+  "slug": "gulf-protective-coatings-industrial-assets",
+  "primaryCategory": "chemicals",
+  "author": "Jakson Gudawela",
+  "headline": "A coating specified on installed cost sends the bill to the maintenance budget",
+  "deck": "Protective coatings decide the corrosion maintenance interval on Gulf industrial assets, and the decision is made by people who do not pay for the consequence.",
+  "excerpt": "Protective coatings determine the maintenance interval on Gulf industrial assets for decades, but the specification decision sits with construction budgets rather than operations.",
+  "content": "<p>The Middle East Coatings Show opens at Expo City in Dubai at the end of September, and the segment with the most direct consequence for industrial operators is protective and industrial coatings — the systems applied to steel to stop it corroding.</p><p>The Gulf is among the most aggressive corrosion environments in the world for industrial plant. High ambient temperature accelerates every reaction; humidity in coastal locations keeps surfaces wet; airborne chloride from the sea drives pitting; and ultraviolet exposure degrades organic coatings from above while the steel corrodes beneath. Plant in Jubail, Yanbu, Ras Laffan or Ruwais is exposed to all of these simultaneously.</p><p>The engineering response is a coating system rather than a coating: surface preparation to a specified cleanliness and profile, a primer chosen for adhesion and corrosion inhibition, intermediate coats for barrier thickness, and a topcoat for ultraviolet and chemical resistance. The system's performance depends at least as much on preparation and application as on the product, which is why coatings failures are so often application failures.</p><p>The commercial problem is a split incentive that recurs across industrial construction. The coating is specified and applied during construction, paid for from the capital budget, and its performance is realised over twenty or thirty years of operation, paid for from maintenance. A specification chosen on installed cost transfers expense to a budget the specifier does not hold, and the transfer is heavily leveraged: recoating in service requires access, scaffolding, containment and frequently a shutdown, at a multiple of the original application cost.</p><p>That relationship makes coatings one of the clearest cases in industrial procurement for whole-life costing, and one of the least consistently applied. It connects directly to the asset integrity discipline covered at STATIC Arabia in Al Khobar earlier this month: corrosion under insulation, the failure mode that dominates static equipment maintenance in the Gulf, begins where a coating system was inadequate or was damaged during insulation.</p><p>The show's exhibitor profile reflects a formulation industry rather than a manufacturing one — pigment, resin and additive suppliers selling to regional formulators. This publication has reported the parallel movement in construction chemicals, where international manufacturers including Henkel Polybit and CMCI have been moving production closer to Saudi projects rather than shipping into them.</p><p>The organiser gives more than 350 exhibiting brands from over 24 countries across roughly 15,000 square metres, with BYK as gold sponsor. Those figures are the organiser's own. Operators that have moved coatings decisions into a whole-life framework tend to be those that have already paid for a premature recoat.</p>",
+  "tags": [
+   "Gulf",
+   "Coatings",
+   "Corrosion",
+   "Industrial Assets",
+   "Maintenance"
+  ],
+  "companies": [
+   "dmg events",
+   "BYK",
+   "Henkel Polybit",
+   "CMCI"
+  ],
+  "seoTitle": "A coating specified on cost bills the maintenance budget",
+  "seoDescription": "Protective coatings set the corrosion maintenance interval on Gulf assets, but are specified from capital budgets.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-28T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 424
+ }
+]

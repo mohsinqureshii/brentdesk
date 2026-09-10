@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-29",
+  "primarySourceUrl": "https://www.spe-events.org/gotech/technical-programme-2026",
+  "primarySourceName": "SPE",
+  "commission": 1358,
+  "slug": "gotech-talent-petroleum-engineering",
+  "primaryCategory": "oil-gas",
+  "author": "BrentDesk Research",
+  "headline": "The Gulf's petroleum engineering problem is a demographic one",
+  "deck": "Talent has its own track at GOTECH, because the generation hired during the last expansion is approaching retirement and the one behind it is thin.",
+  "excerpt": "Talent forms a declared GOTECH track, reflecting a Gulf industry facing the retirement of engineers hired during earlier expansion phases.",
+  "content": "<p>Talent appears as a declared track at GOTECH in Dubai at the end of September, alongside the reservoir, drilling and carbon capture disciplines. Its inclusion on a technical programme is a reasonable indicator that the industry regards it as an engineering problem rather than a human resources one.</p><p>The structural issue is demographic. Hiring in the oil and gas industry has been strongly cyclical, expanding sharply during high-price periods and contracting during downturns, which produces an uneven age distribution rather than a smooth one. The engineers recruited during earlier expansion phases are approaching retirement together, and the cohorts recruited during the intervening downturns are smaller.</p><p>That matters more in this industry than in many because a great deal of the relevant expertise is not transferable from a textbook. Knowing how a particular reservoir behaves, why a field's wells fail in a characteristic way, which historical decisions constrain present options — this is accumulated knowledge held by individuals and lost when they leave unless it has been deliberately transferred. The transfer takes years of overlap, and overlap is exactly what a compressed retirement wave does not provide.</p><p>The Gulf faces a version of this complicated by nationalisation policy. Saudi Arabia, the UAE and their neighbours are simultaneously replacing retiring expatriate engineers and increasing the national share of technical positions, which means the transfer has to happen across both a generational and a workforce composition change at the same time. Programmes to do that exist and have been running for years; whether they are producing senior technical judgement at the rate the retirement wave requires is a fair question and one the track presumably addresses.</p><p>Recruitment into petroleum engineering has also been affected by the energy transition, which has made the discipline a less obvious choice for students weighing a forty-year career. That effect is more pronounced in Europe and North America than in the Gulf, where the industry's centrality to national economies keeps it attractive, but the international talent pool that regional operators have historically drawn on is narrowing.</p><p>The same constraint appears elsewhere in this month's coverage: non-destructive testing capability in Saudi Arabia is limited by the step from qualified to experienced rather than by the number of people trained, and rail systems integration capability sits with international consultants for the same reason. It is the recurring shape of the Gulf's localisation problem — physical capability transfers faster than judgement.</p><p>Programme detail comes from SPE's published technical programme. A technical conference is itself part of the transfer mechanism, which is a reasonable argument for sending junior engineers rather than only senior ones.</p>",
+  "tags": [
+   "Gulf",
+   "Talent",
+   "Petroleum Engineering",
+   "Localisation",
+   "SPE"
+  ],
+  "companies": [
+   "SPE"
+  ],
+  "seoTitle": "The Gulf's petroleum engineering problem is demographic",
+  "seoDescription": "Talent has its own GOTECH track as the generation hired in earlier expansions approaches retirement.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-29T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-29",
+  "wordCount": 432
+ }
+]

@@ -1,0 +1,43 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "primarySourceUrl": "https://events.meed.com/event/saudimegaprojects/",
+  "primarySourceName": "MEED Events",
+  "secondarySourceUrls": [
+   "https://highways.today/2026/09/10/saudi-mega-projects-2026/"
+  ],
+  "articleType": "report",
+  "researchConfidence": "A",
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-28",
+  "commission": 1344,
+  "slug": "red-sea-global-delivery-operations",
+  "primaryCategory": "construction",
+  "author": "BrentDesk Research",
+  "headline": "Red Sea Global has moved from building to operating, and its delivery problem changed with it",
+  "deck": "With resorts trading, the programme's centre of gravity shifts from construction logistics to running assets on islands with no grid behind them.",
+  "excerpt": "Red Sea Global sends Ben Edwards and Neal Coote to the Riyadh giga-projects conference, from a programme that has crossed from construction into operation.",
+  "content": "<p>Red Sea Global is represented at Saudi Mega Projects in Riyadh by Ben Edwards and Neal Coote, from a development that has passed the point most Saudi giga-projects are still approaching: it has assets open and trading.</p><p>That transition changes the nature of the problem. A construction programme is a logistics exercise with an end date; an operating resort on a remote island is a permanent utilities, staffing and supply chain commitment. Red Sea Global's positioning has rested on operating off-grid — its own generation, its own water production, its own waste handling — which is a defensible environmental claim and an expensive operational one.</p><p>Off-grid operation at resort scale means the developer is also a utility. Solar generation with battery storage has to meet a demand profile driven by air conditioning in a climate where cooling load peaks with the sun but persists after it sets. Desalination has to run continuously to fill storage against a consumption pattern that varies with occupancy. Neither can fail, because a resort without water or power is not a degraded product but a closed one.</p><p>The supply chain question is equally structural. Every consumable arriving at an island resort travels a long distance through a constrained corridor, and the fresh-produce and cold chain requirements this publication has written about in a Saudi context apply here in their most demanding form. The distance that makes the destination valuable is the same distance that makes supplying it difficult.</p><p>For contractors and suppliers the operating phase opens a different market from the construction phase. Facilities management, marine maintenance, utility operation and the specialist trades that keep a remote hospitality asset running are long-duration service contracts rather than one-off packages — which connects directly to the point this publication has made repeatedly, that the largest Saudi construction opportunity may begin after handover.</p><p>Red Sea Global also sits on the hospitality cluster's agenda in a sense, through Felipe Alvear, culinary director at Grand Hyatt The Red Sea, who appears on the Riyadh hospitality summit speaker list earlier in the month. The operator relationships behind the destination are now the operational reality rather than a development assumption.</p><p>The programme continues to build alongside operating, which is its own management problem: construction traffic, noise and workforce sharing an environment with paying guests requires a separation most developments never have to design for.</p><p>Speaker names come from the organiser's published agenda. The operating phase also changes who the client is: an asset that earns revenue answers to guests and to an operator, not only to a development board.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Red Sea Global",
+   "Tourism",
+   "Utilities",
+   "Giga-Projects"
+  ],
+  "companies": [
+   "Red Sea Global",
+   "Grand Hyatt"
+  ],
+  "seoTitle": "Red Sea Global's delivery problem changed at handover",
+  "seoDescription": "With resorts trading, Red Sea Global's centre of gravity moves from construction to operating off-grid assets.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-28T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 427
+ }
+]

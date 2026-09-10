@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://exhibitors.middleeastcoatingsshow.com/"
+  ],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-28",
+  "primarySourceUrl": "https://www.middleeastcoatingsshow.com/",
+  "primarySourceName": "Middle East Coatings Show",
+  "commission": 1364,
+  "slug": "coatings-show-venue-move-expo-city",
+  "primaryCategory": "chemicals",
+  "author": "BrentDesk Staff",
+  "headline": "The coatings show moved to Expo City, and the old date is still in circulation",
+  "deck": "A rescheduled event with a changed venue leaves stale listings behind it, and this September's Gulf calendar is full of them.",
+  "excerpt": "The Middle East Coatings Show has moved to Dubai Exhibition Centre at Expo City and shifted its dates, but earlier listings persist across aggregator sites.",
+  "content": "<p>The Middle East Coatings Show runs at the North Halls of the Dubai Exhibition Centre in Expo City from 28 to 30 September, rescheduled from an earlier slot and relocated from its previous venue. Both changes are confirmed by the organiser and by trade press, and both are still being contradicted by third-party listings.</p><p>This is a recurring problem across the region's exhibition calendar this month, and it is worth setting out because it has practical consequences. Stand-builder and lead-generation websites republish event data and rarely update it, and search engines cache their titles. An organiser that changes a date or a hall updates its own site; the twenty aggregators carrying the old information do not.</p><p>The results are visible throughout September. Listings for the dmg cluster in Riyadh place it at Riyadh Front on 6 to 8 September; the organiser's own sites say the Riyadh International Convention and Exhibition Centre on 15 to 17 September. Aggregators list Saudi Infrastructure Expo and Smart Cities Saudi Expo in mid-September at RICEC; the organiser's live sites place the rebranded Global Infrastructure Expo at Riyadh Front in June 2027. ORGATEC Workspace Saudi Arabia carries a stale 2026 date on one of its own inner pages while its homepage says September 2027. GOTECH appears in April on older listings and at the end of September on SPE's own programme page.</p><p>The pattern has an obvious remedy for anyone planning attendance: the organiser's homepage is the only source worth trusting, and an inner page on the organiser's own site is not always current either.</p><p>For exhibitors the exposure is more serious than a wasted trip. Stand space is contracted, build is commissioned and freight is booked against a date and a hall, and a venue change mid-campaign means reissuing instructions to contractors who may themselves be working from cached information.</p><p>In this case the move is to a purpose-built venue at Expo City with the show occupying the North Halls, across roughly 15,000 square metres with more than 350 exhibiting brands from over 24 countries expected. The organiser has published a live exhibitor directory with stand allocations, which at least means anyone arriving has current floor information.</p><p>Venue and scheduling detail is confirmed against the organiser's own site and contemporaneous trade press reporting. The broader lesson for the September diary is that an organiser homepage outranks every aggregator, and an inner page is not always current either. Freight and stand-build bookings are the exposures that make a late venue change expensive rather than merely inconvenient.</p>",
+  "tags": [
+   "Gulf",
+   "Exhibitions",
+   "Dubai",
+   "Expo City",
+   "Coatings"
+  ],
+  "companies": [
+   "dmg events"
+  ],
+  "seoTitle": "The coatings show moved, and old dates still circulate",
+  "seoDescription": "The Middle East Coatings Show has changed venue and dates, but stale listings persist across aggregator sites.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-28T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 420
+ }
+]

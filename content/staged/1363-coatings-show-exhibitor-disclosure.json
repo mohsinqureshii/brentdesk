@@ -1,0 +1,43 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://exhibitors.middleeastcoatingsshow.com/"
+  ],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-28",
+  "primarySourceUrl": "https://www.middleeastcoatingsshow.com/",
+  "primarySourceName": "Middle East Coatings Show",
+  "commission": 1363,
+  "slug": "coatings-show-exhibitor-disclosure",
+  "primaryCategory": "chemicals",
+  "author": "BrentDesk Staff",
+  "headline": "A coatings show published its stand numbers while three Saudi shows published nothing",
+  "deck": "The Middle East Coatings Show has a live exhibitor directory with hall allocations. Several events opening the same month have not filled in their own visitor counters.",
+  "excerpt": "The Middle East Coatings Show has published a live exhibitor directory with stand numbers, in contrast to several Saudi exhibitions opening the same month with no published figures at all.",
+  "content": "<p>An observation about disclosure, drawn from covering the region's September exhibition calendar: the Middle East Coatings Show, opening at Expo City in Dubai on 28 September, has published a live exhibitor directory carrying stand allocations — ADDAPT Chemicals at NB31, Admark Polycoats at NB11, Akripol Kimya at NH89, Alliance Organics at ND79, Anhui Feiyan Pigment at NI131, Anadolu Mikronize at ND109, 3M EMEA at NG101, and a long list beyond them.</p><p>That is what a functioning exhibition looks like a few weeks out. A visitor can plan a route, a competitor can see who is present, and a supplier deciding whether to attend can assess the field.</p><p>Several events in the same month's Saudi calendar have published considerably less. JIBEX in Jeddah, opening on 15 September, renders every headline statistic on its own website as a literal zero-plus placeholder — exhibitor count, visitor count and floor area all unfilled — while its co-located Mobedex still advertises 2025 dates. The Saudi Industry Forum in Jeddah, opening 14 September under royal patronage and claiming more than 80 speakers, has named none of them and published no agenda. Saudi Food Manufacturing, claiming more than 1,000 exhibitors across two co-located shows, has no conference programme and no speaker list, and its exhibitor directory returns no records.</p><p>This is not a minor complaint about websites. Exhibitors commit stand budget, build costs and staff time months ahead, and visitors commit travel. Both decisions depend on knowing who else will be there. An organiser that cannot populate its own directory is either behind on sales or has decided the information is not worth publishing, and neither reads well to a supplier weighing next year's participation.</p><p>The contrast within the same organiser's portfolio is instructive. The Middle East Coatings Show and the Riyadh hospitality cluster are both dmg events properties, and both have published exhibitor lists, sponsor tiers and — for the Riyadh shows — a substantial named speaker roster. The gap is not between Dubai and Riyadh; it is between organisers.</p><p>The Saudi exhibition market has expanded quickly, and this month's calendar carries more events than the buyer base can reasonably attend. Disclosure is one of the few grounds on which a visitor can choose between them, and the shows that publish are making that choice easy.</p><p>Exhibitor and stand detail is taken from the organisers' own published directories. The organisers publishing least are, on the whole, the ones with the least established international portfolio behind them. A visitor with limited time will reasonably favour the shows that made planning possible.</p>",
+  "tags": [
+   "Gulf",
+   "Exhibitions",
+   "Trade Shows",
+   "Disclosure"
+  ],
+  "companies": [
+   "dmg events",
+   "Icon International",
+   "ASP Events"
+  ],
+  "seoTitle": "One show published stand numbers; three published nothing",
+  "seoDescription": "The Middle East Coatings Show has a live exhibitor directory while several Saudi shows publish no figures at all.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-28T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 424
+ }
+]
