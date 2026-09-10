@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "primarySourceUrl": "https://events.meed.com/event/saudimegaprojects/",
+  "primarySourceName": "MEED Events",
+  "secondarySourceUrls": [
+   "https://highways.today/2026/09/10/saudi-mega-projects-2026/"
+  ],
+  "articleType": "report",
+  "researchConfidence": "A",
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-28",
+  "commission": 1352,
+  "slug": "qiddiya-soudah-trojena-entertainment-assets",
+  "primaryCategory": "construction",
+  "author": "BrentDesk Research",
+  "headline": "Qiddiya, Soudah Peaks and Trojena size infrastructure for peak demand",
+  "deck": "Entertainment and mountain destinations carry a demand profile that makes their infrastructure sizing a different problem from a city's.",
+  "excerpt": "Qiddiya, Soudah Peaks and NEOM's Trojena appear among the programmes represented at Saudi Mega Projects, sharing a demand profile that complicates infrastructure sizing.",
+  "content": "<p>Among the programmes represented on the Saudi Mega Projects agenda in Riyadh are Qiddiya, Soudah Peaks and NEOM's Trojena, alongside Oxagon. Grouped together they share a characteristic that separates them from the residential and urban developments on the same platform: their demand is sharply peaked and cannot be smoothed.</p><p>An entertainment or mountain resort destination does not fill evenly. It fills at weekends, in holiday periods and in particular seasons, and it empties in between. That pattern determines almost everything about how the infrastructure has to be sized, because the capacity has to meet the peak while the revenue is earned across the average.</p><p>The consequences run through every system. Road access has to carry peak arrival volumes that occur on a limited number of days a year. Power and water have to meet peak simultaneous demand. Parking, waste handling, emergency services and staff accommodation all size to the maximum rather than the mean. Infrastructure built to a peak that occurs infrequently is expensive capital sitting idle for most of its life, and the alternative — sizing to average and accepting congestion at peak — degrades exactly the experience the destination is selling.</p><p>Soudah Peaks and Trojena add altitude and terrain. Mountain construction carries access constraints, weather windows and geotechnical conditions that flat-site development does not, and it raises the cost of every tonne of material delivered. Trojena's proposition includes winter sports in a region without a natural snow season, which is an engineering and energy commitment of its own.</p><p>Qiddiya's position is different again by virtue of proximity. It sits close enough to Riyadh to draw day visitors, which improves the demand profile relative to a remote destination but ties its access infrastructure into the capital's transport network — connecting it to the Riyadh Metro and road programmes also represented on this agenda.</p><p>The staffing question is common to all three and rarely discussed at development stage. A destination that operates at peak for limited periods needs a workforce that scales, in locations where housing that workforce is itself a development requirement. Six Flags Qiddiya City's vice president for human resources and shared services, Hisham AlAali, appears on the hospitality summit speaker list in Riyadh earlier this month, which is where that question is being addressed from the operator side.</p><p>Programme names are taken from the organiser's published material; the delivery detail here is analysis rather than disclosure from the platform. Peak-driven infrastructure is also the hardest category to phase, because a partially built access road serves no one at capacity.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Qiddiya",
+   "Trojena",
+   "NEOM",
+   "Tourism"
+  ],
+  "companies": [
+   "Qiddiya",
+   "Soudah Peaks",
+   "NEOM",
+   "Six Flags Qiddiya"
+  ],
+  "seoTitle": "Qiddiya and Trojena size for peak demand",
+  "seoDescription": "Entertainment and mountain destinations carry demand profiles that make infrastructure sizing a distinct problem.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-29T16:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 422
+ }
+]

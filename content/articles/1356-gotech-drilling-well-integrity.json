@@ -1,0 +1,41 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-29",
+  "primarySourceUrl": "https://www.spe-events.org/gotech/technical-programme-2026",
+  "primarySourceName": "SPE",
+  "commission": 1356,
+  "slug": "gotech-drilling-well-integrity",
+  "primaryCategory": "oil-gas",
+  "author": "Jakson Gudawela",
+  "headline": "Well integrity carries obligations beyond a well's producing life",
+  "deck": "Drilling, completions and well integrity forms a GOTECH track covering the one liability an operator cannot hand back.",
+  "excerpt": "Drilling, completions and well integrity is among GOTECH's technical tracks, addressing an obligation that continues long after a well stops producing.",
+  "content": "<p>Drilling, completions and well integrity forms one of the technical tracks at GOTECH in Dubai at the end of September. The first two are activities; the third is a permanent condition, and the distinction is the reason the track matters beyond the drilling community.</p><p>A well is a pressure-containing structure penetrating formations that may contain hydrocarbons, water or hydrogen sulphide, sealed by steel casing and cement that must isolate them from each other and from the surface. Integrity means that isolation holding — during drilling, through a producing life that may run for decades, through interventions and workovers, and after abandonment, permanently.</p><p>That last obligation is the one that distinguishes wells from other industrial assets. A refinery at end of life is decommissioned and the site cleared. A well is plugged, and the plug has to hold indefinitely with no one monitoring it. Regulatory regimes worldwide have tightened around abandonment standards as the population of end-of-life wells has grown, and the Gulf's inventory of wells drilled from the 1950s onward is now large enough that abandonment is a programme rather than an occasional activity.</p><p>The engineering problems are unforgiving. Cement must bond to both casing and formation across the annulus, and defects in that bond create pathways that may not manifest for years. Casing corrodes, particularly where the produced fluid turns sour or where injection water is present. Sustained casing pressure — pressure appearing in an annulus that should be isolated — is the symptom that indicates something has failed, and diagnosing which barrier has gone is genuinely difficult from surface measurements alone.</p><p>The connection to the mature fields track on the same programme is direct. Older fields have older wells, and wells that have been worked over repeatedly have had their barriers disturbed more often. As water cut rises the produced environment becomes more aggressive, which accelerates the degradation of the barriers on which integrity depends.</p><p>Injection adds a further dimension that ties into the carbon capture track. A well used to inject carbon dioxide is exposed to a stream that becomes strongly corrosive in the presence of water, and the integrity requirement extends across the storage period rather than ending at abandonment — the containment argument for a storage project rests on those wells holding.</p><p>The International Association of Oil and Gas Producers is represented on the programme through Faye Gerard, which is where well integrity standards and incident data are collated across the industry.</p><p>Programme detail comes from SPE's published technical programme. Abandonment liabilities also sit on balance sheets, which is increasingly where the pressure to standardise practice comes from.</p>",
+  "tags": [
+   "Gulf",
+   "Drilling",
+   "Well Integrity",
+   "Oil and Gas",
+   "SPE"
+  ],
+  "companies": [
+   "SPE",
+   "IOGP"
+  ],
+  "seoTitle": "Well integrity outlasts a well's producing life",
+  "seoDescription": "GOTECH's drilling and well integrity track addresses a liability that continues permanently after abandonment.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-29T14:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-29",
+  "wordCount": 433
+ }
+]

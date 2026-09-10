@@ -1,0 +1,47 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1368,
+  "slug": "saudi-food-security-factory-capacity",
+  "primaryCategory": "manufacturing",
+  "author": "Mo Qureshi",
+  "headline": "Saudi food security policy rests on domestic processing capacity",
+  "deck": "Saudi Arabia's food strategy has moved from holding reserves to owning the processing capacity that turns imported raw material into finished product.",
+  "excerpt": "Saudi food security policy increasingly rests on domestic processing capacity rather than on strategic reserves, which makes an equipment exhibition a policy event.",
+  "content": "<p>Saudi Food Manufacturing opens at the Jeddah Superdome on 27 September with MODON, the industrial estates authority, as strategic partner. That partnership is the clue to why an equipment exhibition sits inside national policy rather than beside it.</p><p>Saudi Arabia cannot grow most of what it eats. Water constraints put large-scale domestic cereal production out of reach, and the Kingdom ended its wheat self-sufficiency programme precisely because the aquifer cost was unsustainable. Food security therefore cannot mean growing food; it has to mean something else.</p><p>What it has come to mean is control of the processing stage. A country that imports raw grain and mills it domestically, imports raw materials and manufactures finished products at home, holds a materially more secure position than one importing finished product — because the supply base for commodities is broad and substitutable while the supply base for a specific finished good is not. Milling capacity, dairy processing, edible oil refining and food manufacturing are the assets that convert a commodity purchase into a domestic supply chain.</p><p>The sponsor list reflects this directly. Durrah Sugar and First Mills hold gold sponsorships on the food show side, with Arabian Mills at silver. Sugar refining and flour milling are exactly the conversion stages in question, and both companies exist because the policy favours them.</p><p>MODON's role connects it to physical infrastructure. Food processing plant requires industrial land with power, water, wastewater treatment and cold storage, and it needs to sit near either the port receiving the raw material or the population consuming the output. This publication has reported MODON's SAR 3bn commitment to Sudair and the broader industrial city programme that provides that serviced land.</p><p>The Jeddah location is not incidental either. Jeddah Islamic Port handles a large share of the Kingdom's food imports, and processing capacity near the port shortens the most expensive leg of the chain. This publication has covered Mawani's logistics-centre contracts at Jeddah worth close to SAR 1 billion, which is the warehousing layer of the same system.</p><p>The gap in the arrangement is cold chain, which this publication has examined separately in the context of the Riyadh logistics exhibition earlier this month. Processing capacity without temperature-controlled distribution to match simply relocates the loss point further down the chain.</p><p>The organiser gives combined figures across both shows of more than 1,000 exhibitors from over 95 countries; those are ASP Events' own numbers. Milling and refining capacity is also the least glamorous part of the food security argument and the part that has actually been built.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Food Security",
+   "Manufacturing",
+   "MODON",
+   "Jeddah"
+  ],
+  "companies": [
+   "MODON",
+   "Durrah Sugar",
+   "First Mills",
+   "Arabian Mills",
+   "Mawani",
+   "ASP Events"
+  ],
+  "seoTitle": "Saudi food security rests on processing capacity",
+  "seoDescription": "Saudi food policy rests on domestic processing capacity rather than reserves, making an equipment show a policy event.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T12:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 422
+ }
+]

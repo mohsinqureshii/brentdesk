@@ -32,6 +32,9 @@
   "seoTitle": "Inspector availability shapes Gulf turnaround timing",
   "seoDescription": "The shutdown window is a plant's most expensive period, and qualified inspection capacity is the binding constraint.",
   "informationCutoff": "2026-09-10",
-  "wordCount": 424
+  "wordCount": 424,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-13T12:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

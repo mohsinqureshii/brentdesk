@@ -38,6 +38,9 @@
   "seoTitle": "Warehouse racking demand follows Saudi industrial cities",
   "seoDescription": "Warehouse storage equipment demand tracks tenanted industrial estates rather than headline construction programmes.",
   "informationCutoff": "2026-09-10",
-  "wordCount": 421
+  "wordCount": 421,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-13T08:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

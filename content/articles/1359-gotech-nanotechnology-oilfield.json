@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-29",
+  "primarySourceUrl": "https://www.spe-events.org/gotech/technical-programme-2026",
+  "primarySourceName": "SPE",
+  "commission": 1359,
+  "slug": "gotech-nanotechnology-oilfield",
+  "primaryCategory": "oil-gas",
+  "author": "Jakson Gudawela",
+  "headline": "Nanotechnology forms a technical track at GOTECH in Dubai",
+  "deck": "It has its own GOTECH track, which is either a sign of maturity or of an application still looking for its field.",
+  "excerpt": "Nanotechnology forms a declared GOTECH track, a discipline that has generated substantial oilfield research without a corresponding record of field deployment.",
+  "content": "<p>Nanotechnology appears among the declared technical tracks at GOTECH in Dubai at the end of September, and it covers a discipline with a substantial research base and a growing set of field applications.</p><p>The proposed applications are genuinely interesting. Nanoparticles engineered to alter the wettability of reservoir rock could improve recovery by changing how oil adheres to mineral surfaces. Nanofluids injected during enhanced recovery could modify interfacial tension more efficiently than conventional surfactants at lower concentrations. Nanoparticle additives could improve drilling fluid performance, sealing microfractures that cause losses. Nano-engineered coatings could resist corrosion and scale in conditions where conventional treatments reach their limits.</p><p>Each has produced encouraging laboratory results over more than a decade. Moving from laboratory result to commercial field deployment involves a set of practical considerations that shape how the technology is adopted.</p><p>The first is cost per unit volume. Enhanced recovery operations inject enormous quantities of fluid, and an additive that works at laboratory concentrations may be economically impossible at field scale even when it is technically effective. The second is retention: particles injected into a reservoir may be adsorbed onto rock surfaces or filtered out near the wellbore before reaching the target, so that the concentration doing useful work several hundred metres out is a fraction of what was injected. The third is verification. Demonstrating that a nanofluid improved recovery requires distinguishing its effect from everything else changing in a producing field, which is difficult and expensive, and operators are reluctant to fund the trial that would prove it.</p><p>The fourth is conservatism, and it is rational rather than obstructive. A reservoir is a single asset that cannot be replaced if damaged. Injecting an engineered material whose long-term behaviour in the formation is imperfectly understood carries a risk asymmetry that discourages experimentation on producing assets: the upside is incremental recovery, the downside is permanent formation damage.</p><p>Where nanotechnology has moved faster is in surface applications, where the risk profile is entirely different. Coatings and materials treatments can be trialled on a section of pipe and removed if they perform differently, which connects the subject to the coatings and corrosion discipline on show at the Middle East Coatings Show in Dubai in the same week and to the asset integrity questions raised at STATIC Arabia earlier this month.</p><p>Its continued presence as a track suggests an active research community and sustained operator interest. Whether this edition brings field results rather than laboratory ones is the question worth putting to the sessions.</p><p>Programme detail comes from SPE's published technical programme.</p><p>Surface applications have moved faster because the trial risk is contained. A coating or materials treatment can be applied to a test section, monitored and reversed, which allows performance data to accumulate without exposure to a producing asset. That path connects the subject to the coatings and corrosion discipline on show at the Middle East Coatings Show in Dubai in the same week.</p>",
+  "tags": [
+   "Gulf",
+   "Nanotechnology",
+   "Oil and Gas",
+   "Enhanced Recovery",
+   "SPE"
+  ],
+  "companies": [
+   "SPE"
+  ],
+  "seoTitle": "Nanotechnology forms a technical track at GOTECH in Dubai",
+  "seoDescription": "Nanotechnology has its own GOTECH track despite a thin record of commercial field deployment.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-30T06:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-29",
+  "wordCount": 485
+ }
+]

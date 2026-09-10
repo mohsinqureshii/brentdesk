@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "primarySourceUrl": "https://events.meed.com/event/saudimegaprojects/",
+  "primarySourceName": "MEED Events",
+  "secondarySourceUrls": [
+   "https://highways.today/2026/09/10/saudi-mega-projects-2026/"
+  ],
+  "articleType": "report",
+  "researchConfidence": "A",
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-28",
+  "commission": 1348,
+  "slug": "saudi-giga-projects-130bn-awarded",
+  "primaryCategory": "construction",
+  "author": "BrentDesk Research",
+  "headline": "MEED puts Saudi giga-project awards at $130bn with $200bn in the market",
+  "deck": "The ratio between what has been let and what is still to let describes the constraint Saudi contracting is about to hit.",
+  "excerpt": "MEED puts $130bn of Saudi giga-project work already awarded and around $200bn still in the market — a ratio that describes a contractor capacity problem rather than a healthy pipeline.",
+  "content": "<p>Ahead of Saudi Mega Projects in Riyadh at the end of September, the organiser puts approximately $130bn of giga-project work already awarded and around $200bn currently in the market. Both are MEED's figures and should be read as such, but the relationship between them is the more useful number than either alone.</p><p>More work remaining than has been let is normally described as a healthy pipeline. In this case it describes a capacity question, because the constraint on Saudi construction is not demand and has not been for some time. It is the supply of contractors able to take on packages of this size, the specialist trades to execute them, and the project management capability to run them concurrently.</p><p>Contractor capacity does not scale quickly. A firm's ability to take work is limited by bonding capacity, by the depth of its management bench and by working capital, and all three grow slowly relative to the rate at which this pipeline is arriving. A contractor that doubles its order book without doubling those foundations is taking on risk that shows up two years later as schedule failure or as a claim.</p><p>The consequence is visible in pricing. When bidders are scarce relative to packages, tender prices rise and terms shift toward the contractor — longer programmes, more generous variation provisions, higher advance payments. Clients working to fixed dates, as this publication has noted of Expo 2030 in particular, have limited ability to resist that shift, because rebidding costs time they do not have.</p><p>It also concentrates risk. A market where a small number of contractors hold a large share of a very large programme is exposed to the financial health of each of them, and the Gulf has prior experience of what happens when a major regional contractor fails mid-programme.</p><p>The mitigations are all slow. Bringing in international contractors adds capacity but requires them to accept Saudi contract terms and payment behaviour. Building domestic capacity means the growth of firms like the ones on the conference partner list. Breaking packages into smaller lots widens the bidder pool but multiplies interfaces, which transfers the integration burden back to the client.</p><p>The payment terms question underneath all of it is the one contractors raise most consistently and clients discuss least publicly. Cash flow on Saudi projects has historically been the binding constraint on contractor growth, and a market letting $200bn of work will discover whether that has changed.</p><p>Figures cited are the organiser's own. None of the mitigations available to the market work quickly, which is why sequencing rather than pricing is the substantive conversation.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Construction",
+   "Contractors",
+   "Giga-Projects",
+   "Procurement"
+  ],
+  "companies": [
+   "MEED"
+  ],
+  "seoTitle": "Saudi giga-project awards at $130bn, $200bn in market",
+  "seoDescription": "The ratio between Saudi giga-project work awarded and still in the market describes a contractor capacity constraint.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-29T08:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 432
+ }
+]

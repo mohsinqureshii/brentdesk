@@ -37,8 +37,8 @@
   "articleType": "news",
   "researchConfidence": "B",
   "status": "SCHEDULED",
-  "scheduledAt": "2026-09-15T06:00:00Z",
-  "scheduledReason": "Preview held until the event opens",
+  "scheduledAt": "2026-09-16T06:00:00Z",
+  "scheduledReason": "Held for its publication slot",
   "informationCutoff": "2026-09-15",
   "wordCount": 427
  }

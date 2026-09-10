@@ -32,6 +32,9 @@
   "seoDescription": "Tanks, terminals and pipelines ran as a separate exhibition at STATIC Arabia, reflecting three distinct inspection regimes.",
   "articleType": "report",
   "researchConfidence": "B",
-  "wordCount": 455
+  "wordCount": 455,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-12T10:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

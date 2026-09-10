@@ -41,6 +41,9 @@
   "seoDescription": "The Vice Minister of Transport opened the third Saudi Warehousing and Logistics Expo, with 350 exhibitors from over 25 countries.",
   "articleType": "news",
   "wordCount": 440,
-  "researchConfidence": "B"
+  "researchConfidence": "B",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-11T06:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

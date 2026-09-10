@@ -38,6 +38,31 @@ describe("isHeld", () => {
   it("does not hold a back-dated commission", () => {
     expect(isHeld({ status: "SCHEDULED", eventDate: "2025-11-24" }, TODAY)).toBe(false);
   });
+
+  // Slots let a day's coverage publish in sequence rather than all at midnight.
+  const NOON = new Date("2026-09-06T12:00:00Z");
+
+  it("keeps holding a same-day commission whose slot has not arrived", () => {
+    expect(isHeld(
+      { status: "SCHEDULED", eventDate: TODAY, scheduledAt: "2026-09-06T16:00:00Z" },
+      TODAY, NOON,
+    )).toBe(true);
+  });
+
+  it("releases a same-day commission once its slot passes", () => {
+    expect(isHeld(
+      { status: "SCHEDULED", eventDate: TODAY, scheduledAt: "2026-09-06T08:00:00Z" },
+      TODAY, NOON,
+    )).toBe(false);
+  });
+
+  it("holds a back-dated commission that carries a future slot", () => {
+    // Catch-up coverage of an event that has already run.
+    expect(isHeld(
+      { status: "SCHEDULED", eventDate: "2026-09-04", scheduledAt: "2026-09-08T06:00:00Z" },
+      TODAY, NOON,
+    )).toBe(true);
+  });
 });
 
 describe("shouldIngest and the held rows", () => {

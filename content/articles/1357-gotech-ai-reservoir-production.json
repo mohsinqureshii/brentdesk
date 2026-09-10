@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-29",
+  "primarySourceUrl": "https://www.spe-events.org/gotech/technical-programme-2026",
+  "primarySourceName": "SPE",
+  "commission": 1357,
+  "slug": "gotech-ai-reservoir-production",
+  "primaryCategory": "industrial-ai",
+  "author": "Jakson Gudawela",
+  "headline": "AI for reservoir and production management leads GOTECH tracks",
+  "deck": "GOTECH leads its technical tracks with artificial intelligence for reservoir and production management, applied to a decision operators make constantly.",
+  "excerpt": "Artificial intelligence and digital applications for reservoir and production management lead GOTECH's technical tracks, addressing intervention prioritisation rather than novelty.",
+  "content": "<p>Artificial intelligence and digital applications for reservoir and production management lead the technical tracks at GOTECH in Dubai at the end of September. The framing is worth attention because it is narrower and more useful than the way the subject is usually discussed.</p><p>The oil and gas industry has an unusually good case for machine learning, and it rests on data rather than on enthusiasm. Producing fields generate continuous measurement — rates, pressures, temperatures, compositions — across hundreds or thousands of wells over decades, alongside seismic surveys, well logs and core data. That is a large, structured, physically constrained dataset of exactly the kind statistical methods handle well.</p><p>The applications that have actually delivered are correspondingly narrow. Production optimisation, which allocates lift capacity or injection across wells to maximise total output, is a constrained optimisation problem with a clear objective. Predictive maintenance on rotating equipment identifies degradation from vibration and performance data before failure. Intervention prioritisation ranks candidate wells for workover by expected incremental production against cost — which, in a mature field with more candidates than capital, is the single most valuable question a production engineer answers.</p><p>That last one connects the digital track directly to the mature fields track on the same programme. An operator with a thousand wells and budget for fifty interventions is making a ranking decision, and improving the ranking by even a modest margin produces barrels that cost nothing extra to obtain.</p><p>The limitations are equally well understood by the people in these sessions. Reservoir behaviour is governed by physics that a purely statistical model does not know, and models trained on historical performance extrapolate poorly when a field enters a regime it has not previously occupied. The methods that work in practice tend to be hybrids in which physical models constrain the statistical ones, and the engineering judgement about where to impose those constraints is the actual expertise.</p><p>Data quality is the constraint operators cite most and discuss least publicly. Decades of measurement collected by different systems to different standards, with gaps, recalibrations and undocumented changes, is not a clean training set, and a substantial share of any digital programme is spent on remediation rather than on modelling.</p><p>The track sits alongside nanotechnology and talent on the same programme, which is a reasonable grouping: all three are about capability that has to be built rather than purchased.</p><p>Programme detail is taken from SPE's published technical programme. The sessions worth attending are the ones reporting field results rather than model architectures, and the programme distinguishes between them.</p>",
+  "tags": [
+   "Gulf",
+   "Artificial Intelligence",
+   "Oil and Gas",
+   "Reservoir Management",
+   "SPE"
+  ],
+  "companies": [
+   "SPE"
+  ],
+  "seoTitle": "AI for reservoir management leads GOTECH tracks",
+  "seoDescription": "GOTECH leads with AI for reservoir and production management, applied to intervention prioritisation.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-29T16:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-29",
+  "wordCount": 423
+ }
+]

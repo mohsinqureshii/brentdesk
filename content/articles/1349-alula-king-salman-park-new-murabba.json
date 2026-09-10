@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "primarySourceUrl": "https://events.meed.com/event/saudimegaprojects/",
+  "primarySourceName": "MEED Events",
+  "secondarySourceUrls": [
+   "https://highways.today/2026/09/10/saudi-mega-projects-2026/"
+  ],
+  "articleType": "report",
+  "researchConfidence": "A",
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-28",
+  "commission": 1349,
+  "slug": "alula-king-salman-park-new-murabba",
+  "primaryCategory": "real-estate",
+  "author": "BrentDesk Research",
+  "headline": "AlUla, King Salman Park and New Murabba send officers to Riyadh",
+  "deck": "Three development companies send chief executives and development officers to Riyadh, with three incompatible theories of what draws people to a place.",
+  "excerpt": "AlUla Development Company, King Salman Park Foundation and New Murabba each send senior figures to Saudi Mega Projects, representing three distinct development propositions.",
+  "content": "<p>Three Saudi development vehicles appear on the Saudi Mega Projects agenda in Riyadh with senior representation: Fabien Toscano as chief executive of AlUla Development Company, Dale Chadwick as chief development officer of the King Salman Park Foundation, and Raymond Rice for New Murabba. Muhammed Alqahtani attends as executive vice president for delivery at Sports Boulevard.</p><p>Placed side by side they represent genuinely different theories of development, and the differences are instructive because all four are drawing on the same contractor base.</p><p>AlUla is heritage and landscape tourism at low density across a very large area. Its constraint is preservation: the archaeology and the geology are the product, which limits what can be built and where, and imposes conservation requirements on everything that is. Construction logistics into a remote governorate with limited existing infrastructure is the operational challenge, and the visitor economics depend on air access as much as on the assets themselves.</p><p>King Salman Park is urban open space at extraordinary scale within Riyadh, on the site of the former airport. Its proposition is amenity rather than destination — the value accrues to the city around it through the uplift a large park creates in adjacent land, which is a well-documented mechanism internationally and one that requires the park to be genuinely used rather than merely built. Landscape at that scale in a desert climate is a water and horticultural undertaking as much as a construction one.</p><p>New Murabba is density: a new downtown anchored on the Mukaab, built at high intensity on a defined footprint. Its problem is the opposite of AlUla's — not how to build lightly across a large area but how to build very heavily in a small one, with the deep excavation, structural complexity and construction logistics that implies in an occupied city.</p><p>Sports Boulevard is linear infrastructure threaded through existing Riyadh, which brings a different difficulty again: building across a functioning city means working around live traffic, existing utilities and residents, in many small sites rather than one large one.</p><p>What connects them is that all four compete for the same finite pool of Saudi contracting capacity, specialist subcontractors and imported skilled trades, within the same window before the Expo 2030 and World Cup 2034 deadlines. Four programmes with incompatible construction profiles bidding simultaneously into one market is the sequencing problem the conference exists to discuss.</p><p>Speaker names and titles come from the organiser's published agenda. The four programmes are also competing for the same senior delivery staff, a constraint less visible than contractor capacity but no easier to relieve.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "AlUla",
+   "King Salman Park",
+   "New Murabba",
+   "Riyadh"
+  ],
+  "companies": [
+   "AlUla Development Company",
+   "King Salman Park Foundation",
+   "New Murabba",
+   "Sports Boulevard"
+  ],
+  "seoTitle": "AlUla and New Murabba send officers to Riyadh",
+  "seoDescription": "Three Saudi development companies send senior figures to Riyadh with three incompatible theories of development.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-29T10:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 426
+ }
+]

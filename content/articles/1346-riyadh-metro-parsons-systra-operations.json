@@ -1,0 +1,43 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "primarySourceUrl": "https://events.meed.com/event/saudimegaprojects/",
+  "primarySourceName": "MEED Events",
+  "secondarySourceUrls": [
+   "https://highways.today/2026/09/10/saudi-mega-projects-2026/"
+  ],
+  "articleType": "report",
+  "researchConfidence": "A",
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-28",
+  "commission": 1346,
+  "slug": "riyadh-metro-parsons-systra-operations",
+  "primaryCategory": "rail",
+  "author": "Mo Qureshi",
+  "headline": "Parsons and SYSTRA send senior figures to Saudi Mega Projects",
+  "deck": "Parsons and SYSTRA both send senior figures to the Riyadh conference, which says something about who holds the delivery knowledge on Saudi rail.",
+  "excerpt": "Parsons and SYSTRA Arabia both send senior executives to Saudi Mega Projects, reflecting how much Saudi rail delivery capability sits with international consultants.",
+  "content": "<p>Two of the senior figures on the Saudi Mega Projects agenda in Riyadh come from consultancies rather than from clients: Terrence Fetters, vice president for Riyadh Metro at Parsons, and Belal Deiranieh, chief executive of SYSTRA Arabia. On a platform otherwise dominated by developer delivery chiefs, that is worth noticing.</p><p>Metro systems are the most consultant-intensive infrastructure there is. A metro is not a structure with trains in it but an integrated system in which civil works, track, power, signalling, rolling stock, control systems and station operations all have to be designed against one another and commissioned together. The discipline that manages those interfaces — systems engineering and integration — is concentrated in a small number of international firms, because the experience required is accumulated across projects rather than within any one client organisation.</p><p>Riyadh Metro is among the largest such schemes ever procured in a single programme, and the capability to deliver it was necessarily imported. That is not a criticism; no client builds a first metro with in-house expertise. But it does frame a question the Kingdom's localisation programme has not answered as convincingly for infrastructure as it has for manufactured goods. This publication has documented Saudi progress in localising products — valves, cable, steel, switchgear — where the deliverable is a physical object with a stable specification. Systems integration capability is a different kind of asset: it lives in people and in institutional memory, and it transfers only through sustained project exposure.</p><p>The operating phase is where that becomes pressing. A metro requires maintenance engineering, signalling support and asset management for its entire life, and those obligations begin at handover and never end. Whether they are met by an imported operator on a long concession or by a Saudi entity built up during construction is a decision with decades of consequence, and it is being made now.</p><p>SYSTRA's regional presence points at the same trend from the supply side. International rail consultancies have been establishing Saudi entities rather than serving the market from abroad, which is the precondition for any transfer of capability and mirrors what this publication has observed among manufacturers — that international firms increasingly want Saudi partners rather than Saudi customers.</p><p>The wider rail programme extends beyond Riyadh. Freight corridors, the land bridge and the connections into Dammam's container terminals form a network whose value depends on completion rather than on any single link, and the same integration disciplines apply.</p><p>Speaker names and titles are taken from the organiser's published agenda. Whether that capability stays imported or transfers is the question the operating concession will settle.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Riyadh Metro",
+   "Rail",
+   "Consultancy",
+   "Localisation"
+  ],
+  "companies": [
+   "Parsons",
+   "SYSTRA Arabia"
+  ],
+  "seoTitle": "Parsons and SYSTRA at Saudi Mega Projects",
+  "seoDescription": "Parsons and SYSTRA both send senior figures to the Riyadh giga-projects conference, reflecting where rail capability sits.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-28T18:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-28",
+  "wordCount": 432
+ }
+]

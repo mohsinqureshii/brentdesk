@@ -34,6 +34,9 @@
   "seoDescription": "Saudi e-commerce logistics is projected to double by 2027, into warehouse stock specified for pallet distribution.",
   "articleType": "report",
   "researchConfidence": "B",
-  "wordCount": 447
+  "wordCount": 447,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-12T18:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

@@ -263,18 +263,41 @@ function normalizeType(t: string | undefined): "news" | "opinion" | "press_relea
 type Hold = { statusId: number; at: string };
 
 /**
- * Whether a commission is still waiting for its date.
+ * When a commission is due to appear.
  *
- * True only while BOTH hold: the file is flagged SCHEDULED, and its eventDate
- * is still ahead of today. On the day itself `eventDate > today` is false, so
- * the article publishes normally — a scheduled row already released by the
- * scheduler is simply re-ingested as the published article it now is.
+ * `scheduledAt` on the file wins where an editor has set one, which is what
+ * lets several commissions sharing an event date publish across that day
+ * instead of arriving together at midnight. Without one the release falls
+ * back to the start of the event's own day, the behaviour before slots
+ * existed.
+ */
+export function releaseAt(item: { scheduledAt?: string | null; eventDate: string }): string {
+  return item.scheduledAt || `${item.eventDate}T00:00:00Z`;
+}
+
+/**
+ * Whether a commission is still waiting for its slot.
+ *
+ * The day-level decision is unchanged: a commission flagged SCHEDULED and
+ * dated ahead of today is held, and on the day itself it publishes. What is
+ * new is the same-day case — where a file carries a `scheduledAt` time, the
+ * commission keeps waiting until that time passes, so a day's worth of
+ * coverage releases in slots rather than in one batch.
+ *
+ * A back-dated commission may still carry a future slot: an article about
+ * last week's event can be scheduled for tomorrow morning, and the release
+ * time rather than the event date decides.
  */
 export function isHeld(
-  item: { status?: string; eventDate: string },
+  item: { status?: string; eventDate: string; scheduledAt?: string | null },
   today: string,
+  now: Date = new Date(),
 ): boolean {
-  return item.status === "SCHEDULED" && item.eventDate > today;
+  if (item.status !== "SCHEDULED") return false;
+  const at = releaseAt(item);
+  const day = at.slice(0, 10);
+  if (day !== today) return day > today;
+  return item.scheduledAt ? new Date(at) > now : false;
 }
 
 export async function ingest(
@@ -307,7 +330,7 @@ export async function ingest(
     // published at all yet, so it carries no publication date until the
     // scheduler gives it one.
     publishedAt: hold ? null : now,
-    scheduledAt: hold ? toDbDate(new Date(`${hold.at}T00:00:00Z`)) : null,
+    scheduledAt: hold ? toDbDate(new Date(hold.at)) : null,
     eventDate: input.eventDate,
     sourceUrl: input.primarySourceUrl,
     sourceName: input.primarySourceName,
@@ -859,7 +882,7 @@ export async function runIngest(files?: string[]): Promise<{ created: number; up
         const holding = isHeld(item as any, today);
         if (holding && !scheduled) { held++; continue; }
         const hold: Hold | null =
-          holding && scheduled ? { statusId: scheduled.id, at: item.eventDate } : null;
+          holding && scheduled ? { statusId: scheduled.id, at: releaseAt(item as any) } : null;
         if (hold) held++;
         // Held rows stay out of the related-article graph until they are
         // actually published, so no live article links to one that has not

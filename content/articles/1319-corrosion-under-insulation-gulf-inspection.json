@@ -32,6 +32,9 @@
   "seoDescription": "Corrosion under insulation dominates Gulf static equipment maintenance because detection, not repair, is the expensive part.",
   "articleType": "report",
   "researchConfidence": "B",
-  "wordCount": 469
+  "wordCount": 469,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-12T08:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

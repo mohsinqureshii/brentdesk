@@ -35,6 +35,9 @@
   "seoTitle": "Gulf exhibitor lists require two-language verification",
   "seoDescription": "Arabic and English releases render company names differently, making the organiser's official list the reference.",
   "informationCutoff": "2026-09-10",
-  "wordCount": 423
+  "wordCount": 423,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-16T12:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

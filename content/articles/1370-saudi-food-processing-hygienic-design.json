@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1370,
+  "slug": "saudi-food-processing-hygienic-design",
+  "primaryCategory": "machinery",
+  "author": "Mo Qureshi",
+  "headline": "Hygienic design governs Saudi food processing plant specification",
+  "deck": "Hygienic design governs Saudi food plant specification, and the constraints show up in flooring and door openings before they show up in machinery.",
+  "excerpt": "Hygienic design requirements shape food processing plant specification more than throughput does, a constraint visible in the flooring and door suppliers exhibiting in Jeddah.",
+  "content": "<p>Among the sixteen German exhibitors with published stands at Saudi Food Manufacturing in Jeddah are two that are not machinery builders: Silikal, in floor coatings, and Hörmann, in industrial doors. Their presence in a processing and packaging pavilion is the most informative detail on the roster.</p><p>Food processing plant is designed around cleanability. A facility handling product for human consumption must be washed down on a cycle, to a standard that permits verification, and every surface, junction and penetration in the building is assessed against how easily it can be cleaned and how readily it harbours contamination when it is not.</p><p>That requirement reaches the building fabric before it reaches the equipment. Floors take the heaviest duty: they are wet for much of the operating day, exposed to fats, acids and cleaning chemicals, subject to thermal shock where hot washdown meets a chilled room, and trafficked by pallet trucks. An ordinary industrial floor coating fails quickly under that combination, and a failed floor is not a cosmetic problem — cracks and delamination create exactly the harbourage the hygiene regime exists to eliminate. Repairing one means taking a production area out of service.</p><p>Doors carry a related duty. Openings between zones of different hygiene status, or between chilled and ambient areas, have to seal, resist impact from handling equipment, cycle rapidly enough not to impede movement, and be cleanable themselves. A door that fails in a food plant compromises both the hygiene boundary and the temperature boundary at once.</p><p>The same logic runs through the machinery. Hygienic design standards govern surface finish, the radius of internal corners, the avoidance of dead legs in pipework where product can stagnate, and the ability to dismantle equipment for cleaning without specialist tools. Machinery built to those standards costs considerably more than functionally equivalent equipment for a non-food application, and the difference is almost entirely in details a visitor walking a stand would not notice.</p><p>For Saudi manufacturers the requirement intersects with export ambition. Buyers in regulated export markets audit supplier facilities, and a plant that cannot demonstrate hygienic design and a documented cleaning regime does not pass. That makes the building specification an export prerequisite rather than an operational preference.</p><p>Halal certification adds a further layer with its own facility implications around segregation and traceability, which sit alongside rather than inside the hygiene regime.</p><p>Exhibitor names and stand allocations come from the German pavilion's published roster. Buyers walking the pavilion would do well to ask about cleaning cycles before throughput. Retrofitting hygienic standards into a building specified without them is among the more expensive corrections a food manufacturer can face.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Food Manufacturing",
+   "Hygienic Design",
+   "Machinery",
+   "Jeddah"
+  ],
+  "companies": [
+   "Silikal",
+   "Hörmann",
+   "ROVEMA",
+   "SOLLICH"
+  ],
+  "seoTitle": "Hygienic design governs Saudi food plant design",
+  "seoDescription": "Hygienic design shapes food plant specification, visible in the flooring and door suppliers exhibiting in Jeddah.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T16:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 436
+ }
+]

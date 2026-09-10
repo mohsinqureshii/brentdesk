@@ -33,6 +33,9 @@
   "seoDescription": "Payment plans shown at IPS Dubai shift the buyer's constraint from deposit capital to monthly income, without moving list prices.",
   "articleType": "report",
   "wordCount": 452,
-  "researchConfidence": "B"
+  "researchConfidence": "B",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-11T14:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

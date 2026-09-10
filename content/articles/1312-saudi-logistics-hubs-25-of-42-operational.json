@@ -35,6 +35,9 @@
   "seoDescription": "A figure from the Riyadh logistics expo puts Saudi Arabia's hub programme at 60 per cent delivered. The remainder are the harder sites.",
   "articleType": "report",
   "wordCount": 441,
-  "researchConfidence": "B"
+  "researchConfidence": "B",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-11T08:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

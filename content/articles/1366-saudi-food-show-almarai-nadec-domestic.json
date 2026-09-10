@@ -1,0 +1,49 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1366,
+  "slug": "saudi-food-show-almarai-nadec-domestic",
+  "primaryCategory": "manufacturing",
+  "author": "Mo Qureshi",
+  "headline": "Almarai and NADEC exhibit at the Saudi Food Show in Jeddah",
+  "deck": "The two co-located Jeddah shows put Saudi food brands on one floor and the processing plant they buy on the other.",
+  "excerpt": "The Saudi Food Show and Saudi Food Manufacturing run side by side in Jeddah, separating the Kingdom's food brands from the imported machinery that produces their output.",
+  "content": "<p>Two exhibitions share the Jeddah Superdome from 27 September: The Saudi Food Show, carrying finished food and beverage products, and Saudi Food Manufacturing, carrying the plant that makes them. Running them together is sensible, and the division between them describes the Saudi food industry accurately.</p><p>The product side is substantially domestic. Almarai, NADEC, Arabian Mills, Zamil Food and Snackland appear on the exhibitor list alongside international names including Americana, Arla, BRF and Lactalis. Saudi Arabia has built genuine scale in dairy, poultry, bakery and processed foods, with brands that hold regional market positions rather than merely domestic ones, and the sector is among the more successful pieces of the Kingdom's non-oil economy.</p><p>The manufacturing side tells a different story. The named processing and packaging exhibitors — Multivac, JBT-Marel, Provisur, ROVEMA, ITEC, ACME, Napco, Zultec, Anasia — are overwhelmingly international, and the best-documented block on the floor is the German pavilion, sixteen machinery builders with stand numbers already published. A Swiss pavilion is confirmed.</p><p>That split is the structural point. Saudi Arabia makes the food and imports the means of making it. Processing and packaging machinery is precision engineering built in relatively small volumes with heavy embedded process knowledge, and it is among the categories least susceptible to the localisation approach that has worked for the Kingdom in valves, cable and structural steel. This publication has documented that pattern repeatedly: localisation moves fastest where the deliverable is a physical object with a stable specification and a repeat order book, and slowest where it is specialist capability.</p><p>MODON's position as strategic partner to both shows connects the exhibition to the industrial cities programme, which is where new Saudi food processing capacity is being built. This publication has reported MODON's SAR 3bn commitment to Sudair and the wider industrial estate build-out that houses this kind of plant.</p><p>Durrah Sugar and First Mills hold gold sponsorships on the food show side with Arabian Mills and Snackland at silver, and ITEC takes silver on the manufacturing side. The programme is built around a matchmaking scheme and two awards rather than a conference.</p><p>The organiser gives combined figures of more than 1,000 exhibitors from over 95 countries, 100,000-plus products and 12,000 business meetings, with an exhibitor directory header indicating roughly 205 exhibitors on the manufacturing side specifically. Those are ASP Events' own numbers; the exhibitor directory itself returned no records when queried, so the manufacturing figure should be treated as indicative. For a supplier the useful reading is that the growth is on the product side while the equipment spend leaves the country.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Food Manufacturing",
+   "Jeddah",
+   "Localisation",
+   "Machinery"
+  ],
+  "companies": [
+   "Almarai",
+   "NADEC",
+   "Americana",
+   "Arabian Mills",
+   "MODON",
+   "ASP Events",
+   "Multivac",
+   "JBT-Marel"
+  ],
+  "seoTitle": "Almarai and NADEC exhibit at the Saudi Food Show in Jeddah",
+  "seoDescription": "The Saudi Food Show and Saudi Food Manufacturing separate the Kingdom's food brands from the plant that makes their output.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T08:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 427
+ }
+]

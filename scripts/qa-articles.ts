@@ -85,15 +85,15 @@ const TODAY = new Date().toISOString().slice(0, 10);
 /**
  * How far ahead a commission may be dated while flagged SCHEDULED.
  *
- * Ten days, because that is the length of a commissioning run built around
- * an events calendar: the September 2026 schedule was drawn on the 6th and
- * runs to the 15th, and a seven-day horizon failed the pieces previewing
- * shows that open on the 14th and 15th. Widening it does not let anything
- * be published early — the ingest still holds a SCHEDULED row until its
- * eventDate arrives — it only lets the run be written in one sitting rather
+ * Twenty-four days, because that is the length of a commissioning run built
+ * around an events calendar. The September 2026 diary was drawn on the 10th
+ * and runs to GOTECH closing on 1 October, and a ten-day horizon failed
+ * every preview of a show opening after the 20th. Widening it does not let
+ * anything be published early — the ingest still holds a SCHEDULED row until
+ * its slot arrives — it only lets the run be written in one sitting rather
  * than split across days to satisfy the checker.
  */
-const SCHEDULE_HORIZON = new Date(Date.now() + 10 * 86400 * 1000).toISOString().slice(0, 10);
+const SCHEDULE_HORIZON = new Date(Date.now() + 24 * 86400 * 1000).toISOString().slice(0, 10);
 
 /**
  * Commission numbers that were retired on purpose. The coverage check below
@@ -176,8 +176,21 @@ for (const file of files) {
     if (a.eventDate < ARCHIVE_START || a.eventDate > latest) {
       err(file, `eventDate ${a.eventDate} outside the ${scheduled ? "scheduling" : "archive"} window ${ARCHIVE_START}..${latest}`);
     }
-    if (scheduled && a.eventDate <= TODAY) {
-      err(file, `status SCHEDULED but eventDate ${a.eventDate} is not in the future — publish it instead`);
+    // A scheduled commission must actually be waiting for something. Its slot
+    // is `scheduledAt` where one is set, which is what lets coverage of an
+    // event that has already run be held for a later publication slot; only
+    // where no slot is given does the event's own date decide.
+    if (scheduled) {
+      if (a.scheduledAt && !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(a.scheduledAt)) {
+        err(file, `scheduledAt "${a.scheduledAt}" is not an ISO instant (YYYY-MM-DDTHH:MM:SSZ)`);
+      }
+      const slot = a.scheduledAt || `${a.eventDate}T00:00:00Z`;
+      if (slot.slice(0, 10) > SCHEDULE_HORIZON) {
+        err(file, `scheduled for ${slot.slice(0, 10)}, beyond the horizon ${SCHEDULE_HORIZON}`);
+      }
+      if (new Date(slot) <= new Date()) {
+        err(file, `status SCHEDULED but its slot ${slot} has already passed — publish it instead`);
+      }
     }
     if (a.informationCutoff) {
       if (a.informationCutoff < a.eventDate) {

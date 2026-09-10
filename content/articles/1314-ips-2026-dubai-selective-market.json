@@ -42,6 +42,9 @@
   "seoDescription": "IPS 2026 closed with 300 exhibitors and floor space up 38 per cent, but developers arrived pitching selectivity over momentum.",
   "articleType": "news",
   "wordCount": 449,
-  "researchConfidence": "A"
+  "researchConfidence": "A",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-11T12:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

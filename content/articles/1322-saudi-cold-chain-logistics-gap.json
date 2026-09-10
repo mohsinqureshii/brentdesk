@@ -34,6 +34,9 @@
   "seoDescription": "Temperature-controlled capacity lags Saudi Arabia's ambient warehousing build-out, and the shortfall shows up as shrinkage and compliance risk.",
   "articleType": "report",
   "researchConfidence": "B",
-  "wordCount": 444
+  "wordCount": 444,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-12T14:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

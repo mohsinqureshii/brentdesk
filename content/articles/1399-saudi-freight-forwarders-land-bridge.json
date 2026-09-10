@@ -37,6 +37,9 @@
   "seoTitle": "Forwarders position for the Saudi land bridge",
   "seoDescription": "Riyadh's logistics floor carried companies preparing for a Saudi rail corridor whose timeline is not public.",
   "informationCutoff": "2026-09-10",
-  "wordCount": 427
+  "wordCount": 427,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-13T06:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

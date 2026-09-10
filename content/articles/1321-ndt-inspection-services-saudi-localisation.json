@@ -34,6 +34,9 @@
   "seoDescription": "Non-destructive testing is absent from Saudi localisation targets despite governing run-or-shutdown decisions across the Kingdom's plant.",
   "articleType": "report",
   "researchConfidence": "B",
-  "wordCount": 449
+  "wordCount": 449,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-12T12:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]

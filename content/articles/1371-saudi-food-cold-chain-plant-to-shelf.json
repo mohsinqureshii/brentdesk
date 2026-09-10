@@ -1,0 +1,43 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1371,
+  "slug": "saudi-food-cold-chain-plant-to-shelf",
+  "primaryCategory": "logistics",
+  "author": "Mo Qureshi",
+  "headline": "Saudi food processing capacity outpaces cold chain distribution",
+  "deck": "New plant coming out of the industrial cities produces chilled and frozen output into a distribution network that has lagged the ambient build-out.",
+  "excerpt": "Saudi food processing capacity is expanding faster than the temperature-controlled distribution needed to move its output, a gap visible from both ends of the supply chain.",
+  "content": "<p>Saudi Food Manufacturing in Jeddah at the end of September lists supply chain solutions among its five sector divisions, and the division points at a constraint this publication examined from the other end at the Riyadh logistics exhibition earlier this month.</p><p>Saudi food processing capacity is growing. New plant is being built in MODON's industrial cities, the Kingdom's factory count has passed 13,600, and food and pharmaceutical industries lead the programme axes at the Saudi Industry Forum in Jeddah this month. A significant share of that new capacity produces chilled or frozen output — dairy, poultry, prepared foods, bakery — because those are the categories where domestic manufacture displaces imports most effectively.</p><p>Temperature-controlled distribution has not kept pace. Cold storage is capital-intensive per square metre, energy-intensive to run in this climate, and unforgiving of interruption, which means it gets built later and by fewer operators than ambient warehousing. The consequence is that processing capacity and cold distribution capacity are growing at different rates, and the gap is absorbed as product loss between plant and shelf.</p><p>That loss is easy to underestimate because of how it presents. It is not one visible failure but a continuous low-level attrition — product arriving with shortened remaining shelf life, retailers discounting to clear, batches rejected at delivery. Each event is small and each is absorbed locally, which means the aggregate rarely builds the internal case for the capital investment that would fix it.</p><p>The technical requirement is more demanding than a temperature specification suggests. A validated cold chain requires continuous monitoring with recorded data, control maintained through every handover between vehicle, dock and store, and procedures for what happens when a reading goes out of range. The weakest points are the transfers rather than the transport, and they are where investment is least visible.</p><p>The e-commerce channel makes it harder again. Grocery and prepared food delivery, a growing part of the segment the Riyadh show's organiser expects to double by 2027, requires temperature control maintained down to an individual consignment in a vehicle in traffic — the most demanding cold chain application there is.</p><p>For manufacturers the practical exposure is that a plant's effective market is bounded by the distance its output can travel within specification, not by the distance a truck can drive. Expanding capacity without expanding that radius produces product with nowhere new to go.</p><p>Sector divisions are taken from the organiser's published material. Distribution radius, not plant capacity, is the number a food manufacturer should be watching. Investment in the transfers between vehicle, dock and store would deliver more than additional storage volume, and attracts less attention.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Cold Chain",
+   "Food Manufacturing",
+   "Logistics",
+   "Distribution"
+  ],
+  "companies": [
+   "MODON",
+   "ASP Events"
+  ],
+  "seoTitle": "Saudi food capacity outpaces the cold chain",
+  "seoDescription": "Processing capacity is growing faster than temperature-controlled distribution, and the gap shows up as product loss.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T18:00:00Z",
+  "scheduledReason": "Held for its publication slot",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 436
+ }
+]

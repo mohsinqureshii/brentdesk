@@ -36,6 +36,9 @@
   "seoDescription": "STATIC Arabia ran as three co-located expos in Al Khobar, a structure that maps the Gulf's ageing-asset problem.",
   "articleType": "report",
   "researchConfidence": "B",
-  "wordCount": 468
+  "wordCount": 468,
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-12T06:00:00Z",
+  "scheduledReason": "Catch-up slot for an event already run"
  }
 ]
