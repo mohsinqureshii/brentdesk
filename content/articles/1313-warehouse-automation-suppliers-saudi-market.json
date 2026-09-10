@@ -1,0 +1,43 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1313,
+  "headline": "Europe's warehouse automation names came to Riyadh. Most Saudi sheds still run on forklifts.",
+  "slug": "warehouse-automation-suppliers-saudi-market",
+  "deck": "Swisslog, SSI Schaefer and Kardex are on the Riyadh floor. The gap between what they sell and what the Saudi market currently buys is the whole commercial question.",
+  "country": "Saudi Arabia",
+  "excerpt": "Swisslog, SSI Schaefer and Kardex are exhibiting at the Saudi Warehousing and Logistics Expo, selling automated storage into a market where manual handling remains the default.",
+  "content": "<p>Three of the larger European intralogistics suppliers — Swisslog, SSI Schäfer and Kardex — appear on the exhibitor list for the Saudi Warehousing and Logistics Expo in Riyadh, alongside domestic operators including SAL Logistics and Almajdouie. Kardex was billed before the show to present on the choice between automated and manual intralogistics, which is a fair summary of the commercial question these companies face in the Kingdom.</p><p>Automated storage and retrieval systems are not a new product. They are a well-understood category with a well-understood payback model, and that model is what makes Saudi Arabia a harder sell than the European markets these firms grew in. The case for automation rests on labour cost, land cost and throughput density. Where labour is expensive and land is scarce, a high-bay automated store pays for itself against the alternative of more people and more floor. Where labour is comparatively cheap and land is not the binding constraint, the same system is a long payback on an asset that is difficult to reconfigure.</p><p>Saudi warehousing has historically sat in the second category, which is why the installed base skews heavily toward conventional racking, wide aisles and forklift handling. The buildings were specified for that model and, in many cases, cannot accept a high-bay system without structural work that costs more than the equipment.</p><p>What is shifting the calculation is not labour cost but throughput. E-commerce fulfilment — projected by the show's organiser to double as a logistics segment by 2027 — imposes a pick profile that manual operations handle badly: many orders, few lines each, tight cut-offs, high return rates. That is the workload automated goods-to-person systems were designed around, and it is the one part of the Saudi market where the payback arithmetic starts to work on its own terms rather than on a corporate mandate.</p><p>The second driver is Saudisation. A warehouse operating model that assumes an elastic supply of low-cost expatriate handling labour is exposed to nationalisation targets in a way that an automated one is not. Several operators have reached the same conclusion in other trades, and it tends to move capital toward equipment sooner than a pure cost comparison would.</p><p>Neither driver had produced an announced order at the show. No contracts or system sales were disclosed by any exhibitor during the exhibition, and the automation suppliers' presence should be read as market development rather than as evidence of conversion. The exhibitor names here come from the organiser's pre-show releases; transliterations of several Saudi companies differ between the Arabic and English versions, so the official floor list is the authority on who was actually present.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "warehousing",
+  "tags": [
+   "Saudi Arabia",
+   "Warehousing",
+   "Automation",
+   "Logistics"
+  ],
+  "companies": [
+   "Swisslog",
+   "SSI Schaefer",
+   "Kardex",
+   "SAL Logistics",
+   "Almajdouie",
+   "dmg events"
+  ],
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "seoTitle": "Warehouse automation suppliers test the Saudi market",
+  "seoDescription": "Swisslog, SSI Schaefer and Kardex are exhibiting in Riyadh, selling automated storage into a market that still runs mostly on forklifts.",
+  "articleType": "report",
+  "wordCount": 437,
+  "researchConfidence": "B"
+ }
+]

@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "informationCutoff": "2026-09-10",
+  "commission": 1312,
+  "headline": "Saudi Arabia has 25 of 42 planned logistics hubs running. The other 17 are the story.",
+  "slug": "saudi-logistics-hubs-25-of-42-operational",
+  "deck": "A figure circulated at the Riyadh logistics expo puts the national hub programme at 60 per cent delivered. What is left is the harder 40 per cent.",
+  "country": "Saudi Arabia",
+  "excerpt": "Twenty-five of 42 planned Saudi logistics hubs are operational, according to a figure circulated at the Riyadh logistics expo. The remaining seventeen are the ones that were always going to be difficult.",
+  "content": "<p>Among the market figures circulated at the Saudi Warehousing and Logistics Expo in Riyadh this week was one that deserves separating from the rest: 25 of 42 planned logistics hubs are now operational. The number comes from the organiser, dmg events, rather than from the Ministry of Transport and Logistic Services, and should be read as an industry estimate rather than an official count. Taken at face value it puts the national hub programme at roughly 60 per cent delivered.</p><p>That is a real achievement and a misleading one. Hub programmes of this kind do not deliver evenly. The sites that open first are the ones adjacent to existing demand and existing infrastructure — the industrial cities that already had tenants, the port hinterlands that already had container flows, the Riyadh ring where distribution demand was outrunning available space before any programme existed. They are, in the most literal sense, the easy ones.</p><p>The remaining seventeen are a different proposition. A logistics hub is only as useful as the connection between it and something else, and the connections that remain unbuilt are the expensive ones: rail spurs into sites currently served by road alone, customs and inspection capacity at inland locations, and the last stretch of surfaced access that separates a designated zone from a functioning one. Each of those is a longer lead time and a heavier capital commitment than the warehouse shell itself.</p><p>The demand side has been moving faster than the hub programme. This publication has reported Mawani signing seven logistics-centre contracts worth close to SAR 1 billion at Jeddah, Aramco's procurement venture ASMO taking over a five-million-square-metre pipe yard at Abqaiq, and Riyadh's industrial space running near full as the manufacturing base grows. Those are tenants and operators committing capital ahead of the public programme, which is a healthier signal than the reverse, but it also means the hubs still to come are arriving into a market that has partly solved the problem privately.</p><p>The commercial vehicle market figure quoted alongside the hub count — $6.7bn — points at the same tension. Fleet investment on that scale is a bet on road freight remaining the primary mode for the medium term, which is a rational bet while the rail connections into the remaining hubs are unbuilt, and a stranded one if they arrive on schedule.</p><p>What the hub count does not tell you is utilisation. Twenty-five sites operational is a construction metric, not an occupancy metric, and the difference between a zone that is open and a zone that is full is where the programme will actually be judged. No occupancy data was published at the show.</p>",
+  "author": "Mo Qureshi",
+  "primaryCategory": "logistics",
+  "tags": [
+   "Saudi Arabia",
+   "Logistics",
+   "Infrastructure",
+   "Supply Chain"
+  ],
+  "companies": [
+   "dmg events",
+   "Mawani",
+   "ASMO"
+  ],
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.arabnews.com/node/2655429",
+  "primarySourceName": "Arab News",
+  "secondarySourceUrls": [
+   "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169"
+  ],
+  "seoTitle": "Saudi Arabia has 25 of 42 logistics hubs operational",
+  "seoDescription": "A figure from the Riyadh logistics expo puts Saudi Arabia's hub programme at 60 per cent delivered. The remainder are the harder sites.",
+  "articleType": "report",
+  "wordCount": 441,
+  "researchConfidence": "B"
+ }
+]
