@@ -746,6 +746,10 @@ export default function ArticlesList() {
                         )}
                       </button>
                     </TableHead>
+                    {/* A scheduled article has no publication date until its slot
+                        passes, so the two dates answer different questions and
+                        both stay on screen. */}
+                    <TableHead className="w-[120px] whitespace-nowrap">Scheduled</TableHead>
                     <TableHead className="w-[80px] text-right whitespace-nowrap hidden xl:table-cell">
                       <button
                         onClick={() => handleSort("viewCount")}
@@ -837,11 +841,13 @@ export default function ArticlesList() {
                         </span>
                       </TableCell>
                       <TableCell className="text-[#697386] text-sm whitespace-nowrap">
+                        {article.publishedAt ? formatDate(article.publishedAt) : "—"}
+                      </TableCell>
+                      <TableCell className="text-[#697386] text-sm whitespace-nowrap">
                         {article.status === "scheduled" ? (
-                          // A scheduled article has no publishedAt yet, so show
-                          // the date it is due. A scheduled row with no date is
-                          // stuck — the release sweep only picks up dated rows —
-                          // so say that rather than showing an empty dash.
+                          // A scheduled row with no date never publishes: the
+                          // release sweep only picks up rows where scheduledAt
+                          // is set. Say so rather than showing an empty dash.
                           article.scheduledAt ? (
                             <div className="flex items-center gap-1 text-orange-600">
                               <Clock className="h-3 w-3" />
@@ -853,8 +859,11 @@ export default function ArticlesList() {
                               <span>No date set</span>
                             </div>
                           )
+                        ) : article.scheduledAt ? (
+                          // Released by the sweep: keep the slot it came from visible.
+                          <span className="text-[#9BA3B0]">{formatDate(article.scheduledAt)}</span>
                         ) : (
-                          formatDate(article.publishedAt)
+                          "—"
                         )}
                       </TableCell>
                       <TableCell className="text-right text-[#697386] whitespace-nowrap hidden xl:table-cell">
