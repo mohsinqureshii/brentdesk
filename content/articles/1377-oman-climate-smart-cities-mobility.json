@@ -1,0 +1,44 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://omanclimateweek.com/conference/",
+   "https://omanclimateweek.com/sc/"
+  ],
+  "country": "Oman",
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://omanclimateweek.com/",
+  "primarySourceName": "Oman Climate Week",
+  "commission": 1377,
+  "slug": "oman-climate-smart-cities-mobility",
+  "primaryCategory": "infrastructure",
+  "author": "Jakson Gudawela",
+  "headline": "Muscat Municipality is paying for a climate week that puts cities on the agenda",
+  "deck": "Building climate-smart cities and smart mobility both have sessions, and the main sponsor runs the capital.",
+  "excerpt": "Oman Climate Week's programme covers climate-smart cities and smart mobility, with Muscat Municipality among its main sponsors.",
+  "content": "<p>Two sessions on Oman Climate Week's second conference day address the built environment directly: building climate-smart cities, and smart mobility. Muscat Municipality is a main sponsor of the event and Dhofar Municipality holds a gold sponsorship, which places the two bodies responsible for Oman's principal urban areas behind the programme.</p><p>Urban climate policy in the Gulf runs into a constraint that temperate cities do not face. The dominant energy load in a Gulf building is cooling, and it is not discretionary — for a substantial part of the year, air conditioning is a habitability requirement rather than a comfort preference. Efficiency measures therefore have to reduce the cooling load rather than shift behaviour, which puts the emphasis on building fabric, glazing, shading, orientation and district cooling rather than on the demand-side measures that work elsewhere.</p><p>District cooling is the intervention with the clearest regional case. Producing chilled water centrally and distributing it to multiple buildings is more efficient than individual chillers, and it concentrates the load in a way that permits thermal storage — shifting production to off-peak hours and reducing peak grid demand. It requires coordinated development to be viable, which makes it a planning decision rather than a building one, and therefore a municipality's business.</p><p>Building codes are the other municipal lever, and the harder one. Efficiency standards raise construction cost for a benefit that accrues to the eventual occupier through lower bills, which is the same split incentive that governs coatings specification in industrial construction, covered elsewhere in this publication's reporting this month. Enforcement is where such codes usually fail.</p><p>Smart mobility in a Gulf context means something specific too. Walking and cycling are limited by climate for much of the year, which constrains the modal shift that underpins European urban transport policy. That leaves public transport, and public transport in low-density cities built around private cars requires either substantial density change or acceptance of poor utilisation.</p><p>The regional comparison is instructive. This publication has covered Riyadh Metro's programme and the systems integration capability behind it, alongside the King Salman Park and Sports Boulevard projects that are attempting exactly the density and amenity changes urban climate policy requires. Muscat's scale is different and its approach will be too.</p><p>Programme and sponsor detail is taken from the organiser's published material, with sponsor tiers read from the event's own listing. District cooling in particular needs to be planned before plots are sold, not retrofitted after. Enforcement remains the weak point in every Gulf efficiency code, and it is a municipal capability rather than a legislative one.</p>",
+  "tags": [
+   "Oman",
+   "Cities",
+   "Mobility",
+   "Climate",
+   "Muscat"
+  ],
+  "companies": [
+   "Muscat Municipality",
+   "Dhofar Municipality"
+  ],
+  "seoTitle": "Muscat Municipality backs a climate week on cities",
+  "seoDescription": "Oman Climate Week covers climate-smart cities and smart mobility, with the capital's municipality as main sponsor.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 427
+ }
+]

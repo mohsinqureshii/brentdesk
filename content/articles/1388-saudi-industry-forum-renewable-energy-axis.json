@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/saudi-arabia/jeddah-industry-forum-to-spotlight-growth-investment-and-innovation-3000585"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://ksa-sif.com/?page_id=14873&lang=en",
+  "primarySourceName": "Saudi Industry Forum",
+  "commission": 1388,
+  "slug": "saudi-industry-forum-renewable-energy-axis",
+  "primaryCategory": "renewables",
+  "author": "Jakson Gudawela",
+  "headline": "Renewable energy is on the industrial agenda as an input cost, not an environmental one",
+  "deck": "For Saudi manufacturers the case for solar is the tariff, and the forum's energy axis reflects that framing.",
+  "excerpt": "Renewable energy and industrial sustainability both feature among the Saudi Industry Forum's programme axes, where the manufacturer's interest is principally in energy cost.",
+  "content": "<p>Two of the nine programme axes at the Saudi Industry Forum, opening in Jeddah on 14 September, address energy: renewable energy, and industrial sustainability. For the manufacturers attending, both are principally questions about input cost.</p><p>That framing is worth stating plainly because it differs from how the same subjects are discussed at an event like Oman Climate Week in Muscat the same week, where the audience is policy and finance and the frame is emissions. A factory owner evaluating solar generation is comparing a capital outlay against a tariff, over a payback period, with a residual asset at the end. Whether the electricity is clean is a secondary consideration unless a customer is paying for it to be.</p><p>Increasingly, customers are. Export markets have begun attaching carbon requirements to imported goods, and multinational buyers audit supplier emissions as part of their own reporting obligations. For a Saudi manufacturer selling into those markets, the emissions profile of its production becomes a market access question rather than a reputational one — the same mechanism that makes traceability rather than labour cost the argument for food plant automation, covered elsewhere in this publication's reporting.</p><p>The Kingdom's position on the underlying economics is strong. Solar resource is excellent, land is available, and utility-scale generation costs have fallen to levels that make self-generation attractive for an industrial consumer with a daytime load profile. Manufacturing loads are reasonably well matched to solar output — factories run during the day — which reduces the storage requirement that makes renewable supply expensive for other users.</p><p>The complications are grid-side. An industrial consumer generating its own power interacts with the grid as both consumer and, at times, exporter, and the regulatory and commercial arrangements governing that determine whether a project is viable. Those arrangements have been developing across the Gulf and are not uniformly settled.</p><p>The industrial sustainability axis covers the broader set: process efficiency, waste heat recovery, water reuse and materials circularity, each of which reduces cost as well as emissions. This publication has reported Saudi industry buying decarbonisation options rather than abatement projects — a distinction that captures the current posture accurately, with commitments made and capital deployment awaiting clearer economics.</p><p>Schneider Electric, whose MEA summit runs in Abu Dhabi in the same week, is among the suppliers selling into exactly this requirement, with switchgear and power systems production established in Riyadh, Dammam and at King Salman Energy Park.</p><p>Programme axes are taken from the organiser's published material. The manufacturers most likely to move first are those already exporting into markets where the question is being asked of them.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Renewables",
+   "Industry",
+   "Energy Costs",
+   "Jeddah"
+  ],
+  "companies": [
+   "Schneider Electric"
+  ],
+  "seoTitle": "Renewables reach the industrial agenda as a cost question",
+  "seoDescription": "Saudi manufacturers evaluate solar on tariff and payback, which is how the Jeddah forum's energy axis is framed.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 432
+ }
+]

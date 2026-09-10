@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1374,
+  "slug": "saudi-food-awards-matchmaking-format",
+  "primaryCategory": "manufacturing",
+  "author": "BrentDesk Staff",
+  "headline": "When a trade show replaces its conference with an appointment system",
+  "deck": "TawaSul pre-arranges buyer and supplier meetings at the Jeddah food shows, a format that trades news value for transaction volume.",
+  "excerpt": "The Jeddah food exhibitions run a pre-arranged matchmaking programme in place of a conference, prioritising transaction volume over the news a conference generates.",
+  "content": "<p>The structured content at Saudi Food Manufacturing and The Saudi Food Show in Jeddah consists of the TawaSul meetings programme, the Saudifood Excellence Awards across ten categories and an innovation award on the manufacturing side. There is no conference.</p><p>Pre-arranged matchmaking is a mature exhibition format and it does something a conference does not. Buyers register their sourcing requirements ahead of the show, suppliers register what they sell, and the organiser schedules meetings between matched pairs into timed slots. A buyer arrives with a diary rather than a floor plan, and a supplier gets qualified meetings instead of stand traffic.</p><p>For a food exhibition the fit is good. Food procurement is a repeat, relationship-driven business in which a buyer's problem is usually specific — a category to fill, a specification to meet, a supplier to replace — and the value of the show is in finding the counterparty rather than in hearing an industry view. Twelve thousand business meetings, the figure the organiser gives, is a substantial volume of that activity compressed into three days.</p><p>What the format sacrifices is disclosure. Conferences produce named executives making statements on the record, figures presented in slides that can be quoted, and panel disagreements that reveal how an industry actually sees itself. An appointment system produces none of that, because everything of consequence happens in private meetings between two parties who have no interest in publishing the outcome.</p><p>For a trade publication that is the practical difference. The Riyadh hospitality cluster running earlier this month has published more than twenty named summit speakers with titles and organisations; Saudi Mega Projects has a session-by-session agenda and roughly seventy-five speakers; GOTECH has 93 sessions. Each of those generates reportable material. A matchmaking programme generates exhibitor announcements and an awards list.</p><p>The awards themselves carry more weight in food than in most sectors, because retail buyers use category awards as a shortlist filter and shelf-space decisions follow. Ten categories across the food show, plus an innovation award on the manufacturing side, is a meaningful commercial mechanism rather than a marketing exercise.</p><p>None of this makes the format wrong. It makes the show a transaction venue rather than a news event, and anyone attending expecting the second will be disappointed. The organiser is at least consistent: nothing in its published material promises a conference.</p><p>Programme detail is taken from the organisers' published material, and the meeting figure is their own projection. The awards list is likely to be the only durable public record the show produces. For suppliers the format rewards preparation: the meetings are allocated in advance, so the selling happens before the doors open.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Exhibitions",
+   "Food Manufacturing",
+   "Trade Shows",
+   "Jeddah"
+  ],
+  "companies": [
+   "ASP Events"
+  ],
+  "seoTitle": "When a trade show swaps its conference for appointments",
+  "seoDescription": "The Jeddah food shows run pre-arranged matchmaking instead of a conference, trading news value for transaction volume.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 439
+ }
+]

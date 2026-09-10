@@ -1,0 +1,39 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-10",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "commission": 1410,
+  "slug": "gulf-asset-integrity-september-roundup",
+  "primaryCategory": "oil-gas",
+  "author": "Jakson Gudawela",
+  "headline": "Three September events, one argument: the Gulf's assets are getting older",
+  "deck": "STATIC Arabia, GOTECH and the Middle East Coatings Show address different ends of the same problem.",
+  "excerpt": "Three separate Gulf events this month — on asset integrity, petroleum engineering and coatings — converge on the region's ageing industrial asset base.",
+  "content": "<p>Three events in the Gulf's September calendar address what is recognisably one subject from three directions, and the connection is worth drawing because the industry rarely treats them together.</p><p>STATIC Arabia closed at Dhahran Expo in Al Khobar on 10 September, running three co-located exhibitions on static equipment maintenance, metals and tubes, and tanks, terminals and pipelines. GOTECH, the Society of Petroleum Engineers' technical showcase, opens in Dubai on 29 September with mature fields and marginal assets among its declared tracks. The Middle East Coatings Show runs at Expo City in Dubai from 28 September, with protective and industrial coatings a substantial part of its floor.</p><p>The common subject is age. A large share of the Gulf's producing fields, refining capacity, petrochemical plant and associated infrastructure was built between the 1970s and the 1990s. None of it is near the end of its useful life in any absolute sense, and much of it will run for decades more. But it has passed the point where design margin alone keeps it in service, and it now depends on inspection, maintenance and material condition — which is to say on the disciplines these three events cover.</p><p>Each addresses a different stage. Coatings are the first line: the barrier that determines how quickly steel corrodes and therefore how long it lasts. A coating specified on installed cost transfers expense to the maintenance budget, as this publication has examined, and its failure is where corrosion begins. Inspection is the second: establishing what condition the equipment is actually in, which the risk-based approaches at the centre of STATIC Arabia's disciplines exist to prioritise. Production engineering is the third, deciding whether an ageing asset justifies the capital to keep producing from it.</p><p>They are also linked by a shared constraint, which is people. Non-destructive testing capability, examined separately in this publication's reporting, is limited in the Kingdom not by the number trained but by the step from qualified to experienced. GOTECH runs a declared talent track addressing the same demographic problem in petroleum engineering. Turnaround scheduling is increasingly set by inspector availability rather than by production planning.</p><p>The commercial consequence is that maintenance and integrity spending is a growing share of Gulf industrial expenditure relative to new capacity, and it is less visible because it does not produce announcements. A refinery that runs another fifteen years because it was inspected and maintained properly generates no headline.</p><p>Detail on STATIC Arabia is drawn from the organiser's published material; the exhibition generated no independent reporting during its run.</p>",
+  "tags": [
+   "Gulf",
+   "Asset Integrity",
+   "Maintenance",
+   "Coatings",
+   "Oil and Gas"
+  ],
+  "companies": [
+   "Aldrich International",
+   "SPE",
+   "dmg events"
+  ],
+  "seoTitle": "Three September events, one ageing asset base",
+  "seoDescription": "STATIC Arabia, GOTECH and the Coatings Show address different ends of the Gulf's ageing industrial assets.",
+  "informationCutoff": "2026-09-10",
+  "wordCount": 420
+ }
+]

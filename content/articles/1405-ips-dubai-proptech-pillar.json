@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.globenewswire.com/news-release/2026/09/07/3357253/0/en/ips-2026-global-real-estate-capital-meets-dubai-s-thriving-development-landscape.html",
+   "https://dubailand.gov.ae/en/news-media/in-partnership-with-dubai-land-department-dubai-to-host-the-22nd-edition-of-ips-2026-next-september/"
+  ],
+  "country": "United Arab Emirates",
+  "eventDate": "2026-09-09",
+  "primarySourceUrl": "https://gulfnews.com/business/property/ips-2026-dubai-developers-see-a-shift-from-peak-sales-to-a-more-selective-market-1.500667196",
+  "primarySourceName": "Gulf News",
+  "commission": 1405,
+  "slug": "ips-dubai-proptech-pillar",
+  "primaryCategory": "real-estate",
+  "author": "BrentDesk Research",
+  "headline": "IPS gave proptech its own pillar, which is what happens when transactions slow",
+  "deck": "Five declared pillars at the Dubai property show include technology and startups, alongside a floor pitched at absorption rather than records.",
+  "excerpt": "The International Property Show organised its floor around five pillars including proptech and startups, in an edition where developers described the market as selective.",
+  "content": "<p>The International Property Show closed at Dubai World Trade Centre on 9 September organised around five declared pillars: real estate, future cities, proptech and startups, design, and services. Giving technology equal billing with the property itself is a choice, and it fits an edition where the commercial mood was described in terms of selectivity rather than momentum.</p><p>Property technology has a predictable relationship with market conditions. When units sell quickly, the tools that matter are the ones that process transactions faster. When absorption slows, attention moves to tools that find buyers, qualify them, and manage a longer sales cycle — customer relationship systems, marketing automation, virtual viewing, and the analytics that tell a developer which inventory is moving and which is not.</p><p>Dubai's market has moved into the second condition by the description of the developers themselves. Peak-sales positioning has given way to selective and sustainable framing, the stock on show skewed toward affordable and mid-range product, and payment terms loosened to zero-deposit structures at 1.5 per cent monthly over sixty months, as this publication has reported separately.</p><p>The Dubai Land Department's role as strategic partner connects the technology pillar to the transactional infrastructure. Property registration, title, escrow and transaction processing are government functions in Dubai, and their digitisation determines what private technology can build on top. A registry that supports instant title verification enables a different class of product than one that does not.</p><p>Dawood Al Shezawi, the show's president, framed its focus as spanning real estate, artificial intelligence and technology, and described the event as where global institutional capital meets Dubai's development landscape. Institutional capital is the constituency that most requires the data layer proptech provides — a fund allocating across a portfolio needs standardised, comparable, verifiable information in a way an individual buyer does not.</p><p>The future cities pillar sits adjacent and covers the same ground from the development side: instrumented buildings, integrated utilities and mobility, and the data those generate. That connects to the questions this publication has raised about who operates such systems after handover, and at what cost.</p><p>The show carried more than 300 exhibitors with exhibition space up 38 per cent on 2025. Attendance figures should be treated cautiously: one outlet reported 35,000 participants from 190 countries against an organiser projection of well over 30,000 and an audited 2025 result of 30,719 from 153 countries.</p><p>No project launches with values, unit counts or locations were announced during the show. A technology pillar is also cheaper to fill than a hall of unsold inventory, which is worth bearing in mind when reading floor allocation.</p>",
+  "tags": [
+   "Dubai",
+   "Proptech",
+   "Real Estate",
+   "Technology",
+   "IPS"
+  ],
+  "companies": [
+   "Dubai Land Department"
+  ],
+  "seoTitle": "IPS gave proptech a pillar as transactions slowed",
+  "seoDescription": "The Dubai property show organised around five pillars including proptech, in a market developers called selective.",
+  "informationCutoff": "2026-09-10",
+  "wordCount": 430
+ }
+]

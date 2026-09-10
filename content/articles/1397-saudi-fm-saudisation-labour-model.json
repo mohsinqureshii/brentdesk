@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-20",
+  "primarySourceUrl": "https://x.com/sfmaorg/status/1990343331457519764",
+  "primarySourceName": "Saudi Facility Management Association",
+  "commission": 1397,
+  "slug": "saudi-fm-saudisation-labour-model",
+  "primaryCategory": "facilities-management",
+  "author": "BrentDesk Staff",
+  "headline": "Facilities management is a labour business, which makes Saudisation its hardest problem",
+  "deck": "Nationalisation targets apply to a trade built on subcontracted, low-cost, largely expatriate headcount.",
+  "excerpt": "Saudi facilities management faces nationalisation requirements in a sector structurally built on subcontracted expatriate labour, forcing a change in operating model.",
+  "content": "<p>Facilities management is, more than almost any adjacent sector, a labour business. Cleaning, security, maintenance technicians, helpdesk staff and supervisors constitute the overwhelming majority of an FM contractor's cost base, and the industry's structure across the Gulf has been built on a supply of low-cost expatriate labour, frequently engaged through subcontractors.</p><p>Saudi nationalisation requirements apply to that headcount as they do to any other, and the Saudi Facility Management Association's forum at Riyadh's convention centre from 20 September addresses a sector working out what that means.</p><p>The difficulty is not principally about willingness. It is that the roles as currently constituted — shift-based, physically demanding, priced at a level set by the lowest-cost available labour — do not attract Saudi nationals at the wages the existing contract structure supports. Raising wages to make them attractive raises the contract price, and the contract price is set by competitive tendering against clients buying on lowest cost, as examined separately in this publication's coverage of FM pricing.</p><p>That circularity is the problem, and there are only a few ways out of it. One is to change the job: fewer, more skilled roles supported by technology, where a mobile technician with diagnostic tools and a well-instrumented building covers what previously required several people. That is genuinely achievable and it is the direction the sector's technology adoption points, but it requires investment the contractor cannot fund from a lowest-price contract.</p><p>Another is to change what is bought. Output-based contracts that specify results rather than headcount give the contractor freedom to deliver with a different labour model, and remove the client's incentive to count bodies. This requires the client to change first.</p><p>A third is training, which the sector needs regardless. Building services maintenance — HVAC, electrical, controls, water systems — is skilled work, and a technician capable of diagnosing a chiller fault is a different proposition from a general operative. Building that workforce takes years and it is the same constraint this publication has documented in non-destructive testing, rail systems integration and hospitality kitchens: physical capability transfers faster than judgement.</p><p>The demand context makes it urgent. Saudi Arabia's handover wave is arriving, and a shortage of qualified technicians will show up as deferred maintenance on new assets rather than as a visible failure.</p><p>The forum's own disclosure remains thin: dates, venue and theme come from the association's social channel, its website still advertises the 2025 edition, and no agenda or speakers had been published.</p><p>This publication has previously covered what Saudi FM teams actually need as the handover wave arrives.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Facilities Management",
+   "Saudisation",
+   "Labour",
+   "Riyadh"
+  ],
+  "companies": [
+   "Saudi Facility Management Association"
+  ],
+  "seoTitle": "Saudisation is facilities management's hardest problem",
+  "seoDescription": "FM is a labour business, and nationalisation targets collide with a contract structure built on low-cost headcount.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-20T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-20",
+  "wordCount": 425
+ }
+]

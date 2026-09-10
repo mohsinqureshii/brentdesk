@@ -1,0 +1,47 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://omanclimateweek.com/conference/",
+   "https://omanclimateweek.com/sc/"
+  ],
+  "country": "Oman",
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://omanclimateweek.com/",
+  "primarySourceName": "Oman Climate Week",
+  "commission": 1379,
+  "slug": "oman-climate-week-industrial-decarbonisation",
+  "primaryCategory": "industrial-technology",
+  "author": "Jakson Gudawela",
+  "headline": "Sohar Aluminium's ESG lead sits on the committee of the event asking it to decarbonise",
+  "deck": "Oman's heavy industry is both the emissions problem and the only party with the assets to solve it.",
+  "excerpt": "Sohar Aluminium and Sohar Port and Freezone are represented on Oman Climate Week's steering committee, placing the country's heaviest emitters inside the event's governance.",
+  "content": "<p>Oman Climate Week's 27-member steering committee includes Yousuf Al Rawahi, ESG lead at Sohar Aluminium, and Dr Abdullah Al Abri, vice president for sustainability at Sohar Port and Freezone, alongside Essam Al Sharji, general manager of the waste management company Be'ah, and Siddiqa Al Lawati, advisor on low carbon molecules at OQ Alternative Energy.</p><p>Putting heavy industry inside the governance of a climate event is a deliberate choice and a defensible one. Oman's industrial emissions are concentrated in a small number of facilities — an aluminium smelter, a refinery, petrochemical and fertiliser plants, and the power generation supplying them. Any national reduction has to happen at those sites, because there is nowhere else of comparable scale for it to happen.</p><p>Aluminium is the hardest case in the group. Smelting is electricity-intensive to a degree that makes power supply the dominant emissions variable, and the process itself produces carbon dioxide from the consumable anodes regardless of how the electricity is generated. A smelter can be substantially decarbonised by changing its power source and cannot be fully decarbonised without changing the process, which is a technology that does not yet exist at commercial scale.</p><p>That makes power the near-term lever, and it connects the industrial question to Oman's renewable programme. A smelter is also, from a grid operator's perspective, an unusually good customer for renewable generation: it runs continuously at high load, which suits a supply contract, though the continuity is exactly what makes intermittency difficult without storage or firming.</p><p>The free zones are where the coordination happens. Sohar and Duqm concentrate industrial activity into managed estates with shared infrastructure, which makes shared decarbonisation infrastructure — a common carbon capture network, a dedicated renewable supply, a hydrogen offtake cluster — considerably more practical than it would be for dispersed facilities. This publication has reported OMR200m of industrial projects signed across Duqm, Salalah and Khazaen, and the polysilicon plant at Sohar Free Zone that reached first production this year.</p><p>Waste is the fourth element, through Be'ah's representation. Industrial and municipal waste handling affects emissions directly through landfill methane and indirectly through the materials recovered or lost, and it is the part of the system that most often falls between ministries.</p><p>Petroleum Development Oman, OQ, OMIFCO, Vale and Oman LNG all hold sponsorship positions at the event.</p><p>Committee and sponsor detail is taken from the organiser's published material. The free zone model is what makes shared decarbonisation infrastructure practical rather than theoretical. Power supply is the lever available now; process change is the one that does not yet exist at commercial scale.</p>",
+  "tags": [
+   "Oman",
+   "Industrial Decarbonisation",
+   "Aluminium",
+   "Sohar",
+   "Climate"
+  ],
+  "companies": [
+   "Sohar Aluminium",
+   "Sohar Port and Freezone",
+   "Be'ah",
+   "OQ",
+   "Petroleum Development Oman"
+  ],
+  "seoTitle": "Oman's heavy industry sits inside its climate week",
+  "seoDescription": "Sohar Aluminium and Sohar Port are on Oman Climate Week's steering committee — the emitters and the solution.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 428
+ }
+]

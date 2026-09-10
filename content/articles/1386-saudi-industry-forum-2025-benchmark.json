@@ -1,0 +1,43 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/saudi-arabia/jeddah-industry-forum-to-spotlight-growth-investment-and-innovation-3000585"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://ksa-sif.com/?page_id=14873&lang=en",
+  "primarySourceName": "Saudi Industry Forum",
+  "commission": 1386,
+  "slug": "saudi-industry-forum-2025-benchmark",
+  "primaryCategory": "manufacturing",
+  "author": "Mo Qureshi",
+  "headline": "The Jeddah forum's first edition produced a diploma and two industrial complexes",
+  "deck": "What the 2025 event actually delivered is the only reliable guide to what the 2026 one will.",
+  "excerpt": "The Saudi Industry Forum's 2025 edition delivered 320 exhibitors, 78 speakers and a set of institutional commitments, which is the best available guide to the 2026 event.",
+  "content": "<p>With the Saudi Industry Forum opening at the Jeddah Superdome on 14 September and its 2026 programme unpublished, the most reliable guide to what it will produce is what its first edition produced.</p><p>That event, held at Dhahran Expo in June 2025, delivered 320-plus exhibitors and 78 speakers — comfortably ahead of the 2026 targets of 150 exhibitors and 80 speakers, which suggests the current projections are conservative rather than optimistic. More usefully, it produced a set of identifiable outputs: the launch of a Future Industrialists initiative and a Voice of Industrialists platform, announcements covering industrial complexes at Jubail and Dammam, an industrial master's degree, and a furniture manufacturing diploma.</p><p>That list is characteristic of the format. A forum convened by the chambers of commerce with a ministry partner is an institutional event rather than a commercial one, and its outputs are institutional accordingly — training programmes, platforms, memoranda between government bodies, universities and industry associations. It is not an event where equipment orders are placed.</p><p>The training items are the most substantive of the group, and they address the constraint that recurs throughout this publication's coverage of Saudi industry. An industrial master's degree and a furniture manufacturing diploma are attempts to build the specialist capability that localisation programmes consistently find hardest to acquire. The Kingdom has demonstrated it can build factories; the recurring shortfall is in the qualified judgement to run and maintain them, which is why non-destructive testing capability, rail systems integration and senior culinary staff all appear as constraints in different sectors this month.</p><p>The furniture diploma is a more specific signal than it appears. Furniture manufacturing is a category where Saudi Arabia has both a substantial import bill and a plausible domestic proposition, and where the hotel and hospitality pipeline covered elsewhere in this publication's reporting generates demand for contract furniture at volume. A training programme aimed at it suggests someone has connected those two facts.</p><p>Whether the 2026 edition produces comparable outputs cannot be assessed in advance, because nothing has been published. Arab News has reported that agreements and memoranda between government, private sector, universities and research centres are anticipated, but that is forward-looking and names no parties.</p><p>The move from Dhahran to Jeddah between editions changes the regional constituency, which may change the output mix — the Eastern Province forum sat next to the hydrocarbon complex, the Jeddah one sits next to consumer goods, food processing and the port.</p><p>Figures for the 2025 edition and targets for 2026 are as reported in Saudi press and by the organiser.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Industry",
+   "Jeddah",
+   "Training",
+   "Localisation"
+  ],
+  "companies": [
+   "Federation of Saudi Chambers",
+   "Jeddah Chamber"
+  ],
+  "seoTitle": "The Jeddah forum's first edition produced a diploma",
+  "seoDescription": "The Saudi Industry Forum's 2025 outputs are the best available guide to what its 2026 edition will deliver.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 424
+ }
+]

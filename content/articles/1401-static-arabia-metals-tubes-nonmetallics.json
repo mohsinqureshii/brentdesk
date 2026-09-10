@@ -1,0 +1,39 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-10",
+  "primarySourceUrl": "https://staticarabia.com/",
+  "primarySourceName": "STATIC Arabia",
+  "commission": 1401,
+  "slug": "static-arabia-metals-tubes-nonmetallics",
+  "primaryCategory": "metals",
+  "author": "Jakson Gudawela",
+  "headline": "Metals, tubes and nonmetallics got a hall to themselves because material selection is the whole argument",
+  "deck": "One of STATIC Arabia's three co-located expos covered the materials that determine how long a piece of static equipment lasts.",
+  "excerpt": "Metals, Tubes and Nonmetallics ran as a distinct exhibition within STATIC Arabia, covering the material selection decisions that determine static equipment service life.",
+  "content": "<p>The second of the three co-located exhibitions making up STATIC Arabia, which closed at Dhahran Expo in Al Khobar on 10 September, was given to metals, tubes and nonmetallics. Separating materials from equipment is a defensible piece of show design, because in static equipment the material decision is frequently the whole engineering argument.</p><p>A pressure vessel, a heat exchanger or a length of process piping is defined by what it is made of far more than by how it is shaped. The service conditions — temperature, pressure, and above all the chemistry of what is inside — determine which alloys will survive and for how long. Carbon steel is cheap and adequate for benign service. Sour service, containing hydrogen sulphide, requires materials resistant to sulphide stress cracking. High chloride environments attack stainless steels that perform well elsewhere. Elevated temperature introduces creep and metallurgical changes that alter properties over years of operation.</p><p>Each step up the alloy ladder costs substantially more, and the decision is made once at design and lived with permanently. Under-specify and the plant faces premature replacement, unplanned shutdowns and the inspection burden that comes with running degraded equipment. Over-specify and capital is spent on corrosion resistance the service never demanded. Neither error is visible for years.</p><p>Nonmetallics occupy the interesting margin. Composite materials, thermoplastic linings and glass-reinforced systems offer corrosion resistance without exotic alloy cost, and they have taken share in water, chemical handling and lower-pressure applications. Their limitation is temperature and pressure, and the industry's caution about them reflects a shorter service record than steel's century of accumulated data.</p><p>Tubes matter disproportionately because heat exchangers concentrate failure. A shell-and-tube exchanger contains hundreds or thousands of tubes with thin walls, exposed to different fluids on each side, subject to vibration, and operating across a temperature gradient. Tube failure is the most common cause of exchanger outage, and tube material and fabrication quality determine how often it happens.</p><p>The regional supply chain connection is direct. Zamil Steel held a gold sponsorship at the exhibition and Hadeed was represented on its executive committee through Mubarak Al-Mutairi, executive director of steel plants. This publication has reported the steel plate mill under construction at Ras Al-Khair with Baoshan Iron and Steel, which addresses the plate gap that pressure vessel and energy fabrication have filled by import.</p><p>Detail here comes from the exhibition's published structure and sponsor information; no independent reporting of the show appeared in English or Arabic during its run. Material selection is also the decision least amenable to later correction, which is why it absorbs so much engineering attention up front.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Metals",
+   "Materials",
+   "Asset Integrity",
+   "Petrochemicals"
+  ],
+  "companies": [
+   "Aldrich International",
+   "Zamil Steel",
+   "Hadeed"
+  ],
+  "seoTitle": "Metals and tubes got their own hall at STATIC Arabia",
+  "seoDescription": "Material selection determines static equipment service life, which is why it ran as a separate exhibition.",
+  "informationCutoff": "2026-09-10",
+  "wordCount": 432
+ }
+]

@@ -1,0 +1,41 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "commission": 1407,
+  "slug": "saudi-logistics-summit-panel-composition",
+  "primaryCategory": "logistics",
+  "author": "Mo Qureshi",
+  "headline": "The Riyadh logistics summit named its panellists' employers and not one of the panellists",
+  "deck": "Reporting from the opening day listed participating organisations without a single individual speaker, which is an unusual way to run a conference.",
+  "excerpt": "Coverage of the Saudi logistics summit's opening day named participating organisations but no individual speakers, limiting what the sessions put on the record.",
+  "content": "<p>A summit ran alongside the Saudi Warehousing and Logistics Expo at Riyadh's convention centre on its opening day, with panels drawn from the Ministry of Transport and Logistic Services, the Federation of Saudi Chambers, DHL Global Forwarding Saudi Arabia, Morph Logistics Solutions and Caden Investment. The declared agenda covered infrastructure and investment, multimodal connectivity, warehousing and distribution, digital resilience, supply chain security and trade facilitation.</p><p>What no coverage carried was a single individual speaker's name. The organisations were listed; the people representing them were not, and neither was anything they said.</p><p>That is an unusual outcome for a conference programme and it limits the event's value considerably. A panel exists to put views on the record — a ministry official describing licensing direction, a logistics operator describing what capacity is actually constrained, an investor describing what they will and will not fund. Those statements are attributable to a named person in a named role, and their attributability is what makes them useful. An organisation's presence on a panel list conveys almost nothing.</p><p>The composition itself is worth reading even without the content. DHL Global Forwarding represents the international contract logistics side, arguing a case examined separately in this publication's reporting: that Saudi manufacturers running their own fleets would do better outsourcing. Morph Logistics Solutions and Caden Investment bring the domestic operator and investor perspectives. The Federation of Saudi Chambers represents the shipper side — the manufacturers and traders who buy logistics services rather than sell them. The ministry sets the terms all of them work under.</p><p>Those four positions cover the argument properly, which suggests the programme was designed with some care. It makes the absence of reportable output more frustrating rather than less.</p><p>The pattern recurs across the Saudi September calendar and is worth naming. The Saudi Industry Forum in Jeddah claims more than 80 speakers and has published none. Saudi Food Manufacturing runs 1,000-plus exhibitors with no conference at all. Against that, the Riyadh hospitality cluster has published more than twenty named summit speakers with titles and organisations, and Saudi Mega Projects a session-by-session agenda with roughly seventy-five names.</p><p>The market-level figures that did circulate at the logistics show came from the organiser rather than from any panel: a $6.7bn commercial vehicle market, e-commerce logistics projected to double by 2027, and 25 of 42 planned logistics hubs operational.</p><p>The exhibition drew more than 350 exhibitors from over 25 countries, as stated at its opening. An event that produces no attributable statements produces no record, whatever the quality of the discussion inside the room.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Logistics",
+   "Conferences",
+   "Disclosure",
+   "Riyadh"
+  ],
+  "companies": [
+   "DHL Global Forwarding",
+   "Federation of Saudi Chambers",
+   "dmg events"
+  ],
+  "seoTitle": "A logistics summit named employers but no speakers",
+  "seoDescription": "Riyadh's logistics summit listed participating organisations without a single named individual speaker.",
+  "informationCutoff": "2026-09-10",
+  "wordCount": 425
+ }
+]

@@ -1,0 +1,40 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "commission": 1409,
+  "slug": "saudi-logistics-exhibitor-transliteration",
+  "primaryCategory": "supply-chain",
+  "author": "BrentDesk Staff",
+  "headline": "The same Saudi company appears under three spellings across one exhibition's press material",
+  "deck": "Transliteration inconsistency between Arabic and English releases makes exhibitor lists harder to use than they should be.",
+  "excerpt": "Exhibitor names at the Riyadh logistics exhibition appear in materially different transliterations between Arabic and English releases, complicating verification.",
+  "content": "<p>A practical note from covering the Saudi Warehousing and Logistics Expo in Riyadh this week, and one that applies well beyond it.</p><p>The exhibitor names released for the show differ between the Arabic and English materials, and not trivially. The same companies appear as Al Dress and Al-Drees, as JAL and GAL, as Ajlan and Aglan. Anyone assembling an exhibitor list from both sources has to decide whether these are the same firm or different ones, and the answer is not always obvious.</p><p>The cause is straightforward. Arabic names transliterated into Latin script have no single correct rendering, and different translators, agencies and company registrations make different choices. A firm may itself use one spelling in its trade name, another in its registration and a third in its English marketing.</p><p>The consequence for anyone using the information commercially is more than cosmetic. A buyer searching for a supplier found at an exhibition may not locate it. A journalist verifying a company's existence may conclude it does not exist. A database matching exhibitors against a customer list will produce duplicates and misses. And a publication printing a name in the wrong form has misnamed a company, which is a correction regardless of how understandable the error.</p><p>The reliable approach is narrow: use the company's own English name as it appears on its own materials, and where that is unavailable, note the ambiguity rather than choosing arbitrarily. The official exhibitor list published by the organiser is the authority for who was present, and where it disagrees with a press release, it wins.</p><p>The same issue recurs across regional coverage in a different form. Event names, venue names and government body names all carry multiple English renderings, and the September calendar has produced several: the Saudi Facility Management Association's Riyadh forum and the separate IFM Expo in Dhahran are routinely conflated in listings, as this publication has noted, and the two are entirely different events run by different organisers in different cities for different audiences.</p><p>None of this is a complaint about the organisers, who are working in two languages under deadline. It is an argument for treating exhibitor lists as a starting point for verification rather than as a verified record, particularly where a name is about to appear in print.</p><p>The named exhibitors reported for this show include SAL Logistics, Almajdouie, Swisslog, SSI Schäfer and Kardex, each of which appears consistently across sources. The show drew more than 350 exhibitors from over 25 countries. Treating an exhibitor list as a lead rather than a record is the only safe practice when two languages are involved.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Exhibitions",
+   "Verification",
+   "Logistics"
+  ],
+  "companies": [
+   "dmg events",
+   "SAL Logistics",
+   "Almajdouie"
+  ],
+  "seoTitle": "One Saudi company, three spellings, one press release",
+  "seoDescription": "Transliteration inconsistency between Arabic and English exhibitor lists complicates verification.",
+  "informationCutoff": "2026-09-10",
+  "wordCount": 434
+ }
+]

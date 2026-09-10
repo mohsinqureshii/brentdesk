@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/saudi-arabia/jeddah-industry-forum-to-spotlight-growth-investment-and-innovation-3000585"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://ksa-sif.com/?page_id=14873&lang=en",
+  "primarySourceName": "Saudi Industry Forum",
+  "commission": 1387,
+  "slug": "saudi-industry-forum-logistics-axis",
+  "primaryCategory": "logistics",
+  "author": "Mo Qureshi",
+  "headline": "Jeddah's industrial case rests on a port, and the forum has an axis for it",
+  "deck": "Logistics is one of nine programme themes, and in the western region it is the one the others depend on.",
+  "excerpt": "Logistics forms one of the Saudi Industry Forum's nine programme axes, reflecting a western-region industrial base built around Jeddah Islamic Port.",
+  "content": "<p>Logistics is among the nine declared programme axes at the Saudi Industry Forum, opening at the Jeddah Superdome on 14 September. In the western region it is less a sector than the precondition for the others.</p><p>Jeddah Islamic Port is the Kingdom's principal Red Sea gateway and the reason the western industrial base looks as it does. Food processing, consumer goods and packaging manufacture cluster near it because they depend on imported raw material arriving cheaply and finished product distributing to a large nearby population. Move the port and the industrial composition changes.</p><p>The Red Sea position has become more consequential rather than less. Regional shipping disruption has redrawn routing decisions, and this publication has reported Mawani adding five shipping services in response, RSGT and CMA CGM committing $434m to a fourth container terminal at Jeddah, CMA CGM adding Jeddah to a Japan–China–north Europe loop, and Mawani starting a Yanbu–Sokhna–Aqaba service with Folk Maritime and SABIC. Those are capacity and connectivity decisions taken in a period when the alternative was to route away from the corridor entirely.</p><p>Behind the quay, the logistics estate has been expanding in parallel. Mawani has signed seven logistics-centre contracts worth close to SAR 1 billion at Jeddah, and Masdar Building Materials is building a SR57m logistics centre at the port. Those are the warehousing and distribution assets that turn a container terminal into an industrial supply chain.</p><p>The land bridge project sits behind all of it as the strategic question. A rail connection linking the Red Sea coast to the Gulf would change the economics of transhipment and give western-region manufacturers overland access to Eastern Province and GCC markets currently served by road. Freight forwarders have been positioning for it, as this publication reported from the Riyadh logistics exhibition earlier this month, and the positioning is happening well ahead of the infrastructure.</p><p>For manufacturers at the forum the practical questions are narrower: the cost and reliability of moving raw material from quay to plant, the availability of temperature-controlled distribution for food output, and whether export freight rates make a target market viable. The cold chain gap this publication has examined applies with particular force in the western region, where much of the food processing capacity sits.</p><p>The forum is organised by the Federation of Saudi Chambers with the Jeddah Chamber, in strategic partnership with the Ministry of Industry and Mineral Resources, under the patronage of the Governor of Makkah Region.</p><p>Programme axes are taken from the organiser's published material; no session detail or speakers had been released.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Logistics",
+   "Jeddah",
+   "Ports",
+   "Industry"
+  ],
+  "companies": [
+   "Mawani",
+   "RSGT",
+   "CMA CGM",
+   "Masdar Building Materials"
+  ],
+  "seoTitle": "Jeddah's industrial case rests on its port",
+  "seoDescription": "Logistics forms an axis at the Saudi Industry Forum, in a region whose industry depends on Jeddah Islamic Port.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 422
+ }
+]

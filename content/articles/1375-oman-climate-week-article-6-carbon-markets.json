@@ -1,0 +1,45 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://omanclimateweek.com/conference/",
+   "https://omanclimateweek.com/sc/"
+  ],
+  "country": "Oman",
+  "eventDate": "2026-09-14",
+  "primarySourceUrl": "https://omanclimateweek.com/",
+  "primarySourceName": "Oman Climate Week",
+  "commission": 1375,
+  "slug": "oman-climate-week-article-6-carbon-markets",
+  "primaryCategory": "energy",
+  "author": "Jakson Gudawela",
+  "headline": "Article 6 gets a side event in Muscat, and the Gulf has more at stake in it than most",
+  "deck": "The Paris Agreement's carbon market rules decide whether emissions cuts made in one country can be sold to another. The region is positioned on both sides.",
+  "excerpt": "A UNFCCC regional side event on Article 6 features in Oman Climate Week's conference programme, addressing carbon market rules in which the Gulf has unusual exposure.",
+  "content": "<p>Oman Climate Week's strategic conference programme in Muscat includes a side event hosted by the UNFCCC regional collaboration centre for the Middle East and North Africa on Article 6 of the Paris Agreement. It is the session on the programme with the most direct commercial consequence for Gulf industry.</p><p>Article 6 governs international carbon markets — the rules under which an emissions reduction achieved in one country can be counted toward another country's target. Its mechanics determine whether a project that avoids or removes emissions can generate a credit, who may claim it, and how double counting is prevented. Those rules took years to negotiate and their implementation is still being worked out, which is why regional side events on the subject exist.</p><p>The Gulf's exposure runs in both directions, which is unusual. As economies with substantial emissions and ambitious stated targets, Gulf states are potential buyers of credits generated elsewhere. As hosts of large-scale renewable, hydrogen and carbon capture projects with abundant land and strong solar resource, they are potential sellers. Few jurisdictions are seriously positioned on both sides, and the rules therefore matter to the region in a way they do not to a country that is clearly one or the other.</p><p>Carbon capture is where the two intersect most sharply. This publication has reported QatarEnergy's 4.1 million tonne project at Ras Laffan with Samsung C&amp;T and ADNOC's programme, and carbon capture appears as a standing technical track at GOTECH in Dubai at the end of the month. Whether captured carbon generates a tradable credit, and who holds it, is an Article 6 question rather than an engineering one — and the answer materially changes project economics.</p><p>Green hydrogen raises a related issue. Oman has awarded eight projects carrying more than $49bn of commitments, and the value of that output depends heavily on how importing jurisdictions account for its emissions benefit. A hydrogen molecule produced in Duqm and burned in Europe delivers a reduction that some accounting framework has to attribute to someone.</p><p>The conference's opening high-level ministerial panel is framed around the road to COP31, which places the Article 6 discussion in its negotiating context rather than treating it as a technical matter.</p><p>Programme detail is taken from the organiser's published conference schedule. Named speakers beyond the event's 27-member steering committee had not been published. For Gulf project developers the accounting rules are as material to a business case as the capital cost. Oman hosting the regional discussion also reflects its position as a prospective credit generator rather than only a purchaser.</p>",
+  "tags": [
+   "Oman",
+   "Carbon Markets",
+   "Climate",
+   "Paris Agreement",
+   "Gulf"
+  ],
+  "companies": [
+   "UNFCCC",
+   "QatarEnergy",
+   "ADNOC"
+  ],
+  "seoTitle": "Article 6 gets a Muscat side event with Gulf stakes",
+  "seoDescription": "Oman Climate Week hosts a UNFCCC side event on Article 6 carbon market rules, where the Gulf sits on both sides.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-14T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-14",
+  "wordCount": 425
+ }
+]

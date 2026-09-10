@@ -1,0 +1,44 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1372,
+  "slug": "saudi-food-automation-control",
+  "primaryCategory": "automation",
+  "author": "Mo Qureshi",
+  "headline": "Food plant automation sells on traceability before it sells on labour",
+  "deck": "Control and automation is a declared division at the Jeddah show, and in food manufacturing the business case runs through recall exposure.",
+  "excerpt": "Control and automation forms one of Saudi Food Manufacturing's five sector divisions, where the commercial argument rests on traceability and recall exposure rather than headcount.",
+  "content": "<p>Control and automation is one of the five declared sector divisions at Saudi Food Manufacturing in Jeddah at the end of September, alongside ingredients, processing, packaging and supply chain solutions. In most industrial settings automation is sold on labour cost. In food manufacturing the stronger argument is traceability.</p><p>A food manufacturer's largest single financial exposure is a recall. If a contamination or labelling problem is identified, the manufacturer must establish which product is affected and withdraw it, and the cost of that exercise depends almost entirely on how precisely the affected batch can be defined. A plant with granular batch records can recall a few hours of production. A plant that cannot may have to withdraw everything produced across a period, which is a different order of loss and carries reputational consequences beyond the stock destroyed.</p><p>Automated control systems produce that record as a by-product of running the line — batch identity, process parameters, timestamps, operator actions and the linkage between input lots and output packs, captured continuously rather than transcribed. Achieving the same by manual record keeping is possible in principle and unreliable in practice.</p><p>Export markets make the requirement explicit. Buyers audit supplier facilities and increasingly require demonstrable traceability as a condition of listing, which converts a risk management argument into a market access one. For Saudi manufacturers pursuing the export ambition that runs through the Kingdom's industrial policy, that is the binding consideration.</p><p>The Saudisation argument runs alongside rather than instead. Food processing is labour-intensive in handling, packing and quality inspection, and nationalisation targets apply to those roles as they do elsewhere. Automation reduces the headcount requirement while raising its skill level, which is the trade this publication has observed across Saudi industry — equipment substituting for labour that has become harder to source on the previous terms.</p><p>The German pavilion includes SW-Paratus in automation and planemos in planning software, alongside the process and packaging machinery builders. Automation in a food plant is rarely bought as a standalone system; it arrives embedded in the machinery and has to integrate across equipment from several suppliers, which is where planning and systems integration earn their place.</p><p>This publication has reported the parallel case at PepsiCo, which moved Siemens and NVIDIA digital twins into its plants and warehouses — the same argument at a scale few regional manufacturers can yet match.</p><p>Sector divisions and exhibitor names come from the organisers' published material. The traceability record is also what an export buyer audits first, which makes it the commercial case rather than a technical one.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Automation",
+   "Food Manufacturing",
+   "Traceability",
+   "Jeddah"
+  ],
+  "companies": [
+   "SW-Paratus",
+   "planemos",
+   "PepsiCo"
+  ],
+  "seoTitle": "Food plant automation sells on traceability first",
+  "seoDescription": "In food manufacturing the automation business case runs through recall exposure and export audits, not headcount.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 424
+ }
+]

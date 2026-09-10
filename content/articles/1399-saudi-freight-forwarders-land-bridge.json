@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.arabnews.com/node/2655429"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-08",
+  "primarySourceUrl": "https://www.zawya.com/en/press-release/events-conferences/saudi-warehousing-logistics-expo-returns-to-riyadh-for-its-3rd-edition-461169",
+  "primarySourceName": "Zawya",
+  "commission": 1399,
+  "slug": "saudi-freight-forwarders-land-bridge",
+  "primaryCategory": "logistics",
+  "author": "Mo Qureshi",
+  "headline": "Freight forwarders are positioning for a land bridge that has not been built",
+  "deck": "The Riyadh logistics floor carried companies preparing for a rail corridor whose completion date is not public.",
+  "excerpt": "Freight forwarders exhibiting in Riyadh are positioning for the Saudi land bridge, an overland rail corridor whose commercial case is clear and whose timeline is not.",
+  "content": "<p>Among the exhibitor categories at the Saudi Warehousing and Logistics Expo in Riyadh this week were freight forwarders, and a recurring subject in the segment is a piece of infrastructure that does not yet operate: the land bridge linking the Red Sea coast to the Gulf.</p><p>The commercial logic is straightforward. Cargo moving between Asia and Europe currently transits the Red Sea and the Suez Canal. A rail corridor across Saudi Arabia from Jeddah to Dammam would allow containers to be landed on one coast, moved overland and re-shipped on the other, offering an alternative to the maritime route and creating transhipment business at both ends.</p><p>Whether that alternative is commercially attractive depends on numbers that are not yet settled. Overland movement requires two additional handling operations, each costing money and time, which the rail leg must more than recover. Container shipping is extremely cheap per tonne-kilometre, and the bar a rail alternative has to clear is high. The route becomes attractive where maritime transit is disrupted, where transit time premiums are being paid, or for cargo whose origin or destination is inside the Kingdom.</p><p>That last category is the underrated one. A land bridge serves Saudi domestic freight before it serves transhipment: western-region manufacturers reaching Eastern Province and GCC markets, and Eastern Province industry reaching Red Sea ports, currently move by road. Rail changes that cost structure regardless of whether a single transhipped container ever uses it.</p><p>The forwarders positioning for it are doing what forwarders do — establishing presence, relationships and capability ahead of a shift they expect. This publication has reported the adjacent investments already made: Mawani's seven logistics-centre contracts worth close to SAR 1 billion at Jeddah, the $1.8bn committed to Dammam's container terminals as rail extends the port's reach inland, and RSGT and CMA CGM's $434m fourth container terminal at Jeddah.</p><p>The organiser's figure that 25 of 42 planned logistics hubs are now operational is relevant here, since a land bridge's value depends on the terminals and inland facilities at each end being ready when the rail is.</p><p>Red Sea disruption has made the strategic argument more prominent, and this publication has reported Mawani adding shipping services and new routings in response. A corridor that offers an alternative to a chokepoint has value that is difficult to price in normal conditions and obvious in abnormal ones.</p><p>No completion timeline for the corridor was disclosed at the exhibition, and the figures cited are the organiser's own. Positioning ahead of infrastructure is cheap; positioning after it is built is usually too late to matter.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Land Bridge",
+   "Rail",
+   "Freight",
+   "Logistics"
+  ],
+  "companies": [
+   "Mawani",
+   "RSGT",
+   "CMA CGM",
+   "dmg events"
+  ],
+  "seoTitle": "Freight forwarders position for an unbuilt land bridge",
+  "seoDescription": "Riyadh's logistics floor carried companies preparing for a Saudi rail corridor whose timeline is not public.",
+  "informationCutoff": "2026-09-10",
+  "wordCount": 427
+ }
+]

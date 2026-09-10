@@ -1,0 +1,42 @@
+[
+ {
+  "people": [],
+  "imageReviewRequired": true,
+  "replacementOf": null,
+  "replacementReason": null,
+  "articleType": "report",
+  "researchConfidence": "A",
+  "secondarySourceUrls": [
+   "https://www.thesaudifoodshow.com/"
+  ],
+  "country": "Saudi Arabia",
+  "eventDate": "2026-09-27",
+  "primarySourceUrl": "https://www.saudifoodmanufacturing.com/",
+  "primarySourceName": "Saudi Food Manufacturing",
+  "commission": 1369,
+  "slug": "saudi-food-manufacturing-no-conference",
+  "primaryCategory": "manufacturing",
+  "author": "BrentDesk Staff",
+  "headline": "A thousand exhibitors, ninety-five countries, and not one conference session",
+  "deck": "Saudi Food Manufacturing runs three days on matchmaking and awards alone, which is unusual at this scale.",
+  "excerpt": "Saudi Food Manufacturing and The Saudi Food Show claim more than 1,000 exhibitors between them but have published no conference programme, session titles or speakers.",
+  "content": "<p>Saudi Food Manufacturing and The Saudi Food Show open together at the Jeddah Superdome on 27 September, with the organiser claiming more than 1,000 exhibitors from over 95 countries, 100,000-plus products and 12,000 business meetings across three days. What they do not have is a conference.</p><p>No session titles, no speakers, no technical or commercial programme of any kind has been published for either show. The structured content consists of the TawaSul meetings programme, which arranges buyer and supplier appointments, the Saudifood Excellence Awards across ten categories, and an innovation award on the manufacturing side.</p><p>For an exhibition of this claimed scale that is a notable omission, and it distinguishes these shows from most of the September calendar. The Riyadh hospitality cluster has published a summit with more than twenty named speakers and a separate design talks programme. GOTECH in Dubai has 93 sessions across five rooms. Oman Climate Week has a full session-level programme. Saudi Mega Projects has a session-by-session agenda and roughly seventy-five speakers.</p><p>It is possible to read this generously. A trade exhibition's primary function is to put buyers in front of sellers, and a matchmaking programme does that more directly than a conference does. Food manufacturing buyers attending to specify a packaging line are there to see machines run, not to hear a panel. Organisers who have watched conference rooms empty while the floor stays busy have drawn the obvious conclusion.</p><p>The less generous reading is that a conference is expensive to programme and requires the organiser to have a view about the industry's direction, which a purely transactional exhibition does not. It also removes the mechanism by which a show generates news: conferences produce announcements, quotable figures and named executives on the record, which is why they exist at events of this size.</p><p>The practical consequence for anyone covering it is that the show will generate very little reportable material beyond exhibitor announcements. The German pavilion's published roster, with sixteen machinery builders and their stand numbers, is more informative than anything else released about either exhibition.</p><p>There is a further disclosure gap. Both shows run live exhibitor directory portals that return no records when queried, so the full exhibitor list is not publicly available despite the headline count. A header on the manufacturing directory indicates roughly 205 exhibitors on that side; that figure is indicative rather than confirmed.</p><p>Figures cited are the organiser's own. Anyone attending for news rather than for meetings should plan accordingly. The absence also means the show sets no agenda for its sector, which a market growing this quickly might reasonably expect from its largest exhibition.</p>",
+  "tags": [
+   "Saudi Arabia",
+   "Exhibitions",
+   "Food Manufacturing",
+   "Jeddah",
+   "Disclosure"
+  ],
+  "companies": [
+   "ASP Events"
+  ],
+  "seoTitle": "A thousand exhibitors and not one conference session",
+  "seoDescription": "Saudi Food Manufacturing runs three days on matchmaking and awards, with no published conference programme.",
+  "status": "SCHEDULED",
+  "scheduledAt": "2026-09-27T06:00:00Z",
+  "scheduledReason": "Preview held until the event opens",
+  "informationCutoff": "2026-09-27",
+  "wordCount": 435
+ }
+]
