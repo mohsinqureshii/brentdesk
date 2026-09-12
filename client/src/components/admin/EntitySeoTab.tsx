@@ -363,7 +363,7 @@ export function EntitySeoTab({ entityType, entityId, entityName, entityDescripti
             <p className="text-blue-700 text-base font-medium leading-snug hover:underline cursor-pointer truncate">
               {displayTitle}
             </p>
-            <p className="text-sm text-[#697386] line-clamp-2">{displayDescription || <span className="italic text-[#9BA3B0]">No description set</span>}</p>
+            <p className="text-sm text-[#525252] line-clamp-2">{displayDescription || <span className="italic text-[#8d8d8d]">No description set</span>}</p>
           </div>
         )}
       </div>
@@ -386,7 +386,7 @@ export function EntitySeoTab({ entityType, entityId, entityName, entityDescripti
           type="button"
           onClick={handleSave}
           disabled={updateMutation.isPending || !isDirty}
-          className="bg-[#0066FF] hover:bg-[#0052CC] text-white"
+          className="bg-[#0f62fe] hover:bg-[#0043ce] text-white"
         >
           {updateMutation.isPending ? (
             <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Saving...</>

@@ -191,7 +191,7 @@ export function QuickCompanyDialog({
       <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-[#0066FF]" />
+            <Building2 className="h-5 w-5 text-[#0f62fe]" />
             Create Company
           </DialogTitle>
           <DialogDescription>
@@ -261,7 +261,7 @@ export function QuickCompanyDialog({
                       <li key={dup.id}>
                         <strong>{dup.name}</strong>
                         {dup.industry && <span className="text-sm"> - {dup.industry}</span>}
-                        {dup.website && <span className="text-sm text-[#697386]"> ({dup.website})</span>}
+                        {dup.website && <span className="text-sm text-[#525252]"> ({dup.website})</span>}
                       </li>
                     ))}
                   </ul>
@@ -465,7 +465,7 @@ export function QuickCompanyDialog({
               type="button"
               onClick={() => handleSubmit(true)}
               disabled={isPending}
-              className="gap-2 bg-[#0066FF] hover:bg-[#0052CC]"
+              className="gap-2 bg-[#0f62fe] hover:bg-[#0043ce]"
             >
               {isPending && <Loader2 className="h-4 w-4 animate-spin" />}
               <CheckCircle className="h-4 w-4" />
@@ -608,7 +608,7 @@ export function QuickPersonDialog({
       <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <User className="h-5 w-5 text-[#0066FF]" />
+            <User className="h-5 w-5 text-[#0f62fe]" />
             Create Person
           </DialogTitle>
           <DialogDescription>
@@ -676,7 +676,7 @@ export function QuickPersonDialog({
                       <li key={dup.id}>
                         <strong>{dup.name}</strong>
                         {dup.title && <span className="text-sm"> - {dup.title}</span>}
-                        {dup.company && <span className="text-sm text-[#697386]"> at {dup.company}</span>}
+                        {dup.company && <span className="text-sm text-[#525252]"> at {dup.company}</span>}
                       </li>
                     ))}
                   </ul>
@@ -833,7 +833,7 @@ export function QuickPersonDialog({
               type="button"
               onClick={() => handleSubmit(true)}
               disabled={createMutation.isPending}
-              className="gap-2 bg-[#0066FF] hover:bg-[#0052CC]"
+              className="gap-2 bg-[#0f62fe] hover:bg-[#0043ce]"
             >
               {createMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
               <CheckCircle className="h-4 w-4" />
@@ -1022,7 +1022,7 @@ export function QuickInvestorDialog({
       <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            <Briefcase className="h-5 w-5 text-[#0066FF]" />
+            <Briefcase className="h-5 w-5 text-[#0f62fe]" />
             Create Investor
           </DialogTitle>
           <DialogDescription>
@@ -1098,7 +1098,7 @@ export function QuickInvestorDialog({
                       <li key={dup.id}>
                         <strong>{dup.name}</strong>
                         {dup.type && <span className="text-sm"> - {dup.type}</span>}
-                        {dup.shortDescription && <span className="text-sm text-[#697386]"> ({dup.shortDescription})</span>}
+                        {dup.shortDescription && <span className="text-sm text-[#525252]"> ({dup.shortDescription})</span>}
                       </li>
                     ))}
                   </ul>
@@ -1313,7 +1313,7 @@ export function QuickInvestorDialog({
                     variant={investmentStages.includes(stage.value) ? "default" : "outline"}
                     size="sm"
                     onClick={() => toggleStage(stage.value)}
-                    className={investmentStages.includes(stage.value) ? "bg-[#0066FF] hover:bg-[#0052CC]" : ""}
+                    className={investmentStages.includes(stage.value) ? "bg-[#0f62fe] hover:bg-[#0043ce]" : ""}
                   >
                     {stage.label}
                   </Button>
@@ -1343,7 +1343,7 @@ export function QuickInvestorDialog({
               type="button"
               onClick={() => handleSubmit(true)}
               disabled={createMutation.isPending}
-              className="gap-2 bg-[#0066FF] hover:bg-[#0052CC]"
+              className="gap-2 bg-[#0f62fe] hover:bg-[#0043ce]"
             >
               {createMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
               <CheckCircle className="h-4 w-4" />

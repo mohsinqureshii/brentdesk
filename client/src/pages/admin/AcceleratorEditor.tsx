@@ -402,7 +402,7 @@ export default function AcceleratorEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0066FF]" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -433,7 +433,7 @@ export default function AcceleratorEditor() {
               {isGeneratingAI ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Sparkles className="h-4 w-4 mr-2" />}
               Suggest with AI
             </Button>
-            <Button type="submit" className="bg-emerald-500 hover:bg-[#0066FF] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
+            <Button type="submit" className="bg-emerald-500 hover:bg-[#0f62fe] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
               <Save className="h-4 w-4 mr-2" />
               {createMutation.isPending || updateMutation.isPending ? "Saving..." : isEdit ? "Update" : "Create"}
             </Button>
@@ -448,7 +448,7 @@ export default function AcceleratorEditor() {
               <button key={tab.id} type="button" onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? "bg-[#F0F7FF] dark:bg-emerald-950/30 text-[#0066FF] dark:text-[#80B3FF] border-b-2 border-[#0066FF]"
+                    ? "bg-[#edf5ff] dark:bg-emerald-950/30 text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe]"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}>
                 <Icon className="h-4 w-4" />{tab.label}
@@ -575,9 +575,9 @@ export default function AcceleratorEditor() {
                       <Button type="button" variant="destructive" size="icon" className="absolute top-2 right-2 h-6 w-6" onClick={() => { setForm({ ...form, logo: "" }); setLogoPreview(null); }}><X className="h-3 w-3" /></Button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-md cursor-pointer hover:bg-[#F7F8FA] transition-colors">
+                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-md cursor-pointer hover:bg-[#f4f4f4] transition-colors">
                       <div className="flex flex-col items-center pt-5 pb-6">
-                        {isUploading ? <Loader2 className="h-8 w-8 text-[#9BA3B0] animate-spin" /> : <><Upload className="h-8 w-8 text-[#9BA3B0] mb-2" /><p className="text-sm text-[#697386]">Click to upload</p></>}
+                        {isUploading ? <Loader2 className="h-8 w-8 text-[#8d8d8d] animate-spin" /> : <><Upload className="h-8 w-8 text-[#8d8d8d] mb-2" /><p className="text-sm text-[#525252]">Click to upload</p></>}
                       </div>
                       <input type="file" className="hidden" accept="image/*" onChange={e => handleImageUpload(e, "logo")} disabled={isUploading} />
                     </label>
@@ -598,9 +598,9 @@ export default function AcceleratorEditor() {
                       <Button type="button" variant="destructive" size="icon" className="absolute top-2 right-2 h-6 w-6" onClick={() => { setForm({ ...form, coverImage: "" }); setCoverPreview(null); }}><X className="h-3 w-3" /></Button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-md cursor-pointer hover:bg-[#F7F8FA] transition-colors">
+                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-md cursor-pointer hover:bg-[#f4f4f4] transition-colors">
                       <div className="flex flex-col items-center pt-5 pb-6">
-                        <Upload className="h-8 w-8 text-[#9BA3B0] mb-2" /><p className="text-sm text-[#697386]">Upload cover</p>
+                        <Upload className="h-8 w-8 text-[#8d8d8d] mb-2" /><p className="text-sm text-[#525252]">Upload cover</p>
                       </div>
                       <input type="file" className="hidden" accept="image/*" onChange={e => handleImageUpload(e, "coverImage")} disabled={isUploading} />
                     </label>
@@ -982,7 +982,7 @@ export default function AcceleratorEditor() {
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center gap-2"><Calendar className="h-5 w-5" />Cohort Management</CardTitle>
                   {isEdit && (
-                    <Button type="button" onClick={openNewCohort} className="bg-emerald-500 hover:bg-[#0066FF] text-white">
+                    <Button type="button" onClick={openNewCohort} className="bg-emerald-500 hover:bg-[#0f62fe] text-white">
                       <Plus className="h-4 w-4 mr-2" />Add Cohort
                     </Button>
                   )}
@@ -1015,24 +1015,24 @@ export default function AcceleratorEditor() {
                         <div key={cohort.id} className="border rounded-md overflow-hidden">
                           {/* Cohort header row */}
                           <div className="flex items-start gap-4 p-4 hover:bg-muted/30 transition-colors">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#EBF3FF] dark:bg-emerald-950/40 flex items-center justify-center">
-                              <span className="text-[#0066FF] dark:text-[#80B3FF] font-bold text-sm">#{cohort.cohortNumber || "?"}</span>
+                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#edf5ff] dark:bg-emerald-950/40 flex items-center justify-center">
+                              <span className="text-[#0f62fe] dark:text-[#78a9ff] font-bold text-sm">#{cohort.cohortNumber || "?"}</span>
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 flex-wrap">
                                 <span className="font-semibold text-foreground">{cohort.name}</span>
                                 <Badge className={{
-                                  active: "bg-[#EBF3FF] text-[#0066FF]",
-                                  completed: "bg-[#F0F2F5] text-[#697386]",
+                                  active: "bg-[#edf5ff] text-[#0f62fe]",
+                                  completed: "bg-[#f4f4f4] text-[#525252]",
                                   upcoming: "bg-blue-100 text-blue-700",
-                                }[cohort.status as string] || "bg-[#F0F2F5] text-[#697386]"}>
+                                }[cohort.status as string] || "bg-[#f4f4f4] text-[#525252]"}>
                                   {cohort.status}
                                 </Badge>
                                 {cohort.year && <span className="text-xs text-muted-foreground">{cohort.year}</span>}
                                 <button
                                   type="button"
                                   onClick={() => setExpandedCohortId(isExpanded ? null : cohort.id)}
-                                  className="ml-1 inline-flex items-center gap-1 text-xs text-[#0066FF] hover:text-[#0066FF] font-medium"
+                                  className="ml-1 inline-flex items-center gap-1 text-xs text-[#0f62fe] hover:text-[#0f62fe] font-medium"
                                 >
                                   <Briefcase className="h-3 w-3" />
                                   {cohortAlumni.length} alumni
@@ -1065,13 +1065,13 @@ export default function AcceleratorEditor() {
                             <div className="border-t bg-muted/20 px-4 py-4 space-y-3">
                               <div className="flex items-center justify-between">
                                 <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                                  <Briefcase className="h-4 w-4 text-[#0066FF]" />
+                                  <Briefcase className="h-4 w-4 text-[#0f62fe]" />
                                   Alumni in this Cohort
                                   <Badge variant="secondary" className="text-xs">{cohortAlumni.length}</Badge>
                                 </h4>
                                 <Button
                                   type="button" size="sm" variant="outline"
-                                  className="h-7 text-xs border-[#0066FF] text-[#0066FF] hover:bg-[#F0F7FF]"
+                                  className="h-7 text-xs border-[#0f62fe] text-[#0f62fe] hover:bg-[#edf5ff]"
                                   onClick={() => { setAssignPanelOpen(isAssigning ? null : cohort.id); setAlumniSearch(""); setSelectedAlumniIds([]); }}
                                 >
                                   <Plus className="h-3 w-3 mr-1" />Assign Alumni
@@ -1088,7 +1088,7 @@ export default function AcceleratorEditor() {
                                       {a.logo && <img src={a.logo} alt="" className="w-4 h-4 rounded-full object-cover" />}
                                       <span>{a.companyName}</span>
                                       {a.sector && <span className="text-muted-foreground">· {a.sector}</span>}
-                                      {a.fundingRaised && <span className="text-[#0066FF] font-semibold ml-1">{a.fundingRaised}</span>}
+                                      {a.fundingRaised && <span className="text-[#0f62fe] font-semibold ml-1">{a.fundingRaised}</span>}
                                       <button
                                         type="button"
                                         className="ml-1 text-muted-foreground hover:text-destructive transition-colors"
@@ -1131,7 +1131,7 @@ export default function AcceleratorEditor() {
                                           />
                                           <span className="font-medium">{a.companyName}</span>
                                           {a.sector && <span className="text-muted-foreground">· {a.sector}</span>}
-                                          {a.fundingRaised && <span className="text-[#0066FF] font-semibold ml-auto">{a.fundingRaised}</span>}
+                                          {a.fundingRaised && <span className="text-[#0f62fe] font-semibold ml-auto">{a.fundingRaised}</span>}
                                         </label>
                                       ))}
                                     </div>
@@ -1142,7 +1142,7 @@ export default function AcceleratorEditor() {
                                       <Button type="button" variant="ghost" size="sm" className="h-7 text-xs" onClick={() => { setAssignPanelOpen(null); setSelectedAlumniIds([]); }}>Cancel</Button>
                                       <Button
                                         type="button" size="sm"
-                                        className="h-7 text-xs bg-emerald-500 hover:bg-[#0066FF] text-white"
+                                        className="h-7 text-xs bg-emerald-500 hover:bg-[#0f62fe] text-white"
                                         disabled={selectedAlumniIds.length === 0 || assignAlumniMutation.isPending}
                                         onClick={() => assignAlumniMutation.mutate({ alumniIds: selectedAlumniIds, cohortId: cohort.id })}
                                       >
@@ -1165,7 +1165,7 @@ export default function AcceleratorEditor() {
 
             {/* Cohort Edit Dialog (inline panel) */}
             {cohortDialogOpen && editingCohort && (
-              <Card className="border-2 border-[#0066FF]">
+              <Card className="border-2 border-[#0f62fe]">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-base">{editingCohort.id ? "Edit Cohort" : "New Cohort"}</CardTitle>
@@ -1248,7 +1248,7 @@ export default function AcceleratorEditor() {
                   </div>
                   <div className="flex justify-end gap-2 pt-2">
                     <Button type="button" variant="outline" onClick={() => { setCohortDialogOpen(false); setEditingCohort(null); }}>Cancel</Button>
-                    <Button type="button" className="bg-emerald-500 hover:bg-[#0066FF] text-white" onClick={saveCohort} disabled={createCohortMutation.isPending || updateCohortMutation.isPending}>
+                    <Button type="button" className="bg-emerald-500 hover:bg-[#0f62fe] text-white" onClick={saveCohort} disabled={createCohortMutation.isPending || updateCohortMutation.isPending}>
                       {createCohortMutation.isPending || updateCohortMutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <CheckCircle2 className="h-4 w-4 mr-2" />}
                       {editingCohort.id ? "Update Cohort" : "Create Cohort"}
                     </Button>

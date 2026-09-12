@@ -4,16 +4,16 @@
 
 /* Admin Container - Apply Square design only within admin routes */
 [data-admin-layout] {
-  --primary: #0066FF;
+  --primary: #0f62fe;
   --primary-foreground: #FFFFFF;
-  --sidebar-primary: #0052CC;
+  --sidebar-primary: #0043ce;
   --sidebar-primary-foreground: #FFFFFF;
   
   --chart-1: #E6F0FF;
   --chart-2: #99CCFF;
   --chart-3: #4D94FF;
-  --chart-4: #0066FF;
-  --chart-5: #0052CC;
+  --chart-4: #0f62fe;
+  --chart-5: #0043ce;
   
   --radius: 4px;
   --background: #FFFFFF;
@@ -32,14 +32,14 @@
   --muted-foreground: #6B7280;
   
   --accent: #F0F9FF;
-  --accent-foreground: #0066FF;
+  --accent-foreground: #0f62fe;
   
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   
   --border: #D1D5DB;
   --input: #F3F4F6;
-  --ring: #0066FF;
+  --ring: #0f62fe;
 }
 
 /* Admin Typography - Square's minimal, clean typography */
@@ -196,7 +196,7 @@
 
 [data-admin-layout] .badge-primary {
   background-color: rgba(0, 102, 255, 0.1);
-  color: #0066FF;
+  color: #0f62fe;
 }
 
 [data-admin-layout] .badge-secondary {

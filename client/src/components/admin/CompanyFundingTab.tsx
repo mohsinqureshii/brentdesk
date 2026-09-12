@@ -41,7 +41,7 @@ const STATUS_OPTIONS = [
 ];
 
 const STATUS_COLORS: Record<string, string> = {
-  confirmed: "bg-[#EBF3FF] text-[#0066FF]",
+  confirmed: "bg-[#edf5ff] text-[#0f62fe]",
   pending: "bg-yellow-100 text-yellow-700",
   disputed: "bg-red-100 text-red-700",
 };
@@ -341,7 +341,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-[#EBF3FF] rounded-md"><DollarSign className="h-5 w-5 text-[#0066FF]" /></div>
+              <div className="p-2 bg-[#edf5ff] rounded-md"><DollarSign className="h-5 w-5 text-[#0f62fe]" /></div>
               <div>
                 <p className="text-xs text-muted-foreground">Total Raised</p>
                 <p className="font-bold text-lg">{formatAmount(totalRaised.toString(), "USD")}</p>
@@ -382,7 +382,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
             <CardTitle className="flex items-center gap-2"><DollarSign className="h-5 w-5" />Funding Rounds</CardTitle>
             <CardDescription>All funding rounds for {companyName}. Changes here are reflected on the public company profile and Funding Tracker.</CardDescription>
           </div>
-          <Button onClick={openAdd} className="bg-emerald-500 hover:bg-[#0066FF] text-white">
+          <Button onClick={openAdd} className="bg-emerald-500 hover:bg-[#0f62fe] text-white">
             <Plus className="h-4 w-4 mr-1" /> Add Round
           </Button>
         </CardHeader>
@@ -416,7 +416,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${STATUS_COLORS[round.status] || "bg-[#F0F2F5] text-[#697386]"}`}>
+                    <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${STATUS_COLORS[round.status] || "bg-[#f4f4f4] text-[#525252]"}`}>
                       {round.status}
                     </span>
                     <Button variant="ghost" size="icon" onClick={() => openEdit(round)}><Edit2 className="h-4 w-4" /></Button>
@@ -564,7 +564,7 @@ export function CompanyFundingTab({ companyId, companyName }: { companyId: numbe
           <DialogFooter>
             <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
             <Button
-              className="bg-emerald-500 hover:bg-[#0066FF] text-white"
+              className="bg-emerald-500 hover:bg-[#0f62fe] text-white"
               onClick={handleSave}
               disabled={saving || !form.fundingDate || !form.roundType}
             >

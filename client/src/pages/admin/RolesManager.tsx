@@ -166,8 +166,8 @@ setFormData({
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Roles Management</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Roles Management</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage system and external roles with their permissions
             </p>
           </div>
@@ -181,18 +181,18 @@ setFormData({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">System Roles</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">System Roles</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <Shield className="h-8 w-8 text-[#0066FF]" />
+                <Shield className="h-8 w-8 text-[#0f62fe]" />
                 <span className="text-3xl font-bold">{systemRoles.length}</span>
               </div>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">External Roles</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">External Roles</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
@@ -203,7 +203,7 @@ setFormData({
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">Total Permissions</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">Total Permissions</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
@@ -226,7 +226,7 @@ setFormData({
               </Tabs>
               <div className="flex items-center gap-2">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                   <Input
                     placeholder="Search roles..."
                     value={searchQuery}
@@ -243,7 +243,7 @@ setFormData({
           <CardContent>
             {isLoading ? (
               <div className="flex items-center justify-center py-8">
-                <RefreshCw className="h-6 w-6 animate-spin text-[#9BA3B0]" />
+                <RefreshCw className="h-6 w-6 animate-spin text-[#8d8d8d]" />
               </div>
             ) : (
               <Table>
@@ -261,17 +261,17 @@ setFormData({
                     <TableRow key={role.id}>
                       <TableCell>
                         <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-md ${role.roleType === 'system' ? "bg-[#EBF3FF]" : "bg-blue-100"}`}>
-                            <Shield className={`h-4 w-4 ${role.roleType === 'system' ? "text-[#0066FF]" : "text-blue-600"}`} />
+                          <div className={`p-2 rounded-md ${role.roleType === 'system' ? "bg-[#edf5ff]" : "bg-blue-100"}`}>
+                            <Shield className={`h-4 w-4 ${role.roleType === 'system' ? "text-[#0f62fe]" : "text-blue-600"}`} />
                           </div>
                           <div>
                             <p className="font-medium">{role.displayName}</p>
-                            <p className="text-sm text-[#697386]">{role.name}</p>
+                            <p className="text-sm text-[#525252]">{role.name}</p>
                           </div>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <p className="text-sm text-[#697386] max-w-xs truncate">
+                        <p className="text-sm text-[#525252] max-w-xs truncate">
                           {role.description || "-"}
                         </p>
                       </TableCell>
@@ -281,7 +281,7 @@ setFormData({
                             {rolesData?.find((r: any) => r.id === role.parentRoleId)?.displayName || "Unknown"}
                           </Badge>
                         ) : (
-                          <span className="text-[#9BA3B0]">-</span>
+                          <span className="text-[#8d8d8d]">-</span>
                         )}
                       </TableCell>
                       <TableCell>
@@ -319,7 +319,7 @@ setFormData({
                   ))}
                   {filteredRoles.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={5} className="text-center py-8 text-[#697386]">
+                      <TableCell colSpan={5} className="text-center py-8 text-[#525252]">
                         No roles found
                       </TableCell>
                     </TableRow>
@@ -480,7 +480,7 @@ setFormData({
               <div className="space-y-6">
                 {Object.entries(groupedPermissions).map(([resource, perms]: [string, any]) => (
                   <div key={resource} className="space-y-3">
-                    <h4 className="font-medium text-[#1A1F36] capitalize flex items-center gap-2">
+                    <h4 className="font-medium text-[#161616] capitalize flex items-center gap-2">
                       <ChevronRight className="h-4 w-4" />
                       {resource.replace(/_/g, " ")}
                     </h4>
@@ -490,7 +490,7 @@ setFormData({
                           <Checkbox id={`perm-${perm.id}`} />
                           <label
                             htmlFor={`perm-${perm.id}`}
-                            className="text-sm text-[#697386] cursor-pointer"
+                            className="text-sm text-[#525252] cursor-pointer"
                           >
                             {perm.action} ({perm.scope})
                           </label>

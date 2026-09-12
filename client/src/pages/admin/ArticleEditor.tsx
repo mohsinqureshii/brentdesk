@@ -998,7 +998,7 @@ export default function ArticleEditor() {
   const getStatusInfo = () => {
     switch (article.status) {
       case "draft":
-        return { label: "Draft", color: "text-[#697386]", icon: Clock };
+        return { label: "Draft", color: "text-[#525252]", icon: Clock };
       case "submitted":
         return { label: "Submitted for Review", color: "text-blue-500", icon: Send };
       case "editor_review":
@@ -1010,11 +1010,11 @@ export default function ArticleEditor() {
       case "scheduled":
         return { label: "Scheduled", color: "text-orange-500", icon: Clock };
       case "published":
-        return { label: "Published", color: "text-[#0066FF]", icon: CheckCircle };
+        return { label: "Published", color: "text-[#0f62fe]", icon: CheckCircle };
       case "rejected":
         return { label: "Rejected", color: "text-red-500", icon: AlertCircle };
       default:
-        return { label: article.status, color: "text-[#697386]", icon: Clock };
+        return { label: article.status, color: "text-[#525252]", icon: Clock };
     }
   };
 
@@ -1025,7 +1025,7 @@ export default function ArticleEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-96">
-          <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -1043,14 +1043,14 @@ export default function ArticleEditor() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-xl sm:text-xl font-semibold text-[#1A1F36]">
+              <h1 className="text-xl sm:text-xl font-semibold text-[#161616]">
                 {isNew ? "New Article" : "Edit Article"}
               </h1>
               <div className="flex items-center gap-2 mt-1">
                 <StatusIcon className={`h-4 w-4 ${statusInfo.color}`} />
                 <span className={`text-sm ${statusInfo.color}`}>{statusInfo.label}</span>
                 {article.publishedAt && (
-                  <span className="text-sm text-[#697386]">
+                  <span className="text-sm text-[#525252]">
                     • Published {new Date(article.publishedAt).toLocaleDateString()}
                   </span>
                 )}
@@ -1113,7 +1113,7 @@ export default function ArticleEditor() {
               <Button 
                 onClick={() => handleSave("submitted")}
                 disabled={isSaving}
-                className="bg-[#0066FF] hover:bg-[#0052CC]"
+                className="bg-[#0f62fe] hover:bg-[#0043ce]"
               >
                 <Send className="h-4 w-4 mr-2" />
                 Submit for Review
@@ -1130,7 +1130,7 @@ export default function ArticleEditor() {
                   }
                 }}
                 disabled={isSaving}
-                className="bg-[#0066FF] hover:bg-[#0052CC]"
+                className="bg-[#0f62fe] hover:bg-[#0043ce]"
               >
                 <Globe className="h-4 w-4 mr-2" />
                 {article.publishedAt && new Date(article.publishedAt) > new Date() ? "Schedule" : "Publish"}
@@ -1161,7 +1161,7 @@ export default function ArticleEditor() {
                 <Button 
                   onClick={() => handleSave("published")}
                   disabled={isSaving}
-                  className="bg-[#0066FF] hover:bg-[#0052CC]"
+                  className="bg-[#0f62fe] hover:bg-[#0043ce]"
                   title="Publish immediately"
                 >
                   <Globe className="h-4 w-4 mr-2" />
@@ -1195,7 +1195,7 @@ export default function ArticleEditor() {
                   placeholder="Article title..."
                   value={article.title}
                   onChange={(e) => handleTitleChange(e.target.value)}
-                  className="text-2xl font-bold border-0 px-0 focus-visible:ring-0 placeholder:text-[#9BA3B0]"
+                  className="text-2xl font-bold border-0 px-0 focus-visible:ring-0 placeholder:text-[#8d8d8d]"
                 />
                 {/* Slug validation helper */}
                 {(() => {
@@ -1225,7 +1225,7 @@ export default function ArticleEditor() {
                   
                   return (
                     <>
-                      <div className="flex items-center gap-1 mt-2 text-sm text-[#697386] flex-wrap">
+                      <div className="flex items-center gap-1 mt-2 text-sm text-[#525252] flex-wrap">
                         <Globe className="h-4 w-4 flex-shrink-0" />
                         <span className="flex-shrink-0">{publication.domain}/</span>
                         {/* Show primary category slug only (no parent hierarchy) */}
@@ -1246,7 +1246,7 @@ export default function ArticleEditor() {
                             onChange={(e) => setArticle((prev) => ({ ...prev, slug: e.target.value }))}
                             className={`h-6 px-1 py-0 text-sm border-0 border-b-2 focus-visible:ring-0 transition-colors ${
                               isEmpty 
-                                ? "border-dashed border-[#C8CDD6]" 
+                                ? "border-dashed border-[#c6c6c6]" 
                                 : isValid 
                                   ? "border-green-500 text-green-700" 
                                   : "border-red-500 text-red-700"
@@ -1342,7 +1342,7 @@ export default function ArticleEditor() {
                         onChange={(e) => setArticle((prev) => ({ ...prev, excerpt: e.target.value }))}
                         rows={3}
                       />
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         {article.excerpt.length}/300 characters
                       </p>
                     </div>
@@ -1489,7 +1489,7 @@ export default function ArticleEditor() {
                       />
                       <p className={`text-xs ${
                         article.seoTitle.length >= 50 && article.seoTitle.length <= 60 ? 'text-green-600' :
-                        article.seoTitle.length > 60 ? 'text-red-600' : 'text-[#697386]'
+                        article.seoTitle.length > 60 ? 'text-red-600' : 'text-[#525252]'
                       }`}>
                         {article.seoTitle.length}/60 characters (recommended)
                       </p>
@@ -1556,7 +1556,7 @@ export default function ArticleEditor() {
                       />
                       <p className={`text-xs ${
                         article.seoDescription.length >= 140 && article.seoDescription.length <= 160 ? 'text-green-600' :
-                        article.seoDescription.length > 160 ? 'text-red-600' : 'text-[#697386]'
+                        article.seoDescription.length > 160 ? 'text-red-600' : 'text-[#525252]'
                       }`}>
                         {article.seoDescription.length}/160 characters (recommended)
                       </p>
@@ -1632,7 +1632,7 @@ export default function ArticleEditor() {
                           </div>
                         )}
                       </div>
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Select a focus keyword for SEO optimization or add a new one
                       </p>
                     </div>
@@ -1659,7 +1659,7 @@ export default function ArticleEditor() {
                         value={article.seoKeywords}
                         onChange={(e) => setArticle((prev) => ({ ...prev, seoKeywords: e.target.value }))}
                       />
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Comma-separated list of additional keywords
                       </p>
                       
@@ -1765,7 +1765,7 @@ export default function ArticleEditor() {
                                         }
                                       }}
                                     >
-                                      <span className="text-[10px] text-[#9BA3B0] mr-1">[{tag.tagType}]</span>
+                                      <span className="text-[10px] text-[#8d8d8d] mr-1">[{tag.tagType}]</span>
                                       + {tag.name}
                                     </Badge>
                                   ))}
@@ -1831,14 +1831,14 @@ export default function ArticleEditor() {
                         value={article.canonicalUrl}
                         onChange={(e) => setArticle((prev) => ({ ...prev, canonicalUrl: e.target.value }))}
                       />
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Leave empty to use the default URL
                       </p>
                     </div>
 
                     {/* Divider */}
                     <div className="border-t pt-6">
-                      <h3 className="text-sm font-semibold text-[#1A1F36] mb-4">Google News & Social</h3>
+                      <h3 className="text-sm font-semibold text-[#161616] mb-4">Google News & Social</h3>
                     </div>
 
                     {/* Article Type - REQUIRED */}
@@ -1863,7 +1863,7 @@ export default function ArticleEditor() {
                           <SelectItem value="interview">Interview</SelectItem>
                         </SelectContent>
                       </Select>
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Required for Google News classification and schema markup
                       </p>
                     </div>
@@ -1885,7 +1885,7 @@ export default function ArticleEditor() {
                           <SelectItem value="noindex">Noindex</SelectItem>
                         </SelectContent>
                       </Select>
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Use Noindex for duplicate, test, or hidden content
                       </p>
                     </div>
@@ -1901,7 +1901,7 @@ export default function ArticleEditor() {
                           setArticle((prev) => ({ ...prev, googleNewsKeywords: keywords }));
                         }}
                       />
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Comma-separated, max 5 keywords for editorial classification
                       </p>
                     </div>
@@ -1926,7 +1926,7 @@ export default function ArticleEditor() {
                           </Button>
                         )}
                       </div>
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Leave empty to use Featured Image automatically
                       </p>
                     </div>
@@ -1939,7 +1939,7 @@ export default function ArticleEditor() {
                         value={article.ogTitle}
                         onChange={(e) => setArticle((prev) => ({ ...prev, ogTitle: e.target.value }))}
                       />
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Optional - defaults to SEO Title
                       </p>
                     </div>
@@ -1953,13 +1953,13 @@ export default function ArticleEditor() {
                         onChange={(e) => setArticle((prev) => ({ ...prev, ogDescription: e.target.value }))}
                         rows={2}
                       />
-                      <p className="text-xs text-[#697386]">
+                      <p className="text-xs text-[#525252]">
                         Optional - defaults to Meta Description
                       </p>
                     </div>
 
                     {/* SEO Preview */}
-                    <div className="p-4 bg-[#F7F8FA] rounded-md space-y-2">
+                    <div className="p-4 bg-[#f4f4f4] rounded-md space-y-2">
                       <p className="text-sm font-medium">Search Preview</p>
                       <div className="space-y-1">
                         <p className="text-blue-600 text-lg hover:underline cursor-pointer">
@@ -1973,7 +1973,7 @@ export default function ArticleEditor() {
                           })()}
                           {article.slug || "article-slug"}
                         </p>
-                        <p className="text-sm text-[#697386] line-clamp-2">
+                        <p className="text-sm text-[#525252] line-clamp-2">
                           {article.seoDescription || article.excerpt || "Article description will appear here..."}
                         </p>
                       </div>
@@ -2142,7 +2142,7 @@ export default function ArticleEditor() {
                                       }));
                                     }
                                   }}
-                                  className="h-4 w-4 rounded border-[#C8CDD6] text-primary focus:ring-primary"
+                                  className="h-4 w-4 rounded border-[#c6c6c6] text-primary focus:ring-primary"
                                 />
                                 <span className="text-sm font-medium">{parentCat.name}</span>
                               </label>
@@ -2174,7 +2174,7 @@ export default function ArticleEditor() {
                                             }));
                                           }
                                         }}
-                                        className="h-4 w-4 rounded border-[#C8CDD6] text-primary focus:ring-primary"
+                                        className="h-4 w-4 rounded border-[#c6c6c6] text-primary focus:ring-primary"
                                       />
                                       <span className="text-sm text-muted-foreground">{childCat.name}</span>
                                     </label>
@@ -2322,7 +2322,7 @@ export default function ArticleEditor() {
                 <div className="border-t pt-4 mt-4">
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <Label htmlFor="editorPick" className="text-[#0066FF] font-semibold">✍️ Editor's Pick</Label>
+                      <Label htmlFor="editorPick" className="text-[#0f62fe] font-semibold">✍️ Editor's Pick</Label>
                       <p className="text-xs text-muted-foreground mt-1">Show in Editor's Picks sidebar widget</p>
                     </div>
                     <Switch
@@ -2488,7 +2488,7 @@ export default function ArticleEditor() {
                             article.tags.includes(tag.name)
                               ? "bg-green-100 text-green-700 border-green-200"
                               : article.tags.length >= 5
-                              ? "opacity-50 cursor-not-allowed text-[#9BA3B0] border-[#E0E3E8]"
+                              ? "opacity-50 cursor-not-allowed text-[#8d8d8d] border-[#e0e0e0]"
                               : "hover:bg-purple-100 text-purple-700 border-purple-200"
                           }`}
                           onClick={() => {
@@ -2646,13 +2646,13 @@ export default function ArticleEditor() {
                   </div>
                 ) : (
                   <div
-                    className="border-2 border-dashed border-[#E0E3E8] rounded-md p-8 text-center hover:border-[#0066FF] transition-colors cursor-pointer"
+                    className="border-2 border-dashed border-[#e0e0e0] rounded-md p-8 text-center hover:border-[#0f62fe] transition-colors cursor-pointer"
                     onClick={() => setShowMediaPicker(true)}
                   >
-                    <div className="text-[#9BA3B0]">
+                    <div className="text-[#8d8d8d]">
                       <ImageIcon className="mx-auto h-12 w-12" />
                       <p className="mt-2 text-sm font-medium">Set Featured Image</p>
-                      <p className="text-xs text-[#9BA3B0] mt-1">Upload new or select from Media Library</p>
+                      <p className="text-xs text-[#8d8d8d] mt-1">Upload new or select from Media Library</p>
                     </div>
                   </div>
                 )}

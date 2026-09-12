@@ -61,11 +61,11 @@ const typeLabels: Record<string, { label: string; color: string }> = {
   angel: { label: "Angel", color: "bg-purple-100 text-purple-600" },
   accelerator: { label: "Accelerator", color: "bg-green-100 text-green-600" },
   corporate: { label: "Corporate", color: "bg-orange-100 text-orange-600" },
-  family_office: { label: "Family Office", color: "bg-[#F0F2F5] text-[#697386]" },
+  family_office: { label: "Family Office", color: "bg-[#f4f4f4] text-[#525252]" },
 };
 
 const statusColors: Record<string, string> = {
-  draft: "bg-[#F0F2F5] text-[#697386]",
+  draft: "bg-[#f4f4f4] text-[#525252]",
   published: "bg-green-100 text-green-600",
   pending_review: "bg-yellow-100 text-yellow-600",
 };
@@ -214,8 +214,8 @@ export default function InvestorsList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Investors</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Investors</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage VC firms, angel investors, and accelerators
             </p>
           </div>
@@ -233,7 +233,7 @@ export default function InvestorsList() {
               Export CSV
             </Button>
             <Link href="/admin/investors/new">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Investor
               </Button>
@@ -250,8 +250,8 @@ export default function InvestorsList() {
                   <Building2 className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Investors</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{total}</p>
+                  <p className="text-sm text-[#525252]">Total Investors</p>
+                  <p className="text-xl font-semibold text-[#161616]">{total}</p>
                 </div>
               </div>
             </CardContent>
@@ -263,8 +263,8 @@ export default function InvestorsList() {
                   <CheckCircle className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Verified</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{verifiedCount}</p>
+                  <p className="text-sm text-[#525252]">Verified</p>
+                  <p className="text-xl font-semibold text-[#161616]">{verifiedCount}</p>
                 </div>
               </div>
             </CardContent>
@@ -276,8 +276,8 @@ export default function InvestorsList() {
                   <Briefcase className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Claimed Profiles</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{claimedCount}</p>
+                  <p className="text-sm text-[#525252]">Claimed Profiles</p>
+                  <p className="text-xl font-semibold text-[#161616]">{claimedCount}</p>
                 </div>
               </div>
             </CardContent>
@@ -289,8 +289,8 @@ export default function InvestorsList() {
                   <Eye className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Views</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{totalViews.toLocaleString()}</p>
+                  <p className="text-sm text-[#525252]">Total Views</p>
+                  <p className="text-xl font-semibold text-[#161616]">{totalViews.toLocaleString()}</p>
                 </div>
               </div>
             </CardContent>
@@ -302,7 +302,7 @@ export default function InvestorsList() {
           <CardHeader>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search investors..."
                   value={search}
@@ -329,8 +329,8 @@ export default function InvestorsList() {
           </CardHeader>
           <CardContent>
             {selectedInvestors.length > 0 && (
-              <div className="flex items-center gap-4 mb-4 p-3 bg-[#F7F8FA] rounded-md">
-                <span className="text-sm font-medium text-[#1A1F36]">
+              <div className="flex items-center gap-4 mb-4 p-3 bg-[#f4f4f4] rounded-md">
+                <span className="text-sm font-medium text-[#161616]">
                   {selectedInvestors.length} selected
                 </span>
                 <div className="flex flex-wrap gap-2">
@@ -351,15 +351,15 @@ export default function InvestorsList() {
 
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : error ? (
               <div className="flex items-center justify-center py-12 text-red-600">
                 Error loading investors: {error.message}
               </div>
             ) : investors.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-                <Building2 className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+                <Building2 className="h-12 w-12 mb-4 text-[#c6c6c6]" />
                 <p className="text-lg font-medium">No investors found</p>
                 <p className="text-sm">
                   {debouncedSearch || typeFilter !== "all"
@@ -368,7 +368,7 @@ export default function InvestorsList() {
                 </p>
                 {!debouncedSearch && typeFilter === "all" && (
                   <Link href="/admin/investors/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Investor
                     </Button>
@@ -398,7 +398,7 @@ export default function InvestorsList() {
                   </TableHeader>
                   <TableBody>
                     {investors.map((investor: any) => {
-                      const typeInfo = typeLabels[investor.investorType] || { label: investor.investorType || "Investor", color: "bg-[#F0F2F5] text-[#697386]" };
+                      const typeInfo = typeLabels[investor.investorType] || { label: investor.investorType || "Investor", color: "bg-[#f4f4f4] text-[#525252]" };
                       
                       return (
                         <TableRow key={investor.id} className="group">
@@ -412,14 +412,14 @@ export default function InvestorsList() {
                             <div className="flex items-center gap-3 min-w-0">
                               <Avatar className="h-10 w-10 shrink-0">
                                 <AvatarImage src={investor.logoUrl} />
-                                <AvatarFallback className="bg-[#EBF3FF] text-[#0066FF]">
+                                <AvatarFallback className="bg-[#edf5ff] text-[#0f62fe]">
                                   {investor.name?.substring(0, 2).toUpperCase() || "IN"}
                                 </AvatarFallback>
                               </Avatar>
                               <div className="min-w-0">
                                 <div className="flex items-center gap-2">
                                   <Link href={`/admin/investors/${investor.id}`}>
-                                    <span className="font-medium hover:text-[#0066FF] cursor-pointer truncate block">{investor.name}</span>
+                                    <span className="font-medium hover:text-[#0f62fe] cursor-pointer truncate block">{investor.name}</span>
                                   </Link>
                                   {!!investor.isVerified && (
                                     <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
@@ -428,7 +428,7 @@ export default function InvestorsList() {
                                     <Badge className="text-xs bg-green-100 text-green-700 shrink-0">Claimed</Badge>
                                   )}
                                 </div>
-                                <p className="text-xs text-[#9BA3B0] truncate">{investor.website || "-"}</p>
+                                <p className="text-xs text-[#8d8d8d] truncate">{investor.website || "-"}</p>
                               </div>
                             </div>
                           </TableCell>
@@ -437,11 +437,11 @@ export default function InvestorsList() {
                               {typeInfo.label}
                             </Badge>
                           </TableCell>
-                          <TableCell className="hidden lg:table-cell text-[#697386] truncate">{investor.headquarters || "-"}</TableCell>
+                          <TableCell className="hidden lg:table-cell text-[#525252] truncate">{investor.headquarters || "-"}</TableCell>
                           <TableCell className="hidden lg:table-cell">
                             <div className="flex items-center gap-1">
-                              <DollarSign className="h-3 w-3 text-[#9BA3B0]" />
-                              <span className="text-sm text-[#1A1F36]">
+                              <DollarSign className="h-3 w-3 text-[#8d8d8d]" />
+                              <span className="text-sm text-[#161616]">
                                 {investor.checkSizeMin && investor.checkSizeMax 
                                   ? `${(investor.checkSizeMin / 1000000).toFixed(0)}M - ${(investor.checkSizeMax / 1000000).toFixed(0)}M`
                                   : "-"}
@@ -450,8 +450,8 @@ export default function InvestorsList() {
                           </TableCell>
                           <TableCell>
                             <div className="flex items-center gap-1">
-                              <TrendingUp className="h-3 w-3 text-[#9BA3B0]" />
-                              <span className="text-sm text-[#1A1F36]">{investor.portfolioCount || 0}</span>
+                              <TrendingUp className="h-3 w-3 text-[#8d8d8d]" />
+                              <span className="text-sm text-[#161616]">{investor.portfolioCount || 0}</span>
                             </div>
                           </TableCell>
                           <TableCell>
@@ -515,7 +515,7 @@ export default function InvestorsList() {
                 </div>
 
                 {/* Advanced Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}

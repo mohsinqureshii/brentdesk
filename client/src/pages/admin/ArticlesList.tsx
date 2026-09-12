@@ -414,8 +414,8 @@ export default function ArticlesList() {
         {/* Page header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Articles</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Articles</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage and publish articles across {publication.name}
             </p>
           </div>
@@ -433,7 +433,7 @@ export default function ArticlesList() {
               Export CSV
             </Button>
             <Link href="/admin/articles/new">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 <Plus className="h-4 w-4 mr-2" />
                 New Article
               </Button>
@@ -442,7 +442,7 @@ export default function ArticlesList() {
         </div>
 
         {/* Status Tabs - WordPress Style */}
-        <div className="flex items-center gap-1 border-b border-[#E0E3E8] overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-1 border-b border-[#e0e0e0] overflow-x-auto scrollbar-hide">
           {statusTabs.map((tab) => {
             const count = getTabCount(tab.key);
             const isActive = statusFilter === tab.key;
@@ -456,14 +456,14 @@ export default function ArticlesList() {
                 }}
                 className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
                   isActive
-                    ? "border-[#0052CC] text-[#0066FF]"
-                    : "border-transparent text-[#697386] hover:text-[#1A1F36] hover:border-[#C8CDD6]"
+                    ? "border-[#0043ce] text-[#0f62fe]"
+                    : "border-transparent text-[#525252] hover:text-[#161616] hover:border-[#c6c6c6]"
                 }`}
               >
                 {tab.label}
                 {count > 0 && (
                   <span className={`ml-2 px-2 py-0.5 text-xs rounded-full ${
-                    isActive ? "bg-[#EBF3FF] text-[#0066FF]" : "bg-[#F0F2F5] text-[#697386]"
+                    isActive ? "bg-[#edf5ff] text-[#0f62fe]" : "bg-[#f4f4f4] text-[#525252]"
                   }`}>
                     {count}
                   </span>
@@ -478,7 +478,7 @@ export default function ArticlesList() {
           <CardContent className="p-4">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search articles..."
                   value={search}
@@ -512,7 +512,7 @@ export default function ArticlesList() {
                 <Filter className="h-4 w-4 mr-2" />
                 More Filters
                 {activeFiltersCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#0066FF] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-[#0f62fe] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {activeFiltersCount}
                   </span>
                 )}
@@ -521,8 +521,8 @@ export default function ArticlesList() {
 
             {/* Active filters display */}
             {(categoryFilter !== "all" || dateFromFilter || dateToFilter) && (
-              <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-[#E0E3E8]">
-                <span className="text-sm text-[#697386]">Active filters:</span>
+              <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-[#e0e0e0]">
+                <span className="text-sm text-[#525252]">Active filters:</span>
                 {categoryFilter !== "all" && (
                   <Badge variant="secondary" className="gap-1">
                     <FolderOpen className="h-3 w-3" />
@@ -568,8 +568,8 @@ export default function ArticlesList() {
 
             {/* Bulk actions */}
             {selectedIds.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-4 pt-4 border-t border-[#E0E3E8]">
-                <span className="text-sm text-[#697386]">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-4 pt-4 border-t border-[#e0e0e0]">
+                <span className="text-sm text-[#525252]">
                   {selectedIds.length} selected
                 </span>
                 {!isTrashView && (
@@ -644,15 +644,15 @@ export default function ArticlesList() {
         <Card>
           {isLoading ? (
             <div className="flex items-center justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+              <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
             </div>
           ) : error ? (
             <div className="flex items-center justify-center py-12 text-red-600">
               Error loading articles: {error.message}
             </div>
           ) : articles.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-              <FileText className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+            <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+              <FileText className="h-12 w-12 mb-4 text-[#c6c6c6]" />
               <p className="text-lg font-medium">No articles found</p>
               <p className="text-sm">
                 {debouncedSearch || statusFilter !== "all" || categoryFilter !== "all"
@@ -661,7 +661,7 @@ export default function ArticlesList() {
               </p>
               {!debouncedSearch && statusFilter === "all" && categoryFilter === "all" && (
                 <Link href="/admin/articles/new">
-                  <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                  <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                     <Plus className="h-4 w-4 mr-2" />
                     Create Article
                   </Button>
@@ -696,13 +696,13 @@ export default function ArticlesList() {
                     <TableHead className="min-w-[280px]">
                       <button
                         onClick={() => handleSort("title")}
-                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors"
+                        className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors"
                       >
                         Title
                         {sortBy === "title" ? (
                           sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
                         ) : (
-                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                          <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />
                         )}
                       </button>
                     </TableHead>
@@ -710,39 +710,39 @@ export default function ArticlesList() {
                     <TableHead className="w-[110px] whitespace-nowrap">
                       <button
                         onClick={() => handleSort("status")}
-                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors"
+                        className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors"
                       >
                         Status
                         {sortBy === "status" ? (
                           sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
                         ) : (
-                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                          <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />
                         )}
                       </button>
                     </TableHead>
                     <TableHead className="w-[140px] whitespace-nowrap hidden lg:table-cell">
                       <button
                         onClick={() => handleSort("authorName")}
-                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors"
+                        className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors"
                       >
                         Author
                         {sortBy === "authorName" ? (
                           sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
                         ) : (
-                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                          <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />
                         )}
                       </button>
                     </TableHead>
                     <TableHead className="w-[120px] whitespace-nowrap">
                       <button
                         onClick={() => handleSort("publishedAt")}
-                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors"
+                        className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors"
                       >
                         Published
                         {sortBy === "publishedAt" ? (
                           sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
                         ) : (
-                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                          <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />
                         )}
                       </button>
                     </TableHead>
@@ -753,26 +753,26 @@ export default function ArticlesList() {
                     <TableHead className="w-[80px] text-right whitespace-nowrap hidden xl:table-cell">
                       <button
                         onClick={() => handleSort("viewCount")}
-                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors ml-auto"
+                        className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors ml-auto"
                       >
                         Views
                         {sortBy === "viewCount" ? (
                           sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
                         ) : (
-                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                          <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />
                         )}
                       </button>
                     </TableHead>
                     <TableHead className="w-[120px] whitespace-nowrap hidden xl:table-cell">
                       <button
                         onClick={() => handleSort("updatedAt")}
-                        className="flex items-center gap-1 hover:text-[#0066FF] transition-colors"
+                        className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors"
                       >
                         Updated
                         {sortBy === "updatedAt" ? (
                           sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />
                         ) : (
-                          <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />
+                          <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />
                         )}
                       </button>
                     </TableHead>
@@ -793,14 +793,14 @@ export default function ArticlesList() {
                           <div className="min-w-0 flex-1">
                             <Link href={`/admin/articles/${article.id}`}>
                               <span
-                                className="font-medium text-sm leading-snug hover:text-[#0066FF] transition-colors cursor-pointer line-clamp-2 block"
+                                className="font-medium text-sm leading-snug hover:text-[#0f62fe] transition-colors cursor-pointer line-clamp-2 block"
                                 title={article.title}
                               >
                                 {article.title}
                               </span>
                             </Link>
                             <p
-                              className="text-xs text-[#9BA3B0] truncate mt-0.5"
+                              className="text-xs text-[#8d8d8d] truncate mt-0.5"
                               title={`/${article.slug}`}
                             >
                               /{article.slug}
@@ -825,7 +825,7 @@ export default function ArticlesList() {
                               </Badge>
                             ))
                           ) : (
-                            <span className="text-[#9BA3B0] text-sm">—</span>
+                            <span className="text-[#8d8d8d] text-sm">—</span>
                           )}
                           {article.categories && article.categories.length > 2 && (
                             <Badge variant="outline" className="text-xs">
@@ -835,15 +835,15 @@ export default function ArticlesList() {
                         </div>
                       </TableCell>
                       <TableCell>{getStatusBadge(article.status || "draft")}</TableCell>
-                      <TableCell className="text-[#697386] text-sm hidden lg:table-cell">
+                      <TableCell className="text-[#525252] text-sm hidden lg:table-cell">
                         <span className="truncate block max-w-[140px]" title={article.authorName || "Unknown"}>
                           {article.authorName || "Unknown"}
                         </span>
                       </TableCell>
-                      <TableCell className="text-[#697386] text-sm whitespace-nowrap">
+                      <TableCell className="text-[#525252] text-sm whitespace-nowrap">
                         {article.publishedAt ? formatDate(article.publishedAt) : "—"}
                       </TableCell>
-                      <TableCell className="text-[#697386] text-sm whitespace-nowrap">
+                      <TableCell className="text-[#525252] text-sm whitespace-nowrap">
                         {article.status === "scheduled" ? (
                           // A scheduled row with no date never publishes: the
                           // release sweep only picks up rows where scheduledAt
@@ -861,15 +861,15 @@ export default function ArticlesList() {
                           )
                         ) : article.scheduledAt ? (
                           // Released by the sweep: keep the slot it came from visible.
-                          <span className="text-[#9BA3B0]">{formatDate(article.scheduledAt)}</span>
+                          <span className="text-[#8d8d8d]">{formatDate(article.scheduledAt)}</span>
                         ) : (
                           "—"
                         )}
                       </TableCell>
-                      <TableCell className="text-right text-[#697386] whitespace-nowrap hidden xl:table-cell">
+                      <TableCell className="text-right text-[#525252] whitespace-nowrap hidden xl:table-cell">
                         {(article.viewCount || 0).toLocaleString()}
                       </TableCell>
-                      <TableCell className="text-[#697386] text-sm whitespace-nowrap hidden xl:table-cell">
+                      <TableCell className="text-[#525252] text-sm whitespace-nowrap hidden xl:table-cell">
                         {formatDate(article.updatedAt)}
                       </TableCell>
                       <TableCell>
@@ -996,14 +996,14 @@ export default function ArticlesList() {
                         <span className="font-medium text-sm leading-snug line-clamp-2">{article.title}</span>
                         <div className="shrink-0">{getStatusBadge(article.status || "draft")}</div>
                       </div>
-                      <p className="text-[11px] text-[#9BA3B0] truncate mt-1">/{article.slug}</p>
-                      <div className="flex flex-wrap items-center gap-1.5 mt-2 text-[11px] text-[#697386]">
+                      <p className="text-[11px] text-[#8d8d8d] truncate mt-1">/{article.slug}</p>
+                      <div className="flex flex-wrap items-center gap-1.5 mt-2 text-[11px] text-[#525252]">
                         {article.categories?.slice(0, 2).map((cat: any) => (
                           <Badge key={cat.id} variant="outline" className="text-[10px] px-1.5 py-0">
                             {cat.name}
                           </Badge>
                         ))}
-                        <span className="text-[#9BA3B0]">·</span>
+                        <span className="text-[#8d8d8d]">·</span>
                         <span className={article.status === "scheduled" ? "text-orange-600" : undefined}>
                           {article.status === "scheduled"
                             ? (article.scheduledAt ? `Due ${formatDate(article.scheduledAt)}` : "No date set")
@@ -1011,7 +1011,7 @@ export default function ArticlesList() {
                         </span>
                         {article.authorName && (
                           <>
-                            <span className="text-[#9BA3B0]">·</span>
+                            <span className="text-[#8d8d8d]">·</span>
                             <span className="truncate max-w-[100px]">{article.authorName}</span>
                           </>
                         )}
@@ -1037,7 +1037,7 @@ export default function ArticlesList() {
               </ul>
 
               {/* Advanced Pagination */}
-              <div className="px-4 border-t border-[#E0E3E8]">
+              <div className="px-4 border-t border-[#e0e0e0]">
                 <AdvancedPagination
                   currentPage={page}
                   totalPages={totalPages}
@@ -1082,7 +1082,7 @@ export default function ArticlesList() {
               <Label>Published Date Range</Label>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <Label className="text-xs text-[#697386]">From</Label>
+                  <Label className="text-xs text-[#525252]">From</Label>
                   <Input
                     type="date"
                     value={tempDateFromFilter}
@@ -1090,7 +1090,7 @@ export default function ArticlesList() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <Label className="text-xs text-[#697386]">To</Label>
+                  <Label className="text-xs text-[#525252]">To</Label>
                   <Input
                     type="date"
                     value={tempDateToFilter}
@@ -1108,7 +1108,7 @@ export default function ArticlesList() {
               <Button variant="outline" onClick={() => setShowMoreFilters(false)}>
                 Cancel
               </Button>
-              <Button onClick={handleApplyFilters} className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button onClick={handleApplyFilters} className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 Apply Filters
               </Button>
             </div>

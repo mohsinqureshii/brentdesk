@@ -260,7 +260,7 @@ export default function PersonEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0066FF]" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -297,7 +297,7 @@ export default function PersonEditor() {
               {isGeneratingAI ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Sparkles className="h-4 w-4 mr-2" />}
               Suggest with AI
             </Button>
-            <Button type="submit" className="bg-emerald-500 hover:bg-[#0066FF] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
+            <Button type="submit" className="bg-emerald-500 hover:bg-[#0f62fe] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
               <Save className="h-4 w-4 mr-2" />
               {createMutation.isPending || updateMutation.isPending ? "Saving..." : isEdit ? "Update" : "Create"}
             </Button>
@@ -315,7 +315,7 @@ export default function PersonEditor() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? "bg-[#F0F7FF] dark:bg-emerald-950/30 text-[#0066FF] dark:text-[#80B3FF] border-b-2 border-[#0066FF]"
+                    ? "bg-[#edf5ff] dark:bg-emerald-950/30 text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe]"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
@@ -418,11 +418,11 @@ export default function PersonEditor() {
                   <div className="flex flex-col items-center gap-4">
                     {imagePreview ? (
                       <div className="relative">
-                        <img src={imagePreview} alt="Profile" className="w-32 h-32 object-cover rounded-full border-4 border-[#E0E3E8]" />
+                        <img src={imagePreview} alt="Profile" className="w-32 h-32 object-cover rounded-full border-4 border-[#e0e0e0]" />
                         <button type="button" onClick={() => { setForm({ ...form, avatar: "" }); setImagePreview(null); }} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"><X className="h-4 w-4" /></button>
                       </div>
                     ) : (
-                      <div className="w-32 h-32 border-2 border-dashed border-[#C8CDD6] rounded-full flex items-center justify-center bg-[#F7F8FA]"><User className="h-12 w-12 text-[#9BA3B0]" /></div>
+                      <div className="w-32 h-32 border-2 border-dashed border-[#c6c6c6] rounded-full flex items-center justify-center bg-[#f4f4f4]"><User className="h-12 w-12 text-[#8d8d8d]" /></div>
                     )}
                     <input ref={fileInputRef} type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
                     <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()} disabled={isUploading} className="w-full">

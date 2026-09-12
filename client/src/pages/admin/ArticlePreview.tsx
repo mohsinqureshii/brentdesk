@@ -135,13 +135,13 @@ export default function ArticlePreview() {
             </div>
             <div className="flex items-center gap-2">
               <Link href={`/admin/articles/${article.id}`}>
-                <Button size="sm" variant="outline" className="bg-white hover:bg-[#F0F2F5]">
+                <Button size="sm" variant="outline" className="bg-white hover:bg-[#f4f4f4]">
                   <Edit className="h-4 w-4 mr-2" />
                   Edit Article
                 </Button>
               </Link>
               <Link href="/admin/articles">
-                <Button size="sm" variant="outline" className="bg-white hover:bg-[#F0F2F5]">
+                <Button size="sm" variant="outline" className="bg-white hover:bg-[#f4f4f4]">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to List
                 </Button>

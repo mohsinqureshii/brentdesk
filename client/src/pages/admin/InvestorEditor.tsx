@@ -247,7 +247,7 @@ export default function InvestorEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0066FF]" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -284,7 +284,7 @@ export default function InvestorEditor() {
               {isGeneratingAI ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Sparkles className="h-4 w-4 mr-2" />}
               Suggest with AI
             </Button>
-            <Button type="submit" className="bg-emerald-500 hover:bg-[#0066FF] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
+            <Button type="submit" className="bg-emerald-500 hover:bg-[#0f62fe] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
               <Save className="h-4 w-4 mr-2" />
               {createMutation.isPending || updateMutation.isPending ? "Saving..." : isEdit ? "Update" : "Create"}
             </Button>
@@ -299,7 +299,7 @@ export default function InvestorEditor() {
               <button key={tab.id} type="button" onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? "bg-[#F0F7FF] dark:bg-emerald-950/30 text-[#0066FF] dark:text-[#80B3FF] border-b-2 border-[#0066FF]"
+                    ? "bg-[#edf5ff] dark:bg-emerald-950/30 text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe]"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}>
                 <Icon className="h-4 w-4" />{tab.label}
@@ -410,9 +410,9 @@ export default function InvestorEditor() {
                       <Button type="button" variant="destructive" size="icon" className="absolute top-2 right-2 h-6 w-6" onClick={() => { setForm({ ...form, logo: "" }); setLogoPreview(null); }}><X className="h-3 w-3" /></Button>
                     </div>
                   ) : (
-                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-md cursor-pointer hover:bg-[#F7F8FA] transition-colors">
+                    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-md cursor-pointer hover:bg-[#f4f4f4] transition-colors">
                       <div className="flex flex-col items-center pt-5 pb-6">
-                        {isUploading ? <Loader2 className="h-8 w-8 text-[#9BA3B0] animate-spin" /> : <><Upload className="h-8 w-8 text-[#9BA3B0] mb-2" /><p className="text-sm text-[#697386]">Click to upload</p></>}
+                        {isUploading ? <Loader2 className="h-8 w-8 text-[#8d8d8d] animate-spin" /> : <><Upload className="h-8 w-8 text-[#8d8d8d] mb-2" /><p className="text-sm text-[#525252]">Click to upload</p></>}
                       </div>
                       <input type="file" className="hidden" accept="image/*" onChange={handleLogoUpload} disabled={isUploading} />
                     </label>

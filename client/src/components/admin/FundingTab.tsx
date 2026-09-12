@@ -247,7 +247,7 @@ export function FundingTab({ articleId, articleTitle, articleContent, articleExc
   const confidenceColors = {
     high: "bg-green-100 text-green-800 border-green-200",
     medium: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    low: "bg-[#F0F2F5] text-[#1A1F36] border-[#E0E3E8]",
+    low: "bg-[#f4f4f4] text-[#161616] border-[#e0e0e0]",
   };
 
   if (isLoading) {

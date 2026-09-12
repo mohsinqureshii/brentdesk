@@ -62,7 +62,7 @@ import { toast } from "sonner";
 import { exportToCSV, jobExportColumns } from "@/lib/exportUtils";
 
 const statusColors: Record<string, string> = {
-  draft: "bg-[#F0F2F5] text-[#697386]",
+  draft: "bg-[#f4f4f4] text-[#525252]",
   published: "bg-green-100 text-green-600",
   expired: "bg-red-100 text-red-600",
   paused: "bg-yellow-100 text-yellow-600",
@@ -275,8 +275,8 @@ export default function JobsList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Jobs</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Jobs</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage job listings and applications
             </p>
           </div>
@@ -294,7 +294,7 @@ export default function JobsList() {
               Export CSV
             </Button>
             <Link href="/admin/jobs/new">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Job
               </Button>
@@ -311,8 +311,8 @@ export default function JobsList() {
                   <Briefcase className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Jobs</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{total}</p>
+                  <p className="text-sm text-[#525252]">Total Jobs</p>
+                  <p className="text-xl font-semibold text-[#161616]">{total}</p>
                 </div>
               </div>
             </CardContent>
@@ -324,8 +324,8 @@ export default function JobsList() {
                   <Eye className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Views</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">
+                  <p className="text-sm text-[#525252]">Total Views</p>
+                  <p className="text-xl font-semibold text-[#161616]">
                     {totalViews.toLocaleString()}
                   </p>
                 </div>
@@ -339,8 +339,8 @@ export default function JobsList() {
                   <ExternalLink className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Applications</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">
+                  <p className="text-sm text-[#525252]">Applications</p>
+                  <p className="text-xl font-semibold text-[#161616]">
                     {totalApplications}
                   </p>
                 </div>
@@ -354,8 +354,8 @@ export default function JobsList() {
                   <Clock className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Expiring Soon</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">
+                  <p className="text-sm text-[#525252]">Expiring Soon</p>
+                  <p className="text-xl font-semibold text-[#161616]">
                     {jobs.filter((j: any) => {
                       if (!j.expiresAt) return false;
                       const daysLeft = Math.ceil((new Date(j.expiresAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
@@ -401,7 +401,7 @@ export default function JobsList() {
                   </PopoverTrigger>
                   <PopoverContent align="end" className="w-72 p-3 space-y-3">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#697386] mb-1.5">Status</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#525252] mb-1.5">Status</p>
                       <Select value={statusFilter} onValueChange={(v) => { setStatusFilter(v); setPage(1); }}>
                         <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
                         <SelectContent>
@@ -414,7 +414,7 @@ export default function JobsList() {
                       </Select>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#697386] mb-1.5">Job type</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#525252] mb-1.5">Job type</p>
                       <Select value={typeFilter} onValueChange={(v) => { setTypeFilter(v); setPage(1); }}>
                         <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
                         <SelectContent>
@@ -433,8 +433,8 @@ export default function JobsList() {
           </CardHeader>
           <CardContent>
             {selectedJobs.length > 0 && (
-              <div className="flex items-center gap-4 mb-4 p-3 bg-[#F7F8FA] rounded-md">
-                <span className="text-sm font-medium text-[#1A1F36]">
+              <div className="flex items-center gap-4 mb-4 p-3 bg-[#f4f4f4] rounded-md">
+                <span className="text-sm font-medium text-[#161616]">
                   {selectedJobs.length} selected
                 </span>
                 <div className="flex gap-2">
@@ -475,15 +475,15 @@ export default function JobsList() {
 
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : error ? (
               <div className="flex items-center justify-center py-12 text-red-600">
                 Error loading jobs: {error.message}
               </div>
             ) : jobs.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-                <Briefcase className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+                <Briefcase className="h-12 w-12 mb-4 text-[#c6c6c6]" />
                 <p className="text-lg font-medium">No jobs found</p>
                 <p className="text-sm">
                   {debouncedSearch || statusFilter !== "all" || typeFilter !== "all"
@@ -492,7 +492,7 @@ export default function JobsList() {
                 </p>
                 {!debouncedSearch && statusFilter === "all" && typeFilter === "all" && (
                   <Link href="/admin/jobs/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Job
                     </Button>
@@ -512,29 +512,29 @@ export default function JobsList() {
                         />
                       </TableHead>
                       <TableHead className="w-[26%]">
-                        <button onClick={() => handleSort("title")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("title")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Job
-                          {sortBy === "title" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "title" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-[18%] hidden md:table-cell">
-                        <button onClick={() => handleSort("companyName")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("companyName")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Company
-                          {sortBy === "companyName" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "companyName" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-[12%] hidden md:table-cell">Type</TableHead>
                       <TableHead className="w-[16%]">Location</TableHead>
                       <TableHead className="w-[10%] hidden lg:table-cell">
-                        <button onClick={() => handleSort("status")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("status")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Status
-                          {sortBy === "status" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "status" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-[10%] hidden lg:table-cell">
-                        <button onClick={() => handleSort("viewCount")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("viewCount")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Views
-                          {sortBy === "viewCount" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "viewCount" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-10"></TableHead>
@@ -553,23 +553,23 @@ export default function JobsList() {
                           <div className="min-w-0">
                             <div className="flex items-center gap-2">
                               <Link href={`/admin/jobs/${job.id}`}>
-                                <span className="font-medium hover:text-[#0066FF] cursor-pointer truncate block max-w-full">{job.title}</span>
+                                <span className="font-medium hover:text-[#0f62fe] cursor-pointer truncate block max-w-full">{job.title}</span>
                               </Link>
                               {!!job.isFeatured && (
                                 <Badge className="text-xs bg-amber-100 text-amber-800 shrink-0">Featured</Badge>
                               )}
                             </div>
-                            <p className="text-xs text-[#9BA3B0] truncate">/{job.slug}</p>
+                            <p className="text-xs text-[#8d8d8d] truncate">/{job.slug}</p>
                           </div>
                         </TableCell>
-                        <TableCell className="text-[#697386] truncate">{job.companyName || "-"}</TableCell>
+                        <TableCell className="text-[#525252] truncate">{job.companyName || "-"}</TableCell>
                         <TableCell className="hidden md:table-cell">
                           <Badge variant="outline">
                             {typeLabels[job.employmentType] || job.employmentType || "-"}
                           </Badge>
                         </TableCell>
                         <TableCell className="hidden lg:table-cell">
-                          <div className="flex items-center gap-1 text-[#697386] min-w-0">
+                          <div className="flex items-center gap-1 text-[#525252] min-w-0">
                             <MapPin className="h-3 w-3 shrink-0" />
                             <span className="text-sm truncate">{job.location || "Remote"}</span>
                           </div>
@@ -579,7 +579,7 @@ export default function JobsList() {
                             {job.status || "draft"}
                           </Badge>
                         </TableCell>
-                        <TableCell className="hidden lg:table-cell text-[#697386]">
+                        <TableCell className="hidden lg:table-cell text-[#525252]">
                           {(job.viewCount || 0).toLocaleString()}
                         </TableCell>
                         <TableCell>
@@ -637,7 +637,7 @@ export default function JobsList() {
                 </div>
 
                 {/* Advanced Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}

@@ -56,7 +56,7 @@ const ENTITY_ICONS: Record<string, typeof Building2> = {
 const ENTITY_COLORS: Record<string, string> = {
   company: "bg-blue-500/10 text-blue-600 border-blue-200",
   job: "bg-purple-500/10 text-purple-600 border-purple-200",
-  person: "bg-emerald-500/10 text-[#0066FF] border-[#C7DCFF]",
+  person: "bg-emerald-500/10 text-[#0f62fe] border-[#a6c8ff]",
   investor: "bg-amber-500/10 text-amber-600 border-amber-200",
   event: "bg-rose-500/10 text-rose-600 border-rose-200",
   accelerator: "bg-cyan-500/10 text-cyan-600 border-cyan-200",
@@ -271,7 +271,7 @@ export default function UserSubmissions() {
               {items.map((item) => {
                 const key = `${item.entityType}:${item.id}`;
                 const Icon = ENTITY_ICONS[item.entityType] ?? FileText;
-                const colorClass = ENTITY_COLORS[item.entityType] ?? "bg-[#F0F2F5] text-[#697386]";
+                const colorClass = ENTITY_COLORS[item.entityType] ?? "bg-[#f4f4f4] text-[#525252]";
                 const isSelected = selectedId === key;
 
                 return (
@@ -339,7 +339,7 @@ export default function UserSubmissions() {
                       className="h-16 w-16 rounded-md object-cover border"
                     />
                   ) : (
-                    <div className={`h-16 w-16 rounded-md flex items-center justify-center border ${ENTITY_COLORS[detail.entity.entityType] ?? "bg-[#F0F2F5]"}`}>
+                    <div className={`h-16 w-16 rounded-md flex items-center justify-center border ${ENTITY_COLORS[detail.entity.entityType] ?? "bg-[#f4f4f4]"}`}>
                       {(() => {
                         const Icon = ENTITY_ICONS[detail.entity.entityType] ?? FileText;
                         return <Icon className="h-8 w-8" />;

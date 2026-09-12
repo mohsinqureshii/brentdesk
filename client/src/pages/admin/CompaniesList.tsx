@@ -69,9 +69,9 @@ const stageDisplayMap: Record<string, string> = {
 };
 
 const stageColors: Record<string, string> = {
-  pre_seed: "bg-[#F0F2F5] text-[#1A1F36]",
+  pre_seed: "bg-[#f4f4f4] text-[#161616]",
   seed: "bg-blue-100 text-blue-700",
-  series_a: "bg-[#EBF3FF] text-[#0066FF]",
+  series_a: "bg-[#edf5ff] text-[#0f62fe]",
   series_b: "bg-purple-100 text-purple-700",
   series_c: "bg-orange-100 text-orange-700",
   series_d_plus: "bg-red-100 text-red-700",
@@ -216,8 +216,8 @@ export default function CompaniesList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Companies</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Manage company profiles</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Companies</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Manage company profiles</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <Button
@@ -233,7 +233,7 @@ export default function CompaniesList() {
               Export CSV
             </Button>
             <Link href="/admin/companies/new">
-              <Button className="bg-emerald-500 hover:bg-[#0066FF] text-white">
+              <Button className="bg-emerald-500 hover:bg-[#0f62fe] text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Company
               </Button>
@@ -260,7 +260,7 @@ export default function CompaniesList() {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent align="end" className="w-72 p-3">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#697386] mb-1.5">Funding stage</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-[#525252] mb-1.5">Funding stage</p>
                     <Select value={stage} onValueChange={(v) => { setStage(v); setPage(1); }}>
                       <SelectTrigger className="h-9"><SelectValue /></SelectTrigger>
                       <SelectContent>
@@ -278,11 +278,11 @@ export default function CompaniesList() {
           <CardContent>
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : companies.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-                <Building2 className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+                <Building2 className="h-12 w-12 mb-4 text-[#c6c6c6]" />
                 <p className="text-lg font-medium">No companies found</p>
                 <p className="text-sm">
                   {debouncedSearch || stage !== "all"
@@ -291,7 +291,7 @@ export default function CompaniesList() {
                 </p>
                 {!debouncedSearch && stage === "all" && (
                   <Link href="/admin/companies/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Company
                     </Button>
@@ -301,8 +301,8 @@ export default function CompaniesList() {
             ) : (
               <>
                 {selectedCompanies.length > 0 && (
-                  <div className="flex items-center gap-4 mb-4 p-3 bg-[#F7F8FA] rounded-md">
-                    <span className="text-sm font-medium text-[#1A1F36]">
+                  <div className="flex items-center gap-4 mb-4 p-3 bg-[#f4f4f4] rounded-md">
+                    <span className="text-sm font-medium text-[#161616]">
                       {selectedCompanies.length} selected
                     </span>
                     <div className="flex flex-wrap gap-2">
@@ -357,14 +357,14 @@ export default function CompaniesList() {
                                 className="w-10 h-10 rounded-md object-cover shrink-0"
                               />
                             ) : (
-                              <div className="w-10 h-10 rounded-md bg-[#EBF3FF] flex items-center justify-center shrink-0">
-                                <Building2 className="h-5 w-5 text-[#0066FF]" />
+                              <div className="w-10 h-10 rounded-md bg-[#edf5ff] flex items-center justify-center shrink-0">
+                                <Building2 className="h-5 w-5 text-[#0f62fe]" />
                               </div>
                             )}
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
                                 <Link href={`/admin/companies/${company.id}`}>
-                                  <span className="font-medium hover:text-[#0066FF] cursor-pointer truncate block">{company.name}</span>
+                                  <span className="font-medium hover:text-[#0f62fe] cursor-pointer truncate block">{company.name}</span>
                                 </Link>
                                 {!!company.isVerified && (
                                   <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
@@ -378,7 +378,7 @@ export default function CompaniesList() {
                                   href={company.website}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-xs text-[#0066FF] hover:underline flex items-center gap-1 truncate"
+                                  className="text-xs text-[#0f62fe] hover:underline flex items-center gap-1 truncate"
                                 >
                                   Website <ExternalLink className="h-3 w-3 shrink-0" />
                                 </a>
@@ -386,24 +386,24 @@ export default function CompaniesList() {
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell className="text-[#697386] truncate">
+                        <TableCell className="text-[#525252] truncate">
                           {company.industry || "—"}
                         </TableCell>
-                        <TableCell className="text-[#697386] truncate">
+                        <TableCell className="text-[#525252] truncate">
                           {company.location || "—"}
                         </TableCell>
                         <TableCell className="hidden lg:table-cell">
                           {company.stage && (
-                            <Badge className={stageColors[company.stage] || "bg-[#F0F2F5] text-[#1A1F36]"}>
+                            <Badge className={stageColors[company.stage] || "bg-[#f4f4f4] text-[#161616]"}>
                               {stageDisplayMap[company.stage] || company.stage}
                             </Badge>
                           )}
                         </TableCell>
-                        <TableCell className="hidden md:table-cell text-[#697386]">
+                        <TableCell className="hidden md:table-cell text-[#525252]">
                           {company.totalFunding || "—"}
                         </TableCell>
                         <TableCell>
-                          <Badge variant="outline" className={`text-xs ${company.status === 'published' ? 'bg-green-100 text-green-600 border-green-200' : 'bg-[#F0F2F5] text-[#697386] border-[#E0E3E8]'}`}>
+                          <Badge variant="outline" className={`text-xs ${company.status === 'published' ? 'bg-green-100 text-green-600 border-green-200' : 'bg-[#f4f4f4] text-[#525252] border-[#e0e0e0]'}`}>
                             {company.statusName || (company.status === 'published' ? 'Published' : 'Draft')}
                           </Badge>
                         </TableCell>
@@ -464,7 +464,7 @@ export default function CompaniesList() {
                 </div>
 
                 {/* Advanced Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}

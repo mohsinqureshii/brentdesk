@@ -441,7 +441,7 @@ export default function JobEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -457,10 +457,10 @@ export default function JobEditor() {
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-2xl font-semibold text-[#1A1F36]">
+              <h1 className="text-2xl font-semibold text-[#161616]">
                 {isNew ? "Create Job" : "Edit Job"}
               </h1>
-              <p className="text-sm text-[#697386]">
+              <p className="text-sm text-[#525252]">
                 {isNew ? "Add a new job listing" : `Editing: ${job.title}`}
               </p>
             </div>
@@ -477,7 +477,7 @@ export default function JobEditor() {
                 {t.name}
               </Button>
             ))}
-            <Button onClick={handleSave} disabled={isSaving} className="bg-[#0066FF] hover:bg-[#0052CC]">
+            <Button onClick={handleSave} disabled={isSaving} className="bg-[#0f62fe] hover:bg-[#0043ce]">
               {isSaving ? (
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
               ) : (
@@ -494,7 +494,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Briefcase className="h-5 w-5 text-[#0066FF]" />
+              <Briefcase className="h-5 w-5 text-[#0f62fe]" />
               Job Information
             </CardTitle>
           </CardHeader>
@@ -517,14 +517,14 @@ export default function JobEditor() {
                   placeholder="e.g. Senior Software Engineer"
                   className="pr-10"
                 />
-                <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 {showTitleSuggestions && titleSuggestions && titleSuggestions.length > 0 && (
                   <div className="absolute z-50 top-full mt-1 w-full bg-white border rounded-md shadow-lg max-h-60 overflow-auto">
                     {titleSuggestions.map((title, i) => (
                       <button
                         key={i}
                         type="button"
-                        className="w-full text-left px-3 py-2 text-sm hover:bg-[#F0F7FF] hover:text-[#0066FF] transition-colors"
+                        className="w-full text-left px-3 py-2 text-sm hover:bg-[#edf5ff] hover:text-[#0f62fe] transition-colors"
                         onClick={() => handleTitleSelect(title)}
                       >
                         {title}
@@ -539,10 +539,10 @@ export default function JobEditor() {
             {/* Slug Preview */}
             <div className="space-y-2">
               <Label>URL Slug</Label>
-              <div className="flex items-center gap-2 px-3 py-2 bg-[#F7F8FA] border rounded-md text-sm text-[#697386]">
-                <Globe className="h-4 w-4 text-[#9BA3B0] shrink-0" />
-                <span className="text-[#9BA3B0]">/jobs/</span>
-                <span className="font-mono text-[#1A1F36] truncate">{slugPreview}</span>
+              <div className="flex items-center gap-2 px-3 py-2 bg-[#f4f4f4] border rounded-md text-sm text-[#525252]">
+                <Globe className="h-4 w-4 text-[#8d8d8d] shrink-0" />
+                <span className="text-[#8d8d8d]">/jobs/</span>
+                <span className="font-mono text-[#161616] truncate">{slugPreview}</span>
               </div>
               <p className="text-xs text-muted-foreground">Auto-generated from title, city, company, and job ID</p>
             </div>
@@ -642,7 +642,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Building2 className="h-5 w-5 text-[#0066FF]" />
+              <Building2 className="h-5 w-5 text-[#0f62fe]" />
               Company
             </CardTitle>
           </CardHeader>
@@ -697,7 +697,7 @@ export default function JobEditor() {
                               onSelect={() => handleSelectCompany(company)}
                               className="flex items-center gap-3 py-2.5"
                             >
-                              <div className="h-8 w-8 rounded-md bg-[#F0F2F5] flex items-center justify-center overflow-hidden shrink-0">
+                              <div className="h-8 w-8 rounded-md bg-[#f4f4f4] flex items-center justify-center overflow-hidden shrink-0">
                                 {company.logo ? (
                                   <img
                                     src={company.logo}
@@ -706,13 +706,13 @@ export default function JobEditor() {
                                     onError={(e) => {
                                       (e.target as HTMLImageElement).style.display = "none";
                                       (e.target as HTMLImageElement).parentElement!.innerHTML =
-                                        '<span class="text-xs font-medium text-[#697386]">' +
+                                        '<span class="text-xs font-medium text-[#525252]">' +
                                         company.name.charAt(0).toUpperCase() +
                                         "</span>";
                                     }}
                                   />
                                 ) : (
-                                  <span className="text-xs font-medium text-[#697386]">
+                                  <span className="text-xs font-medium text-[#525252]">
                                     {company.name.charAt(0).toUpperCase()}
                                   </span>
                                 )}
@@ -724,7 +724,7 @@ export default function JobEditor() {
                                 )}
                               </div>
                               {job.companyId === company.id && (
-                                <Check className="h-4 w-4 text-[#0066FF] shrink-0" />
+                                <Check className="h-4 w-4 text-[#0f62fe] shrink-0" />
                               )}
                             </CommandItem>
                           ))}
@@ -746,8 +746,8 @@ export default function JobEditor() {
 
             {/* Auto-filled company details */}
             {job.companyName && (
-              <div className="rounded-md border border-emerald-100 bg-[#F0F7FF]/30 p-4 space-y-3">
-                <p className="text-sm font-medium text-[#0052CC]">Selected Company Details</p>
+              <div className="rounded-md border border-emerald-100 bg-[#edf5ff]/30 p-4 space-y-3">
+                <p className="text-sm font-medium text-[#0043ce]">Selected Company Details</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="companyName" className="text-xs">Company Name</Label>
@@ -791,7 +791,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <MapPin className="h-5 w-5 text-[#0066FF]" />
+              <MapPin className="h-5 w-5 text-[#0f62fe]" />
               Location
             </CardTitle>
           </CardHeader>
@@ -861,7 +861,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <DollarSign className="h-5 w-5 text-[#0066FF]" />
+              <DollarSign className="h-5 w-5 text-[#0f62fe]" />
               Compensation
             </CardTitle>
           </CardHeader>
@@ -934,7 +934,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Tag className="h-5 w-5 text-[#0066FF]" />
+              <Tag className="h-5 w-5 text-[#0f62fe]" />
               Skills & Tags
             </CardTitle>
           </CardHeader>
@@ -1000,7 +1000,7 @@ export default function JobEditor() {
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="px-3 py-1.5 text-sm bg-[#F0F7FF] text-[#0066FF] hover:bg-[#EBF3FF] cursor-pointer gap-1.5"
+                      className="px-3 py-1.5 text-sm bg-[#edf5ff] text-[#0f62fe] hover:bg-[#edf5ff] cursor-pointer gap-1.5"
                       onClick={() => handleRemoveSkill(skill)}
                     >
                       {skill}
@@ -1024,7 +1024,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Settings className="h-5 w-5 text-[#0066FF]" />
+              <Settings className="h-5 w-5 text-[#0f62fe]" />
               Application & Settings
             </CardTitle>
           </CardHeader>
@@ -1060,7 +1060,7 @@ export default function JobEditor() {
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="isFeatured">Featured Job</Label>
-                  <p className="text-sm text-[#697386]">Display this job prominently on the jobs page</p>
+                  <p className="text-sm text-[#525252]">Display this job prominently on the jobs page</p>
                 </div>
                 <Switch
                   id="isFeatured"
@@ -1071,7 +1071,7 @@ export default function JobEditor() {
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="isRemote">Remote Position</Label>
-                  <p className="text-sm text-[#697386]">This job can be done remotely</p>
+                  <p className="text-sm text-[#525252]">This job can be done remotely</p>
                 </div>
                 <Switch
                   id="isRemote"
@@ -1091,7 +1091,7 @@ export default function JobEditor() {
                 onChange={(e) => setJob({ ...job, expiresAt: e.target.value })}
                 className="max-w-xs"
               />
-              <p className="text-sm text-[#697386]">Job listing will be hidden after this date</p>
+              <p className="text-sm text-[#525252]">Job listing will be hidden after this date</p>
             </div>
           </CardContent>
         </Card>
@@ -1102,7 +1102,7 @@ export default function JobEditor() {
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Search className="h-5 w-5 text-[#0066FF]" />
+              <Search className="h-5 w-5 text-[#0f62fe]" />
               SEO Settings
             </CardTitle>
           </CardHeader>
@@ -1119,7 +1119,7 @@ export default function JobEditor() {
 
         {/* Bottom Save Button */}
         <div className="flex justify-end pb-8">
-          <Button onClick={handleSave} disabled={isSaving} className="bg-[#0066FF] hover:bg-[#0052CC] px-8">
+          <Button onClick={handleSave} disabled={isSaving} className="bg-[#0f62fe] hover:bg-[#0043ce] px-8">
             {isSaving ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />
             ) : (
@@ -1135,7 +1135,7 @@ export default function JobEditor() {
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <Building2 className="h-5 w-5 text-[#0066FF]" />
+              <Building2 className="h-5 w-5 text-[#0f62fe]" />
               Add New Company
             </DialogTitle>
             <DialogDescription>
@@ -1178,7 +1178,7 @@ export default function JobEditor() {
             <Button
               onClick={handleCreateNewCompany}
               disabled={createCompanyMutation.isPending}
-              className="bg-[#0066FF] hover:bg-[#0052CC]"
+              className="bg-[#0f62fe] hover:bg-[#0043ce]"
             >
               {createCompanyMutation.isPending ? (
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />

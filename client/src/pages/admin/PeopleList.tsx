@@ -61,7 +61,7 @@ import { toast } from "sonner";
 import { exportToCSV, peopleExportColumns } from "@/lib/exportUtils";
 
 const statusColors: Record<string, string> = {
-  draft: "bg-[#F0F2F5] text-[#697386]",
+  draft: "bg-[#f4f4f4] text-[#525252]",
   published: "bg-green-100 text-green-600",
   pending_review: "bg-yellow-100 text-yellow-600",
 };
@@ -237,8 +237,8 @@ export default function PeopleList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">People Directory</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">People Directory</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage leader profiles and verifications
             </p>
           </div>
@@ -256,7 +256,7 @@ export default function PeopleList() {
               Export CSV
             </Button>
             <Link href="/admin/people/new">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Person
               </Button>
@@ -273,8 +273,8 @@ export default function PeopleList() {
                   <Users className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Profiles</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{total}</p>
+                  <p className="text-sm text-[#525252]">Total Profiles</p>
+                  <p className="text-xl font-semibold text-[#161616]">{total}</p>
                 </div>
               </div>
             </CardContent>
@@ -286,8 +286,8 @@ export default function PeopleList() {
                   <CheckCircle className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Verified</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{verifiedCount}</p>
+                  <p className="text-sm text-[#525252]">Verified</p>
+                  <p className="text-xl font-semibold text-[#161616]">{verifiedCount}</p>
                 </div>
               </div>
             </CardContent>
@@ -299,8 +299,8 @@ export default function PeopleList() {
                   <Shield className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Claimed</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{claimedCount}</p>
+                  <p className="text-sm text-[#525252]">Claimed</p>
+                  <p className="text-xl font-semibold text-[#161616]">{claimedCount}</p>
                 </div>
               </div>
             </CardContent>
@@ -312,8 +312,8 @@ export default function PeopleList() {
                   <Clock className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Pending Claims</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">0</p>
+                  <p className="text-sm text-[#525252]">Pending Claims</p>
+                  <p className="text-xl font-semibold text-[#161616]">0</p>
                 </div>
               </div>
             </CardContent>
@@ -325,7 +325,7 @@ export default function PeopleList() {
           <CardHeader>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search people..."
                   value={search}
@@ -361,8 +361,8 @@ export default function PeopleList() {
           </CardHeader>
           <CardContent>
             {selectedPeople.length > 0 && (
-              <div className="flex items-center gap-4 mb-4 p-3 bg-[#F7F8FA] rounded-md">
-                <span className="text-sm font-medium text-[#1A1F36]">
+              <div className="flex items-center gap-4 mb-4 p-3 bg-[#f4f4f4] rounded-md">
+                <span className="text-sm font-medium text-[#161616]">
                   {selectedPeople.length} selected
                 </span>
                 <div className="flex gap-2">
@@ -383,15 +383,15 @@ export default function PeopleList() {
 
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : error ? (
               <div className="flex items-center justify-center py-12 text-red-600">
                 Error loading people: {error.message}
               </div>
             ) : people.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-                <Users className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+                <Users className="h-12 w-12 mb-4 text-[#c6c6c6]" />
                 <p className="text-lg font-medium">No people found</p>
                 <p className="text-sm">
                   {debouncedSearch || statusFilter !== "all" || verifiedFilter !== "all"
@@ -400,7 +400,7 @@ export default function PeopleList() {
                 </p>
                 {!debouncedSearch && statusFilter === "all" && verifiedFilter === "all" && (
                   <Link href="/admin/people/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Person
                     </Button>
@@ -420,21 +420,21 @@ export default function PeopleList() {
                         />
                       </TableHead>
                       <TableHead className="w-[30%]">
-                        <button onClick={() => handleSort("name")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("name")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Person
-                          {sortBy === "name" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "name" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-[18%]">
-                        <button onClick={() => handleSort("companyName")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("companyName")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Company
-                          {sortBy === "companyName" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "companyName" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-[12%] hidden md:table-cell">
-                        <button onClick={() => handleSort("status")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("status")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Status
-                          {sortBy === "status" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "status" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className="w-[14%] hidden md:table-cell">Verification</TableHead>
@@ -461,19 +461,19 @@ export default function PeopleList() {
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
                                 <Link href={`/admin/people/${person.id}`}>
-                                  <span className="font-medium hover:text-[#0066FF] cursor-pointer truncate block">{person.name}</span>
+                                  <span className="font-medium hover:text-[#0f62fe] cursor-pointer truncate block">{person.name}</span>
                                 </Link>
                                 {!!person.isVerified && (
                                   <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
                                 )}
                               </div>
-                              <span className="text-sm text-[#697386] truncate block">
+                              <span className="text-sm text-[#525252] truncate block">
                                 {person.title || "-"}
                               </span>
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell className="text-[#697386] truncate">{person.company || "-"}</TableCell>
+                        <TableCell className="text-[#525252] truncate">{person.company || "-"}</TableCell>
                         <TableCell className="hidden md:table-cell">
                           <Badge className={statusColors[person.status] || statusColors.draft}>
                             {person.status || "draft"}
@@ -488,7 +488,7 @@ export default function PeopleList() {
                               <Badge className="bg-purple-100 text-purple-600">Claimed</Badge>
                             )}
                             {!person.isVerified && !person.isClaimed && (
-                              <span className="text-[#9BA3B0] text-sm">-</span>
+                              <span className="text-[#8d8d8d] text-sm">-</span>
                             )}
                           </div>
                         </TableCell>
@@ -496,20 +496,20 @@ export default function PeopleList() {
                           <div className="flex items-center gap-2">
                             {person.linkedinUrl && (
                               <a href={person.linkedinUrl} target="_blank" rel="noopener noreferrer">
-                                <Linkedin className="h-4 w-4 text-[#9BA3B0] hover:text-blue-600" />
+                                <Linkedin className="h-4 w-4 text-[#8d8d8d] hover:text-blue-600" />
                               </a>
                             )}
                             {person.twitterUrl && (
                               <a href={person.twitterUrl} target="_blank" rel="noopener noreferrer">
-                                <Twitter className="h-4 w-4 text-[#9BA3B0] hover:text-blue-400" />
+                                <Twitter className="h-4 w-4 text-[#8d8d8d] hover:text-blue-400" />
                               </a>
                             )}
                             {!person.linkedinUrl && !person.twitterUrl && (
-                              <span className="text-[#9BA3B0] text-sm">-</span>
+                              <span className="text-[#8d8d8d] text-sm">-</span>
                             )}
                           </div>
                         </TableCell>
-                        <TableCell className="hidden lg:table-cell text-[#697386]">
+                        <TableCell className="hidden lg:table-cell text-[#525252]">
                           {(person.viewCount || 0).toLocaleString()}
                         </TableCell>
                         <TableCell>
@@ -566,7 +566,7 @@ export default function PeopleList() {
                 </div>
 
                 {/* Advanced Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}

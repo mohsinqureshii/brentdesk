@@ -133,7 +133,7 @@ export default function NewsletterManager() {
 
   const getStatusBadge = (status: string) => {
     const statusConfig: Record<string, { color: string; icon: any }> = {
-      draft: { color: "bg-[#F0F2F5] text-[#1A1F36]", icon: Clock },
+      draft: { color: "bg-[#f4f4f4] text-[#161616]", icon: Clock },
       scheduled: { color: "bg-blue-100 text-blue-700", icon: Clock },
       sending: { color: "bg-yellow-100 text-yellow-700", icon: Send },
       sent: { color: "bg-green-100 text-green-700", icon: CheckCircle },
@@ -155,8 +155,8 @@ export default function NewsletterManager() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Newsletter Manager</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Manage subscribers, lists, and email campaigns</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Newsletter Manager</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Manage subscribers, lists, and email campaigns</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" onClick={() => setIsCreateListOpen(true)}>
@@ -242,7 +242,7 @@ export default function NewsletterManager() {
 
             <div className="flex items-center gap-2">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search..."
                   className="pl-9 w-64"
@@ -281,7 +281,7 @@ export default function NewsletterManager() {
                       </TableRow>
                     ) : filteredSubscribers.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={7} className="text-center py-8 text-[#697386]">
+                        <TableCell colSpan={7} className="text-center py-8 text-[#525252]">
                           No subscribers found
                         </TableCell>
                       </TableRow>
@@ -344,12 +344,12 @@ export default function NewsletterManager() {
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-[#697386]">Subscribers</span>
+                      <span className="text-[#525252]">Subscribers</span>
                       <span className="font-medium">{list.subscriberCount || 0}</span>
                     </div>
                     <div className="flex items-center justify-between text-sm mt-2">
-                      <span className="text-[#697386]">Slug</span>
-                      <code className="text-xs bg-[#F0F2F5] px-2 py-1 rounded">{list.slug}</code>
+                      <span className="text-[#525252]">Slug</span>
+                      <code className="text-xs bg-[#f4f4f4] px-2 py-1 rounded">{list.slug}</code>
                     </div>
                   </CardContent>
                 </Card>
@@ -383,7 +383,7 @@ export default function NewsletterManager() {
                       </TableRow>
                     ) : filteredCampaigns.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={8} className="text-center py-8 text-[#697386]">
+                        <TableCell colSpan={8} className="text-center py-8 text-[#525252]">
                           No campaigns found
                         </TableCell>
                       </TableRow>
@@ -439,7 +439,7 @@ export default function NewsletterManager() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[#697386] text-center py-8">
+                <p className="text-[#525252] text-center py-8">
                   Lead management coming soon. View leads in the database directly.
                 </p>
               </CardContent>

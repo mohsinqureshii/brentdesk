@@ -33,8 +33,8 @@ import {
 } from "recharts";
 
 const ENTITY_COLORS: Record<string, string> = {
-  all: "#10b981",
-  article: "#3b82f6",
+  all: "#24a148",
+  article: "#0f62fe",
   company: "#8b5cf6",
   person: "#f97316",
   investor: "#eab308",
@@ -71,8 +71,8 @@ function StatCard({
               <p className="text-xs text-muted-foreground mt-1">{description}</p>
             )}
           </div>
-          <div className="h-12 w-12 rounded-full bg-[#F0F7FF] flex items-center justify-center">
-            <Icon className="h-6 w-6 text-[#0066FF]" />
+          <div className="h-12 w-12 rounded-full bg-[#edf5ff] flex items-center justify-center">
+            <Icon className="h-6 w-6 text-[#0f62fe]" />
           </div>
         </div>
       </CardContent>
@@ -125,7 +125,7 @@ export function SearchAnalyticsPanel() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Search Analytics</h1>
+            <h1 className="text-xl font-semibold text-[#161616]">Search Analytics</h1>
             <p className="text-muted-foreground mt-1">
               Understand what your audience is looking for
             </p>
@@ -186,7 +186,7 @@ export function SearchAnalyticsPanel() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <BarChart3 className="h-5 w-5 text-[#0066FF]" />
+              <BarChart3 className="h-5 w-5 text-[#0f62fe]" />
               Daily Search Volume
             </CardTitle>
             <CardDescription>Number of searches per day over the selected period</CardDescription>
@@ -199,8 +199,8 @@ export function SearchAnalyticsPanel() {
                 <AreaChart data={summary.dailySearches.map(d => ({ ...d, date: formatDate(String(d.date)) }))}>
                   <defs>
                     <linearGradient id="searchGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#24a148" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#24a148" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -210,7 +210,7 @@ export function SearchAnalyticsPanel() {
                   <Area
                     type="monotone"
                     dataKey="count"
-                    stroke="#10b981"
+                    stroke="#24a148"
                     strokeWidth={2}
                     fill="url(#searchGradient)"
                     name="Searches"
@@ -231,7 +231,7 @@ export function SearchAnalyticsPanel() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-[#0066FF]" />
+                <TrendingUp className="h-5 w-5 text-[#0f62fe]" />
                 Top Search Queries
               </CardTitle>
               <CardDescription>Most popular searches in the selected period</CardDescription>
@@ -306,7 +306,7 @@ export function SearchAnalyticsPanel() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Filter className="h-5 w-5 text-[#0066FF]" />
+                <Filter className="h-5 w-5 text-[#0f62fe]" />
                 Searches by Content Type
               </CardTitle>
               <CardDescription>Which content types users filter by most</CardDescription>
@@ -320,7 +320,7 @@ export function SearchAnalyticsPanel() {
                   <Tooltip />
                   <Bar dataKey="count" name="Searches" radius={[0, 4, 4, 0]}>
                     {summary.byEntityType.map((entry, i) => (
-                      <Cell key={i} fill={ENTITY_COLORS[entry.entityType] || "#10b981"} />
+                      <Cell key={i} fill={ENTITY_COLORS[entry.entityType] || "#24a148"} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -333,7 +333,7 @@ export function SearchAnalyticsPanel() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-[#0066FF]" />
+              <Clock className="h-5 w-5 text-[#0f62fe]" />
               Recent Searches
             </CardTitle>
             <CardDescription>Live log of all search queries</CardDescription>
@@ -376,7 +376,7 @@ export function SearchAnalyticsPanel() {
               <>
                 <div className="rounded-md border overflow-hidden">
                   <table className="w-full text-sm">
-                    <thead className="bg-[#F7F8FA] border-b">
+                    <thead className="bg-[#f4f4f4] border-b">
                       <tr>
                         <th className="text-left px-4 py-3 font-medium text-muted-foreground">Query</th>
                         <th className="text-left px-4 py-3 font-medium text-muted-foreground">Type</th>
@@ -386,7 +386,7 @@ export function SearchAnalyticsPanel() {
                     </thead>
                     <tbody>
                       {recent.items.map((row) => (
-                        <tr key={row.id} className="border-b last:border-0 hover:bg-[#F7F8FA]">
+                        <tr key={row.id} className="border-b last:border-0 hover:bg-[#f4f4f4]">
                           <td className="px-4 py-3 font-medium">{row.query}</td>
                           <td className="px-4 py-3">
                             <Badge
@@ -404,7 +404,7 @@ export function SearchAnalyticsPanel() {
                             {row.resultsCount === 0 ? (
                               <span className="text-amber-600 font-medium">0</span>
                             ) : (
-                              <span className="text-[#1A1F36]">{row.resultsCount}</span>
+                              <span className="text-[#161616]">{row.resultsCount}</span>
                             )}
                           </td>
                           <td className="px-4 py-3 text-right text-muted-foreground text-xs">
@@ -425,7 +425,7 @@ export function SearchAnalyticsPanel() {
                       <button
                         onClick={() => setRecentPage(p => Math.max(1, p - 1))}
                         disabled={recentPage === 1}
-                        className="px-3 py-1 text-sm border rounded hover:bg-[#F7F8FA] disabled:opacity-50"
+                        className="px-3 py-1 text-sm border rounded hover:bg-[#f4f4f4] disabled:opacity-50"
                       >
                         Previous
                       </button>
@@ -435,7 +435,7 @@ export function SearchAnalyticsPanel() {
                       <button
                         onClick={() => setRecentPage(p => Math.min(recent.totalPages, p + 1))}
                         disabled={recentPage === recent.totalPages}
-                        className="px-3 py-1 text-sm border rounded hover:bg-[#F7F8FA] disabled:opacity-50"
+                        className="px-3 py-1 text-sm border rounded hover:bg-[#f4f4f4] disabled:opacity-50"
                       >
                         Next
                       </button>
@@ -445,7 +445,7 @@ export function SearchAnalyticsPanel() {
               </>
             ) : (
               <div className="py-12 text-center text-muted-foreground">
-                <Search className="h-12 w-12 mx-auto text-[#E0E3E8] mb-3" />
+                <Search className="h-12 w-12 mx-auto text-[#e0e0e0] mb-3" />
                 <p className="font-medium">No searches logged yet</p>
                 <p className="text-sm mt-1">Searches from the public site will appear here automatically</p>
               </div>

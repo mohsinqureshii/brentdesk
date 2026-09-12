@@ -111,7 +111,7 @@ export function IntegrationConfigDialog({
           <DialogTitle className="flex items-center gap-2">
             Configure {title}
             {configQ.data?.status === "configured" && (
-              <Badge className="bg-[#EBF3FF] text-emerald-800 border-[#C7DCFF]">
+              <Badge className="bg-[#edf5ff] text-emerald-800 border-[#a6c8ff]">
                 <CheckCircle2 className="h-3 w-3 mr-1" /> Configured
               </Badge>
             )}
@@ -128,7 +128,7 @@ export function IntegrationConfigDialog({
                 href={fields.docsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#0066FF] hover:underline inline-flex items-center gap-0.5"
+                className="text-[#0f62fe] hover:underline inline-flex items-center gap-0.5"
               >
                 Provider docs <ExternalLink className="h-3 w-3" />
               </a>
@@ -137,7 +137,7 @@ export function IntegrationConfigDialog({
         </DialogHeader>
 
         {isLoading ? (
-          <div className="py-12 text-center text-[#697386]">
+          <div className="py-12 text-center text-[#525252]">
             <Loader2 className="h-5 w-5 animate-spin mx-auto" />
           </div>
         ) : !fields ? (
@@ -183,11 +183,11 @@ export function IntegrationConfigDialog({
             )}
 
             {/* Enabled toggle */}
-            <div className="flex items-center gap-3 rounded-md border bg-[#F7F8FA] p-3">
+            <div className="flex items-center gap-3 rounded-md border bg-[#f4f4f4] p-3">
               <Switch checked={enabled} onCheckedChange={setEnabled} />
               <div>
-                <p className="text-sm font-medium text-[#1A1F36]">Enabled</p>
-                <p className="text-xs text-[#697386]">When off, the platform behaves as if this integration isn't configured.</p>
+                <p className="text-sm font-medium text-[#161616]">Enabled</p>
+                <p className="text-xs text-[#525252]">When off, the platform behaves as if this integration isn't configured.</p>
               </div>
             </div>
 
@@ -195,7 +195,7 @@ export function IntegrationConfigDialog({
             {testResult && (
               <div className={`rounded-md border px-4 py-3 text-sm ${
                 testResult.ok
-                  ? "border-[#C7DCFF] bg-[#F0F7FF] text-emerald-800"
+                  ? "border-[#a6c8ff] bg-[#edf5ff] text-emerald-800"
                   : "border-red-200 bg-red-50 text-red-700"
               }`}>
                 {testResult.ok ? <CheckCircle2 className="h-4 w-4 inline mr-1.5" /> : <AlertCircle className="h-4 w-4 inline mr-1.5" />}
@@ -218,7 +218,7 @@ export function IntegrationConfigDialog({
               "Test connection"
             )}
           </Button>
-          <Button onClick={handleSave} disabled={saveMut.isPending} className="bg-[#0066FF] hover:bg-[#0052CC]">
+          <Button onClick={handleSave} disabled={saveMut.isPending} className="bg-[#0f62fe] hover:bg-[#0043ce]">
             {saveMut.isPending ? <><Loader2 className="h-4 w-4 mr-1.5 animate-spin" /> Saving…</> : "Save"}
           </Button>
         </DialogFooter>
@@ -243,7 +243,7 @@ function FieldInput({ field, value, onChange }: {
         <Input id={field.key} type={field.type === "url" || field.type === "email" ? field.type : "text"}
           value={value} onChange={(e) => onChange(e.target.value)} placeholder={field.placeholder} />
       )}
-      {field.helpText && <p className="text-xs text-[#697386]">{field.helpText}</p>}
+      {field.helpText && <p className="text-xs text-[#525252]">{field.helpText}</p>}
     </div>
   );
 }
@@ -270,7 +270,7 @@ function SecretFieldInput({ field, value, onChange, revealed, onToggleReveal, pl
           rows={6}
           className="font-mono text-xs"
         />
-        {field.helpText && <p className="text-xs text-[#697386]">{field.helpText}</p>}
+        {field.helpText && <p className="text-xs text-[#525252]">{field.helpText}</p>}
       </div>
     );
   }
@@ -292,13 +292,13 @@ function SecretFieldInput({ field, value, onChange, revealed, onToggleReveal, pl
         <button
           type="button"
           onClick={onToggleReveal}
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#9BA3B0] hover:text-[#1A1F36]"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#8d8d8d] hover:text-[#161616]"
           tabIndex={-1}
         >
           {revealed ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
         </button>
       </div>
-      {field.helpText && <p className="text-xs text-[#697386]">{field.helpText}</p>}
+      {field.helpText && <p className="text-xs text-[#525252]">{field.helpText}</p>}
     </div>
   );
 }

@@ -67,20 +67,20 @@ import { exportToCSV, resourceExportColumns } from "@/lib/exportUtils";
 // Type configuration with icons and colors
 const typeConfig: Record<string, { label: string; icon: React.ElementType; bgColor: string; textColor: string }> = {
   template: { label: "Templates", icon: FileText, bgColor: "bg-blue-50", textColor: "text-blue-600" },
-  perk: { label: "Perks", icon: Gift, bgColor: "bg-[#F0F7FF]", textColor: "text-[#0066FF]" },
+  perk: { label: "Perks", icon: Gift, bgColor: "bg-[#edf5ff]", textColor: "text-[#0f62fe]" },
   tool: { label: "Tools", icon: Wrench, bgColor: "bg-purple-50", textColor: "text-purple-600" },
   playbook: { label: "Playbooks", icon: BookOpen, bgColor: "bg-orange-50", textColor: "text-orange-600" },
   regulation: { label: "Regulations", icon: Shield, bgColor: "bg-red-50", textColor: "text-red-600" },
   toolkit: { label: "Toolkits", icon: Package, bgColor: "bg-cyan-50", textColor: "text-cyan-600" },
   program: { label: "Programs", icon: GraduationCap, bgColor: "bg-pink-50", textColor: "text-pink-600" },
   grant: { label: "Grants", icon: Sparkles, bgColor: "bg-amber-50", textColor: "text-amber-600" },
-  other: { label: "Other", icon: FileText, bgColor: "bg-[#F7F8FA]", textColor: "text-[#697386]" },
+  other: { label: "Other", icon: FileText, bgColor: "bg-[#f4f4f4]", textColor: "text-[#525252]" },
 };
 
 // Status badge styling
 const statusBadgeConfig: Record<string, { label: string; className: string }> = {
-  draft: { label: "Draft", className: "bg-[#F0F2F5] text-[#1A1F36] border-[#E0E3E8]" },
-  published: { label: "Published", className: "bg-[#F0F7FF] text-[#0066FF] border-[#C7DCFF]" },
+  draft: { label: "Draft", className: "bg-[#f4f4f4] text-[#161616] border-[#e0e0e0]" },
+  published: { label: "Published", className: "bg-[#edf5ff] text-[#0f62fe] border-[#a6c8ff]" },
   archived: { label: "Archived", className: "bg-amber-50 text-amber-700 border-amber-200" },
   submitted: { label: "Submitted", className: "bg-blue-50 text-blue-700 border-blue-200" },
 };
@@ -246,10 +246,10 @@ export default function ResourcesList() {
   };
 
   const SortIcon = ({ field }: { field: SortField }) => {
-    if (sortBy !== field) return <ArrowUpDown className="h-3.5 w-3.5 text-[#9BA3B0]" />;
+    if (sortBy !== field) return <ArrowUpDown className="h-3.5 w-3.5 text-[#8d8d8d]" />;
     return sortOrder === "asc"
-      ? <ArrowUp className="h-3.5 w-3.5 text-[#0066FF]" />
-      : <ArrowDown className="h-3.5 w-3.5 text-[#0066FF]" />;
+      ? <ArrowUp className="h-3.5 w-3.5 text-[#0f62fe]" />
+      : <ArrowDown className="h-3.5 w-3.5 text-[#0f62fe]" />;
   };
 
   // Export
@@ -291,8 +291,8 @@ export default function ResourcesList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Resources</h1>
-            <p className="text-[#697386] text-sm mt-0.5">
+            <h1 className="text-xl font-semibold text-[#161616]">Resources</h1>
+            <p className="text-[#525252] text-sm mt-0.5">
               Manage templates, perks, tools, playbooks, regulations, and programs
             </p>
           </div>
@@ -311,7 +311,7 @@ export default function ResourcesList() {
               Export
             </Button>
             <Link href="/admin/resources/new">
-              <Button size="sm" className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button size="sm" className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 <Plus className="h-4 w-4 mr-1.5" />
                 Add Resource
               </Button>
@@ -320,7 +320,7 @@ export default function ResourcesList() {
         </div>
 
         {/* Type Tabs */}
-        <div className="flex items-center gap-1 border-b border-[#E0E3E8] overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-1 border-b border-[#e0e0e0] overflow-x-auto scrollbar-hide">
           {typeTabs.map((tab) => {
             const count = getTypeTabCount(tab.key);
             const isActive = typeFilter === tab.key;
@@ -334,14 +334,14 @@ export default function ResourcesList() {
                 }}
                 className={`px-3 py-2 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   isActive
-                    ? "border-[#0052CC] text-[#0066FF]"
-                    : "border-transparent text-[#697386] hover:text-[#1A1F36] hover:border-[#C8CDD6]"
+                    ? "border-[#0043ce] text-[#0f62fe]"
+                    : "border-transparent text-[#525252] hover:text-[#161616] hover:border-[#c6c6c6]"
                 }`}
               >
                 {tab.label}
                 {count > 0 && (
                   <span className={`ml-1.5 px-1.5 py-0.5 text-xs rounded-full ${
-                    isActive ? "bg-[#EBF3FF] text-[#0066FF]" : "bg-[#F0F2F5] text-[#697386]"
+                    isActive ? "bg-[#edf5ff] text-[#0f62fe]" : "bg-[#f4f4f4] text-[#525252]"
                   }`}>
                     {count}
                   </span>
@@ -356,7 +356,7 @@ export default function ResourcesList() {
           <CardContent className="p-4">
             <div className="flex flex-col md:flex-row gap-3">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search by title, description, or provider..."
                   value={search}
@@ -381,8 +381,8 @@ export default function ResourcesList() {
 
             {/* Bulk Actions Bar */}
             {selectedIds.length > 0 && (
-              <div className="flex items-center gap-3 mt-3 p-2.5 bg-[#F0F7FF] border border-[#C7DCFF] rounded-md">
-                <span className="text-sm font-medium text-[#0052CC]">
+              <div className="flex items-center gap-3 mt-3 p-2.5 bg-[#edf5ff] border border-[#a6c8ff] rounded-md">
+                <span className="text-sm font-medium text-[#0043ce]">
                   {selectedIds.length} selected
                 </span>
                 <div className="flex gap-2 ml-auto">
@@ -431,15 +431,15 @@ export default function ResourcesList() {
           <CardContent className="p-0">
             {isLoading ? (
               <div className="flex items-center justify-center py-16">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : error ? (
               <div className="flex items-center justify-center py-16 text-red-600">
                 Error loading resources: {error.message}
               </div>
             ) : resources.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-16 text-[#697386]">
-                <FileText className="h-12 w-12 mb-3 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-16 text-[#525252]">
+                <FileText className="h-12 w-12 mb-3 text-[#c6c6c6]" />
                 <p className="text-base font-medium">No resources found</p>
                 <p className="text-sm mt-1">
                   {debouncedSearch || typeFilter !== "all" || statusFilter !== "all"
@@ -448,7 +448,7 @@ export default function ResourcesList() {
                 </p>
                 {!debouncedSearch && typeFilter === "all" && statusFilter === "all" && (
                   <Link href="/admin/resources/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]" size="sm">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]" size="sm">
                       <Plus className="h-4 w-4 mr-1.5" />
                       Add Resource
                     </Button>
@@ -460,7 +460,7 @@ export default function ResourcesList() {
                 <div className="overflow-x-auto">
                   <Table>
                     <TableHeader>
-                      <TableRow className="bg-[#F7F8FA]/80">
+                      <TableRow className="bg-[#f4f4f4]/80">
                         <TableHead className="w-10 pl-4">
                           <Checkbox
                             checked={selectedIds.length === resources.length && resources.length > 0}
@@ -469,7 +469,7 @@ export default function ResourcesList() {
                         </TableHead>
                         <TableHead className="min-w-[280px]">
                           <button
-                            className="flex items-center gap-1.5 hover:text-[#1A1F36]"
+                            className="flex items-center gap-1.5 hover:text-[#161616]"
                             onClick={() => handleSort("title")}
                           >
                             Resource
@@ -481,7 +481,7 @@ export default function ResourcesList() {
                         <TableHead className="w-[90px]">Status</TableHead>
                         <TableHead className="w-[80px] hidden md:table-cell">
                           <button
-                            className="flex items-center gap-1.5 hover:text-[#1A1F36]"
+                            className="flex items-center gap-1.5 hover:text-[#161616]"
                             onClick={() => handleSort("viewCount")}
                           >
                             Views
@@ -490,7 +490,7 @@ export default function ResourcesList() {
                         </TableHead>
                         <TableHead className="w-[110px] hidden lg:table-cell">
                           <button
-                            className="flex items-center gap-1.5 hover:text-[#1A1F36]"
+                            className="flex items-center gap-1.5 hover:text-[#161616]"
                             onClick={() => handleSort("createdAt")}
                           >
                             Created
@@ -517,7 +517,7 @@ export default function ResourcesList() {
                               <div className="min-w-0">
                                 <div className="flex items-center gap-2">
                                   <Link href={`/admin/resources/${resource.id}`}>
-                                    <span className="font-medium text-[#1A1F36] hover:text-[#0066FF] cursor-pointer truncate block max-w-[300px]">
+                                    <span className="font-medium text-[#161616] hover:text-[#0f62fe] cursor-pointer truncate block max-w-[300px]">
                                       {resource.title}
                                     </span>
                                   </Link>
@@ -527,7 +527,7 @@ export default function ResourcesList() {
                                     </Badge>
                                   )}
                                 </div>
-                                <p className="text-xs text-[#9BA3B0] truncate max-w-[350px] mt-0.5">
+                                <p className="text-xs text-[#8d8d8d] truncate max-w-[350px] mt-0.5">
                                   {resource.shortDescription || resource.description || "No description"}
                                 </p>
                               </div>
@@ -539,7 +539,7 @@ export default function ResourcesList() {
                               </div>
                             </TableCell>
                             <TableCell className="hidden lg:table-cell">
-                              <span className="text-sm text-[#697386] truncate block max-w-[120px]">
+                              <span className="text-sm text-[#525252] truncate block max-w-[120px]">
                                 {resource.provider || "—"}
                               </span>
                             </TableCell>
@@ -549,10 +549,10 @@ export default function ResourcesList() {
                               </Badge>
                             </TableCell>
                             <TableCell className="hidden md:table-cell">
-                              <span className="text-sm text-[#697386]">{resource.viewCount || 0}</span>
+                              <span className="text-sm text-[#525252]">{resource.viewCount || 0}</span>
                             </TableCell>
                             <TableCell className="hidden lg:table-cell">
-                              <span className="text-xs text-[#697386]">{formatDate(resource.createdAt)}</span>
+                              <span className="text-xs text-[#525252]">{formatDate(resource.createdAt)}</span>
                             </TableCell>
                             <TableCell>
                               <DropdownMenu>
@@ -577,7 +577,7 @@ export default function ResourcesList() {
                                   {resource.status !== "published" && (
                                     <DropdownMenuItem
                                       onClick={() => bulkStatusMutation.mutate({ ids: [resource.id], statusSlug: "published" })}
-                                      className="text-[#0066FF]"
+                                      className="text-[#0f62fe]"
                                     >
                                       <CheckCircle className="h-4 w-4 mr-2" />
                                       Publish
@@ -610,7 +610,7 @@ export default function ResourcesList() {
                 </div>
 
                 {/* Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}

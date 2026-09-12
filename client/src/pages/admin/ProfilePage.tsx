@@ -108,7 +108,7 @@ export default function ProfilePage() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-96">
-          <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -120,8 +120,8 @@ export default function ProfilePage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">My Profile</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Manage your profile information and public author page</p>
+            <h1 className="text-xl font-semibold text-[#161616]">My Profile</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Manage your profile information and public author page</p>
           </div>
           <div className="flex gap-2">
             {formData.username && (
@@ -133,7 +133,7 @@ export default function ProfilePage() {
               </Button>
             )}
             <Button
-              className="bg-emerald-500 hover:bg-[#0066FF]"
+              className="bg-emerald-500 hover:bg-[#0f62fe]"
               onClick={handleSave}
               disabled={isSubmitting}
             >
@@ -160,7 +160,7 @@ export default function ProfilePage() {
               <div className="relative">
                 <Avatar className="h-24 w-24">
                   <AvatarImage src={formData.avatar} alt={formData.name} />
-                  <AvatarFallback className="text-2xl bg-[#EBF3FF] text-[#0066FF]">
+                  <AvatarFallback className="text-2xl bg-[#edf5ff] text-[#0f62fe]">
                     {getInitials(formData.name || "U")}
                   </AvatarFallback>
                 </Avatar>
@@ -176,12 +176,12 @@ export default function ProfilePage() {
 
               {/* Basic Info */}
               <div className="flex-1 space-y-1">
-                <h2 className="text-xl font-semibold text-[#1A1F36]">
+                <h2 className="text-xl font-semibold text-[#161616]">
                   {formData.publicName || formData.name || "User"}
                 </h2>
-                <p className="text-[#697386]">{profile?.email}</p>
+                <p className="text-[#525252]">{profile?.email}</p>
                 {formData.jobTitle && (
-                  <p className="text-[#0066FF] font-medium">{formData.jobTitle}</p>
+                  <p className="text-[#0f62fe] font-medium">{formData.jobTitle}</p>
                 )}
                 <div className="flex items-center gap-2 mt-2">
                   <span className="px-2 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-700 capitalize">
@@ -243,9 +243,9 @@ export default function ProfilePage() {
                     type="email"
                     value={profile?.email || ""}
                     disabled
-                    className="bg-[#F7F8FA]"
+                    className="bg-[#f4f4f4]"
                   />
-                  <p className="text-xs text-[#697386]">Email cannot be changed</p>
+                  <p className="text-xs text-[#525252]">Email cannot be changed</p>
                 </div>
 
                 <div className="space-y-2">
@@ -275,7 +275,7 @@ export default function ProfilePage() {
                   <div className="space-y-2">
                     <Label htmlFor="username">Username (URL)</Label>
                     <div className="flex items-center">
-                      <span className="text-[#697386] text-sm mr-1">@</span>
+                      <span className="text-[#525252] text-sm mr-1">@</span>
                       <Input
                         id="username"
                         placeholder="johndoe"
@@ -283,7 +283,7 @@ export default function ProfilePage() {
                         onChange={(e) => setFormData({ ...formData, username: e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '') })}
                       />
                     </div>
-                    <p className="text-xs text-[#697386]">
+                    <p className="text-xs text-[#525252]">
                       Your profile URL: {publication.domain}/author/{formData.username || "username"}
                     </p>
                   </div>
@@ -317,7 +317,7 @@ export default function ProfilePage() {
                     onChange={(e) => setFormData({ ...formData, authorBio: e.target.value })}
                     rows={5}
                   />
-                  <p className="text-xs text-[#697386]">
+                  <p className="text-xs text-[#525252]">
                     This bio is displayed on your public author page
                   </p>
                 </div>
@@ -337,8 +337,8 @@ export default function ProfilePage() {
                 <div className="space-y-2">
                   <Label htmlFor="twitter">Twitter/X Handle</Label>
                   <div className="flex items-center gap-2">
-                    <Twitter className="h-5 w-5 text-[#9BA3B0]" />
-                    <span className="text-[#697386]">@</span>
+                    <Twitter className="h-5 w-5 text-[#8d8d8d]" />
+                    <span className="text-[#525252]">@</span>
                     <Input
                       id="twitter"
                       placeholder="johndoe"
@@ -352,7 +352,7 @@ export default function ProfilePage() {
                 <div className="space-y-2">
                   <Label htmlFor="linkedin">LinkedIn Profile</Label>
                   <div className="flex items-center gap-2">
-                    <Linkedin className="h-5 w-5 text-[#9BA3B0]" />
+                    <Linkedin className="h-5 w-5 text-[#8d8d8d]" />
                     <Input
                       id="linkedin"
                       placeholder="https://linkedin.com/in/johndoe"
@@ -371,7 +371,7 @@ export default function ProfilePage() {
                     value={formData.avatar}
                     onChange={(e) => setFormData({ ...formData, avatar: e.target.value })}
                   />
-                  <p className="text-xs text-[#697386]">
+                  <p className="text-xs text-[#525252]">
                     Enter a URL to your profile picture
                   </p>
                 </div>

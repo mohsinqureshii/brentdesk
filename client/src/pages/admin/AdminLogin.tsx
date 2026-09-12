@@ -52,13 +52,13 @@ export default function AdminLogin() {
   // Authenticated but not staff → access denied
   if (isAuthenticated && user?.role === "user") {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F8FA] p-6">
-        <div className="max-w-md w-full bg-white rounded-md border border-[#E0E3E8] p-8 text-center">
+      <div className="min-h-screen flex items-center justify-center bg-[#f4f4f4] p-6">
+        <div className="max-w-md w-full bg-white rounded-md border border-[#e0e0e0] p-8 text-center">
           <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-red-50 flex items-center justify-center">
             <ShieldAlert className="h-7 w-7 text-red-600" />
           </div>
-          <h1 className="text-xl font-semibold text-[#1A1F36] mb-2">Access denied</h1>
-          <p className="text-sm text-[#697386] mb-6">
+          <h1 className="text-xl font-semibold text-[#161616] mb-2">Access denied</h1>
+          <p className="text-sm text-[#525252] mb-6">
             Your account doesn't have permission to access the admin panel. Contact an administrator if you think this is a mistake.
           </p>
           <Button variant="outline" className="w-full" onClick={() => setLocation("/")}>
@@ -90,17 +90,17 @@ export default function AdminLogin() {
         <div className="w-full max-w-md mx-auto">
           {/* Wordmark */}
           <Link href="/" className="inline-block mb-12">
-            <span className="text-2xl font-bold tracking-tight text-[#1A1F36]">{publication.wordmark}</span>
+            <span className="text-2xl font-bold tracking-tight text-[#161616]">{publication.wordmark}</span>
           </Link>
 
-          <h1 className="text-xl font-semibold text-[#1A1F36] mb-2">Admin sign in</h1>
-          <p className="text-[#697386] mb-8">
+          <h1 className="text-xl font-semibold text-[#161616] mb-2">Admin sign in</h1>
+          <p className="text-[#525252] mb-8">
             Editorial team, moderators, and admins. Use your work email.
           </p>
 
           {loading ? (
             <div className="flex items-center justify-center py-12">
-              <Loader2 className="h-6 w-6 animate-spin text-[#0066FF]" />
+              <Loader2 className="h-6 w-6 animate-spin text-[#0f62fe]" />
             </div>
           ) : (
             <form onSubmit={handleLogin} className="space-y-5">
@@ -111,7 +111,7 @@ export default function AdminLogin() {
               )}
 
               <div className="space-y-1.5">
-                <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-[#1A1F36]">
+                <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-[#161616]">
                   Work email
                 </Label>
                 <Input
@@ -128,7 +128,7 @@ export default function AdminLogin() {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-[#1A1F36]">
+                <Label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-[#161616]">
                   Password
                 </Label>
                 <div className="relative">
@@ -145,7 +145,7 @@ export default function AdminLogin() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9BA3B0] hover:text-[#1A1F36]"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8d8d8d] hover:text-[#161616]"
                     tabIndex={-1}
                     aria-label={showPassword ? "Hide password" : "Show password"}
                   >
@@ -157,7 +157,7 @@ export default function AdminLogin() {
               <Button
                 type="submit"
                 disabled={isLoggingIn}
-                className="w-full h-12 rounded-md bg-[#0066FF] hover:bg-[#0052CC] text-white text-base font-semibold"
+                className="w-full h-12 rounded-md bg-[#0f62fe] hover:bg-[#0043ce] text-white text-base font-semibold"
               >
                 {isLoggingIn ? (
                   <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Signing in…</>
@@ -168,7 +168,7 @@ export default function AdminLogin() {
             </form>
           )}
 
-          <p className="text-xs text-[#697386] mt-8 text-center">
+          <p className="text-xs text-[#525252] mt-8 text-center">
             Authorised personnel only. Need access? Contact your administrator.
           </p>
         </div>
@@ -206,7 +206,7 @@ export default function AdminLogin() {
 
           {/* Middle — value prop */}
           <div className="max-w-sm">
-            <p className="text-xs uppercase tracking-[0.2em] text-[#80B3FF]/80 mb-4">Admin portal</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-[#78a9ff]/80 mb-4">Admin portal</p>
             <h2 className="text-3xl xl:text-4xl font-bold leading-tight mb-4">
               The region's physical economy, managed.
             </h2>

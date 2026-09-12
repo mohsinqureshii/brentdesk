@@ -55,19 +55,19 @@ import { toast } from "sonner";
 import { exportToCSV, acceleratorExportColumns } from "@/lib/exportUtils";
 
 const statusColors: Record<string, string> = {
-  active: "bg-[#EBF3FF] text-[#0066FF]",
+  active: "bg-[#edf5ff] text-[#0f62fe]",
   upcoming: "bg-blue-100 text-blue-700",
-  completed: "bg-[#F0F2F5] text-[#1A1F36]",
+  completed: "bg-[#f4f4f4] text-[#161616]",
   paused: "bg-yellow-100 text-yellow-700",
   // Workflow statuses
-  draft: "bg-[#F0F2F5] text-[#697386]",
+  draft: "bg-[#f4f4f4] text-[#525252]",
   submitted: "bg-blue-100 text-blue-700",
   editor_review: "bg-yellow-100 text-yellow-700",
   senior_editor_review: "bg-purple-100 text-purple-700",
-  approved: "bg-[#EBF3FF] text-[#0066FF]",
+  approved: "bg-[#edf5ff] text-[#0f62fe]",
   published: "bg-green-100 text-green-700",
   rejected: "bg-red-100 text-red-700",
-  archived: "bg-[#F0F2F5] text-[#697386]",
+  archived: "bg-[#f4f4f4] text-[#525252]",
   trash: "bg-red-100 text-red-500",
 };
 
@@ -198,8 +198,8 @@ export default function AcceleratorsList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Accelerators</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Manage accelerator programs</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Accelerators</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Manage accelerator programs</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <Button
@@ -215,7 +215,7 @@ export default function AcceleratorsList() {
               Export CSV
             </Button>
             <Link href="/admin/accelerators/new">
-              <Button className="bg-emerald-500 hover:bg-[#0066FF] text-white">
+              <Button className="bg-emerald-500 hover:bg-[#0f62fe] text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Accelerator
               </Button>
@@ -228,7 +228,7 @@ export default function AcceleratorsList() {
           <CardHeader>
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search accelerators..."
                   value={search}
@@ -253,11 +253,11 @@ export default function AcceleratorsList() {
           <CardContent>
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : accelerators.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-                <Rocket className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+                <Rocket className="h-12 w-12 mb-4 text-[#c6c6c6]" />
                 <p className="text-lg font-medium">No accelerators found</p>
                 <p className="text-sm">
                   {debouncedSearch || status !== "all"
@@ -266,7 +266,7 @@ export default function AcceleratorsList() {
                 </p>
                 {!debouncedSearch && status === "all" && (
                   <Link href="/admin/accelerators/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Accelerator
                     </Button>
@@ -276,8 +276,8 @@ export default function AcceleratorsList() {
             ) : (
               <>
                 {selectedAccelerators.length > 0 && (
-                  <div className="flex items-center gap-4 mb-4 p-3 bg-[#F7F8FA] rounded-md">
-                    <span className="text-sm font-medium text-[#1A1F36]">
+                  <div className="flex items-center gap-4 mb-4 p-3 bg-[#f4f4f4] rounded-md">
+                    <span className="text-sm font-medium text-[#161616]">
                       {selectedAccelerators.length} selected
                     </span>
                     <div className="flex flex-wrap gap-2">
@@ -332,20 +332,20 @@ export default function AcceleratorsList() {
                                 className="w-10 h-10 rounded-md object-cover shrink-0"
                               />
                             ) : (
-                              <div className="w-10 h-10 rounded-md bg-[#EBF3FF] flex items-center justify-center shrink-0">
-                                <Rocket className="h-5 w-5 text-[#0066FF]" />
+                              <div className="w-10 h-10 rounded-md bg-[#edf5ff] flex items-center justify-center shrink-0">
+                                <Rocket className="h-5 w-5 text-[#0f62fe]" />
                               </div>
                             )}
                             <div className="min-w-0">
                               <Link href={`/admin/accelerators/${accelerator.id}`}>
-                                <span className="font-medium hover:text-[#0066FF] cursor-pointer truncate block">{accelerator.name}</span>
+                                <span className="font-medium hover:text-[#0f62fe] cursor-pointer truncate block">{accelerator.name}</span>
                               </Link>
                               {accelerator.website && (
                                 <a
                                   href={accelerator.website}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-xs text-[#0066FF] hover:underline flex items-center gap-1"
+                                  className="text-xs text-[#0f62fe] hover:underline flex items-center gap-1"
                                 >
                                   Website <ExternalLink className="h-3 w-3" />
                                 </a>
@@ -353,13 +353,13 @@ export default function AcceleratorsList() {
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell className="hidden md:table-cell text-[#697386] truncate">
+                        <TableCell className="hidden md:table-cell text-[#525252] truncate">
                           {accelerator.location || "—"}
                         </TableCell>
-                        <TableCell className="hidden lg:table-cell text-[#697386] truncate">
+                        <TableCell className="hidden lg:table-cell text-[#525252] truncate">
                           {accelerator.programLength || "—"}
                         </TableCell>
-                        <TableCell className="text-[#697386] truncate">
+                        <TableCell className="text-[#525252] truncate">
                           {accelerator.funding || "—"}
                         </TableCell>
                         <TableCell>
@@ -367,7 +367,7 @@ export default function AcceleratorsList() {
                             {accelerator.workflowStatusName || accelerator.status || "active"}
                           </Badge>
                         </TableCell>
-                        <TableCell className="hidden md:table-cell text-[#697386]">
+                        <TableCell className="hidden md:table-cell text-[#525252]">
                           {accelerator.applicationDeadline
                             ? format(new Date(accelerator.applicationDeadline), "MMM d, yyyy")
                             : "—"}
@@ -429,7 +429,7 @@ export default function AcceleratorsList() {
                 </div>
 
                 {/* Advanced Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}

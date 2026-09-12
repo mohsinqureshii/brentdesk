@@ -69,23 +69,23 @@ export function FilterBar({
     <div className="space-y-3">
       <div className="flex flex-col sm:flex-row sm:items-center gap-2.5">
         <div className="relative flex-1 min-w-0">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
           <Input
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder={searchPlaceholder}
-            className="pl-9 h-10 rounded-md bg-white border-[#E0E3E8]"
+            className="pl-9 h-10 rounded-md bg-white border-[#e0e0e0]"
           />
         </div>
         {addFilterAction && <div className="shrink-0">{addFilterAction}</div>}
         <div className="flex items-center gap-2 shrink-0">
           {density && onDensityChange && (
-            <div className="hidden sm:flex border border-[#E0E3E8] rounded-md bg-white p-0.5">
+            <div className="hidden sm:flex border border-[#e0e0e0] rounded-md bg-white p-0.5">
               <button
                 aria-label="Comfortable view"
                 onClick={() => onDensityChange("comfortable")}
                 className={`p-1.5 rounded-md transition-colors ${
-                  density === "comfortable" ? "bg-[#F0F2F5] text-[#1A1F36]" : "text-[#9BA3B0] hover:text-[#1A1F36]"
+                  density === "comfortable" ? "bg-[#f4f4f4] text-[#161616]" : "text-[#8d8d8d] hover:text-[#161616]"
                 }`}
               >
                 <LayoutGrid className="h-3.5 w-3.5" />
@@ -94,7 +94,7 @@ export function FilterBar({
                 aria-label="Compact view"
                 onClick={() => onDensityChange("compact")}
                 className={`p-1.5 rounded-md transition-colors ${
-                  density === "compact" ? "bg-[#F0F2F5] text-[#1A1F36]" : "text-[#9BA3B0] hover:text-[#1A1F36]"
+                  density === "compact" ? "bg-[#f4f4f4] text-[#161616]" : "text-[#8d8d8d] hover:text-[#161616]"
                 }`}
               >
                 <List className="h-3.5 w-3.5" />
@@ -108,7 +108,7 @@ export function FilterBar({
       {(chips.length > 0 || typeof totalCount === "number") && (
         <div className="flex items-center flex-wrap gap-2">
           {typeof totalCount === "number" && (
-            <span className="text-xs text-[#697386] mr-1">
+            <span className="text-xs text-[#525252] mr-1">
               {totalCount.toLocaleString()} {totalCount === 1 ? "result" : "results"}
             </span>
           )}
@@ -116,14 +116,14 @@ export function FilterBar({
             <Badge
               key={c.key}
               variant="secondary"
-              className="bg-[#F0F7FF] text-emerald-800 border border-[#C7DCFF] gap-1 px-2 py-0.5 text-xs font-normal"
+              className="bg-[#edf5ff] text-emerald-800 border border-[#a6c8ff] gap-1 px-2 py-0.5 text-xs font-normal"
             >
-              <span className="text-[#0066FF]/70">{c.label}:</span>
+              <span className="text-[#0f62fe]/70">{c.label}:</span>
               <span className="font-medium">{c.value}</span>
               {onChipRemove && (
                 <button
                   onClick={() => onChipRemove(c.key)}
-                  className="ml-0.5 text-[#0066FF]/70 hover:text-[#003D99]"
+                  className="ml-0.5 text-[#0f62fe]/70 hover:text-[#003D99]"
                   aria-label={`Remove ${c.label} filter`}
                 >
                   <X className="h-3 w-3" />
@@ -132,7 +132,7 @@ export function FilterBar({
             </Badge>
           ))}
           {chips.length > 1 && onClearAll && (
-            <Button variant="ghost" size="sm" onClick={onClearAll} className="h-6 text-xs text-[#697386]">
+            <Button variant="ghost" size="sm" onClick={onClearAll} className="h-6 text-xs text-[#525252]">
               Clear all
             </Button>
           )}

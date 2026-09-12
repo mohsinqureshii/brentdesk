@@ -345,8 +345,8 @@ export function AdminLayout({ children }: AdminLayoutProps) {
               className={cn(
                 "flex items-center justify-between px-3 py-1.5 rounded-sm text-sm transition-colors",
                 hasActiveChild
-                  ? "bg-[#EBF3FF] text-[#0066FF] font-semibold"
-                  : "text-[#697386] hover:bg-[#F7F8FA] hover:text-[#1A1F36]"
+                  ? "bg-[#edf5ff] text-[#0f62fe] font-semibold"
+                  : "text-[#525252] hover:bg-[#f4f4f4] hover:text-[#161616]"
               )}
             >
               <div className="flex items-center gap-2.5">
@@ -361,7 +361,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             </div>
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <div className="ml-6 mt-0.5 space-y-0.5 border-l border-[#E0E3E8] pl-2">
+            <div className="ml-6 mt-0.5 space-y-0.5 border-l border-[#e0e0e0] pl-2">
               {item.children?.map((child) => {
                 const badge =
                   child.badgeKey != null ? badgeCounts[child.badgeKey] : undefined;
@@ -371,8 +371,8 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                       className={cn(
                         "flex items-center justify-between px-3 py-1.5 rounded-sm text-[13px] transition-colors cursor-pointer",
                         isActive(child.href)
-                          ? "bg-[#EBF3FF] text-[#0066FF] font-semibold"
-                          : "text-[#697386] hover:bg-[#F7F8FA] hover:text-[#1A1F36]"
+                          ? "bg-[#edf5ff] text-[#0f62fe] font-semibold"
+                          : "text-[#525252] hover:bg-[#f4f4f4] hover:text-[#161616]"
                       )}
                     >
                       <span>{child.title}</span>
@@ -397,8 +397,8 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           className={cn(
             "flex items-center gap-2.5 px-3 py-1.5 rounded-sm text-[13.5px] transition-colors cursor-pointer",
             active
-              ? "bg-[#EBF3FF] text-[#0066FF] font-semibold"
-              : "text-[#697386] hover:bg-[#F7F8FA] hover:text-[#1A1F36]"
+              ? "bg-[#edf5ff] text-[#0f62fe] font-semibold"
+              : "text-[#525252] hover:bg-[#f4f4f4] hover:text-[#161616]"
           )}
         >
           <item.icon className="h-4 w-4" />
@@ -409,7 +409,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   };
 
   return (
-    <div data-admin-layout className="min-h-screen bg-[#F7F8FA] flex">
+    <div data-admin-layout className="min-h-screen bg-[#f4f4f4] flex">
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
         <div
@@ -426,10 +426,10 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           "fixed top-0 left-0 z-50 h-full w-64 flex flex-col transition-transform duration-300 overflow-hidden",
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
-        style={{ backgroundColor: '#ffffff', borderRight: '1px solid #E0E3E8' }}
+        style={{ backgroundColor: '#ffffff', borderRight: '1px solid #e0e0e0' }}
       >
         {/* Logo */}
-        <div className="px-5 py-4 flex items-center gap-3 flex-shrink-0 border-b border-[#E0E3E8]">
+        <div className="px-5 py-4 flex items-center gap-3 flex-shrink-0 border-b border-[#e0e0e0]">
           <img
             src="/assets/logo.png"
             alt={publication.name}
@@ -439,7 +439,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden ml-auto text-[#697386] hover:bg-[#F7F8FA]"
+            className="lg:hidden ml-auto text-[#525252] hover:bg-[#f4f4f4]"
             onClick={() => setMobileMenuOpen(false)}
           >
             <X className="h-5 w-5" />
@@ -449,14 +449,14 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         {/* Navigation */}
           <ScrollArea className="flex-1 px-3 overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent hover:scrollbar-thumb-white/40">
           <nav className="space-y-0.5 pr-2">
-            <div className="text-[10px] font-semibold text-[#9BA3B0] uppercase tracking-[0.12em] px-4 mb-1.5">
+            <div className="text-[10px] font-semibold text-[#8d8d8d] uppercase tracking-[0.12em] px-4 mb-1.5">
               Operations
             </div>
             {navigation.map((item) => (
               <NavItemComponent key={item.title} item={item} />
             ))}
 
-            <div className="text-[10px] font-semibold text-[#9BA3B0] uppercase tracking-[0.12em] px-4 mt-5 mb-1.5">
+            <div className="text-[10px] font-semibold text-[#8d8d8d] uppercase tracking-[0.12em] px-4 mt-5 mb-1.5">
               Settings
             </div>
             {settingsNavigation.map((item) => (
@@ -466,10 +466,10 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         </ScrollArea>
 
         {/* Logout */}
-        <div className="px-3 py-3 border-t border-[#E0E3E8]">
+        <div className="px-3 py-3 border-t border-[#e0e0e0]">
           <button
             onClick={() => logout()}
-            className="flex items-center gap-3 px-3 py-1.5 w-full rounded-sm text-[13px] text-[#697386] hover:bg-[#F7F8FA] hover:text-[#1A1F36] transition-colors"
+            className="flex items-center gap-3 px-3 py-1.5 w-full rounded-sm text-[13px] text-[#525252] hover:bg-[#f4f4f4] hover:text-[#161616] transition-colors"
           >
             <LogOut className="h-4 w-4" />
             <span>Logout</span>
@@ -481,9 +481,9 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           header with subtle border, generous content padding. White cards
           (default in our shadcn Card primitive) sit on this bg with clean
           contrast. */}
-      <div className="flex-1 lg:ml-64 bg-[#F7F8FA] min-h-screen">
+      <div className="flex-1 lg:ml-64 bg-[#f4f4f4] min-h-screen">
         {/* Top Header */}
-        <header className="bg-white border-b border-[#E0E3E8] px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 h-14">
+        <header className="bg-white border-b border-[#e0e0e0] px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 h-14">
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
@@ -493,24 +493,24 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             >
               <Menu className="h-5 w-5" />
             </Button>
-            <div className="text-[#697386] text-[13px] truncate">
-              Welcome, <span className="font-medium text-[#1A1F36]">{user?.name || "Admin"}</span>
+            <div className="text-[#525252] text-[13px] truncate">
+              Welcome, <span className="font-medium text-[#161616]">{user?.name || "Admin"}</span>
             </div>
           </div>
 
           <div className="flex items-center gap-1.5 sm:gap-3">
             {/* Search - hidden on mobile */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-56 h-8 pl-9 pr-4 rounded-sm bg-[#F7F8FA] border border-[#E0E3E8] text-[13px] text-[#1A1F36] placeholder:text-[#9BA3B0] focus:outline-none focus:border-[#0066FF] focus:ring-2 focus:ring-[#0066FF]/10 transition-colors"
+                className="w-56 h-8 pl-9 pr-4 rounded-sm bg-[#f4f4f4] border border-[#e0e0e0] text-[13px] text-[#161616] placeholder:text-[#8d8d8d] focus:outline-none focus:border-[#0f62fe] focus:ring-2 focus:ring-[#0f62fe]/10 transition-colors"
               />
             </div>
 
             {/* Notifications */}
-            <button className="relative p-1.5 text-[#697386] hover:text-[#1A1F36] transition-colors rounded-sm hover:bg-[#F7F8FA]">
+            <button className="relative p-1.5 text-[#525252] hover:text-[#161616] transition-colors rounded-sm hover:bg-[#f4f4f4]">
               <Bell className="h-5 w-5" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
@@ -520,19 +520,19 @@ export function AdminLayout({ children }: AdminLayoutProps) {
               <DropdownMenuTrigger className="flex items-center gap-3 focus:outline-none">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="" />
-                  <AvatarFallback className="bg-[#EBF3FF] text-[#0066FF] font-semibold text-[13px]">
+                  <AvatarFallback className="bg-[#edf5ff] text-[#0f62fe] font-semibold text-[13px]">
                     {user?.name?.charAt(0) || "A"}
                   </AvatarFallback>
                 </Avatar>
                 <div className="text-left hidden sm:block">
-                  <p className="text-xs font-medium text-[#1A1F36]">
+                  <p className="text-xs font-medium text-[#161616]">
                     {user?.name || "Admin User"}
                   </p>
-                  <p className="text-xs text-[#697386] capitalize leading-tight">
+                  <p className="text-xs text-[#525252] capitalize leading-tight">
                     {user?.role || "Admin"}
                   </p>
                 </div>
-                <ChevronDown className="h-4 w-4 text-[#9BA3B0] hidden sm:block" />
+                <ChevronDown className="h-4 w-4 text-[#8d8d8d] hidden sm:block" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>

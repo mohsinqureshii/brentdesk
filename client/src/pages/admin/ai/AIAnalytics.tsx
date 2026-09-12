@@ -148,7 +148,7 @@ export function AIAnalyticsPanel() {
                       {stats.byProvider.map((p: any, i: number) => (
                         <div key={i} className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: ["#8b5cf6", "#3b82f6", "#10b981", "#f59e0b", "#ef4444"][i % 5] }} />
+                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: ["#8b5cf6", "#0f62fe", "#24a148", "#f59e0b", "#ef4444"][i % 5] }} />
                             <span className="font-medium capitalize">{p.provider}</span>
                           </div>
                           <div className="flex items-center gap-4 text-sm">

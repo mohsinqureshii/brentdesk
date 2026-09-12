@@ -54,12 +54,12 @@ interface KpiCardProps {
 }
 
 const ACCENT: Record<NonNullable<KpiCardProps["accent"]>, { bg: string; text: string }> = {
-  emerald: { bg: "bg-[#EBF3FF]", text: "text-[#0066FF]" },
+  emerald: { bg: "bg-[#edf5ff]", text: "text-[#0f62fe]" },
   blue:    { bg: "bg-blue-100",    text: "text-blue-700" },
   amber:   { bg: "bg-amber-100",   text: "text-amber-700" },
   violet:  { bg: "bg-violet-100",  text: "text-violet-700" },
   rose:    { bg: "bg-rose-100",    text: "text-rose-700" },
-  zinc:    { bg: "bg-[#F0F2F5]",    text: "text-[#1A1F36]" },
+  zinc:    { bg: "bg-[#f4f4f4]",    text: "text-[#161616]" },
 };
 
 function KpiCard({ label, value, delta, hint, icon: Icon, accent = "emerald", loading, href }: KpiCardProps) {
@@ -68,7 +68,7 @@ function KpiCard({ label, value, delta, hint, icon: Icon, accent = "emerald", lo
     <Card className={`group ${href ? "hover:shadow-md transition-shadow cursor-pointer" : ""}`}>
       <CardContent className="p-5">
         <div className="flex items-start justify-between mb-3">
-          <p className="text-xs font-semibold uppercase tracking-wider text-[#697386]">{label}</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#525252]">{label}</p>
           <div className={`w-9 h-9 rounded-md flex items-center justify-center ${tone.bg}`}>
             <Icon className={`h-4 w-4 ${tone.text}`} />
           </div>
@@ -76,13 +76,13 @@ function KpiCard({ label, value, delta, hint, icon: Icon, accent = "emerald", lo
         {loading ? (
           <Skeleton className="h-8 w-24 mb-2" />
         ) : (
-          <p className="text-xl font-semibold text-[#1A1F36] tracking-tight tabular-nums">{value}</p>
+          <p className="text-xl font-semibold text-[#161616] tracking-tight tabular-nums">{value}</p>
         )}
         <div className="flex items-center justify-between mt-2 min-h-[20px]">
-          <p className="text-xs text-[#697386]">{hint}</p>
+          <p className="text-xs text-[#525252]">{hint}</p>
           {delta && (
             <span className={`inline-flex items-center gap-0.5 text-xs font-medium ${
-              delta.positive ? "text-[#0066FF]" : "text-rose-700"
+              delta.positive ? "text-[#0f62fe]" : "text-rose-700"
             }`}>
               {delta.positive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
               {delta.value}
@@ -106,12 +106,12 @@ function QuickAction({ label, icon: Icon, href, accent = "emerald" }: QuickActio
   const tone = ACCENT[accent];
   return (
     <Link href={href}>
-      <button className={`w-full text-left rounded-md border border-[#E0E3E8] p-4 hover:border-[#0066FF] hover:shadow-sm transition flex items-start gap-3 bg-white`}>
+      <button className={`w-full text-left rounded-md border border-[#e0e0e0] p-4 hover:border-[#0f62fe] hover:shadow-sm transition flex items-start gap-3 bg-white`}>
         <div className={`w-10 h-10 rounded-md flex items-center justify-center shrink-0 ${tone.bg}`}>
           <Icon className={`h-5 w-5 ${tone.text}`} />
         </div>
         <div>
-          <p className="text-sm font-semibold text-[#1A1F36]">{label}</p>
+          <p className="text-sm font-semibold text-[#161616]">{label}</p>
         </div>
       </button>
     </Link>
@@ -130,18 +130,18 @@ function ConnectIntegrationCard({
   return (
     <Card className="border-dashed">
       <CardContent className="p-6 sm:p-8 text-center">
-        <div className="w-12 h-12 mx-auto rounded-full bg-[#F0F7FF] flex items-center justify-center mb-4">
-          <Zap className="h-6 w-6 text-[#0066FF]" />
+        <div className="w-12 h-12 mx-auto rounded-full bg-[#edf5ff] flex items-center justify-center mb-4">
+          <Zap className="h-6 w-6 text-[#0f62fe]" />
         </div>
-        <h3 className="text-lg font-semibold text-[#1A1F36] mb-2">{title}</h3>
-        <p className="text-sm text-[#697386] max-w-md mx-auto mb-5">{description}</p>
+        <h3 className="text-lg font-semibold text-[#161616] mb-2">{title}</h3>
+        <p className="text-sm text-[#525252] max-w-md mx-auto mb-5">{description}</p>
         <div className="flex flex-wrap justify-center gap-1.5 mb-5">
           {capabilities.map((c) => (
-            <Badge key={c} variant="secondary" className="text-[11px] bg-[#F0F2F5] text-[#1A1F36]">{c}</Badge>
+            <Badge key={c} variant="secondary" className="text-[11px] bg-[#f4f4f4] text-[#161616]">{c}</Badge>
           ))}
         </div>
         <Link href={`/admin/integrations#${integrationId}`}>
-          <Button className="bg-[#0066FF] hover:bg-[#0052CC]">
+          <Button className="bg-[#0f62fe] hover:bg-[#0043ce]">
             Connect via Integration Hub <ArrowRight className="h-4 w-4 ml-1.5" />
           </Button>
         </Link>
@@ -153,7 +153,7 @@ function ConnectIntegrationCard({
 function PanelTitle({ title, action }: { title: string; action?: React.ReactNode }) {
   return (
     <div className="flex items-center justify-between mb-3">
-      <h3 className="text-sm font-semibold text-[#1A1F36]">{title}</h3>
+      <h3 className="text-sm font-semibold text-[#161616]">{title}</h3>
       {action}
     </div>
   );
@@ -190,8 +190,8 @@ export default function AdminDashboard() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Dashboard</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Dashboard</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Editorial, SEO, audience, and revenue health across {publication.domain}
             </p>
           </div>
@@ -254,19 +254,19 @@ export default function AdminDashboard() {
                 <CardContent className="p-5">
                   <PanelTitle
                     title="Pending moderation"
-                    action={<Link href="/admin/moderation"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">View all <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                    action={<Link href="/admin/moderation"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">View all <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
                   />
                   {stats.isLoading ? (
                     <Skeleton className="h-20 w-full" />
                   ) : (
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="rounded-md border border-[#E0E3E8] p-3">
-                        <p className="text-xs uppercase tracking-wider text-[#697386] mb-1">Profile claims</p>
-                        <p className="text-xl font-semibold text-[#1A1F36]">{stats.data?.moderation.pendingClaims ?? 0}</p>
+                      <div className="rounded-md border border-[#e0e0e0] p-3">
+                        <p className="text-xs uppercase tracking-wider text-[#525252] mb-1">Profile claims</p>
+                        <p className="text-xl font-semibold text-[#161616]">{stats.data?.moderation.pendingClaims ?? 0}</p>
                       </div>
-                      <div className="rounded-md border border-[#E0E3E8] p-3">
-                        <p className="text-xs uppercase tracking-wider text-[#697386] mb-1">Suggested updates</p>
-                        <p className="text-xl font-semibold text-[#1A1F36]">{stats.data?.moderation.pendingUpdates ?? 0}</p>
+                      <div className="rounded-md border border-[#e0e0e0] p-3">
+                        <p className="text-xs uppercase tracking-wider text-[#525252] mb-1">Suggested updates</p>
+                        <p className="text-xl font-semibold text-[#161616]">{stats.data?.moderation.pendingUpdates ?? 0}</p>
                       </div>
                     </div>
                   )}
@@ -277,19 +277,19 @@ export default function AdminDashboard() {
                 <CardContent className="p-5">
                   <PanelTitle
                     title="Recent form submissions"
-                    action={<Link href="/admin/integrations"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">View all <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                    action={<Link href="/admin/integrations"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">View all <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
                   />
                   {submissions.isLoading ? (
                     <Skeleton className="h-20 w-full" />
                   ) : !submissions.data || submissions.data.items.length === 0 ? (
-                    <p className="text-sm text-[#697386]">No submissions yet.</p>
+                    <p className="text-sm text-[#525252]">No submissions yet.</p>
                   ) : (
                     <ul className="divide-y">
                       {submissions.data.items.slice(0, 5).map((s: any) => (
                         <li key={s.id} className="py-2 flex items-center gap-2 text-sm">
                           <Badge variant="outline" className="text-[10px] uppercase shrink-0">{s.form_type}</Badge>
-                          <span className="flex-1 min-w-0 truncate text-[#1A1F36]">{s.name || s.email}</span>
-                          <span className="text-xs text-[#9BA3B0] shrink-0">{new Date(s.created_at).toLocaleDateString()}</span>
+                          <span className="flex-1 min-w-0 truncate text-[#161616]">{s.name || s.email}</span>
+                          <span className="text-xs text-[#8d8d8d] shrink-0">{new Date(s.created_at).toLocaleDateString()}</span>
                         </li>
                       ))}
                     </ul>
@@ -314,9 +314,9 @@ export default function AdminDashboard() {
               <CardContent className="p-5">
                 <PanelTitle
                   title="Editorial workflow"
-                  action={<Link href="/admin/articles"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">All articles <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                  action={<Link href="/admin/articles"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">All articles <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
                 />
-                <p className="text-sm text-[#697386] mb-4">
+                <p className="text-sm text-[#525252] mb-4">
                   Articles by status — drafts, in review, scheduled, published, archived.
                 </p>
                 <ContentByStatusPanel />
@@ -327,7 +327,7 @@ export default function AdminDashboard() {
               <CardContent className="p-5">
                 <PanelTitle
                   title="Top-performing articles (30 days)"
-                  action={<Link href="/admin/articles"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">Browse <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                  action={<Link href="/admin/articles"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">Browse <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
                 />
                 <TopArticlesPanel />
               </CardContent>
@@ -381,7 +381,7 @@ export default function AdminDashboard() {
             <Card>
               <CardContent className="p-5">
                 <PanelTitle title="Recent form submissions"
-                  action={<Link href="/admin/integrations"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">Open inbox <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                  action={<Link href="/admin/integrations"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">Open inbox <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
                 />
                 {submissions.data?.items?.length ? (
                   <ul className="divide-y">
@@ -389,15 +389,15 @@ export default function AdminDashboard() {
                       <li key={s.id} className="py-3 flex items-start gap-3">
                         <Badge variant="outline" className="text-[10px] uppercase shrink-0 mt-0.5">{s.form_type}</Badge>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-[#1A1F36] truncate">{s.name || s.email}</p>
-                          <p className="text-xs text-[#697386] truncate">{s.email}</p>
+                          <p className="text-sm font-medium text-[#161616] truncate">{s.name || s.email}</p>
+                          <p className="text-xs text-[#525252] truncate">{s.email}</p>
                         </div>
-                        <span className="text-xs text-[#9BA3B0] shrink-0">{new Date(s.created_at).toLocaleString()}</span>
+                        <span className="text-xs text-[#8d8d8d] shrink-0">{new Date(s.created_at).toLocaleString()}</span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-[#697386]">No submissions yet — Newsletter / Contact / Advertise forms write here.</p>
+                  <p className="text-sm text-[#525252]">No submissions yet — Newsletter / Contact / Advertise forms write here.</p>
                 )}
               </CardContent>
             </Card>
@@ -438,22 +438,22 @@ export default function AdminDashboard() {
 function ContentByStatusPanel() {
   const q = trpc.admin.dashboard.getContentByStatus.useQuery();
   if (q.isLoading) return <Skeleton className="h-32 w-full" />;
-  if (!q.data?.statuses?.length) return <p className="text-sm text-[#697386]">No workflow statuses configured.</p>;
+  if (!q.data?.statuses?.length) return <p className="text-sm text-[#525252]">No workflow statuses configured.</p>;
   const total = q.data.statuses.reduce((s: number, x: any) => s + (x.count || 0), 0);
   return (
     <div>
-      <div className="flex items-end gap-2 h-2.5 mb-3 rounded-full overflow-hidden bg-[#F0F2F5]">
+      <div className="flex items-end gap-2 h-2.5 mb-3 rounded-full overflow-hidden bg-[#f4f4f4]">
         {q.data.statuses.map((s: any) => total > 0 && s.count > 0 && (
           <div key={s.id} title={`${s.name}: ${s.count}`} className="h-full"
-            style={{ width: `${(s.count / total) * 100}%`, backgroundColor: s.color || "#10b981" }} />
+            style={{ width: `${(s.count / total) * 100}%`, backgroundColor: s.color || "#24a148" }} />
         ))}
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
         {q.data.statuses.map((s: any) => (
           <div key={s.id} className="flex items-center gap-2 text-sm">
-            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: s.color || "#10b981" }} />
-            <span className="text-[#697386]">{s.name}</span>
-            <span className="ml-auto font-semibold text-[#1A1F36] tabular-nums">{s.count}</span>
+            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: s.color || "#24a148" }} />
+            <span className="text-[#525252]">{s.name}</span>
+            <span className="ml-auto font-semibold text-[#161616] tabular-nums">{s.count}</span>
           </div>
         ))}
       </div>
@@ -470,17 +470,17 @@ function TopArticlesPanel() {
   } as any);
   if (list.isLoading) return <Skeleton className="h-24 w-full" />;
   const items: any[] = (list.data as any)?.items || [];
-  if (items.length === 0) return <p className="text-sm text-[#697386]">No articles yet.</p>;
+  if (items.length === 0) return <p className="text-sm text-[#525252]">No articles yet.</p>;
   return (
     <ul className="divide-y">
       {items.map((a) => (
         <li key={a.id} className="py-2.5 flex items-center gap-3">
           <Link href={`/admin/articles/${a.id}`} className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-[#1A1F36] truncate hover:text-[#0066FF]">{a.title}</p>
-            <p className="text-xs text-[#697386] truncate">/{a.slug}</p>
+            <p className="text-sm font-medium text-[#161616] truncate hover:text-[#0f62fe]">{a.title}</p>
+            <p className="text-xs text-[#525252] truncate">/{a.slug}</p>
           </Link>
-          <span className="text-sm text-[#1A1F36] tabular-nums shrink-0">
-            <Eye className="h-3.5 w-3.5 inline mr-1 text-[#9BA3B0]" />
+          <span className="text-sm text-[#161616] tabular-nums shrink-0">
+            <Eye className="h-3.5 w-3.5 inline mr-1 text-[#8d8d8d]" />
             {(a.viewCount || 0).toLocaleString()}
           </span>
         </li>
@@ -517,7 +517,7 @@ function AudienceTab({ searchSummary }: { searchSummary: any }) {
         <Card>
           <CardContent className="p-5">
             <PanelTitle title="On-site search (last 30 days)"
-              action={<Link href="/admin/seo"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">Open Search Analytics <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+              action={<Link href="/admin/seo"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">Open Search Analytics <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
             />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <KpiCard label="Searches"         value={searchSummary.data?.totalSearches ?? 0}             icon={BarChart3} accent="emerald" loading={searchSummary.isLoading} />
@@ -563,15 +563,15 @@ function AudienceTab({ searchSummary }: { searchSummary: any }) {
             <AreaChart data={data.daily}>
               <defs>
                 <linearGradient id="ga-users" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#24a148" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#24a148" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="date" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip />
-              <Area type="monotone" dataKey="users" stroke="#10b981" strokeWidth={2} fill="url(#ga-users)" />
+              <Area type="monotone" dataKey="users" stroke="#24a148" strokeWidth={2} fill="url(#ga-users)" />
             </AreaChart>
           </ResponsiveContainer>
         </CardContent>
@@ -583,8 +583,8 @@ function AudienceTab({ searchSummary }: { searchSummary: any }) {
             <ul className="divide-y">
               {data.topPages.slice(0, 8).map((p: any, i: number) => (
                 <li key={i} className="py-2 flex items-center gap-3 text-sm">
-                  <span className="font-mono text-xs text-[#697386] truncate flex-1">{p.path || "/"}</span>
-                  <span className="text-[#1A1F36] tabular-nums shrink-0">{p.pageviews.toLocaleString()}</span>
+                  <span className="font-mono text-xs text-[#525252] truncate flex-1">{p.path || "/"}</span>
+                  <span className="text-[#161616] tabular-nums shrink-0">{p.pageviews.toLocaleString()}</span>
                 </li>
               ))}
             </ul>
@@ -596,8 +596,8 @@ function AudienceTab({ searchSummary }: { searchSummary: any }) {
             <ul className="divide-y">
               {data.topCountries.slice(0, 8).map((c: any, i: number) => (
                 <li key={i} className="py-2 flex items-center gap-3 text-sm">
-                  <span className="text-[#1A1F36] truncate flex-1">{c.country}</span>
-                  <span className="text-[#1A1F36] tabular-nums shrink-0">{c.users.toLocaleString()}</span>
+                  <span className="text-[#161616] truncate flex-1">{c.country}</span>
+                  <span className="text-[#161616] tabular-nums shrink-0">{c.users.toLocaleString()}</span>
                 </li>
               ))}
             </ul>
@@ -666,7 +666,7 @@ function RevenueTab() {
           <Card>
             <CardContent className="p-5">
               <PanelTitle title="Direct ads (campaigns)" />
-              <p className="text-sm text-[#697386] mb-3">Live impressions, clicks, and revenue from direct-sold campaigns.</p>
+              <p className="text-sm text-[#525252] mb-3">Live impressions, clicks, and revenue from direct-sold campaigns.</p>
               <Link href="/admin/advertising">
                 <Button variant="outline" className="w-full">Go to Advertising Manager</Button>
               </Link>
@@ -675,7 +675,7 @@ function RevenueTab() {
           <Card>
             <CardContent className="p-5">
               <PanelTitle title="Sponsored content (coming soon)" />
-              <p className="text-sm text-[#697386]">Per-article sponsorship deals + delivery tracking. Phase 2 of the Advertising Manager.</p>
+              <p className="text-sm text-[#525252]">Per-article sponsorship deals + delivery tracking. Phase 2 of the Advertising Manager.</p>
             </CardContent>
           </Card>
         </div>
@@ -696,7 +696,7 @@ function RevenueTab() {
           <Card>
             <CardContent className="p-5">
               <PanelTitle title="Direct ads (campaigns)" />
-              <p className="text-sm text-[#697386] mb-3">Live impressions, clicks, and revenue from direct-sold campaigns.</p>
+              <p className="text-sm text-[#525252] mb-3">Live impressions, clicks, and revenue from direct-sold campaigns.</p>
               <Link href="/admin/advertising">
                 <Button variant="outline" className="w-full">Go to Advertising Manager</Button>
               </Link>
@@ -705,7 +705,7 @@ function RevenueTab() {
           <Card>
             <CardContent className="p-5">
               <PanelTitle title="Sponsored content (coming soon)" />
-              <p className="text-sm text-[#697386]">Per-article sponsorship deals + delivery tracking. Phase 2 of the Advertising Manager.</p>
+              <p className="text-sm text-[#525252]">Per-article sponsorship deals + delivery tracking. Phase 2 of the Advertising Manager.</p>
             </CardContent>
           </Card>
         </div>
@@ -730,7 +730,7 @@ function RevenueTab() {
               <XAxis dataKey="date" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip />
-              <Bar dataKey="revenue" fill="#10b981" radius={[3, 3, 0, 0]} />
+              <Bar dataKey="revenue" fill="#24a148" radius={[3, 3, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </CardContent>
@@ -747,7 +747,7 @@ function RevenueTab() {
         <Card>
           <CardContent className="p-5">
             <PanelTitle title="Sponsored content" />
-            <p className="text-sm text-[#697386]">Per-article sponsorship deals + delivery tracking — coming.</p>
+            <p className="text-sm text-[#525252]">Per-article sponsorship deals + delivery tracking — coming.</p>
           </CardContent>
         </Card>
       </div>
@@ -786,13 +786,13 @@ function WriterDashboard() {
         {/* Greeting + primary action */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">{greet}, {firstName}</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">{greet}, {firstName}</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Pick up where you left off, or start something new.
             </p>
           </div>
           <Link href="/admin/articles/new">
-            <Button className="bg-[#0066FF] hover:bg-[#0052CC] h-11 px-5">
+            <Button className="bg-[#0f62fe] hover:bg-[#0043ce] h-11 px-5">
               <Plus className="h-4 w-4 mr-1.5" /> New article
             </Button>
           </Link>
@@ -811,7 +811,7 @@ function WriterDashboard() {
             <CardContent className="p-5">
               <PanelTitle
                 title="My drafts"
-                action={<Link href="/admin/articles?status=draft"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">All drafts <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                action={<Link href="/admin/articles?status=draft"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">All drafts <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
               />
               <ArticleListPanel q={drafts} emptyMessage="No drafts yet — start a new article." />
             </CardContent>
@@ -820,7 +820,7 @@ function WriterDashboard() {
             <CardContent className="p-5">
               <PanelTitle
                 title="Recently published"
-                action={<Link href="/admin/articles?status=published"><Button variant="ghost" size="sm" className="text-[#0066FF] -mr-2">All published <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
+                action={<Link href="/admin/articles?status=published"><Button variant="ghost" size="sm" className="text-[#0f62fe] -mr-2">All published <ArrowRight className="h-3.5 w-3.5 ml-1" /></Button></Link>}
               />
               <ArticleListPanel q={published} emptyMessage="Nothing published yet." showViewCount />
             </CardContent>
@@ -828,11 +828,11 @@ function WriterDashboard() {
         </div>
 
         {/* Tips strip — light editorial guidance */}
-        <Card className="bg-[#F0F7FF]/40 border-[#C7DCFF]">
+        <Card className="bg-[#edf5ff]/40 border-[#a6c8ff]">
           <CardContent className="p-5">
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-md bg-[#EBF3FF] flex items-center justify-center shrink-0">
-                <Sparkles className="h-4 w-4 text-[#0066FF]" />
+              <div className="w-9 h-9 rounded-md bg-[#edf5ff] flex items-center justify-center shrink-0">
+                <Sparkles className="h-4 w-4 text-[#0f62fe]" />
               </div>
               <div>
                 <p className="font-semibold text-[#003D99] mb-1">Writing tips</p>
@@ -853,18 +853,18 @@ function WriterDashboard() {
 function ArticleListPanel({ q, emptyMessage, showViewCount }: { q: any; emptyMessage: string; showViewCount?: boolean }) {
   if (q.isLoading) return <Skeleton className="h-24 w-full" />;
   const items: any[] = q.data?.items || [];
-  if (items.length === 0) return <p className="text-sm text-[#697386]">{emptyMessage}</p>;
+  if (items.length === 0) return <p className="text-sm text-[#525252]">{emptyMessage}</p>;
   return (
     <ul className="divide-y">
       {items.map((a) => (
         <li key={a.id} className="py-2.5 flex items-center gap-3">
           <Link href={`/admin/articles/${a.id}`} className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-[#1A1F36] truncate hover:text-[#0066FF]">{a.title}</p>
-            <p className="text-xs text-[#697386] truncate">/{a.slug}</p>
+            <p className="text-sm font-medium text-[#161616] truncate hover:text-[#0f62fe]">{a.title}</p>
+            <p className="text-xs text-[#525252] truncate">/{a.slug}</p>
           </Link>
           {showViewCount && (
-            <span className="text-xs text-[#697386] tabular-nums shrink-0">
-              <Eye className="h-3 w-3 inline mr-0.5 text-[#9BA3B0]" />
+            <span className="text-xs text-[#525252] tabular-nums shrink-0">
+              <Eye className="h-3 w-3 inline mr-0.5 text-[#8d8d8d]" />
               {(a.viewCount || 0).toLocaleString()}
             </span>
           )}

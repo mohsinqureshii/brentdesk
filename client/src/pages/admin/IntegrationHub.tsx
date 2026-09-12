@@ -92,10 +92,10 @@ const INTEGRATIONS: IntegrationDescriptor[] = [
 ];
 
 const STATUS_PILL: Record<"active" | "configured" | "error" | "unconfigured", { label: string; cls: string; Icon: React.ComponentType<{ className?: string }> }> = {
-  active:       { label: "Active",         cls: "bg-[#EBF3FF] text-[#0052CC] border-[#C7DCFF]", Icon: CheckCircle2 },
-  configured:   { label: "Configured",     cls: "bg-[#EBF3FF] text-[#0052CC] border-[#C7DCFF]", Icon: CheckCircle2 },
+  active:       { label: "Active",         cls: "bg-[#edf5ff] text-[#0043ce] border-[#a6c8ff]", Icon: CheckCircle2 },
+  configured:   { label: "Configured",     cls: "bg-[#edf5ff] text-[#0043ce] border-[#a6c8ff]", Icon: CheckCircle2 },
   error:        { label: "Error",          cls: "bg-red-100 text-red-700 border-red-200",            Icon: AlertCircle },
-  unconfigured: { label: "Not configured", cls: "bg-[#F0F2F5] text-[#1A1F36] border-[#E0E3E8]",         Icon: CircleDashed },
+  unconfigured: { label: "Not configured", cls: "bg-[#f4f4f4] text-[#161616] border-[#e0e0e0]",         Icon: CircleDashed },
 };
 
 function IntegrationCard({
@@ -112,19 +112,19 @@ function IntegrationCard({
     <Card className="flex flex-col hover:shadow-md transition-shadow">
       <CardContent className="p-5 flex-1 flex flex-col">
         <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="w-10 h-10 rounded-md bg-[#F0F7FF] flex items-center justify-center shrink-0">
-            <i.icon className="h-5 w-5 text-[#0066FF]" />
+          <div className="w-10 h-10 rounded-md bg-[#edf5ff] flex items-center justify-center shrink-0">
+            <i.icon className="h-5 w-5 text-[#0f62fe]" />
           </div>
           <Badge variant="outline" className={`${pill.cls} gap-1.5 whitespace-nowrap`}>
             <pill.Icon className="h-3 w-3" />
             {pill.label}
           </Badge>
         </div>
-        <h3 id={i.id} className="font-semibold text-[#1A1F36] mb-1 scroll-mt-24">{i.name}</h3>
-        <p className="text-sm text-[#697386] leading-relaxed mb-4 flex-1">{i.description}</p>
+        <h3 id={i.id} className="font-semibold text-[#161616] mb-1 scroll-mt-24">{i.name}</h3>
+        <p className="text-sm text-[#525252] leading-relaxed mb-4 flex-1">{i.description}</p>
         <div className="flex flex-wrap gap-1 mb-4">
           {i.capabilities.map((c) => (
-            <Badge key={c} variant="secondary" className="bg-[#F0F2F5] text-[#1A1F36] text-[11px] font-normal">
+            <Badge key={c} variant="secondary" className="bg-[#f4f4f4] text-[#161616] text-[11px] font-normal">
               {c}
             </Badge>
           ))}
@@ -132,7 +132,7 @@ function IntegrationCard({
         <Button
           variant="ghost"
           onClick={onConfigure}
-          className="text-[#0066FF] hover:text-[#0052CC] hover:bg-[#F0F7FF] px-0 -mx-1 justify-start w-fit"
+          className="text-[#0f62fe] hover:text-[#0043ce] hover:bg-[#edf5ff] px-0 -mx-1 justify-start w-fit"
         >
           <Settings className="h-4 w-4 mr-1.5" />
           {effectiveStatus === "unconfigured" ? "Add credentials" : "Configure"}
@@ -149,15 +149,15 @@ function FormSubmissionsInbox() {
       <CardContent className="p-5">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Inbox className="h-5 w-5 text-[#0066FF]" />
-            <h3 className="font-semibold text-[#1A1F36]">Form Submissions</h3>
+            <Inbox className="h-5 w-5 text-[#0f62fe]" />
+            <h3 className="font-semibold text-[#161616]">Form Submissions</h3>
           </div>
-          <Badge variant="outline" className="bg-[#F7F8FA]">{list.data?.total ?? 0} total</Badge>
+          <Badge variant="outline" className="bg-[#f4f4f4]">{list.data?.total ?? 0} total</Badge>
         </div>
         {list.isLoading ? (
-          <p className="text-sm text-[#697386]">Loading…</p>
+          <p className="text-sm text-[#525252]">Loading…</p>
         ) : !list.data || list.data.items.length === 0 ? (
-          <p className="text-sm text-[#697386]">
+          <p className="text-sm text-[#525252]">
             No submissions yet. The Newsletter, Contact, and Advertise forms write here.
           </p>
         ) : (
@@ -166,10 +166,10 @@ function FormSubmissionsInbox() {
               <li key={s.id} className="py-3 flex items-start gap-3">
                 <Badge variant="outline" className="text-[10px] uppercase tracking-wider shrink-0 mt-0.5">{s.form_type}</Badge>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-[#1A1F36] truncate">{s.name || s.email || "(anonymous)"}</p>
-                  <p className="text-xs text-[#697386] truncate">{s.email}</p>
+                  <p className="text-sm font-medium text-[#161616] truncate">{s.name || s.email || "(anonymous)"}</p>
+                  <p className="text-xs text-[#525252] truncate">{s.email}</p>
                 </div>
-                <span className="text-xs text-[#9BA3B0] shrink-0">{new Date(s.created_at).toLocaleString()}</span>
+                <span className="text-xs text-[#8d8d8d] shrink-0">{new Date(s.created_at).toLocaleString()}</span>
               </li>
             ))}
           </ul>
@@ -217,11 +217,11 @@ export default function IntegrationHub() {
         {/* Header */}
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36] flex items-center gap-2">
-              <Puzzle className="h-6 w-6 text-[#0066FF]" />
+            <h1 className="text-xl font-semibold text-[#161616] flex items-center gap-2">
+              <Puzzle className="h-6 w-6 text-[#0f62fe]" />
               Integration Hub
             </h1>
-            <p className="text-[#697386] mt-0.5 text-[13px] max-w-2xl">
+            <p className="text-[#525252] mt-0.5 text-[13px] max-w-2xl">
               Connect and manage third-party services. Credentials are encrypted at rest;
               configure each integration here instead of editing environment variables.
             </p>
@@ -230,10 +230,10 @@ export default function IntegrationHub() {
 
         {/* Counters */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <Card><CardContent className="p-4"><p className="text-xs text-[#697386] uppercase tracking-wider">Total</p><p className="text-xl font-semibold text-[#1A1F36] mt-1">{totals.total}</p></CardContent></Card>
-          <Card><CardContent className="p-4"><p className="text-xs text-[#0066FF] uppercase tracking-wider">Active</p><p className="text-2xl font-bold text-[#0066FF] mt-1">{totals.active}</p></CardContent></Card>
+          <Card><CardContent className="p-4"><p className="text-xs text-[#525252] uppercase tracking-wider">Total</p><p className="text-xl font-semibold text-[#161616] mt-1">{totals.total}</p></CardContent></Card>
+          <Card><CardContent className="p-4"><p className="text-xs text-[#0f62fe] uppercase tracking-wider">Active</p><p className="text-2xl font-bold text-[#0f62fe] mt-1">{totals.active}</p></CardContent></Card>
           <Card><CardContent className="p-4"><p className="text-xs text-red-600 uppercase tracking-wider">Errors</p><p className="text-2xl font-bold text-red-600 mt-1">{totals.error}</p></CardContent></Card>
-          <Card><CardContent className="p-4"><p className="text-xs text-[#697386] uppercase tracking-wider">Not configured</p><p className="text-2xl font-bold text-[#697386] mt-1">{totals.unconfigured}</p></CardContent></Card>
+          <Card><CardContent className="p-4"><p className="text-xs text-[#525252] uppercase tracking-wider">Not configured</p><p className="text-2xl font-bold text-[#525252] mt-1">{totals.unconfigured}</p></CardContent></Card>
         </div>
 
         {/* Cards by category */}
@@ -246,7 +246,7 @@ export default function IntegrationHub() {
         ) : (
           orderedCategories.map((cat) => (
             <section key={cat}>
-              <h2 className="text-xs font-semibold uppercase tracking-wider text-[#697386] mb-3">{cat}</h2>
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-[#525252] mb-3">{cat}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {grouped[cat].map((i) => {
                   const c = statusById.get(i.id) as any;
@@ -269,7 +269,7 @@ export default function IntegrationHub() {
 
         {/* Recent activity */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-[#697386] mb-3">Recent activity</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-wider text-[#525252] mb-3">Recent activity</h2>
           <FormSubmissionsInbox />
         </section>
 

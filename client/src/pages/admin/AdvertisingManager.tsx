@@ -218,7 +218,7 @@ export default function AdvertisingManager() {
 
   const getStatusBadge = (status: string) => {
     const cfg: Record<string, { cls: string; Icon: any }> = {
-      draft: { cls: "bg-[#F0F2F5] text-[#1A1F36] border-[#E0E3E8]", Icon: Pencil },
+      draft: { cls: "bg-[#f4f4f4] text-[#161616] border-[#e0e0e0]", Icon: Pencil },
       pending: { cls: "bg-yellow-100 text-yellow-700 border-yellow-200", Icon: Calendar },
       pending_approval: { cls: "bg-yellow-100 text-yellow-700 border-yellow-200", Icon: Calendar },
       active: { cls: "bg-green-100 text-green-700 border-green-200", Icon: Play },
@@ -344,7 +344,7 @@ export default function AdvertisingManager() {
             <CardContent className="pt-4 pb-3 px-4">
               <p className="text-xs text-muted-foreground mb-1">Ad Slots</p>
               <div className="flex items-center gap-2">
-                <LayoutGrid className="h-5 w-5 text-[#0066FF]" />
+                <LayoutGrid className="h-5 w-5 text-[#0f62fe]" />
                 <span className="text-2xl font-bold">{statsData?.slots?.activeSlots || 0}</span>
                 <span className="text-xs text-muted-foreground">/ {statsData?.slots?.totalSlots || 0}</span>
               </div>
@@ -464,7 +464,7 @@ export default function AdvertisingManager() {
                     <span className="text-xs">New Campaign</span>
                   </Button>
                   <Button variant="outline" className="h-auto py-3 flex-col gap-1" onClick={() => setIsCreateSlotOpen(true)}>
-                    <LayoutGrid className="h-5 w-5 text-[#0066FF]" />
+                    <LayoutGrid className="h-5 w-5 text-[#0f62fe]" />
                     <span className="text-xs">New Slot</span>
                   </Button>
                   <Button variant="outline" className="h-auto py-3 flex-col gap-1" onClick={() => setIsCreateCreativeOpen(true)}>
@@ -530,7 +530,7 @@ export default function AdvertisingManager() {
                   {slots.map((slot: Slot) => (
                     <div
                       key={slot.id}
-                      className={`border rounded-md p-3 cursor-pointer transition-shadow hover:shadow-md ${slot.isActive ? "border-green-200 bg-green-50/50" : "border-[#E0E3E8] bg-[#F7F8FA]/50 opacity-60"}`}
+                      className={`border rounded-md p-3 cursor-pointer transition-shadow hover:shadow-md ${slot.isActive ? "border-green-200 bg-green-50/50" : "border-[#e0e0e0] bg-[#f4f4f4]/50 opacity-60"}`}
                       onClick={() => setSelectedSlot(slot)}
                     >
                       <div className="flex items-center justify-between mb-1">
@@ -544,7 +544,7 @@ export default function AdvertisingManager() {
                       <div className="flex items-center gap-1 mt-1">
                         {slot.dimensions?.includes("728") ? <Monitor className="h-3 w-3 text-muted-foreground" /> : <Smartphone className="h-3 w-3 text-muted-foreground" />}
                         <span className="text-[10px] text-muted-foreground">{slot.pageType || "all"}</span>
-                        {slot.baseCpm && <span className="text-[10px] text-[#0066FF] ml-auto">${slot.baseCpm} CPM</span>}
+                        {slot.baseCpm && <span className="text-[10px] text-[#0f62fe] ml-auto">${slot.baseCpm} CPM</span>}
                       </div>
                     </div>
                   ))}
@@ -834,7 +834,7 @@ export default function AdvertisingManager() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-2">
-                    <FileText className="h-5 w-5 text-[#0066FF]" />
+                    <FileText className="h-5 w-5 text-[#0f62fe]" />
                     ads.txt Editor
                   </CardTitle>
                   <CardDescription>
@@ -1025,7 +1025,7 @@ export default function AdvertisingManager() {
           <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
-                <LayoutGrid className="h-5 w-5 text-[#0066FF]" />
+                <LayoutGrid className="h-5 w-5 text-[#0f62fe]" />
                 {isEditingSlot ? "Edit Slot" : selectedSlot?.name}
               </DialogTitle>
               <DialogDescription className="font-mono text-xs">{selectedSlot?.slotKey}</DialogDescription>
@@ -1119,7 +1119,7 @@ export default function AdvertisingManager() {
                       if (locations.length === 0) locations.push("All pages (global slot)");
                       return locations.map((loc, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm">
-                          <div className="h-1.5 w-1.5 rounded-full bg-[#0066FF] shrink-0" />
+                          <div className="h-1.5 w-1.5 rounded-full bg-[#0f62fe] shrink-0" />
                           <span>{loc}</span>
                         </div>
                       ));

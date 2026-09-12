@@ -77,7 +77,7 @@ const typeLabels: Record<string, { label: string; color: string }> = {
   workshop: { label: "Workshop", color: "bg-orange-100 text-orange-600" },
   hackathon: { label: "Hackathon", color: "bg-red-100 text-red-600" },
   summit: { label: "Summit", color: "bg-indigo-100 text-indigo-600" },
-  other: { label: "Other", color: "bg-[#F0F2F5] text-[#697386]" },
+  other: { label: "Other", color: "bg-[#f4f4f4] text-[#525252]" },
 };
 
 const formatLabels: Record<string, { label: string; icon: React.ElementType }> = {
@@ -87,7 +87,7 @@ const formatLabels: Record<string, { label: string; icon: React.ElementType }> =
 };
 
 const statusColors: Record<string, string> = {
-  draft: "bg-[#F0F2F5] text-[#697386]",
+  draft: "bg-[#f4f4f4] text-[#525252]",
   published: "bg-green-100 text-green-600",
   cancelled: "bg-red-100 text-red-600",
   completed: "bg-blue-100 text-blue-600",
@@ -149,7 +149,7 @@ type Phase = "upcoming" | "live" | "past";
 const phaseStyles: Record<Phase, string> = {
   upcoming: "bg-blue-50 text-blue-700 border border-blue-100",
   live: "bg-red-600 text-white border border-red-600 uppercase tracking-wide shadow-sm",
-  past: "bg-[#F0F2F5] text-[#697386] border border-[#E0E3E8]",
+  past: "bg-[#f4f4f4] text-[#525252] border border-[#e0e0e0]",
 };
 
 /**
@@ -554,8 +554,8 @@ export default function EventsList() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Events</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Events</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage conferences, meetups, webinars, and workshops
             </p>
           </div>
@@ -607,7 +607,7 @@ export default function EventsList() {
               </Button>
             )}
             <Link href="/admin/events/new">
-              <Button className="bg-[#0066FF] hover:bg-[#0052CC]">
+              <Button className="bg-[#0f62fe] hover:bg-[#0043ce]">
                 <Plus className="h-4 w-4 mr-2" />
                 Add Event
               </Button>
@@ -624,8 +624,8 @@ export default function EventsList() {
                   <Calendar className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Events</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{total}</p>
+                  <p className="text-sm text-[#525252]">Total Events</p>
+                  <p className="text-xl font-semibold text-[#161616]">{total}</p>
                 </div>
               </div>
             </CardContent>
@@ -637,8 +637,8 @@ export default function EventsList() {
                   <Clock className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Upcoming</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{upcomingCount}</p>
+                  <p className="text-sm text-[#525252]">Upcoming</p>
+                  <p className="text-xl font-semibold text-[#161616]">{upcomingCount}</p>
                 </div>
               </div>
             </CardContent>
@@ -650,8 +650,8 @@ export default function EventsList() {
                   <Users className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Registrations</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{totalRegistrations.toLocaleString()}</p>
+                  <p className="text-sm text-[#525252]">Registrations</p>
+                  <p className="text-xl font-semibold text-[#161616]">{totalRegistrations.toLocaleString()}</p>
                 </div>
               </div>
             </CardContent>
@@ -663,8 +663,8 @@ export default function EventsList() {
                   <Eye className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#697386]">Total Views</p>
-                  <p className="text-xl font-semibold text-[#1A1F36]">{totalViews.toLocaleString()}</p>
+                  <p className="text-sm text-[#525252]">Total Views</p>
+                  <p className="text-xl font-semibold text-[#161616]">{totalViews.toLocaleString()}</p>
                 </div>
               </div>
             </CardContent>
@@ -684,7 +684,7 @@ export default function EventsList() {
             */}
             <div className="flex flex-wrap md:flex-nowrap md:overflow-x-auto items-center gap-2 pb-0.5">
               <div className="relative flex-1 min-w-[180px]">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="Search events, city, venue, organiser…"
                   value={search}
@@ -696,7 +696,7 @@ export default function EventsList() {
                     type="button"
                     onClick={() => setSearch("")}
                     aria-label="Clear search"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-[#F0F2F5] text-[#9BA3B0]"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-[#f4f4f4] text-[#8d8d8d]"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
@@ -773,7 +773,7 @@ export default function EventsList() {
               </Select>
 
               <div className="relative w-[130px] shrink-0">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input
                   placeholder="City"
                   aria-label="City"
@@ -810,7 +810,7 @@ export default function EventsList() {
                     ? `${activeFilterCount} filter${activeFilterCount === 1 ? "" : "s"} active — clear them`
                     : "Showing upcoming events by default"
                 }
-                className="h-9 shrink-0 px-2 text-[#697386]"
+                className="h-9 shrink-0 px-2 text-[#525252]"
               >
                 <X className="h-4 w-4 mr-1" />
                 Clear
@@ -824,8 +824,8 @@ export default function EventsList() {
           </CardHeader>
           <CardContent>
             {selectedEvents.length > 0 && (
-              <div className="flex items-center gap-4 mb-4 p-3 bg-[#F7F8FA] rounded-md">
-                <span className="text-sm font-medium text-[#1A1F36]">
+              <div className="flex items-center gap-4 mb-4 p-3 bg-[#f4f4f4] rounded-md">
+                <span className="text-sm font-medium text-[#161616]">
                   {selectedEvents.length} selected
                 </span>
                 <div className="flex gap-2">
@@ -868,15 +868,15 @@ export default function EventsList() {
 
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : error ? (
               <div className="flex items-center justify-center py-12 text-red-600">
                 Error loading events: {error.message}
               </div>
             ) : events.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-12 text-[#697386]">
-                <Calendar className="h-12 w-12 mb-4 text-[#C8CDD6]" />
+              <div className="flex flex-col items-center justify-center py-12 text-[#525252]">
+                <Calendar className="h-12 w-12 mb-4 text-[#c6c6c6]" />
                 <p className="text-lg font-medium">No events found</p>
                 <p className="text-sm">
                   {activeFilterCount > 0
@@ -890,7 +890,7 @@ export default function EventsList() {
                   </Button>
                 ) : (
                   <Link href="/admin/events/new">
-                    <Button className="mt-4 bg-[#0066FF] hover:bg-[#0052CC]">
+                    <Button className="mt-4 bg-[#0f62fe] hover:bg-[#0043ce]">
                       <Plus className="h-4 w-4 mr-2" />
                       Add Event
                     </Button>
@@ -919,16 +919,16 @@ export default function EventsList() {
                         />
                       </TableHead>
                       <TableHead className={COL.event}>
-                        <button onClick={() => handleSort("name")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("name")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Event
-                          {sortBy === "name" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "name" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className={COL.when}>When</TableHead>
                       <TableHead className={COL.from}>
-                        <button onClick={() => handleSort("startDate")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("startDate")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           From
-                          {sortBy === "startDate" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "startDate" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className={COL.to}>To</TableHead>
@@ -939,15 +939,15 @@ export default function EventsList() {
                       <TableHead className={COL.tickets}>Tickets</TableHead>
                       <TableHead className={COL.sideEvents}>Side events</TableHead>
                       <TableHead className={COL.registrations}>
-                        <button onClick={() => handleSort("registrations")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("registrations")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Regs
-                          {sortBy === "registrations" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "registrations" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className={COL.status}>
-                        <button onClick={() => handleSort("status")} className="flex items-center gap-1 hover:text-[#0066FF] transition-colors">
+                        <button onClick={() => handleSort("status")} className="flex items-center gap-1 hover:text-[#0f62fe] transition-colors">
                           Status
-                          {sortBy === "status" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#9BA3B0]" />}
+                          {sortBy === "status" ? (sortOrder === "asc" ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />) : <ArrowUpDown className="h-4 w-4 text-[#8d8d8d]" />}
                         </button>
                       </TableHead>
                       <TableHead className={COL.actions}></TableHead>
@@ -956,7 +956,7 @@ export default function EventsList() {
                   <TableBody>
                     {events.map((event: any) => {
                       const eventType = event.type || event.eventType;
-                      const typeInfo = typeLabels[eventType] || { label: eventType || "Event", color: "bg-[#F0F2F5] text-[#697386]" };
+                      const typeInfo = typeLabels[eventType] || { label: eventType || "Event", color: "bg-[#f4f4f4] text-[#525252]" };
                       const formatInfo = formatLabels[event.format] || { label: event.format || "TBD", icon: MapPin };
                       const FormatIcon = formatInfo.icon;
                       const organizer = event.organizerName || event.organizer;
@@ -979,7 +979,7 @@ export default function EventsList() {
                             <div className="min-w-0">
                               <div className="flex items-center gap-2">
                                 <Link href={`/admin/events/${event.id}`}>
-                                  <span className="font-medium hover:text-[#0066FF] cursor-pointer truncate block">{event.title}</span>
+                                  <span className="font-medium hover:text-[#0f62fe] cursor-pointer truncate block">{event.title}</span>
                                 </Link>
                                 {!!event.isFeatured && (
                                   <Badge className="text-xs bg-amber-100 text-amber-800 shrink-0">Featured</Badge>
@@ -987,7 +987,7 @@ export default function EventsList() {
                               </div>
                               {/* No organiser => no second line at all (no stray dash) */}
                               {organizer ? (
-                                <p className="text-xs text-[#9BA3B0] truncate">{organizer}</p>
+                                <p className="text-xs text-[#8d8d8d] truncate">{organizer}</p>
                               ) : null}
                             </div>
                           </TableCell>
@@ -1014,21 +1014,21 @@ export default function EventsList() {
                                 {phase}
                               </span>
                             ) : (
-                              <span className="text-sm text-[#9BA3B0]">—</span>
+                              <span className="text-sm text-[#8d8d8d]">—</span>
                             )}
                           </TableCell>
                           <TableCell className={COL.from}>
-                            <span className="text-sm font-medium text-[#1A1F36] whitespace-nowrap">
+                            <span className="text-sm font-medium text-[#161616] whitespace-nowrap">
                               {formatDay(start) ?? "—"}
                             </span>
                           </TableCell>
                           <TableCell className={COL.to}>
-                            <span className="text-sm text-[#697386] whitespace-nowrap">
+                            <span className="text-sm text-[#525252] whitespace-nowrap">
                               {formatDay(end) ?? "—"}
                             </span>
                           </TableCell>
                           <TableCell className={COL.days}>
-                            <span className="text-sm tabular-nums text-[#697386]">
+                            <span className="text-sm tabular-nums text-[#525252]">
                               {days ? `${days}d` : "—"}
                             </span>
                           </TableCell>
@@ -1041,7 +1041,7 @@ export default function EventsList() {
                                 {typeInfo.label}
                               </Badge>
                               <span
-                                className="shrink-0 text-[#9BA3B0]"
+                                className="shrink-0 text-[#8d8d8d]"
                                 title={formatInfo.label}
                                 aria-label={formatInfo.label}
                               >
@@ -1052,12 +1052,12 @@ export default function EventsList() {
                           {/* City — sourced from events.city on adminList */}
                           <TableCell className={COL.city}>
                             {event.city ? (
-                              <div className="flex items-center gap-1 text-[#697386] min-w-0">
+                              <div className="flex items-center gap-1 text-[#525252] min-w-0">
                                 <MapPin className="h-3 w-3 shrink-0" />
                                 <span className="text-sm truncate">{event.city}</span>
                               </div>
                             ) : (
-                              <span className="text-sm text-[#9BA3B0]">—</span>
+                              <span className="text-sm text-[#8d8d8d]">—</span>
                             )}
                           </TableCell>
                           {/* Sectors — first two on one line, then a +N chip.
@@ -1073,14 +1073,14 @@ export default function EventsList() {
                                 {eventSectors.slice(0, 2).map((s) => (
                                   <Badge
                                     key={s.id}
-                                    className="bg-[#F0F2F5] text-[#697386] text-[11px] font-normal max-w-[88px] block truncate"
+                                    className="bg-[#f4f4f4] text-[#525252] text-[11px] font-normal max-w-[88px] block truncate"
                                   >
                                     {s.name}
                                   </Badge>
                                 ))}
                                 {eventSectors.length > 2 && (
                                   <span
-                                    className="shrink-0 rounded-full bg-[#F0F2F5] px-1.5 py-0.5 text-[11px] text-[#697386]"
+                                    className="shrink-0 rounded-full bg-[#f4f4f4] px-1.5 py-0.5 text-[11px] text-[#525252]"
                                     title={eventSectors.slice(2).map((s) => s.name).join(", ")}
                                   >
                                     +{eventSectors.length - 2}
@@ -1088,7 +1088,7 @@ export default function EventsList() {
                                 )}
                               </div>
                             ) : (
-                              <span className="text-sm text-[#9BA3B0]">—</span>
+                              <span className="text-sm text-[#8d8d8d]">—</span>
                             )}
                           </TableCell>
                           {/* Tickets — any tier row or an external ticket/registration URL */}
@@ -1097,7 +1097,7 @@ export default function EventsList() {
                               className={
                                 event.hasTickets
                                   ? "bg-green-100 text-green-600"
-                                  : "bg-[#F0F2F5] text-[#697386]"
+                                  : "bg-[#f4f4f4] text-[#525252]"
                               }
                             >
                               {event.hasTickets ? "Yes" : "No"}
@@ -1106,16 +1106,16 @@ export default function EventsList() {
                           {/* Side events — approved count only */}
                           <TableCell className={COL.sideEvents}>
                             {event.sideEventCount > 0 ? (
-                              <span className="text-sm font-medium text-[#1A1F36]">{event.sideEventCount}</span>
+                              <span className="text-sm font-medium text-[#161616]">{event.sideEventCount}</span>
                             ) : (
-                              <span className="text-sm text-[#9BA3B0]">—</span>
+                              <span className="text-sm text-[#8d8d8d]">—</span>
                             )}
                           </TableCell>
                           <TableCell className={COL.registrations}>
                             <div className="text-sm">
-                              <span className="font-medium text-[#1A1F36]">{event.registrationCount || 0}</span>
+                              <span className="font-medium text-[#161616]">{event.registrationCount || 0}</span>
                               {event.capacity && (
-                                <span className="text-[#697386]"> / {event.capacity}</span>
+                                <span className="text-[#525252]"> / {event.capacity}</span>
                               )}
                             </div>
                           </TableCell>
@@ -1180,7 +1180,7 @@ export default function EventsList() {
                 </div>
 
                 {/* Advanced Pagination */}
-                <div className="px-4 border-t border-[#E0E3E8]">
+                <div className="px-4 border-t border-[#e0e0e0]">
                   <AdvancedPagination
                     currentPage={page}
                     totalPages={totalPages}
@@ -1210,22 +1210,22 @@ export default function EventsList() {
           </DialogHeader>
 
           {seedPreview.isLoading ? (
-            <div className="flex items-center gap-2 py-6 text-sm text-[#697386]">
+            <div className="flex items-center gap-2 py-6 text-sm text-[#525252]">
               <Loader2 className="h-4 w-4 animate-spin" /> Checking dataset…
             </div>
           ) : seedPreview.data ? (
             <div className="grid grid-cols-2 gap-3 py-2">
               <div className="rounded-lg border p-3">
-                <div className="text-2xl font-semibold text-[#1A1F36]">
+                <div className="text-2xl font-semibold text-[#161616]">
                   {(seedPreview.data as any).wouldInsert}
                 </div>
-                <div className="text-[12px] text-[#697386]">new events to add</div>
+                <div className="text-[12px] text-[#525252]">new events to add</div>
               </div>
               <div className="rounded-lg border p-3">
-                <div className="text-2xl font-semibold text-[#1A1F36]">
+                <div className="text-2xl font-semibold text-[#161616]">
                   {(seedPreview.data as any).wouldEnrich}
                 </div>
-                <div className="text-[12px] text-[#697386]">existing events to enrich</div>
+                <div className="text-[12px] text-[#525252]">existing events to enrich</div>
               </div>
             </div>
           ) : (
@@ -1239,7 +1239,7 @@ export default function EventsList() {
               Cancel
             </Button>
             <Button
-              className="bg-[#0066FF] hover:bg-[#0052CC]"
+              className="bg-[#0f62fe] hover:bg-[#0043ce]"
               disabled={seedRun.isPending || !seedPreview.data}
               onClick={() => seedRun.mutate({ apply: true, publish: true })}
             >

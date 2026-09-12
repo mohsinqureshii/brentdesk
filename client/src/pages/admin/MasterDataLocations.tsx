@@ -114,8 +114,8 @@ export default function MasterDataLocations() {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Locations</h1>
-            <p className="text-sm text-[#697386] mt-1">Manage countries and cities for job listings, companies, and other entities</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Locations</h1>
+            <p className="text-sm text-[#525252] mt-1">Manage countries and cities for job listings, companies, and other entities</p>
           </div>
         </div>
 
@@ -125,38 +125,38 @@ export default function MasterDataLocations() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Globe className="h-5 w-5 text-[#0066FF]" />
+                  <Globe className="h-5 w-5 text-[#0f62fe]" />
                   Countries
                   <Badge variant="secondary" className="ml-2">{countryList.length}</Badge>
                 </CardTitle>
-                <Button size="sm" onClick={openAddCountry} className="bg-[#0066FF] hover:bg-[#0052CC]">
+                <Button size="sm" onClick={openAddCountry} className="bg-[#0f62fe] hover:bg-[#0043ce]">
                   <Plus className="h-4 w-4 mr-1" /> Add
                 </Button>
               </div>
               <div className="relative mt-2">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input placeholder="Search countries..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9 h-9" />
               </div>
             </CardHeader>
             <CardContent className="p-0">
               <div className="max-h-[500px] overflow-y-auto">
                 {countryList.length === 0 ? (
-                  <div className="p-8 text-center text-[#697386] text-sm">No countries found</div>
+                  <div className="p-8 text-center text-[#525252] text-sm">No countries found</div>
                 ) : (
                   <div className="divide-y">
                     {countryList.map((country: any) => (
                       <div
                         key={country.id}
-                        className={`flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors ${selectedCountryId === country.id ? "bg-[#F0F7FF] border-l-2 border-[#0052CC]" : "hover:bg-[#F7F8FA]"} ${!country.isActive ? "opacity-50" : ""}`}
+                        className={`flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors ${selectedCountryId === country.id ? "bg-[#edf5ff] border-l-2 border-[#0043ce]" : "hover:bg-[#f4f4f4]"} ${!country.isActive ? "opacity-50" : ""}`}
                         onClick={() => setSelectedCountryId(country.id)}
                       >
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-medium text-sm text-[#1A1F36] truncate">{country.name}</span>
+                            <span className="font-medium text-sm text-[#161616] truncate">{country.name}</span>
                             {country.iso2 && <Badge variant="outline" className="text-xs">{country.iso2}</Badge>}
                             {!country.isActive && <Badge variant="secondary" className="text-xs">Inactive</Badge>}
                           </div>
-                          <div className="flex items-center gap-3 mt-0.5 text-xs text-[#697386]">
+                          <div className="flex items-center gap-3 mt-0.5 text-xs text-[#525252]">
                             {country.dialCode && <span>{country.dialCode}</span>}
                             {country.currency && <span>{country.currency}</span>}
                             <span>{country.cityCount} cities</span>
@@ -164,16 +164,16 @@ export default function MasterDataLocations() {
                         </div>
                         <div className="flex items-center gap-1">
                           <Button variant="ghost" size="icon" className="h-7 w-7" onClick={(e) => { e.stopPropagation(); toggleCountryActive(country); }}>
-                            {country.isActive ? <ToggleRight className="h-4 w-4 text-[#0066FF]" /> : <ToggleLeft className="h-4 w-4 text-[#9BA3B0]" />}
+                            {country.isActive ? <ToggleRight className="h-4 w-4 text-[#0f62fe]" /> : <ToggleLeft className="h-4 w-4 text-[#8d8d8d]" />}
                           </Button>
                           <Button variant="ghost" size="icon" className="h-7 w-7" onClick={(e) => { e.stopPropagation(); openEditCountry(country); }}>
-                            <Pencil className="h-3.5 w-3.5 text-[#697386]" />
+                            <Pencil className="h-3.5 w-3.5 text-[#525252]" />
                           </Button>
                           <Button variant="ghost" size="icon" className="h-7 w-7" onClick={(e) => { e.stopPropagation(); if (confirm(`Delete ${country.name}?`)) deleteCountry.mutate({ id: country.id }); }}>
                             <Trash2 className="h-3.5 w-3.5 text-red-500" />
                           </Button>
                         </div>
-                        <ChevronRight className="h-4 w-4 text-[#C8CDD6] flex-shrink-0" />
+                        <ChevronRight className="h-4 w-4 text-[#c6c6c6] flex-shrink-0" />
                       </div>
                     ))}
                   </div>
@@ -187,20 +187,20 @@ export default function MasterDataLocations() {
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <MapPin className="h-5 w-5 text-[#0066FF]" />
+                  <MapPin className="h-5 w-5 text-[#0f62fe]" />
                   Cities
-                  {selectedCountry && <span className="text-sm font-normal text-[#697386]">— {selectedCountry.name}</span>}
+                  {selectedCountry && <span className="text-sm font-normal text-[#525252]">— {selectedCountry.name}</span>}
                   {selectedCountryId && <Badge variant="secondary" className="ml-2">{cityList.length}</Badge>}
                 </CardTitle>
                 {selectedCountryId && (
-                  <Button size="sm" onClick={openAddCity} className="bg-[#0066FF] hover:bg-[#0052CC]">
+                  <Button size="sm" onClick={openAddCity} className="bg-[#0f62fe] hover:bg-[#0043ce]">
                     <Plus className="h-4 w-4 mr-1" /> Add
                   </Button>
                 )}
               </div>
               {selectedCountryId && (
                 <div className="relative mt-2">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                   <Input placeholder="Search cities..." value={citySearch} onChange={(e) => setCitySearch(e.target.value)} className="pl-9 h-9" />
                 </div>
               )}
@@ -208,13 +208,13 @@ export default function MasterDataLocations() {
             <CardContent className="p-0">
               <div className="max-h-[500px] overflow-y-auto">
                 {!selectedCountryId ? (
-                  <div className="p-8 text-center text-[#697386] text-sm">
-                    <Globe className="h-10 w-10 mx-auto mb-2 text-[#C8CDD6]" />
+                  <div className="p-8 text-center text-[#525252] text-sm">
+                    <Globe className="h-10 w-10 mx-auto mb-2 text-[#c6c6c6]" />
                     Select a country to view its cities
                   </div>
                 ) : cityList.length === 0 ? (
-                  <div className="p-8 text-center text-[#697386] text-sm">
-                    <MapPin className="h-10 w-10 mx-auto mb-2 text-[#C8CDD6]" />
+                  <div className="p-8 text-center text-[#525252] text-sm">
+                    <MapPin className="h-10 w-10 mx-auto mb-2 text-[#c6c6c6]" />
                     No cities found for {selectedCountry?.name}
                     <br />
                     <Button size="sm" variant="outline" className="mt-3" onClick={openAddCity}>
@@ -224,21 +224,21 @@ export default function MasterDataLocations() {
                 ) : (
                   <div className="divide-y">
                     {cityList.map((city: any) => (
-                      <div key={city.id} className={`flex items-center gap-3 px-4 py-3 hover:bg-[#F7F8FA] transition-colors ${!city.isActive ? "opacity-50" : ""}`}>
-                        <MapPin className="h-4 w-4 text-[#9BA3B0] flex-shrink-0" />
+                      <div key={city.id} className={`flex items-center gap-3 px-4 py-3 hover:bg-[#f4f4f4] transition-colors ${!city.isActive ? "opacity-50" : ""}`}>
+                        <MapPin className="h-4 w-4 text-[#8d8d8d] flex-shrink-0" />
                         <div className="flex-1 min-w-0">
-                          <span className="font-medium text-sm text-[#1A1F36]">{city.name}</span>
+                          <span className="font-medium text-sm text-[#161616]">{city.name}</span>
                           {!city.isActive && <Badge variant="secondary" className="ml-2 text-xs">Inactive</Badge>}
                           {(city.latitude || city.longitude) && (
-                            <div className="text-xs text-[#9BA3B0] mt-0.5">{city.latitude?.toFixed(4)}, {city.longitude?.toFixed(4)}</div>
+                            <div className="text-xs text-[#8d8d8d] mt-0.5">{city.latitude?.toFixed(4)}, {city.longitude?.toFixed(4)}</div>
                           )}
                         </div>
                         <div className="flex items-center gap-1">
                           <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => toggleCityActive(city)}>
-                            {city.isActive ? <ToggleRight className="h-4 w-4 text-[#0066FF]" /> : <ToggleLeft className="h-4 w-4 text-[#9BA3B0]" />}
+                            {city.isActive ? <ToggleRight className="h-4 w-4 text-[#0f62fe]" /> : <ToggleLeft className="h-4 w-4 text-[#8d8d8d]" />}
                           </Button>
                           <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => openEditCity(city)}>
-                            <Pencil className="h-3.5 w-3.5 text-[#697386]" />
+                            <Pencil className="h-3.5 w-3.5 text-[#525252]" />
                           </Button>
                           <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => { if (confirm(`Delete ${city.name}?`)) deleteCity.mutate({ id: city.id }); }}>
                             <Trash2 className="h-3.5 w-3.5 text-red-500" />
@@ -260,33 +260,33 @@ export default function MasterDataLocations() {
           <DialogHeader><DialogTitle>{editingCountry ? "Edit Country" : "Add Country"}</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium text-[#1A1F36]">Country Name *</label>
+              <label className="text-sm font-medium text-[#161616]">Country Name *</label>
               <Input value={countryForm.name} onChange={(e) => setCountryForm({ ...countryForm, name: e.target.value })} placeholder="e.g. United Arab Emirates" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium text-[#1A1F36]">ISO2 Code</label>
+                <label className="text-sm font-medium text-[#161616]">ISO2 Code</label>
                 <Input value={countryForm.iso2} onChange={(e) => setCountryForm({ ...countryForm, iso2: e.target.value.toUpperCase().slice(0, 2) })} placeholder="AE" maxLength={2} />
               </div>
               <div>
-                <label className="text-sm font-medium text-[#1A1F36]">ISO3 Code</label>
+                <label className="text-sm font-medium text-[#161616]">ISO3 Code</label>
                 <Input value={countryForm.iso3} onChange={(e) => setCountryForm({ ...countryForm, iso3: e.target.value.toUpperCase().slice(0, 3) })} placeholder="ARE" maxLength={3} />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium text-[#1A1F36]">Dial Code</label>
+                <label className="text-sm font-medium text-[#161616]">Dial Code</label>
                 <Input value={countryForm.dialCode} onChange={(e) => setCountryForm({ ...countryForm, dialCode: e.target.value })} placeholder="+971" />
               </div>
               <div>
-                <label className="text-sm font-medium text-[#1A1F36]">Currency</label>
+                <label className="text-sm font-medium text-[#161616]">Currency</label>
                 <Input value={countryForm.currency} onChange={(e) => setCountryForm({ ...countryForm, currency: e.target.value })} placeholder="AED" />
               </div>
             </div>
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setCountryDialogOpen(false)}>Cancel</Button>
-            <Button onClick={saveCountry} className="bg-[#0066FF] hover:bg-[#0052CC]" disabled={!countryForm.name.trim()}>{editingCountry ? "Update" : "Create"}</Button>
+            <Button onClick={saveCountry} className="bg-[#0f62fe] hover:bg-[#0043ce]" disabled={!countryForm.name.trim()}>{editingCountry ? "Update" : "Create"}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -297,11 +297,11 @@ export default function MasterDataLocations() {
           <DialogHeader><DialogTitle>{editingCity ? "Edit City" : "Add City"}</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium text-[#1A1F36]">City Name *</label>
+              <label className="text-sm font-medium text-[#161616]">City Name *</label>
               <Input value={cityForm.name} onChange={(e) => setCityForm({ ...cityForm, name: e.target.value })} placeholder="e.g. Dubai" />
             </div>
             <div>
-              <label className="text-sm font-medium text-[#1A1F36]">Country *</label>
+              <label className="text-sm font-medium text-[#161616]">Country *</label>
               <Select value={cityForm.countryId?.toString() || ""} onValueChange={(v) => setCityForm({ ...cityForm, countryId: parseInt(v) })}>
                 <SelectTrigger><SelectValue placeholder="Select country" /></SelectTrigger>
                 <SelectContent>
@@ -313,18 +313,18 @@ export default function MasterDataLocations() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium text-[#1A1F36]">Latitude</label>
+                <label className="text-sm font-medium text-[#161616]">Latitude</label>
                 <Input type="number" step="any" value={cityForm.latitude} onChange={(e) => setCityForm({ ...cityForm, latitude: e.target.value })} placeholder="25.2048" />
               </div>
               <div>
-                <label className="text-sm font-medium text-[#1A1F36]">Longitude</label>
+                <label className="text-sm font-medium text-[#161616]">Longitude</label>
                 <Input type="number" step="any" value={cityForm.longitude} onChange={(e) => setCityForm({ ...cityForm, longitude: e.target.value })} placeholder="55.2708" />
               </div>
             </div>
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setCityDialogOpen(false)}>Cancel</Button>
-            <Button onClick={saveCity} className="bg-[#0066FF] hover:bg-[#0052CC]" disabled={!cityForm.name.trim() || !cityForm.countryId}>{editingCity ? "Update" : "Create"}</Button>
+            <Button onClick={saveCity} className="bg-[#0f62fe] hover:bg-[#0043ce]" disabled={!cityForm.name.trim() || !cityForm.countryId}>{editingCity ? "Update" : "Create"}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

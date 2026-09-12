@@ -144,13 +144,13 @@ export function CompanyCombobox({
             )}
           >
             <div className="flex items-center gap-2 truncate">
-              <Building2 className="h-4 w-4 text-[#9BA3B0] shrink-0" />
+              <Building2 className="h-4 w-4 text-[#8d8d8d] shrink-0" />
               <span className="truncate">{value || placeholder}</span>
             </div>
             <div className="flex items-center gap-1 shrink-0">
               {value && (
                 <X 
-                  className="h-4 w-4 text-[#9BA3B0] hover:text-[#697386]" 
+                  className="h-4 w-4 text-[#8d8d8d] hover:text-[#525252]" 
                   onClick={handleClear}
                 />
               )}
@@ -172,10 +172,10 @@ export function CompanyCombobox({
           <div className="max-h-[300px] overflow-y-auto">
             {isLoading ? (
               <div className="flex items-center justify-center py-6">
-                <Loader2 className="h-5 w-5 animate-spin text-[#9BA3B0]" />
+                <Loader2 className="h-5 w-5 animate-spin text-[#8d8d8d]" />
               </div>
             ) : companies.length === 0 ? (
-              <div className="py-6 text-center text-sm text-[#697386]">
+              <div className="py-6 text-center text-sm text-[#525252]">
                 {search ? `No companies found for "${search}"` : "No companies found"}
               </div>
             ) : (
@@ -185,8 +185,8 @@ export function CompanyCombobox({
                     key={company.id}
                     onClick={() => handleSelect(company)}
                     className={cn(
-                      "flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-[#F0F2F5]",
-                      value === company.name && "bg-[#F0F7FF]"
+                      "flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-[#f4f4f4]",
+                      value === company.name && "bg-[#edf5ff]"
                     )}
                   >
                     {company.logo ? (
@@ -196,18 +196,18 @@ export function CompanyCombobox({
                         className="h-8 w-8 rounded object-cover"
                       />
                     ) : (
-                      <div className="flex h-8 w-8 items-center justify-center rounded bg-[#F0F2F5]">
-                        <Building2 className="h-4 w-4 text-[#9BA3B0]" />
+                      <div className="flex h-8 w-8 items-center justify-center rounded bg-[#f4f4f4]">
+                        <Building2 className="h-4 w-4 text-[#8d8d8d]" />
                       </div>
                     )}
                     <div className="flex-1 text-left">
                       <div className="font-medium">{company.name}</div>
                       {company.slug && (
-                        <div className="text-xs text-[#697386]">/{company.slug}</div>
+                        <div className="text-xs text-[#525252]">/{company.slug}</div>
                       )}
                     </div>
                     {value === company.name && (
-                      <Check className="h-4 w-4 text-[#0066FF]" />
+                      <Check className="h-4 w-4 text-[#0f62fe]" />
                     )}
                   </button>
                 ))}
@@ -217,7 +217,7 @@ export function CompanyCombobox({
           <div className="border-t p-2">
             <Button
               variant="ghost"
-              className="w-full justify-start gap-2 text-[#0066FF] hover:text-[#0066FF] hover:bg-[#F0F7FF]"
+              className="w-full justify-start gap-2 text-[#0f62fe] hover:text-[#0f62fe] hover:bg-[#edf5ff]"
               onClick={handleCreateNew}
             >
               <Plus className="h-4 w-4" />
@@ -259,7 +259,7 @@ export function CompanyCombobox({
             <Button
               onClick={handleCreateCompany}
               disabled={isCreating || !newCompanyName.trim()}
-              className="bg-[#0066FF] hover:bg-[#0052CC]"
+              className="bg-[#0f62fe] hover:bg-[#0043ce]"
             >
               {isCreating ? (
                 <>

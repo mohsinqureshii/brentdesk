@@ -137,7 +137,7 @@ export default function SettingsPage() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <RefreshCw className="h-8 w-8 animate-spin text-[#9BA3B0]" />
+          <RefreshCw className="h-8 w-8 animate-spin text-[#8d8d8d]" />
         </div>
       </AdminLayout>
     );
@@ -149,13 +149,13 @@ export default function SettingsPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Settings</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Configure your site preferences and system settings</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Settings</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Configure your site preferences and system settings</p>
           </div>
           <Button 
             onClick={handleSave} 
             disabled={saving || updateSettings.isPending}
-            className="bg-emerald-500 hover:bg-[#0066FF] text-white"
+            className="bg-emerald-500 hover:bg-[#0f62fe] text-white"
           >
             {saving || updateSettings.isPending ? (
               <>
@@ -208,7 +208,7 @@ export default function SettingsPage() {
                       onChange={(e) => setSiteTitle(e.target.value)}
                       placeholder="Your site name"
                     />
-                    <p className="text-xs text-[#697386]">Appears in browser tab and search results</p>
+                    <p className="text-xs text-[#525252]">Appears in browser tab and search results</p>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="siteTagline">Tagline</Label>
@@ -218,7 +218,7 @@ export default function SettingsPage() {
                       onChange={(e) => setSiteTagline(e.target.value)}
                       placeholder="A short tagline for your site"
                     />
-                    <p className="text-xs text-[#697386]">Brief description shown with site title</p>
+                    <p className="text-xs text-[#525252]">Brief description shown with site title</p>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -297,7 +297,7 @@ export default function SettingsPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-6">
                   <div className="flex-1">
-                    <div className="border-2 border-dashed border-[#E0E3E8] rounded-md p-6 text-center">
+                    <div className="border-2 border-dashed border-[#e0e0e0] rounded-md p-6 text-center">
                       {siteLogo ? (
                         <div className="relative inline-block">
                           <img 
@@ -313,8 +313,8 @@ export default function SettingsPage() {
                           </button>
                         </div>
                       ) : (
-                        <div className="w-20 h-20 bg-[#EBF3FF] rounded-md mx-auto mb-3 flex items-center justify-center">
-                          <Image className="h-8 w-8 text-[#0066FF]" />
+                        <div className="w-20 h-20 bg-[#edf5ff] rounded-md mx-auto mb-3 flex items-center justify-center">
+                          <Image className="h-8 w-8 text-[#0f62fe]" />
                         </div>
                       )}
                       <input
@@ -371,7 +371,7 @@ export default function SettingsPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-6">
                   <div className="flex-1">
-                    <div className="border-2 border-dashed border-[#E0E3E8] rounded-md p-6 text-center">
+                    <div className="border-2 border-dashed border-[#e0e0e0] rounded-md p-6 text-center">
                       {siteFavicon ? (
                         <div className="relative inline-block">
                           <img 
@@ -387,8 +387,8 @@ export default function SettingsPage() {
                           </button>
                         </div>
                       ) : (
-                        <div className="w-16 h-16 bg-[#F0F2F5] rounded-md mx-auto mb-3 flex items-center justify-center">
-                          <span className="text-[#9BA3B0] text-xs">32×32</span>
+                        <div className="w-16 h-16 bg-[#f4f4f4] rounded-md mx-auto mb-3 flex items-center justify-center">
+                          <span className="text-[#8d8d8d] text-xs">32×32</span>
                         </div>
                       )}
                       <input
@@ -459,10 +459,10 @@ export default function SettingsPage() {
                 <div className="space-y-2">
                   <Label>Primary Color</Label>
                   <div className="flex gap-2">
-                    {["#4CB944", "#3B82F6", "#8B5CF6", "#F59E0B", "#EF4444"].map((color) => (
+                    {["#4CB944", "#0f62fe", "#8B5CF6", "#F59E0B", "#EF4444"].map((color) => (
                       <button
                         key={color}
-                        className="w-10 h-10 rounded-md border-2 border-transparent hover:border-[#C8CDD6] transition-colors"
+                        className="w-10 h-10 rounded-md border-2 border-transparent hover:border-[#c6c6c6] transition-colors"
                         style={{ backgroundColor: color }}
                         title={color}
                       />
@@ -490,7 +490,7 @@ export default function SettingsPage() {
                     placeholder="A brief description for search engines"
                     rows={3}
                   />
-                  <p className="text-xs text-[#697386]">{siteDescription.length}/160 characters recommended</p>
+                  <p className="text-xs text-[#525252]">{siteDescription.length}/160 characters recommended</p>
                 </div>
               </CardContent>
             </Card>
@@ -509,13 +509,13 @@ export default function SettingsPage() {
                     onChange={(e) => setGoogleAnalyticsId(e.target.value)}
                     placeholder="G-XXXXXXXXXX"
                   />
-                  <p className="text-xs text-[#697386]">
+                  <p className="text-xs text-[#525252]">
                     Find this in your Google Analytics account under Admin → Data Streams → Web
                   </p>
                 </div>
-                <div className="bg-[#F7F8FA] rounded-md p-4 text-sm">
-                  <p className="font-medium text-[#1A1F36] mb-2">How to get your Measurement ID:</p>
-                  <ol className="list-decimal list-inside text-[#697386] space-y-1">
+                <div className="bg-[#f4f4f4] rounded-md p-4 text-sm">
+                  <p className="font-medium text-[#161616] mb-2">How to get your Measurement ID:</p>
+                  <ol className="list-decimal list-inside text-[#525252] space-y-1">
                     <li>Go to <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Google Analytics</a></li>
                     <li>Click Admin (gear icon) in the bottom left</li>
                     <li>Select your property, then click "Data Streams"</li>
@@ -538,7 +538,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Email Notifications</p>
-                    <p className="text-sm text-[#697386]">Receive notifications via email</p>
+                    <p className="text-sm text-[#525252]">Receive notifications via email</p>
                   </div>
                   <Switch
                     checked={emailNotifications}
@@ -548,7 +548,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Weekly Digest</p>
-                    <p className="text-sm text-[#697386]">Receive a weekly summary of activity</p>
+                    <p className="text-sm text-[#525252]">Receive a weekly summary of activity</p>
                   </div>
                   <Switch
                     checked={weeklyDigest}
@@ -558,7 +558,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">New User Alerts</p>
-                    <p className="text-sm text-[#697386]">Get notified when new users sign up</p>
+                    <p className="text-sm text-[#525252]">Get notified when new users sign up</p>
                   </div>
                   <Switch
                     checked={newUserAlerts}
@@ -568,7 +568,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Content Submission Alerts</p>
-                    <p className="text-sm text-[#697386]">Get notified when content is submitted for review</p>
+                    <p className="text-sm text-[#525252]">Get notified when content is submitted for review</p>
                   </div>
                   <Switch
                     checked={contentAlerts}

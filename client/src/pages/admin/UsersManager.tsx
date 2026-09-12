@@ -38,7 +38,7 @@ const roleColors: Record<string, string> = {
   admin: "bg-purple-100 text-purple-700 border-purple-200",
   user: "bg-blue-100 text-blue-700 border-blue-200",
   editor: "bg-orange-100 text-orange-700 border-orange-200",
-  senior_editor: "bg-[#EBF3FF] text-[#0066FF] border-[#C7DCFF]",
+  senior_editor: "bg-[#edf5ff] text-[#0f62fe] border-[#a6c8ff]",
   author: "bg-cyan-100 text-cyan-700 border-cyan-200",
   moderator: "bg-pink-100 text-pink-700 border-pink-200",
 };
@@ -197,12 +197,12 @@ export default function UsersManager() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Users & Roles</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Manage user accounts, roles, and author profiles</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Users & Roles</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Manage user accounts, roles, and author profiles</p>
           </div>
           <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-emerald-500 hover:bg-[#0066FF]">
+              <Button className="bg-emerald-500 hover:bg-[#0f62fe]">
                 <Plus className="h-4 w-4 mr-2" />
                 Add User
               </Button>
@@ -246,15 +246,15 @@ export default function UsersManager() {
                     <Button type="button" variant="ghost" size="sm"
                       className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                       onClick={() => setShowNewUserPassword(!showNewUserPassword)}>
-                      {showNewUserPassword ? <EyeOff className="h-4 w-4 text-[#9BA3B0]" /> : <Eye className="h-4 w-4 text-[#9BA3B0]" />}
+                      {showNewUserPassword ? <EyeOff className="h-4 w-4 text-[#8d8d8d]" /> : <Eye className="h-4 w-4 text-[#8d8d8d]" />}
                     </Button>
                   </div>
-                  <p className="text-xs text-[#697386]">Leave empty if user will sign in via OAuth</p>
+                  <p className="text-xs text-[#525252]">Leave empty if user will sign in via OAuth</p>
                 </div>
               </div>
               <DialogFooter>
                 <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>Cancel</Button>
-                <Button className="bg-emerald-500 hover:bg-[#0066FF]" onClick={handleInviteUser} disabled={isSubmitting}>
+                <Button className="bg-emerald-500 hover:bg-[#0f62fe]" onClick={handleInviteUser} disabled={isSubmitting}>
                   {isSubmitting ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Creating...</> : "Create User"}
                 </Button>
               </DialogFooter>
@@ -271,8 +271,8 @@ export default function UsersManager() {
                   <Users className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386] uppercase tracking-wider">Total</p>
-                  <p className="text-xl font-bold text-[#1A1F36]">{stats?.total || 0}</p>
+                  <p className="text-xs text-[#525252] uppercase tracking-wider">Total</p>
+                  <p className="text-xl font-bold text-[#161616]">{stats?.total || 0}</p>
                 </div>
               </div>
             </CardContent>
@@ -284,8 +284,8 @@ export default function UsersManager() {
                   <Crown className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386] uppercase tracking-wider">Admins</p>
-                  <p className="text-xl font-bold text-[#1A1F36]">{stats?.admins || 0}</p>
+                  <p className="text-xs text-[#525252] uppercase tracking-wider">Admins</p>
+                  <p className="text-xl font-bold text-[#161616]">{stats?.admins || 0}</p>
                 </div>
               </div>
             </CardContent>
@@ -297,8 +297,8 @@ export default function UsersManager() {
                   <Edit className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386] uppercase tracking-wider">Editors</p>
-                  <p className="text-xl font-bold text-[#1A1F36]">{stats?.editors || 0}</p>
+                  <p className="text-xs text-[#525252] uppercase tracking-wider">Editors</p>
+                  <p className="text-xl font-bold text-[#161616]">{stats?.editors || 0}</p>
                 </div>
               </div>
             </CardContent>
@@ -310,8 +310,8 @@ export default function UsersManager() {
                   <Pencil className="h-5 w-5 text-cyan-600" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386] uppercase tracking-wider">Authors</p>
-                  <p className="text-xl font-bold text-[#1A1F36]">{stats?.authors || 0}</p>
+                  <p className="text-xs text-[#525252] uppercase tracking-wider">Authors</p>
+                  <p className="text-xl font-bold text-[#161616]">{stats?.authors || 0}</p>
                 </div>
               </div>
             </CardContent>
@@ -319,12 +319,12 @@ export default function UsersManager() {
           <Card className="border-l-4 border-l-gray-400">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-md bg-[#F7F8FA] flex items-center justify-center">
-                  <User className="h-5 w-5 text-[#697386]" />
+                <div className="w-10 h-10 rounded-md bg-[#f4f4f4] flex items-center justify-center">
+                  <User className="h-5 w-5 text-[#525252]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386] uppercase tracking-wider">Readers</p>
-                  <p className="text-xl font-bold text-[#1A1F36]">{stats?.users || 0}</p>
+                  <p className="text-xs text-[#525252] uppercase tracking-wider">Readers</p>
+                  <p className="text-xl font-bold text-[#161616]">{stats?.users || 0}</p>
                 </div>
               </div>
             </CardContent>
@@ -336,7 +336,7 @@ export default function UsersManager() {
           <CardContent className="p-4">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                 <Input placeholder="Search users by name or email..." value={search}
                   onChange={(e) => { setSearch(e.target.value); setPage(1); }} className="pl-10" />
               </div>
@@ -361,13 +361,13 @@ export default function UsersManager() {
           <CardContent className="p-0">
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <Table className="w-full">
                   <TableHeader>
-                    <TableRow className="bg-[#F7F8FA]/50">
+                    <TableRow className="bg-[#f4f4f4]/50">
                       <TableHead className="min-w-[240px]">User</TableHead>
                       <TableHead className="min-w-[100px]">Role</TableHead>
                       <TableHead className="min-w-[160px] hidden lg:table-cell">Company / Title</TableHead>
@@ -382,15 +382,15 @@ export default function UsersManager() {
                       <TableRow>
                         <TableCell colSpan={7} className="text-center py-12">
                           <div className="flex flex-col items-center gap-2">
-                            <Users className="h-10 w-10 text-[#C8CDD6]" />
-                            <p className="text-[#697386] font-medium">No users found</p>
-                            <p className="text-[#9BA3B0] text-sm">Try adjusting your search or filters</p>
+                            <Users className="h-10 w-10 text-[#c6c6c6]" />
+                            <p className="text-[#525252] font-medium">No users found</p>
+                            <p className="text-[#8d8d8d] text-sm">Try adjusting your search or filters</p>
                           </div>
                         </TableCell>
                       </TableRow>
                     ) : (
                       users.map((user: any) => (
-                        <TableRow key={user.id} className="group hover:bg-[#F7F8FA]/50 cursor-pointer"
+                        <TableRow key={user.id} className="group hover:bg-[#f4f4f4]/50 cursor-pointer"
                           onClick={() => setExpandedUserId(expandedUserId === user.id ? null : user.id)}>
                           <TableCell>
                             <div className="flex items-center gap-3 min-w-0">
@@ -400,24 +400,24 @@ export default function UsersManager() {
                                   user.role === "admin" ? "bg-purple-100 text-purple-600" :
                                   user.role === "editor" || user.role === "senior_editor" ? "bg-orange-100 text-orange-600" :
                                   user.role === "author" ? "bg-cyan-100 text-cyan-600" :
-                                  "bg-[#EBF3FF] text-[#0066FF]"
+                                  "bg-[#edf5ff] text-[#0f62fe]"
                                 }`}>
                                   {(user.name || "U").charAt(0).toUpperCase()}
                                 </AvatarFallback>
                               </Avatar>
                               <div className="min-w-0">
-                                <p className="font-medium text-[#1A1F36] truncate">
+                                <p className="font-medium text-[#161616] truncate">
                                   {user.publicName || user.name || "Unknown"}
                                 </p>
-                                <p className="text-xs text-[#697386] truncate">{user.email || "No email"}</p>
+                                <p className="text-xs text-[#525252] truncate">{user.email || "No email"}</p>
                                 {user.username && (
-                                  <p className="text-xs text-[#0066FF] font-mono">@{user.username}</p>
+                                  <p className="text-xs text-[#0f62fe] font-mono">@{user.username}</p>
                                 )}
                               </div>
                             </div>
                           </TableCell>
                           <TableCell>
-                            <Badge className={`text-xs font-medium border ${roleColors[user.role] || "bg-[#F0F2F5] text-[#1A1F36] border-[#E0E3E8]"}`}>
+                            <Badge className={`text-xs font-medium border ${roleColors[user.role] || "bg-[#f4f4f4] text-[#161616] border-[#e0e0e0]"}`}>
                               {roleIcons[user.role]}
                               <span className="ml-1">{roleLabels[user.role] || user.role}</span>
                             </Badge>
@@ -425,35 +425,35 @@ export default function UsersManager() {
                           <TableCell className="hidden lg:table-cell">
                             <div className="min-w-0">
                               {user.company && (
-                                <div className="flex items-center gap-1 text-sm text-[#1A1F36]">
-                                  <Building2 className="h-3 w-3 text-[#9BA3B0] shrink-0" />
+                                <div className="flex items-center gap-1 text-sm text-[#161616]">
+                                  <Building2 className="h-3 w-3 text-[#8d8d8d] shrink-0" />
                                   <span className="truncate">{user.company}</span>
                                 </div>
                               )}
                               {user.jobTitle && (
-                                <p className="text-xs text-[#697386] truncate">{user.jobTitle}</p>
+                                <p className="text-xs text-[#525252] truncate">{user.jobTitle}</p>
                               )}
                               {!user.company && !user.jobTitle && (
-                                <span className="text-[#C8CDD6]">—</span>
+                                <span className="text-[#c6c6c6]">—</span>
                               )}
                             </div>
                           </TableCell>
                           <TableCell className="hidden md:table-cell">
                             {user.location ? (
-                              <div className="flex items-center gap-1 text-sm text-[#697386]">
-                                <MapPin className="h-3 w-3 text-[#9BA3B0] shrink-0" />
+                              <div className="flex items-center gap-1 text-sm text-[#525252]">
+                                <MapPin className="h-3 w-3 text-[#8d8d8d] shrink-0" />
                                 <span className="truncate">{user.location}</span>
                               </div>
                             ) : (
-                              <span className="text-[#C8CDD6]">—</span>
+                              <span className="text-[#c6c6c6]">—</span>
                             )}
                           </TableCell>
-                          <TableCell className="hidden md:table-cell text-sm text-[#697386]">
+                          <TableCell className="hidden md:table-cell text-sm text-[#525252]">
                             {user.lastSignedIn ? format(new Date(user.lastSignedIn), "MMM d, yyyy") : (
-                              <span className="text-[#C8CDD6]">Never</span>
+                              <span className="text-[#c6c6c6]">Never</span>
                             )}
                           </TableCell>
-                          <TableCell className="text-sm text-[#697386]">
+                          <TableCell className="text-sm text-[#525252]">
                             {user.createdAt ? format(new Date(user.createdAt), "MMM d, yyyy") : "—"}
                           </TableCell>
                           <TableCell onClick={(e) => e.stopPropagation()}>
@@ -500,7 +500,7 @@ export default function UsersManager() {
         {/* Pagination */}
         {pagination && pagination.totalPages > 1 && (
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <p className="text-sm text-[#697386]">
+            <p className="text-sm text-[#525252]">
               Showing {(page - 1) * 20 + 1}–{Math.min(page * 20, pagination.total)} of {pagination.total} users
             </p>
             <div className="flex gap-2">
@@ -511,7 +511,7 @@ export default function UsersManager() {
                 const p = i + 1;
                 return (
                   <Button key={p} variant={p === page ? "default" : "outline"} size="sm"
-                    className={p === page ? "bg-emerald-500 hover:bg-[#0066FF]" : ""}
+                    className={p === page ? "bg-emerald-500 hover:bg-[#0f62fe]" : ""}
                     onClick={() => setPage(p)}>
                     {p}
                   </Button>
@@ -541,7 +541,7 @@ export default function UsersManager() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="edit-email">Email (read-only)</Label>
-                    <Input id="edit-email" value={editUser.email} disabled className="bg-[#F7F8FA]" />
+                    <Input id="edit-email" value={editUser.email} disabled className="bg-[#f4f4f4]" />
                   </div>
                 </div>
 
@@ -561,17 +561,17 @@ export default function UsersManager() {
                 </div>
 
                 <div className="border-t pt-4">
-                  <h3 className="font-medium text-[#1A1F36] mb-4">Author Profile</h3>
+                  <h3 className="font-medium text-[#161616] mb-4">Author Profile</h3>
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="edit-username">Username (URL slug)</Label>
                         <div className="flex items-center">
-                          <span className="text-[#697386] text-sm mr-1">@</span>
+                          <span className="text-[#525252] text-sm mr-1">@</span>
                           <Input id="edit-username" placeholder="username" value={editUser.username}
                             onChange={(e) => setEditUser({ ...editUser, username: e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '') })} />
                         </div>
-                        <p className="text-xs text-[#697386]">URL: /author/{editUser.username || 'username'}</p>
+                        <p className="text-xs text-[#525252]">URL: /author/{editUser.username || 'username'}</p>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="edit-nickname">Nickname</Label>
@@ -584,7 +584,7 @@ export default function UsersManager() {
                         <Label htmlFor="edit-publicName">Public Name</Label>
                         <Input id="edit-publicName" placeholder="Public display name" value={editUser.publicName}
                           onChange={(e) => setEditUser({ ...editUser, publicName: e.target.value })} />
-                        <p className="text-xs text-[#697386]">Shown on articles and author page</p>
+                        <p className="text-xs text-[#525252]">Shown on articles and author page</p>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="edit-jobTitle">Job Title</Label>
@@ -601,7 +601,7 @@ export default function UsersManager() {
                       <div className="space-y-2">
                         <Label htmlFor="edit-twitter">Twitter/X Handle</Label>
                         <div className="flex items-center">
-                          <span className="text-[#697386] text-sm mr-1">@</span>
+                          <span className="text-[#525252] text-sm mr-1">@</span>
                           <Input id="edit-twitter" placeholder="handle" value={editUser.twitterHandle}
                             onChange={(e) => setEditUser({ ...editUser, twitterHandle: e.target.value.replace('@', '') })} />
                         </div>
@@ -618,7 +618,7 @@ export default function UsersManager() {
             )}
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
-              <Button className="bg-emerald-500 hover:bg-[#0066FF]" onClick={handleSaveUser} disabled={isSubmitting}>
+              <Button className="bg-emerald-500 hover:bg-[#0f62fe]" onClick={handleSaveUser} disabled={isSubmitting}>
                 {isSubmitting ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Saving...</> : "Save Changes"}
               </Button>
             </DialogFooter>
@@ -642,14 +642,14 @@ export default function UsersManager() {
                   <Button type="button" variant="ghost" size="sm"
                     className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                     onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <EyeOff className="h-4 w-4 text-[#9BA3B0]" /> : <Eye className="h-4 w-4 text-[#9BA3B0]" />}
+                    {showPassword ? <EyeOff className="h-4 w-4 text-[#8d8d8d]" /> : <Eye className="h-4 w-4 text-[#8d8d8d]" />}
                   </Button>
                 </div>
               </div>
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsPasswordDialogOpen(false)}>Cancel</Button>
-              <Button className="bg-emerald-500 hover:bg-[#0066FF]" onClick={handleSavePassword}
+              <Button className="bg-emerald-500 hover:bg-[#0f62fe]" onClick={handleSavePassword}
                 disabled={changePasswordMutation.isPending || !newPassword}>
                 {changePasswordMutation.isPending ? <><Loader2 className="h-4 w-4 mr-2 animate-spin" />Saving...</> : "Change Password"}
               </Button>

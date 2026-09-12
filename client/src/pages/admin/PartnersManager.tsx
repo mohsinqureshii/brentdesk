@@ -64,7 +64,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const TIER_COLORS: Record<string, string> = {
-  free: "bg-[#F0F2F5] text-[#1A1F36]",
+  free: "bg-[#f4f4f4] text-[#161616]",
   growth: "bg-blue-100 text-blue-700",
   pro: "bg-purple-100 text-purple-700",
   enterprise: "bg-amber-100 text-amber-700",
@@ -213,8 +213,8 @@ export default function PartnersManager() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Partners Management</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">
+            <h1 className="text-xl font-semibold text-[#161616]">Partners Management</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">
               Manage partner companies, tiers, and affiliate programs
             </p>
           </div>
@@ -228,26 +228,26 @@ export default function PartnersManager() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">Total Partners</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">Total Partners</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <Building2 className="h-6 w-6 text-[#0066FF]" />
+                <Building2 className="h-6 w-6 text-[#0f62fe]" />
                 <span className="text-2xl font-bold">{stats.total}</span>
               </div>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">Free Tier</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">Free Tier</CardTitle>
             </CardHeader>
             <CardContent>
-              <span className="text-2xl font-bold text-[#697386]">{stats.free}</span>
+              <span className="text-2xl font-bold text-[#525252]">{stats.free}</span>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">Growth Tier</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">Growth Tier</CardTitle>
             </CardHeader>
             <CardContent>
               <span className="text-2xl font-bold text-blue-600">{stats.growth}</span>
@@ -255,7 +255,7 @@ export default function PartnersManager() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">Pro Tier</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">Pro Tier</CardTitle>
             </CardHeader>
             <CardContent>
               <span className="text-2xl font-bold text-purple-600">{stats.pro}</span>
@@ -263,7 +263,7 @@ export default function PartnersManager() {
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#697386]">Enterprise</CardTitle>
+              <CardTitle className="text-sm font-medium text-[#525252]">Enterprise</CardTitle>
             </CardHeader>
             <CardContent>
               <span className="text-2xl font-bold text-amber-600">{stats.enterprise}</span>
@@ -286,7 +286,7 @@ export default function PartnersManager() {
               </Tabs>
               <div className="flex items-center gap-2">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
                   <Input
                     placeholder="Search partners..."
                     value={searchQuery}
@@ -303,7 +303,7 @@ export default function PartnersManager() {
           <CardContent>
             {isLoading ? (
               <div className="flex items-center justify-center py-8">
-                <RefreshCw className="h-6 w-6 animate-spin text-[#9BA3B0]" />
+                <RefreshCw className="h-6 w-6 animate-spin text-[#8d8d8d]" />
               </div>
             ) : (
               <Table>
@@ -323,8 +323,8 @@ export default function PartnersManager() {
                     <TableRow key={partner.id}>
                       <TableCell>
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-md bg-[#F0F2F5] flex items-center justify-center">
-                            <Building2 className="h-5 w-5 text-[#697386]" />
+                          <div className="w-10 h-10 rounded-md bg-[#f4f4f4] flex items-center justify-center">
+                            <Building2 className="h-5 w-5 text-[#525252]" />
                           </div>
                           <div>
                             <p className="font-medium">{partner.companyName}</p>
@@ -333,7 +333,7 @@ export default function PartnersManager() {
                                 href={partner.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm text-[#0066FF] hover:underline flex items-center gap-1"
+                                className="text-sm text-[#0f62fe] hover:underline flex items-center gap-1"
                               >
                                 Website <ExternalLink className="h-3 w-3" />
                               </a>
@@ -344,7 +344,7 @@ export default function PartnersManager() {
                       <TableCell>
                         <div>
                           <p className="text-sm">{partner.contactName || "-"}</p>
-                          <p className="text-sm text-[#697386]">{partner.contactEmail || "-"}</p>
+                          <p className="text-sm text-[#525252]">{partner.contactEmail || "-"}</p>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -400,7 +400,7 @@ export default function PartnersManager() {
                   ))}
                   {filteredPartners.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={7} className="text-center py-8 text-[#697386]">
+                      <TableCell colSpan={7} className="text-center py-8 text-[#525252]">
                         No partners found
                       </TableCell>
                     </TableRow>
@@ -655,8 +655,8 @@ export default function PartnersManager() {
             </DialogHeader>
             <div className="space-y-4 py-4">
               {selectedPartner?.newApiKey && (
-                <div className="p-4 bg-[#F0F7FF] border border-[#C7DCFF] rounded-md">
-                  <p className="text-sm font-medium text-[#0052CC] mb-2">
+                <div className="p-4 bg-[#edf5ff] border border-[#a6c8ff] rounded-md">
+                  <p className="text-sm font-medium text-[#0043ce] mb-2">
                     New API Key Created
                   </p>
                   <div className="flex items-center gap-2">
@@ -684,14 +684,14 @@ export default function PartnersManager() {
                       <Copy className="h-4 w-4" />
                     </Button>
                   </div>
-                  <p className="text-xs text-[#0066FF] mt-2">
+                  <p className="text-xs text-[#0f62fe] mt-2">
                     Save this key securely. It won't be shown again.
                   </p>
                 </div>
               )}
               <div className="text-center py-4">
-                <Key className="h-12 w-12 text-[#C8CDD6] mx-auto mb-3" />
-                <p className="text-sm text-[#697386]">
+                <Key className="h-12 w-12 text-[#c6c6c6] mx-auto mb-3" />
+                <p className="text-sm text-[#525252]">
                   Generate an API key for this partner to enable programmatic access
                 </p>
               </div>

@@ -67,7 +67,7 @@ export function RichTextEditor({
       Link.configure({
         openOnClick: false,
         HTMLAttributes: {
-          class: 'text-[#0066FF] underline hover:text-[#0066FF]',
+          class: 'text-[#0f62fe] underline hover:text-[#0f62fe]',
         },
       }),
       Image.configure({
@@ -127,7 +127,7 @@ export function RichTextEditor({
   return (
     <div className={`border rounded-md bg-white ${className}`}>
       {/* Toolbar */}
-      <div className="border-b p-2 flex flex-wrap gap-1 items-center bg-[#F7F8FA] rounded-t-lg">
+      <div className="border-b p-2 flex flex-wrap gap-1 items-center bg-[#f4f4f4] rounded-t-lg">
         {/* Undo/Redo */}
         <Toggle
           size="sm"
@@ -361,7 +361,7 @@ export function RichTextEditor({
       <EditorContent editor={editor} />
 
       {/* Word Count */}
-      <div className="border-t p-2 text-xs text-[#697386] bg-[#F7F8FA] rounded-b-lg flex justify-between">
+      <div className="border-t p-2 text-xs text-[#525252] bg-[#f4f4f4] rounded-b-lg flex justify-between">
         <span>
           {editor.getText().length} characters
         </span>

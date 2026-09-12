@@ -78,7 +78,7 @@ export default function AccountSettings() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-96">
-          <Loader2 className="h-8 w-8 animate-spin text-[#0066FF]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -89,19 +89,19 @@ export default function AccountSettings() {
       <div className="max-w-3xl mx-auto space-y-6">
         {/* Header */}
         <div>
-          <h1 className="text-xl font-semibold text-[#1A1F36]">Account Settings</h1>
-          <p className="text-[#697386] mt-0.5 text-[13px]">Manage your account security and preferences</p>
+          <h1 className="text-xl font-semibold text-[#161616]">Account Settings</h1>
+          <p className="text-[#525252] mt-0.5 text-[13px]">Manage your account security and preferences</p>
         </div>
 
         {/* Navigation */}
         <div className="flex gap-4 border-b pb-4">
           <Link href="/admin/profile">
-            <Button variant="ghost" className="text-[#697386] gap-2">
+            <Button variant="ghost" className="text-[#525252] gap-2">
               <User className="h-4 w-4" />
               Profile
             </Button>
           </Link>
-          <Button variant="ghost" className="text-[#0066FF] border-b-2 border-[#0066FF] rounded-none gap-2">
+          <Button variant="ghost" className="text-[#0f62fe] border-b-2 border-[#0f62fe] rounded-none gap-2">
             <Shield className="h-4 w-4" />
             Security
           </Button>
@@ -111,7 +111,7 @@ export default function AccountSettings() {
         <Card>
           <CardHeader>
             <div className="flex items-center gap-2">
-              <Key className="h-5 w-5 text-[#0066FF]" />
+              <Key className="h-5 w-5 text-[#0f62fe]" />
               <CardTitle>Password</CardTitle>
             </div>
             <CardDescription>
@@ -158,9 +158,9 @@ export default function AccountSettings() {
                       onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                     >
                       {showCurrentPassword ? (
-                        <EyeOff className="h-4 w-4 text-[#9BA3B0]" />
+                        <EyeOff className="h-4 w-4 text-[#8d8d8d]" />
                       ) : (
-                        <Eye className="h-4 w-4 text-[#9BA3B0]" />
+                        <Eye className="h-4 w-4 text-[#8d8d8d]" />
                       )}
                     </Button>
                   </div>
@@ -186,9 +186,9 @@ export default function AccountSettings() {
                       onClick={() => setShowNewPassword(!showNewPassword)}
                     >
                       {showNewPassword ? (
-                        <EyeOff className="h-4 w-4 text-[#9BA3B0]" />
+                        <EyeOff className="h-4 w-4 text-[#8d8d8d]" />
                       ) : (
-                        <Eye className="h-4 w-4 text-[#9BA3B0]" />
+                        <Eye className="h-4 w-4 text-[#8d8d8d]" />
                       )}
                     </Button>
                   </div>
@@ -212,9 +212,9 @@ export default function AccountSettings() {
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     >
                       {showConfirmPassword ? (
-                        <EyeOff className="h-4 w-4 text-[#9BA3B0]" />
+                        <EyeOff className="h-4 w-4 text-[#8d8d8d]" />
                       ) : (
-                        <Eye className="h-4 w-4 text-[#9BA3B0]" />
+                        <Eye className="h-4 w-4 text-[#8d8d8d]" />
                       )}
                     </Button>
                   </div>
@@ -225,7 +225,7 @@ export default function AccountSettings() {
 
                 <div className="pt-4">
                   <Button
-                    className="bg-emerald-500 hover:bg-[#0066FF]"
+                    className="bg-emerald-500 hover:bg-[#0f62fe]"
                     onClick={handleChangePassword}
                     disabled={changePasswordMutation.isPending || !currentPassword || !newPassword || newPassword !== confirmPassword}
                   >
@@ -251,7 +251,7 @@ export default function AccountSettings() {
         <Card>
           <CardHeader>
             <div className="flex items-center gap-2">
-              <Shield className="h-5 w-5 text-[#0066FF]" />
+              <Shield className="h-5 w-5 text-[#0f62fe]" />
               <CardTitle>Account Security</CardTitle>
             </div>
             <CardDescription>
@@ -260,27 +260,27 @@ export default function AccountSettings() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 bg-[#F7F8FA] rounded-md">
-                <p className="text-sm text-[#697386]">Login Method</p>
-                <p className="font-medium text-[#1A1F36] capitalize">
+              <div className="p-4 bg-[#f4f4f4] rounded-md">
+                <p className="text-sm text-[#525252]">Login Method</p>
+                <p className="font-medium text-[#161616] capitalize">
                   {profile?.loginMethod || "OAuth"}
                 </p>
               </div>
-              <div className="p-4 bg-[#F7F8FA] rounded-md">
-                <p className="text-sm text-[#697386]">Account Role</p>
-                <p className="font-medium text-[#1A1F36] capitalize">
+              <div className="p-4 bg-[#f4f4f4] rounded-md">
+                <p className="text-sm text-[#525252]">Account Role</p>
+                <p className="font-medium text-[#161616] capitalize">
                   {profile?.role?.replace("_", " ") || "User"}
                 </p>
               </div>
-              <div className="p-4 bg-[#F7F8FA] rounded-md">
-                <p className="text-sm text-[#697386]">Account Created</p>
-                <p className="font-medium text-[#1A1F36]">
+              <div className="p-4 bg-[#f4f4f4] rounded-md">
+                <p className="text-sm text-[#525252]">Account Created</p>
+                <p className="font-medium text-[#161616]">
                   {profile?.createdAt ? new Date(profile.createdAt).toLocaleDateString() : "Unknown"}
                 </p>
               </div>
-              <div className="p-4 bg-[#F7F8FA] rounded-md">
-                <p className="text-sm text-[#697386]">Last Sign In</p>
-                <p className="font-medium text-[#1A1F36]">
+              <div className="p-4 bg-[#f4f4f4] rounded-md">
+                <p className="text-sm text-[#525252]">Last Sign In</p>
+                <p className="font-medium text-[#161616]">
                   {profile?.lastSignedIn ? new Date(profile.lastSignedIn).toLocaleDateString() : "Unknown"}
                 </p>
               </div>

@@ -52,11 +52,11 @@ const METHOD_CONFIG: Record<string, { label: string; icon: string; badgeClass: s
 };
 
 const TRIGGER_CONFIG: Record<string, { label: string; badgeClass: string }> = {
-  publish: { label: "Published", badgeClass: "bg-[#F0F7FF] text-[#0066FF] border-[#C7DCFF]" },
+  publish: { label: "Published", badgeClass: "bg-[#edf5ff] text-[#0f62fe] border-[#a6c8ff]" },
   transition: { label: "Workflow", badgeClass: "bg-sky-50 text-sky-700 border-sky-200" },
   bulk_publish: { label: "Bulk", badgeClass: "bg-indigo-50 text-indigo-700 border-indigo-200" },
   scheduled: { label: "Scheduled", badgeClass: "bg-orange-50 text-orange-700 border-orange-200" },
-  manual: { label: "Manual", badgeClass: "bg-[#F7F8FA] text-[#1A1F36] border-[#E0E3E8]" },
+  manual: { label: "Manual", badgeClass: "bg-[#f4f4f4] text-[#161616] border-[#e0e0e0]" },
 };
 
 const PAGE_SIZE = 20;
@@ -128,10 +128,10 @@ export default function IndexingLogsTab() {
           <>
             <Card>
               <CardContent className="p-4">
-                <p className="text-xs font-semibold text-[#697386] uppercase tracking-wider">Total Pings (24h)</p>
-                <p className="text-2xl font-bold text-[#1A1F36] mt-1">{stats.last24h.total}</p>
+                <p className="text-xs font-semibold text-[#525252] uppercase tracking-wider">Total Pings (24h)</p>
+                <p className="text-2xl font-bold text-[#161616] mt-1">{stats.last24h.total}</p>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className={`text-xs font-medium ${stats.last24h.successRate >= 80 ? "text-[#0066FF]" : "text-amber-600"}`}>
+                  <span className={`text-xs font-medium ${stats.last24h.successRate >= 80 ? "text-[#0f62fe]" : "text-amber-600"}`}>
                     {stats.last24h.successRate}% success
                   </span>
                 </div>
@@ -139,10 +139,10 @@ export default function IndexingLogsTab() {
             </Card>
             <Card>
               <CardContent className="p-4">
-                <p className="text-xs font-semibold text-[#697386] uppercase tracking-wider">Total Pings (7d)</p>
-                <p className="text-2xl font-bold text-[#1A1F36] mt-1">{stats.last7d.total}</p>
+                <p className="text-xs font-semibold text-[#525252] uppercase tracking-wider">Total Pings (7d)</p>
+                <p className="text-2xl font-bold text-[#161616] mt-1">{stats.last7d.total}</p>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className={`text-xs font-medium ${stats.last7d.successRate >= 80 ? "text-[#0066FF]" : "text-amber-600"}`}>
+                  <span className={`text-xs font-medium ${stats.last7d.successRate >= 80 ? "text-[#0f62fe]" : "text-amber-600"}`}>
                     {stats.last7d.successRate}% success
                   </span>
                 </div>
@@ -150,10 +150,10 @@ export default function IndexingLogsTab() {
             </Card>
             <Card>
               <CardContent className="p-4">
-                <p className="text-xs font-semibold text-[#697386] uppercase tracking-wider">Google Indexing API</p>
-                <p className="text-lg font-bold text-[#1A1F36] mt-1">
+                <p className="text-xs font-semibold text-[#525252] uppercase tracking-wider">Google Indexing API</p>
+                <p className="text-lg font-bold text-[#161616] mt-1">
                   {stats.googleIndexingApiConfigured ? (
-                    <span className="text-[#0066FF] flex items-center gap-1">
+                    <span className="text-[#0f62fe] flex items-center gap-1">
                       <CheckCircle2 className="h-4 w-4" /> Active
                     </span>
                   ) : (
@@ -162,17 +162,17 @@ export default function IndexingLogsTab() {
                     </span>
                   )}
                 </p>
-                <p className="text-xs text-[#697386] mt-1">
+                <p className="text-xs text-[#525252] mt-1">
                   {stats.googleIndexingApiConfigured ? "Service account connected" : "Add service account JSON"}
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="p-4">
-                <p className="text-xs font-semibold text-[#697386] uppercase tracking-wider">All Time</p>
-                <p className="text-2xl font-bold text-[#1A1F36] mt-1">{stats.allTime.total}</p>
+                <p className="text-xs font-semibold text-[#525252] uppercase tracking-wider">All Time</p>
+                <p className="text-2xl font-bold text-[#161616] mt-1">{stats.allTime.total}</p>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs text-[#0066FF] font-medium">{stats.allTime.successes} ok</span>
+                  <span className="text-xs text-[#0f62fe] font-medium">{stats.allTime.successes} ok</span>
                   <span className="text-xs text-red-500 font-medium">{stats.allTime.total - stats.allTime.successes} failed</span>
                 </div>
               </CardContent>
@@ -186,8 +186,8 @@ export default function IndexingLogsTab() {
         <CardHeader>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className={`p-2 rounded-md ${googleApiStatus.data?.configured ? "bg-[#EBF3FF]" : "bg-amber-100"}`}>
-                <Key className={`h-5 w-5 ${googleApiStatus.data?.configured ? "text-[#0066FF]" : "text-amber-600"}`} />
+              <div className={`p-2 rounded-md ${googleApiStatus.data?.configured ? "bg-[#edf5ff]" : "bg-amber-100"}`}>
+                <Key className={`h-5 w-5 ${googleApiStatus.data?.configured ? "text-[#0f62fe]" : "text-amber-600"}`} />
               </div>
               <div>
                 <CardTitle className="text-base">Google Indexing API</CardTitle>
@@ -201,7 +201,7 @@ export default function IndexingLogsTab() {
             <div className="flex items-center gap-2">
               {googleApiStatus.data?.configured ? (
                 <>
-                  <Badge className="bg-[#F0F7FF] text-[#0066FF] border-[#C7DCFF]" variant="outline">
+                  <Badge className="bg-[#edf5ff] text-[#0f62fe] border-[#a6c8ff]" variant="outline">
                     <CheckCircle2 className="h-3 w-3 mr-1" /> Active
                   </Badge>
                   <Button
@@ -256,7 +256,7 @@ export default function IndexingLogsTab() {
             </div>
 
             <div>
-              <label className="text-sm font-medium text-[#1A1F36] mb-2 block">Service Account JSON</label>
+              <label className="text-sm font-medium text-[#161616] mb-2 block">Service Account JSON</label>
               <div className="flex items-center gap-2 mb-2">
                 <label className="cursor-pointer">
                   <input
@@ -265,11 +265,11 @@ export default function IndexingLogsTab() {
                     className="hidden"
                     onChange={handleFileUpload}
                   />
-                  <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-[#F0F2F5] hover:bg-[#E0E3E8] rounded-md border cursor-pointer transition-colors">
+                  <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-[#f4f4f4] hover:bg-[#e0e0e0] rounded-md border cursor-pointer transition-colors">
                     <Upload className="h-3 w-3" /> Upload JSON file
                   </span>
                 </label>
-                <span className="text-xs text-[#9BA3B0]">or paste below</span>
+                <span className="text-xs text-[#8d8d8d]">or paste below</span>
               </div>
               <Textarea
                 value={serviceAccountJson}
@@ -280,7 +280,7 @@ export default function IndexingLogsTab() {
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="text-xs text-[#697386] flex items-center gap-1">
+              <p className="text-xs text-[#525252] flex items-center gap-1">
                 <AlertCircle className="h-3 w-3" />
                 Credentials are stored securely and never exposed to the frontend
               </p>
@@ -309,17 +309,17 @@ export default function IndexingLogsTab() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">{config.icon}</span>
-                      <span className="text-sm font-semibold text-[#1A1F36]">{config.label}</span>
+                      <span className="text-sm font-semibold text-[#161616]">{config.label}</span>
                     </div>
                     {methodStat.total > 0 && (
-                      <Badge variant="outline" className={rate >= 80 ? "border-emerald-300 text-[#0066FF]" : "border-amber-300 text-amber-700"}>
+                      <Badge variant="outline" className={rate >= 80 ? "border-emerald-300 text-[#0f62fe]" : "border-amber-300 text-amber-700"}>
                         {rate}%
                       </Badge>
                     )}
                   </div>
                   <div className="flex items-center gap-4 mt-2">
-                    <span className="text-xs text-[#697386]">{methodStat.total} total (7d)</span>
-                    <span className="text-xs text-[#0066FF]">{methodStat.successes} ok</span>
+                    <span className="text-xs text-[#525252]">{methodStat.total} total (7d)</span>
+                    <span className="text-xs text-[#0f62fe]">{methodStat.successes} ok</span>
                     {methodStat.total - methodStat.successes > 0 && (
                       <span className="text-xs text-red-500">{methodStat.total - methodStat.successes} failed</span>
                     )}
@@ -352,7 +352,7 @@ export default function IndexingLogsTab() {
           {/* Filters */}
           <div className="flex items-center gap-3 mt-3">
             <div className="flex items-center gap-2">
-              <Filter className="h-4 w-4 text-[#9BA3B0]" />
+              <Filter className="h-4 w-4 text-[#8d8d8d]" />
               <Select value={methodFilter} onValueChange={(v) => { setMethodFilter(v); setPage(0); }}>
                 <SelectTrigger className="w-[160px] h-8 text-xs">
                   <SelectValue placeholder="All methods" />
@@ -376,7 +376,7 @@ export default function IndexingLogsTab() {
               </SelectContent>
             </Select>
             {logsData && (
-              <span className="text-xs text-[#697386] ml-auto">
+              <span className="text-xs text-[#525252] ml-auto">
                 {logsData.total} total entries
               </span>
             )}
@@ -406,13 +406,13 @@ export default function IndexingLogsTab() {
                   </TableHeader>
                   <TableBody>
                     {logsData.logs.map((log) => {
-                      const methodConfig = METHOD_CONFIG[log.method] || { label: log.method, icon: "📡", badgeClass: "bg-[#F7F8FA] text-[#1A1F36]" };
-                      const triggerConfig = TRIGGER_CONFIG[log.trigger || "publish"] || { label: log.trigger, badgeClass: "bg-[#F7F8FA] text-[#1A1F36]" };
+                      const methodConfig = METHOD_CONFIG[log.method] || { label: log.method, icon: "📡", badgeClass: "bg-[#f4f4f4] text-[#161616]" };
+                      const triggerConfig = TRIGGER_CONFIG[log.trigger || "publish"] || { label: log.trigger, badgeClass: "bg-[#f4f4f4] text-[#161616]" };
                       return (
                         <TableRow key={log.id}>
                           <TableCell>
                             {log.success ? (
-                              <CheckCircle2 className="h-4 w-4 text-[#0066FF]" />
+                              <CheckCircle2 className="h-4 w-4 text-[#0f62fe]" />
                             ) : (
                               <XCircle className="h-4 w-4 text-red-400" />
                             )}
@@ -434,15 +434,15 @@ export default function IndexingLogsTab() {
                           </TableCell>
                           <TableCell>
                             {log.statusCode ? (
-                              <span className={`text-xs font-mono ${log.statusCode < 300 ? "text-[#0066FF]" : "text-red-500"}`}>
+                              <span className={`text-xs font-mono ${log.statusCode < 300 ? "text-[#0f62fe]" : "text-red-500"}`}>
                                 {log.statusCode}
                               </span>
                             ) : (
-                              <span className="text-xs text-[#9BA3B0]">—</span>
+                              <span className="text-xs text-[#8d8d8d]">—</span>
                             )}
                           </TableCell>
                           <TableCell className="max-w-[200px]">
-                            <span className="text-xs text-[#697386] truncate block" title={log.message || ""}>
+                            <span className="text-xs text-[#525252] truncate block" title={log.message || ""}>
                               {log.message
                                 ? log.message.length > 50
                                   ? log.message.substring(0, 50) + "…"
@@ -451,7 +451,7 @@ export default function IndexingLogsTab() {
                             </span>
                           </TableCell>
                           <TableCell>
-                            <span className="text-xs text-[#697386] whitespace-nowrap">
+                            <span className="text-xs text-[#525252] whitespace-nowrap">
                               {new Date(log.createdAt).toLocaleString()}
                             </span>
                           </TableCell>
@@ -465,7 +465,7 @@ export default function IndexingLogsTab() {
               {/* Pagination */}
               {totalPages > 1 && (
                 <div className="flex items-center justify-between mt-4">
-                  <span className="text-xs text-[#697386]">
+                  <span className="text-xs text-[#525252]">
                     Page {page + 1} of {totalPages}
                   </span>
                   <div className="flex items-center gap-2">
@@ -490,8 +490,8 @@ export default function IndexingLogsTab() {
               )}
             </>
           ) : (
-            <div className="text-center py-12 text-[#697386]">
-              <Search className="h-10 w-10 mx-auto mb-3 text-[#C8CDD6]" />
+            <div className="text-center py-12 text-[#525252]">
+              <Search className="h-10 w-10 mx-auto mb-3 text-[#c6c6c6]" />
               <p className="text-sm font-medium">No indexing logs found</p>
               <p className="text-xs mt-1">
                 {methodFilter !== "all" || statusFilter !== "all"

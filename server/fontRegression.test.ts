@@ -52,8 +52,11 @@ describe("font regression", () => {
 
   it("the Arabic stack leads with STC Forward and falls through to the Latin face", () => {
     const onDisk = readFileSync(path.join(ROOT, "client/src/index.css"), "utf8");
+    // The Latin face is IBM Plex Sans since the Carbon restyle. What this
+    // guard is actually protecting is the order: STC Forward first, a Latin
+    // face behind it. Plex carries no Arabic, so the two cannot compete.
     expect(onDisk).toContain(
-      '[lang="ar"], [dir="rtl"], .font-arabic {\n  font-family: "STC Forward", "Atyp Text", "Atyp Display"',
+      '[lang="ar"], [dir="rtl"], .font-arabic {\n  font-family: "STC Forward", "IBM Plex Sans"',
     );
     // The rule only works unlayered — inside @layer it loses to utilities.
     const idx = onDisk.indexOf('[lang="ar"], [dir="rtl"], .font-arabic');

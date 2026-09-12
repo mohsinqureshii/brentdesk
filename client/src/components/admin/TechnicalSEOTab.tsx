@@ -41,15 +41,15 @@ function statusColor(s: string) {
   if (s === "not_indexed") return "bg-red-100 text-red-800";
   if (s === "excluded") return "bg-yellow-100 text-yellow-800";
   if (s === "error") return "bg-red-200 text-red-900";
-  return "bg-[#F0F2F5] text-[#697386]";
+  return "bg-[#f4f4f4] text-[#525252]";
 }
 
 function fixStatusColor(s: string) {
   if (s === "auto_fixed") return "bg-green-100 text-green-800";
   if (s === "manually_fixed") return "bg-blue-100 text-blue-800";
   if (s === "pending") return "bg-yellow-100 text-yellow-800";
-  if (s === "ignored") return "bg-[#F0F2F5] text-[#697386]";
-  return "bg-[#F0F2F5] text-[#697386]";
+  if (s === "ignored") return "bg-[#f4f4f4] text-[#525252]";
+  return "bg-[#f4f4f4] text-[#525252]";
 }
 
 const ISSUE_CATEGORY_ICONS: Record<string, React.ReactNode> = {

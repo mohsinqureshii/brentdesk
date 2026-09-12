@@ -97,12 +97,12 @@ function PeopleSearchPicker({ value, onChange, onCreateNew }: {
           {people.map((p: any) => (
             <button key={p.id} type="button" className="w-full flex items-center gap-2 px-3 py-2 hover:bg-muted text-left text-sm"
               onMouseDown={() => { onChange({ name: p.name, personId: p.id, avatarUrl: p.profileImage || undefined, linkedIn: p.linkedIn || undefined }); setInputValue(p.name); setOpen(false); }}>
-              {p.profileImage ? <img src={p.profileImage} className="w-6 h-6 rounded-full object-cover" alt="" /> : <div className="w-6 h-6 rounded-full bg-[#EBF3FF] flex items-center justify-center text-xs font-bold text-[#0066FF]">{p.name.charAt(0)}</div>}
+              {p.profileImage ? <img src={p.profileImage} className="w-6 h-6 rounded-full object-cover" alt="" /> : <div className="w-6 h-6 rounded-full bg-[#edf5ff] flex items-center justify-center text-xs font-bold text-[#0f62fe]">{p.name.charAt(0)}</div>}
               <div><div className="font-medium">{p.name}</div>{p.title && <div className="text-xs text-muted-foreground">{p.title}</div>}</div>
             </button>
           ))}
           {people.length === 0 && (
-            <button type="button" className="w-full flex items-center gap-2 px-3 py-2 hover:bg-muted text-left text-sm text-[#0066FF] font-medium"
+            <button type="button" className="w-full flex items-center gap-2 px-3 py-2 hover:bg-muted text-left text-sm text-[#0f62fe] font-medium"
               onMouseDown={() => { onCreateNew(query); setOpen(false); }}>
               <Plus className="h-4 w-4" /> Create "{query}" as new person
             </button>
@@ -369,7 +369,7 @@ export default function CompanyEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0066FF]" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0f62fe]" />
         </div>
       </AdminLayout>
     );
@@ -402,7 +402,7 @@ export default function CompanyEditor() {
                 {t.name}
               </Button>
             ))}
-            <Button type="submit" className="bg-emerald-500 hover:bg-[#0066FF] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
+            <Button type="submit" className="bg-emerald-500 hover:bg-[#0f62fe] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
               <Save className="h-4 w-4 mr-2" />
               {createMutation.isPending || updateMutation.isPending ? "Saving..." : isEdit ? "Update" : "Create"}
             </Button>
@@ -420,7 +420,7 @@ export default function CompanyEditor() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? "bg-[#F0F7FF] dark:bg-emerald-950/30 text-[#0066FF] dark:text-[#80B3FF] border-b-2 border-[#0066FF]"
+                    ? "bg-[#edf5ff] dark:bg-emerald-950/30 text-[#0f62fe] dark:text-[#78a9ff] border-b-2 border-[#0f62fe]"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
@@ -548,8 +548,8 @@ export default function CompanyEditor() {
                   <div className="space-y-2">
                     <Label className="text-xs">Brand Color</Label>
                     <div className="flex gap-2">
-                      <input type="color" value={form.brandColor || "#3B82F6"} onChange={e => setForm({ ...form, brandColor: e.target.value })} className="w-10 h-10 rounded cursor-pointer" />
-                      <Input value={form.brandColor} onChange={e => setForm({ ...form, brandColor: e.target.value })} placeholder="#3B82F6" className="text-xs" />
+                      <input type="color" value={form.brandColor || "#0f62fe"} onChange={e => setForm({ ...form, brandColor: e.target.value })} className="w-10 h-10 rounded cursor-pointer" />
+                      <Input value={form.brandColor} onChange={e => setForm({ ...form, brandColor: e.target.value })} placeholder="#0f62fe" className="text-xs" />
                     </div>
                   </div>
                 </CardContent>
@@ -704,7 +704,7 @@ export default function CompanyEditor() {
                 {keyPeople.map((p, i) => (
                   <div key={i} className="grid grid-cols-1 md:grid-cols-4 gap-2 p-3 rounded-md bg-muted/30 border border-border">
                     <div className="flex items-center gap-2">
-                      {p.avatarUrl ? <img src={p.avatarUrl} className="w-8 h-8 rounded-full object-cover flex-shrink-0" alt="" /> : <div className="w-8 h-8 rounded-full bg-[#EBF3FF] flex items-center justify-center text-xs font-bold text-[#0066FF] flex-shrink-0">{p.name?.charAt(0) || "?"}</div>}
+                      {p.avatarUrl ? <img src={p.avatarUrl} className="w-8 h-8 rounded-full object-cover flex-shrink-0" alt="" /> : <div className="w-8 h-8 rounded-full bg-[#edf5ff] flex items-center justify-center text-xs font-bold text-[#0f62fe] flex-shrink-0">{p.name?.charAt(0) || "?"}</div>}
                       <PeopleSearchPicker
                         value={p}
                         onChange={updates => { const n = [...keyPeople]; n[i] = { ...n[i], ...updates }; setKeyPeople(n); }}
@@ -1033,7 +1033,7 @@ export default function CompanyEditor() {
 
         {/* Floating Save Bar */}
         <div className="sticky bottom-0 bg-background/95 backdrop-blur border-t border-border mt-8 py-4 flex justify-end">
-          <Button type="submit" className="bg-emerald-500 hover:bg-[#0066FF] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
+          <Button type="submit" className="bg-emerald-500 hover:bg-[#0f62fe] text-white" disabled={createMutation.isPending || updateMutation.isPending}>
             <Save className="h-4 w-4 mr-2" />
             {createMutation.isPending || updateMutation.isPending ? "Saving..." : isEdit ? "Update Company" : "Create Company"}
           </Button>

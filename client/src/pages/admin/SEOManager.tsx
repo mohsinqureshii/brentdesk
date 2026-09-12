@@ -801,7 +801,7 @@ export default function SEOManager() {
       case "high": return "bg-orange-100 text-orange-800";
       case "medium": return "bg-yellow-100 text-yellow-800";
       case "low": return "bg-blue-100 text-blue-800";
-      default: return "bg-[#F0F2F5] text-gray-800";
+      default: return "bg-[#f4f4f4] text-gray-800";
     }
   };
 
@@ -927,17 +927,17 @@ export default function SEOManager() {
                   </Card>
                 )}
                 {!!auditSummary.data.hasAudit && auditSummary.data.totalIssues > 50 && (
-                  <Card className="mb-6 border-[#C7DCFF] bg-gradient-to-r from-emerald-50 to-emerald-50/40">
+                  <Card className="mb-6 border-[#a6c8ff] bg-gradient-to-r from-emerald-50 to-emerald-50/40">
                     <CardContent className="p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                       <div className="flex items-start gap-3">
-                        <div className="p-2 rounded-md bg-[#C7DCFF]">
-                          <Zap className="h-5 w-5 text-[#0052CC]" />
+                        <div className="p-2 rounded-md bg-[#a6c8ff]">
+                          <Zap className="h-5 w-5 text-[#0043ce]" />
                         </div>
                         <div>
                           <p className="font-semibold text-[#003D99]">
                             {auditSummary.data.totalIssues.toLocaleString()} issues to clear — most can be auto-fixed
                           </p>
-                          <p className="text-sm text-[#0052CC]/80 mt-1">
+                          <p className="text-sm text-[#0043ce]/80 mt-1">
                             Quick Fix copies article titles → seoTitle, excerpts → seoDescription,
                             truncates over-long titles, back-fills alt text. No LLM calls — instant.
                             Issues needing AI/human review are skipped.
@@ -953,7 +953,7 @@ export default function SEOManager() {
                           bulkQuickFix.mutate({});
                         }}
                         disabled={bulkQuickFix.isPending}
-                        className="bg-[#0066FF] hover:bg-[#0052CC] shrink-0"
+                        className="bg-[#0f62fe] hover:bg-[#0043ce] shrink-0"
                       >
                         <Zap className={`h-4 w-4 mr-2 ${bulkQuickFix.isPending ? 'animate-pulse' : ''}`} />
                         {bulkQuickFix.isPending ? "Applying..." : "Apply Quick Fixes"}
@@ -1671,7 +1671,7 @@ export default function SEOManager() {
                         bulkQuickFix.mutate({});
                       }}
                       disabled={bulkQuickFix.isPending || runAudit.isPending}
-                      className="text-[#0066FF] border-emerald-300 hover:bg-[#F0F7FF]"
+                      className="text-[#0f62fe] border-emerald-300 hover:bg-[#edf5ff]"
                     >
                       <Zap className={`h-4 w-4 mr-2 ${bulkQuickFix.isPending ? 'animate-pulse' : ''}`} />
                       {bulkQuickFix.isPending ? "Applying..." : "Apply Quick Fixes"}
@@ -2053,7 +2053,7 @@ export default function SEOManager() {
                 <CardContent>
                   <div className="flex items-center justify-between p-3 rounded-md bg-white border mb-4">
                     <div className="flex items-center gap-3">
-                      <code className="text-sm font-mono bg-[#F0F2F5] px-2 py-1 rounded">
+                      <code className="text-sm font-mono bg-[#f4f4f4] px-2 py-1 rounded">
                         {window.location.origin}/sitemap.xml
                       </code>
                     </div>
@@ -2122,7 +2122,7 @@ export default function SEOManager() {
                         return (
                           <div
                             key={sitemap.name}
-                            className="flex items-center justify-between p-3 rounded-md border hover:bg-[#F7F8FA] transition-colors"
+                            className="flex items-center justify-between p-3 rounded-md border hover:bg-[#f4f4f4] transition-colors"
                           >
                             <div className="flex items-center gap-3">
                               <div className={`p-2 rounded-md ${sitemap.name === 'news' ? 'bg-orange-100' : 'bg-purple-100'}`}>
@@ -2553,7 +2553,7 @@ export default function SEOManager() {
                         <p className="font-mono text-xs text-muted-foreground truncate">404 → {s.brokenUrl}</p>
                         {s.suggested ? (
                           <>
-                            <p className="font-mono text-sm font-semibold text-[#0066FF] truncate">
+                            <p className="font-mono text-sm font-semibold text-[#0f62fe] truncate">
                               ↦ {s.suggested.url}
                             </p>
                             <p className="text-xs text-muted-foreground mt-1">{s.suggested.reasoning}</p>
@@ -2602,7 +2602,7 @@ export default function SEOManager() {
                   applyAiSuggestions.mutate({ suggestions: payload, minConfidence: 80 });
                 }}
                 disabled={applyAiSuggestions.isPending}
-                className="bg-[#0066FF] hover:bg-[#0052CC]"
+                className="bg-[#0f62fe] hover:bg-[#0043ce]"
               >
                 <ArrowRight className="h-4 w-4 mr-2" />
                 Apply ≥ 80% confidence ({aiSuggestions.filter(s => s.suggested && s.suggested.confidence >= 80).length})
@@ -2950,7 +2950,7 @@ export default function SEOManager() {
                         <span className={`w-2 h-2 rounded-full shrink-0 ${
                           r.status === 'approved' || r.status === 'applied' ? 'bg-green-500' :
                           r.status === 'rejected' ? 'bg-red-400' :
-                          r.status === 'failed' ? 'bg-[#9BA3B0]' :
+                          r.status === 'failed' ? 'bg-[#8d8d8d]' :
                           'bg-amber-400'
                         }`} />
                         <span className="truncate font-medium text-xs">{r.issue?.entityTitle || 'Unknown'}</span>
@@ -2994,7 +2994,7 @@ export default function SEOManager() {
                               <Badge className={
                                 cur.status === 'approved' || cur.status === 'applied' ? 'bg-green-100 text-green-800' :
                                 cur.status === 'rejected' ? 'bg-red-100 text-red-800' :
-                                'bg-[#F0F2F5] text-gray-800'
+                                'bg-[#f4f4f4] text-gray-800'
                               }>
                                 {cur.status === 'applied' ? '✓ Applied' : cur.status === 'approved' ? '✓ Approved' : '✗ Rejected'}
                               </Badge>
@@ -3192,7 +3192,7 @@ export default function SEOManager() {
                                       key={imgIdx}
                                       onClick={() => handleSelectBulkImage(issueId, img, aiFixCurrentIndex)}
                                       className={`relative aspect-square rounded-md overflow-hidden border-2 transition-all hover:opacity-90 ${
-                                        selectedImg?.url === img.url ? 'border-violet-500 ring-2 ring-violet-300' : 'border-transparent hover:border-[#C8CDD6]'
+                                        selectedImg?.url === img.url ? 'border-violet-500 ring-2 ring-violet-300' : 'border-transparent hover:border-[#c6c6c6]'
                                       }`}
                                     >
                                       {!!img.isGenerated && (
@@ -3537,7 +3537,7 @@ export default function SEOManager() {
                                 key={imgIdx}
                                 onClick={() => handleSelectSingleImage(img)}
                                 className={`relative aspect-square rounded-md overflow-hidden border-2 transition-all hover:opacity-90 ${
-                                  singleFixSelectedImage?.url === img.url ? 'border-violet-500 ring-2 ring-violet-300' : 'border-transparent hover:border-[#C8CDD6]'
+                                  singleFixSelectedImage?.url === img.url ? 'border-violet-500 ring-2 ring-violet-300' : 'border-transparent hover:border-[#c6c6c6]'
                                 }`}
                               >
                                 {!!img.isGenerated && (

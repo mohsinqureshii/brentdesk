@@ -424,8 +424,8 @@ export default function MyCompanyEditor() {
                     <div className="space-y-1">
                       <Label className="text-xs">Brand Color</Label>
                       <div className="flex gap-2">
-                        <input type="color" value={form.brandColor || "#3B82F6"} onChange={e => setForm({ ...form, brandColor: e.target.value })} className="w-8 h-8 rounded cursor-pointer" />
-                        <Input value={form.brandColor} onChange={e => setForm({ ...form, brandColor: e.target.value })} placeholder="#3B82F6" className="text-xs" />
+                        <input type="color" value={form.brandColor || "#0f62fe"} onChange={e => setForm({ ...form, brandColor: e.target.value })} className="w-8 h-8 rounded cursor-pointer" />
+                        <Input value={form.brandColor} onChange={e => setForm({ ...form, brandColor: e.target.value })} placeholder="#0f62fe" className="text-xs" />
                       </div>
                     </div>
                   </CardContent>

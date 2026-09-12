@@ -55,7 +55,7 @@ import {
 } from "lucide-react";
 
 const writerTiers = [
-  { value: "new", label: "New Writer", rate: "40%", color: "bg-[#F0F2F5] text-[#1A1F36]" },
+  { value: "new", label: "New Writer", rate: "40%", color: "bg-[#f4f4f4] text-[#161616]" },
   { value: "regular", label: "Regular", rate: "50%", color: "bg-blue-100 text-blue-700" },
   { value: "senior", label: "Senior", rate: "60%", color: "bg-purple-100 text-purple-700" },
   { value: "expert", label: "Expert", rate: "70%", color: "bg-amber-100 text-amber-700" },
@@ -143,8 +143,8 @@ export default function WritersManager() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">Writers Manager</h1>
-            <p className="text-[#697386] mt-0.5 text-[13px]">Manage writer applications, profiles, and earnings</p>
+            <h1 className="text-xl font-semibold text-[#161616]">Writers Manager</h1>
+            <p className="text-[#525252] mt-0.5 text-[13px]">Manage writer applications, profiles, and earnings</p>
           </div>
         </div>
 
@@ -228,7 +228,7 @@ export default function WritersManager() {
             </TabsList>
 
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#9BA3B0]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#8d8d8d]" />
               <Input
                 placeholder="Search..."
                 className="pl-9 w-64"
@@ -262,7 +262,7 @@ export default function WritersManager() {
                       </TableRow>
                     ) : filteredApplications.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={6} className="text-center py-8 text-[#697386]">
+                        <TableCell colSpan={6} className="text-center py-8 text-[#525252]">
                           No pending applications
                         </TableCell>
                       </TableRow>
@@ -367,7 +367,7 @@ export default function WritersManager() {
                       </TableRow>
                     ) : filteredWriters.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={7} className="text-center py-8 text-[#697386]">
+                        <TableCell colSpan={7} className="text-center py-8 text-[#525252]">
                           No writers found
                         </TableCell>
                       </TableRow>
@@ -383,8 +383,8 @@ export default function WritersManager() {
                                   className="w-8 h-8 rounded-full"
                                 />
                               ) : (
-                                <div className="w-8 h-8 rounded-full bg-[#E0E3E8] flex items-center justify-center">
-                                  <PenTool className="h-4 w-4 text-[#697386]" />
+                                <div className="w-8 h-8 rounded-full bg-[#e0e0e0] flex items-center justify-center">
+                                  <PenTool className="h-4 w-4 text-[#525252]" />
                                 </div>
                               )}
                               <span className="font-medium">{writer.displayName}</span>
@@ -445,16 +445,16 @@ export default function WritersManager() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="p-4 bg-[#F7F8FA] rounded-md">
-                    <p className="text-sm text-[#697386]">Total Revenue (All Time)</p>
+                  <div className="p-4 bg-[#f4f4f4] rounded-md">
+                    <p className="text-sm text-[#525252]">Total Revenue (All Time)</p>
                     <p className="text-2xl font-bold">${earningsData?.earnings?.totalRevenue?.toLocaleString() || 0}</p>
                   </div>
-                  <div className="p-4 bg-[#F7F8FA] rounded-md">
-                    <p className="text-sm text-[#697386]">Writer Earnings (All Time)</p>
+                  <div className="p-4 bg-[#f4f4f4] rounded-md">
+                    <p className="text-sm text-[#525252]">Writer Earnings (All Time)</p>
                     <p className="text-2xl font-bold">${earningsData?.earnings?.totalWriterEarnings?.toLocaleString() || 0}</p>
                   </div>
-                  <div className="p-4 bg-[#F7F8FA] rounded-md">
-                    <p className="text-sm text-[#697386]">Pending Payouts</p>
+                  <div className="p-4 bg-[#f4f4f4] rounded-md">
+                    <p className="text-sm text-[#525252]">Pending Payouts</p>
                     <p className="text-2xl font-bold">${earningsData?.earnings?.pendingPayouts?.toLocaleString() || 0}</p>
                   </div>
                 </div>
@@ -472,7 +472,7 @@ export default function WritersManager() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-[#697386] text-center py-8">
+                <p className="text-[#525252] text-center py-8">
                   Payout processing coming soon. Currently managed manually.
                 </p>
               </CardContent>
@@ -493,16 +493,16 @@ export default function WritersManager() {
               <div className="space-y-4 py-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label className="text-[#697386]">Full Name</Label>
+                    <Label className="text-[#525252]">Full Name</Label>
                     <p className="font-medium">{selectedApplication.fullName}</p>
                   </div>
                   <div>
-                    <Label className="text-[#697386]">Email</Label>
+                    <Label className="text-[#525252]">Email</Label>
                     <p className="font-medium">{selectedApplication.email}</p>
                   </div>
                 </div>
                 <div>
-                  <Label className="text-[#697386]">Expertise Areas</Label>
+                  <Label className="text-[#525252]">Expertise Areas</Label>
                   <div className="flex flex-wrap gap-2 mt-1">
                     {selectedApplication.expertiseAreas?.map((area: string) => (
                       <Badge key={area} variant="outline">{area}</Badge>
@@ -510,7 +510,7 @@ export default function WritersManager() {
                   </div>
                 </div>
                 <div>
-                  <Label className="text-[#697386]">Writing Samples</Label>
+                  <Label className="text-[#525252]">Writing Samples</Label>
                   <div className="mt-1 space-y-1">
                     {selectedApplication.writingSamples?.map((sample: string, i: number) => (
                       <a 
@@ -526,7 +526,7 @@ export default function WritersManager() {
                   </div>
                 </div>
                 <div>
-                  <Label className="text-[#697386]">Why They Want to Join</Label>
+                  <Label className="text-[#525252]">Why They Want to Join</Label>
                   <p className="mt-1 text-sm">{selectedApplication.whyJoin}</p>
                 </div>
                 <div>

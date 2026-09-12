@@ -49,7 +49,7 @@
    subtree is what actually delivers the face; it is unlayered, so it wins
    over both Tailwind's utilities and the component layer. */
 [lang="ar"], [dir="rtl"], .font-arabic {
-  font-family: "STC Forward", "Atyp Text", "Atyp Display", "Google Sans Text", ui-sans-serif, system-ui, sans-serif;
+  font-family: "STC Forward", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 }
 [lang="ar"] *:not(code):not(pre):not(kbd):not(samp),
 [dir="rtl"] *:not(code):not(pre):not(kbd):not(samp),
@@ -139,8 +139,9 @@
 }
 
 @theme inline {
-  --font-sans: 'Atyp Text', 'Atyp Display', 'Google Sans Text', 'Google Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: 'Atyp Display', 'Google Sans', 'Google Sans Text', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --font-display: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', Menlo, 'DejaVu Sans Mono', Courier, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -179,75 +180,153 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ============================================================
+   CARBON DESIGN SYSTEM v11 — TOKENS
+   ------------------------------------------------------------
+   Values transcribed from the published @carbon/themes and
+   @carbon/colors packages, not eyeballed from screenshots.
+
+   :root carries Carbon's White theme, .dark its Gray 100 theme.
+   The semantic names below are the ones every component in this
+   codebase already reads, so redefining them here restyles the
+   whole app rather than each page.
+
+   Carbon's own identity lives in four things, all set here:
+   IBM Plex, square corners, the 1px border, and an INSET focus
+   ring. Round any corner and it stops reading as Carbon.
+   ============================================================ */
 :root {
-  --primary: oklch(0.546 0.215 262.9); /* #2563eb */
-  --primary-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.5 0.2 264);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.25rem;
-  --background: oklch(0.975 0.002 247.8); /* #f5f6f8 page ground */
-  --foreground: oklch(0.205 0.02 261);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  /* --- Carbon palette steps, for anything needing a raw value --- */
+  --cds-gray-10: #f4f4f4;  --cds-gray-20: #e0e0e0;  --cds-gray-30: #c6c6c6;
+  --cds-gray-50: #8d8d8d;  --cds-gray-60: #6f6f6f;  --cds-gray-70: #525252;
+  --cds-gray-80: #393939;  --cds-gray-90: #262626;  --cds-gray-100: #161616;
+  --cds-blue-10: #edf5ff;  --cds-blue-20: #d0e2ff;  --cds-blue-30: #a6c8ff;
+  --cds-blue-40: #78a9ff;  --cds-blue-50: #4589ff;  --cds-blue-60: #0f62fe;
+  --cds-blue-70: #0043ce;
+  --cds-red-50: #fa4d56;   --cds-red-60: #da1e28;
+  --cds-green-40: #42be65; --cds-green-50: #24a148;
+  --cds-yellow-30: #f1c21b; --cds-purple-60: #8a3ffc;
+
+  /* --- Carbon contextual tokens (White theme) --- */
+  --cds-background: #ffffff;
+  --cds-layer-01: #f4f4f4;
+  --cds-layer-02: #ffffff;
+  --cds-layer-hover-01: #e8e8e8;
+  --cds-layer-selected-01: #e0e0e0;
+  --cds-field-01: #f4f4f4;
+  --cds-field-02: #ffffff;
+  --cds-border-subtle-00: #e0e0e0;
+  --cds-border-subtle-01: #c6c6c6;
+  --cds-border-strong-01: #8d8d8d;
+  --cds-border-interactive: #0f62fe;
+  --cds-text-primary: #161616;
+  --cds-text-secondary: #525252;
+  --cds-text-placeholder: rgba(22, 22, 22, 0.4);
+  --cds-text-helper: #6f6f6f;
+  --cds-text-on-color: #ffffff;
+  --cds-text-disabled: rgba(22, 22, 22, 0.25);
+  --cds-text-error: #da1e28;
+  --cds-link-primary: #0f62fe;
+  --cds-link-primary-hover: #0043ce;
+  --cds-link-visited: #8a3ffc;
+  --cds-interactive: #0f62fe;
+  --cds-support-error: #da1e28;
+  --cds-support-success: #24a148;
+  --cds-support-warning: #f1c21b;
+  --cds-support-info: #0043ce;
+  --cds-focus: #0f62fe;
+  --cds-focus-inset: #ffffff;
+  --cds-icon-primary: #161616;
+  --cds-icon-secondary: #525252;
+
+  /* --- Carbon spacing scale --- */
+  --cds-spacing-01: 0.125rem; --cds-spacing-02: 0.25rem; --cds-spacing-03: 0.5rem;
+  --cds-spacing-04: 0.75rem;  --cds-spacing-05: 1rem;    --cds-spacing-06: 1.5rem;
+  --cds-spacing-07: 2rem;     --cds-spacing-08: 2.5rem;  --cds-spacing-09: 3rem;
+  --cds-spacing-10: 4rem;     --cds-spacing-11: 5rem;    --cds-spacing-12: 6rem;
+  --cds-spacing-13: 10rem;
+
+  /* --- Carbon motion. 70ms is the workhorse duration. --- */
+  --cds-ease-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --cds-ease-entrance: cubic-bezier(0, 0, 0.38, 0.9);
+  --cds-ease-exit: cubic-bezier(0.2, 0, 1, 0.9);
+  --cds-duration-fast-01: 70ms;   --cds-duration-fast-02: 110ms;
+  --cds-duration-moderate-01: 150ms; --cds-duration-moderate-02: 240ms;
+
+  /* --- Carbon interactive height scale --- */
+  --cds-size-xs: 1.5rem; --cds-size-sm: 2rem;  --cds-size-md: 2.5rem;
+  --cds-size-lg: 3rem;   --cds-size-xl: 4rem;
+
+  /* ---------- the app's semantic tokens, mapped onto Carbon ---------- */
+  /* Square. This is the single strongest Carbon tell. */
+  --radius: 0rem;
+
+  --primary: var(--cds-interactive);
+  --primary-foreground: var(--cds-text-on-color);
+  --background: var(--cds-background);
+  --foreground: var(--cds-text-primary);
+  --card: var(--cds-layer-02);
+  --card-foreground: var(--cds-text-primary);
+  --popover: var(--cds-layer-02);
+  --popover-foreground: var(--cds-text-primary);
+  --secondary: var(--cds-layer-01);
+  --secondary-foreground: var(--cds-text-secondary);
+  --muted: var(--cds-layer-01);
+  --muted-foreground: var(--cds-text-secondary);
+  --accent: var(--cds-layer-hover-01);
+  --accent-foreground: var(--cds-text-primary);
+  --destructive: var(--cds-support-error);
+  --destructive-foreground: var(--cds-text-on-color);
+  --border: var(--cds-border-subtle-00);
+  --input: var(--cds-border-strong-01);
+  --ring: var(--cds-focus);
+
+  --sidebar: var(--cds-layer-01);
+  --sidebar-foreground: var(--cds-text-primary);
+  --sidebar-primary: var(--cds-interactive);
+  --sidebar-primary-foreground: var(--cds-text-on-color);
+  --sidebar-accent: var(--cds-layer-hover-01);
+  --sidebar-accent-foreground: var(--cds-text-primary);
+  --sidebar-border: var(--cds-border-subtle-00);
+  --sidebar-ring: var(--cds-focus);
+
+  --chart-1: var(--cds-blue-30); --chart-2: var(--cds-blue-50);
+  --chart-3: var(--cds-blue-60); --chart-4: var(--cds-blue-70);
+  --chart-5: var(--cds-purple-60);
 }
 
+/* Carbon Gray 100 — the darkest of Carbon's two dark themes, and the one
+   its own product UI uses. Note layer-hover-01 (#333333) is deliberately
+   off-palette; it is not a gray step. */
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --cds-background: #161616;
+  --cds-layer-01: #262626;
+  --cds-layer-02: #393939;
+  --cds-layer-hover-01: #333333;
+  --cds-layer-selected-01: #393939;
+  --cds-field-01: #262626;
+  --cds-field-02: #393939;
+  --cds-border-subtle-00: #393939;
+  --cds-border-subtle-01: #525252;
+  --cds-border-strong-01: #6f6f6f;
+  --cds-border-interactive: #4589ff;
+  --cds-text-primary: #f4f4f4;
+  --cds-text-secondary: #c6c6c6;
+  --cds-text-placeholder: rgba(244, 244, 244, 0.4);
+  --cds-text-helper: #a8a8a8;
+  --cds-text-disabled: rgba(244, 244, 244, 0.25);
+  --cds-text-error: #ff8389;
+  --cds-link-primary: #78a9ff;
+  --cds-link-primary-hover: #a6c8ff;
+  --cds-link-visited: #be95ff;
+  --cds-interactive: #4589ff;
+  --cds-support-error: #fa4d56;
+  --cds-support-success: #42be65;
+  --cds-support-info: #4589ff;
+  --cds-focus: #ffffff;
+  --cds-focus-inset: #161616;
+  --cds-icon-primary: #f4f4f4;
+  --cds-icon-secondary: #c6c6c6;
 }
 
 @layer base {
@@ -784,4 +863,65 @@
   to {
     transform: translateY(0);
   }
+}
+
+/* ============================================================
+   CARBON BEHAVIOURS
+   ------------------------------------------------------------
+   Carbon's identity is as much in these four rules as in the
+   palette. Applied at the utility layer because the alternative
+   is editing 1,430 radius classes across 221 files, which would
+   churn every page and still miss one.
+   ============================================================ */
+@layer utilities {
+  /* 1. Square. Carbon v11 components are border-radius: 0 — the radius
+        scale exists but nothing uses it. rounded-full is deliberately
+        left alone: avatars and status dots are round in Carbon too. */
+  .rounded, .rounded-sm, .rounded-md, .rounded-lg,
+  .rounded-xl, .rounded-2xl, .rounded-3xl,
+  [class*="rounded-t-"], [class*="rounded-b-"],
+  [class*="rounded-l-"], [class*="rounded-r-"] {
+    border-radius: 0;
+  }
+  .rounded-full { border-radius: 9999px; }
+
+  /* 2. No drop shadows for surface hierarchy. Carbon builds depth from
+        the layer ladder and 1px borders instead. Overlays keep theirs —
+        a dialog genuinely does sit above the page. */
+  .shadow-xs, .shadow-sm, .shadow, .shadow-md {
+    box-shadow: none;
+    border: 1px solid var(--cds-border-subtle-00);
+  }
+}
+
+@layer base {
+  /* 3. The focus ring is INSET — 2px, offset -2px, never an outer halo.
+        The transparent reset keeps layout from shifting on focus. */
+  *:focus-visible {
+    outline: 2px solid var(--cds-focus);
+    outline-offset: -2px;
+  }
+  a:focus-visible, button:focus-visible,
+  input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--cds-focus);
+    outline-offset: -2px;
+    box-shadow: none;
+  }
+
+  /* 4. Carbon fields are a filled ground with a bottom rule only, not a
+        box. This is the second-strongest tell after square corners. */
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="search"], input[type="url"], input[type="number"],
+  input[type="date"], input[type="datetime-local"], textarea, select {
+    background-color: var(--cds-field-01);
+    border: none;
+    border-block-end: 1px solid var(--cds-border-strong-01);
+    border-radius: 0;
+    transition: background-color var(--cds-duration-fast-01) var(--cds-ease-standard),
+                outline var(--cds-duration-fast-01) var(--cds-ease-standard);
+  }
+  input::placeholder, textarea::placeholder { color: var(--cds-text-placeholder); }
+
+  /* Carbon links carry an underline and the visited state is purple. */
+  a { color: inherit; }
 }

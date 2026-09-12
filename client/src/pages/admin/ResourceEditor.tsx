@@ -213,7 +213,7 @@ export default function ResourceEditor() {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0052CC]" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0043ce]" />
         </div>
       </AdminLayout>
     );
@@ -232,10 +232,10 @@ export default function ResourceEditor() {
             </Button>
           </Link>
           <div>
-            <h1 className="text-xl font-semibold text-[#1A1F36]">
+            <h1 className="text-xl font-semibold text-[#161616]">
               {isNew ? "New Resource" : form.title || "Edit Resource"}
             </h1>
-            <p className="text-sm text-[#697386]">
+            <p className="text-sm text-[#525252]">
               {isNew ? "Create a new resource" : `Editing resource #${id}`}
             </p>
           </div>
@@ -252,7 +252,7 @@ export default function ResourceEditor() {
               {t.name}
             </Button>
           ))}
-          <Button onClick={handleSave} disabled={saving} className="bg-[#0066FF] hover:bg-[#0052CC]">
+          <Button onClick={handleSave} disabled={saving} className="bg-[#0f62fe] hover:bg-[#0043ce]">
             <Save className="h-4 w-4 mr-2" />
             {saving ? "Saving..." : "Save"}
           </Button>
@@ -273,8 +273,8 @@ export default function ResourceEditor() {
                       onClick={() => setActiveTab(tab.id)}
                       className={`w-full flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors ${
                         activeTab === tab.id
-                          ? "bg-[#F0F7FF] text-[#0066FF] font-medium"
-                          : "text-[#697386] hover:bg-[#F7F8FA]"
+                          ? "bg-[#edf5ff] text-[#0f62fe] font-medium"
+                          : "text-[#525252] hover:bg-[#f4f4f4]"
                       }`}
                     >
                       <Icon className="h-4 w-4" />
@@ -291,20 +291,20 @@ export default function ResourceEditor() {
             <Card className="mt-4">
               <CardContent className="p-4 space-y-3">
                 <div>
-                  <p className="text-xs text-[#697386]">Status</p>
+                  <p className="text-xs text-[#525252]">Status</p>
                   <Badge variant="outline">{resource.statusId === 1 ? "Draft" : "Published"}</Badge>
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386]">Views</p>
+                  <p className="text-xs text-[#525252]">Views</p>
                   <p className="text-sm font-medium">{resource.viewCount || 0}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-[#697386]">Downloads</p>
+                  <p className="text-xs text-[#525252]">Downloads</p>
                   <p className="text-sm font-medium">{resource.downloadCount || 0}</p>
                 </div>
                 {resource.createdAt && (
                   <div>
-                    <p className="text-xs text-[#697386]">Created</p>
+                    <p className="text-xs text-[#525252]">Created</p>
                     <p className="text-sm">{new Date(resource.createdAt).toLocaleDateString()}</p>
                   </div>
                 )}
@@ -597,7 +597,7 @@ export default function ResourceEditor() {
                   />
                   <div>
                     <Label>Gated Content</Label>
-                    <p className="text-xs text-[#697386]">Require email/signup to access</p>
+                    <p className="text-xs text-[#525252]">Require email/signup to access</p>
                   </div>
                 </div>
               </CardContent>
@@ -681,7 +681,7 @@ export default function ResourceEditor() {
                   />
                   <div>
                     <Label>Featured Resource</Label>
-                    <p className="text-xs text-[#697386]">Highlight this resource on the homepage</p>
+                    <p className="text-xs text-[#525252]">Highlight this resource on the homepage</p>
                   </div>
                 </div>
               </CardContent>

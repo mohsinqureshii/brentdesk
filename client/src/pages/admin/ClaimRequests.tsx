@@ -69,7 +69,7 @@ const entityTypeColors: Record<string, string> = {
   person: "bg-purple-100 text-purple-700",
   accelerator: "bg-cyan-100 text-cyan-700",
   event: "bg-pink-100 text-pink-700",
-  investor: "bg-[#EBF3FF] text-[#0066FF]",
+  investor: "bg-[#edf5ff] text-[#0f62fe]",
 };
 
 type ReviewAction = "under_review" | "needs_clarification" | "approved" | "rejected";
