@@ -308,7 +308,12 @@ export async function ingest(
 ) {
   const authorId = await resolveAuthor(db, input.author);
 
-  const categoryId = await idFor(db, categories, categories.slug, input.primaryCategory);
+  let categoryId = await idFor(db, categories, categories.slug, input.primaryCategory);
+  if (!categoryId) {
+    const { seedCategories } = await import("./seed-brentdesk");
+    await seedCategories(db as any);
+    categoryId = await idFor(db, categories, categories.slug, input.primaryCategory);
+  }
   if (!categoryId) throw new Error(`unknown category "${input.primaryCategory}"`);
 
   const countryId = input.country

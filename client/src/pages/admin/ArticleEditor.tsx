@@ -1049,11 +1049,18 @@ export default function ArticleEditor() {
               <div className="flex items-center gap-2 mt-1">
                 <StatusIcon className={`h-4 w-4 ${statusInfo.color}`} />
                 <span className={`text-sm ${statusInfo.color}`}>{statusInfo.label}</span>
-                {article.publishedAt && (
+{article.status === "scheduled" && (article.scheduledAt || article.publishedAt) ? (
+                  <span
+                    className="text-sm text-orange-600 flex items-center gap-1"
+                    title={`Local: ${new Date(article.scheduledAt || article.publishedAt!).toLocaleString()} | UTC: ${new Date(article.scheduledAt || article.publishedAt!).toISOString().replace(".000Z", " UTC")}`}
+                  >
+                    • Scheduled for {new Date(article.scheduledAt || article.publishedAt!).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })} · {new Date(article.scheduledAt || article.publishedAt!).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })}
+                  </span>
+                ) : article.publishedAt ? (
                   <span className="text-sm text-[#525252]">
                     • Published {new Date(article.publishedAt).toLocaleDateString()}
                   </span>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
@@ -2388,18 +2395,22 @@ export default function ArticleEditor() {
                     <Input
                       id="publishedAt"
                       type="datetime-local"
-                      value={article.publishedAt ? new Date(article.publishedAt).toISOString().slice(0, 16) : ""}
-                      onChange={(e) => setArticle((prev) => ({ 
-                        ...prev, 
-                        publishedAt: e.target.value ? new Date(e.target.value).toISOString() : null 
-                      }))}
+                      value={(article.scheduledAt || article.publishedAt) ? new Date(article.scheduledAt || article.publishedAt!).toISOString().slice(0, 16) : ""}
+                      onChange={(e) => {
+                        const val = e.target.value ? new Date(e.target.value).toISOString() : null;
+                        setArticle((prev) => ({ 
+                          ...prev, 
+                          publishedAt: val,
+                          scheduledAt: val,
+                        }));
+                      }}
                     />
                     {/* Scheduling indicator */}
-                    {article.publishedAt && new Date(article.publishedAt) > new Date() && (
+                    {(article.scheduledAt || article.publishedAt) && new Date(article.scheduledAt || article.publishedAt!) > new Date() && (
                       <div className="flex items-center gap-2 p-2 bg-orange-50 border border-orange-200 rounded-md">
                         <Clock className="h-4 w-4 text-orange-600" />
                         <span className="text-sm text-orange-700">
-                          Will be scheduled for {new Date(article.publishedAt).toLocaleString()}
+                          Will be scheduled for {new Date(article.scheduledAt || article.publishedAt!).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: true })}
                         </span>
                       </div>
                     )}
@@ -2407,12 +2418,12 @@ export default function ArticleEditor() {
                       <div className="flex items-center gap-2 p-2 bg-orange-100 border border-orange-300 rounded-md">
                         <Clock className="h-4 w-4 text-orange-600 animate-pulse" />
                         <span className="text-sm font-medium text-orange-800">
-                          Scheduled to publish on {article.publishedAt ? new Date(article.publishedAt).toLocaleString() : "N/A"}
+                          Scheduled to publish on {(article.scheduledAt || article.publishedAt) ? `${new Date(article.scheduledAt || article.publishedAt!).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })} · ${new Date(article.scheduledAt || article.publishedAt!).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })}` : "N/A"}
                         </span>
                       </div>
                     )}
                     <p className="text-xs text-muted-foreground">
-                      {article.publishedAt && new Date(article.publishedAt) > new Date() 
+                      {(article.scheduledAt || article.publishedAt) && new Date(article.scheduledAt || article.publishedAt!) > new Date() 
                         ? "This article will be automatically published at the scheduled time."
                         : "Set a future date to schedule the article. Leave empty for current time when published."}
                     </p>

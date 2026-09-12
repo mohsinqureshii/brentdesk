@@ -133,7 +133,7 @@ async function seedEditions(db: SeedDb) {
 // ------------------------------------------------------------------
 // Editorial categories — BrentDesk industrial taxonomy
 // ------------------------------------------------------------------
-const NEWS_CATEGORIES: Array<{ name: string; slug: string; description: string; children?: Array<{ name: string; slug: string }> }> = [
+export const NEWS_CATEGORIES: Array<{ name: string; slug: string; description: string; children?: Array<{ name: string; slug: string }> }> = [
   {
     name: "Construction", slug: "construction",
     description: "Contract awards, project milestones, contractors and building technology.",
@@ -164,30 +164,30 @@ const NEWS_CATEGORIES: Array<{ name: string; slug: string; description: string; 
     name: "Manufacturing", slug: "manufacturing",
     description: "Factories, industrial facilities, localization and industrial investment.",
     children: [
+      { name: "Chemicals", slug: "chemicals" },
       { name: "Heavy Equipment", slug: "heavy-equipment" },
       { name: "Machinery", slug: "machinery" },
-      { name: "Chemicals", slug: "chemicals" },
     ],
   },
   {
     name: "Logistics", slug: "logistics",
-    description: "Ports, warehousing, freight and supply chain networks.",
+    description: "Supply chain, ports, shipping, warehousing and industrial transport.",
     children: [
-      { name: "Ports", slug: "ports" },
-      { name: "Warehousing", slug: "warehousing" },
       { name: "Supply Chain", slug: "supply-chain" },
+      { name: "Warehousing", slug: "warehousing" },
+      { name: "Ports", slug: "ports" },
     ],
   },
   {
     name: "Real Estate", slug: "real-estate",
-    description: "Major development — giga-projects, master plans, commercial and industrial property.",
+    description: "Commercial real estate, megaprojects, urban development and master plans.",
     children: [
       { name: "Facilities Management", slug: "facilities-management" },
     ],
   },
   {
     name: "Transportation", slug: "transportation",
-    description: "Aviation, rail, roads and mobility infrastructure.",
+    description: "Rail, aviation, commercial fleets and mobility infrastructure.",
     children: [
       { name: "Aviation", slug: "aviation" },
       { name: "Rail", slug: "rail" },
@@ -195,7 +195,7 @@ const NEWS_CATEGORIES: Array<{ name: string; slug: string; description: string; 
   },
   {
     name: "Mining", slug: "mining",
-    description: "Mining, metals and minerals across the region.",
+    description: "Mineral exploration, extraction, processing, mining policy and concessions.",
     children: [
       { name: "Metals", slug: "metals" },
     ],
@@ -224,7 +224,7 @@ const NEWS_CATEGORIES: Array<{ name: string; slug: string; description: string; 
   },
 ];
 
-const JOBS_CATEGORIES = [
+export const JOBS_CATEGORIES = [
   { name: "Engineering", slug: "jobs-engineering" },
   { name: "Construction & Site", slug: "jobs-construction" },
   { name: "Operations & Maintenance", slug: "jobs-operations" },
@@ -235,14 +235,19 @@ const JOBS_CATEGORIES = [
   { name: "Corporate", slug: "jobs-corporate" },
 ];
 
-const EVENTS_CATEGORIES = [
+export const EVENTS_CATEGORIES = [
   { name: "Conference", slug: "events-conference" },
   { name: "Exhibition & Expo", slug: "events-expo" },
   { name: "Forum & Summit", slug: "events-forum" },
   { name: "Webinar", slug: "events-webinar" },
 ];
 
-async function seedCategories(db: SeedDb) {
+export const CATEGORY_SEED_COUNT =
+  NEWS_CATEGORIES.reduce((acc, cat) => acc + 1 + (cat.children?.length ?? 0), 0) +
+  JOBS_CATEGORIES.length +
+  EVENTS_CATEGORIES.length;
+
+export async function seedCategories(db: SeedDb) {
   let added = 0;
   const upsert = async (row: { name: string; slug: string; module: "news" | "jobs" | "events"; description?: string; parentId?: number | null; sortOrder?: number }) => {
     const existing = await db.select({ id: categories.id }).from(categories).where(eq(categories.slug, row.slug)).limit(1);

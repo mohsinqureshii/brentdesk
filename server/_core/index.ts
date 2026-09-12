@@ -713,14 +713,15 @@ async function startServer() {
       const { COMPANY_PROFILE_COUNT } = await import("../../scripts/seed-companies");
       const { EVENT_PROFILE_COUNT } = await import("../../scripts/seed-events");
       const { LOCALE_SEED_COUNT } = await import("../../scripts/seed-locales");
+      const { CATEGORY_SEED_COUNT } = await import("../../scripts/seed-brentdesk");
       const { publishableArticleCount, publishableTranslationCount, archiveRevision, recordedArchiveRevision } =
         await import("../../scripts/ingest-articles");
 
-      const [countries, companyCount, eventCount, localeCount, articleCount, translationCount] =
+      const [countries, companyCount, eventCount, localeCount, articleCount, translationCount, categoryCount] =
         await Promise.all([
           countRows("countries"), countRows("companies"),
           countRows("events"), countRows("locales"), countRows("articles"),
-          countRows("content_translations"),
+          countRows("content_translations"), countRows("categories"),
         ]);
       const archiveCount = publishableArticleCount();
       const translatedCount = publishableTranslationCount();
@@ -739,8 +740,8 @@ async function startServer() {
 
       const seed = shouldSeed(
         process.env.SEED_ON_BOOT,
-        { countries, companies: companyCount, events: eventCount, locales: localeCount },
-        { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT, locales: LOCALE_SEED_COUNT },
+        { countries, companies: companyCount, events: eventCount, locales: localeCount, categories: categoryCount },
+        { companies: COMPANY_PROFILE_COUNT, events: EVENT_PROFILE_COUNT, locales: LOCALE_SEED_COUNT, categories: CATEGORY_SEED_COUNT },
       );
       const ingest = shouldIngest(
         process.env.INGEST_ON_BOOT,
@@ -758,6 +759,7 @@ async function startServer() {
           `companies ${show(companyCount, COMPANY_PROFILE_COUNT)} · ` +
           `events ${show(eventCount, EVENT_PROFILE_COUNT)} · ` +
           `locales ${show(localeCount, LOCALE_SEED_COUNT)} · ` +
+          `categories ${show(categoryCount, CATEGORY_SEED_COUNT)} · ` +
           `translations ${show(translationCount, translatedCount)} · ` +
           `revision ${haveRevision === null ? "?" : haveRevision || "none"}/${wantRevision} — ` +
           ([seed && "seeding", ingest && "ingesting"].filter(Boolean).join(" and ") ||
