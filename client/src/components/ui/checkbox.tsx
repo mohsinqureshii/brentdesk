@@ -12,7 +12,16 @@ function Checkbox({
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        // Carbon checkbox: 16px, square, a 1px icon-primary box when
+        // unchecked that fills solid icon-primary when checked — not the
+        // brand blue. Carbon reserves blue for the focus ring here, so a
+        // blue checkbox would read as permanently focused.
+        "peer size-4 shrink-0 rounded-none bg-transparent shadow-none transition-none outline-none",
+        "border border-[var(--cds-icon-primary)]",
+        "data-[state=checked]:bg-[var(--cds-icon-primary)] data-[state=checked]:border-[var(--cds-icon-primary)] data-[state=checked]:text-[var(--cds-background)]",
+        "data-[state=indeterminate]:bg-[var(--cds-icon-primary)] data-[state=indeterminate]:border-[var(--cds-icon-primary)] data-[state=indeterminate]:text-[var(--cds-background)]",
+        "disabled:cursor-not-allowed disabled:border-[var(--cds-text-disabled)] disabled:data-[state=checked]:bg-[var(--cds-text-disabled)]",
+        "aria-invalid:border-[var(--cds-support-error)]",
         className
       )}
       {...props}

@@ -21,7 +21,11 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b", className)}
+      // Carbon puts the header on layer-accent, a step darker than the rows.
+      className={cn(
+        "bg-[var(--cds-layer-accent-01)] [&_tr]:border-b [&_tr]:border-[var(--cds-border-subtle-01)]",
+        className
+      )}
       {...props}
     />
   );
@@ -55,7 +59,12 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors",
+        // Carbon rows sit on layer-01 and are divided by a 1px rule. The
+        // hover is a whole-row colour change, not a tint of the existing
+        // ground, so it stays legible over a striped or selected row.
+        "bg-[var(--cds-layer-01)] border-b border-[var(--cds-border-subtle-01)]",
+        "hover:bg-[var(--cds-layer-hover-01)] data-[state=selected]:bg-[var(--cds-layer-selected-01)]",
+        "transition-colors duration-[70ms] ease-[cubic-bezier(0.2,0,0.38,0.9)]",
         className
       )}
       {...props}
@@ -68,7 +77,13 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "text-foreground h-9 px-3 text-left align-middle text-xs font-semibold uppercase tracking-wide whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        // Carbon column header: 40px, 16px inline padding, 14px at 600, and
+        // sentence case. Carbon never upper-cases a column header — the
+        // accent ground does the separating instead.
+        "h-10 px-4 text-left align-middle whitespace-nowrap",
+        "text-sm leading-[1.28572] tracking-[0.16px] font-semibold normal-case",
+        "text-[var(--cds-text-primary)]",
+        "[&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         className
       )}
       {...props}
@@ -81,7 +96,11 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "px-3 py-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        // Carbon body cell, md row: 40px tall, 16px inline padding, aligned
+        // to the header above it.
+        "h-10 px-4 align-middle whitespace-nowrap",
+        "text-sm leading-[1.28572] tracking-[0.16px]",
+        "[&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         className
       )}
       {...props}

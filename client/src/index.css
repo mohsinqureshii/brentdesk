@@ -213,6 +213,10 @@
   --cds-layer-02: #ffffff;
   --cds-layer-hover-01: #e8e8e8;
   --cds-layer-selected-01: #e0e0e0;
+  /* layer-accent-01 is the data-table header ground — a step darker than
+     the rows beneath it, which is how Carbon separates the two without
+     needing a rule or a bold weight. */
+  --cds-layer-accent-01: #e0e0e0;
   --cds-field-01: #f4f4f4;
   --cds-field-02: #ffffff;
   --cds-border-subtle-00: #e0e0e0;
@@ -256,6 +260,61 @@
   /* --- Carbon interactive height scale --- */
   --cds-size-xs: 1.5rem; --cds-size-sm: 2rem;  --cds-size-md: 2.5rem;
   --cds-size-lg: 3rem;   --cds-size-xl: 4rem;
+
+  /* --- Carbon button tokens. Carbon gives buttons their own ramp rather
+         than reusing the interactive/layer tokens, because the hover steps
+         differ: button-primary-hover (#0050e6) is not a gray-scale step and
+         is not blue-70 either. --- */
+  --cds-button-primary: #0f62fe;
+  --cds-button-primary-hover: #0050e6;
+  --cds-button-primary-active: #002d9c;
+  --cds-button-secondary: #393939;
+  --cds-button-secondary-hover: #474747;
+  --cds-button-secondary-active: #6f6f6f;
+  --cds-button-tertiary: #0f62fe;
+  --cds-button-tertiary-hover: #0050e6;
+  --cds-button-tertiary-active: #002d9c;
+  --cds-button-danger: #da1e28;
+  --cds-button-danger-hover: #b81921;
+  --cds-button-danger-active: #750e13;
+  --cds-button-disabled: #c6c6c6;
+
+  /* --- Carbon tag colours. Each is a 20-step ground under a 70-step
+         label: high enough contrast to pass AA, low enough that a row of
+         tags does not compete with the content it annotates. --- */
+  --cds-tag-gray-bg: #e0e0e0;  --cds-tag-gray-text: #161616;  --cds-tag-gray-hover: #c6c6c6;
+  --cds-tag-blue-bg: #d0e2ff;  --cds-tag-blue-text: #0043ce;  --cds-tag-blue-hover: #a6c8ff;
+  --cds-tag-red-bg: #ffd7d9;   --cds-tag-red-text: #a2191f;   --cds-tag-red-hover: #ffb3b8;
+  --cds-tag-green-bg: #a7f0ba; --cds-tag-green-text: #0e6027; --cds-tag-green-hover: #6fdc8c;
+  --cds-tag-yellow-bg: #fcf4d6; --cds-tag-yellow-text: #684e00; --cds-tag-yellow-hover: #fddc69;
+
+  /* --- Carbon button geometry. The asymmetric inline padding is the
+         second-most recognisable thing about a Carbon button after its
+         square corners: text sits hard left, the icon slot sits hard
+         right, and the gap between them is deliberate. The -1px on each
+         side absorbs the 1px border so a bordered tertiary button and a
+         borderless primary button line up on the same grid. --- */
+  --cds-button-padding-inline-start: calc(1rem - 1px);
+  --cds-button-padding-inline-end: calc(4rem - 1px);
+  --cds-button-padding-inline-ghost: 1rem;
+  --cds-button-max-inline-size: 20rem;
+
+  /* --- Carbon productive type scale. Values are (size, line-height,
+         letter-spacing). Carbon tracks the smaller sizes positively —
+         0.16px at 14px, 0.32px at 12px — which is what keeps dense
+         product UI legible; the expressive headings track negatively or
+         not at all. --- */
+  --cds-label-01-size: 0.75rem;   --cds-label-01-lh: 1.33333;   --cds-label-01-ls: 0.32px;
+  --cds-body-compact-01-size: 0.875rem; --cds-body-compact-01-lh: 1.28572; --cds-body-compact-01-ls: 0.16px;
+  --cds-body-01-size: 0.875rem;   --cds-body-01-lh: 1.42857;    --cds-body-01-ls: 0.16px;
+  --cds-body-02-size: 1rem;       --cds-body-02-lh: 1.5;        --cds-body-02-ls: 0;
+  --cds-heading-01-size: 0.875rem; --cds-heading-01-lh: 1.42857; --cds-heading-01-ls: 0.16px;
+  --cds-heading-02-size: 1rem;    --cds-heading-02-lh: 1.5;     --cds-heading-02-ls: 0;
+  --cds-heading-03-size: 1.25rem; --cds-heading-03-lh: 1.4;     --cds-heading-03-ls: 0;
+  --cds-heading-04-size: 1.75rem; --cds-heading-04-lh: 1.28572; --cds-heading-04-ls: 0;
+  --cds-heading-05-size: 2rem;    --cds-heading-05-lh: 1.25;    --cds-heading-05-ls: 0;
+  --cds-heading-06-size: 2.625rem; --cds-heading-06-lh: 1.199;  --cds-heading-06-ls: 0;
+  --cds-heading-07-size: 3.375rem; --cds-heading-07-lh: 1.19;   --cds-heading-07-ls: 0;
 
   /* ---------- the app's semantic tokens, mapped onto Carbon ---------- */
   /* Square. This is the single strongest Carbon tell. */
@@ -304,6 +363,7 @@
   --cds-layer-02: #393939;
   --cds-layer-hover-01: #333333;
   --cds-layer-selected-01: #393939;
+  --cds-layer-accent-01: #393939;
   --cds-field-01: #262626;
   --cds-field-02: #393939;
   --cds-border-subtle-00: #393939;
@@ -327,6 +387,25 @@
   --cds-focus-inset: #161616;
   --cds-icon-primary: #f4f4f4;
   --cds-icon-secondary: #c6c6c6;
+
+  /* Buttons in Gray 100. Primary stays Blue 60 in every Carbon theme —
+     it is the one token that does not invert. Secondary lightens instead
+     of darkening, and tertiary flips from blue to white, because on a
+     #161616 ground a blue outline does not carry enough contrast. */
+  --cds-button-secondary: #6f6f6f;
+  --cds-button-secondary-hover: #5e5e5e;
+  --cds-button-secondary-active: #393939;
+  --cds-button-tertiary: #ffffff;
+  --cds-button-tertiary-hover: #f4f4f4;
+  --cds-button-tertiary-active: #c6c6c6;
+  --cds-button-disabled: #525252;
+
+  /* Tags invert to a 70-step ground under a 20-step label in Gray 100. */
+  --cds-tag-gray-bg: #525252;  --cds-tag-gray-text: #f4f4f4;  --cds-tag-gray-hover: #636363;
+  --cds-tag-blue-bg: #0043ce;  --cds-tag-blue-text: #d0e2ff;  --cds-tag-blue-hover: #0053ff;
+  --cds-tag-red-bg: #a2191f;   --cds-tag-red-text: #ffd7d9;   --cds-tag-red-hover: #c21e25;
+  --cds-tag-green-bg: #0e6027; --cds-tag-green-text: #a7f0ba; --cds-tag-green-hover: #11742f;
+  --cds-tag-yellow-bg: #8e6a00; --cds-tag-yellow-text: #fcf4d6; --cds-tag-yellow-hover: #ab8104;
 }
 
 @layer base {
@@ -892,6 +971,78 @@
     box-shadow: none;
     border: 1px solid var(--cds-border-subtle-00);
   }
+
+  /* Carbon caps a button at 20rem, which is right for a toolbar and wrong
+     for a form's submit button. A call site that has asked for w-full has
+     said what it wants; let it through rather than clipping it to 320px. */
+  [data-slot="button"].w-full {
+    max-inline-size: none;
+  }
+
+  /* Carbon type scale as named classes. Carbon's own API is a set of type
+     tokens applied by name, not a t-shirt-sized font-size scale, and the
+     names carry information a size does not: body-compact-01 and body-01
+     are the same 14px but sit on different line-heights because one is for
+     dense product UI and one is for reading. Use these where a piece of
+     chrome should be on the scale rather than guessing at text-sm. */
+  .cds-label-01 {
+    font-size: var(--cds-label-01-size); line-height: var(--cds-label-01-lh);
+    letter-spacing: var(--cds-label-01-ls); font-weight: 400;
+  }
+  .cds-body-compact-01 {
+    font-size: var(--cds-body-compact-01-size); line-height: var(--cds-body-compact-01-lh);
+    letter-spacing: var(--cds-body-compact-01-ls); font-weight: 400;
+  }
+  .cds-body-01 {
+    font-size: var(--cds-body-01-size); line-height: var(--cds-body-01-lh);
+    letter-spacing: var(--cds-body-01-ls); font-weight: 400;
+  }
+  .cds-body-02 {
+    font-size: var(--cds-body-02-size); line-height: var(--cds-body-02-lh);
+    letter-spacing: var(--cds-body-02-ls); font-weight: 400;
+  }
+  .cds-heading-01 {
+    font-size: var(--cds-heading-01-size); line-height: var(--cds-heading-01-lh);
+    letter-spacing: var(--cds-heading-01-ls); font-weight: 600;
+  }
+  .cds-heading-02 {
+    font-size: var(--cds-heading-02-size); line-height: var(--cds-heading-02-lh);
+    letter-spacing: var(--cds-heading-02-ls); font-weight: 600;
+  }
+  /* From heading-03 up the scale goes the other way: Carbon lightens as it
+     enlarges, 400 through heading-05 and 300 above it. A 2.625rem heading
+     at 600 is not Carbon, it is a banner. */
+  .cds-heading-03 {
+    font-size: var(--cds-heading-03-size); line-height: var(--cds-heading-03-lh);
+    letter-spacing: var(--cds-heading-03-ls); font-weight: 400;
+  }
+  .cds-heading-04 {
+    font-size: var(--cds-heading-04-size); line-height: var(--cds-heading-04-lh);
+    letter-spacing: var(--cds-heading-04-ls); font-weight: 400;
+  }
+  .cds-heading-05 {
+    font-size: var(--cds-heading-05-size); line-height: var(--cds-heading-05-lh);
+    letter-spacing: var(--cds-heading-05-ls); font-weight: 400;
+  }
+  .cds-heading-06 {
+    font-size: var(--cds-heading-06-size); line-height: var(--cds-heading-06-lh);
+    letter-spacing: var(--cds-heading-06-ls); font-weight: 300;
+  }
+  .cds-heading-07 {
+    font-size: var(--cds-heading-07-size); line-height: var(--cds-heading-07-lh);
+    letter-spacing: var(--cds-heading-07-ls); font-weight: 300;
+  }
+
+  /* Carbon helper text sits under a field in a lighter colour than the
+     value, and error text replaces it in support-error. */
+  .cds-helper-text {
+    font-size: var(--cds-label-01-size); line-height: var(--cds-label-01-lh);
+    letter-spacing: var(--cds-label-01-ls); color: var(--cds-text-helper);
+  }
+  .cds-error-text {
+    font-size: var(--cds-label-01-size); line-height: var(--cds-label-01-lh);
+    letter-spacing: var(--cds-label-01-ls); color: var(--cds-text-error);
+  }
 }
 
 @layer base {
@@ -909,18 +1060,57 @@
   }
 
   /* 4. Carbon fields are a filled ground with a bottom rule only, not a
-        box. This is the second-strongest tell after square corners. */
+        box. This is the second-strongest tell after square corners.
+        `input:not([type])` is in the list because a bare <input> defaults
+        to text but matches none of the attribute selectors. */
+  input:not([type]),
   input[type="text"], input[type="email"], input[type="password"],
   input[type="search"], input[type="url"], input[type="number"],
+  input[type="tel"], input[type="time"],
   input[type="date"], input[type="datetime-local"], textarea, select {
     background-color: var(--cds-field-01);
     border: none;
     border-block-end: 1px solid var(--cds-border-strong-01);
     border-radius: 0;
+    /* Carbon field metrics: 40px tall, 16px of inline padding, and
+       body-compact-01 type. The 16px matches the button's leading edge so
+       a label, a field and a button all sit on the same vertical rule. */
+    padding-inline: var(--cds-spacing-05);
+    font-size: var(--cds-body-compact-01-size);
+    line-height: var(--cds-body-compact-01-lh);
+    letter-spacing: var(--cds-body-compact-01-ls);
     transition: background-color var(--cds-duration-fast-01) var(--cds-ease-standard),
                 outline var(--cds-duration-fast-01) var(--cds-ease-standard);
   }
+  input:not([type]),
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="search"], input[type="url"], input[type="number"],
+  input[type="tel"], input[type="time"],
+  input[type="date"], input[type="datetime-local"], select {
+    block-size: var(--cds-size-md);
+  }
+  /* A textarea has no fixed height, but Carbon still pads it top and
+     bottom rather than running the text against the edge. */
+  textarea {
+    padding-block: var(--cds-spacing-04);
+  }
+  input:disabled, textarea:disabled, select:disabled {
+    background-color: var(--cds-field-01);
+    border-block-end-color: transparent;
+    color: var(--cds-text-disabled);
+    cursor: not-allowed;
+  }
   input::placeholder, textarea::placeholder { color: var(--cds-text-placeholder); }
+
+  /* Carbon labels and helper text are both 12px with positive tracking —
+     label above the field, helper below it, never the same colour as the
+     value. */
+  label {
+    font-size: var(--cds-label-01-size);
+    line-height: var(--cds-label-01-lh);
+    letter-spacing: var(--cds-label-01-ls);
+    color: var(--cds-text-secondary);
+  }
 
   /* Carbon links carry an underline and the visited state is purple. */
   a { color: inherit; }

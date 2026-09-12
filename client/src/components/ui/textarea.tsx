@@ -53,7 +53,17 @@ function Textarea({
     <textarea
       data-slot="textarea"
       className={cn(
-        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        // Carbon text area: same filled ground and bottom rule as the text
+        // input, but padded top and bottom instead of height-locked.
+        "flex field-sizing-content min-h-16 w-full rounded-none px-4 py-3",
+        "bg-[var(--cds-field-01)] text-[var(--cds-text-primary)]",
+        "border-0 border-b border-[var(--cds-border-strong-01)]",
+        "text-sm leading-[1.42857] tracking-[0.16px]",
+        "transition-[background-color,border-color] duration-[70ms] ease-[cubic-bezier(0.2,0,0.38,0.9)]",
+        "outline-none shadow-none",
+        "placeholder:text-[var(--cds-text-placeholder)]",
+        "disabled:cursor-not-allowed disabled:text-[var(--cds-text-disabled)] disabled:border-b-transparent",
+        "aria-invalid:border aria-invalid:border-[var(--cds-support-error)]",
         className
       )}
       onCompositionStart={handleCompositionStart}

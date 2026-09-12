@@ -4,19 +4,44 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+/**
+ * Carbon Design System v11 tag.
+ *
+ * The one place Carbon is deliberately round: tags are pills, 24px tall with
+ * a 15px radius, while every other component is square. They also do not use
+ * the solid brand fill a shadcn badge does — a Carbon tag is a tinted ground
+ * (the colour's 20 step) with dark text (the 70 step), so it reads as a
+ * label rather than as a button.
+ */
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-sm border px-1.5 py-0.5 text-[11px] font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none transition-colors overflow-hidden",
+  [
+    "inline-flex items-center justify-center gap-1 w-fit shrink-0 overflow-hidden whitespace-nowrap",
+    "h-6 rounded-full px-2 text-xs leading-[1.125rem] font-normal",
+    "border border-transparent",
+    "transition-colors duration-[70ms] ease-[cubic-bezier(0.2,0,0.38,0.9)]",
+    "[&>svg]:size-3 [&>svg]:pointer-events-none",
+  ],
   {
     variants: {
       variant: {
+        // Carbon blue tag.
         default:
-          "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+          "bg-[var(--cds-tag-blue-bg)] text-[var(--cds-tag-blue-text)] [a&]:hover:bg-[var(--cds-tag-blue-hover)]",
+        // Carbon gray tag — the workhorse, and what most of this app wants.
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+          "bg-[var(--cds-tag-gray-bg)] text-[var(--cds-tag-gray-text)] [a&]:hover:bg-[var(--cds-tag-gray-hover)]",
+        // Carbon red tag.
         destructive:
-          "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-[var(--cds-tag-red-bg)] text-[var(--cds-tag-red-text)] [a&]:hover:bg-[var(--cds-tag-red-hover)]",
+        // Carbon outline tag: no ground, a 1px rule in the text colour.
         outline:
-          "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+          "bg-transparent border-[var(--cds-border-strong-01)] text-[var(--cds-text-primary)] [a&]:hover:bg-[var(--cds-layer-hover-01)]",
+        // Carbon green and yellow tags, for status where red/blue would
+        // mislead. Not in the shadcn set, but this app needs them.
+        success:
+          "bg-[var(--cds-tag-green-bg)] text-[var(--cds-tag-green-text)] [a&]:hover:bg-[var(--cds-tag-green-hover)]",
+        warning:
+          "bg-[var(--cds-tag-yellow-bg)] text-[var(--cds-tag-yellow-text)] [a&]:hover:bg-[var(--cds-tag-yellow-hover)]",
       },
     },
     defaultVariants: {

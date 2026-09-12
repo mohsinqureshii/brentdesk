@@ -7,7 +7,13 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-0 rounded-md border border-border shadow-sm transition-shadow",
+        // Carbon tile: a layer ground, one 1px subtle rule, square, and no
+        // shadow. Carbon expresses "this is a distinct surface" with the
+        // layer ladder rather than by lifting the box off the page.
+        "flex flex-col gap-0 rounded-none shadow-none",
+        "bg-[var(--cds-layer-01)] text-[var(--cds-text-primary)]",
+        "border border-[var(--cds-border-subtle-00)]",
+        "transition-[background-color,border-color] duration-[70ms] ease-[cubic-bezier(0.2,0,0.38,0.9)]",
         className
       )}
       {...props}
